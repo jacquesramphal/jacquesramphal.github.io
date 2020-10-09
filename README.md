@@ -20,5 +20,11 @@ yarn build
 yarn lint
 ```
 
+### Deploy to gh-pages
+```
+npm run gh-pages-deploy
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
