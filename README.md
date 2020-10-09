@@ -20,7 +20,11 @@ yarn build
 yarn lint
 ```
 
-### Deploy to gh-pages
+### Deploy to gh-pages (git action)
+
+There is an action setup! WOOT! Simply push the main. 
+
+### Deploy to gh-pages (manual)
 ```
 npm run gh-pages-deploy
 ```
