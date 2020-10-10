@@ -18,10 +18,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-header {
-     margin: 0 0 2.8em 0;
-     display: grid;
-     grid-gap: 0;
-     grid-template-columns: repeat(2, 1fr);
+.container {
+     padding-bottom: 0 !important;
 }
 </style>
