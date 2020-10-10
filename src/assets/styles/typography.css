@@ -1,0 +1,211 @@
+/* ---- GLOBAL ---- */
+* {
+
+    }
+h1 {
+    margin: 0;
+    font-weight: 400;
+    color: rgba(0, 0, 0, .6);
+    text-rendering: optimizeLegibility;
+    line-height: 1.2;
+    font-size: 3.6em;
+    letter-spacing: 0.03em;
+}
+h2 {
+    font-size: 2.8em;
+    color: rgba(0, 0, 0, .6);
+    margin: 0;
+    line-height: 1.5;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    text-rendering: optimizeLegibility;
+}
+h3 {
+    font-size: 2em;
+    color: rgba(0, 0, 0, .6);
+    margin: 0;
+    line-height: 1.6;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    text-rendering: optimizeLegibility;
+}
+h4 {
+    color: rgba(0, 0, 0, .6);
+    text-rendering: optimizeLegibility;
+    font-size: 1.6em;
+    line-height: 1.5;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    margin-top: 0;
+}
+p {
+    color: rgba(0, 0, 0, .6);
+    margin: 0;
+    font-size: 1.6em;
+    line-height: 1.8;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+
+
+}
+.darkgreytext {
+    color: #666;
+}
+.greytext {
+    color: #999;
+}
+.whitetext {
+    color: #FFF !important;
+    mix-blend-mode: normal;
+    font-weight: 300;
+    letter-spacing: 0.025em;
+}
+.subtle {
+    color: rgba(0, 0, 0, .35);
+}
+.caption-project {
+    mix-blend-mode: multiply;
+    display: block !important;
+    position: ;
+    text-align: left;
+    width: 90%;
+    float: left;
+    z-index: 20000;
+    font-size: 12px;
+    text-rendering: optimizeLegibility;
+}
+.caption {
+    mix-blend-mode: multiply;
+    display: block !important;
+    position: absolute;
+    float: left;
+    z-index: 20000;
+    padding-top: 2.4em;
+    padding-left: 2.8em;
+    font-size: 12px;
+    text-rendering: optimizeLegibility;
+}
+
+.caption p {
+    display: block !important;
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+    color: transparent !important;
+    z-index: 20000;
+}
+li {
+    float: left;
+    text-decoration: none;
+    padding-left: 32px;
+    list-style-type: none;
+}
+/* ---- LINKS/BUTTONS ---- */
+button {
+  color: red;
+}
+a {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none !important;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+h1 a {
+  color: rgba(0, 0, 0, .6);
+}
+h2 a {
+  color: rgba(0, 0, 0, .6);
+}
+h3 a:hover {
+    text-decoration: none !important;
+}
+a:hover {
+    color: #4E92DF !important;
+    text-decoration: none !important;
+}
+
+a:active p {
+    position: relative;
+    top: 1px;
+}
+p a:active {
+    position: relative;
+    top: 1px;
+}
+h1 a:hover {
+    position: relative;
+    bottom: 1px;
+}
+h1 a:active {
+}
+h2 a:active {
+    position: relative;
+    top: 1px;
+}
+h3 a:active {
+    position: relative;
+    top: 1px;
+}
+.nav-link {
+    display: inline;
+    position: relative;
+    overflow: hidden;
+}
+.nav-link a:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    width: 0;
+    background: #4E92DF;
+    mix-blend-mode: multiply !important;
+    height: 2px;
+    bottom: -8px;
+    transition-property: width;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+}
+.nav-link a:hover:after,.nav-link a:focus:after,.nav-link a:active:after {
+    left: 0;
+    right: auto;
+    width: 100%;
+}
+
+
+/* ------------ BREAKPOINT MD ------------ */
+ @media only screen and (min-width: 740px) {
+
+     h1 {
+         font-size: 6.4em;
+         padding-bottom: 4px;
+    }
+     h2 {
+         font-size: 3.2em;
+    }
+     h3 {
+         font-size: 2em;
+    }
+     h4 {
+         font-size: 2em;
+    }
+     p {
+         font-size: 1.6em;
+    }
+    /* ------------ BREAKPOINT LG ------------ */
+     @media only screen and (min-width: 1201px) {
+
+         h1 {
+             font-size: 7.2em;
+        }
+        /* ------------ BREAKPOINT XL ------------ */
+         @media only screen and (min-width: 1441px) {
+             h1 {
+                 font-size: 8em;
+            }
+        }
+    }
+}
