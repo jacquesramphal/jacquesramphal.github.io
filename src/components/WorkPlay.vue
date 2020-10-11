@@ -2,28 +2,28 @@
   <div id="grid-parent" class="grid-parent container">
     <span class="grid-card yellow">
       <span class="caption"><p>This is a label</p></span>
-      <a class="zoom"><img draggable="false" src="i/j.svg"></a>
+      <a class="zoom"><img draggable="false" src="@/assets/images/j.svg"></a>
     </span>
     <span class="grid-card grey">
       <span class="caption"><p>This is a label</p></span>
-      <a class="zoom"><img draggable="false" src="i/gob.svg"></a>
+      <a class="zoom"><img draggable="false" src="@/assets/images/gob.svg"></a>
     </span>
     <span class="grid-card pink">
       <a class="gif hidemobile"></a>
       <span class="caption showmobile"><p>This is a label</p></span>
-      <a class="showmobile"><img draggable="false" src="i/avatar.svg"></a>
+      <a class="showmobile"><img draggable="false" src="@/assets/images/avatar.svg"></a>
     </span>
     <span class="grid-card grey">
       <span class="caption"><p>This is a label</p></span>
-      <a class="zoom"><img draggable="false" src="i/template-m.svg"></a>
+      <a class="zoom"><img draggable="false" src="@/assets/images/template-m.svg"></a>
     </span>
     <span class="grid-card twowide rose">
       <span class="caption"><p>This is a label</p></span>
-      <a class="zoom"><img draggable="false" src="i/dod.svg"></a>
+      <a class="zoom"><img draggable="false" src="@/assets/images/dod.svg"></a>
     </span>
     <span class="grid-card hero blue">
       <span class="caption"><p>This is a label</p></span>
-      <a href="project.html" class="zoom"><img draggable="false" src="i/glo.svg"></a>
+      <a href="project.html" class="zoom"><img draggable="false" src="@/assets/images/glo.svg"></a>
     </span>
   </div>
 </template>
