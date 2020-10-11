@@ -9,8 +9,7 @@
       <a class="zoom"><img draggable="false" src="@/assets/images/gob.svg"></a>
     </span>
     <span class="grid-card pink">
-      <a class="gif hidemobile"></a>
-      <span class="caption showmobile"><p>This is a label</p></span>
+      <a class="gif hidemobile"/>
       <a class="showmobile"><img draggable="false" src="@/assets/images/avatar.svg"></a>
     </span>
     <span class="grid-card grey">
@@ -41,4 +40,24 @@ export default {
 .container {
      padding-top: 0 !important;
 }
+.gif {
+    display: none;
+    background-image: url('../assets/images/avatar.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    -webkit-transition: none;
+    border-radius: 4px !important;
+  }
+  .gif:hover {
+    background-image: url('../assets/images/avatar-h.svg');
+  }
+  .gif:active {
+    background-image: url('../assets/images/avatar-a.svg');
+  }
+  /* ------------ BREAKPOINT MD ------------ */
+ @media only screen and (min-width: 740px) {
+   .gif {
+       display: block;
+   }
+ }
 </style>

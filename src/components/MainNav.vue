@@ -21,4 +21,10 @@ export default {
 .container {
      padding-bottom: 0 !important;
 }
+ header {
+     margin: 0 0 2.8em 0;
+     display: grid;
+     grid-gap: 0;
+     grid-template-columns: repeat(2, 1fr);
+}
 </style>
