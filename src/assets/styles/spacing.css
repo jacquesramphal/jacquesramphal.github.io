@@ -71,17 +71,6 @@
 }
 /* ---- MISC VH/PADDING/SPACING/POSITIONING ---- */
 
- header {
-     margin: 0 0 2.8em 0;
-     display: grid;
-     grid-gap: 0;
-     grid-template-columns: repeat(2, 1fr);
-}
-footer {
-  display: grid;
-  min-height: 320px;
-}
-
 #bio-text {
   display: grid;
   grid-row: 1 / 8;

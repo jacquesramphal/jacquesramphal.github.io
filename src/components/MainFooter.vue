@@ -1,9 +1,11 @@
 <template>
-  <footer class="fullvh grey">
+  <footer class="fullvh">
       <div id="footer" class="container">
 
         <div id="bio-text" class="">
-          <h2 class="subtle">I'm a front-end designer of things at <a href="https://myplanet.com/" target="_blank">Myplanet</a></h2>
+          <!-- <h2 class="subtle">I'm a front-end designer of things at <a href="https://myplanet.com/" target="_blank">Myplanet</a></h2> -->
+          <!-- <h1 class="subtle"> Designer/Developer at <a href="https://myplanet.com/" target="_blank">Myplanet</a></h1> -->
+          <h1 class="subtle"> Design + Dev @ <a href="https://myplanet.com/" target="_blank">Myplanet</a></h1>
         </div>
 
         <div id="contact" class="">
@@ -28,5 +30,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+footer {
+  display: grid;
+  min-height: 320px;
+}
 </style>
