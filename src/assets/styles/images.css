@@ -1,13 +1,13 @@
- .hidemobile {
-     display: none !important;
+.hidemobile {
+  display: none !important;
 }
- .showmobile {
-     display: block !important;
+.showmobile {
+  display: block !important;
 }
 
 img {
-    max-width: 100%;
-    min-height: 100%;
+  max-width: 100%;
+  min-height: 100%;
 }
 /* .bg-j {
     background-image: url("i/j-bg5.svg");
@@ -23,40 +23,37 @@ img {
     background-image: url("i/gradient-bg.jpg");
 } */
 .bg-fixed {
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: 0 0;
-    mix-blend-mode: multiply !important;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 0 0;
+  mix-blend-mode: multiply !important;
 }
 /* ------------ BREAKPOINT MD ------------ */
- @media only screen and (min-width: 740px) {
-     .hidemobile {
-         display: block !important;
+@media only screen and (min-width: 740px) {
+  .hidemobile {
+    display: block !important;
+  }
+  .showmobile {
+    display: none !important;
+  }
+
+  /* ------------ BREAKPOINT LG ------------ */
+  @media only screen and (min-width: 1201px) {
+    .zoom {
+      background-color: transparent;
+      padding: 0;
+      margin: 0;
+      -webkit-transition: all 0.25s ease-in-out;
+      -moz-transition: all 0.25s ease-in-out;
+      -o-transition: all 0.25s ease-in-out;
+      transition: all 0.25s ease-in-out;
     }
-     .showmobile {
-         display: none !important;
+    .zoom:hover {
+      cursor: zoom-in;
+      -moz-transform: scale(1.03);
+      -webkit-transform: scale(1.03);
+      transform: scale(1.03);
     }
-
-
-    /* ------------ BREAKPOINT LG ------------ */
-         @media only screen and (min-width: 1201px) {
-
-
-             .zoom {
-                 background-color: transparent;
-                 padding: 0;
-                 margin: 0;
-                 -webkit-transition: all 0.25s ease-in-out;
-                 -moz-transition: all 0.25s ease-in-out;
-                 -o-transition: all 0.25s ease-in-out;
-                 transition: all 0.25s ease-in-out;
-            }
-             .zoom:hover {
-                 cursor: zoom-in;
-                 -moz-transform: scale(1.03);
-                 -webkit-transform: scale(1.03);
-                 transform: scale(1.03);
-               }
-              }
-            }
+  }
+}
