@@ -15,20 +15,20 @@ h2 {
   color: rgba(0, 0, 0, 0.6);
   margin: 0;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 400;
 }
 h3 {
   font-size: 2em;
   color: rgba(0, 0, 0, 0.6);
   margin: 0;
   line-height: 1.6;
-  font-weight: 500;
+  font-weight: 400;
 }
 h4 {
   color: rgba(0, 0, 0, 0.6);
   font-size: 1.6em;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 400;
   margin-top: 0;
 }
 p {
@@ -36,7 +36,7 @@ p {
   margin: 0;
   font-size: 1.6em;
   line-height: 1.8;
-  font-weight: 500;
+  font-weight: 400;
 }
 .darkgreytext {
   color: #666;
@@ -98,20 +98,22 @@ button {
 a {
   cursor: pointer;
   color: inherit;
-  text-decoration: none !important;
+  text-decoration: underline !important;
   -webkit-transition: color 0.25s ease-in-out;
   -moz-transition: color 0.25s ease-in-out;
   -o-transition: color 0.25s ease-in-out;
   transition: color 0.25s ease-in-out;
+  color: rgba(0, 0, 0, 0.8);
+
 }
 h1 a {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.8);
 }
 h2 a {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.8);
 }
-h3 a:hover {
-  text-decoration: underline !important;
+h1 a:hover, h2 a:hover, h3  a:hover {
+  text-decoration: none !important;
 }
 a:hover {
   color: #4e92df !important;
