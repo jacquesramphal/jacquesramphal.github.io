@@ -1,28 +1,27 @@
 <template>
   <div id="app">
-    <MainNav/>
-    <WorkPlay/>
-    <MainFooter/>
+    <MainNav />
+    <WorkPlay />
+    <MainFooter />
   </div>
 </template>
 
 <script>
-import MainNav from './components/MainNav.vue'
-import WorkPlay from './components/WorkPlay.vue'
-import MainFooter from './components/MainFooter.vue'
+import MainNav from "./components/MainNav.vue";
+import WorkPlay from "./components/WorkPlay.vue";
+import MainFooter from "./components/MainFooter.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     MainNav,
     WorkPlay,
-    MainFooter
-  }
-}
+    MainFooter,
+  },
+};
 </script>
 
 <!-- global styles -->
-<style>  
-  @import './assets/styles/all.css';
-  
+<style>
+@import "./assets/styles/all.css";
 </style>

@@ -1,31 +1,38 @@
 <template>
   <footer class="fullvh">
-      <div id="footer" class="container">
-
-        <div id="bio-text" class="">
-          <!-- <h2 class="subtle">I'm a front-end designer of things at <a href="https://myplanet.com/" target="_blank">Myplanet</a></h2> -->
-          <!-- <h1 class="subtle"> Designer/Developer at <a href="https://myplanet.com/" target="_blank">Myplanet</a></h1> -->
-          <h1 class="subtle"> Design + Dev @ <a href="https://myplanet.com/" target="_blank">Myplanet</a></h1>
-        </div>
-
-        <div id="contact" class="">
-          <h3 id="copyright" class="">☺ 2020 Jacques Ramphal</h3>
-          <div id="contactlinks" class="">
-            <h3 class="justify-end hidemobile"><a href="https://www.linkedin.com/in/jacquesramphal/" target="_blank">Linkedin</a></h3>
-            <h3 class="justify-end hidemobile"><a href="mailto:jacquesramphal@gmail.com" target="_blank">Email</a></h3>
-          </div>
-        </div>
-
+    <div id="footer" class="container">
+      <div id="bio-text">
+        <h1 class="subtle">
+          Designer of things at
+          <a href="https://myplanet.com/" target="_blank">Myplanet</a>
+        </h1>
+        <!-- <h1 class="subtle"> Designer/Developer at <a href="https://myplanet.com/" target="_blank">Myplanet</a></h1> -->
+        <!-- <h1 class="subtle"> Lorem ipsum doler at <a href="https://myplanet.com/" target="_blank">Myplanet</a></h1> -->
       </div>
-    </footer>
+      <div id="contact" class="">
+        <h3 id="copyright" class="">© 2020 Jacques Ramphal</h3>
+        <div id="contactlinks" class="">
+          <h3 class="justify-end hidemobile">
+            <a
+              href="https://www.linkedin.com/in/jacquesramphal/"
+              target="_blank"
+              >Linkedin</a
+            >
+          </h3>
+          <h3 class="justify-end hidemobile">
+            <a href="mailto:jacquesramphal@gmail.com" target="_blank">Email</a>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <script>
 export default {
-  name: 'MainFooter',
-  props: {
-  }
-}
+  name: "MainFooter",
+  props: {},
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -33,5 +40,22 @@ export default {
 footer {
   display: grid;
   min-height: 320px;
+}
+#bio-text {
+  display: grid;
+  grid-row: 1 / 8;
+  justify-content: center;
+  text-align: center;
+  align-items: center !important;
+}
+#copyright {
+  grid-column: 1 / 9;
+  color: rgba(0, 0, 0, 0.35);
+}
+#contactlinks {
+  display: grid;
+  grid-gap: 3.2em;
+  align-items: end !important;
+  grid-template-columns: repeat(2, 1fr);
 }
 </style>

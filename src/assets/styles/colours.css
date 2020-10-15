@@ -1,70 +1,70 @@
 /* ---- COLOURS ---- */
- .opacity {
-     opacity: 0.95;
+.opacity {
+  opacity: 0.95;
 }
- .offwhite {
-     background-color: #fafafa;
+.offwhite {
+  background-color: #fafafa;
 }
- .lightgrey {
-     background-color: #f4f4f4;
+.lightgrey {
+  background-color: #f4f4f4;
 }
- .darkgrey {
-     background-color: #35363A;
+.darkgrey {
+  background-color: #35363a;
 }
- .slate {
-     background-color: #3E4953;
+.slate {
+  background-color: #3e4953;
 }
- .black {
-     background-color: #000;
+.black {
+  background-color: #000;
 }
- .offblack {
-     background-color: #202124;
+.offblack {
+  background-color: #202124;
 }
- .grey {
-     background-color: #e3e3e3;
+.grey {
+  background-color: #e3e3e3;
 }
- .white {
-     background-color: #fff;
+.white {
+  background-color: #fff;
 }
- .greenblue{
-     background-color: #0d98ba;
+.greenblue {
+  background-color: #0d98ba;
 }
- .dodgerblue{
-     background-color: #1E90FF;
+.dodgerblue {
+  background-color: #1e90ff;
 }
- .blue {
-     background-color: #4E92DF;
+.blue {
+  background-color: #4e92df;
 }
- .lightblue {
-     background-color: #CFE6FF;
+.lightblue {
+  background-color: #cfe6ff;
 }
- .purple {
-     background-color: #686C99;
+.purple {
+  background-color: #686c99;
 }
- .yellow {
-     background-color: #FFDD9D;
+.yellow {
+  background-color: #ffdd9d;
 }
- .goldenrod {
-     background-color: #FCB13A;
+.goldenrod {
+  background-color: #fcb13a;
 }
- .rose {
-     background-color: #EB5364;
+.rose {
+  background-color: #eb5364;
 }
- .red {
-     background-color: #B12026;
+.red {
+  background-color: #b12026;
 }
- .lightpink {
-     background-color: #FFEEF1;
+.lightpink {
+  background-color: #ffeef1;
 }
- .pink {
-     background-color: #FFD3D9;
+.pink {
+  background-color: #ffd3d9;
 }
- .brown {
-     background-color: #E8A191;
+.brown {
+  background-color: #e8a191;
 }
- .multiply {
-     mix-blend-mode: multiply;
+.multiply {
+  mix-blend-mode: multiply;
 }
- .nomultiply {
-     mix-blend-mode: normal !important;
+.nomultiply {
+  mix-blend-mode: normal !important;
 }
