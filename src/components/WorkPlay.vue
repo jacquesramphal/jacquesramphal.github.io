@@ -1,13 +1,13 @@
 <template>
   <div id="workplay">
     <div id="grid-parent" class="grid-parent container">
-      <!-- <ThumbSmall />
+      <ThumbSmall />
       <ThumbSmall />
       <ThumbSmall />
       <ThumbSmall />
       <ThumbMedium />
-      <ThumbLarge /> -->
-      <span class="grid-card yellow">
+      <ThumbLarge />
+      <!-- <span class="grid-card yellow">
         <span class="caption"><p>This is a label</p></span>
         <a class="zoom"
           ><img draggable="false" src="@/assets/images/j.svg"
@@ -42,23 +42,23 @@
         <a href="project.html" class="zoom"
           ><img draggable="false" src="@/assets/images/glo.svg"
         /></a>
-      </span>
+      </span> -->
     </div>
   </div>
 </template>
 
 <script>
-// import ThumbSmall from "@/components/ThumbSmall.vue";
-// import ThumbMedium from "@/components/ThumbMedium.vue";
-// import ThumbLarge from "@/components/ThumbLarge.vue";
+import ThumbSmall from "@/components/ThumbSmall.vue";
+import ThumbMedium from "@/components/ThumbMedium.vue";
+import ThumbLarge from "@/components/ThumbLarge.vue";
 
 export default {
   name: "WorkPlay",
-  // components: {
-  //   ThumbSmall,
-  //   ThumbMedium,
-  //   ThumbLarge,
-  // },
+  components: {
+    ThumbSmall,
+    ThumbMedium,
+    ThumbLarge,
+  },
 };
 </script>
 
