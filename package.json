@@ -9,9 +9,11 @@
     "gh-pages-deploy": "node scripts/gh-pages-deploy.js"
   },
   "dependencies": {
+    "bootstrap": "^4.5.3",
+    "bootstrap-vue": "^2.17.3",
     "core-js": "^3.6.5",
     "sass-loader": "^10.0.3",
-    "vue": "^2.6.11"
+    "vue": "^2.6.12"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

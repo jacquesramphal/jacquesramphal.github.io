@@ -7,7 +7,7 @@
 
 img {
   max-width: 100%;
-  min-height: 100%;
+  /* min-height: 100%; */
 }
 /* .bg-j {
     background-image: url("i/j-bg5.svg");

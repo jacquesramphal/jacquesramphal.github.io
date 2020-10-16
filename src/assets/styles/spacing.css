@@ -24,19 +24,8 @@
   border-radius: 4px !important;
 }
 .grid-card:active {
-  cursor: ;
+  /* cursor: pointer; */
 }
-.grid-card:hover .caption p {
-  color: #666 !important;
-  z-index: 20000;
-  mix-blend-mode: multiply !important;
-  display: block !important;
-}
-
-.grid-card:active .caption p {
-  display: none !important;
-}
-
 .fullvh {
   height: 100vh;
 }
@@ -70,12 +59,12 @@
   grid-template-columns: repeat(9, 1fr);
   justify-content: space-between;
 }
-#title-hero {
+/* #title-hero {
   display: grid;
   align-items: end !important;
   grid-template-columns: repeat(1, 1fr);
   justify-content: space-between;
-}
+} */
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {

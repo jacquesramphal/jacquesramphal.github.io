@@ -1,6 +1,6 @@
 <template>
   <span class="grid-card grey">
-    <span class="caption"><p>This is a label</p></span>
+    <span class="caption"><p>{{ title }}</p></span>
     <a class="zoom"
       ><img draggable="false" src="@/assets/images/blank.svg"
     /></a>
@@ -10,7 +10,9 @@
 <script>
 export default {
   name: "ThumbSmall",
-  props: {},
+  props: {
+    title: String
+  },
 };
 </script>
 

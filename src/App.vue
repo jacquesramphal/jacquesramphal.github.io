@@ -2,7 +2,7 @@
   <div id="app">
     <MainNav />
     <WorkPlay />
-    <MainFooter />
+    <MainFooter /> 
   </div>
 </template>
 

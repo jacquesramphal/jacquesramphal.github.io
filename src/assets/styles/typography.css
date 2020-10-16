@@ -53,17 +53,17 @@ p {
 .subtle {
   color: rgba(0, 0, 0, 0.35);
 }
-.caption-project {
+/* .caption-project {
   mix-blend-mode: multiply;
   display: block !important;
-  position: ;
+  position: relative;
   text-align: left;
   width: 90%;
   float: left;
   z-index: 20000;
   font-size: 12px;
   text-rendering: optimizeLegibility;
-}
+} */
 .caption {
   mix-blend-mode: multiply;
   display: block !important;
@@ -72,7 +72,7 @@ p {
   z-index: 20000;
   padding-top: 2.4em;
   padding-left: 2.8em;
-  font-size: 12px;
+  font-size: 1.2em;
   text-rendering: optimizeLegibility;
 }
 
@@ -84,6 +84,15 @@ p {
   transition: all 0.1s ease-in-out;
   color: transparent !important;
   z-index: 20000;
+}
+.grid-card:hover .caption p {
+  color: #666 !important;
+  z-index: 20000;
+  mix-blend-mode: multiply !important;
+  display: block !important;
+}
+.grid-card:active .caption p {
+  /* display: none !important; */
 }
 li {
   float: left;
@@ -99,12 +108,11 @@ a {
   cursor: pointer;
   color: inherit;
   text-decoration: underline !important;
-  -webkit-transition: color 0.25s ease-in-out;
+  /* -webkit-transition: color 0.25s ease-in-out;
   -moz-transition: color 0.25s ease-in-out;
   -o-transition: color 0.25s ease-in-out;
-  transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out; */
   color: rgba(0, 0, 0, 0.8);
-
 }
 h1 a {
   color: rgba(0, 0, 0, 0.8);
@@ -112,11 +120,13 @@ h1 a {
 h2 a {
   color: rgba(0, 0, 0, 0.8);
 }
-h1 a:hover, h2 a:hover, h3  a:hover {
+h1 a:hover,
+h2 a:hover,
+h3 a:hover {
   text-decoration: none !important;
 }
 a:hover {
-  color: #4e92df !important;
+  /* color: #4e92df !important; */
   text-decoration: underline !important;
 }
 
