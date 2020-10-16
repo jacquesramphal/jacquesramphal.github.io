@@ -26,17 +26,6 @@
 .grid-card:active {
   /* cursor: pointer; */
 }
-.grid-card:hover .caption p {
-  color: #666 !important;
-  z-index: 20000;
-  mix-blend-mode: multiply !important;
-  display: block !important;
-}
-
-.grid-card:active .caption p {
-  display: none !important;
-}
-
 .fullvh {
   height: 100vh;
 }
