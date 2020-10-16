@@ -56,7 +56,7 @@ p {
 .caption-project {
   mix-blend-mode: multiply;
   display: block !important;
-  position: ;
+  position: relative;
   text-align: left;
   width: 90%;
   float: left;
