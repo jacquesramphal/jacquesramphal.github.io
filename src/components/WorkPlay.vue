@@ -1,12 +1,14 @@
 <template>
   <div id="workplay">
     <div id="grid-parent" class="grid-parent container">
-      <ThumbSmall title="Small Card 1" />
-      <ThumbSmall title="Small Card 2" />
-      <ThumbSmall title="Small Card 3" />
-      <ThumbSmall title="Small Card 4" /> 
-      <ThumbMedium title="Wide Card 1" />
-      <ThumbLarge title="Hero Card 1" />
+      <ThumbSmall class="yellow" title="Small Card 1" filename="j.svg" />
+      <ThumbSmall class="grey" title="Small Card 2" filename="gob.svg" />
+      <ThumbSmall class="pink" title="Small Card 3" filename="avatar.svg" />
+      <!-- <ThumbSmall class="pink gif hidemobile" title="Small Card 3" />
+      <ThumbSmall class="yellow showmobile" title="Small Card 3" filename="avatar.svg" /> -->
+      <ThumbSmall class="grey" title="Small Card 4" filename="template-m.svg" /> 
+      <ThumbMedium class="rose" title="Wide Card 1" filename="dod.svg" />
+      <ThumbLarge class="blue" title="Hero Card 1" filename="glo.svg" />
       <!-- <span class="grid-card yellow">
         <span class="caption"><p>This is a label</p></span>
         <a class="zoom"

@@ -1,8 +1,10 @@
 <template>
   <span class="grid-card twowide grey">
-    <span class="caption"><p>{{ title }}</p></span>
+    <span class="caption"
+      ><p>{{ title }}</p></span
+    >
     <a class="zoom"
-      ><img draggable="false" src="@/assets/images/blank-wide.svg"
+      ><img draggable="false" :src="require(`@/assets/images/${filename}`)"
     /></a>
   </span>
 </template>
@@ -11,7 +13,8 @@
 export default {
   name: "ThumbMedium",
   props: {
-    title: String
+    title: String,
+    filename: String
   },
 };
 </script>
