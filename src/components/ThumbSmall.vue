@@ -2,7 +2,7 @@
   <span class="grid-card grey">
     <span class="caption"><p>{{ title }}</p></span>
     <a class="zoom"
-      ><img draggable="false" src="@/assets/images/blank.svg"
+      ><img draggable="false" :src="require(`@/assets/images/${filename}`)"
     /></a>
   </span>
 </template>
@@ -11,7 +11,8 @@
 export default {
   name: "ThumbSmall",
   props: {
-    title: String
+    title: String,
+    filename: String
   },
 };
 </script>
