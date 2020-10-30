@@ -2,7 +2,12 @@
   <footer class="fullvh">
     <div id="footer" class="container">
       <div id="bio-text">
-        <h1 class="subtle">
+        <h1 
+          class="subtle"
+          data-aos="fade-down" 
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+        >
           Designer of things at
           <a href="https://myplanet.com/" target="_blank">Myplanet</a>
         </h1>
@@ -33,6 +38,7 @@ export default {
   name: "MainFooter",
   props: {},
 };
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
