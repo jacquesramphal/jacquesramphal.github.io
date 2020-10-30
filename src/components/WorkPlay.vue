@@ -6,6 +6,7 @@
         data-aos-duration="1000" 
         data-aos-delay="0" 
         data-aos-once="true"
+        data-aos-anchor-placement="top"
         class="yellow" 
         title="Small Card 1" 
         filename="j.svg" />
@@ -14,6 +15,7 @@
         data-aos-duration="1000" 
         data-aos-delay="100"
         data-aos-once="true"
+        data-aos-anchor-placement="top"
         class="grey" 
         title="Small Card 2" 
         filename="gob.svg" />
@@ -22,6 +24,7 @@
         data-aos-duration="1000" 
         data-aos-delay="200"
         data-aos-once="true"
+        data-aos-anchor-placement="top"
         class="pink" 
         title="Small Card 3" 
         filename="avatar.svg" />
@@ -32,6 +35,7 @@
         data-aos-duration="1000" 
         data-aos-delay="300"
         data-aos-once="true"
+        data-aos-anchor-placement="top"
         class="grey" 
         title="Small Card 4" 
         filename="template-m.svg" /> 
@@ -40,14 +44,15 @@
         data-aos-duration="1000" 
         data-aos-delay="400"
         data-aos-once="true"
+        data-aos-anchor-placement="top"
         class="rose" 
         title="Wide Card 1" 
         filename="dod.svg" />
       <ThumbLarge 
         data-aos="fade" 
         data-aos-duration="1000" 
-        data-aos-delay="500"
         data-aos-once="true"
+        data-aos-anchor-placement="top"
         class="blue" 
         title="Hero Card 1" 
         filename="glo.svg" />

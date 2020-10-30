@@ -4,7 +4,7 @@
       <div id="bio-text">
         <h1 
           class="subtle"
-          data-aos="fade-down" 
+          data-aos="fade" 
           data-aos-duration="1000"
           data-aos-easing="ease-in-out"
         >
