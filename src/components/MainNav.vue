@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <header class="">
-      <h3 class="subtle showmobile">Jake Ramphal</h3>
-      <h3 class="subtle hidemobile">Jacques Ramphal</h3>
-      <h3 class="justify-end"><a href="#footer">Info</a></h3>
+      <h3 class="subtle showmobile" data-aos="fade">Jake Ramphal</h3>
+      <h3 class="subtle hidemobile" data-aos="fade">Jacques Ramphal</h3>
+      <h3 class="justify-end" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="0"><a href="#footer">Info</a></h3>
     </header>
   </div>
 </template>

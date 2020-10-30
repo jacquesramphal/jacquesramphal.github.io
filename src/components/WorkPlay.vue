@@ -1,14 +1,56 @@
 <template>
   <div id="workplay">
     <div id="grid-parent" class="grid-parent container">
-      <ThumbSmall class="yellow" title="Small Card 1" filename="j.svg" />
-      <ThumbSmall class="grey" title="Small Card 2" filename="gob.svg" />
-      <ThumbSmall class="pink" title="Small Card 3" filename="avatar.svg" />
+      <ThumbSmall
+        data-aos="fade" 
+        data-aos-duration="1000" 
+        data-aos-delay="0" 
+        data-aos-once="true"
+        class="yellow" 
+        title="Small Card 1" 
+        filename="j.svg" />
+      <ThumbSmall 
+        data-aos="fade" 
+        data-aos-duration="1000" 
+        data-aos-delay="100"
+        data-aos-once="true"
+        class="grey" 
+        title="Small Card 2" 
+        filename="gob.svg" />
+      <ThumbSmall 
+        data-aos="fade" 
+        data-aos-duration="1000" 
+        data-aos-delay="200"
+        data-aos-once="true"
+        class="pink" 
+        title="Small Card 3" 
+        filename="avatar.svg" />
       <!-- <ThumbSmall class="pink gif hidemobile" title="Small Card 3" />
       <ThumbSmall class="yellow showmobile" title="Small Card 3" filename="avatar.svg" /> -->
-      <ThumbSmall class="grey" title="Small Card 4" filename="template-m.svg" /> 
-      <ThumbMedium class="rose" title="Wide Card 1" filename="dod.svg" />
-      <ThumbLarge class="blue" title="Hero Card 1" filename="glo.svg" />
+      <ThumbSmall 
+        data-aos="fade" 
+        data-aos-duration="1000" 
+        data-aos-delay="300"
+        data-aos-once="true"
+        class="grey" 
+        title="Small Card 4" 
+        filename="template-m.svg" /> 
+      <ThumbMedium 
+        data-aos="fade" 
+        data-aos-duration="1000" 
+        data-aos-delay="400"
+        data-aos-once="true"
+        class="rose" 
+        title="Wide Card 1" 
+        filename="dod.svg" />
+      <ThumbLarge 
+        data-aos="fade" 
+        data-aos-duration="1000" 
+        data-aos-delay="500"
+        data-aos-once="true"
+        class="blue" 
+        title="Hero Card 1" 
+        filename="glo.svg" />
       <!-- <span class="grid-card yellow">
         <span class="caption"><p>This is a label</p></span>
         <a class="zoom"
