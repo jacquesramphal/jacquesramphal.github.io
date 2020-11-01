@@ -8,7 +8,7 @@
         data-aos-once="true"
         data-aos-anchor-placement="top"
         class="yellow"
-        title="Small Card 1"
+        title="Monogram"
         filename="j.svg"
       />
       <ThumbSmall
@@ -18,7 +18,7 @@
         data-aos-once="true"
         data-aos-anchor-placement="top"
         class="grey"
-        title="Small Card 2"
+        title="Giftbook"
         filename="gob.svg"
       />
       <ThumbSmall
@@ -28,7 +28,7 @@
         data-aos-once="true"
         data-aos-anchor-placement="top"
         class="pink"
-        title="Small Card 3"
+        title=""
         filename="avatar.svg"
       />
       <!-- <ThumbSmall class="pink gif hidemobile" title="Small Card 3" />
@@ -40,7 +40,7 @@
         data-aos-once="true"
         data-aos-anchor-placement="top"
         class="grey"
-        title="Small Card 4"
+        title="Small Template"
         filename="template-m.svg"
       />
       <ThumbMedium
@@ -50,7 +50,7 @@
         data-aos-once="true"
         data-aos-anchor-placement="top"
         class="rose"
-        title="Wide Card 1"
+        title="DevopsDays"
         filename="dod.svg"
       />
       <ThumbLarge
@@ -60,7 +60,7 @@
         data-aos-once="true"
         data-aos-anchor-placement="top"
         class="blue"
-        title="Hero Card 1"
+        title="Fortune 100"
         filename="glo.svg"
       />
       <!-- <span class="grid-card yellow">
