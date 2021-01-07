@@ -10,6 +10,7 @@
      steps:
        - name: Setup Node.js for use with actions
          uses: actions/setup-node@v1.1.0
+         env: ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
          with:
            version:  12.x
        - name: Checkout branch
