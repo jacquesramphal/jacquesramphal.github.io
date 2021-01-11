@@ -21,7 +21,7 @@
   cursor: pointer;
   position: relative;
   grid-template-columns: 1fr;
-  border-radius: 4px !important;
+  border-radius: 2px !important;
 }
 .grid-card:active {
   /* cursor: pointer; */
