@@ -1,5 +1,5 @@
 <template>
-  <span class="grid-card grey">
+  <span class="grid-card">
     <span class="caption"><p>{{ title }}</p></span>
     <a class="zoom"
       ><img draggable="false" :src="require(`@/assets/images/${filename}`)"

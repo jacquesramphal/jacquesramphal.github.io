@@ -21,7 +21,7 @@
         title="Giftbook"
         filename="gob.svg"
       />
-      <ThumbSmall
+      <ThumbSmall2
         data-aos="fade"
         data-aos-duration="1000"
         data-aos-delay="200"
@@ -31,8 +31,6 @@
         title=""
         filename="avatar.svg"
       />
-      <!-- <ThumbSmall class="pink gif hidemobile" title="Small Card 3" />
-      <ThumbSmall class="yellow showmobile" title="Small Card 3" filename="avatar.svg" /> -->
       <ThumbSmall
         data-aos="fade"
         data-aos-duration="1000"
@@ -105,6 +103,7 @@
 
 <script>
 import ThumbSmall from "@/components/ThumbSmall.vue";
+import ThumbSmall2 from "@/components/ThumbSmall2.vue";
 import ThumbMedium from "@/components/ThumbMedium.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
 
@@ -112,6 +111,7 @@ export default {
   name: "WorkPlay",
   components: {
     ThumbSmall,
+    ThumbSmall2,
     ThumbMedium,
     ThumbLarge,
   },
@@ -123,20 +123,6 @@ export default {
 .container {
   padding-top: 0 !important;
 }
-.gif {
-  display: none;
-  background-image: url("../assets/images/avatar.svg");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  -webkit-transition: none;
-  border-radius: 4px !important;
-}
-.gif:hover {
-  background-image: url("../assets/images/avatar-h.svg");
-}
-.gif:active {
-  background-image: url("../assets/images/avatar-a.svg");
-}
 .twowide {
   grid-column: 1 / 4;
 }
@@ -145,10 +131,6 @@ export default {
 }
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
-  .gif {
-    display: block;
-  }
-
   .twowide {
     grid-column: 1 / 3;
   }
