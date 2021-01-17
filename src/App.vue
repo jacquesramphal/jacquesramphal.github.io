@@ -1,6 +1,8 @@
 <template>
   <div id="app" data-aos="fade">
-    <MainNav />
+    <MainNav 
+    title="Jacques Ramphal"
+    />
     <WorkPlay />
     <MainFooter /> 
   </div>

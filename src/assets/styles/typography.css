@@ -101,6 +101,27 @@ li {
   list-style-type: none;
 }
 /* ---- LINKS/BUTTONS ---- */
+@keyframes strike{
+  0%   { width : 0; }
+  100% { width: 100%; }
+}
+.strike {
+  position: relative;
+}
+.strike:hover:after {
+  content: ' ';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  animation-name: strike;
+  animation-duration: .15s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards; 
+}
 button {
   color: red;
 }
@@ -127,7 +148,7 @@ h3 a:hover {
 }
 a:hover {
   /* color: #4e92df !important; */
-  text-decoration: underline !important;
+  text-decoration: none !important;
 }
 
 a:active p {

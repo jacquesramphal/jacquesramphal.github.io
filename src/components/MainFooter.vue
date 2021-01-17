@@ -8,24 +8,34 @@
           data-aos-duration="1000"
           data-aos-easing="ease-in-out"
         >
-          Designer of things at
-          <a href="https://myplanet.com/" target="_blank">Myplanet</a>
+          Des/Dev of things @
+          <a href="https://myplanet.com/" target="_blank"><span class="strike">Myplanet</span></a>
         </h1>
         <!-- <h1 class="subtle"> Designer/Developer at <a href="https://myplanet.com/" target="_blank">Myplanet</a></h1> -->
         <!-- <h1 class="subtle"> Lorem ipsum doler at <a href="https://myplanet.com/" target="_blank">Myplanet</a></h1> -->
       </div>
       <div id="contact" class="">
-        <h3 id="copyright" class="">© 2020 Jacques Ramphal</h3>
+        <h3 id="copyright" class="hidemobile">© 2021 Jacques Ramphal</h3>
         <div id="contactlinks" class="">
-          <h3 class="justify-end hidemobile">
+          <h3 class=""
+              data-aos="fade-right"
+              data-aos-duration="1000"
+              data-aos-delay="300"
+              data-aos-anchor-placement="top">
             <a
               href="https://www.linkedin.com/in/jacquesramphal/"
               target="_blank"
               >Linkedin</a
             >
           </h3>
-          <h3 class="justify-end hidemobile">
-            <a href="mailto:jacquesramphal@gmail.com" target="_blank">Email</a>
+          <h3 
+            class=""
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            data-aos-delay="100"
+            data-aos-anchor-placement="top">
+          
+            <a href="mailto:jacquesramphal@gmail.com" target="_blank"><span class="strike">Email</span></a>
           </h3>
         </div>
       </div>
