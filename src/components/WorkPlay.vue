@@ -27,8 +27,18 @@
         data-aos-delay="200"
         data-aos-once="true"
         data-aos-anchor-placement="top"
-        class="pink"
+        class="pink hidemobile"
         title=""
+        filename="avatar.svg"
+      />
+      <ThumbSmall
+        data-aos="fade"
+        data-aos-duration="1000"
+        data-aos-delay="200"
+        data-aos-once="true"
+        data-aos-anchor-placement="top"
+        class="pink showmobile"
+        title="Avatar"
         filename="avatar.svg"
       />
       <ThumbSmall
@@ -120,6 +130,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+* {
+  font-size: 10px;
+}
 .container {
   padding-top: 0 !important;
 }
@@ -149,3 +162,18 @@ export default {
   }
 }
 </style>
+
+<style scoped>
+@import "../assets/styles/all.css";
+</style>
+
+<docs>
+### Examples
+
+WorkPlay example:
+
+```vue
+<WorkPlay>Default Example Usage</WorkPlay>
+```
+
+</docs>

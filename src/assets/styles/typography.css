@@ -1,8 +1,9 @@
-/* ---- GLOBAL ---- */
 * {
-  letter-spacing: 0.01em;
-  text-rendering: optimizeLegibility;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+  Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
+/* ---- GLOBAL ---- */
+
 h1 {
   margin: 0;
   font-weight: 400;

@@ -13,11 +13,29 @@
 export default {
   name: "ThumbMedium",
   props: {
-    title: String,
-    filename: String
+    title: {
+      type: String,
+      default: "Default Caption"
+    },
+    filename: {
+      type: String,
+      default: "template.svg"
+    },
   },
 };
 </script>
 
 <style scoped>
+@import "../assets/styles/all.css";
 </style>
+
+<docs>
+### Examples
+
+ThumbMedium example:
+
+```vue
+<ThumbMedium>Default Example Usage</ThumbMedium>
+```
+
+</docs>

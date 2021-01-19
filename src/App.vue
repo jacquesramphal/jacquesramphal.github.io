@@ -26,4 +26,5 @@ export default {
 <!-- global styles -->
 <style>
 @import "./assets/styles/all.css";
+
 </style>

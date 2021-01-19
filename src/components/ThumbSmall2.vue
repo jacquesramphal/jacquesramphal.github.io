@@ -17,9 +17,10 @@ export default {
 
 <style scoped>
 #avatar {
+  cursor: help;
   height: 100%;
   width: 100%;
-  background-position: 0 0;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
   background-image: url('../assets/images/avatar.svg');

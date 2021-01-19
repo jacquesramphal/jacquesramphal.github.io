@@ -1,6 +1,7 @@
 <template>
   <span class="grid-card">
-    <span class="caption"><p>{{ title }}</p></span>
+    <span class="caption">
+      <p>{{ title }}<!-- @slot Use this slot to place content --><slot></slot></p></span>
     <a class="zoom"
       ><img draggable="false" :src="require(`@/assets/images/${filename}`)"
     /></a>
@@ -11,11 +12,35 @@
 export default {
   name: "ThumbSmall",
   props: {
-    title: String,
-    filename: String
+    /**
+		 * Sets the caption text
+		 */
+    title: {
+      type: String,
+      },
+    /**
+		 * Sets the image
+		 */
+    filename: {
+      type: String,
+      default: "template-m.svg"
+    },
   },
 };
 </script>
 
 <style scoped>
+@import "../assets/styles/all.css";
 </style>
+
+<docs>
+### Examples
+
+ThumbSmall example:
+
+```jsx
+<ThumbSmall>This is a slot. Replace Me</ThumbSmall>
+```
+
+</docs>
+

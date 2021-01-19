@@ -17,13 +17,13 @@ export default {
   props: {
     title: {
       type: String,
+      default: "Jacques Ramphal"
     }
   },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 .container {
   padding-bottom: 0 !important;
 }
@@ -40,3 +40,14 @@ header {
   }
 }
 </style>
+
+<docs>
+### Examples
+
+MainNav example:
+
+```vue
+<MainNav>Default Example Usage</MainNav>
+```
+
+</docs>

@@ -75,3 +75,14 @@ footer {
   grid-template-columns: repeat(2, 1fr);
 }
 </style>
+
+<docs>
+### Examples
+
+MainFooter example:
+
+```vue
+<MainFooter>Default Example Usage</MainFooter>
+```
+
+</docs>

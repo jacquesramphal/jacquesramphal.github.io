@@ -11,11 +11,29 @@
 export default {
   name: "ThumbLarge",
   props: {
-    title: String,
-    filename: String
+    title: {
+      type: String,
+      default: "ThumbLarge"
+    },
+    filename: {
+      type: String,
+      default: "template.svg"
+    },
   },
 };
 </script>
 
 <style scoped>
+@import "../assets/styles/all.css";
 </style>
+
+<docs>
+### Examples
+
+ThumbLarge example:
+
+```vue
+<ThumbLarge>Default Example Usage</ThumbLarge>
+```
+
+</docs>

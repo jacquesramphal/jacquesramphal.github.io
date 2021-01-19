@@ -36,3 +36,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ```
 vue ui
 ```
+
+### Styleguide
+```
+yarn run styleguide
+```
