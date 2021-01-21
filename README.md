@@ -37,7 +37,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 vue ui
 ```
 
-### Styleguide
+### To run your Storybook, type:
+
 ```
-yarn run styleguide
+yarn storybook
 ```

@@ -26,14 +26,3 @@ export default {
 <style scoped>
 @import "../assets/styles/all.css";
 </style>
-
-<docs>
-### Examples
-
-ThumbLarge example:
-
-```vue
-<ThumbLarge>Default Example Usage</ThumbLarge>
-```
-
-</docs>

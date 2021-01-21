@@ -166,14 +166,3 @@ export default {
 <style scoped>
 @import "../assets/styles/all.css";
 </style>
-
-<docs>
-### Examples
-
-WorkPlay example:
-
-```vue
-<WorkPlay>Default Example Usage</WorkPlay>
-```
-
-</docs>

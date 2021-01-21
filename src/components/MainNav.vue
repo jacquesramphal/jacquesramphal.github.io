@@ -40,14 +40,3 @@ header {
   }
 }
 </style>
-
-<docs>
-### Examples
-
-MainNav example:
-
-```vue
-<MainNav>Default Example Usage</MainNav>
-```
-
-</docs>

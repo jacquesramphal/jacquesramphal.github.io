@@ -28,14 +28,3 @@ export default {
 <style scoped>
 @import "../assets/styles/all.css";
 </style>
-
-<docs>
-### Examples
-
-ThumbMedium example:
-
-```vue
-<ThumbMedium>Default Example Usage</ThumbMedium>
-```
-
-</docs>

@@ -32,15 +32,3 @@ export default {
 <style scoped>
 @import "../assets/styles/all.css";
 </style>
-
-<docs>
-### Examples
-
-ThumbSmall example:
-
-```jsx
-<ThumbSmall>This is a slot. Replace Me</ThumbSmall>
-```
-
-</docs>
-
