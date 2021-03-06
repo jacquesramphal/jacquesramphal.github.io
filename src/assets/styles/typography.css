@@ -4,22 +4,24 @@
 }
 /* ---- GLOBAL ---- */
 
+/* Header AAA */
 h1 {
   margin: 0;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.6);
   line-height: 1.2;
-  font-size: 3.6em;
+  font-size: 2em;
+  
 }
 h2 {
-  font-size: 2.8em;
+  font-size: 4.8em;
   color: rgba(0, 0, 0, 0.6);
   margin: 0;
   line-height: 1.5;
   font-weight: 400;
 }
 h3 {
-  font-size: 2em;
+  font-size: 3.6em;
   color: rgba(0, 0, 0, 0.6);
   margin: 0;
   line-height: 1.6;
@@ -27,10 +29,27 @@ h3 {
 }
 h4 {
   color: rgba(0, 0, 0, 0.6);
-  font-size: 1.6em;
+  font-size: 2.8em;
   line-height: 1.5;
   font-weight: 400;
-  margin-top: 0;
+  margin: 0;
+}
+h5 {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 2em;
+  line-height: 1.5;
+  font-weight: 400;
+  margin: 0;
+
+}
+/* eyebrow text */
+h6 {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 2em;
+  line-height: 1.5;
+  font-weight: 400;
+  margin: 0;
+
 }
 p {
   color: rgba(0, 0, 0, 0.6);
@@ -203,30 +222,31 @@ h3 a:active {
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
-  h1 {
+
+  h2 {
     font-size: 6.4em;
     padding-bottom: 4px;
   }
-  h2 {
-    font-size: 3.2em;
-  }
   h3 {
-    font-size: 2em;
+    font-size: 4.8em;
   }
   h4 {
-    font-size: 2em;
+    font-size: 3.6em;
+  }
+  h5 {
+    font-size: 2.8em;
   }
   p {
     font-size: 1.6em;
   }
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
-    h1 {
+    h2 {
       font-size: 7.2em;
     }
     /* ------------ BREAKPOINT XL ------------ */
     @media only screen and (min-width: 1441px) {
-      h1 {
+      h2 {
         font-size: 8em;
       }
     }

@@ -1,0 +1,64 @@
+<template>
+<div id="textdefault">
+<h6 class="subtle">{{ eyebrow }}</h6>
+<h3>{{ header }}</h3>
+<p>{{ details }}</p>
+<!-- <MyButton title="test" /> -->
+</div>
+</template>
+
+<script>
+// import MyButton from "@/components/MyButton.vue";
+
+export default {
+  name: "TextDefault",
+  components: {
+    // MyButton,
+  },
+  props: {
+    eyebrow: {
+      type: String,
+      default: "Eyebrow",
+      },
+    header: {
+      type: String,
+      default: "Header"
+      },
+    details: {
+      type: String,
+      default: "Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet."
+    },
+  },
+};
+</script>
+
+<style scoped>
+
+#textdefault {
+  padding: 0 2.8rem 2.8rem 0;
+  /* background: var(--color-xlight); */
+  grid-column: 1 / 4;
+}
+  h6 {
+      margin: 0;
+  }
+  h3 {
+      margin: 0 0 0 0;
+  }
+
+
+
+/* ------------ BREAKPOINT MD ------------ */
+@media only screen and (min-width: 740px) {
+ 
+#textdefault {
+  grid-column: auto;
+}
+  /* ------------ BREAKPOINT LG ------------ */
+  @media only screen and (min-width: 1201px) {
+    #textdefault {
+          grid-column: auto;
+}
+  }
+}
+</style>

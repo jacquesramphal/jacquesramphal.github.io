@@ -1,7 +1,7 @@
 <template>
   <span class="grid-card hero grey">
     <span class="caption"><p>{{ title }}</p></span>
-    <a class="zoom"
+    <a class=""
       ><img draggable="false" :src="require(`@/assets/images/${filename}`)"
     /></a>
   </span>

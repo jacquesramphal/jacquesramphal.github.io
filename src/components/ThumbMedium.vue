@@ -1,9 +1,9 @@
 <template>
-  <span class="grid-card twowide grey">
+  <span class="grid-card twowide">
     <span class="caption"
       ><p>{{ title }}</p></span
     >
-    <a class="zoom"
+    <a class=""
       ><img draggable="false" :src="require(`@/assets/images/${filename}`)"
     /></a>
   </span>

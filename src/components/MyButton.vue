@@ -1,7 +1,6 @@
 <template>
 	<button :style="styles" @click="handleClick" type="button" class="btn-primary">
-		<!-- @slot Use this slot to place the button content -->
-		<slot></slot>
+	<p>{{ text }}</p>
 	</button>
 </template>
 
@@ -9,6 +8,10 @@
 export default {
 	name: 'MyButton',
 	props: {
+		text: {
+			type: String,
+			default: 'Button Text'
+		},
 		/**
 		 * Sets the button font color
 		 */
@@ -72,11 +75,12 @@ button {
   cursor: pointer;
   display: inline-block;
   font-size: inherit;
-  margin: 0 1rem 0 0;
+  margin: 4em 1rem 0 0;
   padding: 0.5rem 1rem 0.5rem 1rem;
   text-decoration: none;
   transition: box-shadow 0.15s ease-in-out;
   -webkit-transition: box-shadow 0.15s ease-in-out;
+  
 }
 
 .btn-md {
@@ -116,44 +120,3 @@ button:active {
   color: red;
 }
 </style>
-
-<docs>
-
-### Button Styles
-
-Primary button:
-
-```jsx
-<MyButton class="btn-primary">Primary</MyButton>
-```
-
-Secondary button:
-
-```jsx
-<MyButton class="btn-secondary">Secondary</MyButton>
-```
-
-Outline button:
-
-```jsx
-<MyButton class="btn-outline">Outline</MyButton>
-```
-### Sizes
-
-Small
-
-```jsx
-<MyButton class="btn-primary">Small</MyButton>
-```
-Medium
-
-```jsx
-<MyButton class="btn-primary btn-md">Medium</MyButton>
-```
-Large
-
-```jsx
-<MyButton class="btn-primary btn-lg">Large</MyButton>
-```
-
-</docs>

@@ -2,7 +2,7 @@
   <span class="grid-card">
     <span class="caption">
       <p>{{ title }}<!-- @slot Use this slot to place content --><slot></slot></p></span>
-    <a class="zoom"
+    <a class=""
       ><img draggable="false" :src="require(`@/assets/images/${filename}`)"
     /></a>
   </span>

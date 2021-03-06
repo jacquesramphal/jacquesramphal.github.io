@@ -1,22 +1,20 @@
 <template>
   <div id="app" data-aos="fade">
-    <MainNav 
-    title="Jacques Ramphal"
-    />
+    <MainNav />
     <router-view />
-    <MainFooter /> 
+    <MainFooterOld /> 
   </div>
 </template>
 
 <script>
 import MainNav from "./components/MainNav.vue";
-import MainFooter from "./components/MainFooter.vue";
+import MainFooterOld from "./components/MainFooterOld.vue";
 
 export default {
   name: "App",
   components: {
     MainNav,
-    MainFooter,
+    MainFooterOld,
   },
 };
 </script>

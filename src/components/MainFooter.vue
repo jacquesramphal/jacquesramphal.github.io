@@ -1,77 +1,58 @@
 <template>
-  <footer class="fullvh">
-    <div id="footer" class="container">
-      <div id="bio-text">
-        <h1 
-          class="subtle"
-          data-aos="fade" 
-          data-aos-duration="1000"
-          data-aos-easing="ease-in-out"
-        >
-          Des/Dev of things @
-          <a href="https://myplanet.com/" target="_blank"><span class="strike">Myplanet</span></a>
-        </h1>
-        <!-- <h1 class="subtle"> Designer/Developer at <a href="https://myplanet.com/" target="_blank">Myplanet</a></h1> -->
-        <!-- <h1 class="subtle"> Lorem ipsum doler at <a href="https://myplanet.com/" target="_blank">Myplanet</a></h1> -->
-      </div>
-      <div id="contact" class="">
-        <h3 id="copyright" class="hidemobile">© 2021 Jacques Ramphal</h3>
-        <div id="contactlinks" class="">
-          <h3 class=""
-              data-aos="fade-right"
-              data-aos-duration="1000"
-              data-aos-delay="300"
-              data-aos-anchor-placement="top">
-            <a
-              href="https://www.linkedin.com/in/jacquesramphal/"
-              target="_blank"
-              >Linkedin</a
-            >
-          </h3>
-          <h3 
-            class=""
-            data-aos="fade-right"
-            data-aos-duration="1000"
-            data-aos-delay="100"
-            data-aos-anchor-placement="top">
-          
-            <a href="mailto:jacquesramphal@gmail.com" target="_blank"><span class="strike">Email</span></a>
-          </h3>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <footer class="halfvh">
+
+       <div id="footer" class="container">
+
+      <h6 id="copyright" class="hidemobile">© 2021 Jacques Ramphal</h6>
+      <ul class="justify-end">
+        <li><a href="https://www.linkedin.com/in/jacquesramphal/" target="_blank">Linkedin</a></li>
+        <li><a href="mailto:jacquesramphal@gmail.com" target="_blank">Email</a></li>
+      </ul>
+           </div>
+
+    </footer>
 </template>
 
 <script>
+ /**
+ * @component
+ */
 export default {
   name: "MainFooter",
-  props: {},
+  props: {
+    title: {
+      type: String,
+      default: "Jacques Ramphal"
+    }
+  },
 };
-
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 footer {
-  display: grid;
-  min-height: 320px;
+    background: var(--color-dark);
+
 }
-#bio-text {
+
+.container {
+  /* margin: 2.8em 0 0  0; */
   display: grid;
-  grid-row: 1 / 8;
-  justify-content: center;
-  text-align: center;
-  align-items: center !important;
+  grid-gap: 0;
+  grid-template-columns: repeat(2, 1fr);
 }
 #copyright {
-  grid-column: 1 / 9;
-  color: rgba(0, 0, 0, 0.35);
+
 }
-#contactlinks {
-  display: grid;
-  grid-gap: 3.2em;
-  align-items: end !important;
-  grid-template-columns: repeat(2, 1fr);
+footer h6, li {
+  font-size: 2em;
+  line-height: 1.5;
+  font-weight: 400;
+  margin: 0;
+}
+/* ------------ BREAKPOINT MD ------------ */
+@media only screen and (min-width: 740px) {
+  nav {
+  /* padding: 2.8em !important; */
+  }
 }
 </style>
