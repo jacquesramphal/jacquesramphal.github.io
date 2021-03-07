@@ -1,8 +1,10 @@
 <template>
-  <div class="container">
-    <!-- <h5 class="subtle showmobile" data-aos="fade">Jake Ramphal</h5>
-      <h5 class="subtle hidemobile" data-aos="fade">{{ title }}</h5>
-      <h5 class="justify-end" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="0"><a href="#/info">Info</a></h5> -->
+  <div
+    class="container"
+    data-aos="fade-up"
+    data-aos-duration="500"
+    data-aos-delay="100"
+  >
     <nav class="">
       <h1 id="wordmark" class="subtle hidemobile">
         <a href="#/">Jacques Ramphal</a>
@@ -11,20 +13,10 @@
         Jake Ramphal
       </h1>
       <ul class="justify-end">
-        <li
-          class=""
-          data-aos="fade-left"
-          data-aos-duration="1000"
-          data-aos-delay="100"
-        >
+        <li class="">
           <a href="#/">Work</a>
         </li>
-        <li
-          class=""
-          data-aos="fade-left"
-          data-aos-duration="1000"
-          data-aos-delay="300"
-        >
+        <li class="">
           <a href="#/info">Info</a>
         </li>
       </ul>
@@ -37,18 +29,34 @@
  * @component
  */
 export default {
-  name: "MainNav",
+  name: "StickyNav",
+  props: {
+    title: {
+      type: String,
+      default: "Jacques Ramphal",
+    },
+  },
 };
 </script>
 <style scoped>
 .container {
-  padding-bottom: 1.6em !important;
+  background: var(--color-white);
+  /* border-top: 1px solid var(--color-xxlight); */
+  bottom: 0;
+  padding-top: 2em !important;
+  padding-bottom: 2em !important;
+  position: fixed;
+  z-index: 1000 !important;
+  max-width: none;
+  box-shadow: var(--shadow-z3);
+  
 }
 nav {
-  /* margin: 0 0 2.8em 0; */
   display: grid;
   grid-gap: 0;
   grid-template-columns: repeat(2, 1fr);
+  position: relative;
+
 }
 nav h1,
 li {
@@ -58,14 +66,12 @@ li {
   margin: 0;
 }
 #wordmark a {
-  color: var(--pink) !important;
+  color: var(--color-light) !important;
   text-decoration: none !important;
 }
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
-  nav {
-    /* margin: 0 0 3.6em 0; */
-  }
+
 }
 </style>

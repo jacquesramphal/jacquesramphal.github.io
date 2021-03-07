@@ -8,34 +8,34 @@
 h1 {
   margin: 0;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.6);
+  color: red;
   line-height: 1.2;
   font-size: 2em;
   
 }
 h2 {
   font-size: 4.8em;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--color-dark);
   margin: 0;
   line-height: 1.5;
   font-weight: 400;
 }
 h3 {
   font-size: 3.6em;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--color-dark);
   margin: 0;
   line-height: 1.6;
   font-weight: 400;
 }
 h4 {
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--color-dark);
   font-size: 2.8em;
   line-height: 1.5;
   font-weight: 400;
   margin: 0;
 }
 h5 {
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--color-dark);
   font-size: 2em;
   line-height: 1.5;
   font-weight: 400;
@@ -44,7 +44,7 @@ h5 {
 }
 /* eyebrow text */
 h6 {
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--color-dark);
   font-size: 2em;
   line-height: 1.5;
   font-weight: 400;
@@ -52,26 +52,20 @@ h6 {
 
 }
 p {
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--color-dark);
   margin: 0;
-  font-size: 1.6em;
+  font-size: 2em;
   line-height: 1.8;
   font-weight: 400;
 }
-.darkgreytext {
-  color: #666;
-}
-.greytext {
-  color: #999;
-}
 .whitetext {
-  color: #fff !important;
+  color: var(--color-white);
   mix-blend-mode: normal;
-  font-weight: 300;
-  letter-spacing: 0.025em;
+  /* font-weight: 300;
+  letter-spacing: 0.025em; */
 }
 .subtle {
-  color: rgba(0, 0, 0, 0.35);
+  color: var(--color-light);
 }
 /* .caption-project {
   mix-blend-mode: multiply;
@@ -80,7 +74,7 @@ p {
   text-align: left;
   width: 90%;
   float: left;
-  z-index: 20000;
+  z-index: 10;
   font-size: 12px;
   text-rendering: optimizeLegibility;
 } */
@@ -89,10 +83,8 @@ p {
   display: block !important;
   position: absolute;
   float: left;
-  z-index: 20000;
   padding-top: 2.4em;
   padding-left: 2.8em;
-  font-size: 1.2em;
   text-rendering: optimizeLegibility;
 }
 
@@ -103,11 +95,9 @@ p {
   -o-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   color: transparent !important;
-  z-index: 20000;
 }
 .grid-card:hover .caption p {
-  color: #666 !important;
-  z-index: 20000;
+  color: var(--color-dark) !important;
   mix-blend-mode: multiply !important;
   display: block !important;
 }
@@ -125,7 +115,7 @@ li {
   0%   { width : 0; }
   100% { width: 100%; }
 }
-.strike {
+/* .strike {
   position: relative;
 }
 .strike:hover:after {
@@ -141,7 +131,7 @@ li {
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: forwards; 
-}
+} */
 button {
   color: red;
 }
@@ -156,10 +146,10 @@ a {
   color: rgba(0, 0, 0, 0.8);
 }
 h1 a {
-  color: rgba(0, 0, 0, 0.8);
+  color: var(--color-dark) !important;
 }
 h2 a {
-  color: rgba(0, 0, 0, 0.8);
+  color: var(--color-dark) !important;
 }
 h1 a:hover,
 h2 a:hover,
@@ -237,7 +227,7 @@ h3 a:active {
     font-size: 2.8em;
   }
   p {
-    font-size: 1.6em;
+    font-size: 2em;
   }
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {

@@ -1,5 +1,6 @@
 <template>
   <span class="grid-card">
+  <div class="box"></div>
     <span class="caption">
       <p>{{ title }}<!-- @slot Use this slot to place content --><slot></slot></p></span>
     <a class=""
@@ -31,4 +32,8 @@ export default {
 
 <style scoped>
 @import "../assets/styles/all.css";
+.grid-card {
+
+}
+
 </style>

@@ -31,7 +31,7 @@ html {
   display: grid;
 }
 .front {
-  z-index: 10001;
+  z-index: 100;
 }
 
 /* ---- CONSOLIDATE ME ---- */

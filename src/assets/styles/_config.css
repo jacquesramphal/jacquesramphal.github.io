@@ -4,6 +4,9 @@
   --color-medium: #666;
   --color-light: #999;
   --color-xlight: #d6d6d6;
+  --color-xxlight: #e6e6e6;
+  --color-white: #fff;
+
   /* STATES */
   --color-action: #0086e6;
   --color-danger: #b12026;
@@ -20,6 +23,25 @@
   --shadow-z3: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   --shadow-z4: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   --shadow-z5: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+.shadow-top {
+  box-shadow: var(--shadow-z4);
+}
+
+.shadow-right {
+  box-shadow: 5px 0 5px -5px #333;
+}
+
+.shadow-bottom {
+  box-shadow: 0 5px 5px -5px #333;
+}
+
+.shadow-left {
+  box-shadow: -5px 0 5px -5px #333;
+}
+
+.shadow-all {
+  box-shadow: 0 0 5px #333;
 }
 .opacity {
   opacity: 0.95;
