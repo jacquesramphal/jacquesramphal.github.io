@@ -1,9 +1,7 @@
 <template>
   <div
     class="container"
-    data-aos="fade-up"
-    data-aos-duration="500"
-    data-aos-delay="100"
+
   >
     <nav class="">
       <h1 id="wordmark" class="subtle hidemobile">
@@ -14,10 +12,10 @@
       </h1>
       <ul class="justify-end">
         <li class="">
-          <a href="#/">Work</a>
+          <router-link to="work">Work</router-link>
         </li>
         <li class="">
-          <a href="#/info">Info</a>
+          <router-link to="info">Info</router-link>
         </li>
       </ul>
     </nav>
@@ -43,8 +41,8 @@ export default {
   background: var(--color-white);
   /* border-top: 1px solid var(--color-xxlight); */
   bottom: 0;
-  padding-top: 2em !important;
-  padding-bottom: 2em !important;
+  padding-top: 1em !important;
+  padding-bottom: 1em !important;
   position: fixed;
   z-index: 1000 !important;
   max-width: none;

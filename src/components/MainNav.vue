@@ -5,6 +5,7 @@
       <h5 class="justify-end" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="0"><a href="#/info">Info</a></h5> -->
     <nav class="">
       <h1 id="wordmark" class="subtle hidemobile">
+            <!-- <img id="logo" draggable="false" :src="require(`@/assets/images/j-monogram.svg`)" /> -->
         <a href="#/">Jacques Ramphal</a>
       </h1>
       <h1 class="subtle showmobile">
@@ -33,6 +34,7 @@
 </template>
 
 <script>
+
 /**
  * @component
  */
@@ -42,7 +44,7 @@ export default {
 </script>
 <style scoped>
 .container {
-  padding-bottom: 1.6em !important;
+  padding-bottom: 2.8em !important;
 }
 nav {
   /* margin: 0 0 2.8em 0; */
@@ -61,9 +63,14 @@ li {
   color: var(--pink) !important;
   text-decoration: none !important;
 }
-
+/* #logo {
+  height: 1.6em;
+} *
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
+ .container {
+  padding-bottom: 4em !important;
+}
   nav {
     /* margin: 0 0 3.6em 0; */
   }

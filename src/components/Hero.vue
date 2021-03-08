@@ -1,5 +1,5 @@
 <template>
-  <footer class="fullvh">
+  <div id="hero" class="fullvh">
     <div id="footer" class="container">
       <div id="bio-text" class="">
         <h2 
@@ -40,12 +40,12 @@
         </div>
       </div> -->
     </div>
-  </footer>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "MainFooterOld",
+  name: "Hero",
   props: {},
 };
 
@@ -55,7 +55,7 @@ export default {
 <style scoped>
 
 
-  footer {
+  #hero {
   display: grid;
   min-height: 320px;
 }

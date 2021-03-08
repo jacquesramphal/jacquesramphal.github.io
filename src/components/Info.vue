@@ -2,8 +2,6 @@
   <div id="info" class="">
     <div id="grid-parent" class="grid-parent container">
       <TextDefault
-        eyebrow=""
-        header="Info"
       />
       <ThumbMedium
         data-aos="fade"
@@ -17,6 +15,11 @@
       />
     </div>
     <DetailCard 
+      header="Experience"
+    />
+    <DetailCard 
+      header="Skills"
+
     />
 
   </div>
@@ -40,10 +43,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #info > .container {
-  padding-top: 2.8em !important;
-
+  /* padding-top: 0 !important; */
 }
-
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
   /* ------------ BREAKPOINT LG ------------ */

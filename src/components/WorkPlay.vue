@@ -98,7 +98,7 @@ export default {
   font-size: 10px;
 }
 .container {
-  padding-top: 2.8em !important;
+  /* padding-top: 2.8em !important; */
 }
 
 /* ------------ BREAKPOINT MD ------------ */

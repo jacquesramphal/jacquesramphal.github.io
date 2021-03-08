@@ -4,7 +4,7 @@
   <section class="">
 
 
-    <div id="bio-text" class=" halfvh container">
+    <div id="bio-text" class=" Full container">
       <h2
         class="subtle"
         data-aos="fade"

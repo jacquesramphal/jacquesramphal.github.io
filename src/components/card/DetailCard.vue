@@ -1,24 +1,48 @@
 <template>
   <div id="details" class="offblack">
       <div class="grid-parent container">
-        <h3 id="section-header" class="">{{ header }}</h3>
+        <h3 
+          id="section-header" 
+          class=""
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          data-aos-delay="0"
+          data-aos-once="true"
+          >{{ header }}
+        </h3>
         <TextDefault
-          eyebrow="Subsection"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="200"
+          data-aos-once="true"
+          eyebrow="🖖 Subsection"
           header=""
           details="Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet. Lorem ipsum doler optima sit amet."
         />
         <TextDefault
-          eyebrow="Skills"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+          data-aos-once="true"
+          eyebrow="👍 Skills"
           header="" 
           details="Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet. Lorem ipsum doler optima sit amet."
         />
         <TextDefault
-          eyebrow="Interests"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="400"
+          data-aos-once="true"
+          eyebrow="👏 Interests"
           header=""
           details="Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet. Lorem ipsum doler optima sit amet."
         />
         <TextDefault
-          eyebrow="Goals"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="500"
+          data-aos-once="true"
+          eyebrow="🙏 Mindfulness"
           header=""
           details="Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet. Lorem ipsum doler optima sit amet."
         />
@@ -54,6 +78,9 @@ export default {
 * {
   color: white !important;
 }
+#details {
+ /* height: 100vh; */
+}
 #section-header {
   grid-column: 1 / 4;
 }
@@ -64,6 +91,9 @@ export default {
   #textdefault:first-child {
     background: yellow;
   }
+  h3 {
+   /* margin-top: -10px; */
+}
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
 #section-header {

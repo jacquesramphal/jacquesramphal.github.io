@@ -24,7 +24,7 @@ h3 {
   font-size: 3.6em;
   color: var(--color-dark);
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.4;
   font-weight: 400;
 }
 h4 {
@@ -135,10 +135,13 @@ li {
 button {
   color: red;
 }
+.router-link-exact-active{
+  text-decoration: underline !important;
+}
 a {
   cursor: pointer;
   color: inherit;
-  text-decoration: underline !important;
+  text-decoration: none !important;
   /* -webkit-transition: color 0.25s ease-in-out;
   -moz-transition: color 0.25s ease-in-out;
   -o-transition: color 0.25s ease-in-out;
@@ -158,7 +161,7 @@ h3 a:hover {
 }
 a:hover {
   /* color: #4e92df !important; */
-  text-decoration: none !important;
+  text-decoration: underline !important;
 }
 
 a:active p {
