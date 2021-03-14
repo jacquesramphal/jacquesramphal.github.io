@@ -1,27 +1,20 @@
 <template>
   <div id="info" class="">
     <div id="grid-parent" class="grid-parent container">
-      <TextDefault
-      />
+      <TextDefault />
       <ThumbMedium
         data-aos="fade"
         data-aos-duration="4000"
         data-aos-delay="0"
         data-aos-once="true"
         data-aos-anchor-placement="top"
-        class=""  
+        class=""
         title=""
         filename="about.jpg"
       />
     </div>
-    <DetailCard 
-      header="Experience"
-    />
-    <DetailCard 
-      header="Skills"
-
-    />
-
+    <DetailCard header="Skills" />
+    <DetailCard header="Experience" />
   </div>
 </template>
 

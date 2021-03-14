@@ -1,9 +1,11 @@
 <template>
   <span class="grid-card hero grey">
-    <span class="caption"><p>{{ title }}</p></span>
-    <a class=""
+    <span class="caption"
+      ><p>{{ title }}</p></span
+    >
+    <router-link to="project"
       ><img draggable="false" :src="require(`@/assets/images/${filename}`)"
-    /></a>
+    /></router-link>
   </span>
 </template>
 
@@ -13,11 +15,11 @@ export default {
   props: {
     title: {
       type: String,
-      default: "ThumbLarge"
+      default: "ThumbLarge",
     },
     filename: {
       type: String,
-      default: "template.svg"
+      default: "template.svg",
     },
   },
 };

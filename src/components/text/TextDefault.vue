@@ -3,7 +3,10 @@
     <h6 class="">{{ eyebrow }}</h6>
     <h3>{{ header }}</h3>
     <p>{{ details }}</p>
-    <!-- <MyButton title="test" /> -->
+    <!-- <MyButton 
+      text="This is Button Text" 
+      class="btn-primary"
+      /> -->
   </div>
 </template>
 
@@ -13,7 +16,7 @@
 export default {
   name: "TextDefault",
   components: {
-    // MyButton,
+    /* MyButton, */
   },
   props: {
     eyebrow: {
@@ -38,14 +41,14 @@ export default {
   color: inherit;
 }
 #textdefault {
-/*  background: var(--color-xlight); */
+  /*  background: var(--color-xlight); */
   grid-column: 1 / 4;
 }
 h6 {
   margin-bottom: 1em;
 }
 h3 {
-  margin: 0 0 .5em 0;
+  margin: 0 0 0.5em 0;
 }
 
 /* ------------ BREAKPOINT MD ------------ */

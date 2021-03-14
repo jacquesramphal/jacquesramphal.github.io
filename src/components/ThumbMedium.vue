@@ -15,11 +15,11 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Default Caption"
+      default: "Default Caption",
     },
     filename: {
       type: String,
-      default: "template.svg"
+      default: "template.svg",
     },
   },
 };

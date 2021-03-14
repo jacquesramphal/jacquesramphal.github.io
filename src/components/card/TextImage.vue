@@ -1,10 +1,6 @@
 <template>
-  <div id="workplay">
-    <TextImage />
-    <TextImage />
-    <TextImage />
+  <div id="textimage" class="">
     <div id="grid-parent" class="grid-parent container">
-      <!-- Inline components vs nested above -->
       <TextDefault />
       <ThumbMedium
         data-aos="fade"
@@ -14,44 +10,67 @@
         data-aos-anchor-placement="top"
         class="blue"
         title=""
-        filename="glo.svg"
       />
     </div>
   </div>
 </template>
-
 <script>
-import ThumbMedium from "@/components/ThumbMedium.vue";
-import TextImage from "@/components/card/TextImage.vue";
 import TextDefault from "@/components/text/TextDefault.vue";
+import ThumbMedium from "@/components/ThumbMedium.vue";
 
 export default {
-  name: "WorkPlay",
+  name: "TextImage",
   components: {
     TextDefault,
-    TextImage,
     ThumbMedium,
+  },
+  props: {
+    header: {
+      type: String,
+      default: "Detail Card",
+    },
+    eyebrow: {
+      type: String,
+      default: "Eyebrow",
+    },
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 * {
-  font-size: 10px;
+  color: inherit;
 }
-.container {
-  /* padding-top: 2.8em !important; */
+#details {
+  /* height: 100vh; */
 }
-
+#section-header {
+  grid-column: 1 / 4;
+}
+#textdefault {
+  grid-column: 1 / 4;
+  padding: 1em 0 0 0;
+}
+#textdefault:first-child {
+}
+h3 {
+  /* margin-top: -10px; */
+}
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
+  #section-header {
+    grid-column: 1 / 1;
+  }
+  #textdefault {
+    grid-column: auto;
+    padding: 0 2.8em 2.8em 0;
+  }
+
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
+    #section-header {
+      grid-row: 1 / 3;
+    }
   }
 }
-</style>
-
-<style scoped>
-@import "../assets/styles/all.css";
 </style>

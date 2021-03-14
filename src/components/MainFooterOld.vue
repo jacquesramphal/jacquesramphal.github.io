@@ -2,14 +2,16 @@
   <footer class="fullvh">
     <div id="footer" class="container">
       <div id="bio-text" class="">
-        <h2 
+        <h2
           class="subtle"
-          data-aos="fade" 
+          data-aos="fade"
           data-aos-duration="1000"
           data-aos-easing="ease-in-out"
         >
           Des/Dev of things @
-          <a href="https://myplanet.com/" target="_blank"><span class="strike">Myplanet</span></a>
+          <a href="https://myplanet.com/" target="_blank"
+            ><span class="strike">Myplanet</span></a
+          >
         </h2>
         <!-- <h1 class="subtle"> Designer/Developer at <a href="https://myplanet.com/" target="_blank">Myplanet</a></h1> -->
         <!-- <h1 class="subtle"> Lorem ipsum doler at <a href="https://myplanet.com/" target="_blank">Myplanet</a></h1> -->
@@ -48,14 +50,11 @@ export default {
   name: "MainFooterOld",
   props: {},
 };
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-
-  footer {
+footer {
   display: grid;
   min-height: 320px;
 }

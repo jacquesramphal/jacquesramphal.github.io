@@ -1,27 +1,24 @@
 <template>
-<div>
-
-  <section class="">
-
-
-    <div id="bio-text" class=" Full container">
-      <h2
-        class="subtle"
-        data-aos="fade"
-        data-aos-duration="1000"
-        data-aos-easing="ease-in-out"
-      >
-        Des/Dev of things @
-        <a href="https://myplanet.com/" target="_blank"
-          ><span class="strike">Myplanet</span></a
+  <div>
+    <section class="">
+      <div id="bio-text" class="Full container">
+        <h2
+          class="subtle"
+          data-aos="fade"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
         >
-      </h2>
-    </div>
-  </section></div>
+          Des/Dev of things @
+          <a href="https://myplanet.com/" target="_blank"
+            ><span class="strike">Myplanet</span></a
+          >
+        </h2>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
-
 export default {
   name: "MainHero",
   props: {
@@ -30,7 +27,6 @@ export default {
       default: "Jacques Ramphal",
     },
   },
-   
 };
 </script>
 <style scoped>
@@ -38,7 +34,7 @@ section {
   /* background: var(--color-dark); */
 }
 #footer {
-    display: grid;
+  display: grid;
 }
 .container {
   /* margin: 2.8em 0 0  0; */
