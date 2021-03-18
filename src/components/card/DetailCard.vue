@@ -1,5 +1,5 @@
 <template>
-  <div id="details" class="">
+  <div class="">
     <div class="grid-parent container">
       <h4
         id="section-header"

@@ -6,7 +6,7 @@
     <nav class="">
       <h1 id="wordmark" class="subtle hidemobile">
         <!-- <img id="logo" draggable="false" :src="require(`@/assets/images/j-monogram.svg`)" /> -->
-        <a href="#/">Jacques Ramphal</a>
+        Topic Tag
       </h1>
       <h1 class="subtle showmobile">
         Jake Ramphal
@@ -18,7 +18,7 @@
           data-aos-duration="1000"
           data-aos-delay="100"
         >
-          <a href="#/">Work</a>
+          <a href="#detail1">Context Link</a>
         </li>
         <li
           class=""
@@ -26,7 +26,7 @@
           data-aos-duration="1000"
           data-aos-delay="300"
         >
-          <a href="#/info">Info</a>
+          <a href="#detail2">Context Link</a>
         </li>
       </ul>
     </nav>

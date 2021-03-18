@@ -15,12 +15,16 @@ img {
 .bg-glo {
     background-image: url("i/glo.svg");
 }
-.bg-template {
-    background-image: url("i/template.svg");
-}
+
 .bg-library {
     background-image: url("i/gradient-bg.jpg");
 } */
+.bg-template {
+  background-image: url("/images/template.svg");
+}
+.fixed {
+  position: fixed !important;
+}
 .bg-fixed {
   background-repeat: no-repeat;
   background-attachment: fixed;

@@ -1,27 +1,26 @@
 <template>
   <div id="project" class="">
-    <PageNav />
-    <Hero header="Project Template" class="halfvh" />
-    <ThumbLarge title="" />
-    <DetailCard class="offblack reversed" header="Details" />
-    <TextImage />
-    <ThumbLarge title="" />
+    <HeroImg header="Project Template" class="eightyvh" />
+    <ThumbLarge id="heroimg" title="" filename="template.svg"/>
+    <DetailCard id="detail1" class="" header="Process" />
+  
+  <div class="container">
+    <ThumbLarge />
+  </div>
+      <DetailCard id="detail2" class="" header="My Role" />
+
   </div>
 </template>
 
 <script>
-import Hero from "@/components/Hero.vue";
-import TextImage from "@/components/card/TextImage.vue";
-import PageNav from "@/components/PageNav.vue";
+import HeroImg from "@/components/HeroImg.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
 
 export default {
   name: "Project",
   components: {
-    Hero,
-    PageNav,
-    TextImage,
+    HeroImg,
     ThumbLarge,
     DetailCard,
   },
@@ -30,8 +29,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#info > .container {
-  /* padding-top: 0 !important; */
+#project > .container {
+  padding-top: 0 !important; 
+  padding-bottom: 0 !important; 
+}
+#heroimg {
+  border-radius: 0 !important;
 }
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {

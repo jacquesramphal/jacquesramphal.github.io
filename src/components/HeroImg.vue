@@ -1,6 +1,9 @@
 <template>
-  <div id="hero" class="fullvh">
-    <div id="footer" class="container">
+  <div id="hero-img" class="">
+<PageNav 
+  header='test'
+/>
+    <div id="" class="bg-fixed bg-template container">
 
       <div id="hero-text" class="">
         <h2
@@ -18,29 +21,34 @@
 </template>
 
 <script>
+import PageNav from "@/components/PageNav.vue";
 
 export default {
-  name: "Hero",
+  name: "HeroImg",
   props: {
     header: {
       type: String,
       default: "Hero Text",
     },
   },
+    components: {
+      PageNav,
+    },
+
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#hero {
+#hero-img {
   display: grid;
   min-height: 320px;
 }
 #hero-text {
   display: grid;
   grid-row: 1 / 8;
-  justify-content: center;
+  justify-content: left;
   text-align: center;
-  align-items: center !important;
+  align-items: end !important;
 }
 </style>
