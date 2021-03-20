@@ -24,7 +24,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: "Designer of things",
+      default: "Designer of web things",
     },
   },
 };
@@ -43,6 +43,7 @@ export default {
 }
 #hero-text {
   display: grid;
+  margin-top: -2.8em;
   grid-row: 1 / 8;
   justify-content: center;
   text-align: center;
