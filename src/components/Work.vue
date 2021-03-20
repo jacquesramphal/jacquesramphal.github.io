@@ -1,14 +1,13 @@
 <template>
-  <div id="top">
-      <Hero header="Designer/Developer" class="" />
+  <div>
     <div id="grid-parent" class="grid-parent container">
       <ThumbSmall
+        id="top"
         data-aos="fade"
         data-aos-duration="1000"
         data-aos-delay="0"
         data-aos-once="true"
         data-aos-anchor-placement="top"
-        class="yellow"
         title="Monogram"
         filename="j.svg"
       />
@@ -18,7 +17,6 @@
         data-aos-delay="100"
         data-aos-once="true"
         data-aos-anchor-placement="top"
-        class="grey"
         title="Giftbook"
         filename="gob.svg"
       />
@@ -28,7 +26,7 @@
         data-aos-delay="200"
         data-aos-once="true"
         data-aos-anchor-placement="top"
-        class="pink hidemobile"
+        class="hidemobile"
         title=""
         filename="avatar.svg"
       />
@@ -38,7 +36,7 @@
         data-aos-delay="200"
         data-aos-once="true"
         data-aos-anchor-placement="top"
-        class="pink showmobile"
+        class="showmobile"
         title="Avatar"
         filename="avatar.svg"
       />
@@ -48,7 +46,6 @@
         data-aos-delay="300"
         data-aos-once="true"
         data-aos-anchor-placement="top"
-        class="grey"
         title="Small Template"
         filename="template-m.svg"
       />
@@ -58,7 +55,6 @@
         data-aos-delay="400"
         data-aos-once="true"
         data-aos-anchor-placement="top"
-        class="rose"
         title="DevopsDays"
         filename="dod.svg"
       />
@@ -68,7 +64,6 @@
         data-aos-delay="500"
         data-aos-once="true"
         data-aos-anchor-placement="top"
-        class="blue"
         title="Project Template"
         filename="glo.svg"
       />
@@ -77,7 +72,6 @@
 </template>
 
 <script>
-import Hero from "@/components/Hero.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
 import ThumbMedium from "@/components/ThumbMedium.vue";
@@ -86,7 +80,6 @@ import ThumbLarge from "@/components/ThumbLarge.vue";
 export default {
   name: "Work",
   components: {
-    Hero,
     ThumbSmall,
     ThumbSmall2,
     ThumbMedium,

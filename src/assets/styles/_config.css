@@ -1,5 +1,6 @@
 :root {
   /* NEUTRAL */
+  --color-offblack: #202124;
   --color-dark: #24292e;
   --color-medium: #666;
   --color-light: #999;
@@ -9,6 +10,7 @@
 
   /* STATES */
   --color-action: #0086e6;
+  --color-action-dark: #fcb13a;
   --color-danger: #b12026;
   --color-success: #0dba38;
   --color-disabled: #f2f2f2;

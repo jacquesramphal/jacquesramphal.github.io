@@ -1,6 +1,6 @@
 <template>
   <div id="textdefault">
-    <h6 class="">{{ eyebrow }}</h6>
+    <h6 class="subtle">{{ eyebrow }}</h6>
     <h3>{{ header }}</h3>
     <p>{{ details }}</p>
     <!-- <MyButton 

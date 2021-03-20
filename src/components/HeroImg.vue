@@ -7,7 +7,7 @@
 
       <div id="hero-text" class="">
         <h2
-          class="subtle"
+          class=""
           data-aos="fade"
           data-aos-duration="1000"
           data-aos-easing="ease-in-out"
@@ -40,6 +40,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+* {
+  color: inherit;
+  mix-blend-mode: normal;
+}
 #hero-img {
   display: grid;
   min-height: 320px;

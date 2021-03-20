@@ -3,7 +3,7 @@
     <section class="">
       <div id="bio-text" class="Full container">
         <h2
-          class="subtle"
+          class=""
           data-aos="fade"
           data-aos-duration="1000"
           data-aos-easing="ease-in-out"

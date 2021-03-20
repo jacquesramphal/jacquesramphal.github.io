@@ -1,14 +1,14 @@
 <template>
   <div class="container">
-    <!-- <h5 class="subtle showmobile" data-aos="fade">Jake Ramphal</h5>
-      <h5 class="subtle hidemobile" data-aos="fade">{{ title }}</h5>
+    <!-- <h5 class="showmobile" data-aos="fade">Jake Ramphal</h5>
+      <h5 class="hidemobile" data-aos="fade">{{ title }}</h5>
       <h5 class="justify-end" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="0"><a href="#/info">Info</a></h5> -->
     <nav class="">
-      <h1 id="wordmark" class="subtle hidemobile">
+      <h1 id="wordmark" class="hidemobile">
         <!-- <img id="logo" draggable="false" :src="require(`@/assets/images/j-monogram.svg`)" /> -->
         Topic Tag
       </h1>
-      <h1 class="subtle showmobile">
+      <h1 class="showmobile">
         Jake Ramphal
       </h1>
       <ul class="justify-end">
@@ -42,6 +42,10 @@ export default {
 };
 </script>
 <style scoped>
+* {
+  color: inherit !important;
+  mix-blend-mode: normal;
+}
 .container {
   padding-bottom: 2.8em !important;
 }

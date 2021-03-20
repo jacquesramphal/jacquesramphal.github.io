@@ -69,7 +69,7 @@ export default {
 
 <style scoped>
 * {
-  color: inherit;
+color: inherit; 
 }
 #details {
   /* height: 100vh; */

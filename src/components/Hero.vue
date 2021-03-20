@@ -4,7 +4,7 @@
 
       <div id="hero-text" class="">
         <h2
-          class="subtle"
+          class=""
           data-aos="fade"
           data-aos-duration="1000"
           data-aos-easing="ease-in-out"
@@ -24,7 +24,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: "Hero Text",
+      default: "Designer of things",
     },
   },
 };
@@ -32,9 +32,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+* {
+  color: inherit;
+  mix-blend-mode: normal;
+}
 #hero {
   display: grid;
   min-height: 320px;
+  /* color: var(--color-action2) */
 }
 #hero-text {
   display: grid;

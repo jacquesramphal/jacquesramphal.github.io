@@ -7,6 +7,13 @@
 
 img {
   max-width: 100%;
+  height: 101%;
+  width: 101%;
+  margin-top: -1px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  object-fit: cover;
 }
 /* .bg-j {
     background-image: url("i/j-bg5.svg");
@@ -30,7 +37,7 @@ img {
   background-attachment: fixed;
   background-size: cover;
   background-position: 0 0;
-  mix-blend-mode: multiply !important;
+  /* mix-blend-mode: multiply !important; */
 }
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
