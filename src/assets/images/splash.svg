@@ -1,0 +1,27 @@
+<svg width="1440" height="800" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="splash">
+<rect id="Mask" width="1440" height="800" fill="#1F90FF" fill-opacity="0.25"/>
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1440" height="800">
+<rect id="sky" width="1440" height="800" fill="white"/>
+</mask>
+<g mask="url(#mask0)">
+<g id="sun" filter="url(#filter0_i)">
+<path d="M1588 14.5C1588 137.659 1488.16 237.5 1365 237.5C1241.84 237.5 1142 137.659 1142 14.5C1142 -108.66 1241.84 -208.5 1365 -208.5C1488.16 -208.5 1588 -108.66 1588 14.5Z" fill="#FFCB77"/>
+</g>
+<path id="Vector 2" opacity="0.6" d="M1132.5 518.629C1090.1 531.429 1021.83 594.295 993 624.128V874.128L1774 833.128C1777.83 698.961 1773.6 453.344 1724 453.344C1662 453.344 1644.58 425.51 1611.5 430.628C1413 461.345 1335.5 428.129 1299 430.629C1262.5 433.129 1185.5 502.629 1132.5 518.629Z" fill="#40E1A4"/>
+<path id="Vector 1" d="M102 261.001C72 284 -60 420.834 -85 415.001L1 852.501H1439.5V763.501C1313.5 744.501 1175 617.501 1087.5 641.501C1000 665.501 954 547.501 832.5 537.001C711 526.501 647 422.501 614.5 415.001C582 407.501 563.5 393.501 455 342.501C346.5 291.501 287.5 283.001 225 284.001C162.5 285.001 125.25 243.177 102 261.001Z" fill="#3ACB94"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_i" x="1142" y="-208.5" width="446" height="446" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="85"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.603103 0 0 0 0 0.242854 0 0 0 1 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+</filter>
+</defs>
+</svg>
