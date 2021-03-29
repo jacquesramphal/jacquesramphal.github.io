@@ -3,7 +3,7 @@
     <span class="caption"
       ><p>{{ title }}</p></span
     >
-    <router-link to="project"
+    <router-link :to="`${route}`"
       ><img draggable="false" :src="require(`@/assets/images/${filename}`)"
     /></router-link>
   </span>
@@ -20,6 +20,10 @@ export default {
     filename: {
       type: String,
       default: "template.svg",
+    },
+    route: {
+      type: String,
+      default: "Project",
     },
   },
 };

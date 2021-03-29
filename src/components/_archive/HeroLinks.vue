@@ -51,7 +51,7 @@
 
 <script>
 export default {
-  name: "MainHero2",
+  name: "HeroLinks",
   props: {},
 };
 </script>

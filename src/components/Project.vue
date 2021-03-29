@@ -1,26 +1,25 @@
 <template>
   <div id="project" class="">
-    <HeroImg header="Project Template" class="eightyvh" />
-    <ThumbLarge id="heroimg" title="" filename="template.svg"/>
+    <HeroProject eyebrow="Eyebrow" title="Project Template" class="eightyvh" />
+    <ThumbLarge id="heroimg" title="" filename="template.svg" />
     <DetailCard id="detail1" class="" header="Process" />
-  
-  <div class="container">
-    <ThumbLarge />
-  </div>
-      <DetailCard id="detail2" class="" header="My Role" />
 
+    <div class="container">
+      <ThumbLarge />
+    </div>
+    <DetailCard id="detail2" class="" header="My Role" />
   </div>
 </template>
 
 <script>
-import HeroImg from "@/components/HeroImg.vue";
+import HeroProject from "@/components/HeroProject.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
 
 export default {
   name: "Project",
   components: {
-    HeroImg,
+    HeroProject,
     ThumbLarge,
     DetailCard,
   },
@@ -30,8 +29,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #project > .container {
-  padding-top: 0 !important; 
-  padding-bottom: 0 !important; 
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 #heroimg {
   border-radius: 0 !important;

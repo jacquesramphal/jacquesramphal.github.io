@@ -4,6 +4,7 @@ import Work from "@/components/Work.vue";
 import Hero from "@/components/Hero.vue";
 import Project from "@/components/Project.vue";
 import Info from "@/components/Info.vue";
+import Library from "@/components/Library.vue";
 
 Vue.use(Router);
 
@@ -29,6 +30,11 @@ export default new Router({
       path: "/project",
       name: "Project",
       component: Project,
+    },
+    {
+      path: "/library",
+      name: "Library",
+      component: Library,
     },
   ],
   scrollBehavior () {

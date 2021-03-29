@@ -13,7 +13,7 @@
         filename="about.jpg"
       />
     </div>
-    <DetailCard header="Skills" />
+    <DetailCard header="Skills" class="reversed" />
     <DetailCard header="Experience" />
   </div>
 </template>

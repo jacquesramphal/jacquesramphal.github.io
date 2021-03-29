@@ -11,7 +11,7 @@
         {{ header }}
       </h4>
       <TextDefault
-        data-aos="fade-up"
+        data-aos="fade"
         data-aos-duration="1000"
         data-aos-delay="200"
         data-aos-once="true"
@@ -19,7 +19,7 @@
         details="Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet. Lorem ipsum doler optima sit amet."
       />
       <TextDefault
-        data-aos="fade-up"
+        data-aos="fade"
         data-aos-duration="1000"
         data-aos-delay="300"
         data-aos-once="true"
@@ -27,7 +27,7 @@
         details="Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet. Lorem ipsum doler optima sit amet."
       />
       <TextDefault
-        data-aos="fade-up"
+        data-aos="fade"
         data-aos-duration="1000"
         data-aos-delay="400"
         data-aos-once="true"
@@ -35,7 +35,7 @@
         details="Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet. Lorem ipsum doler optima sit amet."
       />
       <TextDefault
-        data-aos="fade-up"
+        data-aos="fade"
         data-aos-duration="1000"
         data-aos-delay="500"
         data-aos-once="true"

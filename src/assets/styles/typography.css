@@ -55,10 +55,6 @@ p {
   line-height: 1.8;
   font-weight: 400;
 }
-.reversed {
-  color: var(--color-white) !important;
-  mix-blend-mode: normal !important;
-}
 .subtle {
   color: var(--color-light);
 }
@@ -104,6 +100,9 @@ li {
   text-decoration: none;
   padding-left: 32px;
   list-style-type: none;
+}
+li:first-child {
+  padding-left: 0;
 }
 /* ---- LINKS/BUTTONS ---- */
 @keyframes strike{

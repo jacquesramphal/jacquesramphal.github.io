@@ -1,17 +1,11 @@
 <template>
   <div class="container">
-    <!-- <h5 class="showmobile" data-aos="fade">Jake Ramphal</h5>
-      <h5 class="hidemobile" data-aos="fade">{{ title }}</h5>
-      <h5 class="justify-end" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="0"><a href="#/info">Info</a></h5> -->
     <nav class="">
-      <h1 id="wordmark" class="hidemobile">
+      <h1 id="tag" class="">
         <!-- <img id="logo" draggable="false" :src="require(`@/assets/images/j-monogram.svg`)" /> -->
-        Topic Tag
+        {{ tag }}
       </h1>
-      <h1 class="showmobile">
-        Jake Ramphal
-      </h1>
-      <ul class="justify-end">
+      <ul class="">
         <li
           class=""
           data-aos="fade-left"
@@ -39,6 +33,12 @@
  */
 export default {
   name: "PageNav",
+  props: {
+    tag: {
+      type: String,
+      default: "Topic or Tag",
+    },
+  },
 };
 </script>
 <style scoped>
@@ -52,9 +52,10 @@ export default {
 nav {
   /* margin: 0 0 2.8em 0; */
   display: grid;
-  grid-gap: 0;
-  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1em;
+  grid-template-columns: 1fr;
 }
+
 nav h1,
 li {
   font-size: 2em;
@@ -62,7 +63,10 @@ li {
   font-weight: 400;
   margin: 0;
 }
-#wordmark a {
+#tag {
+  color: var(--color-light) !important;
+}
+#tag a {
   color: var(--pink) !important;
   text-decoration: none !important;
 }
@@ -74,8 +78,14 @@ li {
   .container {
     padding-bottom: 4em !important;
   }
+
   nav {
+    grid-template-columns: repeat(2, 1fr);
     /* margin: 0 0 3.6em 0; */
+  }
+  ul {
+    position: relative;
+    justify-self: end;
   }
 }
 </style>

@@ -1,15 +1,13 @@
 <template>
-  <div id="hero-img" class="">
-<PageNav 
-  header='test'
-/>
-    <div id="" class="bg-fixed bg-template container">
+  <div id="hero-bg" class="fullvh">
+    <div class="container">
 
       <div id="hero-text" class="">
         <h2
           class=""
           data-aos="fade"
-          data-aos-duration="1000"
+          data-aos-delay="500"          
+          data-aos-duration="2000"
           data-aos-easing="ease-in-out"
           data-aos-anchor-placement="top"
         >
@@ -21,20 +19,15 @@
 </template>
 
 <script>
-import PageNav from "@/components/PageNav.vue";
 
 export default {
-  name: "HeroImg",
+  name: "HeroBg",
   props: {
     header: {
       type: String,
-      default: "Hero Text",
+      default: "Designer of web things",
     },
   },
-    components: {
-      PageNav,
-    },
-
 };
 </script>
 
@@ -44,15 +37,26 @@ export default {
   color: inherit;
   mix-blend-mode: normal;
 }
-#hero-img {
+#hero-bg {
   display: grid;
   min-height: 320px;
+  /* color: var(--color-action2) */
+  background-image: url("../assets/images/splash.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100% 100%;
 }
 #hero-text {
   display: grid;
+  margin-top: -2.8em;
   grid-row: 1 / 8;
-  justify-content: left;
+  justify-content: center;
   text-align: center;
-  align-items: end !important;
+  align-items: center !important;
+}
+h2 {
+  font-weight: 600;
+  color: white;
+
 }
 </style>

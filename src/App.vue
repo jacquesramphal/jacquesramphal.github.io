@@ -2,21 +2,16 @@
   <div id="app" data-aos="fade">
     <StickyNav />
     <router-view />
-    <!-- <DetailCard 
-      class="fullvh reversed offblack"
-      /> -->
   </div>
 </template>
 
 <script>
 import StickyNav from "./components/StickyNav.vue";
-// import DetailCard from "./components/card/DetailCard.vue";
 
 export default {
   name: "App",
   components: {
     StickyNav,
-    // DetailCard
   },
 };
 </script>
@@ -38,6 +33,11 @@ export default {
 a:hover {
   color: var(--color-action) !important;
 }
+.reversed {
+  color: var(--color-white) !important;
+  mix-blend-mode: normal !important;
+  background: var(--color-offblack);
+}
 
 @media (prefers-color-scheme: dark) {
   #app {
@@ -48,5 +48,11 @@ a:hover {
   #app a:hover {
     color: var(--color-action-dark) !important;
   }
+  .reversed {
+  color: var(--color-dark) !important;
+  background: var(--color-white);
+  mix-blend-mode: normal !important;
 }
+}
+
 </style>

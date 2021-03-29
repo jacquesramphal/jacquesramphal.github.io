@@ -66,6 +66,7 @@
         data-aos-anchor-placement="top"
         title="Project Template"
         filename="glo.svg"
+        route="Project"
       />
     </div>
   </div>
