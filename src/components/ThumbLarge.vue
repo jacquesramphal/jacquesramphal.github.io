@@ -3,7 +3,8 @@
     <span class="caption"
       ><p>{{ title }}</p></span
     >
-    <router-link :to="`${route}`"
+    <router-link :to="`${route}`">
+      <span class="overlay"> </span
       ><img draggable="false" :src="require(`@/assets/images/${filename}`)"
     /></router-link>
   </span>

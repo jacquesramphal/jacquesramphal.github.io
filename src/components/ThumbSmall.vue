@@ -1,10 +1,11 @@
 <template>
   <span class="grid-card">
     <span class="caption">
-      <p>{{ title }}</p
-    ></span>
-    <a class=""
-      ><img draggable="false" :src="require(`@/assets/images/${filename}`)"
+      <p>{{ title }}</p></span
+    >
+    <span class="overlay"> </span>
+    <a class="">
+      <img draggable="false" :src="require(`@/assets/images/${filename}`)"
     /></a>
   </span>
 </template>
@@ -32,6 +33,8 @@ export default {
 
 <style scoped>
 @import "../assets/styles/all.css";
+.caption {
+}
 .grid-card {
 }
 * {

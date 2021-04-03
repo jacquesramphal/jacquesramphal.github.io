@@ -2,7 +2,11 @@
   <div id="hero" class="">
     <div class="container">
       <div id="hero-text" class="">
+<z-text>
         <h2
+          data-z 
+          data-z-layers="3" 
+          data-z-depth="0.5em"
           class=""
           data-aos="fade"
           data-aos-duration="1000"
@@ -11,6 +15,7 @@
         >
           {{ header }}
         </h2>
+        </z-text>
       </div>
     </div>
   </div>

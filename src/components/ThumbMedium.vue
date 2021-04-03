@@ -3,6 +3,8 @@
     <span class="caption"
       ><p>{{ title }}</p></span
     >
+        <span class="overlay">
+    </span>
     <a class=""
       ><img draggable="false" :src="require(`@/assets/images/${filename}`)"
     /></a>
@@ -27,4 +29,5 @@ export default {
 
 <style scoped>
 @import "../assets/styles/all.css";
+
 </style>

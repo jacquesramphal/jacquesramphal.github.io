@@ -3,6 +3,7 @@
     <span class="caption"
       ><p>{{ title }}</p></span
     >
+    <span class="overlay"> </span>
     <div id="avatar" draggable="false" />
   </span>
 </template>
@@ -27,10 +28,10 @@ export default {
   background-size: 100%;
   background-image: url("../assets/images/avatar.svg");
 }
-#avatar:hover {
+span:hover > #avatar {
   background-image: url("../assets/images/avatar-h.svg");
 }
-#avatar:active {
+span:active > #avatar {
   background-image: url("../assets/images/avatar-a.svg");
 }
 </style>

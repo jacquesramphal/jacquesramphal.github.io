@@ -1956,6 +1956,11 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@namchee/vue-ztext@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@namchee/vue-ztext/-/vue-ztext-1.0.0.tgz#518b2f2d941e4324f6ba90e4596cc8626184d5ed"
+  integrity sha512-rensiNYrDY9+fNes+jxUDTfM5//0qRFaO3g14Yw4EF2J3b/aT430Psq/8/fdtXEDfoBRZw7lp/SuVTjZEqDpKA==
+
 "@nodelib/fs.scandir@2.1.4":
   version "2.1.4"
   resolved "https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.4.tgz"

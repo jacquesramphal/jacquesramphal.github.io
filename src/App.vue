@@ -8,12 +8,14 @@
 <script>
 import StickyNav from "./components/StickyNav.vue";
 
+
 export default {
   name: "App",
   components: {
     StickyNav,
   },
 };
+
 </script>
 
 <!-- global styles -->
