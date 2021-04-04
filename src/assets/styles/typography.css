@@ -7,53 +7,52 @@
 
 /* Header AAA */
 h1 {
-  margin: 0;
+  font-size: 2em;
   font-weight: 400;
   line-height: 1.2;
-  font-size: 2em;
+  margin: 0;
   mix-blend-mode: multiply;
   
 }
 h2 {
   font-size: 4.8em;
-  margin: 0;
-  line-height: 1.5;
   font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
   mix-blend-mode: multiply;
-
 }
 h3 {
   font-size: 3.6em;
-  margin: 0;
-  line-height: 1.4;
   font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
 }
 h4 {
   font-size: 2.8em;
-  line-height: 1.5;
   font-weight: 400;
+  line-height: 1.5;
   margin: 0;
 }
 h5 {
   font-size: 2em;
-  line-height: 1.5;
   font-weight: 400;
+  line-height: 1.5;
   margin: 0;
 
 }
 /* eyebrow text */
 h6 {
   font-size: 2em;
-  line-height: 1.5;
   font-weight: 400;
+  line-height: 1.5;
   margin: 0;
 
 }
 p {
-  margin: 0;
   font-size: 2em;
-  line-height: 1.8;
   font-weight: 400;
+  line-height: 1.8;
+  margin: 0;
 }
 .subtle {
   color: var(--color-light);
@@ -70,40 +69,32 @@ p {
   text-rendering: optimizeLegibility;
 } */
 .caption {
-  mix-blend-mode: multiply;
   display: block !important;
-  position: absolute;
   float: left;
-  padding-top: 2.2em;
+  mix-blend-mode: multiply;
   padding-left: 2.8em;
+  padding-top: 2.2em;
+  position: absolute;
   text-rendering: optimizeLegibility;
 }
 
 .caption p {
-  display: block !important;
-  -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
   color: transparent !important;
+  display: block !important;
+  transition: all 0.1s ease-in-out;
 }
 .grid-card:hover .caption p {
   color: var(--color-dark) !important;
-  mix-blend-mode: multiply !important;
   display: block !important;
+  mix-blend-mode: multiply !important;
 }
 .grid-card:active .caption p {
   /* display: none !important; */
 }
-li {
-  float: left;
-  text-decoration: none;
-  padding-left: 32px;
-  list-style-type: none;
-}
-li:first-child {
-  padding-left: 0;
-}
+
 /* ---- LINKS/BUTTONS ---- */
 @keyframes strike{
   0%   { width : 0; }
@@ -183,18 +174,18 @@ h3 a:active {
   overflow: hidden;
 }
 .nav-link a:after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  right: 0;
-  width: 0;
   background: #4e92df;
-  mix-blend-mode: multiply !important;
-  height: 2px;
   bottom: -8px;
-  transition-property: width;
+  content: "";
+  height: 2px;
+  mix-blend-mode: multiply !important;
+  position: absolute;
+  right: 0;
   transition-duration: 0.2s;
+  transition-property: width;
   transition-timing-function: ease-out;
+  width: 0;
+  z-index: -1;
 }
 .nav-link a:hover:after,
 .nav-link a:focus:after,

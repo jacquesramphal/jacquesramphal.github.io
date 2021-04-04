@@ -103,7 +103,15 @@ li {
   font-weight: 400;
   margin: 0;
 }
-
+li {
+  float: left;
+  text-decoration: none;
+  padding-left: 32px;
+  list-style-type: none;
+}
+li:first-child {
+  padding-left: 0;
+}
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
 }

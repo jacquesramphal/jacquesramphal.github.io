@@ -3,8 +3,6 @@ import router from './router'
 import App from './App.vue'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-// import ZText from '@namchee/vue-ztext'
-
 
 
 Vue.config.productionTip = false
@@ -17,4 +15,3 @@ new Vue({
   },
 }).$mount('#app')
 
-// App.use(ZText);
