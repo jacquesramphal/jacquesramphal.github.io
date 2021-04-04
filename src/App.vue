@@ -55,6 +55,9 @@ a:hover {
   background: var(--color-white);
   mix-blend-mode: normal !important;
 }
+.overlay {
+  display: none;
+}
 }
 
 </style>

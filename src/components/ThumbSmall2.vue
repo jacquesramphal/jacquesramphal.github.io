@@ -4,7 +4,7 @@
       ><p>{{ title }}</p></span
     >
     <span class="overlay"> </span>
-    <div id="avatar" draggable="false" />
+    <div id="avatar" draggable="false" :alt="(`${alt}`)" />
   </span>
 </template>
 
@@ -14,6 +14,10 @@ export default {
   props: {
     title: String,
     filename: String,
+    alt: {
+      type: String,
+      default: "This is an image",
+    },
   },
 };
 </script>

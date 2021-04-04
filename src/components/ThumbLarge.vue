@@ -4,9 +4,14 @@
       ><p>{{ title }}</p></span
     >
     <router-link :to="`${route}`">
-      <span class="overlay"> </span
-      ><img draggable="false" :src="require(`@/assets/images/${filename}`)"
-    /></router-link>
+      <span class="overlay"></span
+      >
+        <img 
+          draggable="false" 
+          :src="require(`@/assets/images/${filename}`)"
+          :alt="(`${alt}`)"
+        />
+      </router-link>
   </span>
 </template>
 
@@ -21,6 +26,10 @@ export default {
     filename: {
       type: String,
       default: "template.svg",
+    },
+    alt: {
+      type: String,
+      default: "This is an image",
     },
     route: {
       type: String,

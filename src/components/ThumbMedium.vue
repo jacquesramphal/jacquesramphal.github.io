@@ -5,9 +5,13 @@
     >
         <span class="overlay">
     </span>
-    <a class=""
-      ><img draggable="false" :src="require(`@/assets/images/${filename}`)"
-    /></a>
+    <a class="">
+      <img 
+        draggable="false" 
+        :src="require(`@/assets/images/${filename}`)"
+        :alt="(`${alt}`)"
+      />
+    </a>
   </span>
 </template>
 
@@ -22,6 +26,10 @@ export default {
     filename: {
       type: String,
       default: "template.svg",
+    },
+    alt: {
+      type: String,
+      default: "This is an image",
     },
   },
 };
