@@ -13,7 +13,6 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@namchee/vue-ztext": "^1.0.0",
     "aos": "^3.0.0-beta.6",
     "bootstrap": "^4.5.3",
     "bootstrap-vue": "^2.17.3",
