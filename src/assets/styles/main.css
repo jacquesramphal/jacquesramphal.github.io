@@ -20,13 +20,13 @@
   width: 100%;
 }
 html {
-  font-size: inherit;
+  font-size: 10px !important;
 }
 .container {
   display: grid;
   height: auto;
   margin: 0;
-  padding: 2.8em !important;
+  padding: 2.8rem !important;
   position: relative;
   width: auto;
 }
