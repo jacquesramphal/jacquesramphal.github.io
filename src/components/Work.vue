@@ -10,6 +10,7 @@
         data-aos-anchor-placement="top"
         title="Monogram"
         filename="j.svg"
+        alt="J Monogram"
       />
       <ThumbSmall
         data-aos="fade"
@@ -19,6 +20,8 @@
         data-aos-anchor-placement="top"
         title="Giftbook"
         filename="gob.svg"
+        alt="Giftbook"
+
       />
       <ThumbSmall2
         data-aos="fade"
@@ -29,6 +32,7 @@
         class="hidemobile"
         title=""
         filename="avatar.svg"
+        alt="Avatar"
       />
       <ThumbSmall
         data-aos="fade"
@@ -39,6 +43,7 @@
         class="showmobile"
         title="Avatar"
         filename="avatar.svg"
+        alt="Avatar"
       />
       <ThumbSmall
         data-aos="fade"
@@ -48,6 +53,7 @@
         data-aos-anchor-placement="top"
         title="Small Template"
         filename="template-m.svg"
+        alt="Template Project"
       />
       <ThumbMedium
         data-aos="fade"
@@ -57,6 +63,7 @@
         data-aos-anchor-placement="top"
         title="DevopsDays"
         filename="dod.svg"
+        alt="DevopsDays Toronto Identity"
       />
       <ThumbLarge
         data-aos="fade"
@@ -67,6 +74,7 @@
         title="Project Template"
         filename="template.svg"
         route="Project"
+        alt="Template Project"
       />
     </div>
   </div>

@@ -1,16 +1,22 @@
 <template>
   <div id="info" class="">
     <div id="grid-parent" class="grid-parent container">
-      <TextDefault />
-      <ThumbMedium
+      <TextDefault
         data-aos="fade"
-        data-aos-duration="4000"
-        data-aos-delay="0"
+        data-aos-duration="1000"
+        data-aos-delay="200"
+        data-aos-once="true"
+      />
+      <ThumbMedium
+          data-aos="fade"
+        data-aos-duration="1000"
+        data-aos-delay="400"
         data-aos-once="true"
         data-aos-anchor-placement="top"
         class=""
         title=""
         filename="about.jpg"
+        alt="Jacques working at Myplanet"
       />
     </div>
     <DetailCard header="Skills" class="reversed" />

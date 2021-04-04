@@ -1,11 +1,31 @@
 <template>
   <div id="project" class="">
     <HeroProject eyebrow="Eyebrow" title="Project Template" class="eightyvh" />
-    <ThumbLarge id="heroimg" title="" filename="template.svg" />
+    <ThumbLarge
+      id="heroimg"
+      data-aos="fade"
+      data-aos-duration="1000"
+      data-aos-delay="500"
+      data-aos-once="true"
+      data-aos-anchor-placement="top"
+      title="Project Template"
+      filename="template.svg"
+      alt="Template Project Hero Image"
+    />
     <DetailCard id="detail1" class="" header="Process" />
 
     <div class="container">
-      <ThumbLarge />
+      <ThumbLarge
+        id="heroimg"
+        data-aos="fade"
+        data-aos-duration="1000"
+        data-aos-delay="500"
+        data-aos-once="true"
+        data-aos-anchor-placement="top"
+        title="Project Template"
+        filename="template.svg"
+        alt="Template Project Hero Image"
+      />
     </div>
     <DetailCard id="detail2" class="" header="My Role" />
   </div>
