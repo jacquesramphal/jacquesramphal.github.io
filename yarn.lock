@@ -5147,7 +5147,7 @@
   dependencies:
     "once" "^1.4.0"
 
-"enhanced-resolve@^4.0.0":
+"enhanced-resolve@^4.0.0", "enhanced-resolve@^4.5.0":
   "integrity" "sha512-Nv9m36S/vxpsI+Hc4/ZGRs0n9mXqSWGGq49zxb/cJfPAQMbUtttJAlNPS4AQzaBdw/pKskw5bMbekT/Y7W/Wlg=="
   "resolved" "https://registry.npmjs.org/enhanced-resolve/-/enhanced-resolve-4.5.0.tgz"
   "version" "4.5.0"
@@ -5155,8 +5155,6 @@
     "graceful-fs" "^4.1.2"
     "memory-fs" "^0.5.0"
     "tapable" "^1.0.0"
-
-"enhanced-resolve@^4.5.0":
 
 "entities@^1.1.1", "entities@^1.1.2":
   "integrity" "sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w=="
