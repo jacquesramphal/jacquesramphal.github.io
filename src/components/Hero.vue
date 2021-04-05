@@ -34,6 +34,7 @@ export default {
   color: inherit;
   mix-blend-mode: normal;
 }
+
 #hero {
   display: grid;
   min-height: 320px;

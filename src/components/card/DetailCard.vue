@@ -71,8 +71,13 @@ export default {
 * {
 color: inherit; 
 }
+.container {
+/*  padding-top: 4rem !important;
+  padding-bottom: 9.6rem !important; */
+}
 #details {
   /* height: 100vh; */
+  
 }
 #section-header {
   grid-column: 1 / 4;
