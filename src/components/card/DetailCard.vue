@@ -7,6 +7,7 @@
         data-aos-duration="1000"
         data-aos-delay="0"
         data-aos-once="true"
+        tabIndex="0"
       >
         {{ header }}
       </h4>

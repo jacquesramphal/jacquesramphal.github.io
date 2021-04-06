@@ -37,19 +37,30 @@ html {
   z-index: 100;
 }
 
-/* ---- CONSOLIDATE ME ---- */
-.overflow {
-  overflow: hidden;
-}
-
-/* ---- GRID ---- */
-
+/* ---- ACCESSIBILITY ---- */
+  
 /** GLOBAL HIGHLIGHT COLOUR **/
 ::selection {
-  background: #cfe6ff;
+  background: rgba(21, 156, 228, 0.2);
   /* WebKit/Blink Browsers */
 }
 ::-moz-selection {
-  background: #cfe6ff;
+  background: rgba(21, 156, 228, 0.2);
   /* Gecko Browsers */
 }
+:focus {
+  outline: 8px solid rgba(21, 156, 228, 0.4);
+  outline-offset: .8rem;
+}
+/* outline: 3px solid var(--color-action) !important; */
+/* box-shadow: 20px 15px 30px yellow, -20px 15px 30px lime, -20px -15px 30px blue, 20px -15px 30px red;} */
+
+/* outline: none;
+  transform: scale(1.08) !important; */
+/* 
+  outline: 3px dashed var(--color-action);
+  outline-offset: 10px; */
+/* 
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
+} */

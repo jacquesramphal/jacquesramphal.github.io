@@ -1,8 +1,7 @@
 <template>
   <span class="grid-card hero grey">
-    <span class="caption"
-      ><p>{{ title }}</p></span
-    >
+    <span tabindex="0" class="caption">
+      <p>{{ title }}</p></span>
     <router-link :to="`${route}`">
       <span class="overlay"></span
       >

@@ -4,10 +4,11 @@
       <div id="hero-text" class="">
         <h2
           class=""
-          data-aos="fade"
+          data-aos-anchor-placement="top"
           data-aos-duration="1000"
           data-aos-easing="ease-in-out"
-          data-aos-anchor-placement="top"
+          data-aos="fade"
+          tabindex="0"
         >
           {{ header }}
         </h2>

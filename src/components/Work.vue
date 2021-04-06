@@ -31,7 +31,7 @@
         data-aos-once="true"
         data-aos-anchor-placement="top"
         class="hidemobile"
-        title=""
+        title="Avatar"
         filename="avatar.svg"
         alt="Avatar"
       />
@@ -106,6 +106,7 @@ export default {
   font-size: 10px;
 }
 .container {
+  background-color: var(--color-offwhite);
   /* padding-top: 2.8em !important; */
 }
 

@@ -9,36 +9,39 @@
   >
     <nav class="">
       <h1
-        id="wordmark"
         class="hidemobile"
-        data-aos="fade-right"
-        data-aos-duration="1000"
-        data-aos-delay="500"
-        data-aos-once="true"
         data-aos-anchor-placement="top"
+        data-aos-delay="500"
+        data-aos-duration="1000"
+        data-aos-once="true"
+        data-aos="fade-right"
+        id="wordmark"
+        tabindex="1"
       >
         <a href="#/">Jacques Ramphal</a>
       </h1>
 
       <h1
-        id="wordmark"
         class="showmobile"
-        data-aos="fade-right"
-        data-aos-duration="1000"
-        data-aos-delay="500"
-        data-aos-once="true"
         data-aos-anchor-placement="top"
+        data-aos-delay="500"
+        data-aos-duration="1000"
+        data-aos-once="true"
+        data-aos="fade-right"
+        id="wordmark"
+        tabindex="1"
       >
         <a href="#/">Jake Ramphal</a>
       </h1>
       <ul class="justify-end">
         <li
           class=""
-          data-aos="fade-left"
-          data-aos-duration="1000"
-          data-aos-delay="1200"
-          data-aos-once="true"
           data-aos-anchor-placement="top"
+          data-aos-delay="1200"
+          data-aos-duration="1000"
+          data-aos-once="true"
+          data-aos="fade-left"
+          tabindex="2"
         >
           <!-- <router-link to="{ path: 'play/'+'#top'}">Work</router-link>
           <router-link to="Work">Work</router-link> -->
@@ -51,9 +54,10 @@
           data-aos-delay="1500"
           data-aos-once="true"
           data-aos-anchor-placement="top"
+          tabindex="3"
         >
           <!-- <router-link :to="{ 'info/'+'#info'}">Info</router-link> -->
-        <a href="mailto:jacquesramphal@gmail.com">Contact ✨</a>
+          <a href="mailto:jacquesramphal@gmail.com">Email</a>
           <!-- <router-link to="Info">Info</router-link> -->
         </li>
       </ul>
@@ -118,8 +122,8 @@ li:first-child {
 }
 
 @media (prefers-color-scheme: dark) {
-.container {
-  background: #0C0C0D;
-}
+  .container {
+    background: #0c0c0d;
+  }
 }
 </style>

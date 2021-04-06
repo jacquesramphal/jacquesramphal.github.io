@@ -1,14 +1,13 @@
 <template>
   <span class="grid-card">
-    <span class="caption">
-      <p>{{ title }}</p></span
-    >
+    <span tabindex="0" class="caption">
+      <p>{{ title }}</p></span>
     <span class="overlay"> </span>
     <a class="">
-      <img 
-        draggable="false" 
+      <img
+        draggable="false"
         :src="require(`@/assets/images/${filename}`)"
-        :alt="(`${alt}`)"
+        :alt="`${alt}`"
       />
     </a>
   </span>

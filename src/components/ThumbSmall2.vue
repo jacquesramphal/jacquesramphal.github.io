@@ -1,8 +1,7 @@
 <template>
   <span class="grid-card">
-    <span class="caption"
-      ><p>{{ title }}</p></span
-    >
+    <span tabindex="0" class="caption">
+      <p>{{ title }}</p></span>
     <span class="overlay"> </span>
     <div id="avatar" draggable="false" :alt="(`${alt}`)" />
   </span>
