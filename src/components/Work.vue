@@ -1,5 +1,6 @@
 <template>
   <div>
+  <Hero />
     <div id="grid-parent" class="grid-parent container">
       <ThumbSmall
         id="top"
@@ -81,6 +82,7 @@
 </template>
 
 <script>
+import Hero from "@/components/Hero.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
 import ThumbMedium from "@/components/ThumbMedium.vue";
@@ -89,6 +91,7 @@ import ThumbLarge from "@/components/ThumbLarge.vue";
 export default {
   name: "Work",
   components: {
+    Hero,
     ThumbSmall,
     ThumbSmall2,
     ThumbMedium,

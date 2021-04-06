@@ -1,7 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Work from "@/components/Work.vue";
-import Hero from "@/components/Hero.vue";
 import Project from "@/components/Project.vue";
 import Info from "@/components/Info.vue";
 import Library from "@/components/Library.vue";
@@ -14,11 +13,6 @@ export default new Router({
     {
       path: "/",
       name: "",
-      component: Hero,
-    },
-    {
-      path: "/work",
-      name: "Work",
       component: Work,
     },
     {

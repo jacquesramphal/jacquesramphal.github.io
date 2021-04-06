@@ -40,8 +40,9 @@
           data-aos-once="true"
           data-aos-anchor-placement="top"
         >
-          <!-- <router-link to="{ path: 'play/'+'#top'}">Work</router-link> -->
-          <router-link to="Work">Work</router-link>
+          <!-- <router-link to="{ path: 'play/'+'#top'}">Work</router-link>
+          <router-link to="Work">Work</router-link> -->
+          <router-link to="Info">Info</router-link>
         </li>
         <li
           class=""
@@ -52,7 +53,8 @@
           data-aos-anchor-placement="top"
         >
           <!-- <router-link :to="{ 'info/'+'#info'}">Info</router-link> -->
-          <router-link to="Info">Info</router-link>
+        <a href="mailto:jacquesramphal@gmail.com">Contact ✨</a>
+          <!-- <router-link to="Info">Info</router-link> -->
         </li>
       </ul>
     </nav>
@@ -83,8 +85,7 @@ export default {
   mix-blend-mode: normal !important;
   /* border-top: 1px solid var(--color-xxlight); */
   bottom: 0;
-  padding-top: 1.6em !important;
-  padding-bottom: 1.6em !important;
+  padding: 1.6rem 2.8rem !important;
   position: fixed;
   z-index: 1000 !important;
   max-width: none;
@@ -106,7 +107,7 @@ li {
 li {
   float: left;
   text-decoration: none;
-  padding-left: 32px;
+  padding-left: 2.8rem;
   list-style-type: none;
 }
 li:first-child {

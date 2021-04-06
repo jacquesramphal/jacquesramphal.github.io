@@ -7,7 +7,7 @@
 
 /* Header AAA */
 h1 {
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: 400;
   line-height: 1.2;
   margin: 0;
@@ -15,26 +15,26 @@ h1 {
   
 }
 h2 {
-  font-size: 4.8em;
+  font-size: 4.8rem;
   font-weight: 400;
   line-height: 1.5;
   margin: 0;
   mix-blend-mode: multiply;
 }
 h3 {
-  font-size: 3.6em;
+  font-size: 3.6rem;
   font-weight: 400;
   line-height: 1.4;
   margin: 0;
 }
 h4 {
-  font-size: 2.8em;
+  font-size: 2.8rem;
   font-weight: 400;
   line-height: 1.5;
   margin: 0;
 }
 h5 {
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: 400;
   line-height: 1.5;
   margin: 0;
@@ -42,14 +42,14 @@ h5 {
 }
 /* eyebrow text */
 h6 {
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: 400;
   line-height: 1.5;
   margin: 0;
 
 }
 p {
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: 400;
   line-height: 1.8;
   margin: 0;
@@ -72,8 +72,8 @@ p {
   display: block !important;
   float: left;
   mix-blend-mode: multiply;
-  padding-left: 2.8em;
-  padding-top: 2.2em;
+  padding-left: 2.8rem;
+  padding-top: 2.2rem;
   position: absolute;
   text-rendering: optimizeLegibility;
 }
@@ -199,30 +199,30 @@ h3 a:active {
 @media only screen and (min-width: 740px) {
 
   h2 {
-    font-size: 6.4em;
+    font-size: 6.4rem;
     padding-bottom: 4px;
   }
   h3 {
-    font-size: 4.8em;
+    font-size: 4.8rem;
   }
   h4 {
-    font-size: 3.6em;
+    font-size: 3.6rem;
   }
   h5 {
-    font-size: 2.8em;
+    font-size: 2.8rem;
   }
   p {
-    font-size: 2em;
+    font-size: 2rem;
   }
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
     h2 {
-      font-size: 7.2em;
+      font-size: 7.2rem;
     }
     /* ------------ BREAKPOINT XL ------------ */
     @media only screen and (min-width: 1441px) {
       h2 {
-        font-size: 8em;
+        font-size: 8rem;
       }
     }
   }
