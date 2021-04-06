@@ -53,7 +53,7 @@
           data-aos-anchor-placement="top"
         >
           <!-- <router-link :to="{ 'info/'+'#info'}">Info</router-link> -->
-        <a href="mailto:jacquesramphal@gmail.com">Contact ✨</a>
+        <a href="mailto:jacquesramphal@gmail.com">Contact</a>
           <!-- <router-link to="Info">Info</router-link> -->
         </li>
       </ul>
