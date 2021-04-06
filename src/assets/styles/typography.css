@@ -1,6 +1,6 @@
 * {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-  Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   text-rendering: optimizeLegibility;
 }
 /* ---- GLOBAL ---- */
@@ -12,7 +12,6 @@ h1 {
   line-height: 1.2;
   margin: 0;
   mix-blend-mode: multiply;
-  
 }
 h2 {
   font-size: 4.8rem;
@@ -38,7 +37,6 @@ h5 {
   font-weight: 400;
   line-height: 1.5;
   margin: 0;
-
 }
 /* eyebrow text */
 h6 {
@@ -46,7 +44,6 @@ h6 {
   font-weight: 400;
   line-height: 1.5;
   margin: 0;
-
 }
 p {
   font-size: 2rem;
@@ -96,9 +93,13 @@ p {
 }
 
 /* ---- LINKS/BUTTONS ---- */
-@keyframes strike{
-  0%   { width : 0; }
-  100% { width: 100%; }
+@keyframes strike {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
 }
 /* .strike {
   position: relative;
@@ -118,25 +119,36 @@ p {
   animation-fill-mode: forwards; 
 } */
 
-.router-link-exact-active{
+.router-link-exact-active {
   text-decoration: underline dotted !important;
 }
+
 a {
   cursor: pointer;
   color: inherit;
   text-decoration: none !important;
-  /* -webkit-transition: color 0.25s ease-in-out;
-  -moz-transition: color 0.25s ease-in-out;
-  -o-transition: color 0.25s ease-in-out;
-  transition: color 0.25s ease-in-out; */
   color: var(--color-dark) !important;
 }
-h1 a {
-  /* color: var(--color-dark) !important; */
+
+/* outline: 3px solid var(--color-action) !important; */
+/* box-shadow: 20px 15px 30px yellow, -20px 15px 30px lime, -20px -15px 30px blue, 20px -15px 30px red;} */
+
+/* outline: none;
+  transform: scale(1.08) !important; */
+/* 
+  outline: 3px dashed var(--color-action);
+  outline-offset: 10px; */
+/* 
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
+} */
+
+/* h1 a {
+  color: var(--color-dark) !important;
 }
 h2 a {
-  /* color: var(--color-dark) !important; */
-}
+  color: var(--color-dark) !important;
+} */
 
 a:hover {
   color: var(--color-action) !important;
@@ -160,6 +172,7 @@ h1 a:hover {
 }
 h1 a:active {
 }
+
 h2 a:active {
   position: relative;
   top: 1px;
@@ -168,12 +181,12 @@ h3 a:active {
   position: relative;
   top: 1px;
 }
-.nav-link {
+/* .nav-link {
   display: inline;
   position: relative;
   overflow: hidden;
 }
-.nav-link a:after {
+ .nav-link a:after {
   background: #4e92df;
   bottom: -8px;
   content: "";
@@ -193,11 +206,10 @@ h3 a:active {
   left: 0;
   right: auto;
   width: 100%;
-}
+} */
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
-
   h2 {
     font-size: 6.4rem;
     padding-bottom: 4px;

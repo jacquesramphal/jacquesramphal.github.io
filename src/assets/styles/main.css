@@ -46,10 +46,15 @@ html {
 
 /** GLOBAL HIGHLIGHT COLOUR **/
 ::selection {
-  background: #cfe6ff;
+  background: rgba(21, 156, 228, 0.2);
   /* WebKit/Blink Browsers */
 }
 ::-moz-selection {
-  background: #cfe6ff;
+  background: rgba(21, 156, 228, 0.2);
   /* Gecko Browsers */
 }
+:focus {
+  outline: 8px solid rgba(21, 156, 228, 0.4);
+  outline-offset: .8rem;
+}
+
