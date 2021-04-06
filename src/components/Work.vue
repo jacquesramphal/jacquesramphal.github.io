@@ -31,7 +31,7 @@
         data-aos-once="true"
         data-aos-anchor-placement="top"
         class="hidemobile"
-        title=""
+        title="Avatar"
         filename="avatar.svg"
         alt="Avatar"
       />
