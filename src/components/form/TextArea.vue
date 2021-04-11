@@ -1,10 +1,12 @@
 <template>
-  <div id="input" class="">
+  <div id="textarea" class="">
     <label :for="`${name}`">{{ label }}</label
     ><br />
-    <input
+    <textarea
+      cols="1"
+      rows="3"
       :id="`${id}`"
-      :type="`${type}`"
+      type="textarea"
       :name="`${name}`"
       :placeholder="`${placeholder}`"
       required
@@ -16,7 +18,7 @@
 // import MyButton from "@/components/MyButton.vue";
 
 export default {
-  name: "Input",
+  name: "TextArea",
   components: {
     /* MyButton, */
   },
@@ -24,10 +26,6 @@ export default {
     id: {
       type: String,
       default: "id",
-    },
-    type: {
-      type: String,
-      default: "type",
     },
     name: {
       type: String,
@@ -49,19 +47,19 @@ export default {
 * {
   color: inherit;
 }
-#input {
+#textarea {
   /*  background: var(--color-xlight); */
   grid-column: 1 / 4;
 }
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
-  #input {
+  #textarea {
     grid-column: auto;
   }
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
-    #input {
+    #textarea {
       grid-column: auto;
     }
   }

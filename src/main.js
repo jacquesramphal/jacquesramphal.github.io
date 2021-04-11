@@ -4,6 +4,8 @@ import router from './router'
 import App from './App.vue'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import{ init } from 'emailjs-com';
+init("user_3ZaUX9RnOWjgi2HTqsKCD");
 
 Vue.use(VueMeta)
 Vue.config.productionTip = false

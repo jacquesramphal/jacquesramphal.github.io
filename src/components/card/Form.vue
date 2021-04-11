@@ -1,10 +1,21 @@
 <template>
-  <div class="">
+  <div class="form">
+    <!-- <form
+      class="grid-parent container"
+      action="contact.php"
+      method="post"
+      enctype="text/plain"
+    > 
     <form
       class="grid-parent container"
-      action="http://ramphal.design"
+      action="mailto:jacquesramphal@gmail.com?subject=Hey Jacques"
       method="post"
-    >
+      enctype="text/plain"
+      onsubmit="location.href='Work.vue';"
+
+    > 
+    -->
+    <form class="grid-parent container" @submit.prevent="sendEmail" onsubmit="alert('submit!');return false" >
       <h4
         id="section-header"
         data-aos="fade-right"
@@ -16,21 +27,42 @@
         {{ header }}
       </h4>
       <Input
+        label="Name"
+        id="name"
+        type="name"
+        name="user_name"
+        placeholder="Enter Your Name"
+      />
+      <Input
         label="Email"
         id="email"
         type="email"
-        name="email"
+        name="user_email"
         placeholder="Enter Your Email"
       />
-      <Select
-        label="Select"
-        id="select"
-        name="select"
+      <TextArea
+        label="Message"
+        id="message"
+        name="message"
+        placeholder="What interests you?"
       />
-      <MyButton type="submit" class="btn btn-primary">Login</MyButton>
+      <Select label="Select" id="select" name="select" />
+      <MyButton
+        type="submit"
+        name="submit"
+        class="btn btn-primary"
+        text="Send"
+      />
+      <MyButton
+        type="reset"
+        name="reset"
+        class="btn btn-secondary"
+        text="Clear"
+      />
     </form>
-
-    <!--  <form action="http://ramphal.design" method="post">
+  </div>
+</template>
+<!--  <form action="http://ramphal.design" method="post">
         <label for="uname">Username</label><br />
         <input
           id="uname"
@@ -57,18 +89,18 @@
         /><br />
         <button type="submit" class="btn btn-primary">Login</button>
       </form> -->
-  </div>
-</template>
-
 <script>
 import Input from "@/components/form/Input.vue";
 import Select from "@/components/form/Select.vue";
+import TextArea from "@/components/form/TextArea.vue";
 import MyButton from "@/components/MyButton.vue";
+import emailjs from "emailjs-com";
 
 export default {
   name: "DetailCard",
   components: {
     Input,
+    TextArea,
     MyButton,
     Select,
   },
@@ -80,6 +112,25 @@ export default {
     eyebrow: {
       type: String,
       default: "Eyebrow",
+    },
+  },
+  methods: {
+    sendEmail: (e) => {
+      emailjs
+        .sendForm(
+          "service_scmpikn",
+          "template_brjg3ef",
+          e.target,
+          "user_3ZaUX9RnOWjgi2HTqsKCD"
+        )
+        .then(
+          (result) => {
+            console.log("SUCCESS!", result.status, result.text);
+          },
+          (error) => {
+            console.log("FAILED...", error);
+          }
+        );
     },
   },
 };
@@ -99,7 +150,7 @@ export default {
 #section-header {
   grid-column: 1 / 4;
 }
-#textdefault {
+#form {
   grid-column: 1 / 4;
   padding: 1em 0 0 0;
 }
@@ -109,9 +160,9 @@ h3 {
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
   #section-header {
-    grid-column: 1 / 1;
+    grid-column: 1 / 3;
   }
-  #textdefault {
+  #form {
     grid-column: auto;
     padding: 0 2.8em 2.8em 0;
   }
@@ -119,7 +170,9 @@ h3 {
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
     #section-header {
-      grid-row: 1 / 3;
+      grid-column: 1 / 1;
+
+      grid-row: 1 / 4;
     }
     .container {
     }

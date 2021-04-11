@@ -54,7 +54,7 @@
     <DetailCard header="Reversed" class="reversed" />
     <DetailCard header="Default" />
 
-    <Form class="reversed"  />
+    <Form />
     <TextImage header="Default" />
 
     <div class="grid-parent container">

@@ -74,7 +74,6 @@ button {
   cursor: pointer;
   display: inline-block;
   font-size: inherit;
-  margin: 4em 1rem 0 0;
   padding: 0.5rem 1rem 0.5rem 1rem;
   text-decoration: none;
   transition: box-shadow 0.15s ease-in-out;
