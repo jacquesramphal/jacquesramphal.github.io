@@ -12,11 +12,11 @@
       filename="template.svg"
       alt="Template Project Hero Image"
     />
-    <DetailCard id="detail1" class="" header="Process" />
+    <DetailCard id="detail1" class="reversed" header="Process" />
 
-    <div class="container">
+    <div class="container tight reversed">
       <ThumbLarge
-        id="heroimg"
+        id="heroimg2"
         data-aos="fade"
         data-aos-duration="1000"
         data-aos-delay="500"
@@ -48,10 +48,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#project > .container {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+
+/* add to global styles layout.css */
+.tight {
+ padding-top: 0 !important;
+  /* padding-bottom: 0 !important; */
 }
+
 #heroimg {
   border-radius: 0 !important;
 }

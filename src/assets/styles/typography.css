@@ -129,20 +129,6 @@ a {
   text-decoration: none !important;
   color: var(--color-dark) !important;
 }
-
-/* outline: 3px solid var(--color-action) !important; */
-/* box-shadow: 20px 15px 30px yellow, -20px 15px 30px lime, -20px -15px 30px blue, 20px -15px 30px red;} */
-
-/* outline: none;
-  transform: scale(1.08) !important; */
-/* 
-  outline: 3px dashed var(--color-action);
-  outline-offset: 10px; */
-/* 
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
-} */
-
 /* h1 a {
   color: var(--color-dark) !important;
 }

@@ -80,6 +80,15 @@
 .hero {
   grid-column: 1 / 4;
 }
+li {
+  float: left;
+  text-decoration: none;
+  padding-left: 2.8rem;
+  list-style-type: none;
+}
+li:first-child {
+  padding-left: 0;
+}
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
