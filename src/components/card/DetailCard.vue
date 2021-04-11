@@ -88,7 +88,7 @@ color: inherit;
   padding: 1em 0 0 0;
 }
 #textdefault:first-child {
-  background: yellow;
+/*  background: yellow; */
 }
 h3 {
   /* margin-top: -10px; */
