@@ -55,12 +55,12 @@ export default {
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
   #textarea {
-    grid-column: auto;
+  grid-column: 1 / 3;
   }
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
     #textarea {
-      grid-column: auto;
+      grid-column: 2 / 4;
     }
   }
 }

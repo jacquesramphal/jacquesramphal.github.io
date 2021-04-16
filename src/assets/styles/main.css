@@ -50,7 +50,7 @@ html {
 }
 :focus {
   outline: 8px solid rgba(21, 156, 228, 0.4);
-  outline-offset: .8rem;
+  /* outline-offset: .8rem; */
 }
 /* outline: 3px solid var(--color-action) !important; */
 /* box-shadow: 20px 15px 30px yellow, -20px 15px 30px lime, -20px -15px 30px blue, 20px -15px 30px red;} */

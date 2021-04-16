@@ -31,22 +31,23 @@
         id="name"
         type="name"
         name="user_name"
-        placeholder="Enter Your Name"
+        placeholder="Enter your name"
       />
       <Input
         label="Email"
         id="email"
         type="email"
         name="user_email"
-        placeholder="Enter Your Email"
+        placeholder="islandboy@hotmail.com"
       />
       <TextArea
+        class="wide"
         label="Message"
         id="message"
         name="message"
-        placeholder="What interests you?"
+        placeholder="Enter your message"
       />
-      <Select label="Select" id="select" name="select" />
+     <!-- <Select label="Select" id="select" name="select" /> -->
       <MyButton
         type="submit"
         name="submit"
@@ -91,7 +92,6 @@
       </form> -->
 <script>
 import Input from "@/components/form/Input.vue";
-import Select from "@/components/form/Select.vue";
 import TextArea from "@/components/form/TextArea.vue";
 import MyButton from "@/components/MyButton.vue";
 import emailjs from "emailjs-com";
@@ -102,7 +102,6 @@ export default {
     Input,
     TextArea,
     MyButton,
-    Select,
   },
   props: {
     header: {
@@ -154,9 +153,7 @@ export default {
   grid-column: 1 / 4;
   padding: 1em 0 0 0;
 }
-h3 {
-  /* margin-top: -10px; */
-}
+
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
   #section-header {
@@ -166,9 +163,15 @@ h3 {
     grid-column: auto;
     padding: 0 2.8em 2.8em 0;
   }
-
+  h4 {
+  margin-top: -1rem; 
+}
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
+    #message {
+      display: none;
+      grid-column: 1 / 4 !important;
+}
     #section-header {
       grid-column: 1 / 1;
 

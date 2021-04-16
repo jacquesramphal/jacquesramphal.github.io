@@ -27,7 +27,7 @@
         </p>
       </div>
     </div>
-    <div id="buttons" class="container grid-parent reversed">
+    <!-- <div id="buttons" class="container grid-parent reversed">
       <h4>Buttons</h4>
       <div class="grid-parent">
         <div id="" class="">
@@ -43,16 +43,15 @@
           <MyButton text="This is Button Text" class="btn-toggle btn-outline" />
         </div>
       </div>
-    </div>
+    </div> -->
+    <Hero header="Reversed" class="reversed" />
 
     <Hero header="Default" />
 
-    <Hero header="Reversed" class="reversed" />
     <HeroBg />
     <HeroProject class="eightyvh" header="Lorem Ipsum Doler Optima Sit Amet" />
 
     <DetailCard header="Reversed" class="reversed" />
-    <DetailCard header="Default" />
 
     <Form />
     <TextImage header="Default" />
@@ -65,7 +64,6 @@
 </template>
 
 <script>
-import MyButton from "@/components/MyButton.vue";
 import PageNav from "@/components/PageNav.vue";
 import Hero from "@/components/Hero.vue";
 import HeroBg from "@/components/HeroBg.vue";
@@ -79,7 +77,6 @@ import Form from "@/components/card/Form.vue";
 export default {
   name: "Info",
   components: {
-    MyButton,
     PageNav,
     Hero,
     HeroBg,

@@ -1,43 +1,134 @@
 /* -------- FORM INPUT -------- */
 label {
-  color: var(--color-light);
+  /* color: var(--color-light) !important; */
   font-size: 1.6rem;
-
+  display: inline-block;
+  margin-bottom: 2rem !important;
 }
-label::after {
+/* label::after {
   content: ":";
   display: inline-block;
   margin-right: 3px;
   margin-bottom: 2rem !important;
+} */
 
-}
 input,
 textarea,
 select {
-  font-size: 2rem;
+  font-size: 1.6rem;
+  color: inherit;
   width: 100%;
   /* max-width: 420px; */
   top: 0;
   padding: 1rem;
   /* margin: 1.6rem 0 1rem 0; */
+  margin-bottom: 1rem;
   box-sizing: border-box;
-  border: 1px solid #ccc;
+  border: 2px solid var(--color-xxlight);
+  /* border: transparent; */
   border-radius: 2px;
-  background-color: white;
+  background-color: var(--color-offwhite);
+  
 }
 textarea {
   resize: vertical;
 }
 input:focus,
-textarea:focus {
-  background-color: white;
+textarea:focus,
+select:focus {
+  background: inherit;
+  border-color: var(--color-action) !important;
+  /* outline: 4px solid rgba(21, 156, 228, 0.4); */
+  outline-offset: 0;
+  -moz-transition: outline 0.1s ease-out;
+  -o-transition: outline 0.1s ease-out;
+  -webkit-transition: outline 0.1s ease-out;
+  /* -moz-box-shadow:    inset 0 0 10px var(--color-xlight);
+  -webkit-box-shadow: inset 0 0 10px var(--color-xlight);
+  box-shadow:         inset 0 0 10px var(--color-xlight); */
 }
-input:disabled {
+input:optional,
+textarea:optional,
+select:optional {
+  /* border-color: red; */
+}
+input:required:valid,
+textarea:required:valid,
+select:required:valid {
+  background:  url(../images/fa/regular/smile.svg)  no-repeat 98% 50%;
+  background-size: 25px;
+}
+input:required:invalid,
+textarea:required:invalid,
+select:required:invalid {
+  /* border-color: red; */
+}
+input:required:focus:valid,
+textarea:required:focus:valid,
+select:required:focus:valid {
+  background:  url(../images/fa/regular/smile-wink.svg)  no-repeat 98% 50%;
+  background-size: 25px;
+  border-color: var(--color-success) !important;
+
+}
+input:required:focus:invalid,
+textarea:required:focus:invalid,
+select:required:focus:invalid {
+ background:  url(../images/fa/regular/frown.svg)  no-repeat 98% 50%;
+  background-size: 25px;
+  /* border: 2px solid var(--color-danger) !important; */
+}
+
+
+/* input:disabled {
   background-color: var(--color-disabled);
 }
+input:valid {
+  background: url(../images/fa/regular/check-circle.svg);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 20px 20px;
+    border-color: green;
+}
+input:invalid {
+  background: url(../images/fa/regular/angry.svg);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 20px 20px;
+  border-color: red;
+}
+input:focus:required {
+  border-color: var(--color-success);
+} */
+
 /* SELECTORS */
 option:first {
 }
+
+/* ------- Dark Form UI ------- */
+
+@media (prefers-color-scheme: dark) {
+  
+  label {
+    color: var(--color-white) !important;
+  }  
+  input,
+  textarea,
+  select {
+    /* border: 1px solid var(--color-white); */
+    border: 2px solid black;
+    background-color: black;
+
+  }
+  input:focus,
+  textarea:focus,
+  select:focus {
+    border-color: var(--color-action) !important;
+    background: black !important;
+  }
+  
+}
+/* ------- END Dark Form UI ------- */
 
 /* CUSTOM RADIOS */
 input[type="radio"],
@@ -93,4 +184,3 @@ li::before {
   padding-right: 8px;
   color: blue;
 } */
-

@@ -30,7 +30,7 @@ export default {
   Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   text-rendering: optimizeLegibility;
   color: var(--color-offblack) !important;
-  background: var(--color-offwhite);
+  background: var(--color-white);
 }
 a:hover {
   color: var(--color-action) !important;
@@ -39,6 +39,9 @@ a:hover {
   color: var(--color-offwhite) !important;
   mix-blend-mode: normal !important;
   background: var(--color-offblack);
+}
+.topborder {
+  border-top: 1px solid var(--color-xxlight) !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -54,6 +57,9 @@ a:hover {
   color: var(--color-dark) !important;
   background: var(--color-offwhite);
   mix-blend-mode: normal !important;
+}
+.topborder {
+  border-top: 2px solid black !important;
 }
 /* .overlay {
   display: none;

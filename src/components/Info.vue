@@ -21,6 +21,7 @@
     </div>
     <DetailCard header="Skills" class="reversed" />
     <DetailCard header="Experience" />
+    <Form header="Email me" class="topborder"/>
   </div>
 </template>
 
@@ -28,6 +29,7 @@
 import TextDefault from "@/components/text/TextDefault.vue";
 import ThumbMedium from "@/components/ThumbMedium.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
+import Form from "@/components/card/Form.vue";
 
 export default {
   name: "Info",
@@ -35,6 +37,7 @@ export default {
     TextDefault,
     ThumbMedium,
     DetailCard,
+    Form,
   },
 };
 </script>
