@@ -106,8 +106,8 @@ export default {
   font-size: 10px;
 }
 .container {
-  background-color: var(--color-offwhite);
-  /* padding-top: 2.8em !important; */
+  /*  background-color: var(--color-white);
+ padding-top: 2.8em !important; */
 }
 
 /* ------------ BREAKPOINT MD ------------ */

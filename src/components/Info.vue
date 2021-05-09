@@ -1,5 +1,7 @@
 <template>
   <div id="info" class="">
+      <HeroAbout eyebrow="" title="Information" class="" />
+
     <div id="grid-parent" class="grid-parent container">
       <TextDefault
         data-aos="fade"
@@ -21,23 +23,27 @@
     </div>
     <DetailCard header="Skills" class="reversed" />
     <DetailCard header="Experience" />
-    <Form header="Email me" class="topborder"/>
+    <FormCentered header="Email me" class="topborder"/>
   </div>
 </template>
 
 <script>
+import HeroAbout from "@/components/HeroAbout.vue";
+
 import TextDefault from "@/components/text/TextDefault.vue";
 import ThumbMedium from "@/components/ThumbMedium.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
-import Form from "@/components/card/Form.vue";
+import FormCentered from "@/components/card/FormCentered.vue";
 
 export default {
   name: "Info",
   components: {
+        HeroAbout,
+
     TextDefault,
     ThumbMedium,
     DetailCard,
-    Form,
+    FormCentered,
   },
 };
 </script>

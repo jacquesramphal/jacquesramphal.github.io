@@ -16,7 +16,8 @@
     > 
     -->
     <form class="grid-parent container" @submit.prevent="sendEmail" onsubmit="alert('submit!');return false" >
-      <h4
+     <TextDefault header="Contact Me"/>
+     <!-- <h4
         id="section-header"
         data-aos="fade-right"
         data-aos-duration="1000"
@@ -25,7 +26,7 @@
         tabIndex="0"
       >
         {{ header }}
-      </h4>
+      </h4> -->
       <Input
         label="Name"
         id="name"
@@ -95,13 +96,16 @@ import Input from "@/components/form/Input.vue";
 import TextArea from "@/components/form/TextArea.vue";
 import MyButton from "@/components/MyButton.vue";
 import emailjs from "emailjs-com";
+import TextDefault from "@/components/text/TextDefault.vue";
+
 
 export default {
-  name: "DetailCard",
+  name: "Form",
   components: {
     Input,
     TextArea,
     MyButton,
+    TextDefault,
   },
   props: {
     header: {
@@ -146,7 +150,7 @@ export default {
 #form {
   /* height: 100vh; */
 }
-#section-header {
+#textdefault {
   grid-column: 1 / 4;
 }
 #form {
@@ -156,8 +160,9 @@ export default {
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
-  #section-header {
+#textdefault {
     grid-column: 1 / 3;
+
   }
   #form {
     grid-column: auto;
@@ -172,10 +177,9 @@ export default {
       display: none;
       grid-column: 1 / 4 !important;
 }
-    #section-header {
+#textdefault {
       grid-column: 1 / 1;
-
-      grid-row: 1 / 4;
+      grid-row: 1 / 4 !important;
     }
     .container {
     }

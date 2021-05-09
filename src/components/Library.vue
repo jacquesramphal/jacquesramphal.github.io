@@ -54,6 +54,7 @@
     <DetailCard header="Reversed" class="reversed" />
 
     <Form />
+    <FormCentered />
     <TextImage header="Default" />
 
     <div class="grid-parent container">
@@ -73,6 +74,7 @@ import ThumbMedium from "@/components/ThumbMedium.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
 import TextImage from "@/components/card/TextImage.vue";
 import Form from "@/components/card/Form.vue";
+import FormCentered from "@/components/card/FormCentered.vue";
 
 export default {
   name: "Info",
@@ -86,6 +88,7 @@ export default {
     DetailCard,
     TextImage,
     Form,
+    FormCentered,
   },
   mounted() {
     let uiScript = document.createElement("script");

@@ -1,7 +1,7 @@
 <template>
   <div id="project" class="">
-    <HeroProject eyebrow="Eyebrow" title="Project Template" class="eightyvh" />
-    <ThumbLarge
+    <HeroProject eyebrow="Eyebrow" title="Project Template" class="" />
+   <!-- <ThumbLarge
       id="heroimg"
       data-aos="fade"
       data-aos-duration="1000"
@@ -11,10 +11,10 @@
       title="Project Template"
       filename="template.svg"
       alt="Template Project Hero Image"
-    />
-    <DetailCard id="detail1" class="reversed" header="Process" />
+    /> -->
+    <DetailCard id="detail1" class="" header="Process" />
 
-    <div class="container tight reversed">
+    <div class="container tight">
       <ThumbLarge
         id="heroimg2"
         data-aos="fade"
