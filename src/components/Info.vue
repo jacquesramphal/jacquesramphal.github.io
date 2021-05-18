@@ -21,9 +21,9 @@
         alt="Jacques working at Myplanet"
       />
     </div>
-    <DetailCard header="Skills" class="reversed" />
     <DetailCard header="Experience" />
-    <FormCentered header="Email me" class="topborder"/>
+    <DetailCard header="Skills" class="reversed" />
+    <FormCentered header="Email me" class=""/>
   </div>
 </template>
 

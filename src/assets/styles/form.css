@@ -1,6 +1,5 @@
 /* -------- FORM INPUT -------- */
 label {
-  /* color: var(--color-light) !important; */
   font-size: 1.6rem;
   display: inline-block;
   margin-bottom: 2rem !important;
@@ -18,16 +17,14 @@ select {
   font-size: 1.6rem;
   color: inherit;
   width: 100%;
-  /* max-width: 420px; */
   top: 0;
-  padding: 1rem;
-  /* margin: 1.6rem 0 1rem 0; */
+  padding: 1.6rem;
   margin-bottom: 1rem;
   box-sizing: border-box;
-  border: 2px solid var(--color-xxlight);
-  /* border: transparent; */
-  border-radius: 2px;
-  background-color: var(--color-offwhite);
+  border: transparent;
+  border-radius: 4px;
+  background-color: var(--color-xxxlight);
+  /* box-shadow: var(--shadow-z1); */
   
 }
 textarea {
@@ -38,14 +35,11 @@ textarea:focus,
 select:focus {
   background: inherit;
   border-color: var(--color-action) !important;
-  /* outline: 4px solid rgba(21, 156, 228, 0.4); */
   outline-offset: 0;
   -moz-transition: outline 0.1s ease-out;
   -o-transition: outline 0.1s ease-out;
   -webkit-transition: outline 0.1s ease-out;
-  /* -moz-box-shadow:    inset 0 0 10px var(--color-xlight);
-  -webkit-box-shadow: inset 0 0 10px var(--color-xlight);
-  box-shadow:         inset 0 0 10px var(--color-xlight); */
+
 }
 input:optional,
 textarea:optional,
@@ -57,6 +51,8 @@ textarea:required:valid,
 select:required:valid {
   background:  url(../images/fa/regular/smile.svg)  no-repeat 98% 50%;
   background-size: 25px;
+  background-color: var(--color-xxxlight);
+
 }
 input:required:invalid,
 textarea:required:invalid,
@@ -66,6 +62,7 @@ select:required:invalid {
 input:required:focus:valid,
 textarea:required:focus:valid,
 select:required:focus:valid {
+  
   background:  url(../images/fa/regular/smile-wink.svg)  no-repeat 98% 50%;
   background-size: 25px;
   border-color: var(--color-success) !important;
@@ -78,28 +75,6 @@ select:required:focus:invalid {
   background-size: 25px;
   /* border: 2px solid var(--color-danger) !important; */
 }
-
-
-/* input:disabled {
-  background-color: var(--color-disabled);
-}
-input:valid {
-  background: url(../images/fa/regular/check-circle.svg);
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: 20px 20px;
-    border-color: green;
-}
-input:invalid {
-  background: url(../images/fa/regular/angry.svg);
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: 20px 20px;
-  border-color: red;
-}
-input:focus:required {
-  border-color: var(--color-success);
-} */
 
 /* SELECTORS */
 option:first {
@@ -118,6 +93,8 @@ option:first {
     /* border: 1px solid var(--color-white); */
     border: 2px solid black;
     background-color: black;
+    box-shadow: none;
+
 
   }
   input:focus,

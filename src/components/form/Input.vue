@@ -47,7 +47,7 @@ export default {
 
 <style scoped>
 * {
-  color: inherit;
+  color: inherit !important;
 }
 #input {
   /*  background: var(--color-xlight); */

@@ -1,36 +1,11 @@
 <template>
   <div class="form">
-    <!-- <form
-      class="grid-parent container"
-      action="contact.php"
-      method="post"
-      enctype="text/plain"
-    > 
     <form
-      class="grid-parent container"
-      action="mailto:jacquesramphal@gmail.com?subject=Hey Jacques"
-      method="post"
-      enctype="text/plain"
-      onsubmit="location.href='Work.vue';"
-
-    > 
-    -->
-    <form
-      class="grid-parent container"
+      class="grid-parent container offwhite"
       @submit.prevent="sendEmail"
       onsubmit="alert('submit!');return false"
     >
       <TextDefault header="Contact Me" eyebrow="" details="" />
-      <!-- <h4
-        id="section-header"
-        data-aos="fade-right"
-        data-aos-duration="1000"
-        data-aos-delay="0"
-        data-aos-once="true"
-        tabIndex="0"
-      >
-        {{ header }}
-      </h4> -->
       <div id="form-row">
         <Input
           label="Name"
@@ -54,7 +29,6 @@
           placeholder="Enter your message"
         />
       </div>
-      <!-- <Select label="Select" id="select" name="select" /> -->
         <MyButton
           type="submit"
           name="submit"
