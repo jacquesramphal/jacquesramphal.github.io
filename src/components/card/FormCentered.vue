@@ -12,21 +12,21 @@
           id="name"
           type="name"
           name="user_name"
-          placeholder="Enter your name"
+          placeholder="What's your name?"
         />
         <Input
           label="Email"
           id="email"
           type="email"
           name="user_email"
-          placeholder="islandboy@hotmail.com"
+          placeholder="example@mail.com "
         />
         <TextArea
           class="wide"
           label="Message"
           id="message"
           name="message"
-          placeholder="Enter your message"
+          placeholder="What's on your mind?"
         />
       </div>
         <MyButton
@@ -93,7 +93,7 @@ export default {
 .container {
   /*  padding-top: 4rem !important;
   padding-bottom: 9.6rem !important; */
-  
+  background-color: inherit;
 }
 
 #textdefault {

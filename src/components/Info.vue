@@ -1,6 +1,7 @@
 <template>
   <div id="info" class="">
-      <HeroAbout eyebrow="" title="Information" class="" />
+      <HeroAbout eyebrow="" title="About Jacques" class="fullvh" />
+    <DetailCard header="Information" />
 
     <div id="grid-parent" class="grid-parent container">
       <TextDefault
@@ -21,7 +22,6 @@
         alt="Jacques working at Myplanet"
       />
     </div>
-    <DetailCard header="Experience" />
     <DetailCard header="Skills" class="reversed" />
     <FormCentered header="Email me" class=""/>
   </div>

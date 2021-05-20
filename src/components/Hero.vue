@@ -8,6 +8,7 @@
           data-aos-duration="1000"
           data-aos-easing="ease-in-out"
           data-aos="fade"
+          data-aos-mirror="true"
           tabindex="0"
         >
           {{ header }}

@@ -54,11 +54,11 @@ export default {
 #hero-about {
   display: grid;
   min-height: 320px;
-  background-image: url("../assets/images/about.jpg");
+  background-image: url("../assets/images/banner1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 0%;
-  height: 80vh;
+  height: 60vh;
 }
 #hero-text {
   display: grid;
@@ -79,7 +79,6 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 100% 50%;
-  height: 80vh;
 }
   #hero-text {
     max-width: 60vw;

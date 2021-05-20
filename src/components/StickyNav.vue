@@ -5,6 +5,7 @@
     data-aos-duration="1000"
     data-aos-delay="0"
     data-aos-once="true"
+    data-aos-mirror="true"
     data-aos-anchor-placement="top"
   >
     <nav class="">
