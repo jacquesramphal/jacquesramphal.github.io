@@ -1,6 +1,6 @@
 <template>
   <div id="info" class="">
-      <HeroAbout eyebrow="" title="About Jacques" class="fullvh" />
+      <HeroAbout eyebrow="" title="About Jacques" class="" />
     <DetailCard header="Information" />
 
     <div id="grid-parent" class="grid-parent container">

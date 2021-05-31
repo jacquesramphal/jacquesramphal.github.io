@@ -54,7 +54,7 @@ export default {
 #hero-about {
   display: grid;
   min-height: 320px;
-  background-image: url("../assets/images/banner1.jpg");
+  background-image: url("../assets/images/about.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 0%;

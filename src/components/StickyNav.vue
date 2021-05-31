@@ -1,12 +1,16 @@
 <template>
   <div
-    class="container"
+    class="container navbar"
+    :class="{ 'hidden-navbar': !showNavbar }"
+  >
+  <div class="bg"
     data-aos="slide-up"
     data-aos-duration="1000"
     data-aos-delay="0"
     data-aos-once="true"
     data-aos-mirror="true"
     data-aos-anchor-placement="top"
+
   >
     <nav class="">
       <h1
@@ -64,12 +68,14 @@
       </ul>
     </nav>
   </div>
+</div>
 </template>
 
 <script>
 /**
  * @component
  */
+const OFFSET = 60
 export default {
   name: "StickyNav",
   props: {
@@ -78,6 +84,39 @@ export default {
       default: "Jacques Ramphal",
     },
   },
+  data () {
+    return {
+      showNavbar: true,
+      lastScrollPosition: 0,
+      scrollValue: 0
+    }
+  },
+
+  mounted () {
+    this.lastScrollPosition = window.pageYOffset
+    window.addEventListener('scroll', this.onScroll)
+    const viewportMeta = document.createElement('meta')
+    viewportMeta.name = 'viewport'
+    viewportMeta.content = 'width=device-width, initial-scale=1'
+    document.head.appendChild(viewportMeta)
+  },
+
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.onScroll)
+  },
+
+  methods: {
+    onScroll () {
+      if (window.pageYOffset < 0) {
+        return
+      }
+      if (Math.abs(window.pageYOffset - this.lastScrollPosition) < OFFSET) {
+        return
+      }
+      this.showNavbar = window.pageYOffset < this.lastScrollPosition
+      this.lastScrollPosition = window.pageYOffset
+    }
+  }
 };
 </script>
 <style scoped>
@@ -85,16 +124,27 @@ export default {
   color: inherit !important;
   mix-blend-mode: normal;
 }
-.container {
-  background: inherit;
-  mix-blend-mode: normal !important;
-  /* border-top: 1px solid var(--color-xxlight); */
+.bg {
+  background: white;
+  left: 0;
+  right: 0;
   bottom: 0;
+  position: fixed;
   padding: 1.6rem 2.8rem !important;
+  box-shadow: var(--shadow-z3);
+}
+.container, .navbar {
+  mix-blend-mode: normal !important;
+  bottom: 0;
+  padding: 0;
   position: fixed;
   z-index: 1000 !important;
+  transform: translate3d(0, 0, 0);
+  transition: 0.4s all ease-in-out;
   max-width: none;
-  box-shadow: var(--shadow-z3);
+}
+.navbar.hidden-navbar {
+  transform: translate3d(0, 100%, 0);
 }
 
 nav {
@@ -118,12 +168,8 @@ li {
 li:first-child {
   padding-left: 0;
 }
-/* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
-}
-
 @media (prefers-color-scheme: dark) {
-  .container {
+  .bg {
     background: #0c0c0d;
   }
 }

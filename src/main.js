@@ -16,5 +16,7 @@ new Vue({
   created () {
     AOS.init()
   },
+
+
 }).$mount('#app')
 
