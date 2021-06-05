@@ -1,6 +1,6 @@
 <template>
   <div id="project" class="">
-    <HeroProject eyebrow="Eyebrow" title="Project Template" class="" />
+    <HeroProject eyebrow="" title="Project Template" class="" />
    <!-- <ThumbLarge
       id="heroimg"
       data-aos="fade"

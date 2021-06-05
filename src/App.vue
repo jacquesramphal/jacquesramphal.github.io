@@ -24,11 +24,9 @@ export default {
 
 #app {
   line-height: 0;
+
 }
 #app {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-  Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  text-rendering: optimizeLegibility;
   color: var(--color-offblack) !important;
   background: var(--color-white);
 }

@@ -75,7 +75,7 @@
 /**
  * @component
  */
-const OFFSET = 60
+const OFFSET = 66
 export default {
   name: "StickyNav",
   props: {
@@ -130,13 +130,15 @@ export default {
   right: 0;
   bottom: 0;
   position: fixed;
-  padding: 1.6rem 2.8rem !important;
-  box-shadow: var(--shadow-z3);
+  padding: 2.4em 2.8em 2em 2.8em !important;
+  border-top: 1px solid;
+  border-color: var(--color-xxlight);
+  /* box-shadow: var(--shadow-z3); */
 }
 .container, .navbar {
+  overflow: visible;
   mix-blend-mode: normal !important;
   bottom: 0;
-  padding: 0;
   position: fixed;
   z-index: 1000 !important;
   transform: translate3d(0, 0, 0);
@@ -155,8 +157,7 @@ nav {
 nav h1,
 li {
   font-size: 2em;
-  line-height: 1.5;
-  font-weight: 400;
+  line-height: 1;
   margin: 0;
 }
 li {
@@ -170,7 +171,14 @@ li:first-child {
 }
 @media (prefers-color-scheme: dark) {
   .bg {
-    background: #0c0c0d;
+    background: var(--color-offblack);
+    border-color: black;
+
   }
+}
+/* ------------ BREAKPOINT MD ------------ */
+
+@media only screen and (min-width: 740px) {
+
 }
 </style>

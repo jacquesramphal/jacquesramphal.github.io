@@ -1,7 +1,8 @@
 <template>
   <div id="info" class="">
-      <HeroAbout eyebrow="" title="About Jacques" class="" />
-    <DetailCard header="Information" />
+      <HeroAbout eyebrow="" title="Information" class="" />
+    
+    <DetailCard header="Bio" />
 
     <div id="grid-parent" class="grid-parent container">
       <TextDefault
