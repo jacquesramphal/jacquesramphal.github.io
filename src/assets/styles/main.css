@@ -2,25 +2,19 @@
   margin: 0;
   padding: 0;
 }
+/* #app {
+   Padding to account for height of stickbar but not needed when the bar is dynamically hidden
+  /* padding-bottom: 6.2rem !important; 
+} */
 #app {
-  /* Padding to account for height of stickbar but not needed when the bar is dynamically hidden
-  /* padding-bottom: 6.2rem !important; */
-}
-#app {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--color-offblack) !important;
+  background: var(--color-white);
   font-size: 10px !important;
   height: 100%;
-  letter-spacing: 0.01rem;
-  line-height: 1.5;
   margin: 0;
   overflow-x: hidden;
   padding: 0;
   position: relative;
-  text-rendering: optimizeLegibility;
   width: 100%;
 }
 html {
@@ -37,31 +31,39 @@ html {
 .front {
   z-index: 100;
 }
+a:hover {
+  color: var(--color-action) !important;
+}
+.reversed {
+  color: var(--color-offwhite) !important;
+  mix-blend-mode: normal !important;
+  background: var(--color-offblack);
+}
+.topborder {
+  border-top: 1px solid var(--color-xxlight) !important;
+}
 
-/* ---- ACCESSIBILITY ---- */
-  
-/** GLOBAL HIGHLIGHT COLOUR **/
-::selection {
-  background: rgba(21, 156, 228, 0.2);
-  /* WebKit/Blink Browsers */
-}
-::-moz-selection {
-  background: rgba(21, 156, 228, 0.2);
-  /* Gecko Browsers */
-}
-:focus {
-  outline: 8px solid rgba(21, 156, 228, 0.4);
-  /* outline-offset: .8rem; */
-}
-/* outline: 3px solid var(--color-action) !important; */
-/* box-shadow: 20px 15px 30px yellow, -20px 15px 30px lime, -20px -15px 30px blue, 20px -15px 30px red;} */
 
-/* outline: none;
-  transform: scale(1.08) !important; */
-/* 
-  outline: 3px dashed var(--color-action);
-  outline-offset: 10px; */
-/* 
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
+
+
+@media (prefers-color-scheme: dark) {
+  #app {
+  color: var(--color-offwhite) !important;
+    background: var(--color-offblack);
+  }
+
+  #app a:hover {
+    color: var(--color-action-dark) !important;
+  }
+  .reversed {
+  color: var(--color-dark) !important;
+  background: var(--color-offwhite);
+  mix-blend-mode: normal !important;
+}
+.topborder {
+  border-top: 2px solid black !important;
+}
+/* .overlay {
+  display: none;
 } */
+}

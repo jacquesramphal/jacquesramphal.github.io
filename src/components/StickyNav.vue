@@ -131,9 +131,9 @@ export default {
   bottom: 0;
   position: fixed;
   padding: 2.4em 2.8em 2em 2.8em !important;
-  border-top: 1px solid;
-  border-color: var(--color-xxlight);
-  /* box-shadow: var(--shadow-z3); */
+ /*  border-top: 1px solid;
+  border-color: var(--color-xxlight);*/
+  box-shadow: var(--shadow-z3); 
 }
 .container, .navbar {
   overflow: visible;
@@ -154,13 +154,14 @@ nav {
   grid-template-columns: repeat(2, 1fr);
   position: relative;
 }
-nav h1,
-li {
+h1 {
   font-size: 2em;
   line-height: 1;
   margin: 0;
 }
 li {
+  font-size: 2em;
+  line-height: 1;
   float: left;
   text-decoration: none;
   padding-left: 2.8rem;
@@ -172,7 +173,9 @@ li:first-child {
 @media (prefers-color-scheme: dark) {
   .bg {
     background: var(--color-offblack);
+    border-top: 1px solid; 
     border-color: black;
+    box-shadow: none; 
 
   }
 }
