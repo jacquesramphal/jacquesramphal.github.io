@@ -5,7 +5,7 @@
         <h2
           class=""
           data-aos-anchor-placement="top"
-          data-aos-duration="1000"
+          data-aos-duration="100"
           data-aos-easing="ease-in-out"
           data-aos="fade"
           data-aos-mirror="true"
@@ -60,6 +60,18 @@ export default {
   text-align: center;
   align-items: center !important;
 }
+h2 {
+  transition: all 0.25s ease-in-out !important;
+  outline: transparent !important;
+}
+/* h2:hover {
+  font-weight: 400;
+  word-spacing: 1em;
+}
+h2:active {
+  font-weight: 900;
+  word-spacing: -100%;
+} */
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
   #hero {

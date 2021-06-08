@@ -4,6 +4,7 @@
   font-style: normal;
   font-display: auto;
   font-weight: 100 900;
+
 }
 /* ---- GLOBAL ---- */
 * {
@@ -24,13 +25,14 @@ h1 {
   mix-blend-mode: multiply;
 }
 h2 {
-  letter-spacing: 0;
   font-size: 4.8rem;
   font-weight: 500;
   line-height: 1.5;
   margin: 0;
   mix-blend-mode: multiply;
+ 
 }
+
 h3 {
   font-size: 3.6rem;
   font-weight: 400;
