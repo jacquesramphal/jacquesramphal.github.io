@@ -36,7 +36,7 @@
         id="wordmark"
         tabindex="1"
       >
-        <a href="#/">Jake Ramphal</a>
+        <a href="#/">J. Ramphal</a>
       </h1>
       <ul class="justify-end">
         <li
@@ -75,7 +75,7 @@
 /**
  * @component
  */
-const OFFSET = 66
+const OFFSET = 60
 export default {
   name: "StickyNav",
   props: {
@@ -141,12 +141,12 @@ export default {
   bottom: 0;
   position: fixed;
   z-index: 1000 !important;
-  transform: translate3d(0, 0, 0);
-  transition: 0.4s all ease-in-out;
+  transform: translate3d(0, 0, 0) !important;
+  transition: 0.4s all ease-in-out !important;
   max-width: none;
 }
 .navbar.hidden-navbar {
-  transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 150%, 0) !important;
 }
 
 nav {
@@ -179,9 +179,5 @@ li:first-child {
 
   }
 }
-/* ------------ BREAKPOINT MD ------------ */
 
-@media only screen and (min-width: 740px) {
-
-}
 </style>

@@ -58,7 +58,7 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 0%;
-  height: 60vh;
+  height: 80vh;
 }
 #hero-text {
   display: grid;

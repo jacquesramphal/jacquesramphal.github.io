@@ -43,12 +43,9 @@ a:hover {
   border-top: 1px solid var(--color-xxlight) !important;
 }
 
-
-
-
 @media (prefers-color-scheme: dark) {
   #app {
-  color: var(--color-offwhite) !important;
+    color: var(--color-offwhite) !important;
     background: var(--color-offblack);
   }
 
@@ -56,14 +53,14 @@ a:hover {
     color: var(--color-action-dark) !important;
   }
   .reversed {
-  color: var(--color-dark) !important;
-  background: var(--color-offwhite);
-  mix-blend-mode: normal !important;
-}
-.topborder {
-  border-top: 2px solid black !important;
-}
-/* .overlay {
+    color: var(--color-dark) !important;
+    background: var(--color-offwhite);
+    mix-blend-mode: normal !important;
+  }
+  .topborder {
+    border-top: 2px solid black !important;
+  }
+  /* .overlay {
   display: none;
 } */
 }
