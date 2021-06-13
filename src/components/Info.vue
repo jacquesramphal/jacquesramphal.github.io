@@ -1,7 +1,12 @@
 <template>
   <div id="info" class="">
-      <HeroAbout eyebrow="" title="Information" class="" />
-    
+    <HeroAbout
+      eyebrow=""
+      title="Information"
+      class=""
+ 
+    />
+
     <DetailCard header="Bio" />
 
     <div id="grid-parent" class="grid-parent container">
@@ -12,7 +17,7 @@
         data-aos-once="true"
       />
       <ThumbMedium
-          data-aos="fade"
+        data-aos="fade"
         data-aos-duration="1000"
         data-aos-delay="400"
         data-aos-once="true"
@@ -24,7 +29,7 @@
       />
     </div>
     <DetailCard header="Skills" class="reversed" />
-    <FormCentered header="Email me" class=""/>
+    <FormCentered header="Email me" class="" />
   </div>
 </template>
 
@@ -39,7 +44,7 @@ import FormCentered from "@/components/card/FormCentered.vue";
 export default {
   name: "Info",
   components: {
-        HeroAbout,
+    HeroAbout,
 
     TextDefault,
     ThumbMedium,

@@ -1,5 +1,12 @@
 <template>
-  <div id="hero-about" class="">
+  <div
+    id="hero-about"
+    class=""
+    data-aos="fade"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+    data-aos-anchor-placement="top"
+  >
     <div class="container">
       <nav class="">
         <h1 id="wordmark" class="">
@@ -14,6 +21,7 @@
           class=""
           data-aos="fade"
           data-aos-duration="1000"
+          data-aos-delay="500"
           data-aos-easing="ease-in-out"
           data-aos-anchor-placement="top"
         >
@@ -74,12 +82,11 @@ export default {
 /* ------------ BREAKPOINT MD ------------ */
 
 @media only screen and (min-width: 740px) {
-
-#hero-about {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 100% 50%;
-}
+  #hero-about {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100% 50%;
+  }
   #hero-text {
     max-width: 60vw;
     align-items: end !important;

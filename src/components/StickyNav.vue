@@ -36,7 +36,7 @@
         id="wordmark"
         tabindex="1"
       >
-        <a href="#/">J. Ramphal</a>
+        <a href="#/">Jacques R.</a>
       </h1>
       <ul class="justify-end">
         <li
@@ -62,7 +62,7 @@
           tabindex="3"
         >
           <!-- <router-link :to="{ 'info/'+'#info'}">Info</router-link> -->
-          <a href="mailto:jacquesramphal@gmail.com">Email</a>
+          <a href="mailto:jacques@ramphal.design">Email</a>
           <!-- <router-link to="Info">Info</router-link> -->
         </li>
       </ul>
