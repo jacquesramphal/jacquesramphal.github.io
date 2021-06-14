@@ -132,6 +132,13 @@ p {
   animation-fill-mode: forwards; 
 } */
 
+.isDisabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
 .router-link-exact-active {
   text-decoration: underline dotted !important;
 }

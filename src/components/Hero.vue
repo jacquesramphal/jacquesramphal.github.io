@@ -7,7 +7,7 @@
         data-aos-anchor-placement="top"
         data-aos-duration="1000"
         data-aos-easing="ease-in-out"
-        data-aos="flip-down"
+        data-aos="fade"
         data-aos-mirror="true"
         data-aos-once="true"
       >
@@ -95,14 +95,14 @@ h2 {
   transition: all 0.25s ease-in-out !important;
   outline: transparent !important;
 }
- h2:hover {
+/* h2:hover {
   font-weight: 400;
   word-spacing: 1em;
 }
 h2:active {
   font-weight: 900;
   word-spacing: -100%;
-} 
+} */
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
   #hero {
