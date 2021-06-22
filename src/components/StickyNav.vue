@@ -48,7 +48,7 @@
           data-aos="fade-left"
           tabindex="2"
         >
-          <router-link to="Info">Info</router-link>
+          <router-link to="Contact">Info</router-link>
         </li>
         <li
           class=""
@@ -59,8 +59,8 @@
           data-aos-anchor-placement="top"
           tabindex="3"
         >
-           <router-link to="Work">Work</router-link>
-          <!--<router-link class="isDisabled" to="/">Work</router-link> -->
+               <!-- <router-link to="Work">Work</router-link> -->
+          <router-link class="isDisabled" to="/">Work</router-link>
 
           <!-- <router-link :to="{ 'info/'+'#info'}">Info</router-link> -->
           <!-- <a href="mailto:jacques@ramphal.design">Email</a>
