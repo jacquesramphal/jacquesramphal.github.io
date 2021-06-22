@@ -48,7 +48,7 @@
           data-aos="fade-left"
           tabindex="2"
         >
-          <router-link to="Contact">Contact</router-link>
+          <router-link to="Contact">Email</router-link>
         </li>
         <li
           class=""
