@@ -12,9 +12,9 @@
       filename="template.svg"
       alt="Template Project Hero Image"
     /> -->
-    <DetailCard id="detail1" class="" header="Process" />
+    <DetailCard id="detail1" class="reversed" header="Process" />
 
-    <div class="container tight">
+    <div class="container tight reversed">
       <ThumbLarge
         id="heroimg2"
         data-aos="fade"
