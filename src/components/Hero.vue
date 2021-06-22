@@ -51,11 +51,11 @@ export default {
   props: {
     header1: {
       type: String,
-      default: "Designer.",
+      default: "Designer",
     },
     header2: {
       type: String,
-      default: " Developer",
+      default: " of things",
     },
   },
 };
