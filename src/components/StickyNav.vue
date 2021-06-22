@@ -59,7 +59,7 @@
           data-aos-anchor-placement="top"
           tabindex="3"
         >
-           <a href="https://www.linkedin.com/in/jacquesramphal">Linkedin</a>
+           <a href="https://www.linkedin.com/in/jacquesramphal">Info</a>
           <!--<router-link class="isDisabled" to="/">Work</router-link> -->
 
           <!-- <router-link :to="{ 'info/'+'#info'}">Info</router-link> -->
