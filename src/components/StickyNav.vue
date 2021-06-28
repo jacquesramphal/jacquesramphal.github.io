@@ -125,26 +125,32 @@ export default {
   color: inherit !important;
   mix-blend-mode: normal;
 }
-.bg {
-  background: white;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: fixed;
-  padding: 2.4em 2.8em 2em 2.8em !important;
- /*  border-top: 1px solid;
-  border-color: var(--color-xxlight);*/
-  box-shadow: var(--shadow-z3); 
-}
+
 .container, .navbar {
+  padding: 0 !important;
   overflow: visible;
   mix-blend-mode: normal !important;
-  bottom: 0;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
   position: fixed;
   z-index: 1000 !important;
   transform: translate3d(0, 0, 0) !important;
   transition: 0.4s all ease-in-out !important;
-  max-width: none;
+  width: auto;
+
+}
+.bg {
+    overflow: hidden;
+  border-radius: 4px;
+  background: white;
+  padding: 2.4em 2.4em 2em 2.4em !important;
+  border: 1px solid;
+  border-color: var(--color-xxxlight);
+  box-shadow: var(--shadow-z1); 
+  align-items: middle;
+  justify-self: stretch;
+
 }
 .navbar.hidden-navbar {
   transform: translate3d(0, 150%, 0) !important;
@@ -174,11 +180,28 @@ li:first-child {
 @media (prefers-color-scheme: dark) {
   .bg {
     background: var(--color-offblack);
-    border-top: 1px solid; 
+    border: 1px solid; 
     border-color: black;
-    box-shadow: none; 
 
   }
+}
+/* ------------ BREAKPOINT MD ------------ */
+@media only screen and (min-width: 740px) {
+
+.container, .navbar {
+    bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+    transition: .8s all ease-in-out !important;
+
+}
+.bg {
+    justify-self: end;
+
+}
+.navbar.hidden-navbar {
+  transform: translate3d(100%, 0, 0) !important;
+}
 }
 
 </style>
