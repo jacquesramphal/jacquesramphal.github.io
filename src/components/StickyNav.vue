@@ -14,7 +14,7 @@
   >
     <nav class="">
       <h1
-        class="hidemobile"
+        class="hidemobile nav-link"
         data-aos-anchor-placement="top"
         data-aos-delay="500"
         data-aos-duration="1000"
@@ -27,7 +27,7 @@
       </h1>
 
       <h1
-        class="showmobile"
+        class="showmobile nav-link"
         data-aos-anchor-placement="top"
         data-aos-delay="500"
         data-aos-duration="1000"
@@ -40,7 +40,7 @@
       </h1>
       <ul class="justify-end">
         <li
-          class=""
+          class=" nav-link"
           data-aos-anchor-placement="top"
           data-aos-delay="1200"
           data-aos-duration="1000"
@@ -51,7 +51,7 @@
           <router-link to="Info">Info</router-link>
         </li>
         <li
-          class=""
+          class="nav-link"
           data-aos="fade-left"
           data-aos-duration="1000"
           data-aos-delay="1500"
@@ -144,7 +144,7 @@ export default {
     overflow: hidden;
   border-radius: 4px;
   background: white;
-  padding: 2.4em 2.4em 2em 2.4em !important;
+  padding: 1rem !important;
   border: 1px solid;
   border-color: var(--color-xxxlight);
   box-shadow: var(--shadow-z1); 
@@ -161,6 +161,17 @@ nav {
   grid-template-columns: repeat(2, 1fr);
   position: relative;
 }
+.nav-link{
+  background: none;
+  padding: 1rem 1rem 0.5rem 1rem !important;
+}
+.nav-link:hover{
+
+    background: var(--color-xxxlight);
+}
+#wordmark {
+  width: auto;
+}
 h1 {
   font-size: 2em;
   line-height: 1;
@@ -175,7 +186,7 @@ li {
   list-style-type: none;
 }
 li:first-child {
-  padding-left: 0;
+  margin-right: 1rem;
 }
 @media (prefers-color-scheme: dark) {
   .bg {
