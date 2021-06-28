@@ -84,7 +84,6 @@ export default {
     background-repeat: no-repeat;
     background-size: 100vh;
     background-position: 101% 50%;
-    background-color: rgba(0, 0, 0, 0.1);
     height: 80vh;
   }
   #hero-text {

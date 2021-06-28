@@ -1,7 +1,9 @@
 <template>
   <span class="grid-card hero grey">
     <span tabindex="0" class="caption">
-      <p>{{ title }}</p></span>
+      <h6 tabIndex="0" class="">{{ title }}</h6>
+      <p tabIndex="0" class="subtle">details</p>
+      </span>
     <router-link :to="`${route}`">
       <span class="overlay"></span
       >
@@ -24,7 +26,7 @@ export default {
     },
     filename: {
       type: String,
-      default: "template.svg",
+      default: "template-2.svg",
     },
     alt: {
       type: String,
@@ -40,4 +42,8 @@ export default {
 
 <style scoped>
 @import "../assets/styles/all.css";
+
+.caption{ 
+  display: block !important;
+}
 </style>

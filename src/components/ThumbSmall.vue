@@ -1,7 +1,9 @@
 <template>
   <span class="grid-card">
     <span tabindex="0" class="caption">
-      <p>{{ title }}</p></span>
+      <h6 tabIndex="0" class="">{{ title }}</h6>
+      <p tabIndex="0" class="subtle">details</p>
+    </span>
     <span class="overlay"> </span>
     <a class="">
       <img

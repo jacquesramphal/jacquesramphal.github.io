@@ -6,6 +6,9 @@
    Padding to account for height of stickbar but not needed when the bar is dynamically hidden
   /* padding-bottom: 6.2rem !important; 
 } */
+body { 
+  background: var(--color-white);
+}
 #app {
   color: var(--color-offblack) !important;
   background: var(--color-white);
@@ -31,6 +34,9 @@ html {
 .front {
   z-index: 100;
 }
+a {
+  color: var(--color-action) ;
+}
 a:hover {
   color: var(--color-action) !important;
 }
@@ -44,6 +50,9 @@ a:hover {
 }
 
 @media (prefers-color-scheme: dark) {
+  body { 
+    background: var(--color-offblack);
+  }
   #app {
     color: var(--color-offwhite) !important;
     background: var(--color-offblack);

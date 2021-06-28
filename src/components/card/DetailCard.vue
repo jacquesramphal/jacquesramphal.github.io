@@ -1,11 +1,18 @@
 <template>
   <div class="">
-    <div class="grid-parent container">
+    <div
+      class="grid-parent container"
+      data-aos="fade"
+      data-aos-duration="1000"
+      data-aos-delay="1000"
+      data-aos-once="true"
+      data-aos-anchor-placement="center"
+    >
       <h4
         id="section-header"
-        data-aos="fade-right"
+        data-aos="fade"
         data-aos-duration="1000"
-        data-aos-delay="0"
+        data-aos-delay="200"
         data-aos-once="true"
         tabIndex="0"
       >
@@ -14,7 +21,7 @@
       <TextDefault
         data-aos="fade"
         data-aos-duration="1000"
-        data-aos-delay="200"
+        data-aos-delay="0"
         data-aos-once="true"
         header=""
         details="Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet. Lorem ipsum doler optima sit amet."
@@ -70,15 +77,14 @@ export default {
 
 <style scoped>
 * {
-color: inherit; 
+  color: inherit;
 }
 .container {
-/*  padding-top: 4rem !important;
+  /*  padding-top: 4rem !important;
   padding-bottom: 9.6rem !important; */
 }
 #details {
   /* height: 100vh; */
-  
 }
 #section-header {
   grid-column: 1 / 4;
@@ -88,7 +94,7 @@ color: inherit;
   padding: 1em 0 0 0;
 }
 #textdefault:first-child {
-/*  background: yellow; */
+  /*  background: yellow; */
 }
 h3 {
   /* margin-top: -10px; */
@@ -101,10 +107,11 @@ h3 {
   #textdefault {
     grid-column: auto;
     padding: 0 2.8em 2.8em 0;
+
   }
   h4 {
-  margin-top: -1rem; 
-}
+    margin-top: -1rem;
+  }
 
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {

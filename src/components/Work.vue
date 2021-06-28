@@ -73,7 +73,7 @@
         data-aos-once="true"
         data-aos-anchor-placement="top"
         title="Project Template"
-        filename="template.svg"
+        filename="template-2.svg"
         route="Project"
         alt="Template Project"
       />
