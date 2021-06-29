@@ -167,11 +167,13 @@ h1 a {
   text-decoration: none !important;
 }
 h2 a {
-  color: var(--color-action) !important;
+  color: inherit;
+  /* color: var(--color-action) !important; */
   text-decoration: underline !important;
 }
 @media (prefers-color-scheme: dark) {
   h2 a {
+    color: inherit;
     /* color: var(--color-action-dark) !important; */
   }
 }
