@@ -129,27 +129,31 @@ export default {
   padding: 0 !important;
   overflow: visible;
   mix-blend-mode: normal !important;
-  bottom: 1.6rem;
-  left: 1.6rem;
-  right: 1.6rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
   position: fixed;
   z-index: 1000 !important;
   transform: translate3d(0, 0, 0) !important;
   transition: 0.4s all ease-in-out !important;
   width: auto;
 }
-.bg {
-  overflow: hidden;
-  border-radius: 4px;
-  background: white;
-  align-items: middle;
-  justify-self: stretch;
-  padding: 2rem 1rem 2rem 1rem !important;
-  box-shadow: var(--shadow-z2);
-}
 .navbar.hidden-navbar {
   transform: translate3d(0, 150%, 0) !important;
 }
+.bg {
+  position: relative;
+  overflow: visible;
+  margin: 1rem;
+  border: 1px solid;
+  border-color: var(--color-xxxlight);
+  border-radius: 1px;
+  background: white;
+  align-items: middle;
+  justify-self: stretch;
+  box-shadow: var(--shadow-z2);
+}
+
 ul {
   padding: 0;
   margin: 0;
@@ -157,18 +161,22 @@ ul {
 }
 nav {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, auto);
   position: relative;
   justify-self: stretch;
+  align-items: center;
+  height: 5.2rem;
+    overflow: visible;
+
 }
 .nav-link > a {
-  background: none;
-  border-radius: 4px;
-  padding: 1rem !important;
-  text-decoration: none !important;
+  padding: 1.6rem;
+  border-radius: 1px;
+
+  /* text-decoration: none !important; */
 }
 .nav-link > a:hover {
-  background: rgba(0, 0, 0, 0.05);
+ background: rgba(0, 0, 0, 0.05); 
 }
 #wordmark {
 }
@@ -186,12 +194,11 @@ li {
   margin: 0;
 }
 li:first-child {
-  padding-right: 1rem;
+  padding-right: 0;
 }
 @media (prefers-color-scheme: dark) {
   .bg {
     background: var(--color-offblack);
-    border: 1px solid;
     border-color: black;
   }
   .nav-link > a:hover {
@@ -205,6 +212,7 @@ li:first-child {
     transition: 0.8s all ease-in-out !important;
   }
   .bg {
+    margin: 1.6rem;
     justify-self: end;
   }
 
