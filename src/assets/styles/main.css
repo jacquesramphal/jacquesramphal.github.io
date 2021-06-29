@@ -59,7 +59,7 @@ a:hover {
   }
 
   #app a:hover {
-    color: var(--color-action-dark) !important;
+    color: var(--color-action) !important;
   }
   .reversed {
     color: var(--color-dark) !important;

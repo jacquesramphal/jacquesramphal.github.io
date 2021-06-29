@@ -168,11 +168,11 @@ h1 a {
 }
 h2 a {
   color: var(--color-action) !important;
-  text-decoration: none !important;
+  text-decoration: underline !important;
 }
 @media (prefers-color-scheme: dark) {
   h2 a {
-    color: var(--color-action-dark) !important;
+    /* color: var(--color-action-dark) !important; */
   }
 }
 

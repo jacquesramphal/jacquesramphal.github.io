@@ -83,7 +83,7 @@
 li {
   float: left;
   text-decoration: none;
-  padding-left: 2.8rem;
+  /* padding-left: 2.8rem; */
   list-style-type: none;
 }
 li:first-child {
