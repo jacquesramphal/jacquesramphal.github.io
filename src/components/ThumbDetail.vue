@@ -1,8 +1,10 @@
 <template>
-  <span class="grid-card twowide">
+  <span class="grid-card thumbdetail">
     <span tabindex="0" class="caption">
     <h6 tabIndex="0" class="">{{ title }}</h6>
-      <p tabIndex="0" class="subtle">{{ date }}</p>
+    <br/>
+      <p tabIndex="0" class="subtle">{{ details }}</p>
+  
       </span>
         <span class="overlay">
     </span>
@@ -17,20 +19,22 @@
 </template>
 
 <script>
+
 export default {
-  name: "ThumbMedium",
+  name: "ThumbDetail",
+ 
   props: {
     title: {
       type: String,
       default: "Default Caption",
     },
-    date: {
+    details: {
       type: String,
-      default: "XXXX - XXXX",
+      default: "Lorem ipsum doler optima sit amet doler optima sit amet optima sit amet amet doler optima sit amet optima sit amet optima sit amet amet doler optima sit amet optima sit amet ",
     },
     filename: {
       type: String,
-      default: "template.svg",
+      default: "template-v2.svg",
     },
     alt: {
       type: String,
@@ -43,17 +47,41 @@ export default {
 <style scoped>
 @import "../assets/styles/all.css";
 
-.twowide {
+.thumbdetail {
+  background-color: black;
   grid-column: 1 / 4;
+      grid-template-rows: repeat(2, 1fr);
+      grid-gap: 2.8rem;
+      height: 90vh;
+
+}
+.caption{
+
+color: white !important;
 }
 
+  .grid-card:hover .caption  {
+  color: white !important;
+
+  }
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
 
-  .twowide {
+  .thumbdetail {
     grid-column: 1 / 3;
+          grid-template-rows: none;
+      height: auto;
+
+          grid-template-columns: repeat(2, 1fr);
+
   }
+.caption{
+      grid-column: 1 / 2;
+
+ 
+
+}
 }
 
   /* ------------ BREAKPOINT LG ------------ */
@@ -61,7 +89,7 @@ export default {
     .grid-parent {
       grid-template-columns: repeat(3, 1fr);
     }
-    .twowide {
+    .thumbdetail {
       grid-column: span 2;
     }}
     

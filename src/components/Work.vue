@@ -56,14 +56,13 @@
         filename="template-m.svg"
         alt="Template Project"
       />
-      <ThumbMedium
+      <ThumbDetail
         data-aos="fade"
         data-aos-duration="1000"
         data-aos-delay="400"
         data-aos-once="true"
         data-aos-anchor-placement="top"
-        title="DevopsDays"
-        filename="dod.svg"
+        title="Detail Card"
         alt="DevopsDays Toronto Identity"
       />
       <ThumbLarge
@@ -85,7 +84,7 @@
 // import Hero from "@/components/Hero.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
-import ThumbMedium from "@/components/ThumbMedium.vue";
+import ThumbDetail from "@/components/ThumbDetail.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
 
 export default {
@@ -94,7 +93,7 @@ export default {
     // Hero,
     ThumbSmall,
     ThumbSmall2,
-    ThumbMedium,
+    ThumbDetail,
     ThumbLarge,
   },
 };

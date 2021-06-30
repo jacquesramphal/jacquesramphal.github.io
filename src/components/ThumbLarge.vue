@@ -2,7 +2,7 @@
   <span class="grid-card hero grey">
     <span tabindex="0" class="caption">
       <h6 tabIndex="0" class="">{{ title }}</h6>
-      <p tabIndex="0" class="subtle">details</p>
+      <p tabIndex="0" class="subtle">{{ date }}</p>
       </span>
     <router-link :to="`${route}`">
       <span class="overlay"></span
@@ -23,6 +23,10 @@ export default {
     title: {
       type: String,
       default: "ThumbLarge",
+    },
+    date: {
+      type: String,
+      default: "XXXX - XXXX",
     },
     filename: {
       type: String,

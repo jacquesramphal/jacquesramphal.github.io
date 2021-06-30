@@ -94,7 +94,6 @@ p {
 .caption {
   display: block !important;
   float: left;
-  mix-blend-mode: multiply;
   padding-left: 2.8rem;
   padding-top: 2.2rem;
   position: absolute;
@@ -112,7 +111,6 @@ p {
 .grid-card:hover .caption  {
   color: var(--color-dark) !important;
   display: block !important;
-  mix-blend-mode: multiply !important;
 }
 .grid-card:active .caption  {
   /* display: none !important; */

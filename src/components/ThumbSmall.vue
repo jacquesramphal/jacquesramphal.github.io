@@ -2,7 +2,7 @@
   <span class="grid-card">
     <span tabindex="0" class="caption">
       <h6 tabIndex="0" class="">{{ title }}</h6>
-      <p tabIndex="0" class="subtle">details</p>
+      <p tabIndex="0" class="subtle">{{ date }}</p>
     </span>
     <span class="overlay"> </span>
     <a class="">
@@ -24,6 +24,10 @@ export default {
      */
     title: {
       type: String,
+    },
+    date: {
+      type: String,
+      default: "XXXX - XXXX",
     },
     /**
      * Sets the image
