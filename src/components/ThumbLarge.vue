@@ -26,7 +26,7 @@ export default {
     },
     date: {
       type: String,
-      default: "XXXX - XXXX",
+      default: " ",
     },
     filename: {
       type: String,

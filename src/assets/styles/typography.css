@@ -63,7 +63,7 @@ h5 {
 /* eyebrow text */
 h6 {
   font-size: 2rem;
-  font-weight: 550;
+  font-weight: 500;
   line-height: 1.5;
   margin: 0;
   opacity: 0.9 !important;
@@ -78,7 +78,7 @@ p {
 
 }
 .subtle {
-  opacity: 0.6;
+  opacity: 0.6 !important;
 }
 /* .caption-project {
   mix-blend-mode: multiply;
@@ -92,15 +92,11 @@ p {
   text-rendering: optimizeLegibility;
 } */
 .caption {
-  display: block !important;
   float: left;
   padding-left: 2.8rem;
   padding-top: 2.2rem;
   position: absolute;
   text-rendering: optimizeLegibility;
-}
-
-.caption  {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
   -webkit-transition: all 0.1s ease-in-out;

@@ -4,7 +4,6 @@ import Work from "@/components/Work.vue";
 import Project from "@/components/Project.vue";
 import Info from "@/components/Info.vue";
 import Library from "@/components/Library.vue";
-import HeroLanding from "@/components/HeroLanding.vue";
 import FormCentered from "@/components/card/FormCentered.vue";
 
 Vue.use(Router);
@@ -15,7 +14,7 @@ export default new Router({
     {
       path: "/",
       name: "",
-      component: HeroLanding,
+      component: Work,
     },
     {
       path: "/info",

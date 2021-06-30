@@ -137,6 +137,7 @@ export default {
   transform: translate3d(0, 0, 0) !important;
   transition: 0.4s all ease-in-out !important;
   width: auto;
+  max-width: none;
 }
 .navbar.hidden-navbar {
   transform: translate3d(0, 150%, 0) !important;

@@ -1,6 +1,6 @@
 <template>
   <div>
-  <!-- <Hero /> -->
+    <HeroLanding />
     <div id="grid-parent" class="grid-parent container">
       <ThumbSmall
         id="top"
@@ -22,7 +22,6 @@
         title="Giftbook"
         filename="gob.svg"
         alt="Giftbook"
-
       />
       <ThumbSmall2
         data-aos="fade"
@@ -34,6 +33,7 @@
         title="Avatar"
         filename="avatar.svg"
         alt="Avatar"
+        route="Project"
       />
       <ThumbSmall
         data-aos="fade"
@@ -62,8 +62,8 @@
         data-aos-delay="400"
         data-aos-once="true"
         data-aos-anchor-placement="top"
-        title="Detail Card"
-        alt="DevopsDays Toronto Identity"
+        title="Project Template"
+        alt="Project Template"
       />
       <ThumbLarge
         data-aos="fade"
@@ -72,7 +72,7 @@
         data-aos-once="true"
         data-aos-anchor-placement="top"
         title="Project Template"
-        filename="template-2.svg"
+        filename="template.svg"
         route="Project"
         alt="Template Project"
       />
@@ -81,7 +81,7 @@
 </template>
 
 <script>
-// import Hero from "@/components/Hero.vue";
+import HeroLanding from "@/components/HeroLanding.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
@@ -90,7 +90,7 @@ import ThumbLarge from "@/components/ThumbLarge.vue";
 export default {
   name: "Work",
   components: {
-    // Hero,
+    HeroLanding,
     ThumbSmall,
     ThumbSmall2,
     ThumbDetail,

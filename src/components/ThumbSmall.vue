@@ -27,7 +27,7 @@ export default {
     },
     date: {
       type: String,
-      default: "XXXX - XXXX",
+      default: " ",
     },
     /**
      * Sets the image

@@ -12,10 +12,10 @@
       filename="template.svg"
       alt="Template Project Hero Image"
     /> -->
-    <DetailCard id="detail1" class="" header="Process" />
+    <DetailCard2 id="detail1" class="" />
 
-   <div id="" class="reversed">
-    <div id="grid-parent" class="container ">
+   <div id="" class="">
+    <div id="grid-parent" class="container  ">
       <ThumbLarge
         data-aos="fade"
         data-aos-duration="1000"
@@ -24,7 +24,7 @@
         data-aos-anchor-placement="top"
         class=""
         title=""
-        filename="about-cropped.png"
+        filename="template.svg"
         alt="Jacques working at Myplanet"
       />
       <TextDefault
@@ -47,6 +47,7 @@ import TextDefault from "@/components/text/TextDefault.vue";
 import HeroProject from "@/components/HeroProject.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
+import DetailCard2 from "@/components/card/DetailCard2.vue";
 
 export default {
   name: "Project",
@@ -55,6 +56,7 @@ export default {
     TextDefault,
     ThumbLarge,
     DetailCard,
+    DetailCard2,
   },
 };
 </script>
@@ -62,11 +64,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-/* add to global styles layout.css */
-.tight {
- padding-top: 0 !important;
-  /* padding-bottom: 0 !important; */
-}
+
 
 #heroimg {
   border-radius: 0 !important;

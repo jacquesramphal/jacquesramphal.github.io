@@ -12,6 +12,10 @@
   max-width: 1440px;
   overflow: hidden;
 }
+.tight {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+ }
 .grid-parent {
   display: grid;
   grid-gap: 2.8rem;
@@ -79,7 +83,7 @@
   grid-column: 1 / 4;
 }
 li {
-  float: left;
+  /* float: left; */
   text-decoration: none;
   /* padding-left: 2.8rem; */
   list-style-type: none;

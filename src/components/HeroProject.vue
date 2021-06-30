@@ -84,7 +84,7 @@ export default {
     background-repeat: no-repeat;
     background-size: 100vh;
     background-position: 101% 50%;
-    height: 80vh;
+    height: 100vh;
   }
   #hero-text {
     max-width: 60vw;

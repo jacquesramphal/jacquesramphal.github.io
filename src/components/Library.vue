@@ -106,6 +106,7 @@ export default {
 #buttons {
   grid-template-columns: 1fr;
 }
+
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
   #buttons {
