@@ -54,8 +54,8 @@ export default {
 .thumbdetail {
   background-color: var(--color-slate);
   grid-column: 1 / 4;
-  grid-template-rows: repeat(2, 1fr);
   grid-gap: 2.8rem;
+  grid-template-rows: repeat(2, 1fr);
   height: 100vh;
 }
 .caption {
@@ -75,10 +75,9 @@ export default {
 @media only screen and (min-width: 740px) {
   .thumbdetail {
     grid-column: 1 / 3;
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: none;
     height: auto;
-
-    grid-template-columns: repeat(2, 1fr);
   }
   .caption {
     grid-column: 1 / 2;

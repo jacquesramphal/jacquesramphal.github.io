@@ -3,16 +3,15 @@
     <span tabindex="0" class="caption">
       <h6 tabIndex="0" class="">{{ title }}</h6>
       <p tabIndex="0" class="subtle">{{ date }}</p>
-      </span>
+    </span>
     <router-link :to="`${route}`">
-      <span class="overlay"></span
-      >
-        <img 
-          draggable="false" 
-          :src="require(`@/assets/images/${filename}`)"
-          :alt="(`${alt}`)"
-        />
-      </router-link>
+      <span class="overlay"></span>
+      <img
+        draggable="false"
+        :src="require(`@/assets/images/${filename}`)"
+        :alt="`${alt}`"
+      />
+    </router-link>
   </span>
 </template>
 
@@ -47,7 +46,7 @@ export default {
 <style scoped>
 @import "../assets/styles/all.css";
 
-.caption{ 
+.caption {
   display: block !important;
 }
 </style>

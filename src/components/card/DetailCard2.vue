@@ -10,30 +10,30 @@
     >
       <span id="values">
         <ul
-          data-aos="fade"
-          data-aos-duration="1000"
           data-aos-delay="0"
+          data-aos-duration="1000"
           data-aos-once="true"
+          data-aos="fade"
           tabIndex="0"
         >
           <li class="label subtle"><p>Role</p></li>
           <li class="value"><p>UI Designer/Developer</p></li>
         </ul>
         <ul
-          data-aos="fade"
-          data-aos-duration="1000"
           data-aos-delay="250"
+          data-aos-duration="1000"
           data-aos-once="true"
+          data-aos="fade"
           tabIndex="0"
         >
           <li class="label subtle"><p>Type</p></li>
           <li class="value"><p>Proof of Concept</p></li>
         </ul>
         <ul
-          data-aos="fade"
-          data-aos-duration="1000"
           data-aos-delay="500"
+          data-aos-duration="1000"
           data-aos-once="true"
+          data-aos="fade"
           tabIndex="0"
         >
           <li class="label subtle"><p>Year</p></li>
@@ -41,14 +41,21 @@
         </ul>
       </span>
       <span id="info">
-    <h5 tabIndex="0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h5></span>
-      
+        <h5 tabIndex="0">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </h5></span
+      >
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "DetailCard2",
 
@@ -84,8 +91,8 @@ export default {
   padding: 0;
 }
 
-#info>h4{
-    margin-bottom: .8em !important;
+#info > h4 {
+  margin-bottom: 0.8em !important;
 }
 ul {
   margin-bottom: 2rem;

@@ -1,7 +1,7 @@
 <template>
   <div id="project" class="">
     <HeroProject eyebrow="" title="Project Template" class="" />
-   <!-- <ThumbLarge
+    <!-- <ThumbLarge
       id="heroimg"
       data-aos="fade"
       data-aos-duration="1000"
@@ -14,30 +14,30 @@
     /> -->
     <DetailCard2 id="detail1" class="" />
 
-   <div id="" class="">
-    <div id="grid-parent" class="container  ">
-      <ThumbLarge
-        data-aos="fade"
-        data-aos-duration="1000"
-        data-aos-delay="400"
-        data-aos-once="true"
-        data-aos-anchor-placement="top"
-        class=""
-        title=""
-        filename="template.svg"
-        alt="Jacques working at Myplanet"
-      />
-      <TextDefault
-        data-aos="fade"
-        data-aos-duration="1000"
-        data-aos-delay="200"
-        data-aos-once="true"
-        eyebrow=" "
-        header=" "
-        details="Designer/Developer working and playing at Myplanet."
-      />
+    <div id="" class="">
+      <div id="grid-parent" class="container  ">
+        <ThumbLarge
+          data-aos="fade"
+          data-aos-duration="1000"
+          data-aos-delay="400"
+          data-aos-once="true"
+          data-aos-anchor-placement="top"
+          class=""
+          title=""
+          filename="template.svg"
+          alt="Jacques working at Myplanet"
+        />
+        <TextDefault
+          data-aos="fade"
+          data-aos-duration="1000"
+          data-aos-delay="200"
+          data-aos-once="true"
+          eyebrow=" "
+          header=" "
+          details="Designer/Developer working and playing at Myplanet."
+        />
+      </div>
     </div>
-</div>
     <DetailCard id="detail2" class="" header="My Role" />
   </div>
 </template>
@@ -63,9 +63,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-
-
 #heroimg {
   border-radius: 0 !important;
 }

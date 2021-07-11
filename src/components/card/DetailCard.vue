@@ -107,7 +107,6 @@ h3 {
   #textdefault {
     grid-column: auto;
     padding: 0 2.8em 2.8em 0;
-
   }
   h4 {
     margin-top: -1rem;

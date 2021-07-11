@@ -15,9 +15,13 @@
 
     > 
     -->
-    <form class="grid-parent container" @submit.prevent="sendEmail" onsubmit="alert('submit!');return false" >
-     <TextDefault header="Contact Me"/>
-     <!-- <h4
+    <form
+      class="grid-parent container"
+      @submit.prevent="sendEmail"
+      onsubmit="alert('submit!');return false"
+    >
+      <TextDefault header="Contact Me" />
+      <!-- <h4
         id="section-header"
         data-aos="fade-right"
         data-aos-duration="1000"
@@ -48,7 +52,7 @@
         name="message"
         placeholder="Enter your message"
       />
-     <!-- <Select label="Select" id="select" name="select" /> -->
+      <!-- <Select label="Select" id="select" name="select" /> -->
       <MyButton
         type="submit"
         name="submit"
@@ -97,7 +101,6 @@ import TextArea from "@/components/form/TextArea.vue";
 import MyButton from "@/components/MyButton.vue";
 import emailjs from "emailjs-com";
 import TextDefault from "@/components/text/TextDefault.vue";
-
 
 export default {
   name: "Form",
@@ -160,24 +163,23 @@ export default {
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
-#textdefault {
+  #textdefault {
     grid-column: 1 / 3;
-
   }
   #form {
     grid-column: auto;
     padding: 0 2.8em 2.8em 0;
   }
   h4 {
-  margin-top: -1rem; 
-}
+    margin-top: -1rem;
+  }
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
     #message {
       display: none;
       grid-column: 1 / 4 !important;
-}
-#textdefault {
+    }
+    #textdefault {
       grid-column: 1 / 1;
       grid-row: 1 / 4 !important;
     }

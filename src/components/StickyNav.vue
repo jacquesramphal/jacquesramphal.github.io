@@ -120,64 +120,63 @@ export default {
 <style scoped>
 * {
   color: inherit !important;
-  mix-blend-mode: normal;
   margin: 0;
+  mix-blend-mode: normal;
 }
 
 .container,
 .navbar {
-  padding: 0 !important;
-  overflow: visible;
-  mix-blend-mode: normal !important;
   bottom: 0;
   left: 0;
-  right: 0;
+  max-width: none;
+  mix-blend-mode: normal !important;
+  overflow: visible;
+  padding: 0 !important;
   position: fixed;
-  z-index: 1000 !important;
+  right: 0;
   transform: translate3d(0, 0, 0) !important;
   transition: 0.4s all ease-in-out !important;
   width: auto;
-  max-width: none;
+  z-index: 1000 !important;
 }
 .navbar.hidden-navbar {
   transform: translate3d(0, 150%, 0) !important;
 }
 .bg {
-  position: relative;
-  overflow: visible;
-  margin: 1rem;
-  border: 1px solid;
-  border-color: var(--color-xxxlight);
-  border-radius: 1px;
-  background: white;
   align-items: middle;
-  justify-self: stretch;
+  background: white;
+  border-color: var(--color-xxxlight);
+  border-radius: 4px;
+  border: 1px solid;
   box-shadow: var(--shadow-z2);
+  justify-self: stretch;
+  margin: 1.6rem;
+  overflow: visible;
+  position: relative;
 }
 
 ul {
-  padding: 0;
-  margin: 0;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 nav {
+  overflow: visible;
+  align-items: center;
   display: grid;
   grid-template-columns: repeat(2, auto);
-  position: relative;
-  justify-self: stretch;
-  align-items: center;
   height: 5.2rem;
-    overflow: visible;
-
+  justify-self: stretch;
+  position: relative;
 }
 .nav-link > a {
+  border-radius: 4px;
   padding: 1.6rem;
-  border-radius: 1px;
 
   /* text-decoration: none !important; */
 }
 .nav-link > a:hover {
- background: rgba(0, 0, 0, 0.05); 
+  background: rgba(0, 0, 0, 0.05);
 }
 #wordmark {
 }
@@ -187,12 +186,12 @@ h1 {
   margin: 0;
 }
 li {
+  float: left;
   font-size: 2em;
   line-height: 1;
-  float: left;
-  text-decoration: none;
   list-style-type: none;
   margin: 0;
+  text-decoration: none;
 }
 li:first-child {
   padding-right: 0;
@@ -213,8 +212,8 @@ li:first-child {
     transition: 0.8s all ease-in-out !important;
   }
   .bg {
-    margin: 1.6rem;
     justify-self: end;
+    margin: 1.6rem;
   }
 
   .navbar.hidden-navbar {

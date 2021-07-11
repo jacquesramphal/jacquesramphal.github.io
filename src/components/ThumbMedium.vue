@@ -1,16 +1,15 @@
 <template>
   <span class="grid-card twowide">
     <span tabindex="0" class="caption">
-    <h6 tabIndex="0" class="">{{ title }}</h6>
+      <h6 tabIndex="0" class="">{{ title }}</h6>
       <p tabIndex="0" class="subtle">{{ date }}</p>
-      </span>
-        <span class="overlay">
     </span>
+    <span class="overlay"> </span>
     <a class="">
-      <img 
-        draggable="false" 
+      <img
+        draggable="false"
         :src="require(`@/assets/images/${filename}`)"
-        :alt="(`${alt}`)"
+        :alt="`${alt}`"
       />
     </a>
   </span>
@@ -47,22 +46,20 @@ export default {
   grid-column: 1 / 4;
 }
 
-
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
-
   .twowide {
     grid-column: 1 / 3;
   }
 }
 
-  /* ------------ BREAKPOINT LG ------------ */
-  @media only screen and (min-width: 1201px) {
-    .grid-parent {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    .twowide {
-      grid-column: span 2;
-    }}
-    
+/* ------------ BREAKPOINT LG ------------ */
+@media only screen and (min-width: 1201px) {
+  .grid-parent {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .twowide {
+    grid-column: span 2;
+  }
+}
 </style>

@@ -10,7 +10,6 @@ Vue.use(Router);
 
 export default new Router({
   routes: [
-
     {
       path: "/",
       name: "",
@@ -42,11 +41,12 @@ export default new Router({
       component: Library,
     },
   ],
-  scrollBehavior () {
+  scrollBehavior() {
     return {
-       x: 0, y: 0 
+      x: 0,
+      y: 0,
       //  selector: to.hash,
       //  behavior: 'smooth'
-      }
-  }  
+    };
+  },
 });
