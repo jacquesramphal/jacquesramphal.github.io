@@ -21,14 +21,8 @@
         </h4> -->
         <h2
           class=""
-          data-aos="fade"
-          data-aos-duration="1000"
-          data-aos-delay="500"
-          data-aos-easing="ease-in-out"
-          data-aos-anchor-placement="top"
         >
-          (He/Him) Designer and Developer of web things at
-          <a href="https://myplanet.com">Myplanet</a>
+          Visual Designer & Developer of web things
         </h2>
       </div>
     </div>

@@ -145,10 +145,9 @@ export default {
 .bg {
   align-items: middle;
   background: white;
-  border-color: var(--color-xxxlight);
   border-radius: 4px;
-  border: 1px solid;
-  box-shadow: var(--shadow-z2);
+  border: 2px solid transparent;
+  box-shadow: var(--shadow-z1);
   justify-self: stretch;
   margin: 1.6rem;
   overflow: visible;
@@ -199,7 +198,7 @@ li:first-child {
 @media (prefers-color-scheme: dark) {
   .bg {
     background: var(--color-offblack);
-    border-color: black;
+    border: 2px solid var(--color-offblack);
   }
   .nav-link > a:hover {
     background: rgba(0, 0, 0, 0.25);

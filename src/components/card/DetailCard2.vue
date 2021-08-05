@@ -4,7 +4,6 @@
       class="grid-parent container"
       data-aos="fade"
       data-aos-duration="1000"
-      data-aos-delay="1000"
       data-aos-once="true"
       data-aos-anchor-placement="center"
     >
@@ -42,13 +41,7 @@
       </span>
       <span id="info">
         <h5 tabIndex="0">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          {{ description }}
         </h5></span
       >
     </div>
@@ -60,13 +53,9 @@ export default {
   name: "DetailCard2",
 
   props: {
-    header: {
+    description: {
       type: String,
-      default: "Detail Card 2",
-    },
-    eyebrow: {
-      type: String,
-      default: "Eyebrow",
+      default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     },
   },
 };
@@ -103,7 +92,7 @@ ul {
     grid-column: 1 / 1;
   }
   #info {
-    grid-column: 2 / 4;
+    grid-column: 1 / 4;
   }
   h4 {
     margin-top: -1rem;
@@ -114,6 +103,9 @@ ul {
     #values {
       grid-row: 1 / 3;
     }
+    #info {
+    grid-column: 2 / 4;
+  }
     .container {
     }
   }

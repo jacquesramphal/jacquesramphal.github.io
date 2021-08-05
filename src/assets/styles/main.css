@@ -10,7 +10,7 @@ body {
   background: var(--color-white);
 }
 #app {
-  color: var(--color-offblack) !important;
+  color: var(--color-textblack) !important;
   background: var(--color-white);
   font-size: 10px !important;
   height: 100%;
