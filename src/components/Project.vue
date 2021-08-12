@@ -1,6 +1,6 @@
 <template>
   <div id="project" class="">
-    <HeroProject eyebrow="" title="Project Template" class="" />
+    <HeroProject title="Project Title" class="" />
     <!-- <ThumbLarge
       id="heroimg"
       data-aos="fade"
@@ -38,7 +38,47 @@
         />
       </div>
     </div>
-    <DetailCard id="detail2" class="" header="My Role" />
+    <!-- <DetailCard id="detail2" class="topborder" header="The Solution" /> -->
+    <div class="  ">
+      <div class=" container ">
+        <!-- <h4 style="margin-bottom: 4rem; text-align: center;">More Projects</h4> -->
+        <div class="grid-parent  ">
+          <div>
+            <h4 style="margin-bottom: 4rem;">More Projects</h4>
+            <router-link to="Work" style="margin-top: 4rem;">
+              <p>All Recent Work</p></router-link
+            >
+          </div>
+          <ThumbSmall
+            alt="Project Template"
+            data-aos-anchor-placement="top"
+            data-aos-delay="400"
+            data-aos-duration="1000"
+            data-aos-once="true"
+            data-aos="fade"
+            title="Project Template"
+          />
+          <ThumbSmall
+            alt="Project Template"
+            data-aos-anchor-placement="top"
+            data-aos-delay="400"
+            data-aos-duration="1000"
+            data-aos-once="true"
+            data-aos="fade"
+            title="Project Template"
+          />
+        </div>
+        <!-- <router-link
+          :to="{ path: '/Work' + '#recentwork' }"
+          style="margin-top: 4rem;"
+          ><p>All Recent Work</p></router-link
+        >
+-->
+        <!-- <router-link to="Work" style="margin-top: 4rem;">
+              <p>All Recent Work</p></router-link
+            >-->
+      </div>
+    </div>
   </div>
 </template>
 
@@ -46,7 +86,9 @@
 import TextDefault from "@/components/text/TextDefault.vue";
 import HeroProject from "@/components/HeroProject.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
-import DetailCard from "@/components/card/DetailCard.vue";
+import ThumbSmall from "@/components/ThumbSmall.vue";
+// import ThumbMedium from "@/components/ThumbMedium.vue";
+// import DetailCard from "@/components/card/DetailCard.vue";
 import DetailCard2 from "@/components/card/DetailCard2.vue";
 
 export default {
@@ -54,8 +96,10 @@ export default {
   components: {
     HeroProject,
     TextDefault,
+    // ThumbMedium,
+    ThumbSmall,
     ThumbLarge,
-    DetailCard,
+    // DetailCard,
     DetailCard2,
   },
 };

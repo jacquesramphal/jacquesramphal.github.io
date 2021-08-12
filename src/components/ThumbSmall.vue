@@ -5,7 +5,7 @@
       <p tabIndex="0" class="subtle">{{ date }}</p>
     </span>
     <span class="overlay"> </span>
-    <a class="">
+    <a class="zoom">
       <img
         draggable="false"
         :src="require(`@/assets/images/${filename}`)"
@@ -51,5 +51,8 @@ export default {
 .grid-card {
 }
 * {
+}
+img {
+  mix-blend-mode: normal;
 }
 </style>

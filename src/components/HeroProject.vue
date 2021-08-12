@@ -7,13 +7,15 @@
     data-aos-easing="ease-in-out"
     data-aos-anchor-placement="top"
   >
+    <!-- TMP Breadcrumb 
     <div class="container">
       <nav class="">
-        <h1 id="wordmark" class="">
-          {{ eyebrow }}
-        </h1>
+        <p>
+          <router-link to="Work" style="margin-top: 4rem;">Home</router-link
+          ><span class="subtle" style="margin: 0 1rem;">/</span>Project Template
+        </p>
       </nav>
-    </div>
+    </div>-->
 
     <div id="" class="container">
       <div id="hero-text" class="">
@@ -82,9 +84,9 @@ export default {
   #hero-project {
     background-image: url("../assets/images/template-preview.svg");
     background-repeat: no-repeat;
-    background-size: 100vh;
+    background-size: 50%;
     background-position: 101% 50%;
-    height: 100vh;
+    height: 80vh;
   }
   #hero-text {
     max-width: 60vw;

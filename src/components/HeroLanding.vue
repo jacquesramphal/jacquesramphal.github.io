@@ -22,7 +22,7 @@
         <h2
           class=""
         >
-          Visual Designer & Developer of web things
+          Visual designer and developer at <a href="/" target="blank">Myplanet</a>
         </h2>
       </div>
     </div>

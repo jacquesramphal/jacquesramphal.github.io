@@ -14,7 +14,8 @@
 
   /* STATES */
   --color-action: #0086e6;
-  --color-action-dark: #fcb13a;
+  --color-action-dark: #22a3ff;
+  /* --color-action-dark: #fcb13a; */
   --color-danger: #e74848;
   --color-success: #0dba38;
   --color-disabled: #f2f2f2;

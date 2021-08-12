@@ -169,7 +169,7 @@ nav {
   position: relative;
 }
 .nav-link > a {
-  border-radius: 4px;
+  border-radius: 2px;
   padding: 1.6rem;
 
   /* text-decoration: none !important; */

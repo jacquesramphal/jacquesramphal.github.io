@@ -67,7 +67,7 @@ a:hover {
     mix-blend-mode: normal !important;
   }
   .topborder {
-    border-top: 2px solid black !important;
+    border-top: 1px solid black !important;
   }
   /* .overlay {
   display: none;

@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeroLanding />
-    <div id="grid-parent" class="grid-parent container">
+    <div id="recentwork" class="grid-parent container">
       <ThumbSmall
         alt="J Monogram"
         data-aos-anchor-placement="top"
