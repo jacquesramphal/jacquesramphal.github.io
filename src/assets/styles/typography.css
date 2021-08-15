@@ -144,7 +144,6 @@ h2 a {
   }
 }
 a:hover {
-  color: var(--color-action) !important;
   text-decoration: underline solid !important;
 }
 a:active {

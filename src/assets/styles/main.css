@@ -37,32 +37,27 @@ body {
   width: 100%;
 }
 a {
-  color: var(--color-action);
+  color: var(--link);
 }
 a:hover {
-  color: var(--color-action) !important;
+  color: var(--link) !important;
 }
 .reversed {
-  color: var(--color-offwhite) !important;
+  color: var(--text) !important;
+  background: var(--background);
   mix-blend-mode: normal !important;
-  background: var(--color-offblack);
 }
 .topborder {
   border-top: 1px solid var(--color-xxlight) !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  a {
-    color: var(--color-action-dark);
-  }
 
-  #app a:hover {
-    color: var(--color-action-dark) !important;
-  }
+@media (prefers-color-scheme: dark) {
+
   .reversed {
-    color: var(--color-dark) !important;
-    background: var(--color-offwhite);
+    color: var(--text-reversed) !important;
     mix-blend-mode: normal !important;
+    background: var(--background-reversed);
   }
   .topborder {
     border-top: 1px solid black !important;

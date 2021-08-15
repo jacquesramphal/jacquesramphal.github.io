@@ -4,7 +4,6 @@
      <DetailCard3
       header="Section"
       id="info"
-      class=""
       description="This site was built from scratch with love. I'm a Designer/Developer at Myplanet where process and values are grounded in the principle of empathy-for-all and emphasize collaboration, flexibility, and humanity. As an early hire, I've seen the culture adapt and grow in an ever-changing tech landscape of the unknown. Self-awareness and empathy are at the core of both my journey, and Myplanet's."
     />
     
