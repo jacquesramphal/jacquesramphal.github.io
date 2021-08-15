@@ -48,7 +48,7 @@
       />
       <ThumbSmall
         alt="Template Project"
-        style="background-color: teal;"
+        style="background-color: var(--color-xxlight);"
         data-aos-anchor-placement="top"
         data-aos-delay="300"
         data-aos-duration="1000"
