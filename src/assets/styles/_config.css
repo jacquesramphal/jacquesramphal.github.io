@@ -1,4 +1,8 @@
+
 :root {
+  --text: var(--color-offblack);
+  --background: var(--color-offwhite);
+  
   /* NEUTRAL */
 
   --color-offblack: #202124;
@@ -32,6 +36,25 @@
   --shadow-z5: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   --shadow-inner: inset 0 0 4px var(--color-xlight);
 }
+
+
+
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: var(--color-white);
+    --background: var(--color-offblack);
+  }
+  }
+
+
+
+
+
+/* needs cleanup and consolidation */
+
+
 
 .shadow-top {
   box-shadow: var(--shadow-z4);
