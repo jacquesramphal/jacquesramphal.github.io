@@ -57,6 +57,9 @@ a:hover {
     color: var(--color-offwhite) !important;
     background: var(--color-offblack);
   }
+  a {
+    color: var(--color-action-dark) ;
+  }
 
   #app a:hover {
     color: var(--color-action-dark) !important;

@@ -32,7 +32,7 @@ export default {
     },
     filename: {
       type: String,
-      default: "template-v2.svg",
+      default: "template-sm.svg",
     },
     alt: {
       type: String,

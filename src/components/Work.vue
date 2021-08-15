@@ -48,16 +48,17 @@
       />
       <ThumbSmall
         alt="Template Project"
+        style="background-color: teal;"
         data-aos-anchor-placement="top"
         data-aos-delay="300"
         data-aos-duration="1000"
         data-aos-once="true"
         data-aos="fade"
-        filename="template-m.svg"
         title="Small Template"
       />
       <ThumbDetail
         alt="Project Template"
+        style="background-color: #35363a;"
         data-aos-anchor-placement="top"
         data-aos-delay="400"
         data-aos-duration="1000"
@@ -68,24 +69,24 @@
       <ThumbLarge
         alt="Template Project"
         class="hidemobile"
+        style="background-color: #ffdd9d;"
         data-aos-anchor-placement="top"
         data-aos-delay="500"
         data-aos-duration="1000"
         data-aos-once="true"
         data-aos="fade"
-        filename="template.svg"
         route="Project"
         title="Project Template"
       />
       <ThumbSmall
         alt="Template Project"
         class="showmobile"
+        style="background-color: #ffdd9d;"
         data-aos-anchor-placement="top"
         data-aos-delay="300"
         data-aos-duration="1000"
         data-aos-once="true"
         data-aos="fade"
-        filename="template-m.svg"
         title="Small Template"
       />
     </div>

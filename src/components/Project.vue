@@ -23,8 +23,8 @@
           data-aos-once="true"
           data-aos-anchor-placement="top"
           class=""
+          style="background-color: var(--color-xxlight);"
           title=""
-          filename="template.svg"
           alt="Jacques working at Myplanet"
         />
         <TextDefault

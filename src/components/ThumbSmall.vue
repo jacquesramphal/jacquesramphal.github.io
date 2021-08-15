@@ -1,5 +1,5 @@
 <template>
-  <span class="grid-card">
+  <span class="grid-card" style="background-color: var(--color-xxlight);">
     <span tabindex="0" class="caption">
       <h6 tabIndex="0" class="">{{ title }}</h6>
       <p tabIndex="0" class="subtle">{{ date }}</p>
@@ -34,7 +34,7 @@ export default {
      */
     filename: {
       type: String,
-      default: "template-m.svg",
+      default: "template-sm.svg",
     },
     alt: {
       type: String,

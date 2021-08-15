@@ -29,7 +29,7 @@ export default {
     },
     filename: {
       type: String,
-      default: "template-2.svg",
+      default: "template-lg.svg",
     },
     alt: {
       type: String,

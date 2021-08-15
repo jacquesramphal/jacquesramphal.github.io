@@ -19,7 +19,7 @@
         </g>
     </g>
     <style>
-    #stroke {
+    #stroke:active {
   stroke-dasharray: 100;
   animation: dash infinite 10s ease-in-out;
 }
