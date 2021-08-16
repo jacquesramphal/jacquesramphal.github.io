@@ -123,7 +123,6 @@ export default {
   margin: 0;
   mix-blend-mode: normal;
 }
-
 .container,
 .navbar {
   bottom: 0;
@@ -144,16 +143,15 @@ export default {
 }
 .bg {
   align-items: middle;
-  background: white;
+  background: var(--background);
   border-radius: 4px;
-  border: 2px solid transparent;
+  border: 1px solid var(--color-xxxlight);
   box-shadow: var(--shadow-z1);
   justify-self: stretch;
   margin: 1.6rem;
   overflow: visible;
   position: relative;
 }
-
 ul {
   list-style: none;
   margin: 0;
@@ -171,13 +169,10 @@ nav {
 .nav-link > a {
   border-radius: 2px;
   padding: 1.6rem;
-
   /* text-decoration: none !important; */
 }
 .nav-link > a:hover {
   background: rgba(0, 0, 0, 0.05);
-}
-#wordmark {
 }
 h1 {
   font-size: 2em;
@@ -197,8 +192,8 @@ li:first-child {
 }
 @media (prefers-color-scheme: dark) {
   .bg {
-    background: var(--color-offblack);
-    border: 2px solid var(--color-offblack);
+    background: var(--background);
+    border: 1px solid black;
   }
   .nav-link > a:hover {
     background: rgba(0, 0, 0, 0.25);

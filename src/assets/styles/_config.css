@@ -1,3 +1,4 @@
+/* Styles for users who prefer light mode at the OS level */
 :root {
   --text: var(--color-offblack);
   --background: var(--color-offwhite);
@@ -39,7 +40,17 @@
   --shadow-z5: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   --shadow-inner: inset 0 0 4px var(--color-xlight);
 }
+  /* Override light mode with dark mode styles if the user decides to swap */
+:root.dark-theme {
+  --text: var(--color-offwhite);
+  --background: var(--color-offblack);
+  --link: var(--color-action-dark);
+  /* Reversed */
+  --text-reversed: var(--color-offblack);
+  --background-reversed: var(--color-offwhite);
+}
 
+/* Styles for users who prefer dark mode at the OS level */
 @media (prefers-color-scheme: dark) {
   :root {
     --text: var(--color-offwhite);
@@ -48,6 +59,15 @@
     /* Reversed */
     --text-reversed: var(--color-offblack);
     --background-reversed: var(--color-offwhite);
+  }
+  /* Override dark mode with light mode styles if the user decides to swap */
+  :root.light-theme {
+    --text: var(--color-offblack);
+    --background: var(--color-offwhite);
+    --link: var(--color-action);
+    /* Reversed */
+    --text-reversed: var(--color-offwhite);
+    --background-reversed: var(--color-offblack);
   }
 }
 
