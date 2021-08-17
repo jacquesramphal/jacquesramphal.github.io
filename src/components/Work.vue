@@ -2,6 +2,8 @@
   <div>
     <HeroLanding />
     <div id="recentwork" class="grid-parent container">
+      <ThemeButton />
+
       <ThumbSmall
         alt="J Monogram"
         data-aos-anchor-placement="top"
@@ -95,6 +97,7 @@
 
 <script>
 import HeroLanding from "@/components/HeroLanding.vue";
+import ThemeButton from "@/components/ThemeButton.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
@@ -105,6 +108,7 @@ export default {
   components: {
     HeroLanding,
     ThumbSmall,
+    ThemeButton,
     ThumbSmall2,
     ThumbDetail,
     ThumbLarge,
