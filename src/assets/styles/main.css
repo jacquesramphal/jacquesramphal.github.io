@@ -48,7 +48,7 @@ a:hover {
   mix-blend-mode: normal !important;
 }
 .topborder {
-  border-top: 1px solid var(--color-xxlight) !important;
+  border-top: 1px solid var(--border) !important;
 }
 
 
@@ -59,9 +59,7 @@ a:hover {
     mix-blend-mode: normal !important;
     background: var(--background-reversed);
   }
-  .topborder {
-    border-top: 1px solid black !important;
-  }
+
   /* .overlay {
   display: none;
 } */

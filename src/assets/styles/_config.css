@@ -2,7 +2,9 @@
 :root {
   --text: var(--color-offblack);
   --background: var(--color-offwhite);
+  --overlay: #f2f2f2;
   --link: var(--color-action);
+  --border: 1px solid var(--color-xxlight);
   /* Reversed */
   --text-reversed: var(--color-offwhite);
   --background-reversed: var(--color-offblack);
@@ -44,10 +46,15 @@
 :root.dark-theme {
   --text: var(--color-offwhite);
   --background: var(--color-offblack);
+  --overlay: rgba(0, 0, 0, 0.25);
   --link: var(--color-action-dark);
+  --border: 1px solid black;
+
   /* Reversed */
   --text-reversed: var(--color-offblack);
   --background-reversed: var(--color-offwhite);
+
+
 }
 
 /* Styles for users who prefer dark mode at the OS level */
@@ -55,6 +62,7 @@
   :root {
     --text: var(--color-offwhite);
     --background: var(--color-offblack);
+    --overlay: rgba(0, 0, 0, 0.25);
     --link: var(--color-action-dark);
     /* Reversed */
     --text-reversed: var(--color-offblack);
@@ -64,6 +72,7 @@
   :root.light-theme {
     --text: var(--color-offblack);
     --background: var(--color-offwhite);
+    --overlay: #f2f2f2;
     --link: var(--color-action);
     /* Reversed */
     --text-reversed: var(--color-offwhite);

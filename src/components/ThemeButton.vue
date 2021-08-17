@@ -7,8 +7,9 @@
       class="switch-checkbox"
     />
     <label for="checkbox" class="switch-label">
-      <span>🌙</span>
-      <span>☀️</span>
+      <span>Toggle Theme</span>
+      <!-- <span>🌙</span>
+      <span>☀️</span> -->
       <div
         class="switch-toggle"
         :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
@@ -68,34 +69,41 @@ export default {
 
 .switch-label {
   align-items: center;
-  background: var(--text-primary-color);
+  background: var(--background);
   border: calc(var(--element-size) * 0.025) solid var(--accent-color);
-  border-radius: var(--element-size);
+  border-radius: 8px;
   cursor: pointer;
   display: flex;
-  font-size: calc(var(--element-size) * 0.3);
-  height: calc(var(--element-size) * 0.35);
-  position: relative;
-  padding: calc(var(--element-size) * 0.1);
+  color: inherit !important;
+  /* font-size: 2.4rem; */
+  height: 2rem;
+  position: absolute;
+  right: 0;
+  padding: 1rem;
   transition: background 0.5s ease;
   justify-content: space-between;
-  width: var(--element-size);
+  width: auto;
   z-index: 1;
+  margin: 1.6rem;
 }
-
+/*
 .switch-toggle {
   position: absolute;
-  background-color: var(--background-color-primary);
-  border-radius: 50%;
-  top: calc(var(--element-size) * 0.07);
-  left: calc(var(--element-size) * 0.07);
-  height: calc(var(--element-size) * 0.4);
-  width: calc(var(--element-size) * 0.4);
+  background-color: transparent;
+  border: var(--border);
+  border-width: 2px !important;
+  margin-top: -2px;
+  opacity: 0.5;
+  border-radius: 8px;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
   transform: translateX(0);
   transition: transform 0.3s ease, background-color 0.5s ease;
 }
 
 .switch-toggle-checked {
-  transform: translateX(calc(var(--element-size) * 0.6)) !important;
-}
+  transform: translateX(100%) !important;
+} */
 </style>

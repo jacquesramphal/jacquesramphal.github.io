@@ -141,12 +141,15 @@ export default {
 .navbar.hidden-navbar {
   transform: translate3d(0, 150%, 0) !important;
 }
+.bg:hover {
+    /* box-shadow: var(--shadow-z5); */
+}
 .bg {
   align-items: middle;
   background: var(--background);
-  border-radius: 4px;
-  border: 1px solid var(--color-xxxlight);
-  box-shadow: var(--shadow-z1);
+  border-radius: 8px;
+/*   border: var(--border); 
+  box-shadow: var(--shadow-z1); */
   justify-self: stretch;
   margin: 1.6rem;
   overflow: visible;
@@ -167,12 +170,13 @@ nav {
   position: relative;
 }
 .nav-link > a {
-  border-radius: 2px;
+  border-radius: 8px;
   padding: 1.6rem;
   /* text-decoration: none !important; */
 }
 .nav-link > a:hover {
-  background: rgba(0, 0, 0, 0.05);
+ background: var(--overlay);
+/*  box-shadow: var(--shadow-z1); */
 }
 h1 {
   font-size: 2em;
@@ -189,15 +193,6 @@ li {
 }
 li:first-child {
   padding-right: 0;
-}
-@media (prefers-color-scheme: dark) {
-  .bg {
-    background: var(--background);
-    border: 1px solid black;
-  }
-  .nav-link > a:hover {
-    background: rgba(0, 0, 0, 0.25);
-  }
 }
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {

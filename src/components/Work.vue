@@ -1,9 +1,9 @@
 <template>
   <div>
+    <ThemeButton />
+
     <HeroLanding />
     <div id="recentwork" class="grid-parent container">
-      <ThemeButton />
-
       <ThumbSmall
         alt="J Monogram"
         data-aos-anchor-placement="top"
