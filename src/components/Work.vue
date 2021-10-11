@@ -1,15 +1,13 @@
 <template>
   <div>
-
-
     <HeroBg
       data-aos="fade"
       data-aos-duration="1000"
       data-aos-easing="ease-in-out"
       data-aos-anchor-placement="top"
       data-aos-mirror="true"
-    />    
-    <FormCentered />  
+    />
+    <FormCentered />
   </div>
 </template>
 
