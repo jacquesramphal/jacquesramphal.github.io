@@ -7,13 +7,15 @@
     data-aos-easing="ease-in-out"
     data-aos-anchor-placement="top"
   >
+    <!-- TMP Breadcrumb 
     <div class="container">
       <nav class="">
-        <h1 id="wordmark" class="">
-          {{ eyebrow }}
-        </h1>
+        <p>
+          <router-link to="Work" style="margin-top: 4rem;">Home</router-link
+          ><span class="subtle" style="margin: 0 1rem;">/</span>Project Template
+        </p>
       </nav>
-    </div>
+    </div>-->
 
     <div id="" class="container">
       <div id="hero-text" class="">
@@ -25,7 +27,7 @@
           data-aos-easing="ease-in-out"
           data-aos-anchor-placement="top"
         >
-          {{ title }}
+          — {{ title }}
         </h2>
       </div>
     </div>
@@ -62,7 +64,7 @@ export default {
 #hero-project {
   display: grid;
   min-height: 320px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--bg-darker);
 }
 #hero-text {
   display: grid;
@@ -72,19 +74,16 @@ export default {
   align-items: end !important;
 }
 @media (prefers-color-scheme: dark) {
-  #hero-project {
-    background-color: rgba(0, 0, 0, 0.25);
-  }
+
 }
 /* ------------ BREAKPOINT MD ------------ */
 
 @media only screen and (min-width: 740px) {
   #hero-project {
-    background-image: url("../assets/images/template-preview.svg");
+    background-image: url("../assets/images/template-sm.svg");
     background-repeat: no-repeat;
-    background-size: 100vh;
+    background-size: 40%;
     background-position: 101% 50%;
-    background-color: rgba(0, 0, 0, 0.1);
     height: 80vh;
   }
   #hero-text {

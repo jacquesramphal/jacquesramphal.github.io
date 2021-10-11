@@ -1,16 +1,17 @@
 <template>
   <span class="grid-card hero grey">
     <span tabindex="0" class="caption">
-      <p>{{ title }}</p></span>
+      <h6 tabIndex="0" class="">{{ title }}</h6>
+      <p tabIndex="0" class="subtle">{{ date }}</p>
+    </span>
     <router-link :to="`${route}`">
-      <span class="overlay"></span
-      >
-        <img 
-          draggable="false" 
-          :src="require(`@/assets/images/${filename}`)"
-          :alt="(`${alt}`)"
-        />
-      </router-link>
+      <span class="overlay"></span>
+      <img
+        draggable="false"
+        :src="require(`@/assets/images/${filename}`)"
+        :alt="`${alt}`"
+      />
+    </router-link>
   </span>
 </template>
 
@@ -22,9 +23,13 @@ export default {
       type: String,
       default: "ThumbLarge",
     },
+    date: {
+      type: String,
+      default: " ",
+    },
     filename: {
       type: String,
-      default: "template.svg",
+      default: "template-lg.svg",
     },
     alt: {
       type: String,
@@ -40,4 +45,8 @@ export default {
 
 <style scoped>
 @import "../assets/styles/all.css";
+
+.caption {
+  display: block !important;
+}
 </style>

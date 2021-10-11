@@ -1,7 +1,7 @@
 <template>
   <div class="form fullvh">
     <form
-      class="grid-parent container offwhite"
+      class="grid-parent container"
       @submit.prevent="sendEmail"
       onsubmit="alert('submit!');return false"
     >

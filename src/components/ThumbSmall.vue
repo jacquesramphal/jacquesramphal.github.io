@@ -1,9 +1,11 @@
 <template>
-  <span class="grid-card">
+  <span class="grid-card" style="background-color: var(--color-xxlight);">
     <span tabindex="0" class="caption">
-      <p>{{ title }}</p></span>
+      <h6 tabIndex="0" class="">{{ title }}</h6>
+      <p tabIndex="0" class="subtle">{{ date }}</p>
+    </span>
     <span class="overlay"> </span>
-    <a class="">
+    <a class="zoom">
       <img
         draggable="false"
         :src="require(`@/assets/images/${filename}`)"
@@ -23,12 +25,16 @@ export default {
     title: {
       type: String,
     },
+    date: {
+      type: String,
+      default: " ",
+    },
     /**
      * Sets the image
      */
     filename: {
       type: String,
-      default: "template-m.svg",
+      default: "template-sm.svg",
     },
     alt: {
       type: String,
@@ -45,5 +51,8 @@ export default {
 .grid-card {
 }
 * {
+}
+img {
+  mix-blend-mode: normal;
 }
 </style>

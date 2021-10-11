@@ -43,6 +43,7 @@ export default {
 }
 #details {
   /* height: 100vh; */
+  
 }
 #section-header {
   grid-column: 1 / 4;

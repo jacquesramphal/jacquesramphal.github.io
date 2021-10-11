@@ -1,82 +1,79 @@
 <template>
-  <div
-    class="container navbar"
-    :class="{ 'hidden-navbar': !showNavbar }"
-  >
-  <div class="bg"
-    data-aos="slide-up"
-    data-aos-duration="1000"
-    data-aos-delay="0"
-    data-aos-once="true"
-    data-aos-mirror="true"
-    data-aos-anchor-placement="top"
+  <div class="container navbar" :class="{ 'hidden-navbar': !showNavbar }">
+    <div
+      class="bg"
+      data-aos="slide-left"
+      data-aos-duration="1000"
+      data-aos-delay="0"
+      data-aos-once="true"
+      data-aos-mirror="true"
+      data-aos-anchor-placement="top"
+    >
+      <nav class="">
+        <ul class="justify-start">
+          <li
+            class=" nav-link"
+            data-aos-anchor-placement="top"
+            data-aos-delay="0"
+            data-aos-duration="1000"
+            data-aos-once="true"
+            data-aos="fade-left"
+            tabindex="2"
+          >
+            <router-link to="Info">Info</router-link>
+          </li>
+          <!-- <li
+            class="nav-link"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            data-aos-delay="250"
+            data-aos-once="true"
+            data-aos-anchor-placement="top"
+            tabindex="3"
+          >
+            <router-link to="Work">Work</router-link>
+            <router-link class="isDisabled" to="/">Work</router-link> 
 
-  >
-    <nav class="">
-      <h1
-        class="hidemobile"
-        data-aos-anchor-placement="top"
-        data-aos-delay="500"
-        data-aos-duration="1000"
-        data-aos-once="true"
-        data-aos="fade-right"
-        id="wordmark"
-        tabindex="1"
-      >
-        <a href="#/">Jacques Ramphal</a>
-      </h1>
-
-      <h1
-        class="showmobile"
-        data-aos-anchor-placement="top"
-        data-aos-delay="500"
-        data-aos-duration="1000"
-        data-aos-once="true"
-        data-aos="fade-right"
-        id="wordmark"
-        tabindex="1"
-      >
-        <a href="#/">Jacques R.</a>
-      </h1>
-      <ul class="justify-end">
-        <li
-          class=""
+            <router-link :to="{ 'info/'+'#info'}">Info</router-link> 
+            <a href="mailto:jacques@ramphal.design">Email</a>
+           <router-link to="Info">Info</router-link> 
+          </li> -->
+        </ul>
+        <h1
+          class="hidemobile nav-link justify-end"
           data-aos-anchor-placement="top"
-          data-aos-delay="1200"
-          data-aos-duration="1000"
+          data-aos-delay="500"
+          data-aos-duration="750"
           data-aos-once="true"
           data-aos="fade-left"
-          tabindex="2"
+          id="wordmark"
+          tabindex="1"
         >
-          <router-link to="Contact">Email</router-link>
-        </li>
-        <li
-          class=""
-          data-aos="fade-left"
-          data-aos-duration="1000"
-          data-aos-delay="1500"
-          data-aos-once="true"
-          data-aos-anchor-placement="top"
-          tabindex="3"
-        >
-           <a href="https://www.linkedin.com/in/jacquesramphal">Info</a>
-          <!--<router-link class="isDisabled" to="/">Work</router-link> -->
+          <a href="#/">Jacques Ramphal</a>
+        </h1>
 
-          <!-- <router-link :to="{ 'info/'+'#info'}">Info</router-link> -->
-          <!-- <a href="mailto:jacques@ramphal.design">Email</a>
-           <router-link to="Info">Info</router-link> -->
-        </li>
-      </ul>
-    </nav>
+        <h1
+          class="showmobile nav-link justify-end"
+          data-aos-anchor-placement="top"
+          data-aos-delay="500"
+          data-aos-duration="750"
+          data-aos-once="true"
+          data-aos="fade-left"
+          id="wordmark"
+          tabindex="1"
+        >
+          <a href="#/">Jacques R.</a>
+        </h1>
+      </nav>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
 /**
  * @component
  */
-const OFFSET = 60
+const OFFSET = 60;
 export default {
   name: "StickyNav",
   props: {
@@ -85,75 +82,105 @@ export default {
       default: "Jacques Ramphal",
     },
   },
-  data () {
+  data() {
     return {
       showNavbar: true,
       lastScrollPosition: 0,
-      scrollValue: 0
-    }
+      scrollValue: 0,
+    };
   },
 
-  mounted () {
-    this.lastScrollPosition = window.pageYOffset
-    window.addEventListener('scroll', this.onScroll)
-    const viewportMeta = document.createElement('meta')
-    viewportMeta.name = 'viewport'
-    viewportMeta.content = 'width=device-width, initial-scale=1'
-    document.head.appendChild(viewportMeta)
+  mounted() {
+    this.lastScrollPosition = window.pageYOffset;
+    window.addEventListener("scroll", this.onScroll);
+    const viewportMeta = document.createElement("meta");
+    viewportMeta.name = "viewport";
+    viewportMeta.content = "width=device-width, initial-scale=1";
+    document.head.appendChild(viewportMeta);
   },
 
-  beforeDestroy () {
-    window.removeEventListener('scroll', this.onScroll)
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
   },
 
   methods: {
-    onScroll () {
+    onScroll() {
       if (window.pageYOffset < 0) {
-        return
+        return;
       }
       if (Math.abs(window.pageYOffset - this.lastScrollPosition) < OFFSET) {
-        return
+        return;
       }
-      this.showNavbar = window.pageYOffset < this.lastScrollPosition
-      this.lastScrollPosition = window.pageYOffset
-    }
-  }
+      this.showNavbar = window.pageYOffset < this.lastScrollPosition;
+      this.lastScrollPosition = window.pageYOffset;
+    },
+  },
 };
 </script>
 <style scoped>
 * {
   color: inherit !important;
+  margin: 0;
   mix-blend-mode: normal;
 }
-.bg {
-  background: white;
+.container,
+.navbar {
+  bottom: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  position: fixed;
-  padding: 2.4em 2.8em 2em 2.8em !important;
- /*  border-top: 1px solid;
-  border-color: var(--color-xxlight);*/
-  box-shadow: var(--shadow-z3); 
-}
-.container, .navbar {
-  overflow: visible;
+  max-width: none;
   mix-blend-mode: normal !important;
-  bottom: 0;
+  overflow: visible;
+  padding: 0 !important;
   position: fixed;
-  z-index: 1000 !important;
+  right: 0;
   transform: translate3d(0, 0, 0) !important;
   transition: 0.4s all ease-in-out !important;
-  max-width: none;
+  width: auto;
+  z-index: 1000 !important;
 }
 .navbar.hidden-navbar {
   transform: translate3d(0, 150%, 0) !important;
 }
+.bg:hover {
+  /* box-shadow: var(--shadow-z5); */
+}
+.bg {
+  align-items: middle;
+  background: var(--background);
 
-nav {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  border-radius: 16px;
+  /*   border: var(--border); 
+  box-shadow: var(--shadow-z1); */
+  justify-self: stretch;
+  margin: 0.8rem;
+  overflow: visible;
   position: relative;
+  padding: 0.8rem;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav {
+  overflow: visible;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  height: 5.2rem;
+  justify-self: stretch;
+  position: relative;
+}
+.nav-link > a {
+  border-radius: 8px;
+  padding: 1.6rem;
+  /* text-decoration: none !important; */
+}
+.nav-link > a:hover {
+  background: var(--bg-darker);
+  transition: all 0.25s ease;
+
+  /*  box-shadow: var(--shadow-z1); */
 }
 h1 {
   font-size: 2em;
@@ -161,24 +188,28 @@ h1 {
   margin: 0;
 }
 li {
+  float: left;
   font-size: 2em;
   line-height: 1;
-  float: left;
-  text-decoration: none;
-  padding-left: 2.8rem;
   list-style-type: none;
+  margin: 0;
+  text-decoration: none;
 }
 li:first-child {
-  padding-left: 0;
+  padding-right: 0;
 }
-@media (prefers-color-scheme: dark) {
+/* ------------ BREAKPOINT MD ------------ */
+@media only screen and (min-width: 740px) {
+  .container,
+  .navbar {
+    transition: 0.8s all ease-in-out !important;
+  }
   .bg {
-    background: var(--color-offblack);
-    border-top: 1px solid; 
-    border-color: black;
-    box-shadow: none; 
+    justify-self: end;
+  }
 
+  .navbar.hidden-navbar {
+    transform: translate3d(100%, 0, 0) !important;
   }
 }
-
 </style>

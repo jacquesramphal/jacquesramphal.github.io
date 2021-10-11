@@ -49,6 +49,7 @@
     <Hero header="Default" />
 
     <HeroBg />
+    <HeroAnimated />
     <HeroProject class="eightyvh" header="Lorem Ipsum Doler Optima Sit Amet" />
 
     <DetailCard header="Reversed" class="reversed" />
@@ -68,6 +69,7 @@
 import PageNav from "@/components/PageNav.vue";
 import Hero from "@/components/Hero.vue";
 import HeroBg from "@/components/HeroBg.vue";
+import HeroAnimated from "@/components/HeroAnimated.vue";
 import HeroProject from "@/components/HeroProject.vue";
 import TextDefault from "@/components/text/TextDefault.vue";
 import ThumbMedium from "@/components/ThumbMedium.vue";
@@ -82,6 +84,7 @@ export default {
     PageNav,
     Hero,
     HeroBg,
+    HeroAnimated,
     HeroProject,
     TextDefault,
     ThumbMedium,
@@ -106,6 +109,7 @@ export default {
 #buttons {
   grid-template-columns: 1fr;
 }
+
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
   #buttons {

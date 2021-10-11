@@ -2,13 +2,15 @@
   margin: 0;
   padding: 0;
 }
-/* #app {
-   Padding to account for height of stickbar but not needed when the bar is dynamically hidden
-  /* padding-bottom: 6.2rem !important; 
-} */
+html {
+  font-size: 10px !important;
+}
+body {
+  background: var(--background);
+}
 #app {
-  color: var(--color-offblack) !important;
-  background: var(--color-white);
+  color: var(--text) !important;
+  background: var(--background);
   font-size: 10px !important;
   height: 100%;
   margin: 0;
@@ -17,50 +19,25 @@
   position: relative;
   width: 100%;
 }
-html {
-  font-size: 10px !important;
-}
-.container {
-  display: grid;
-  height: auto;
-  margin: 0;
-  padding: 2.8rem !important;
-  position: relative;
-  width: auto;
-}
-.front {
-  z-index: 100;
+a {
+  color: var(--link);
 }
 a:hover {
-  color: var(--color-action) !important;
+  color: var(--link) !important;
 }
 .reversed {
-  color: var(--color-offwhite) !important;
+  color: var(--text) !important;
+  background: var(--background);
   mix-blend-mode: normal !important;
-  background: var(--color-offblack);
 }
 .topborder {
-  border-top: 1px solid var(--color-xxlight) !important;
+  border-top: 1px solid var(--border) !important;
 }
 
 @media (prefers-color-scheme: dark) {
-  #app {
-    color: var(--color-offwhite) !important;
-    background: var(--color-offblack);
-  }
-
-  #app a:hover {
-    color: var(--color-action-dark) !important;
-  }
   .reversed {
-    color: var(--color-dark) !important;
-    background: var(--color-offwhite);
+    color: var(--text-reversed) !important;
     mix-blend-mode: normal !important;
+    background: var(--background-reversed);
   }
-  .topborder {
-    border-top: 2px solid black !important;
-  }
-  /* .overlay {
-  display: none;
-} */
 }

@@ -4,18 +4,16 @@ import Work from "@/components/Work.vue";
 import Project from "@/components/Project.vue";
 import Info from "@/components/Info.vue";
 import Library from "@/components/Library.vue";
-import Hero from "@/components/Hero.vue";
 import FormCentered from "@/components/card/FormCentered.vue";
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
-
     {
       path: "/",
       name: "",
-      component: Hero,
+      component: Work,
     },
     {
       path: "/info",
@@ -43,11 +41,12 @@ export default new Router({
       component: Library,
     },
   ],
-  scrollBehavior () {
+  scrollBehavior() {
     return {
-       x: 0, y: 0 
+      x: 0,
+      y: 0,
       //  selector: to.hash,
       //  behavior: 'smooth'
-      }
-  }  
+    };
+  },
 });
