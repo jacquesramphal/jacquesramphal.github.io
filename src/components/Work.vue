@@ -1,12 +1,6 @@
 <template>
   <div>
-    <ThemeButton
-      data-aos="fade"
-      data-aos-duration="1000"
-      data-aos-delay="1000"
-      data-aos-once="true"
-      data-aos-anchor-placement="top"
-    />
+
 
     <HeroBg
       data-aos="fade"
@@ -22,7 +16,6 @@
 <script>
 import HeroBg from "@/components/HeroBg.vue";
 import FormCentered from "@/components/card/FormCentered.vue";
-import ThemeButton from "@/components/ThemeButton.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
@@ -34,7 +27,6 @@ export default {
     HeroBg,
     FormCentered,
     ThumbSmall,
-    ThemeButton,
     ThumbSmall2,
     ThumbDetail,
     ThumbLarge,
