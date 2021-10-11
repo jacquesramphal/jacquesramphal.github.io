@@ -2,7 +2,7 @@
 :root {
   --text: var(--color-offblack);
   --background: var(--color-offwhite);
-  --overlay: #f2f2f2;
+  --bg-darker: #f2f2f2;
   --link: var(--color-action);
   --border: 1px solid var(--color-xxlight);
   /* Reversed */
@@ -23,9 +23,11 @@
   --color-offwhite: #fafafa;
 
   /* STATES */
-  --color-action: #0086e6;
+  /* --color-action: #0086e6; */
+  --color-action: #3344dd;
+
   /* --color-action-dark: #22a3ff; */
-  --color-action-dark: #fcb13a;
+  --color-action-dark: #0d98ba;
   --color-danger: #e74848;
   --color-success: #0dba38;
   --color-disabled: #f2f2f2;
@@ -41,20 +43,42 @@
   --shadow-z4: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   --shadow-z5: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   --shadow-inner: inset 0 0 4px var(--color-xlight);
+
+  /* FONT-SIZE */
+
+  --font-xxxl: 8rem;
+  --font-xxl: 7.2rem;
+  --font-xl: 6.4rem;
+  --font-lg: 4.8rem;
+  --font-md: 3.6rem;
+  --font-sm: 2.8rem;
+  --font-xs: 2rem;
+  --font-xxs: 1.6rem;
+
+  /* SPACING */
+
+  --spacing-xxxs: 0.4rem;
+  --spacing-xxs: 0.8rem;
+  --spacing-xs: 1.6rem;
+  --spacing-md: 3.2rem;
+  --spacing-lg: 6.4rem;
+  /* --spacing-lg: 8rem; */
+  --spacing-xl: 12.8rem;
+  --spacing-xxl: 25.6rem;
+  --spacing-xxxl: 51.2rem;
 }
-  /* Override light mode with dark mode styles if the user decides to swap */
+
+/* Override light mode with dark mode styles if the user decides to swap */
 :root.dark-theme {
   --text: var(--color-offwhite);
   --background: var(--color-offblack);
-  --overlay: rgba(0, 0, 0, 0.25);
+  --bg-darker: rgba(0, 0, 0, 0.25);
   --link: var(--color-action-dark);
   --border: 1px solid black;
 
   /* Reversed */
   --text-reversed: var(--color-offblack);
   --background-reversed: var(--color-offwhite);
-
-
 }
 
 /* Styles for users who prefer dark mode at the OS level */
@@ -62,7 +86,7 @@
   :root {
     --text: var(--color-offwhite);
     --background: var(--color-offblack);
-    --overlay: rgba(0, 0, 0, 0.25);
+    --bg-darker: rgba(0, 0, 0, 0.25);
     --link: var(--color-action-dark);
     /* Reversed */
     --text-reversed: var(--color-offblack);
@@ -72,7 +96,7 @@
   :root.light-theme {
     --text: var(--color-offblack);
     --background: var(--color-offwhite);
-    --overlay: #f2f2f2;
+    --bg-darker: #f2f2f2;
     --link: var(--color-action);
     /* Reversed */
     --text-reversed: var(--color-offwhite);
@@ -104,9 +128,7 @@
 .opacity {
   opacity: 0.95;
 }
-.offwhite {
-  background-color: #fafafa;
-}
+
 .lightgrey {
   background-color: #f4f4f4;
 }
@@ -163,10 +185,4 @@
 }
 .brown {
   background-color: #e8a191;
-}
-.multiply {
-  mix-blend-mode: multiply;
-}
-.nomultiply {
-  mix-blend-mode: normal !important;
 }

@@ -27,7 +27,7 @@
           data-aos-easing="ease-in-out"
           data-aos-anchor-placement="top"
         >
-          {{ title }}
+          — {{ title }}
         </h2>
       </div>
     </div>
@@ -64,7 +64,7 @@ export default {
 #hero-project {
   display: grid;
   min-height: 320px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--bg-darker);
 }
 #hero-text {
   display: grid;
@@ -74,9 +74,7 @@ export default {
   align-items: end !important;
 }
 @media (prefers-color-scheme: dark) {
-  #hero-project {
-    background-color: rgba(0, 0, 0, 0.25);
-  }
+
 }
 /* ------------ BREAKPOINT MD ------------ */
 

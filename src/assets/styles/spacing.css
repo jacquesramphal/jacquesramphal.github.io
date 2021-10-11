@@ -4,7 +4,7 @@
   width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
   width: fill-available;
   position: relative;
-  padding: 2.8rem !important;
+  padding: var(--spacing-md) !important;
   display: grid;
   height: auto;
   margin-left: auto;
@@ -18,13 +18,13 @@
 }
 .grid-parent {
   display: grid;
-  grid-gap: 2.8rem;
+  grid-gap: var(--spacing-md);
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1, 1fr);
 }
 .grid-card {
   background: transparent;
-  border-radius: 4px !important;
+  border-radius: var(--spacing-xxxs) !important;
   cursor: pointer;
   display: grid;
   grid-column: 1 / 4;
@@ -82,7 +82,7 @@
 }
 li {
   /* float: left; */
-  /* padding-left: 2.8rem; */
+  /* padding-left: var(--spacing-md); */
   list-style-type: none;
   text-decoration: none;
 }
@@ -92,7 +92,7 @@ li:first-child {
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
   .container {
-    padding: 8rem !important;
+    padding: var(--spacing-lg) !important;
   }
   .grid-parent {
     grid-template-columns: repeat(2, 1fr);

@@ -17,10 +17,12 @@
         </g>
     </g>
     <style>
-        #favicon { stroke: #0086e6; }
+        <!-- #favicon { stroke: #0086e6; } -->
+        #favicon { stroke: black; }
 
     @media (prefers-color-scheme: dark) {
-      #favicon { stroke: #fcb13a; }
+      <!-- #favicon { stroke: #fcb13a; } -->
+      #favicon { stroke: white; }
     }
   </style>
 </svg>

@@ -31,6 +31,8 @@
         />
       </div>
     </div>
+        <FormCentered />
+
   </div>
 </template>
 
@@ -41,6 +43,7 @@ import TextDefault from "@/components/text/TextDefault.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
 import DetailCard3 from "@/components/card/DetailCard3.vue";
 // import Form from "@/components/card/Form.vue";
+import FormCentered from "@/components/card/FormCentered.vue";
 
 export default {
   name: "Info",
@@ -50,6 +53,8 @@ export default {
     TextDefault,
     DetailCard3,
     // Form,
+        FormCentered,
+
   },
 };
 </script>
@@ -67,7 +72,7 @@ export default {
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
     #info {
-      margin: 8rem;
+      margin: var(--spacing-lg);
     }
   }
 }

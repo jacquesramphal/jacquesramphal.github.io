@@ -2,10 +2,7 @@
   <div
     id="hero-landing"
     class=""
-    data-aos="fade"
-    data-aos-duration="1000"
-    data-aos-easing="ease-in-out"
-    data-aos-anchor-placement="top"
+    
   >
     <div id="" class="container">
       <div id="hero-text" class="">

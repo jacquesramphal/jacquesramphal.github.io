@@ -69,7 +69,6 @@ export default {
 
 .switch-label {
   align-items: center;
-  background: var(--background);
   border: calc(var(--element-size) * 0.025) solid var(--accent-color);
   border-radius: 8px;
   cursor: pointer;
@@ -79,12 +78,15 @@ export default {
   height: 2rem;
   position: absolute;
   right: 0;
-  padding: 1rem;
-  transition: background 0.5s ease;
+  padding: 1.6rem;
+  transition: all 0.5s ease;
   justify-content: space-between;
   width: auto;
   z-index: 1;
   margin: 1.6rem;
+}
+.switch-label:hover {
+    background: var(--bg-darker);
 }
 /*
 .switch-toggle {

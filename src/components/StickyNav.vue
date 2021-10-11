@@ -22,7 +22,7 @@
           >
             <router-link to="Info">Info</router-link>
           </li>
-          <li
+          <!-- <li
             class="nav-link"
             data-aos="fade-left"
             data-aos-duration="1000"
@@ -32,12 +32,12 @@
             tabindex="3"
           >
             <router-link to="Work">Work</router-link>
-            <!--<router-link class="isDisabled" to="/">Work</router-link> -->
+            <router-link class="isDisabled" to="/">Work</router-link> 
 
-            <!-- <router-link :to="{ 'info/'+'#info'}">Info</router-link> -->
-            <!-- <a href="mailto:jacques@ramphal.design">Email</a>
-           <router-link to="Info">Info</router-link> -->
-          </li>
+            <router-link :to="{ 'info/'+'#info'}">Info</router-link> 
+            <a href="mailto:jacques@ramphal.design">Email</a>
+           <router-link to="Info">Info</router-link> 
+          </li> -->
         </ul>
         <h1
           class="hidemobile nav-link justify-end"
@@ -142,18 +142,20 @@ export default {
   transform: translate3d(0, 150%, 0) !important;
 }
 .bg:hover {
-    /* box-shadow: var(--shadow-z5); */
+  /* box-shadow: var(--shadow-z5); */
 }
 .bg {
   align-items: middle;
   background: var(--background);
-  border-radius: 8px;
-/*   border: var(--border); 
+
+  border-radius: 16px;
+  /*   border: var(--border); 
   box-shadow: var(--shadow-z1); */
   justify-self: stretch;
-  margin: 1.6rem;
+  margin: 0.8rem;
   overflow: visible;
   position: relative;
+  padding: 0.8rem;
 }
 ul {
   list-style: none;
@@ -175,8 +177,10 @@ nav {
   /* text-decoration: none !important; */
 }
 .nav-link > a:hover {
- background: var(--overlay);
-/*  box-shadow: var(--shadow-z1); */
+  background: var(--bg-darker);
+  transition: all 0.25s ease;
+
+  /*  box-shadow: var(--shadow-z1); */
 }
 h1 {
   font-size: 2em;
@@ -202,7 +206,6 @@ li:first-child {
   }
   .bg {
     justify-self: end;
-    margin: 1.6rem;
   }
 
   .navbar.hidden-navbar {

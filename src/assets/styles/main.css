@@ -2,26 +2,9 @@
   margin: 0;
   padding: 0;
 }
-/* #app {
-   Padding to account for height of stickbar but not needed when the bar is dynamically hidden
-  /* padding-bottom: 6.2rem !important; 
-} */
-
 html {
   font-size: 10px !important;
 }
-.container {
-  display: grid;
-  height: auto;
-  margin: 0;
-  padding: 2.8rem !important;
-  position: relative;
-  width: auto;
-}
-.front {
-  z-index: 100;
-}
-
 body {
   background: var(--background);
 }
@@ -51,16 +34,10 @@ a:hover {
   border-top: 1px solid var(--border) !important;
 }
 
-
 @media (prefers-color-scheme: dark) {
-
   .reversed {
     color: var(--text-reversed) !important;
     mix-blend-mode: normal !important;
     background: var(--background-reversed);
   }
-
-  /* .overlay {
-  display: none;
-} */
 }

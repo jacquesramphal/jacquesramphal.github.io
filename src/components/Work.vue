@@ -1,8 +1,20 @@
 <template>
   <div>
-    <ThemeButton />
+    <ThemeButton
+      data-aos="fade"
+      data-aos-duration="1000"
+      data-aos-delay="1000"
+      data-aos-once="true"
+      data-aos-anchor-placement="top"
+    />
 
-    <HeroLanding />
+    <HeroLanding
+      data-aos="fade"
+      data-aos-duration="1000"
+      data-aos-easing="ease-in-out"
+      data-aos-anchor-placement="top"
+      data-aos-mirror="true"
+    />
     <div id="recentwork" class="grid-parent container">
       <ThumbSmall
         alt="J Monogram"
@@ -50,12 +62,13 @@
       />
       <ThumbSmall
         alt="Template Project"
-        style="background-color: var(--color-xxlight);"
+        style="background-color: lightblue;"
         data-aos-anchor-placement="top"
         data-aos-delay="300"
         data-aos-duration="1000"
         data-aos-once="true"
         data-aos="fade"
+        filename="template-sm3.svg"
         title="Small Template"
       />
       <ThumbDetail
