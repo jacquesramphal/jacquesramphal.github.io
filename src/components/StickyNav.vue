@@ -10,35 +10,7 @@
       data-aos-anchor-placement="top"
     >
       <nav class="">
-        <ul class="justify-start">
-          <li
-            class=" nav-link"
-            data-aos-anchor-placement="top"
-            data-aos-delay="0"
-            data-aos-duration="1000"
-            data-aos-once="true"
-            data-aos="fade-left"
-            tabindex="2"
-          >
-            <router-link to="Info">Info</router-link>
-          </li>
-          <!-- <li
-            class="nav-link"
-            data-aos="fade-left"
-            data-aos-duration="1000"
-            data-aos-delay="250"
-            data-aos-once="true"
-            data-aos-anchor-placement="top"
-            tabindex="3"
-          >
-            <router-link to="Work">Work</router-link>
-            <router-link class="isDisabled" to="/">Work</router-link> 
-
-            <router-link :to="{ 'info/'+'#info'}">Info</router-link> 
-            <a href="mailto:jacques@ramphal.design">Email</a>
-           <router-link to="Info">Info</router-link> 
-          </li> -->
-        </ul>
+        
         <h1
           class="hidemobile nav-link justify-end"
           data-aos-anchor-placement="top"
