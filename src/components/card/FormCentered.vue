@@ -5,7 +5,7 @@
       @submit.prevent="sendEmail"
       onsubmit="alert('submit!');return false"
     >
-      <TextDefault header="Contact Me" eyebrow="" details="" />
+      <TextDefault header="Thanks for visiting my site" eyebrow=" " details="I'm currently tinkering and will be back soon." />
       <div id="form-row">
         <Input
           label="Name"
@@ -99,6 +99,7 @@ export default {
 #textdefault {
   grid-column: 1 / 4;
   text-align: center;
+  margin-bottom: 3rem;
 }
 #form {
   grid-column: 1 / 4;

@@ -1,33 +1,16 @@
 <template>
   <div>
-    <HeroBg
-      data-aos="fade"
-      data-aos-duration="1000"
-      data-aos-easing="ease-in-out"
-      data-aos-anchor-placement="top"
-      data-aos-mirror="true"
-    />
     <FormCentered />
   </div>
 </template>
 
 <script>
-import HeroBg from "@/components/HeroBg.vue";
 import FormCentered from "@/components/card/FormCentered.vue";
-import ThumbSmall from "@/components/ThumbSmall.vue";
-import ThumbSmall2 from "@/components/ThumbSmall2.vue";
-import ThumbDetail from "@/components/ThumbDetail.vue";
-import ThumbLarge from "@/components/ThumbLarge.vue";
 
 export default {
   name: "Work",
   components: {
-    HeroBg,
     FormCentered,
-    ThumbSmall,
-    ThumbSmall2,
-    ThumbDetail,
-    ThumbLarge,
   },
 };
 </script>
