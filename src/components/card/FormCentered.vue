@@ -8,13 +8,6 @@
       <TextDefault header="Thanks for visiting my site" eyebrow=" " details="I'm currently tinkering and will be back soon." />
       <div id="form-row">
         <Input
-          label="Name"
-          id="name"
-          type="name"
-          name="user_name"
-          placeholder="What's your name?"
-        />
-        <Input
           label="Email"
           id="email"
           type="email"
