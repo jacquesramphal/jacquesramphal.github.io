@@ -1,5 +1,6 @@
 <template>
     <div class="">
+    <HeroBg header="404 Page not found"/>
 <div class="grid-parent container">
       <div><TextDefault eyebrow=" " header="404 Page not found" details="The page you're looking for does not exist."/>
                            <router-link :to="{ name: 'Home' }"><p>Back to Home</p></router-link>
@@ -11,12 +12,14 @@
 </template>
 
 <script>
+import HeroBg from "@/components/HeroBg.vue";
 import TextDefault from "@/components/text/TextDefault.vue";
 import ThumbMedium from "@/components/ThumbMedium.vue";
 
 export default {
   name: "NotFound",
   components: {
+      HeroBg,
       TextDefault,
       ThumbMedium,
   },
