@@ -146,6 +146,7 @@ export default {
 * {
   color: inherit;
 }
+
 .container {
   /*  padding-top: 4rem !important;
   padding-bottom: 9.6rem !important; */

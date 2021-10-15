@@ -4,7 +4,7 @@
   width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
   width: fill-available;
   position: relative;
-  padding: var(--spacing-md) !important;
+  padding: var(--spacing-sm) !important;
   display: grid;
   height: auto;
   margin-left: auto;
@@ -19,7 +19,7 @@
 .grid-parent {
   display: grid;
   grid-gap: var(--spacing-md);
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(1, 1fr);
 }
 .grid-card {
@@ -106,6 +106,9 @@ li:first-child {
   }
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
+    .container {
+      padding: var(--spacing-lg) !important;
+    }
     .grid-parent {
       grid-template-columns: repeat(3, 1fr);
     }

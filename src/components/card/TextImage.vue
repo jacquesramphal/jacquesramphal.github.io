@@ -41,6 +41,9 @@ export default {
 * {
   color: inherit;
 }
+.grid-parent {
+      grid-gap: var(--spacing-lg) !important;
+      }
 #details {
   /* height: 100vh; */
   

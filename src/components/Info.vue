@@ -1,14 +1,20 @@
 <template>
   <div>
-    <!--    <HeroAbout eyebrow="(He/Him)" /> -->
-     <DetailCard3
-      header="Section"
-      id="info"
-      description="This site was built from scratch with love. I'm a Designer/Developer at Myplanet where process and values are grounded in the principle of empathy-for-all and emphasize collaboration, flexibility, and humanity. As an early hire, I've seen the culture adapt and grow in an ever-changing tech landscape of the unknown. Self-awareness and empathy are at the core of both my journey, and Myplanet's."
-    />
-    
+    <HeroAbout
+      title="Multidisciplinary designer of things"
+      eyebrow="About Me"
+    /> 
+<div class="grid-parent container">
+      <TextDefault eyebrow="About Me" header="Multidisciplinary designer of things"/>
+      <ThumbMedium filename="about.jpg"/>
+    </div>
+        <Stats />
+
+
+    <DetailCard />
+
     <div id="" class="">
-      <div id="grid-parent" class="container  ">
+      <div id="grid-parent" class="container">
         <ThumbLarge
           data-aos="fade"
           data-aos-duration="1000"
@@ -31,30 +37,35 @@
         />
       </div>
     </div>
-        <FormCentered />
 
+    <FormCentered />
   </div>
 </template>
 
 <script>
-// import HeroAbout from "@/components/HeroAbout.vue";
+import HeroAbout from "@/components/HeroAbout.vue";
 
 import TextDefault from "@/components/text/TextDefault.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
-import DetailCard3 from "@/components/card/DetailCard3.vue";
+import ThumbMedium from "@/components/ThumbMedium.vue";
+import DetailCard from "@/components/card/DetailCard.vue";
+import TextImage from "@/components/card/TextImage.vue";
+import Stats from "@/components/card/Stats.vue";
 // import Form from "@/components/card/Form.vue";
 import FormCentered from "@/components/card/FormCentered.vue";
 
 export default {
   name: "Info",
   components: {
-    // HeroAbout,
+    HeroAbout,
     ThumbLarge,
+    ThumbMedium,
     TextDefault,
-    DetailCard3,
+    TextImage,
+    DetailCard,
+    Stats,
     // Form,
-        FormCentered,
-
+    FormCentered,
   },
 };
 </script>

@@ -130,10 +130,9 @@ p {
 .router-link-exact-active {
   text-decoration: underline dotted !important;
 }
-
 a {
   cursor: pointer;
-  text-decoration: none !important;
+  text-decoration: underline !important;
 }
 
 h1 a {

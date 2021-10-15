@@ -4,6 +4,7 @@ import Work from "@/components/Work.vue";
 import Project from "@/components/Project.vue";
 import Info from "@/components/Info.vue";
 import Library from "@/components/Library.vue";
+import NotFound from "@/components/NotFound.vue";
 import FormCentered from "@/components/card/FormCentered.vue";
 
 Vue.use(Router);
@@ -12,18 +13,13 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "",
+      name: "Home",
       component: Work,
     },
     {
       path: "/info",
       name: "Info",
       component: Info,
-    },
-    {
-      path: "/work",
-      name: "Work",
-      component: Work,
     },
     {
       path: "/contact",
@@ -39,6 +35,11 @@ export default new Router({
       path: "/library",
       name: "Library",
       component: Library,
+    },
+    {
+        path: "*",
+        name: "NotFound",
+        component: NotFound,
     },
   ],
   scrollBehavior() {

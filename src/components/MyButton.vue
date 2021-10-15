@@ -1,5 +1,5 @@
 <template>
-  <button :style="styles" @click="handleClick" type="button">
+  <button :style="styles" :to="Work" type="button">
     <p>{{ text }}</p>
   </button>
 </template>

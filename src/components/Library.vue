@@ -27,7 +27,7 @@
         </p>
       </div>
     </div>
-    <!-- <div id="buttons" class="container grid-parent reversed">
+   <div id="buttons" class="container grid-parent reversed">
       <h4>Buttons</h4>
       <div class="grid-parent">
         <div id="" class="">
@@ -43,7 +43,7 @@
           <MyButton text="This is Button Text" class="btn-toggle btn-outline" />
         </div>
       </div>
-    </div> -->
+    </div>
     <Hero header="Reversed" class="reversed" />
 
     <Hero header="Default" />
@@ -71,6 +71,7 @@ import Hero from "@/components/Hero.vue";
 import HeroBg from "@/components/HeroBg.vue";
 import HeroAnimated from "@/components/HeroAnimated.vue";
 import HeroProject from "@/components/HeroProject.vue";
+import MyButton from "@/components/MyButton.vue";
 import TextDefault from "@/components/text/TextDefault.vue";
 import ThumbMedium from "@/components/ThumbMedium.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
@@ -92,6 +93,7 @@ export default {
     TextImage,
     Form,
     FormCentered,
+    MyButton,
   },
   mounted() {
     let uiScript = document.createElement("script");

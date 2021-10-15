@@ -20,7 +20,7 @@ body {
   width: 100%;
 }
 a {
-  color: var(--link);
+  color: var(--link) !important;
 }
 a:hover {
   color: var(--link) !important;

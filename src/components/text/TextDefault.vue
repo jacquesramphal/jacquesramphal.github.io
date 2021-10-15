@@ -4,6 +4,7 @@
     <h6 tabIndex="0" class="subtle">{{ eyebrow }}</h6>
     <h3 tabIndex="0">{{ header }}</h3>
     <p tabIndex="0">{{ details }}</p>
+
     <!-- <MyButton 
       text="This is Button Text" 
       class="btn-primary"
@@ -33,6 +34,10 @@ export default {
       default:
         "Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet.",
     },
+    route: {
+      type: String,
+      default: "google.com",
+    }
   },
 };
 </script>

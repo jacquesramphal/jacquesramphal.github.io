@@ -49,7 +49,9 @@
           id="wordmark"
           tabindex="1"
         >
-          <a href="#/">Jacques Ramphal</a>
+            <router-link :to="{ name: 'Home' }">Jacques Ramphal</router-link>
+
+<!--          <a href="#/">Jacques Ramphal</a> -->
         </h1>
 
         <h1
@@ -62,7 +64,7 @@
           id="wordmark"
           tabindex="1"
         >
-          <a href="#/">Jacques R.</a>
+            <router-link :to="{ name: 'Home' }">Jacques R.</router-link>
         </h1>
       </nav>
     </div>
