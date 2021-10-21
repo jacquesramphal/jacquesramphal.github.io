@@ -55,8 +55,6 @@ export default {
   align-items: center !important;
 }
 h2 {
-  font-weight: 600;
   color: white;
-
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
   <div id="stats" class="container">
     <div id="grid-parent" class="grid-parent container">
-      <TextValue class="grid-card" label="Git Commits" value="100+" details="" />
+      <TextValue class="grid-card" label="Git Commits" value="200+" details="" />
       <TextValue class="grid-card"  label="Years Experience" value="8+" details="" />
       <TextValue class="grid-card"  label="Mindful Breaks" value="400+" details="" />
-      <TextValue class="grid-card"  label="Site Awards" value="0" details="" />
+      <TextValue class="grid-card"  label="Label" value="0" details="" />
     </div>
   </div>
 </template>

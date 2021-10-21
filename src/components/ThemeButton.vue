@@ -7,9 +7,8 @@
       class="switch-checkbox"
     />
     <label for="checkbox" class="switch-label">
-      <span>Toggle Theme</span>
-      <!-- <span>🌙</span>
-      <span>☀️</span> -->
+      <!-- <span><a>Toggle Theme</a></span> -->
+     <span><p>🌗</p></span>
       <div
         class="switch-toggle"
         :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
@@ -66,7 +65,10 @@ export default {
 .switch-checkbox {
   display: none;
 }
-
+/*
+a {
+    text-decoration: none !important;
+} */
 .switch-label {
   align-items: center;
   border: calc(var(--element-size) * 0.025) solid var(--accent-color);

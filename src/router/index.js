@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Work from "@/components/Work.vue";
 import Project from "@/components/Project.vue";
+import Blog from "@/components/Blog.vue";
 import Info from "@/components/Info.vue";
 import Library from "@/components/Library.vue";
 import NotFound from "@/components/NotFound.vue";
@@ -35,6 +36,11 @@ export default new Router({
       path: "/library",
       name: "Library",
       component: Library,
+    },
+    {
+      path: "/blog",
+      name: "Blog",
+      component: Blog,
     },
     {
         path: "*",

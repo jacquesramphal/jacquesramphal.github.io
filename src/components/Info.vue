@@ -1,13 +1,14 @@
 <template>
   <div>
-    <HeroAbout
-      title="Multidisciplinary designer of things"
-      eyebrow="About Me"
-    /> 
+    
 <div class="grid-parent container">
       <TextDefault eyebrow="About Me" header="Multidisciplinary designer of things"/>
       <ThumbMedium filename="about.jpg"/>
     </div>
+    <HeroAbout
+      title="Multidisciplinary designer of things"
+      eyebrow="About Me"
+    /> 
         <Stats />
 
 
