@@ -5,45 +5,24 @@
       <nav class="">
         <p>
           <router-link :to="{ name: 'Home' }">Home</router-link>
-          <span class="subtle" style="margin: 0 1rem;">/</span>Blog
+<span class="subtle" style="margin: 0 1rem;">/</span>
+          <router-link :to="{ name: 'Blog' }">Blog</router-link>
+          <span class="subtle" style="margin: 0 1rem;">/</span>Post
         </p>
       </nav>
     </div>
 
-    <HeroSimple title="Recent Writing" class="" />
-
-    <div id="posts" class="container">
-      <BlogCard
-        id=""
-        date="08/21"
-        title="Heller World this is a test Heller World this is a test Heller World this is a test"
-        description="Heller World this is a test"
-        route="post"
-      />
-      <BlogCard
-        id=""
-        date="08/21"
-        title="My Journey from Print to Development"
-        description="Test Post"
-      />
-      <BlogCard
-        id=""
-        date="08/21"
-        title="Visual Quality Assurance"
-        description="Test Post"
-      />
-    </div>
+    <HeroSimple title="Post Name" subtitle="Topic" class="" />
+    <div id="posts" class="container"></div>
   </div>
 </template>
 
 <script>
-import BlogCard from "@/components/card/BlogCard.vue";
 import HeroSimple from "@/components/HeroSimple.vue";
 
 export default {
-  name: "Blog",
+  name: "BlogPost",
   components: {
-    BlogCard,
     HeroSimple,
   },
 };
@@ -62,13 +41,15 @@ h3 {
 #posts {
   justify-self: center;
 }
+#hero-simple {
+}
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
     .container {
     }
-    #blog {
+    #blogpost {
       /* max-width: 75vw; */
     }
   }

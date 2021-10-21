@@ -1,21 +1,17 @@
 <template>
   <div
     id="hero-simple"
-    class=""
-    data-aos="fade"
-    data-aos-duration="1000"
-    data-aos-easing="ease-in-out"
-    data-aos-anchor-placement="top"
   >
-    
-    <div class="container">
+  <!-- Placeholder breadcrumb --> 
+
+    <!-- <div class="container">
       <nav class="">
         <p>
-            <router-link :to="{ name: 'Home' }">Home</router-link>
+          <router-link :to="{ name: 'Home' }">Home</router-link>
           <span class="subtle" style="margin: 0 1rem;">/</span>Current Page
         </p>
       </nav>
-    </div>
+    </div> -->
 
     <div id="" class="container">
       <div id="hero-text" class="">
@@ -27,8 +23,13 @@
           data-aos-easing="ease-in-out"
           data-aos-anchor-placement="top"
         >
-         {{ title }}
+          {{ title }}
         </h2>
+        <h6
+          class=""
+        >
+          {{ subtitle }}
+        </h6>
       </div>
     </div>
   </div>
@@ -43,6 +44,10 @@ export default {
     title: {
       type: String,
       default: "Title",
+    },
+    subtitle: {
+      type: String,
+      default: "Front-end Design, Wellness, what else?",
     },
   },
   components: {
@@ -68,13 +73,11 @@ export default {
   align-items: end !important;
 }
 @media (prefers-color-scheme: dark) {
-
 }
 /* ------------ BREAKPOINT MD ------------ */
 
 @media only screen and (min-width: 740px) {
   #hero-simple {
-
   }
   #hero-text {
     align-items: end !important;

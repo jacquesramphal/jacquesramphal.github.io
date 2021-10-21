@@ -39,7 +39,7 @@ export default {
     },
     route: {
       type: String,
-      default: "",
+      default: "post",
     },
   },
 };
@@ -68,7 +68,7 @@ export default {
   grid-column: 3 / 10;
 }
 .blog-card {
-  padding: var(--spacing-md);
+  padding: var(--spacing-md) 0 var(--spacing-md) 0;
   overflow: visible !important;
 }
 

@@ -50,7 +50,6 @@ import TextDefault from "@/components/text/TextDefault.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
 import ThumbMedium from "@/components/ThumbMedium.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
-import TextImage from "@/components/card/TextImage.vue";
 import Stats from "@/components/card/Stats.vue";
 // import Form from "@/components/card/Form.vue";
 import FormCentered from "@/components/card/FormCentered.vue";
@@ -62,7 +61,6 @@ export default {
     ThumbLarge,
     ThumbMedium,
     TextDefault,
-    TextImage,
     DetailCard,
     Stats,
     // Form,
