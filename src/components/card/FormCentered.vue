@@ -29,12 +29,21 @@
           placeholder="What's on your mind?"
         />
       </div>
-        <MyButton
+      <!--<MyButton
           type="submit"
           name="submit"
           class="btn btn-primary"
           text="Send"
-        />
+        /> -->
+      <MyButton
+        primary
+        size="large"
+        type="submit"
+        name="submit"
+        label="Sign up"
+        class="btn"
+
+      />
     </form>
   </div>
 </template>
@@ -42,7 +51,8 @@
 <script>
 import Input from "@/components/form/Input.vue";
 import TextArea from "@/components/form/TextArea.vue";
-import MyButton from "@/components/MyButton.vue";
+// import MyButton from "@/components/MyButton.vue";
+import MyButton from '@/stories/Button.vue';
 import emailjs from "emailjs-com";
 import TextDefault from "@/components/text/TextDefault.vue";
 
@@ -101,25 +111,23 @@ export default {
   text-align: center;
 }
 #form {
+    align-items: center;
   grid-column: 1 / 4;
   padding: 1em 0 0 0;
 }
-#form-row{
+#form-row {
   grid-column: 1 / 4;
   display: grid;
   grid-row-gap: 3rem;
-  
-
 }
-#input, #textarea{
+#input,
+#textarea {
   grid-column: 1 / 4;
-
-
 }
- .btn {
-     grid-column: 1 / 4 !important;
-    }
- 
+.btn {
+  grid-column: 1 / 4 !important;
+}
+
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
   #textdefault {
@@ -140,18 +148,17 @@ export default {
       display: none;
       grid-column: 1 / 4 !important;
     }
-      #form-row{
-  grid-column: 2 / 3;
-
-}
+    #form-row {
+      grid-column: 2 / 3;
+    }
     #textdefault {
       grid-column: 1 / 4;
       grid-row: 1 / 1 !important;
     }
     .container {
     }
-      .btn {
-     grid-column: 2 / 3 !important;
+    .btn {
+      grid-column: 2 / 3 !important;
     }
   }
 }

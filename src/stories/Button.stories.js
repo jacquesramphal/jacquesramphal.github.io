@@ -5,7 +5,7 @@ export default {
   component: MyButton,
   argTypes: {
     backgroundColor: { control: 'color' },
-    size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
+    size: { control: { type: 'select', options: ['small', 'large'] } },
   },
 };
 
@@ -29,12 +29,6 @@ Secondary.args = {
 export const Large = Template.bind({});
 Large.args = {
   size: 'large',
-  label: 'Button',
-};
-
-export const Medium = Template.bind({});
-Medium.args = {
-  size: 'medium',
   label: 'Button',
 };
 

@@ -1,5 +1,7 @@
 <template>
-  <button type="button" :class="classes" @click="onClick" :style="style">{{ label }}</button>
+  <button type="button" :class="classes" @click="onClick" :style="style">
+    {{ label }}
+  </button>
 </template>
 
 <script>
@@ -18,9 +20,9 @@ export default {
     },
     size: {
       type: String,
-      default: 'medium',
+      default: 'large',
       validator: function (value) {
-        return ['small', 'medium', 'large'].indexOf(value) !== -1;
+        return ['small', 'large'].indexOf(value) !== -1;
       },
     },
     backgroundColor: {
@@ -52,35 +54,46 @@ export default {
 };
 </script>
 <style scoped>
+@import "../assets/styles/all.css";
+
 .storybook-button {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
   border: 0;
-  border-radius: 3em;
+  border-radius: 0.8rem;
   cursor: pointer;
   display: inline-block;
   line-height: 1;
+  transition: box-shadow 0.15s ease-in-out;
+  -webkit-transition: box-shadow 0.15s ease-in-out;
+}
+.storybook-button:hover {
+  box-shadow: var(--shadow-z1);
+}
+.storybook-button:active {
+  opacity: 0.8;
+  box-shadow: var(--shadow-z2);
 }
 .storybook-button--primary {
+  font-weight: 600;
   color: white;
-  background-color: #1ea7fd;
+  background-color: var(--link);
+  border: 2px solid var(--link);
 }
 .storybook-button--secondary {
-  color: #333;
+  font-weight: 500;
+  color: var(--text);
   background-color: transparent;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  border: 2px solid var(--link);
 }
 .storybook-button--small {
-  font-size: 12px;
-  padding: 10px 16px;
-}
-.storybook-button--medium {
-  font-size: 14px;
-  padding: 11px 20px;
+  border-radius: 3rem;
+  font-size: var(--font-xxxs);
+  padding: 0.8rem 1.6rem;
 }
 .storybook-button--large {
-  font-size: 16px;
+  border-radius: 0.8rem;
+  font-size: var(--font-xxs);
   padding: 12px 24px;
-}
+  padding: 1.2rem 2rem;
 
+}
 </style>
