@@ -5,7 +5,6 @@ import Project from "@/components/Project.vue";
 import Blog from "@/components/Blog.vue";
 import BlogPost from "@/components/BlogPost.vue";
 import Info from "@/components/Info.vue";
-import Library from "@/components/Library.vue";
 import NotFound from "@/components/NotFound.vue";
 import FormCentered from "@/components/card/FormCentered.vue";
 
@@ -33,11 +32,7 @@ export default new Router({
       name: "Project",
       component: Project,
     },
-    {
-      path: "/library",
-      name: "Library",
-      component: Library,
-    },
+
     {
       path: "/blog",
       name: "Blog",
