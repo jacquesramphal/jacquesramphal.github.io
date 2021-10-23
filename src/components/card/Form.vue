@@ -98,7 +98,7 @@
 <script>
 import Input from "@/components/form/Input.vue";
 import TextArea from "@/components/form/TextArea.vue";
-import MyButton from "@/components/MyButton.vue";
+import MyButton from "@/stories/Button.vue";
 import emailjs from "emailjs-com";
 import TextDefault from "@/components/text/TextDefault.vue";
 

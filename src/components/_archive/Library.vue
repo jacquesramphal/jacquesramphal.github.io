@@ -71,7 +71,7 @@ import Hero from "@/components/Hero.vue";
 import HeroBg from "@/components/HeroBg.vue";
 import HeroAnimated from "@/components/HeroAnimated.vue";
 import HeroProject from "@/components/HeroProject.vue";
-import MyButton from "@/components/MyButton.vue";
+import MyButton from "@/stories/Button.vue";
 import TextDefault from "@/components/text/TextDefault.vue";
 import ThumbMedium from "@/components/ThumbMedium.vue";
 import DetailCard from "@/components/card/DetailCard.vue";

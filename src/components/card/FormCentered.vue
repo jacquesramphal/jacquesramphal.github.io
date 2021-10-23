@@ -15,16 +15,16 @@
           placeholder="What's your name?"
         />
         <Input
-          label="Email"
           id="email"
-          type="email"
+          label="Email"
           name="user_email"
           placeholder="example@mail.com "
+          type="email"
         />
         <TextArea
           class="wide"
-          label="Message"
           id="message"
+          label="Message"
           name="message"
           placeholder="What's on your mind?"
         />
@@ -36,13 +36,12 @@
           text="Send"
         /> -->
       <MyButton
+        class="btn"
+        label="Sign up"
+        name="submit"
         primary
         size="large"
         type="submit"
-        name="submit"
-        label="Sign up"
-        class="btn"
-
       />
     </form>
   </div>
@@ -51,7 +50,6 @@
 <script>
 import Input from "@/components/form/Input.vue";
 import TextArea from "@/components/form/TextArea.vue";
-// import MyButton from "@/components/MyButton.vue";
 import MyButton from '@/stories/Button.vue';
 import emailjs from "emailjs-com";
 import TextDefault from "@/components/text/TextDefault.vue";
@@ -111,7 +109,7 @@ export default {
   text-align: center;
 }
 #form {
-    align-items: center;
+  align-items: center;
   grid-column: 1 / 4;
   padding: 1em 0 0 0;
 }
