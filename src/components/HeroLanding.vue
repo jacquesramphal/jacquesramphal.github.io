@@ -19,7 +19,7 @@
         <h2
           class=""
         >
-          Visual designer and developer at <a href="/" target="blank">Myplanet</a>
+          Maker, designer and developer at <a href="/" target="blank">Myplanet</a>
         </h2>
       </div>
     </div>

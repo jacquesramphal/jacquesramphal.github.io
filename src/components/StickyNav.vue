@@ -22,6 +22,17 @@
           >
             <router-link to="Info">Info</router-link>
           </li>
+          <li
+            class=" nav-link"
+            data-aos-anchor-placement="top"
+            data-aos-delay="250"
+            data-aos-duration="1000"
+            data-aos-once="true"
+            data-aos="fade-left"
+            tabindex="2"
+          >
+            <router-link to="blog">Docs</router-link>
+          </li>
           <!-- <li
             class="nav-link"
             data-aos="fade-left"
