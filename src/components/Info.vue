@@ -1,16 +1,10 @@
 <template>
   <div>
-    
-<div class="grid-parent container">
-      <TextDefault eyebrow="About Me" header="Multidisciplinary designer of things"/>
-      <ThumbMedium filename="about.jpg"/>
-    </div>
     <HeroAbout
       title="Multidisciplinary designer of things"
       eyebrow="About Me"
-    /> 
-        <Stats />
-
+    />
+    <Stats />
 
     <DetailCard />
 
@@ -48,7 +42,6 @@ import HeroAbout from "@/components/HeroAbout.vue";
 
 import TextDefault from "@/components/text/TextDefault.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
-import ThumbMedium from "@/components/ThumbMedium.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
 import Stats from "@/components/card/Stats.vue";
 // import Form from "@/components/card/Form.vue";
@@ -59,7 +52,6 @@ export default {
   components: {
     HeroAbout,
     ThumbLarge,
-    ThumbMedium,
     TextDefault,
     DetailCard,
     Stats,

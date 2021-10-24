@@ -8,7 +8,7 @@
     <a class="zoom">
       <img
         draggable="false"
-        :src="require(`@/assets/images/${filename}`)"
+        :src="require(`@/assets/images/${filename}`).default"
         :alt="`${alt}`"
       />
     </a>

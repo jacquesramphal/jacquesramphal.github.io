@@ -93,7 +93,7 @@ export default {
   border-radius: 0.8rem;
   font-size: var(--font-xxs);
   padding: 12px 24px;
-  padding: 1.2rem 2rem;
+  padding: 1.6rem 2rem;
 
 }
 </style>
