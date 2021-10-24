@@ -25,6 +25,7 @@
           class=""
           style="background-color: var(--color-xxlight);"
           title=""
+          filename="glo.svg"
           alt="Jacques working at Myplanet"
         />
         <TextDefault
