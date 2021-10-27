@@ -1,5 +1,5 @@
 <template>
-  <div id="stats" class="container">
+  <div id="stats" class="">
     <div id="grid-parent" class="grid-parent container">
       <TextValue class="grid-card" label="Git Commits" value="200+" details="" />
       <TextValue class="grid-card"  label="Years Experience" value="8+" details="" />

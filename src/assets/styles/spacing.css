@@ -3,6 +3,9 @@
   width: -moz-available; /* WebKit-based browsers will ignore this. */
   width: -webkit-stretch; /* Mozilla-based browsers will ignore this. */
   width: stretch;
+  width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+  width: fill-available;
+
   position: relative;
   padding: var(--spacing-sm) !important;
   display: grid;

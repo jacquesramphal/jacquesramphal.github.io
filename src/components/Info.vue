@@ -2,7 +2,8 @@
   <div>
     
 <div class="grid-parent container">
-      <TextDefault eyebrow="About Me" header="Multidisciplinary designer of things"/>
+            <TextBlock left eyebrow="About Me" header="Multidisciplinary designer of things" />
+
       <ThumbMedium filename="about.jpg"/>
     </div>
     <HeroAbout
@@ -46,7 +47,8 @@
 <script>
 import HeroAbout from "@/components/HeroAbout.vue";
 
-import TextDefault from "@/components/text/TextDefault.vue";
+import TextBlock from "@/stories/TextBlock.vue";
+
 import ThumbLarge from "@/components/ThumbLarge.vue";
 import ThumbMedium from "@/components/ThumbMedium.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
@@ -60,7 +62,7 @@ export default {
     HeroAbout,
     ThumbLarge,
     ThumbMedium,
-    TextDefault,
+    TextBlock,
     DetailCard,
     Stats,
     // Form,

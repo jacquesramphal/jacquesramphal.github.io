@@ -5,7 +5,8 @@
       @submit.prevent="sendEmail"
       onsubmit="alert('submit!');return false"
     >
-      <TextDefault header="Contact Me" eyebrow="" details="" />
+      <TextBlock eyebrow="" header="Contact Me" details="" />
+
       <div id="form-row">
         <Input
           label="Name"
@@ -29,12 +30,7 @@
           placeholder="What's on your mind?"
         />
       </div>
-      <!--<MyButton
-          type="submit"
-          name="submit"
-          class="btn btn-primary"
-          text="Send"
-        /> -->
+
       <MyButton
         class="btn"
         label="Sign up"
@@ -50,17 +46,17 @@
 <script>
 import Input from "@/components/form/Input.vue";
 import TextArea from "@/components/form/TextArea.vue";
-import MyButton from '@/stories/Button.vue';
+import MyButton from "@/stories/Button.vue";
+import TextBlock from "@/stories/TextBlock.vue";
 import emailjs from "emailjs-com";
-import TextDefault from "@/components/text/TextDefault.vue";
 
 export default {
   name: "FormCentered",
   components: {
     Input,
     TextArea,
+    TextBlock,
     MyButton,
-    TextDefault,
   },
   props: {
     header: {
@@ -104,9 +100,8 @@ export default {
   background-color: inherit;
 }
 
-#textdefault {
+#textblock {
   grid-column: 1 / 4;
-  text-align: center;
 }
 #form {
   align-items: center;
@@ -128,7 +123,7 @@ export default {
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
-  #textdefault {
+  #textblock {
     grid-column: 1 / 3;
   }
 
@@ -149,7 +144,7 @@ export default {
     #form-row {
       grid-column: 2 / 3;
     }
-    #textdefault {
+    #textblock {
       grid-column: 1 / 4;
       grid-row: 1 / 1 !important;
     }
