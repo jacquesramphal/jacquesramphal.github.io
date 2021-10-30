@@ -18,35 +18,27 @@
       >
         {{ header }}
       </h4>
-      <TextDefault
-        data-aos="fade"
-        data-aos-duration="1000"
-        data-aos-delay="0"
-        data-aos-once="true"
+      <TextBlock
+        left
+        eyebrow="Subsection Title"
         header=""
         details="Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet. Lorem ipsum doler optima sit amet."
       />
-      <TextDefault
-        data-aos="fade"
-        data-aos-duration="1000"
-        data-aos-delay="300"
-        data-aos-once="true"
+      <TextBlock
+        left
+        eyebrow="Subsection Title"
         header=""
         details="Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet. Lorem ipsum doler optima sit amet."
       />
-      <TextDefault
-        data-aos="fade"
-        data-aos-duration="1000"
-        data-aos-delay="400"
-        data-aos-once="true"
+      <TextBlock
+        left
+        eyebrow="Subsection Title"
         header=""
         details="Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet. Lorem ipsum doler optima sit amet."
       />
-      <TextDefault
-        data-aos="fade"
-        data-aos-duration="1000"
-        data-aos-delay="500"
-        data-aos-once="true"
+      <TextBlock
+        left
+        eyebrow="Subsection Title"
         header=""
         details="Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet. Lorem ipsum doler optima sit amet."
       />
@@ -55,12 +47,12 @@
 </template>
 
 <script>
-import TextDefault from "@/components/text/TextDefault.vue";
+import TextBlock from "@/stories/TextBlock.vue";
 
 export default {
   name: "DetailCard",
   components: {
-    TextDefault,
+    TextBlock,
   },
   props: {
     header: {
@@ -89,11 +81,11 @@ export default {
 #section-header {
   grid-column: 1 / 4;
 }
-#textdefault {
+#textblock {
   grid-column: 1 / 4;
   padding: 1em 0 0 0;
 }
-#textdefault:first-child {
+#textblock:first-child {
   /*  background: yellow; */
 }
 h3 {
@@ -104,7 +96,7 @@ h3 {
   #section-header {
     grid-column: 1 / 1;
   }
-  #textdefault {
+  #textblock {
     grid-column: auto;
     padding: 0 2.8em 2.8em 0;
   }

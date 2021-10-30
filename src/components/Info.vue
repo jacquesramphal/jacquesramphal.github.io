@@ -1,20 +1,36 @@
 <template>
   <div>
     
-<div class="grid-parent container">
-            <TextBlock left eyebrow="About Me" header="Multidisciplinary designer of things" />
+<div class="container">
+            <TextBlock eyebrow="About Me" header="Multidisciplinary designer of things" details="" />
 
-      <ThumbMedium filename="about.jpg"/>
     </div>
+    <div class="">
+
+    <ThumbLarge
+          data-aos="fade"
+          data-aos-duration="1000"
+          data-aos-delay="400"
+          data-aos-once="true"
+          data-aos-anchor-placement="top"
+          class=""
+          title=""
+          filename="about.jpg"
+          alt="Jacques working at Myplanet"
+        /></div>
+        <Stats />
+        <DetailCard />
+
     <HeroAbout
       title="Multidisciplinary designer of things"
       eyebrow="About Me"
     /> 
-        <Stats />
+    <HeroBg />
+    <HeroProject /> 
+        
 
 
-    <DetailCard />
-
+    
     <div id="" class="">
       <div id="grid-parent" class="container">
         <ThumbLarge
@@ -46,11 +62,12 @@
 
 <script>
 import HeroAbout from "@/components/HeroAbout.vue";
+import HeroBg from "@/components/HeroBg.vue";
+import HeroProject from "@/components/HeroProject.vue";
 
 import TextBlock from "@/stories/TextBlock.vue";
 
 import ThumbLarge from "@/components/ThumbLarge.vue";
-import ThumbMedium from "@/components/ThumbMedium.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
 import Stats from "@/components/card/Stats.vue";
 // import Form from "@/components/card/Form.vue";
@@ -60,8 +77,10 @@ export default {
   name: "Info",
   components: {
     HeroAbout,
+    HeroBg,
+    HeroProject,
     ThumbLarge,
-    ThumbMedium,
+    
     TextBlock,
     DetailCard,
     Stats,

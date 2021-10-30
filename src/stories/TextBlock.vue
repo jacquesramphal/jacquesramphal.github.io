@@ -45,10 +45,9 @@ export default {
   computed: {
     classes() {
       return {
-        "storybook-textbblock": true,
-        "storybook-textbblock--left": this.left,
-        "storybook-textbblock--center": !this.left,
-        [`storybook-button--${this.align}`]: true,
+        "storybook-textblock": true,
+        "storybook-textblock--left": this.left,
+        "storybook-textblock--center": !this.left,
 
       };
     },
@@ -61,7 +60,7 @@ export default {
 * {
   color: inherit;
 }
-.storybook-textbblock {
+.storybook-textblock {
   grid-column: 1 / 4;
 }
 
@@ -71,22 +70,22 @@ h6 {
 h3 {
   margin: 0 0 0.5em 0;
 }
-.storybook-textbblock--left {
+.storybook-textblock--left {
 text-align: left;
 }
-.storybook-textbblock--center {
+.storybook-textblock--center {
 text-align: center;
 
 }
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
-.storybook-textbblock {
+.storybook-textblock {
     grid-column: auto;
   }
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
-.storybook-textbblock {
+.storybook-textblock {
       grid-column: auto;
     }
   }

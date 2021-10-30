@@ -16,22 +16,12 @@
       <BlogCard
         id=""
         date="08/21"
-        title="Heller World this is a test Heller World this is a test Heller World this is a test"
+        title="Hello World"
         description="Heller World this is a test"
         route="post"
       />
-      <BlogCard
-        id=""
-        date="08/21"
-        title="My Journey from Print to Development"
-        description="Test Post"
-      />
-      <BlogCard
-        id=""
-        date="08/21"
-        title="Visual Quality Assurance"
-        description="Test Post"
-      />
+      <BlogCard />
+      <BlogCard />
     </div>
   </div>
 </template>

@@ -31,11 +31,11 @@ export default {
     },
     title: {
       type: String,
-      default: "Article Title",
+      default: "Post Title",
     },
     description: {
       type: String,
-      default: "Article Description",
+      default: "Post Description",
     },
     route: {
       type: String,
