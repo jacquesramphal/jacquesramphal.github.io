@@ -20,8 +20,9 @@
     "emailjs-com": "^2.6.4",
     "enhanced-resolve": "^4.5.0",
     "sass-loader": "^10.0.3",
-    "vue": "^2.6.12",
-    "vue-loader": "^15.7.0",
+    "vue": "^3.1.0",
+    "@vue/compat": "^3.1.0",
+    "vue-loader": "^16.0.0",
     "vue-meta": "^2.4.0",
     "vue-router": "^3.4.8",
     "vuex": "^3.6.2",
@@ -44,7 +45,7 @@
     "execa": "latest",
     "install-peers": "^1.0.3",
     "vue-cli-plugin-storybook": "~2.1.0",
-    "vue-template-compiler": "^2.6.11"
+    "@vue/compiler-sfc": "^3.1.0"
   },
   "eslintConfig": {
     "root": true,
