@@ -8,47 +8,38 @@
 
 <script>
 export default {
-  name: "text-block",
+  name: "TextBlock",
 
   props: {
     eyebrow: {
       type: String,
       default: "Eyebrow",
       required: false,
-
     },
     header: {
       type: String,
       default: "Header",
       required: false,
-
     },
     details: {
       type: String,
-      default: "Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet.",
-          required: false,
-
+      default:
+        "Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet.",
+      required: false,
     },
     left: {
       type: Boolean,
       default: false,
-    },
-    align: {
-      type: String,
-      default: "left",
-      validator: function (value) {
-        return ["center", "left"].indexOf(value) !== -1;
-      },
+      required: true,
     },
   },
 
   computed: {
     classes() {
       return {
-        "storybook-textblock": true,
-        "storybook-textblock--left": this.left,
-        "storybook-textblock--center": !this.left,
-
+        "textblock-align": true,
+        "textblock-align--left": this.left,
+        "textblock-align--center": !this.left,
       };
     },
   },
@@ -60,7 +51,7 @@ export default {
 * {
   color: inherit;
 }
-.storybook-textblock {
+.textblock-align {
   grid-column: 1 / 4;
 }
 
@@ -70,26 +61,23 @@ h6 {
 h3 {
   margin: 0 0 0.5em 0;
 }
-.storybook-textblock--left {
-text-align: left;
+.textblock-align--left {
+  text-align: left;
 }
-.storybook-textblock--center {
-text-align: center;
-
+.textblock-align--center {
+  text-align: center;
 }
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
-.storybook-textblock {
+  .textblock-align {
     grid-column: auto;
   }
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
-.storybook-textblock {
+    .textblock-align {
       grid-column: auto;
     }
   }
 }
 </style>
-
-

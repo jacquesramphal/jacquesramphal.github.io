@@ -8,7 +8,7 @@
     />
     <label for="checkbox" class="switch-label">
       <!-- <span><a>Toggle Theme</a></span> -->
-     <span><p>🌗</p></span>
+     <span><p>⦾</p></span>
       <div
         class="switch-toggle"
         :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
@@ -77,7 +77,8 @@ a {
   display: flex;
   color: inherit !important;
   /* font-size: 2.4rem; */
-  height: 2rem;
+  line-height: 0;
+  height: 1.6rem;
   position: absolute;
   right: 0;
   padding: 1.6rem;

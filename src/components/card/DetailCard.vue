@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import TextBlock from "@/stories/TextBlock.vue";
+import TextBlock from "@/components/TextBlock.vue";
 
 export default {
   name: "DetailCard",

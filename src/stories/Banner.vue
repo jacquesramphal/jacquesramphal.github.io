@@ -40,6 +40,7 @@ export default {
         base: {
       type: Boolean,
       default: false,
+      
     },
   },
 
@@ -64,6 +65,7 @@ export default {
   display: grid;
   min-height: 320px;
   background-color: var(--bg-darker);
+  
 }
 #hero-text {
   display: grid;

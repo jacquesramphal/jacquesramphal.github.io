@@ -1,7 +1,7 @@
 import MyBanner from './Banner.vue';
 
 export default {
-  title: 'Example/Banner',
+  title: 'Banner',
   component: MyBanner,
   argTypes: {
     type: { control: { type: 'select', options: ['background', 'base'] } },
@@ -18,11 +18,9 @@ export const Base = Template.bind({});
 Base.args = {
   Base: true,
   type: Base,
-  label: 'Base',
 };
 
 export const Background = Template.bind({});
 Background.args = {
   type: Background,
-  label: 'Background',
 };

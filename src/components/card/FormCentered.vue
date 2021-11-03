@@ -47,7 +47,7 @@
 import Input from "@/components/form/Input.vue";
 import TextArea from "@/components/form/TextArea.vue";
 import MyButton from "@/stories/Button.vue";
-import TextBlock from "@/stories/TextBlock.vue";
+import TextBlock from "@/components/TextBlock.vue";
 import emailjs from "emailjs-com";
 
 export default {

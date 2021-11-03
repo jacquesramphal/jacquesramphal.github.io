@@ -17,6 +17,7 @@
       <div id="section1" class="container">
         <TextBlock
           center
+          eyebrow="Eyebrow"
           header="Section Title"
           details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -91,7 +92,6 @@
           filename="about.jpg"
           alt="Jacques working at Myplanet"
         />
-        <TextBlock center />
       </div>
     </div>
   </div>
@@ -99,7 +99,7 @@
 
 <script>
 import HeroSimple from "@/components/HeroSimple.vue";
-import TextBlock from "@/stories/TextBlock.vue";
+import TextBlock from "@/components/TextBlock.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
 import ThumbMedium from "@/components/ThumbMedium.vue";
 
