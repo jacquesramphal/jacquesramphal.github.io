@@ -4,6 +4,7 @@
   width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
   width: stretch;
 
+  
   position: relative;
   padding: var(--spacing-sm) !important;
   display: grid;
