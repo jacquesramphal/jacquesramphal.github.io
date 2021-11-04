@@ -1,19 +1,19 @@
 <template>
-     <div class="container mycomponent" :class="`mycomponent-myprop--${myprop}`">
-        <p><slot></slot></p>
-    </div>
+  <div class="container mycomponent" :class="`mycomponent-myprop--${myprop}`">
+    <button>button</button>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'MyComponent',
-    props: {
-        myprop: {
-            type: String,
-            default: 'primary',
-            required: true,
-        },
+  name: "MyComponent",
+  props: {
+    myprop: {
+      type: String,
+      default: "primary",
+      required: true,
     },
+  },
 };
 </script>
 
@@ -24,9 +24,9 @@ export default {
   color: inherit;
 }
 .mycomponent {
-    border: none;
-    font-family: sans-serif;
-    border-radius: 2px;
+  border: none;
+  font-family: sans-serif;
+  border-radius: 2px;
 }
 
 .mycomponent-myprop--primary {
@@ -36,5 +36,4 @@ export default {
 .mycomponent-myprop--variant {
   background-image: url("../assets/images/jacques.jpeg");
 }
-
 </style>

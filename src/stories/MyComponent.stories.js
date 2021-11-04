@@ -13,12 +13,12 @@ export default {
 
 export const Base = () => ({
     components: { MyComponent },
-    template: '<MyComponent>base</MyComponent>',
+    template: '<MyComponent></MyComponent>',
 });
 
 export const Variant = () => ({
     components: { MyComponent },
-    template: '<MyComponent myprop="variant">variant</MyComponent>',
+    template: '<MyComponent myprop="variant"></MyComponent>',
 });
 
 
