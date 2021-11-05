@@ -7,7 +7,6 @@
     <span class="overlay"> </span>
     <a class="zoom">
       <img
-        draggable="false"
         :src="require(`@/assets/images/${filename}`).default"
         :alt="`${alt}`"
       />
@@ -16,6 +15,7 @@
 </template>
 
 <script>
+
 export default {
   name: "ThumbSmall",
   props: {
