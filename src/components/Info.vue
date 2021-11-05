@@ -2,7 +2,7 @@
   <div>
     
 <div class="container">
-            <TextBlock eyebrow="About Me" header="Multidisciplinary designer of things" details="" />
+            <TextBlock left eyebrow="About Me" header="Multidisciplinary designer of things" details="" />
     </div>
     <div class="">
 

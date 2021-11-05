@@ -112,7 +112,7 @@ export default {
     document.head.appendChild(viewportMeta);
   },
 
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener("scroll", this.onScroll);
   },
 
