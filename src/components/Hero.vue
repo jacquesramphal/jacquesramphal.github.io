@@ -1,49 +1,15 @@
 <template>
   <div id="hero" class="">
     <div class="container">
-      <div
-        id="hero-text"
-        class=""
-        data-aos-anchor-placement="top"
-        data-aos-duration="1000"
-        data-aos-easing="ease-in-out"
-        data-aos="fade"
-        data-aos-mirror="true"
-        data-aos-once="true"
-      >
+      <div id="hero-text" class="">
         <h2 class="" tabindex="0">
-          <span>{{ header1 }}</span><span>{{ header2 }}</span>
+          <span>{{ header1 }}</span
+          ><span>{{ header2 }}</span>
         </h2>
       </div>
     </div>
   </div>
 </template>
-
-<!--
-<span
-          data-aos-anchor-placement="top"
-          data-aos-duration="1000"
-          data-aos-easing="ease-in-out"
-          data-aos="flip-down"
-          data-aos-mirror="true"
-          data-aos-once="true"
-        >
-          <h2 class="" tabindex="0">
-            {{ header1 }}
-          </h2>
-        </span>
-        <span
-          data-aos-anchor-placement="top"
-          data-aos-duration="1000"
-          data-aos-easing="ease-in-out"
-          data-aos="slide-down"
-          data-aos-mirror="true"
-          data-aos-once="true"
-        >
-          <h2 class="" tabindex="0">
-            {{ header2 }}
-          </h2>
-        </span> -->
 
 <script>
 export default {

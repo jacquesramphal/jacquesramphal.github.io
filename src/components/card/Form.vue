@@ -21,16 +21,7 @@
       onsubmit="alert('submit!');return false"
     >
       <TextDefault header="Contact Me" />
-      <!-- <h4
-        id="section-header"
-        data-aos="fade-right"
-        data-aos-duration="1000"
-        data-aos-delay="0"
-        data-aos-once="true"
-        tabIndex="0"
-      >
-        {{ header }}
-      </h4> -->
+
       <Input
         label="Name"
         id="name"

@@ -1,40 +1,16 @@
 <template>
   <div class="">
-    <div
-      class="grid-parent container"
-      data-aos="fade"
-      data-aos-duration="1000"
-      data-aos-once="true"
-      data-aos-anchor-placement="center"
-    >
+    <div class="grid-parent container">
       <span id="values">
-        <ul
-          data-aos-delay="0"
-          data-aos-duration="1000"
-          data-aos-once="true"
-          data-aos="fade"
-          tabIndex="0"
-        >
+        <ul tabIndex="0">
           <li class="label subtle"><p>Role</p></li>
           <li class="value"><p>UI Designer/Developer</p></li>
         </ul>
-        <ul
-          data-aos-delay="250"
-          data-aos-duration="1000"
-          data-aos-once="true"
-          data-aos="fade"
-          tabIndex="0"
-        >
+        <ul tabIndex="0">
           <li class="label subtle"><p>Type</p></li>
           <li class="value"><p>Proof of Concept</p></li>
         </ul>
-        <ul
-          data-aos-delay="500"
-          data-aos-duration="1000"
-          data-aos-once="true"
-          data-aos="fade"
-          tabIndex="0"
-        >
+        <ul tabIndex="0">
           <li class="label subtle"><p>Year</p></li>
           <li class="value"><p>2020-2021</p></li>
         </ul>
@@ -104,8 +80,8 @@ ul {
       grid-row: 1 / 3;
     }
     #info {
-    grid-column: 2 / 4;
-  }
+      grid-column: 2 / 4;
+    }
     .container {
     }
   }

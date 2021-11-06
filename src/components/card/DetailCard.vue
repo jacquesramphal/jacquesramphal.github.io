@@ -1,21 +1,7 @@
 <template>
   <div class="">
-    <div
-      class="grid-parent container"
-      data-aos="fade"
-      data-aos-duration="1000"
-      data-aos-delay="1000"
-      data-aos-once="true"
-      data-aos-anchor-placement="center"
-    >
-      <h4
-        id="section-header"
-        data-aos="fade"
-        data-aos-duration="1000"
-        data-aos-delay="200"
-        data-aos-once="true"
-        tabIndex="0"
-      >
+    <div class="grid-parent container">
+      <h4 id="section-header" tabIndex="0">
         {{ header }}
       </h4>
       <TextBlock

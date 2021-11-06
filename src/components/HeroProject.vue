@@ -1,12 +1,5 @@
 <template>
-  <div
-    id="hero-project"
-    class=""
-    data-aos="fade"
-    data-aos-duration="1000"
-    data-aos-easing="ease-in-out"
-    data-aos-anchor-placement="top"
-  >
+  <div id="hero-project" class="">
     <!-- TMP Breadcrumb 
     <div class="container">
       <nav class="">
@@ -19,16 +12,7 @@
 
     <div id="" class="container">
       <div id="hero-text" class="">
-        <h2
-          class=""
-          data-aos="fade"
-          data-aos-duration="1000"
-          data-aos-delay="500"
-          data-aos-easing="ease-in-out"
-          data-aos-anchor-placement="top"
-        >
-          — {{ title }}
-        </h2>
+        <h2 class="">— {{ title }}</h2>
       </div>
     </div>
   </div>
@@ -74,7 +58,6 @@ export default {
   align-items: end !important;
 }
 @media (prefers-color-scheme: dark) {
-
 }
 /* ------------ BREAKPOINT MD ------------ */
 

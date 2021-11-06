@@ -1,25 +1,10 @@
 <template>
-  <div
-    id="hero-landing"
-    class=""
-    
-  >
+  <div id="hero-landing" class="">
     <div id="" class="container">
       <div id="hero-text" class="">
-        <!--<h4
-          class=""
-          data-aos="fade"
-          data-aos-duration="1000"
-          data-aos-delay="500"
-          data-aos-easing="ease-in-out"
-          data-aos-anchor-placement="top"
-        >
-          Jacques (He/Him)
-        </h4> -->
-        <h2
-          class=""
-        >
-          Maker, designer and developer at <a href="/" target="blank">Myplanet</a>
+        <h2 class="">
+          Maker, designer and developer at
+          <a href="/" target="blank">Myplanet</a>
         </h2>
       </div>
     </div>

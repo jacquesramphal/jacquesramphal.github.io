@@ -8,7 +8,7 @@
       <span class="overlay"></span>
       <img
         draggable="false"
-        :src="require(`@/assets/images/${filename}`).default"
+        :src="require(`@/assets/images/${filename}`)"
         :alt="`${alt}`"
       />
     </router-link>

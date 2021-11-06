@@ -7,7 +7,7 @@
     <span class="overlay"> </span>
     <a class="zoom">
       <img
-        :src="require(`@/assets/images/${filename}`).default"
+        :src="require(`@/assets/images/${filename}`)"
         :alt="`${alt}`"
       />
     </a>

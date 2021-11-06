@@ -1,16 +1,8 @@
 <template>
   <div id="hero-bg" class="fullvh">
     <div class="container">
-
       <div id="hero-text" class="">
-        <h2
-          class=""
-          data-aos="fade"
-          data-aos-delay="500"          
-          data-aos-duration="2000"
-          data-aos-easing="ease-in-out"
-          data-aos-anchor-placement="top"
-        >
+        <h2>
           {{ header }}
         </h2>
       </div>

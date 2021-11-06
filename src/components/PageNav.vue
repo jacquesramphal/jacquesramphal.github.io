@@ -6,20 +6,10 @@
         {{ tag }}
       </h1>
       <ul class="">
-        <li
-          class=""
-          data-aos="fade-left"
-          data-aos-duration="1000"
-          data-aos-delay="100"
-        >
+        <li>
           <a href="#detail1">Context Link</a>
         </li>
-        <li
-          class=""
-          data-aos="fade-left"
-          data-aos-duration="1000"
-          data-aos-delay="300"
-        >
+        <li>
           <a href="#detail2">Context Link</a>
         </li>
       </ul>

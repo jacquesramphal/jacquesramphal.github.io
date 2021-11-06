@@ -1,38 +1,18 @@
 <template>
   <div id="project" class="">
     <HeroProject title="Project Title" class="" />
-    <!-- <ThumbLarge
-      id="heroimg"
-      data-aos="fade"
-      data-aos-duration="1000"
-      data-aos-delay="500"
-      data-aos-once="true"
-      data-aos-anchor-placement="top"
-      title="Project Template"
-      filename="template.svg"
-      alt="Template Project Hero Image"
-    /> -->
+
     <DetailCard2 id="detail1" class="" />
 
     <div id="" class="">
       <div id="grid-parent" class="container  ">
         <ThumbLarge
-          data-aos="fade"
-          data-aos-duration="1000"
-          data-aos-delay="400"
-          data-aos-once="true"
-          data-aos-anchor-placement="top"
-          class=""
           style="background-color: var(--color-xxlight);"
           title=""
           filename="glo.svg"
           alt="Jacques working at Myplanet"
         />
         <TextDefault
-          data-aos="fade"
-          data-aos-duration="1000"
-          data-aos-delay="200"
-          data-aos-once="true"
           eyebrow=" "
           header=" "
           details="Designer/Developer working and playing at Myplanet."
@@ -40,26 +20,16 @@
       </div>
       <div id="grid-parent" class="container  ">
         <ThumbLarge
-          data-aos="fade"
-          data-aos-duration="1000"
-          data-aos-delay="400"
-          data-aos-once="true"
-          data-aos-anchor-placement="top"
           class=""
           style="background-color: var(--color-xxlight);"
           title=""
           alt="Jacques working at Myplanet"
         />
         <TextDefault
-          data-aos="fade"
-          data-aos-duration="1000"
-          data-aos-delay="200"
-          data-aos-once="true"
           eyebrow=" "
           header=" "
           details="Designer/Developer working and playing at Myplanet."
         />
-        
       </div>
     </div>
     <!-- <DetailCard id="detail2" class="topborder" header="The Solution" /> -->
@@ -73,24 +43,8 @@
               <p>All Recent Work</p></router-link
             >
           </div>
-          <ThumbSmall
-            alt="Project Template"
-            data-aos-anchor-placement="top"
-            data-aos-delay="400"
-            data-aos-duration="1000"
-            data-aos-once="true"
-            data-aos="fade"
-            title="Project Template"
-          />
-          <ThumbSmall
-            alt="Project Template"
-            data-aos-anchor-placement="top"
-            data-aos-delay="400"
-            data-aos-duration="1000"
-            data-aos-once="true"
-            data-aos="fade"
-            title="Project Template"
-          />
+          <ThumbSmall alt="Project Template" title="Project Template" />
+          <ThumbSmall alt="Project Template" title="Project Template" />
         </div>
         <!-- <router-link
           :to="{ path: '/Work' + '#recentwork' }"

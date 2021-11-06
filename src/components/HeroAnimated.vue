@@ -1,17 +1,6 @@
 <template>
   <div id="bg" class="fullvh ">
-    <!--   <div id="hero-text" class="">
-        <h2
-          class=""
-          data-aos="fade"
-          data-aos-delay="500"          
-          data-aos-duration="2000"
-          data-aos-easing="ease-in-out"
-          data-aos-anchor-placement="top"
-        >
-          {{ header }}
-        </h2>
-      </div> -->
+  
    <div id="test"></div>
 <svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g id="core/image/j" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

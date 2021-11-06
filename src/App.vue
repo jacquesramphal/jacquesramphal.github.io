@@ -1,12 +1,6 @@
 <template>
-  <div id="app" data-aos="fade">
-    <ThemeButton
-      data-aos="fade"
-      data-aos-duration="1000"
-      data-aos-delay="1000"
-      data-aos-once="true"
-      data-aos-anchor-placement="top"
-    />
+  <div id="app">
+    <ThemeButton />
     <StickyNav />
     <router-view />
   </div>

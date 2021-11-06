@@ -2,15 +2,7 @@
   <div id="textimage" class="">
     <div id="grid-parent" class="grid-parent container">
       <TextDefault />
-      <ThumbMedium
-        data-aos="fade"
-        data-aos-duration="4000"
-        data-aos-delay="0"
-        data-aos-once="true"
-        data-aos-anchor-placement="top"
-        class="blue"
-        title=""
-      />
+      <ThumbMedium class="blue" title="" />
     </div>
   </div>
 </template>
@@ -42,11 +34,10 @@ export default {
   color: inherit;
 }
 .grid-parent {
-      grid-gap: var(--spacing-lg) !important;
-      }
+  grid-gap: var(--spacing-lg) !important;
+}
 #details {
   /* height: 100vh; */
-  
 }
 #section-header {
   grid-column: 1 / 4;

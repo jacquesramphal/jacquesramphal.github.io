@@ -10,12 +10,6 @@
     </div>
     <div class="">
       <ThumbLarge
-        data-aos="fade"
-        data-aos-duration="1000"
-        data-aos-delay="400"
-        data-aos-once="true"
-        data-aos-anchor-placement="top"
-        class=""
         title=""
         filename="about.jpg"
         alt="Jacques working at Myplanet"
@@ -34,21 +28,11 @@
     <div id="" class="">
       <div id="grid-parent" class="container">
         <ThumbLarge
-          data-aos="fade"
-          data-aos-duration="1000"
-          data-aos-delay="400"
-          data-aos-once="true"
-          data-aos-anchor-placement="top"
-          class=""
           title=""
           filename="about.jpg"
           alt="Jacques working at Myplanet"
         />
         <TextDefault
-          data-aos="fade"
-          data-aos-duration="1000"
-          data-aos-delay="200"
-          data-aos-once="true"
           eyebrow=" "
           header=" "
           details="Designer/Developer working and playing at Myplanet."

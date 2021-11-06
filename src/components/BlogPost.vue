@@ -32,11 +32,6 @@
       <div id="section2" class="grid-parent container reversed">
         <TextBlock left />
         <ThumbMedium
-          data-aos="fade"
-          data-aos-duration="1000"
-          data-aos-delay="400"
-          data-aos-once="true"
-          data-aos-anchor-placement="top"
           class=""
           title=""
           filename="about.jpg"
@@ -82,11 +77,6 @@
 
       <div id="" class="container">
         <ThumbLarge
-          data-aos="fade"
-          data-aos-duration="1000"
-          data-aos-delay="400"
-          data-aos-once="true"
-          data-aos-anchor-placement="top"
           class=""
           title=""
           filename="about.jpg"
