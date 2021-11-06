@@ -1,8 +1,9 @@
 import MyButton from './Button.vue';
 
+
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: MyButton,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {
@@ -10,7 +11,7 @@ export default {
     onClick: {},
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
+      options: ['small', 'large'],
     },
   },
 };

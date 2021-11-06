@@ -89,7 +89,7 @@
 
 <script>
 import HeroSimple from "@/components/HeroSimple.vue";
-import TextBlock from "@/components/TextBlock.vue";
+import TextBlock from "@/stories/TextBlock.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
 import ThumbMedium from "@/components/ThumbMedium.vue";
 

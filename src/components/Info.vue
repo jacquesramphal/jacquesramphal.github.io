@@ -49,7 +49,7 @@ import HeroAbout from "@/components/HeroAbout.vue";
 import HeroBg from "@/components/HeroBg.vue";
 import HeroProject from "@/components/HeroProject.vue";
 
-import TextBlock from "@/components/TextBlock.vue";
+import TextBlock from "@/stories/TextBlock.vue";
 
 import ThumbLarge from "@/components/ThumbLarge.vue";
 import DetailCard from "@/components/card/DetailCard.vue";

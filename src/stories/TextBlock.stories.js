@@ -1,8 +1,8 @@
-import TextBlock from '../components/TextBlock.vue';
+import TextBlock from './TextBlock.vue';
 
 
 export default {
-  title: 'TextBlock',
+  title: 'Components/TextBlock',
   component: TextBlock,
 };
 

@@ -1,7 +1,7 @@
 import MyBanner from './Banner.vue';
 
 export default {
-  title: 'Banner',
+  title: 'Components/Banner',
   component: MyBanner,
   argTypes: {
     type: { control: { type: 'select', options: ['background', 'base'] } },
