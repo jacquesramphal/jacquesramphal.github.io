@@ -1,6 +1,6 @@
 <template>
   <div id="app" data-aos="fade">
-  <ThemeButton
+    <ThemeButton
       data-aos="fade"
       data-aos-duration="1000"
       data-aos-delay="1000"
@@ -24,8 +24,5 @@ export default {
     ThemeButton,
   },
 };
-
 </script>
-<style >
-  
-</style>
+<style></style>

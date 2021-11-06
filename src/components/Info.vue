@@ -1,35 +1,36 @@
 <template>
   <div>
-    
-<div class="container">
-            <TextBlock left eyebrow="About Me" header="Multidisciplinary designer of things" details="" />
+    <div class="container">
+      <TextBlock
+        left
+        eyebrow="About Me"
+        header="Multidisciplinary designer of things"
+        details=""
+      />
     </div>
     <div class="">
-
-    <ThumbLarge
-          data-aos="fade"
-          data-aos-duration="1000"
-          data-aos-delay="400"
-          data-aos-once="true"
-          data-aos-anchor-placement="top"
-          class=""
-          title=""
-          filename="about.jpg"
-          alt="Jacques working at Myplanet"
-        /></div>
-        <Stats />
-        <DetailCard />
+      <ThumbLarge
+        data-aos="fade"
+        data-aos-duration="1000"
+        data-aos-delay="400"
+        data-aos-once="true"
+        data-aos-anchor-placement="top"
+        class=""
+        title=""
+        filename="about.jpg"
+        alt="Jacques working at Myplanet"
+      />
+    </div>
+    <Stats />
+    <DetailCard />
 
     <HeroAbout
       title="Multidisciplinary designer of things"
       eyebrow="About Me"
-    /> 
+    />
     <HeroBg />
-    <HeroProject /> 
-        
+    <HeroProject />
 
-
-    
     <div id="" class="">
       <div id="grid-parent" class="container">
         <ThumbLarge
