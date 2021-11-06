@@ -35,7 +35,7 @@
         class="btn"
         label="Sign up"
         name="submit"
-        secondary
+        primary
         size="large"
         type="submit"
       />

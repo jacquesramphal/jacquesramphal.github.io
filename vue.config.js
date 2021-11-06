@@ -4,6 +4,6 @@ module.exports = {
 			.rule("vue")
 			.use("vue-svg-inline-loader")
 				.loader("vue-svg-inline-loader")
-				.options({ png,svg,jpg,jpeg,gif });
+				.options({});
 	}
 };
