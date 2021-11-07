@@ -3,8 +3,9 @@ import Work from "@/components/Work.vue";
 import Project from "@/components/Project.vue";
 import Blog from "@/components/Blog.vue";
 import BlogPost from "@/components/BlogPost.vue";
-import Info from "@/components/Info.vue";
+// import Info from "@/components/Info.vue";
 import NotFound from "@/components/NotFound.vue";
+import MyResume from "@/components/MyResume.vue";
 import FormCentered from "@/components/card/FormCentered.vue";
 
 const routes = [
@@ -15,8 +16,8 @@ const routes = [
   },
   {
     path: "/info",
-    name: "Info",
-    component: Info,
+    name: "Resume",
+    component: MyResume,
   },
   {
     path: "/contact",

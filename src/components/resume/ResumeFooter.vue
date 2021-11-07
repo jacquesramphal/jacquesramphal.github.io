@@ -1,0 +1,73 @@
+<template>
+  <div class="resume-footer">
+    <ul class="resume-footer-links">
+      <li
+          class="resume-footer-link"
+          v-for="(link, i) in information.links"
+          :key="i"
+      >
+        <a
+            :href="link.url"
+            v-text="link.title"
+        />
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'ResumeFooter',
+  props: {
+    information: {
+      type: Object,
+      required: true
+      // TODO: add validation
+    }
+  }
+}
+</script>
+
+<style scoped lang="sass">
+.resume-footer
+  position: relative
+  >.resume-footer-links
+    // display: flex
+    // flex-direction: row
+    // flex-wrap: nowrap
+    // justify-content: center
+    // align-content: center
+    // align-items: center
+    // width: auto
+    @media screen and (max-width: 240mm)
+      flex-direction: column
+    .resume-footer-link
+      margin: 0 .5rem 0 0
+      @media screen and (max-width: 240mm)
+        margin: 0 0 .5rem 0
+      // &::after
+      //   content: '•'
+      //   margin: 0 0 0 .5rem
+        @media screen and (max-width: 240mm)
+          content: ''
+      &:last-of-type
+        margin: 0
+        &::after
+          content: ''
+          margin: 0
+      a
+        color: var(--color-font-on-primary)
+        transition: var(--transition)
+        text-decoration: none
+        border-bottom: 1px transparent solid
+        &:hover
+          border-bottom-color: var(--color-font-on-primary)
+  >.resume-footer-logo
+    position: absolute
+    right: 1.5rem
+    top: -1.5rem
+    width: 3rem
+    height: 3rem
+    box-shadow: var(--box-shadow)
+    border-radius: 50%
+</style>

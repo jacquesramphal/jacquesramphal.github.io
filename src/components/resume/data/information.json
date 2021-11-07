@@ -1,0 +1,32 @@
+{
+  "name": "Jacques Ramphal",
+  "label": "(He/Him) Designer / Developer",
+  "image": "https://media-exp1.licdn.com/dms/image/C5603AQH5dsFD1pV9hw/profile-displayphoto-shrink_400_400/0/1517571197844?e=1641427200&v=beta&t=T1CKLa5NRbuBSmVGiGQw0mxFB4MzC8HdpQlEQgCIHxE",
+  "list": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "jacques@ramphal.design",
+      "url": "mailto:jacques@ramphal.design"
+    }
+  ],
+  "footer": {
+    "logo": "@/assets/logo.png",
+    "links": [
+      {
+        "title": "ramphal.design",
+        "url": "https://ramphal.design"
+      },
+      {
+        "title": "LinkedIn",
+        "url": "https://www.linkedin.com/in/jacquesramphal"
+      },
+      {
+        "title": "Github",
+        "url": "https://github.com/jacquesramphal"
+      }
+    ]
+  }
+}
