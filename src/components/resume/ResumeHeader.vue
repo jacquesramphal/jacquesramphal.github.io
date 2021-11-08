@@ -1,10 +1,10 @@
 <template>
   <div class="resume-header">
-    <h4
+    <h6
         v-text="name"
         class="resume-header-name"
     />
-    <h6
+    <p
         v-text="label"
         class="resume-header-label"
     />

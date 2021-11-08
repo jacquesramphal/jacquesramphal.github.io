@@ -162,8 +162,8 @@ export default {
   background: var(--background);
 
   border-radius: 16px;
-  /*   border: var(--border); 
-  box-shadow: var(--shadow-z1); */
+  border: var(--border); 
+  box-shadow: var(--shadow-z1);
   justify-self: stretch;
   margin: 0.8rem;
   overflow: visible;

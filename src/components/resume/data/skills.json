@@ -1,42 +1,58 @@
 [
   {
-    "title": "Design",
+    "title": "👨🏽‍💻 Skills",
     "entries": [
       {
-        "title": "Lorem Ipsum1",
+        "title": "Product Design",
         "level": 5
       },
       {
-        "title": "Lorem Ipsum2",
+        "title": "Front-end Design",
         "level": 5
       },
       {
-        "title": "Lorem Ipsum3",
+        "title": "Sketching",
         "level": 5
       },
       {
-        "title": "Lorem Ipsum4",
+        "title": "Mindfulness Fascilitation",
         "level": 5
       }
     ]
   },
   {
-    "title": "Development",
+    "title": "🧰 Tools",
     "entries": [
       {
-        "title": "Lorem Ipsum12",
+        "title": "Figma",
         "level": 5
       },
       {
-        "title": "Lorem Ipsum22",
+        "title": "Github",
         "level": 5
       },
       {
-        "title": "Lorem Ipsum32",
+        "title": "After Effects",
         "level": 5
       },
       {
-        "title": "Lorem Ipsum42",
+        "title": "Contentful",
+        "level": 5
+      },
+      {
+        "title": "Sketch",
+        "level": 5
+      },
+      {
+        "title": "Coreldraw",
+        "level": 5
+      },
+      {
+        "title": "Git Tower",
+        "level": 5
+      },
+      {
+        "title": "Visual Studio Code",
         "level": 5
       }
     ]

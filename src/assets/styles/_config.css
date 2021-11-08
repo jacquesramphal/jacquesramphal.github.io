@@ -1,6 +1,6 @@
 /* Styles for users who prefer light mode at the OS level */
 :root {
-  --text: var(--color-offblack);
+  --text: var(--color-darktext);
   --background: var(--color-offwhite);
   --bg-darker: #f2f2f2;
   --link: var(--color-action);
@@ -12,6 +12,7 @@
   /* NEUTRAL */
 
   --color-offblack: #202124;
+  --color-darktext: #2c3e50;
   --color-slate: #40454d;
   --color-dark: #24292e;
   --color-medium: #666;
@@ -23,11 +24,11 @@
   --color-offwhite: #fafafa;
 
   /* STATES */
-  /* --color-action: #0086e6; */
-  --color-action: #3344dd;
+  --color-action: #0086e6;
+  /* --color-action: #3344dd; */
 
-  --color-action-dark: #6a79ff;
-  /* --color-action-dark: #0d98ba; */
+  /* --color-action-dark: #6a79ff; */
+  --color-action-dark: #0d98ba;
     /* --color-action-dark: #0086e6; */
   --color-danger: #e74848;
   --color-success: #0dba38;
@@ -98,7 +99,7 @@
   }
   /* Override dark mode with light mode styles if the user decides to swap */
   :root.light-theme {
-    --text: var(--color-offblack);
+    --text: var(--color-darktext);
     --background: var(--color-offwhite);
     --bg-darker: #f2f2f2;
     --link: var(--color-action);

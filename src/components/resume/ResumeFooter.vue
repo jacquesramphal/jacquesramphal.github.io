@@ -31,14 +31,16 @@ export default {
 <style scoped lang="sass">
 .resume-footer
   position: relative
+  margin-top: var(--spacing-sm)
   >.resume-footer-links
-    // display: flex
-    // flex-direction: row
-    // flex-wrap: nowrap
-    // justify-content: center
-    // align-content: center
-    // align-items: center
-    // width: auto
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    justify-content: left
+    align-content: left
+    align-items: left
+    width: auto
+    grid-gap: var(--spacing-xs)
     @media screen and (max-width: 240mm)
       flex-direction: column
     .resume-footer-link

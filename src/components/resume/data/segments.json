@@ -1,13 +1,13 @@
 [
   {
-    "title": "Education",
+    "title": "📚 Education",
     "entries": [
       {
-        "title": "University of  Childhood (UC)",
-        "location": "Never Land",
-        "from": "2016",
-        "to": "2019",
-        "description": "Bachelor of Science in how to stay a child (final grade: 1.0)."
+        "title": "Ontario College of Art & Design (OCADU)",
+        "location": "Toronto",
+        "from": "2010",
+        "to": "2014",
+        "description": "Graphic Design. Print Production"
       },
       {
         "title": "Never Land School (NLS)",
@@ -19,7 +19,7 @@
     ]
   },
   {
-    "title": "Experience",
+    "title": "✨ Experience",
     "entries": [
       {
         "title": "Unicorns nature conservation",
@@ -40,23 +40,15 @@
     ]
   },
   {
-    "title": "Voluntary",
+    "title": "🌱 Community",
     "entries": [
       {
-        "title": "Voluntary3",
-        "position": "Guard3",
-        "location": "Dreamland3",
-        "from": "2021",
-        "to": "2025",
-        "description": "Maintain the highly protected reserve for Unicorns.3"
-      },
-      {
-        "title": "Voluntary4",
-        "position": "Guard4",
-        "location": "Dreamland4",
-        "from": "2021",
-        "to": "2025",
-        "description": "Maintain the highly protected reserve for Unicorns.4"
+        "title": "Graphic Design Thesis Panel",
+        "position": "Judge",
+        "location": "George Brown College, Toronto",
+        "from": "2018",
+        "to": "2019",
+        "description": "I was invited to judge the George Brown College graphic design students completing their 3rd year Thesis projects. I was asked to judge the best projects within a group of approximately 60 students in various categories:"
       }
     ]
   }

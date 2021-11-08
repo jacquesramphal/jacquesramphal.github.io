@@ -142,13 +142,14 @@ export default {
     @media screen and (max-width: 240mm)
   >.sidebar
     grid-area: sidebar
-    height: 100%
+    height: 90vh
     width: 25vw
     position: fixed
     z-index: 1
-
     overflow-x: hidden
+    margin-bottom: var(--spacing-md)
     @media screen and (max-width: 240mm)
+      height: 100%
       position: relative
       width: auto
   >.footer

@@ -25,6 +25,6 @@ export default {
   >img
     width: 12rem
     max-width: 100%
-    border-radius: 1rem
+    border-radius: 0.8rem
 
 </style>

@@ -1,12 +1,11 @@
 <template>
   <div class="resume-skills">
-    <h5>Skills</h5>
     <div
         v-for="(skill, i) in skills"
         :key="i"
         class="resume-skills-category"
     >
-      <h6
+      <p
           class="resume-skills-category-title"
           v-text="skill.title"
       />
@@ -47,9 +46,11 @@ export default {
 
 <style scoped lang="sass">
 .resume-skills
+  margin-top: var(--spacing-sm)
   >.resume-skills-category
-    margin: 0 0 1rem 0
+    margin-top: var(--spacing-sm)
     .resume-skills-category-entries
+      margin-top: var(--spacing-xxs)
       list-style: none
       display: flex
       flex-direction: row

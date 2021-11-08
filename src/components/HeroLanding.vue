@@ -2,9 +2,12 @@
   <div id="hero-landing" class="">
     <div id="" class="container">
       <div id="hero-text" class="">
-        <h2 class="">
-          Maker, designer and developer at
+        <!-- <h2 class="">
+          Designer developer at
           <a href="/" target="blank">Myplanet</a>
+        </h2> -->
+        <h2 class="">
+          I&#8217;m a Toronto-based Jamaican, making moments at <a href="/" target="blank">Myplanet</a>.
         </h2>
       </div>
     </div>

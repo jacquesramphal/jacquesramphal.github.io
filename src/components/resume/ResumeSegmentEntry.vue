@@ -6,7 +6,7 @@
     >
       <div
           v-if="from || to"
-          class="resume-segment-entry-information-date"
+          class="subtle resume-segment-entry-information-date"
       >
         <span
             v-if="from"
@@ -21,7 +21,7 @@
       </div>
       <div
           v-if="location"
-          class="resume-segment-entry-information-location"
+          class="subtle resume-segment-entry-information-location"
           v-text="location"
       />
     </div>
@@ -87,7 +87,7 @@ export default {
   flex-flow: column wrap
   justify-content: flex-start
   align-items: flex-start
-  margin-top: var(--spacing-sm)
+  margin-top: var(--spacing-xs)
   padding: 4rem
   border-radius: 1rem
   background-color: var(--bg-darker)
@@ -112,7 +112,6 @@ export default {
     display: flex
     flex-direction: row
     flex-wrap: nowrap
-    font-style: italic
     .resume-segment-entry-information-date
       display: flex
       flex-direction: row
@@ -127,7 +126,7 @@ export default {
         margin: 0 .15rem 0 0
         &::after
           content: '•'
-          margin: 0 0 0 .25rem
+          margin: 0 .5rem 0 .5rem
   >.resume-segment-entry-title
     line-height: 1.5
     margin-bottom: var(--spacing-xxs)
