@@ -131,7 +131,7 @@ p {
 }
 a {
   cursor: pointer;
-  text-decoration: underline !important;
+  text-decoration: none !important;
 }
 
 h1 a {
@@ -139,20 +139,14 @@ h1 a {
 }
 h2 a {
   /* color: inherit; */
-  color: var(--text) !important;
-  text-decoration: underline !important;
+  color: var(--link) !important;
+  /* text-decoration: underline !important; */
 }
 @media (prefers-color-scheme: dark) {
   h2 a {
     color: inherit;
     /* color: var(--color-action-dark) !important; */
   }
-}
-a:hover {
-  text-decoration: none solid !important;
-}
-a:active {
-  text-decoration: none wavy !important;
 }
 
 a:active p {

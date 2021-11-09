@@ -28,8 +28,8 @@
   /* --color-action: #3344dd; */
 
   /* --color-action-dark: #6a79ff; */
-  --color-action-dark: #0d98ba;
-    /* --color-action-dark: #0086e6; */
+  --color-action-dark: #fcb13a;
+  /* --color-action-dark: #0086e6; */
   --color-danger: #e74848;
   --color-success: #0dba38;
   --color-disabled: #f2f2f2;
@@ -45,6 +45,12 @@
   --shadow-z4: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   --shadow-z5: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   --shadow-inner: inset 0 0 4px var(--color-xlight);
+
+  --shadow-light: 0px 2px 4px rgba(14, 30, 37, 0.12);
+  --shadow-heavy: -10px 10px 80px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-deep: 0px 16px 24px rgba(0, 0, 0, 0.07),
+    0px 6px 30px rgba(0, 0, 0, 0.06), 0px 8px 10px rgba(0, 0, 0, 0.1);
 
   /* FONT-SIZE */
 

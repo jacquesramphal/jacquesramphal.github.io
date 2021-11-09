@@ -24,7 +24,12 @@ a {
 }
 a:hover {
   color: var(--link) !important;
+  text-decoration: underline solid !important;
 }
+a:active {
+  text-decoration: underline wavy !important;
+}
+
 .reversed {
   color: var(--text) !important;
   background: var(--background);
