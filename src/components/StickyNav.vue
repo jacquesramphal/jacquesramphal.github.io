@@ -155,15 +155,17 @@ export default {
   transform: translate3d(0, 150%, 0) !important;
 }
 .bg:hover {
-  /* box-shadow: var(--shadow-z5); */
+  box-shadow: var(--shadow-hover);
 }
 .bg {
+    transition: 0.25s box-shadow ease-in-out !important;
+
   align-items: middle;
   background: var(--background);
 
   border-radius: 16px;
   border: var(--border); 
-  box-shadow: var(--shadow-z1);
+  box-shadow: var(--shadow-light);
   justify-self: stretch;
   margin: 0.8rem;
   overflow: visible;

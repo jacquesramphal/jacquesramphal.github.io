@@ -1,5 +1,4 @@
 {
-
   "name": "jacquesramphal.github.io",
   "version": "0.1.0",
   "private": true,
@@ -8,8 +7,11 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "gh-pages-deploy": "node scripts/gh-pages-deploy.js",
+    "storybook": "start-storybook -p 6006",
+    "storybook:build": "vue-cli-service storybook:build -c config/storybook",
     "styleguide": "vue-cli-service styleguidist",
-    "styleguide:build": "vue-cli-service styleguidist:build"
+    "styleguide:build": "vue-cli-service styleguidist:build",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -37,5 +39,24 @@
     "sass-loader": "^10.1.1",
     "vue-loader": "^16.8.3",
     "vue-svg-inline-loader": "^2.1.2"
-  }
+  },
+    "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }

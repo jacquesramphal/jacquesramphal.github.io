@@ -2,16 +2,14 @@
   <div id="hero-landing" class="">
     <div id="" class="container">
       <div id="hero-text" class="">
-        <!-- <h2 class="">
-          Designer developer at
+         <h2 class="">
+          Product Designer* making moments at
           <a href="/" target="blank">Myplanet</a>
-        </h2> -->
+        </h2> 
         <!-- <h2 class="">
           I&#8217;m a Toronto-based Jamaican, making moments at <a href="/" target="blank">Myplanet</a>.
         </h2> -->
-        <h2 class="">
-          🇧🇸 Mawn hey... Y&#8217;boy jus come frum da regatta an i ain cyatch no craaab bui 🦀
-        </h2>
+        
       </div>
     </div>
   </div>

@@ -64,6 +64,12 @@
   --font-xxs: 1.6rem;
   --font-xxxs: 1.2rem;
 
+  /* FONT WEIGHT */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-bold: 600;
+
   /* SPACING */
 
   --spacing-xxxs: 0.4rem;
@@ -89,6 +95,13 @@
   /* Reversed */
   --text-reversed: var(--color-offblack);
   --background-reversed: var(--color-offwhite);
+
+
+  /* FONT WEIGHT */
+  --font-light: 250;
+  --font-normal: 350;
+  --font-medium: 450;
+  --font-bold: 550;
 }
 
 /* Styles for users who prefer dark mode at the OS level */
@@ -102,6 +115,14 @@
     /* Reversed */
     --text-reversed: var(--color-offblack);
     --background-reversed: var(--color-offwhite);
+
+  /* FONT WEIGHT */
+  --font-light: 250;
+  --font-normal: 350;
+  --font-medium: 450;
+  --font-bold: 550;
+}
+
   }
   /* Override dark mode with light mode styles if the user decides to swap */
   :root.light-theme {
@@ -113,8 +134,13 @@
     /* Reversed */
     --text-reversed: var(--color-offwhite);
     --background-reversed: var(--color-offblack);
+
+    /* FONT WEIGHT */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-bold: 600;
   }
-}
 
 /* needs cleanup and consolidation */
 
