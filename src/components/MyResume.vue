@@ -1,15 +1,22 @@
 <template>
-  <div>  <resume class="resume" :segments="segments" :skills="skills" :information="information" :settings="settings" />
-</div>
+  <div>
+    <resume
+      class="resume"
+      :segments="segments"
+      :skills="skills"
+      :information="information"
+      :settings="settings"
+    />
+  </div>
 </template>
 
 <script>
-import Resume from "@/components/resume/Resume.vue"
+import Resume from "@/components/resume/Resume.vue";
 // Mock data
-import segments from '@/components/resume/data/segments.json'
-import skills from '@/components/resume/data/skills.json'
-import information from '@/components/resume/data/information.json'
-import settings from '@/components/resume/data/settings.json'
+import segments from "@/components/resume/data/segments.json";
+import skills from "@/components/resume/data/skills.json";
+import information from "@/components/resume/data/information.json";
+import settings from "@/components/resume/data/settings.json";
 export default {
   name: "MyResume",
   components: { Resume },

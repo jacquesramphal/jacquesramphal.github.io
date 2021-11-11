@@ -1,9 +1,9 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from "vue-router";
 import Work from "@/components/Work.vue";
 import Project from "@/components/Project.vue";
 import Blog from "@/components/Blog.vue";
 import BlogPost from "@/components/BlogPost.vue";
-// import Info from "@/components/Info.vue";
+import Info from "@/components/Info.vue";
 import NotFound from "@/components/NotFound.vue";
 import MyResume from "@/components/MyResume.vue";
 import FormCentered from "@/components/card/FormCentered.vue";
@@ -15,9 +15,14 @@ const routes = [
     component: Work,
   },
   {
-    path: "/info",
+    path: "/cv",
     name: "Resume",
     component: MyResume,
+  },
+  {
+    path: "/about",
+    name: "About",
+    component: Info,
   },
   {
     path: "/contact",
@@ -41,12 +46,12 @@ const routes = [
     component: BlogPost,
   },
 
-  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
-]
+  { path: "/:pathMatch(.*)*", name: "NotFound", component: NotFound },
+];
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

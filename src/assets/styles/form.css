@@ -47,7 +47,7 @@ input,
 textarea,
 select {
   font-size: 1.6rem;
-  color: inherit;
+  color: var(--text) !important;
   width: 100%;
   top: 0;
   padding: 1.6rem;
@@ -55,7 +55,7 @@ select {
   box-sizing: border-box;
   border: transparent;
   border-radius: 4px;
-  background-color: var(--color-xxxlight);
+  background-color: var(--bg-darker);
   /* box-shadow: var(--shadow-z1); */
   
 }
@@ -83,7 +83,7 @@ textarea:required:valid,
 select:required:valid {
   /* background:  url(../images/emoji-smile.png)  no-repeat 97% 12px; */
   background-size: 28px;
-  background-color: var(--color-xxxlight);
+  background-color: var(--bg-darker);
 }
 input:required:invalid,
 textarea:required:invalid,
@@ -116,14 +116,14 @@ option:first {
 @media (prefers-color-scheme: dark) {
   
   label {
-    color: var(--color-white) !important;
+    color: var(--text) !important;
   }  
   input,
   textarea,
   select {
     /* border: 1px solid var(--color-white); */
     /* border: 2px solid black; */
-    background-color: rgba(0,0,0,0.4);
+    background-color: var(--bg-darker);
     box-shadow: none;
 
 
@@ -132,14 +132,14 @@ option:first {
   textarea:focus,
   select:focus {
     /* border-color: var(--color-action) !important; */
-    background-color: rgba(0,0,0,1) !important;
+    background-color: inherit !important;
 
   }
   input:required:valid,
   textarea:required:valid,
   select:required:valid {
-  background-color: rgba(0,0,0,0.4);
-}
+    background-color: var(--bg-darker);
+  }
 }
 /* ------- END Dark Form UI ------- */
 

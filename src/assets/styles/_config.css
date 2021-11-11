@@ -24,11 +24,11 @@
   --color-offwhite: #fafafa;
 
   /* STATES */
-  --color-action: #0086e6;
-  /* --color-action: #3344dd; */
+  /* --color-action: #0086e6; */
+  --color-action: #3344dd;
 
-  /* --color-action-dark: #6a79ff; */
-  --color-action-dark: #fcb13a;
+  --color-action-dark: #6a79ff;
+  /* --color-action-dark: #fcb13a; */
   /* --color-action-dark: #0086e6; */
   --color-danger: #e74848;
   --color-success: #0dba38;

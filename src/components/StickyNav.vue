@@ -20,7 +20,18 @@
             data-aos="fade-left"
             tabindex="2"
           >
-            <router-link to="Info">Info</router-link>
+            <router-link to="about">About</router-link>
+          </li>
+          <li
+            class=" nav-link"
+            data-aos-anchor-placement="top"
+            data-aos-delay="0"
+            data-aos-duration="1000"
+            data-aos-once="true"
+            data-aos="fade-left"
+            tabindex="2"
+          >
+            <router-link to="cv">Info</router-link>
           </li>
           <li
             class=" nav-link"
