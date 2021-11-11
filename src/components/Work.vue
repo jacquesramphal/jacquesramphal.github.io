@@ -19,29 +19,30 @@
       />
       <ThumbSmall
         alt="Template Project"
-        style="background-color: lightblue;"
+        style="background-color: lightblue"
         filename="template-sm3.svg"
         title="Small Template"
       />
       <ThumbDetail
         alt="Project Template"
-        style="background-color: #35363a;"
+        style="background-color: #35363a"
         title="Project Template"
       />
       <ThumbLarge
         alt="Template Project"
         class="hidemobile"
-        style="background-color: #ffdd9d;"
+        style="background-color: #ffdd9d"
         route="Project"
         title="Project Template"
       />
       <ThumbSmall
         alt="Template Project"
         class="showmobile"
-        style="background-color: #ffdd9d;"
+        style="background-color: #ffdd9d"
         title="Small Template"
       />
     </div>
+    <FormCentered />
   </div>
 </template>
 
@@ -51,6 +52,7 @@ import ThumbSmall from "@/components/ThumbSmall.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
+import FormCentered from "@/components/card/FormCentered.vue";
 
 export default {
   name: "Work",
@@ -60,6 +62,7 @@ export default {
     ThumbSmall2,
     ThumbDetail,
     ThumbLarge,
+    FormCentered,
   },
 };
 </script>
