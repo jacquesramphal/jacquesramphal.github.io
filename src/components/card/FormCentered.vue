@@ -33,9 +33,9 @@
 
       <MyButton
         class="btn"
-        label="Sign up"
+        label="Send Message"
         name="submit"
-        secondary
+        primary
         size="large"
         type="submit"
       />

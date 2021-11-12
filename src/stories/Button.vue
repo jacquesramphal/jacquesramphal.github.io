@@ -49,38 +49,38 @@ export default {
   },
 };
 </script>
-<style lang="sass" scoped>
-@import "../assets/styles/all.css"
-.storybook-button 
-  border-radius: 4px
-  border: none
-  cursor: pointer
-  display: inline-block
-  font-size: inherit
-  font-weight: 500
-  padding: 0.5rem 1rem 0.5rem 1rem
-  text-decoration: none
-  transition: box-shadow 0.15s ease-in-out
-  -webkit-transition: box-shadow 0.15s ease-in-out
+<style scoped>
+@import "../assets/styles/all.css";
+.storybook-button {
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: 500;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  text-decoration: none;
+  transition: box-shadow 0.15s ease-in-out;
+  -webkit-transition: box-shadow 0.15s ease-in-out;
+}
+.storybook-button--primary {
+  color: white;
+  background-color: var(--link) !important;
+}
+.storybook-button--secondary {
+background-color: transparent !important;
+  color: var(--text) !important;
+  border: 1px solid var(--link) !important;
+}
+.storybook-button--small {
+  font-size: 12px;
+  padding: 1rem 2rem 1rem 2rem;
+    border-radius: 100px;
 
-.storybook-button--primary 
-  color: white
-  background-color: var(--link) !important
-
-.storybook-button--secondary 
-  background-color: transparent !important
-  color: var(--text) !important
-  border: 1px solid var(--link) !important
-
-.storybook-button--small 
-  font-size: 12px
-  padding: 1rem 2rem 1rem 2rem
-  border-radius: 100px
-
-
-.storybook-button--large 
-  font-size: 16px
-  padding: 1.5rem 2.5rem 1.5rem 2.5rem
-
+}
+.storybook-button--large {
+  font-size: 16px;
+  padding: 1.5rem 2.5rem 1.5rem 2.5rem;
+}
 
 </style>

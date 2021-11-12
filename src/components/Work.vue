@@ -42,7 +42,6 @@
         title="Small Template"
       />
     </div>
-    <FormCentered />
   </div>
 </template>
 
@@ -52,7 +51,6 @@ import ThumbSmall from "@/components/ThumbSmall.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
-import FormCentered from "@/components/card/FormCentered.vue";
 
 export default {
   name: "Work",
@@ -62,7 +60,6 @@ export default {
     ThumbSmall2,
     ThumbDetail,
     ThumbLarge,
-    FormCentered,
   },
 };
 </script>
