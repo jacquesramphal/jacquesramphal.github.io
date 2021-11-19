@@ -1,5 +1,7 @@
 <template>
   <div>
+    <ThemeButton />
+
     <HeroLanding />
     <div id="recentwork" class="grid-parent container">
       <ThumbSmall alt="J Monogram" filename="j.svg" id="top" title="Monogram" />
@@ -42,10 +44,14 @@
         title="Small Template"
       />
     </div>
+    <MainFooter />
   </div>
 </template>
 
 <script>
+import ThemeButton from "@/components/ThemeButton.vue";
+
+import MainFooter from "@/components/MainFooter.vue";
 import HeroLanding from "@/components/HeroLanding.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
@@ -60,28 +66,19 @@ export default {
     ThumbSmall2,
     ThumbDetail,
     ThumbLarge,
+    ThemeButton,
+    MainFooter,
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-* {
-  font-size: 10px;
-}
-.container {
-  /*  background-color: var(--color-white);
- padding-top: 2.8em !important; */
-}
+<style lang="sass" scoped>
+@import "../assets/styles/all.css"
 
-/* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
-  /* ------------ BREAKPOINT LG ------------ */
-  @media only screen and (min-width: 1201px) {
-  }
-}
-</style>
-
-<style scoped>
-@import "../assets/styles/all.css";
+* 
+  font-size: 10px
+.container
+  // background-color: var(--color-white)
+  padding-top: 0 !important
 </style>

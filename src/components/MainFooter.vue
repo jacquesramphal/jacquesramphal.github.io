@@ -1,15 +1,15 @@
 <template>
   <footer class="">
     <div id="footer" class="container grid-parent">
-      <h6 id="copyright" class="">© 2021 Jacques Ramphal</h6>
-      <ul id="links" class="justify-end">
-       <li>
+      <h6 id="copyright">© 2021 Jacques Ramphal</h6>
+      <ul id="links" class="">
+      <!-- <li>
           <a href="https://www.linkedin.com/in/jacquesramphal/" target="_blank"
             >Linkedin</a
           >
-        </li> 
+        </li> -->
         <li>
-          <a href="mailto:jacques@ramphal.design" target="_blank">Get in touch</a>
+          Wanna learn more? <a href="mailto:jacques@ramphal.design" target="_blank">Get in touch</a>
         </li>
       </ul>
     </div>
@@ -29,13 +29,15 @@ export default {
 </script>
 <style lang="sass" scoped>
 
+#copyright
+  font-weight: var(--font-normal)
 ul
   list-style: none
   margin: 0
   padding: 0
 
 footer
-  background: var(--bg-darker)
+  // background: var(--bg-darker)
   // height: 50vh
 
 #footer
@@ -43,16 +45,19 @@ footer
   grid-template-columns: repeat(1, 1fr)
   @media only screen and (min-width: 740px)
     grid-template-columns: repeat(2, 1fr)
-
+.container  
+  padding-top: 0 !important
 
 #links
   grid-column: 1 / 1
   @media only screen and (min-width: 740px)
     grid-column: auto
+    justify-self: end
+
 li
   font-size: 2em
   line-height: 1.5
-  font-weight: 400
+  font-weight: var(--font-normal)
   margin: 0
   float: left
   list-style-type: none

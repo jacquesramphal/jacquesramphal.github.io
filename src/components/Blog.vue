@@ -1,6 +1,6 @@
 <template>
   <div id="blog" class="">
-    <!-- Placeholder breadcrumb -->
+    <!-- Placeholder breadcrumb
     <div class="container" style="background: var(--bg-darker);">
       <nav class="">
         <p>
@@ -9,8 +9,8 @@
         </p>
       </nav>
     </div>
-
-    <HeroSimple title="Recent Writing" class="" />
+ -->
+    <HeroSimple title="Recent Writing" eyebrow="Docs" />
 
     <div id="posts" class="container">
       <BlogCard

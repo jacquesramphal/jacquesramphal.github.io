@@ -1,5 +1,9 @@
 <template>
-  <div class="container navbar" :class="{ 'hidden-navbar': !showNavbar }">
+  <div
+    id="stickynav"
+    class="container navbar"
+    :class="{ 'hidden-navbar': !showNavbar }"
+  >
     <div
       class="bg"
       data-aos="slide-left"
@@ -12,7 +16,7 @@
       <nav class="">
         <ul class="justify-start">
           <li
-            class=" nav-link"
+            class="nav-link"
             data-aos-anchor-placement="top"
             data-aos-delay="0"
             data-aos-duration="1000"
@@ -23,7 +27,7 @@
             <router-link to="about">About</router-link>
           </li>
           <li
-            class=" nav-link"
+            class="nav-link"
             data-aos-anchor-placement="top"
             data-aos-delay="0"
             data-aos-duration="1000"
@@ -34,7 +38,7 @@
             <router-link to="cv">Info</router-link>
           </li>
           <li
-            class=" nav-link"
+            class="nav-link"
             data-aos-anchor-placement="top"
             data-aos-delay="250"
             data-aos-duration="1000"
@@ -42,7 +46,7 @@
             data-aos="fade-left"
             tabindex="2"
           >
-            <router-link to="blog">Docs</router-link>
+            <router-link class="isDisabled" to="blog">Docs</router-link>
           </li>
           <!-- <li
             class="nav-link"
@@ -71,9 +75,9 @@
           id="wordmark"
           tabindex="1"
         >
-            <router-link :to="{ name: 'Home' }">Jacques Ramphal</router-link>
+          <router-link :to="{ name: 'Home' }">Jacques Ramphal</router-link>
 
-<!--          <a href="#/">Jacques Ramphal</a> -->
+          <!--          <a href="#/">Jacques Ramphal</a> -->
         </h1>
 
         <h1
@@ -86,7 +90,7 @@
           id="wordmark"
           tabindex="1"
         >
-            <router-link :to="{ name: 'Home' }">Jacques R.</router-link>
+          <router-link :to="{ name: 'Home' }">Jacques R.</router-link>
         </h1>
       </nav>
     </div>
@@ -151,12 +155,12 @@ export default {
 .navbar {
   bottom: 0;
   left: 0;
+  right: 0;
   max-width: none;
   mix-blend-mode: normal !important;
   overflow: visible;
   padding: 0 !important;
   position: fixed;
-  right: 0;
   transform: translate3d(0, 0, 0) !important;
   transition: 0.4s all ease-in-out !important;
   width: auto;
@@ -169,13 +173,13 @@ export default {
   box-shadow: var(--shadow-hover);
 }
 .bg {
-    transition: 0.25s box-shadow ease-in-out !important;
+  transition: 0.25s box-shadow ease-in-out !important;
 
   align-items: middle;
   background: var(--background);
 
   border-radius: 16px;
-  border: var(--border); 
+  border: var(--border);
   box-shadow: var(--shadow-light);
   justify-self: stretch;
   margin: 0.8rem;

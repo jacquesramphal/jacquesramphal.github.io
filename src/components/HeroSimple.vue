@@ -1,5 +1,12 @@
 <template>
   <div id="hero-simple">
+  <div class="container">
+      <nav class="">
+        <h1 id="wordmark" class="">
+          {{ eyebrow }}
+        </h1>
+      </nav>
+    </div>
     <!-- Placeholder breadcrumb -->
 
     <!-- <div class="container">
@@ -30,6 +37,10 @@
 export default {
   name: "HeroSimple",
   props: {
+    eyebrow: {
+      type: String,
+      default: "Eyebrow",
+    },
     title: {
       type: String,
       default: "Title",

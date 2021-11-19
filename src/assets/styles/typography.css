@@ -18,7 +18,7 @@
 /* Header AAA */
 h1 {
   font-size: var(--font-xs);
-  font-weight: var(--font-medium);
+  font-weight: var(--font-bold);
   line-height: 1.2;
   margin: 0;
 }
@@ -148,9 +148,16 @@ h1 a {
   text-decoration: none !important;
 }
 h2 > a {
-  /* background: -webkit-linear-gradient(left, var(--color-success), #fcb13a);
+  background: -webkit-linear-gradient(top left, var(--color-action), var(--color-action-dark));
   -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important; */
+  -webkit-text-fill-color: transparent !important;
+
+}
+h2 > a:hover {
+  background: -webkit-linear-gradient(bottom right, var(--color-action), var(--color-action-dark));
+  -webkit-background-clip: text !important;
+  /* text-shadow: var(--shadow-heavy); */
+  -webkit-text-fill-color: transparent !important;
 }
 
 a:active p {

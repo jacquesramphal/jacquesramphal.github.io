@@ -7,11 +7,11 @@
       class="switch-checkbox"
     />
     <label for="checkbox" class="switch-label">
+      <!-- <span>⬤</span> -->
+      <!-- <span>&odot;</span> -->
       <!-- <span><a>Toggle Theme</a></span> -->
-     <span><p>⦾</p></span>
-      <div
-        class="switch-toggle"
-        :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
+
+      <div class="switch-toggle" :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
       ></div>
     </label>
   </div>
@@ -61,54 +61,55 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.switch-checkbox {
-  display: none;
-}
-/*
-a {
-    text-decoration: none !important;
-} */
-.switch-label {
-  align-items: center;
-  border: calc(var(--element-size) * 0.025) solid var(--accent-color);
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  color: inherit !important;
-  /* font-size: 2.4rem; */
-  line-height: 0;
-  height: 1.6rem;
-  position: absolute;
-  right: 0;
-  padding: 1.6rem;
-  transition: all 0.5s ease;
-  justify-content: space-between;
-  width: auto;
-  z-index: 1;
-  margin: 1.6rem;
-}
-.switch-label:hover {
-    background: var(--bg-darker);
-}
-/*
-.switch-toggle {
-  position: absolute;
-  background-color: transparent;
-  border: var(--border);
-  border-width: 2px !important;
-  margin-top: -2px;
-  opacity: 0.5;
-  border-radius: 8px;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 50%;
-  transform: translateX(0);
-  transition: transform 0.3s ease, background-color 0.5s ease;
-}
+<style lang="sass" scoped>
 
-.switch-toggle-checked {
-  transform: translateX(100%) !important;
-} */
+.switch-checkbox
+  display: none
+
+.switch-label
+  align-items: center
+  border: calc(var(--element-size) * 0.025) solid var(--accent-color)
+  border-radius: 8px
+  cursor: pointer
+  color: var(--text) !important
+  font-size: var(--font-sm)  
+  height: auto
+  width: auto
+  position: absolute
+  right: 0
+  padding: 2rem
+  display: flex
+  transition: all 0.5s ease
+  justify-items: center
+  align-items: center
+  z-index: 1
+  margin: 0.8rem
+
+.switch-label:hover
+    // background: var(--bg-darker)
+
+.switch-toggle::before
+  content: "🌒"
+
+.switch-toggle-checked::before
+  content: "🌔"
+
+
+// .switch-toggle
+//   position: absolute
+//   background-color: transparent
+//   border: var(--border)
+//   border-width: 2px !important
+//   margin-top: -2px
+//   opacity: 0.5
+//   border-radius: 8px
+//   top: 0
+//   left: 0
+//   height: 100%
+//   width: 50%
+//   transform: translateX(0)
+//   transition: transform 0.3s ease, background-color 0.5s ease
+
+// .switch-toggle-checked
+//   transform: translateX(100%) !important
 </style>

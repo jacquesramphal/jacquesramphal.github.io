@@ -1,74 +1,47 @@
 <template>
   <div>
-    <div class="container">
-      <TextBlock
-        left
-        eyebrow="About Me"
-        header="Multidisciplinary designer of things"
-        details=""
-      />
-    </div>
-    <div class="">
+    <HeroAbout
+      title="Multidisciplinary designer of things"
+      eyebrow="About Me"
+    />
+    <DetailCard />
+    <div class="container reversed">
       <ThumbLarge
         title=""
         filename="about.jpg"
         alt="Jacques working at Myplanet"
       />
     </div>
-    <Stats />
-    <DetailCard />
+    <DetailCard2 />
 
-    <HeroAbout
-      title="Multidisciplinary designer of things"
-      eyebrow="About Me"
-    />
-    <HeroBg />
-    <HeroProject />
-
-    <div id="" class="">
-      <div id="grid-parent" class="container">
-        <ThumbLarge
-          title=""
-          filename="about.jpg"
-          alt="Jacques working at Myplanet"
-        />
-        <TextDefault
-          eyebrow=" "
-          header=" "
-          details="Designer/Developer working and playing at Myplanet."
-        />
-      </div>
-    </div>
-
-    <FormCentered />
+ 
   </div>
 </template>
 
 <script>
 import HeroAbout from "@/components/HeroAbout.vue";
-import HeroBg from "@/components/HeroBg.vue";
-import HeroProject from "@/components/HeroProject.vue";
+// import HeroProject from "@/components/HeroProject.vue";
 
-import TextBlock from "@/stories/TextBlock.vue";
+// import TextBlock from "@/stories/TextBlock.vue";
 
 import ThumbLarge from "@/components/ThumbLarge.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
-import Stats from "@/components/card/Stats.vue";
+import DetailCard2 from "@/components/card/DetailCard2.vue";
+// import Stats from "@/components/card/Stats.vue";
 // import Form from "@/components/card/Form.vue";
-import FormCentered from "@/components/card/FormCentered.vue";
 
 export default {
   name: "Info",
   components: {
     HeroAbout,
-    HeroBg,
-    HeroProject,
+    // HeroProject,
     ThumbLarge,
-    TextBlock,
+    // TextBlock,
     DetailCard,
-    Stats,
+    DetailCard2,
+    // Stats,
     // Form,
-    FormCentered,
+    // FormCentered,
   },
 };
 </script>

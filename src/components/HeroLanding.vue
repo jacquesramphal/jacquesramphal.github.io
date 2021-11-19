@@ -2,13 +2,12 @@
   <div id="hero-landing" class="">
     <div id="" class="container">
       <div id="hero-text" class="">
-         <h2 class="">
-          Product Designer* making moments at
-          <a href="/" target="blank">Myplanet</a>
-        </h2> 
-        <!-- <h2 class="">
-          I&#8217;m a Toronto-based Jamaican, making moments at <a href="/" target="blank">Myplanet</a>.
+         <!--<h2 class="">
+          Product Designer at Myplanet, <a href="/" target="blank">Also a Developer</a>
         </h2> -->
+         <h2 class="">
+          <span class="subtle"></span>Multidisciplinary designer of <a href="/" target="blank">things</a> at Myplanet.
+        </h2> 
         
       </div>
     </div>
@@ -45,6 +44,7 @@ export default {
 h2 {
 }
 #hero-landing {
+/*  background: var(--bg-darker); */
   display: grid;
   min-height: 320px;
   height: 100vh;
@@ -67,7 +67,7 @@ h2 {
   #hero-landing {
   }
   #hero-text {
-    max-width: 70vw;
+    max-width: 75vw; 
   }
 }
 @media only screen and (min-width: 1201px) {
