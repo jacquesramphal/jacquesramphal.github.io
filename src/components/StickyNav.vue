@@ -4,49 +4,26 @@
     class="container navbar"
     :class="{ 'hidden-navbar': !showNavbar }"
   >
-    <div
-      class="bg"
-      data-aos="slide-left"
-      data-aos-duration="1000"
-      data-aos-delay="0"
-      data-aos-once="true"
-      data-aos-mirror="true"
-      data-aos-anchor-placement="top"
-    >
+    <div class="bg">
       <nav class="">
-        <ul class="justify-start">
-          <li
-            class="nav-link"
-            data-aos-anchor-placement="top"
-            data-aos-delay="0"
-            data-aos-duration="1000"
-            data-aos-once="true"
-            data-aos="fade-left"
-            tabindex="2"
-          >
-            <router-link to="about">About</router-link>
+        <h1 class="hidemobile nav-link" id="wordmark" tabindex="1">
+          <router-link :to="{ name: 'Home' }">jacques ramphal</router-link>
+
+          <!--          <a href="#/">Jacques Ramphal</a> -->
+        </h1>
+
+        <h1 class="showmobile nav-link" id="wordmark" tabindex="1">
+          <router-link :to="{ name: 'Home' }">jacques</router-link>
+        </h1>
+        <ul class="justify-end">
+          <li class="nav-link" tabindex="1">
+            <router-link to="about">about</router-link>
           </li>
-          <li
-            class="nav-link"
-            data-aos-anchor-placement="top"
-            data-aos-delay="0"
-            data-aos-duration="1000"
-            data-aos-once="true"
-            data-aos="fade-left"
-            tabindex="2"
-          >
-            <router-link to="cv">Info</router-link>
+          <li class="nav-link" tabindex="1">
+            <router-link to="cv">info</router-link>
           </li>
-          <li
-            class="nav-link"
-            data-aos-anchor-placement="top"
-            data-aos-delay="250"
-            data-aos-duration="1000"
-            data-aos-once="true"
-            data-aos="fade-left"
-            tabindex="2"
-          >
-            <router-link class="isDisabled" to="blog">Docs</router-link>
+          <li class="nav-link" tabindex="1">
+            <router-link class="isDisabled" to="blog">writing</router-link>
           </li>
           <!-- <li
             class="nav-link"
@@ -65,33 +42,6 @@
            <router-link to="Info">Info</router-link> 
           </li> -->
         </ul>
-        <h1
-          class="hidemobile nav-link justify-end"
-          data-aos-anchor-placement="top"
-          data-aos-delay="500"
-          data-aos-duration="750"
-          data-aos-once="true"
-          data-aos="fade-left"
-          id="wordmark"
-          tabindex="1"
-        >
-          <router-link :to="{ name: 'Home' }">Jacques Ramphal</router-link>
-
-          <!--          <a href="#/">Jacques Ramphal</a> -->
-        </h1>
-
-        <h1
-          class="showmobile nav-link justify-end"
-          data-aos-anchor-placement="top"
-          data-aos-delay="500"
-          data-aos-duration="750"
-          data-aos-once="true"
-          data-aos="fade-left"
-          id="wordmark"
-          tabindex="1"
-        >
-          <router-link :to="{ name: 'Home' }">Jacques R.</router-link>
-        </h1>
       </nav>
     </div>
   </div>
@@ -151,6 +101,9 @@ export default {
   margin: 0;
   mix-blend-mode: normal;
 }
+:active {
+  outline: transparent;
+}
 .container,
 .navbar {
   bottom: 0;
@@ -169,24 +122,22 @@ export default {
 .navbar.hidden-navbar {
   transform: translate3d(0, 150%, 0) !important;
 }
-.bg:hover {
-  box-shadow: var(--shadow-hover);
-}
-.bg {
-  transition: 0.25s box-shadow ease-in-out !important;
 
+.bg {
+  transition: 0.5s box-shadow ease-in-out !important;
   align-items: middle;
   background: var(--background);
-
-  border-radius: 16px;
-  border: var(--border);
-  box-shadow: var(--shadow-light);
+  /* border: var(--border); */
+  box-shadow: var(--shadow-deep);
   justify-self: stretch;
-  margin: 0.8rem;
+  /* margin: 0.8rem; */
   overflow: visible;
   position: relative;
-  padding: 0.8rem;
+  padding: var(--spacing-xxs);
 }
+/* .bg:hover {
+  box-shadow: var(--shadow-deep);
+} */
 ul {
   list-style: none;
   margin: 0;
@@ -202,8 +153,8 @@ nav {
   position: relative;
 }
 .nav-link > a {
-  border-radius: 8px;
-  padding: 1.6rem;
+  border-radius: 4px;
+  padding: var(--spacing-xs);
   /* text-decoration: none !important; */
 }
 .nav-link > a:hover {
@@ -212,9 +163,13 @@ nav {
 
   /*  box-shadow: var(--shadow-z1); */
 }
+.router-link-exact-active {
+  background: var(--bg-darker);
+  text-decoration: none !important;
+  /* border-bottom: 2px solid var(--link);*/
+}
+
 h1 {
-  font-size: 2em;
-  line-height: 1;
   margin: 0;
 }
 li {
@@ -234,7 +189,14 @@ li:first-child {
   .navbar {
     transition: 0.8s all ease-in-out !important;
   }
+  #wordmark::after {
+    content: "/";
+    padding: var(--spacing-xxs);
+    opacity: 0.5;
+    font-weight: var(--font-bold);
+  }
   .bg {
+    border-radius: 8px 0 0 0;
     justify-self: end;
   }
 

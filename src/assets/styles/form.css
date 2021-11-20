@@ -2,15 +2,17 @@
   
 /** GLOBAL HIGHLIGHT COLOUR **/
 ::selection {
-  background: rgba(21, 156, 228, 0.2);
-  /* WebKit/Blink Browsers */
+  background: rgba(128, 21, 228, 0.4);
 }
 ::-moz-selection {
-  background: rgba(21, 156, 228, 0.2);
-  /* Gecko Browsers */
+  background: rgba(128, 21, 228, 0.4);
 }
-:focus {
-  outline: 8px solid rgba(21, 156, 228, 0.4);
+/* :focus {
+  outline: 4px dashed var(--bg-darker);
+} */
+:active {
+  outline: 4px dashed var(--bg-darker);
+  /* outline: 8px solid rgba(21, 156, 228, 0.4); */
   /* outline-offset: .8rem; */
 }
 /* outline: 3px solid var(--color-action) !important; */

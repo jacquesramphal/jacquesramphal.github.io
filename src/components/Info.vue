@@ -10,6 +10,7 @@
         title=""
         filename="about.jpg"
         alt="Jacques working at Myplanet"
+        route=""
       />
     </div>
     <DetailCard2 />

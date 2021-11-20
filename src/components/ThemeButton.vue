@@ -62,6 +62,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="sass" scoped>
+:active
+  outline: transparent
 
 .switch-checkbox
   display: none
@@ -69,27 +71,36 @@ export default {
 .switch-label
   align-items: center
   border: calc(var(--element-size) * 0.025) solid var(--accent-color)
-  border-radius: 8px
+  border-radius: 100px
   cursor: pointer
   color: var(--text) !important
-  font-size: var(--font-sm)  
-  height: auto
-  width: auto
+  font-size: var(--font-sm)
+  height: var(--font-sm)
+  display: flex
   position: absolute
   right: 0
-  padding: 2rem
-  display: flex
+  // background: red
+  // box-shadow: var(--shadow-deep)
+  padding: var(--spacing-xs)
   transition: all 0.5s ease
   justify-items: center
   align-items: center
   z-index: 1
-  margin: 0.8rem
+  margin: var(--spacing-xxs)
 
 .switch-label:hover
-    // background: var(--bg-darker)
+  // box-shadow: var(--shadow-hover)
+  // background: var(--bg-darker)
+  
 
 .switch-toggle::before
   content: "🌒"
+
+.switch-toggle:hover::before
+  content: "🌓"
+
+.switch-toggle:active::before
+  content: "🌓"
 
 .switch-toggle-checked::before
   content: "🌔"
