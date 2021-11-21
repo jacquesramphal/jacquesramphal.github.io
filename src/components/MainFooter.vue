@@ -30,7 +30,7 @@ export default {
 <style lang="sass" scoped>
 
 #copyright
-  font-weight: var(--font-normal)
+  font-weight: var(--font-medium)
 ul
   list-style: none
   margin: 0
@@ -57,7 +57,7 @@ footer
 li
   font-size: 2em
   line-height: 1.5
-  font-weight: var(--font-normal)
+  font-weight: var(--font-medium)
   margin: 0
   float: left
   list-style-type: none

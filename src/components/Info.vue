@@ -14,11 +14,14 @@
       />
     </div>
     <DetailCard2 />
+    <FormCentered />
+    <Container>Test</Container>
   </div>
 </template>
 
 <script>
 import HeroAbout from "@/components/HeroAbout.vue";
+import Container from "@/components/Container.vue";
 // import AnimatedComponent from "@/components/AnimatedComponent.vue";
 // import HeroProject from "@/components/HeroProject.vue";
 
@@ -29,11 +32,12 @@ import ThumbLarge from "@/components/ThumbLarge.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
 import DetailCard2 from "@/components/card/DetailCard2.vue";
 // import Stats from "@/components/card/Stats.vue";
-// import Form from "@/components/card/Form.vue";
+import FormCentered from "@/components/card/FormCentered.vue";
 
 export default {
   name: "Info",
   components: {
+    Container,
     HeroAbout,
     // AnimatedComponent,
     // HeroProject,
@@ -44,7 +48,7 @@ export default {
     // MyResume,
     // Stats,
     // Form,
-    // FormCentered,
+    FormCentered,
   },
 };
 </script>

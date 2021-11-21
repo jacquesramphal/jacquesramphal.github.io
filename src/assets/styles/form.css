@@ -11,7 +11,7 @@
   outline: 4px dashed var(--bg-darker);
 } */
 :active {
-  outline: 4px dashed var(--bg-darker);
+  outline: 1px dashed var(--link);
   /* outline: 8px solid rgba(21, 156, 228, 0.4); */
   /* outline-offset: .8rem; */
 }

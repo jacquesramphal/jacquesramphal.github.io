@@ -53,7 +53,7 @@ h4 {
 
 h5 {
   font-size: var(--font-xs);
-  font-weight: var(--font-bold);
+  font-weight: var(--font-medium);
   line-height: 1.5;
   margin: 0;
   opacity: 1 !important;
