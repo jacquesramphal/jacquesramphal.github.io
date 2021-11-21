@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-    <StickyNav />
     <router-view />
-
+    <StickyNav />
   </div>
 </template>
 

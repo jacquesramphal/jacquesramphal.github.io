@@ -35,12 +35,14 @@
   --color-disabled: #f2f2f2;
   /* ACCENT */
   --color-red: #e74848;
-  --color-green: #4cc346;
+  --color-green: #58ad84;
   --color-blue: #0086e6;
   --color-purple: #6a5eff;
   --color-yellow: #fcb13a;
   --color-lightyellow: #ffdd9d;
-  
+  --color-brown: #E8A191;
+  --color-darkbrown: #7F4B4F;
+
   /* HIGHLIGHT */
   /* SHADOW */
   --shadow-z1: 0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.23);

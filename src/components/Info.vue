@@ -5,7 +5,7 @@
       eyebrow="About Me"
     />
     <DetailCard />
-    <div class="container reversed">
+    <div class="container">
       <ThumbLarge
         title=""
         filename="about.jpg"
@@ -14,18 +14,18 @@
       />
     </div>
     <DetailCard2 />
-
- 
   </div>
 </template>
 
 <script>
 import HeroAbout from "@/components/HeroAbout.vue";
+// import AnimatedComponent from "@/components/AnimatedComponent.vue";
 // import HeroProject from "@/components/HeroProject.vue";
 
 // import TextBlock from "@/stories/TextBlock.vue";
 
 import ThumbLarge from "@/components/ThumbLarge.vue";
+// import MyResume from "@/components/MyResume.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
 import DetailCard2 from "@/components/card/DetailCard2.vue";
 // import Stats from "@/components/card/Stats.vue";
@@ -35,11 +35,13 @@ export default {
   name: "Info",
   components: {
     HeroAbout,
+    // AnimatedComponent,
     // HeroProject,
     ThumbLarge,
     // TextBlock,
     DetailCard,
     DetailCard2,
+    // MyResume,
     // Stats,
     // Form,
     // FormCentered,

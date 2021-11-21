@@ -1,7 +1,6 @@
 <template>
   <div>
     <ThemeButton />
-
     <HeroLanding />
     <div id="recentwork" class="grid-parent container">
       <ThumbSmall alt="J Monogram" filename="j.svg" id="top" title="Monogram" />
@@ -76,8 +75,7 @@ export default {
 <style lang="sass" scoped>
 @import "../assets/styles/all.css"
 
-* 
-  font-size: 10px
+*
 .container
   // background-color: var(--color-white)
   padding-top: 0 !important

@@ -1,5 +1,5 @@
 <template>
-  <span class="grid-card" style="background-color: var(--color-xxlight);">
+  <span class="grid-card" style="background-color: var(--color-xxlight)">
     <span tabindex="0" class="caption">
       <h6 tabIndex="0" class="">{{ title }}</h6>
       <p tabIndex="0" class="subtle">{{ date }}</p>
@@ -7,6 +7,7 @@
     <span class="overlay"> </span>
     <a class="zoom">
       <img
+        draggable="false"
         :src="require(`@/assets/images/${filename}`)"
         :alt="`${alt}`"
       />
@@ -15,7 +16,6 @@
 </template>
 
 <script>
-
 export default {
   name: "ThumbSmall",
   props: {

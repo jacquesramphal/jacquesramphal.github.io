@@ -3,8 +3,6 @@
   width: -moz-available; /* WebKit-based browsers will ignore this. */
   width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
   width: stretch;
-
-  
   position: relative;
   padding: var(--spacing-sm) !important;
   display: grid;
@@ -13,6 +11,11 @@
   margin-right: auto;
   max-width: 1440px;
   overflow: hidden;
+}
+.sticky{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
 }
 .tight {
   padding-bottom: 0 !important;
@@ -33,10 +36,11 @@
   grid-template-columns: 1fr;
   overflow: hidden;
   position: relative;
+  transition: 0.4s all ease-in-out !important;
 }
-.grid-card:hover {
-  /* box-shadow: var(--shadow-z5); */
-}
+/* .grid-card:hover {
+  box-shadow: var(--shadow-hover);
+} */
 .grid-card:active {
   /* cursor: pointer; */
 }

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.31 32.41"><defs><style>.cls-1{fill:#fff;stroke-miterlimit:10;}.cls-1,.cls-2{stroke-linecap:round;stroke-width:3px;}.cls-2{fill:none;stroke-linejoin:round;}</style></defs><g id="favicon" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M2,2.88H2a25.45,25.45,0,0,1,10-.66h0"/><path class="cls-2" d="M25.31,3l-3.82-.64a1,1,0,0,0-.93,1.07l.23,2.55A80.63,80.63,0,0,0,23,20.09L24,24a6,6,0,0,1-9,5.6L4.42,25.05a3.71,3.71,0,0,1-2.29-4c.4-2.13,2.64-3.87,7.06-1.77"/></g></g> 
+<style>
+        <!-- #favicon { stroke: #0086e6; } -->
+        #favicon { stroke: black; }
+
+    @media (prefers-color-scheme: dark) {
+      <!-- #favicon { stroke: #fcb13a; } -->
+      #favicon { stroke: white; }
+    }
+    </style>
+    </svg>

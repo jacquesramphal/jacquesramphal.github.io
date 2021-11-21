@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.24 36.8"><defs><style>.cls-1{fill:#e8a191;}.cls-2{fill:none;stroke-linecap:round;stroke-miterlimit:10;}.cls-3{fill:#7f4b4f;}</style></defs><g id="favicon" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M25.75,19.29a8.88,8.88,0,0,0,2.84-1.36A8.79,8.79,0,0,0,25.38,2.22L15.38.06a6.55,6.55,0,0,0-2.8.7l-.92.42A12.66,12.66,0,0,0,6.14.87C1.41,2.44,0,3.15,0,8V28a8.78,8.78,0,0,0,15.77,5.33L21,34.58A2,2,0,0,0,22.94,34l5.9-6.25a2,2,0,0,0,.44-2Z"/><path class="cls-2" d="M6.14,2.88h0a25.45,25.45,0,0,1,10-.66h0"/><path class="cls-2" d="M27.18,10.54H25.63a1,1,0,0,0-.93,1.06l.24,2.55c.31,4.78,1.06,5.51,2.22,10.15l1,3.91a6,6,0,0,1-9,5.6L8.56,29.26a3.72,3.72,0,0,1-2.29-4c.4-2.14,2.64-3.87,7.07-1.78"/><circle class="cls-3" cx="11.66" cy="10.53" r="2.25"/></g></g>
+
+<style>
+        <!-- #favicon { stroke: #0086e6; } -->
+      #favicon .cls-2 { stroke-width:4px; stroke:#7f4b4f; }
+
+    @media (prefers-color-scheme: dark) {
+      #favicon .cls-2 { stroke:#fff; }
+    }
+    </style>
+</svg>

@@ -2,10 +2,10 @@
   
 /** GLOBAL HIGHLIGHT COLOUR **/
 ::selection {
-  background: rgba(128, 21, 228, 0.4);
+  background: rgba(160, 91, 224, 0.4);
 }
 ::-moz-selection {
-  background: rgba(128, 21, 228, 0.4);
+  background: rgba(160, 91, 224, 0.4);
 }
 /* :focus {
   outline: 4px dashed var(--bg-darker);

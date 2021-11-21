@@ -6,7 +6,7 @@
           Product Designer at Myplanet, <a href="/" target="blank">Also a Developer</a>
         </h2> -->
          <h2 class="">
-          <span class="subtle"></span>Multidisciplinary designer of <a href="/" target="blank">things</a> at Myplanet.
+          <span class="subtle"></span>Lorem ipsum dolor sit amet do <a href="/" target="blank">eiusmod tempor</a> incididunt ut labore et dolore magna aliqua. Designer of <a href="/" target="blank">things.</a>
         </h2> 
         
       </div>
@@ -46,8 +46,8 @@ h2 {
 #hero-landing {
 /*  background: var(--bg-darker); */
   display: grid;
-  min-height: 320px;
-  height: 100vh;
+  min-height: 100vh;
+
 }
 #hero-text {
   display: grid;
@@ -66,13 +66,16 @@ h2 {
 @media only screen and (min-width: 740px) {
   #hero-landing {
   }
+
   #hero-text {
-    max-width: 75vw; 
+    max-width: 80vw; 
+    justify-self: center;
+
   }
 }
 @media only screen and (min-width: 1201px) {
   #hero-text {
-    margin-left: 8rem;
+    /* margin-left: 8rem; */
   }
 }
 </style>

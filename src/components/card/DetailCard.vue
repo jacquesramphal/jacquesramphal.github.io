@@ -8,25 +8,21 @@
         left
         eyebrow="Subsection Title"
         header=""
-        details="Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet. Lorem ipsum doler optima sit amet."
       />
       <TextBlock
         left
         eyebrow="Subsection Title"
         header=""
-        details="Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet. Lorem ipsum doler optima sit amet."
       />
       <TextBlock
         left
         eyebrow="Subsection Title"
         header=""
-        details="Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet. Lorem ipsum doler optima sit amet."
       />
       <TextBlock
         left
         eyebrow="Subsection Title"
         header=""
-        details="Lorem ipsum doler optima sit amet Lorem ipsum doler optima sit amet. Lorem ipsum doler optima sit amet."
       />
     </div>
   </div>
