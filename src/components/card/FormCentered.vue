@@ -5,7 +5,7 @@
       @submit.prevent="sendEmail"
       onsubmit="alert('submit!');return false"
     >
-      <TextBlock eyebrow="" header="Contact Me" details="" />
+      <TextBlock center eyebrow="" header="Contact Me" details="" />
 
       <div id="form-row">
         <Input

@@ -1,6 +1,7 @@
 <template>
   <footer class="">
-    <div id="footer" class="container grid-parent">
+  <Container class="footer">
+    <div id="footer" class="grid-parent">
       <h6 id="copyright">© 2021 Jacques Ramphal</h6>
       <ul id="links" class="">
       <!-- <li>
@@ -13,18 +14,27 @@
         </li>
       </ul>
     </div>
+    </Container>
   </footer>
 </template>
 
 <script>
+// import Wrapper from "@/components/grid/Wrapper.vue";
+import Container from "@/components/grid/Container.vue";
+
 export default {
   name: "MainFooter",
+  components: {
+    // Wrapper,
+    Container,
+  },
   props: {
     title: {
       type: String,
       default: "Jacques Ramphal",
     },
   },
+  
 };
 </script>
 <style lang="sass" scoped>
@@ -45,8 +55,9 @@ footer
   grid-template-columns: repeat(1, 1fr)
   @media only screen and (min-width: 740px)
     grid-template-columns: repeat(2, 1fr)
-.container  
-  padding-top: 0 !important
+
+.footer  
+  padding-top: var(--spacing-sm) !important
 
 #links
   grid-column: 1 / 1

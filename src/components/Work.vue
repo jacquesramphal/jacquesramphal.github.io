@@ -1,53 +1,63 @@
 <template>
-  <div>
+  <Wrapper>
     <ThemeButton />
     <HeroLanding />
-    <div id="recentwork" class="grid-parent container">
-      <ThumbSmall alt="J Monogram" filename="j.svg" id="top" title="Monogram" />
-      <ThumbSmall alt="Giftbook" filename="gob.svg" title="Giftbook" />
-      <ThumbSmall2
-        alt="Avatar"
-        class="hidemobile"
-        filename="avatar.svg"
-        route="Project"
-        title="Avatar"
-      />
-      <ThumbSmall
-        alt="Avatar"
-        class="showmobile"
-        filename="avatar.svg"
-        title="Avatar"
-      />
-      <ThumbSmall
-        alt="Template Project"
-        style="background-color: lightblue"
-        filename="template-sm3.svg"
-        title="Small Template"
-      />
-      <ThumbDetail
-        alt="Project Template"
-        style="background-color: #35363a"
-        title="Project Template"
-      />
-      <ThumbLarge
-        alt="Template Project"
-        class="hidemobile"
-        style="background-color: #ffdd9d"
-        route="Project"
-        title="Project Template"
-      />
-      <ThumbSmall
-        alt="Template Project"
-        class="showmobile"
-        style="background-color: #ffdd9d"
-        title="Small Template"
-      />
-    </div>
+    <Container tight>
+      <div id="recentwork" class="grid-parent">
+        <ThumbSmall
+          alt="J Monogram"
+          filename="j.svg"
+          id="top"
+          title="Monogram"
+        />
+        <ThumbSmall alt="Giftbook" filename="gob.svg" title="Giftbook" />
+        <ThumbSmall2
+          alt="Avatar"
+          class="hidemobile"
+          filename="avatar.svg"
+          route="Project"
+          title="Avatar"
+        />
+        <ThumbSmall
+          alt="Avatar"
+          class="showmobile"
+          filename="avatar.svg"
+          title="Avatar"
+        />
+        <ThumbSmall
+          alt="Template Project"
+          style="background-color: lightblue"
+          filename="template-sm3.svg"
+          title="Small Template"
+        />
+        <ThumbDetail
+          alt="Project Template"
+          style="background-color: #35363a"
+          title="Project Template"
+        />
+        <ThumbLarge
+          alt="Template Project"
+          class="hidemobile"
+          style="background-color: #ffdd9d"
+          route="Project"
+          title="Project Template"
+        />
+        <ThumbSmall
+          alt="Template Project"
+          class="showmobile"
+          style="background-color: #ffdd9d"
+          title="Small Template"
+        />
+      </div>
+    </Container>
+
     <MainFooter />
-  </div>
+  </Wrapper>
 </template>
 
 <script>
+import Wrapper from "@/components/grid/Wrapper.vue";
+import Container from "@/components/grid/Container.vue";
 import ThemeButton from "@/components/ThemeButton.vue";
 
 import MainFooter from "@/components/MainFooter.vue";
@@ -60,6 +70,8 @@ import ThumbLarge from "@/components/ThumbLarge.vue";
 export default {
   name: "Work",
   components: {
+    Wrapper,
+    Container,
     HeroLanding,
     ThumbSmall,
     ThumbSmall2,
