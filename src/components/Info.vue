@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <Wrapper>
     <HeroAbout
       title="Multidisciplinary designer of things"
       eyebrow="About Me"
     />
     <DetailCard />
-    <Container>
+    <Container tight>
       <ThumbLarge
         title=""
         filename="about.jpg"
@@ -15,13 +15,14 @@
     </Container>
     <DetailCard2 />
     <FormCentered />
-    Test
-  </div>
+  </Wrapper>
 </template>
 
 <script>
+import Wrapper from "@/components/grid/Wrapper.vue";
+import Container from "@/components/grid/Container.vue";
+
 import HeroAbout from "@/components/HeroAbout.vue";
-import Container from "@/components/Container.vue";
 // import AnimatedComponent from "@/components/AnimatedComponent.vue";
 // import HeroProject from "@/components/HeroProject.vue";
 
@@ -37,6 +38,7 @@ import FormCentered from "@/components/card/FormCentered.vue";
 export default {
   name: "Info",
   components: {
+    Wrapper,
     Container,
     HeroAbout,
     // AnimatedComponent,

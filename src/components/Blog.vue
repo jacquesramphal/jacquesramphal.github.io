@@ -1,5 +1,5 @@
 <template>
-  <div id="blog" class="">
+  <Wrapper id="blog" class="">
     <!-- Placeholder breadcrumb
     <div class="container" style="background: var(--bg-darker);">
       <nav class="">
@@ -11,8 +11,7 @@
     </div>
  -->
     <HeroSimple title="Recent Writing" eyebrow="Docs" />
-
-    <div id="posts" class="container">
+    <Container id="posts">
       <BlogCard
         id=""
         date="08/21"
@@ -22,45 +21,26 @@
       />
       <BlogCard />
       <BlogCard />
-    </div>
-  </div>
+    </Container>
+  </Wrapper>
 </template>
 
 <script>
 import BlogCard from "@/components/card/BlogCard.vue";
 import HeroSimple from "@/components/HeroSimple.vue";
+import Wrapper from "@/components/grid/Wrapper.vue";
+import Container from "@/components/grid/Container.vue";
 
 export default {
   name: "Blog",
   components: {
+    Wrapper,
+    Container,
     BlogCard,
     HeroSimple,
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-* {
-}
-blog-card {
-  margin-bottom: var(--spacing-md) !important;
-}
-h3 {
-  margin-bottom: var(--spacing-md) !important;
-}
-#posts {
-  justify-self: center;
-}
-/* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
-  /* ------------ BREAKPOINT LG ------------ */
-  @media only screen and (min-width: 1201px) {
-    .container {
-    }
-    #blog {
-      /* max-width: 75vw; */
-    }
-  }
-}
+<style lang="sass" scoped>
 </style>

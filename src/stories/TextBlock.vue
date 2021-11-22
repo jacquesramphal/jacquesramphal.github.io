@@ -27,7 +27,7 @@ export default {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       required: false,
     },
-    left: {
+    center: {
       type: Boolean,
       default: false,
       required: true,
@@ -38,8 +38,8 @@ export default {
     classes() {
       return {
         "textblock-align": true,
-        "textblock-align--left": this.left,
-        "textblock-align--center": !this.left,
+        "textblock-align--center": this.center,
+        "textblock-align--left": !this.center,
       };
     },
   },

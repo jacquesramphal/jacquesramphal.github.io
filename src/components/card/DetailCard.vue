@@ -5,22 +5,18 @@
         {{ header }}
       </h4>
       <TextBlock
-        left
         eyebrow="Subsection Title"
         header=""
       />
       <TextBlock
-        left
         eyebrow="Subsection Title"
         header=""
       />
       <TextBlock
-        left
         eyebrow="Subsection Title"
         header=""
       />
       <TextBlock
-        left
         eyebrow="Subsection Title"
         header=""
       />

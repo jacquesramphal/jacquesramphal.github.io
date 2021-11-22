@@ -1,17 +1,18 @@
 <template>
-  <div id="app">
+  <Wrapper id="app">
     <router-view />
     <StickyNav />
-  </div>
+  </Wrapper>
 </template>
 
 <script>
 import StickyNav from "./components/StickyNav.vue";
-
+import Wrapper from "@/components/grid/Wrapper.vue";
 
 export default {
   name: "App",
   components: {
+    Wrapper,
     StickyNav,
   },
 };

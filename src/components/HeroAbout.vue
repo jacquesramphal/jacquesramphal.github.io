@@ -1,5 +1,5 @@
 <template>
-  <div id="hero-about" class="">
+  <Wrapper id="hero-about" class="">
     <Container>
       <nav class="">
         <h1 id="wordmark" class="">
@@ -14,12 +14,13 @@
         </h2>
       </div>
     </Container>
-  </div>
+  </Wrapper>
 </template>
 
 <script>
 // import PageNav from "@/components/PageNav.vue";
-import Container from "@/components/Container.vue";
+import Wrapper from "@/components/grid/Wrapper.vue";
+import Container from "@/components/grid/Container.vue";
 
 export default {
   name: "HeroAbout",
@@ -35,6 +36,7 @@ export default {
   },
   components: {
     // PageNav,
+    Wrapper,
     Container,
   },
 };
