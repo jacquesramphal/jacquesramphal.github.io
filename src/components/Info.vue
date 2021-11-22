@@ -5,17 +5,17 @@
       eyebrow="About Me"
     />
     <DetailCard />
-    <div class="container">
+    <Container>
       <ThumbLarge
         title=""
         filename="about.jpg"
         alt="Jacques working at Myplanet"
         route=""
       />
-    </div>
+    </Container>
     <DetailCard2 />
     <FormCentered />
-    <Container>Test</Container>
+    Test
   </div>
 </template>
 

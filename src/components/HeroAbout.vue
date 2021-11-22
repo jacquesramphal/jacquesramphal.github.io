@@ -1,25 +1,25 @@
 <template>
   <div id="hero-about" class="">
-    <div class="container">
+    <Container>
       <nav class="">
         <h1 id="wordmark" class="">
           {{ eyebrow }}
         </h1>
       </nav>
-    </div>
-
-    <div id="" class="container">
+    </Container>
+    <Container>
       <div id="hero-text" class="">
         <h2>
           {{ title }}
         </h2>
       </div>
-    </div>
+    </Container>
   </div>
 </template>
 
 <script>
 // import PageNav from "@/components/PageNav.vue";
+import Container from "@/components/Container.vue";
 
 export default {
   name: "HeroAbout",
@@ -35,6 +35,7 @@ export default {
   },
   components: {
     // PageNav,
+    Container,
   },
 };
 </script>
