@@ -7,9 +7,9 @@
     <div id="" class="">
       <div id="grid-parent" class="container  ">
         <ThumbLarge
+          class=""
           style="background-color: var(--color-xxlight);"
           title=""
-          filename="glo.svg"
           alt="Jacques working at Myplanet"
         />
         <TextDefault
@@ -18,6 +18,9 @@
           details="Designer/Developer working and playing at Myplanet."
         />
       </div>
+    </div>
+    <DetailCard id="detail2" class="topborder" header="The Solution" />
+    <div id="" class="">
       <div id="grid-parent" class="container  ">
         <ThumbLarge
           class=""
@@ -32,7 +35,6 @@
         />
       </div>
     </div>
-    <!-- <DetailCard id="detail2" class="topborder" header="The Solution" /> -->
     <div class="  ">
       <div class=" container ">
         <!-- <h4 style="margin-bottom: 4rem; text-align: center;">More Projects</h4> -->
@@ -66,7 +68,7 @@ import HeroProject from "@/components/HeroProject.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
 // import ThumbMedium from "@/components/ThumbMedium.vue";
-// import DetailCard from "@/components/card/DetailCard.vue";
+import DetailCard from "@/components/card/DetailCard.vue";
 import DetailCard2 from "@/components/card/DetailCard2.vue";
 
 export default {
@@ -77,7 +79,7 @@ export default {
     // ThumbMedium,
     ThumbSmall,
     ThumbLarge,
-    // DetailCard,
+    DetailCard,
     DetailCard2,
   },
 };

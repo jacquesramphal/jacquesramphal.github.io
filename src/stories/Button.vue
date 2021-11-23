@@ -64,7 +64,7 @@ export default {
   -webkit-transition: box-shadow 0.15s ease-in-out;
 }
 .storybook-button--primary {
-  color: white;
+  color: var(--text-reversed) !important;
   background-color: var(--link) !important;
 }
 .storybook-button--secondary {

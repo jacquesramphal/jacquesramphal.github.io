@@ -92,8 +92,7 @@ li {
 } */
 .caption {
   float: left;
-  padding-left: 2.8rem;
-  padding-top: 2.2rem;
+  padding: var(--spacing-sm);
   position: absolute;
   text-rendering: optimizeLegibility;
   -moz-transition: all 0.1s ease-in-out;

@@ -1,25 +1,44 @@
 <template>
-  <span class="grid-card thumbdetail">
-    <router-link :to="`${route}`">
-      <span tabindex="0" class="caption">
-        <h6 tabIndex="0" class="title">{{ title }}</h6>
-        <p tabIndex="0" class="details">{{ details }}</p>
-      </span>
-    </router-link>
-    <router-link :to="`${route}`">
-      <img
-        draggable="false"
-        :src="require(`@/assets/images/${filename}`)"
-        :alt="`${alt}`"
-      />
-    </router-link>
-  </span>
+  <Wrapper class="thumbdetail grid-card">
+    <Container tight class="">
+      <router-link :to="`${route}`">
+        <Wrapper class="text">
+          <TextBlock header="" class="textblock" />
+
+          <!-- <router-link class="caption" :to="`${route}`">
+          <h5 tabIndex="0" class="title">{{ title }}</h5>
+          <p tabIndex="0" class="details">{{ details }}</p>
+      
+      </router-link> -->
+          <!-- <button>test</button> -->
+        </Wrapper></router-link
+      >
+    </Container>
+    <Wrapper class="">
+      <router-link :to="`${route}`">
+        <img
+          class="zoom"
+          draggable="false"
+          :src="require(`@/assets/images/${filename}`)"
+          :alt="`${alt}`"
+        />
+      </router-link>
+    </Wrapper>
+  </Wrapper>
 </template>
 
 <script>
+import Wrapper from "@/components/grid/Wrapper.vue";
+import Container from "@/components/grid/Container.vue";
+import TextBlock from "@/stories/TextBlock.vue";
+
 export default {
   name: "ThumbDetail",
-
+  components: {
+    Wrapper,
+    TextBlock,
+    Container,
+  },
   props: {
     title: {
       type: String,
@@ -50,20 +69,22 @@ export default {
 @import "../assets/styles/all.css";
 * {
   outline: none;
+  text-decoration: none !important;
 }
 .thumbdetail {
-  background-color: var(--color-slate);
+  background-color: #35363a;
   grid-column: 1 / 4;
-  grid-gap: 2.8rem;
-  grid-template-rows: repeat(2, 1fr);
-  height: 100vh;
+  grid-template-rows: 2, 1fr;
+  text-decoration: none !important;
 }
-.caption {
-  color: white !important;
-}
+.textblock {
+  text-decoration: none !important;
 
-.grid-card:hover .caption {
-  color: white !important;
+  color: var(--color-offwhite) !important;
+  text-decoration: none !important;
+}
+.textblock:hover {
+  text-decoration: none !important;
 }
 .title {
   margin-bottom: 1.6rem;
@@ -77,11 +98,9 @@ export default {
     grid-column: 1 / 3;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: none;
-    height: auto;
   }
-  .caption {
+  .text {
     grid-column: 1 / 2;
-    height: 100%;
   }
 }
 

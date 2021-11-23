@@ -23,13 +23,13 @@
 }
 .grid-parent {
   display: grid;
-  grid-gap: var(--spacing-md);
+  grid-gap: var(--spacing-sm);
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(1, 1fr);
 }
 .grid-card {
   background: transparent;
-  border-radius: var(--spacing-xxxs) !important;
+  border-radius: var(--spacing-xxs) !important;
   cursor: pointer;
   display: grid;
   grid-column: 1 / 4;

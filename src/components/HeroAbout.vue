@@ -1,5 +1,5 @@
 <template>
-  <Wrapper id="hero-about" class="">
+  <Wrapper id="hero-about" class="bg-fixed">
     <Container>
       <nav class="">
         <h1 id="wordmark" class="">
@@ -62,6 +62,7 @@ export default {
   justify-content: left;
   text-align: left;
   align-items: end !important;
+  text-shadow: var(--shadow-text);
 }
 @media (prefers-color-scheme: dark) {
   #hero-about {

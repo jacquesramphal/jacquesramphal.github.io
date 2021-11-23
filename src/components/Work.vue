@@ -48,10 +48,33 @@
           style="background-color: #ffdd9d"
           title="Small Template"
         />
+        <ThumbSmall
+          alt="Template Project"
+          filename="template-sm.svg"
+          title="Small Template"
+        />
+        <ThumbSmall
+          alt="Template Project"
+          filename="template-sm.svg"
+          title="Small Template"
+        />
+        <ThumbSmall
+          alt="Template Project"
+          filename="template-sm.svg"
+          title="Small Template"
+        />
+        <ThumbSmall
+          alt="Template Project"
+          filename="template-sm3.svg"
+          title="Small Template"
+        />
+        <ThumbDetail
+          alt="Project Template"
+          title="Project Template"
+        />
       </div>
     </Container>
 
-    <MainFooter />
   </Wrapper>
 </template>
 
@@ -60,7 +83,7 @@ import Wrapper from "@/components/grid/Wrapper.vue";
 import Container from "@/components/grid/Container.vue";
 import ThemeButton from "@/components/ThemeButton.vue";
 
-import MainFooter from "@/components/MainFooter.vue";
+// import MainFooter from "@/components/MainFooter.vue";
 import HeroLanding from "@/components/HeroLanding.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
@@ -78,7 +101,7 @@ export default {
     ThumbDetail,
     ThumbLarge,
     ThemeButton,
-    MainFooter,
+      // MainFooter,
   },
 };
 </script>
@@ -87,7 +110,6 @@ export default {
 <style lang="sass" scoped>
 @import "../assets/styles/all.css"
 
-*
 .container
   // background-color: var(--color-white)
   padding-top: 0 !important

@@ -1,31 +1,44 @@
 <template>
-  <footer class="">
-  <Container class="footer">
-    <div id="footer" class="grid-parent">
-      <h6 id="copyright">© 2021 Jacques Ramphal</h6>
-      <ul id="links" class="">
-      <!-- <li>
+  <Wrapper id="wrapper">
+    <div class="">
+      <Container
+        ><h4>
+          If you have questions about XYZ please get in touch. Im working and
+          playing at Myplanet.
+        </h4></Container
+      >
+    </div>
+    <div class="footer">
+      <Container>
+        <div id="footer" class="grid-parent">
+          <h6 id="copyright">© 2021 Jacques Ramphal</h6>
+          <ul id="links" class="">
+            <!-- <li>
           <a href="https://www.linkedin.com/in/jacquesramphal/" target="_blank"
             >Linkedin</a
           >
         </li> -->
-        <li>
-          Wanna learn more? <a href="mailto:jacques@ramphal.design" target="_blank">Get in touch</a>
-        </li>
-      </ul>
+            <li>
+              Wanna learn more?
+              <a href="mailto:jacques@ramphal.design" target="_blank"
+                >Get in touch</a
+              >
+            </li>
+          </ul>
+        </div>
+      </Container>
     </div>
-    </Container>
-  </footer>
+  </Wrapper>
 </template>
 
 <script>
-// import Wrapper from "@/components/grid/Wrapper.vue";
+import Wrapper from "@/components/grid/Wrapper.vue";
 import Container from "@/components/grid/Container.vue";
 
 export default {
   name: "MainFooter",
   components: {
-    // Wrapper,
+    Wrapper,
     Container,
   },
   props: {
@@ -34,7 +47,6 @@ export default {
       default: "Jacques Ramphal",
     },
   },
-  
 };
 </script>
 <style lang="sass" scoped>
@@ -45,20 +57,17 @@ ul
   list-style: none
   margin: 0
   padding: 0
-
-footer
+#wrapper
   // background: var(--bg-darker)
-  // height: 50vh
-
+  // height: 100vh
 #footer
-  display:grid
+  display: grid
   grid-template-columns: repeat(1, 1fr)
   @media only screen and (min-width: 740px)
     grid-template-columns: repeat(2, 1fr)
 
-.footer  
-  padding-top: var(--spacing-sm) !important
-
+.footer
+  // padding-top: var(--spacing-sm) !important
 #links
   grid-column: 1 / 1
   @media only screen and (min-width: 740px)
@@ -79,6 +88,5 @@ li:last-child
 
 
 
-// @media only screen and (min-width: 1201px) 
-
+// @media only screen and (min-width: 1201px)
 </style>

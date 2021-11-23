@@ -5,7 +5,7 @@
       eyebrow="About Me"
     />
     <DetailCard />
-    <Container tight>
+    <Container tight >
       <ThumbLarge
         title=""
         filename="about.jpg"
