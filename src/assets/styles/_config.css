@@ -28,8 +28,8 @@
   /* --color-action: #531fff; */
   --color-action: var(--color-purple);
   /* --color-action-dark: var(--color-blue); */
-  --color-action-dark: #fcb13a;
-  /* --color-action-dark: #0086e6; */
+  /* --color-action-dark: #fcb13a; */
+  --color-action-dark: var(--color-lightpurple);
   --color-danger: #e74848;
   --color-success: #0dba38;
   --color-disabled: #f2f2f2;
@@ -38,10 +38,11 @@
   --color-green: #58ad84;
   --color-blue: #0086e6;
   --color-purple: #6a5eff;
+  --color-lightpurple: #857dfc;
   --color-yellow: #fcb13a;
   --color-lightyellow: #ffdd9d;
-  --color-brown: #E8A191;
-  --color-darkbrown: #7F4B4F;
+  --color-brown: #e8a191;
+  --color-darkbrown: #7f4b4f;
 
   /* HIGHLIGHT */
   /* SHADOW */
@@ -53,7 +54,7 @@
   --shadow-inner: inset 0 0 4px var(--color-xlight);
 
   --shadow-text: 0px 16px 24px rgba(0, 0, 0, 0.07),
-  0px 6px 30px rgba(0, 0, 0, 0.06), 0px 8px 10px rgba(0, 0, 0, 0.15);
+    0px 6px 30px rgba(0, 0, 0, 0.06), 0px 8px 10px rgba(0, 0, 0, 0.15);
   --shadow-light: 0px 2px 4px rgba(14, 30, 37, 0.12);
   --shadow-heavy: -10px 10px 80px rgba(0, 0, 0, 0.1);
   --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.25);
@@ -86,8 +87,8 @@
   --spacing-xs: 1.6rem;
   --spacing-sm: 2.8rem;
   --spacing-md: 3.2rem;
-  --spacing-lg: 6.4rem;
-  /* --spacing-lg: 8rem; */
+  /* --spacing-lg: 6.4rem; */
+  --spacing-lg: 8rem;
   --spacing-xl: 12.8rem;
   --spacing-xxl: 25.6rem;
   --spacing-xxxl: 51.2rem;
@@ -105,7 +106,6 @@
   --text-reversed: var(--color-offblack);
   --background-reversed: var(--color-offwhite);
 
-
   /* FONT WEIGHT */
   --font-light: 250;
   --font-normal: 350;
@@ -113,6 +113,8 @@
   --font-bold: 550;
   --font-heavy: 750;
 
+  --shadow-deep: 0px 16px 24px var(--color-offblack),
+    0px 6px 30px var(--color-offblack), 0px 8px 10px var(--color-offblack);
 }
 
 /* Styles for users who prefer dark mode at the OS level */
@@ -127,35 +129,38 @@
     --text-reversed: var(--color-offblack);
     --background-reversed: var(--color-offwhite);
 
-  /* FONT WEIGHT */
-  --font-light: 250;
-  --font-normal: 350;
-  --font-medium: 450;
-  --font-bold: 550;
-  --font-heavy: 750;
-
-}
-
-  }
-  /* Override dark mode with light mode styles if the user decides to swap */
-  :root.light-theme {
-    --text: var(--color-darktext);
-    --background: var(--color-offwhite);
-    --bg-darker: #f2f2f2;
-    --link: var(--color-action);
-    --border: 1px solid var(--color-xxlight);
-    /* Reversed */
-    --text-reversed: var(--color-offwhite);
-    --background-reversed: var(--color-offblack);
-
     /* FONT WEIGHT */
-    --font-light: 300;
-    --font-normal: 400;
-    --font-medium: 500;
-    --font-bold: 600;
-    --font-heavy: 800;
+    --font-light: 250;
+    --font-normal: 350;
+    --font-medium: 450;
+    --font-bold: 550;
+    --font-heavy: 750;
 
+    --shadow-deep: 0px 16px 24px var(--color-offblack),
+      0px 6px 30px var(--color-offblack), 0px 8px 10px var(--color-offblack);
   }
+}
+/* Override dark mode with light mode styles if the user decides to swap */
+:root.light-theme {
+  --text: var(--color-darktext);
+  --background: var(--color-offwhite);
+  --bg-darker: #f2f2f2;
+  --link: var(--color-action);
+  --border: 1px solid var(--color-xxlight);
+  /* Reversed */
+  --text-reversed: var(--color-offwhite);
+  --background-reversed: var(--color-offblack);
+
+  /* FONT WEIGHT */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-bold: 600;
+  --font-heavy: 800;
+
+  --shadow-deep: 0px 16px 24px rgba(0, 0, 0, 0.07),
+    0px 6px 30px rgba(0, 0, 0, 0.06), 0px 8px 10px rgba(0, 0, 0, 0.1);
+}
 
 /* needs cleanup and consolidation */
 

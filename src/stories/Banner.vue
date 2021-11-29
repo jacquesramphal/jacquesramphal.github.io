@@ -1,8 +1,5 @@
 <template>
-  <div
-    id="banner"
-    :class="classes"
-  >
+  <div :class="classes">
     <div class="container">
       <nav class="">
         <h1 id="wordmark" class="">
@@ -12,11 +9,7 @@
     </div>
     <div id="" class="container">
       <div id="hero-text" class="">
-        <h2
-          class=""
-        >
-          — {{ title }}
-        </h2>
+        <h2 class="">— {{ title }}</h2>
       </div>
     </div>
   </div>
@@ -24,9 +17,12 @@
 
 <script>
 export default {
-  name: "my-banner",
-
+  name: "Banner",
   props: {
+    background: {
+      default: false,
+      required: true,
+    },
     eyebrow: {
       type: String,
       default: "Eyebrow",
@@ -37,19 +33,13 @@ export default {
       default: "Title",
       required: false,
     },
-        base: {
-      type: Boolean,
-      default: false,
-      
-    },
   },
-
   computed: {
     classes() {
       return {
-        "storybook-banner": true,
-        "storybook-banner--base": this.base,
-        "storybook-banner--background": !this.base,
+        "banner-style": true,
+        "banner-style--background": this.background,
+        "banner-style--base": !this.background,
       };
     },
   },
@@ -61,11 +51,9 @@ export default {
 * {
   color: inherit;
 }
-.storybook-banner {
+.banner-style {
   display: grid;
   min-height: 320px;
-  background-color: var(--bg-darker);
-  
 }
 #hero-text {
   display: grid;
@@ -74,35 +62,34 @@ export default {
   text-align: left;
   align-items: end !important;
 }
-.storybook-banner--base {
-  background: red;
-  background-image: none;
+.banner-style--base {
+  background: blue;
 }
-.storybook-banner--background {
-  background-image: url("../assets/images/jacques.jpeg");
+.banner-style--background {
+  background-image: url("../assets/images/jacques.jpeg") !important;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 0%;
 }
 
+/*
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
-  #banner {
-  }
+  
   #hero-text {
     max-width: 60vw;
     align-items: end !important;
   }
-  .storybook-banner--background {
+  .banner-style--background {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 100% 50%;
     height: 80vh;
   }
+}
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
-    .storybook-banner--background {
+    .banner-style--background {
     }
   }
-}
 </style>

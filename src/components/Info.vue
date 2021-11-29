@@ -1,11 +1,14 @@
 <template>
   <Wrapper>
-    <HeroAbout
+    <HeroBanner
+      background
+      class="bg-fixed"
       title="Multidisciplinary designer of things"
       eyebrow="About Me"
     />
+   
     <DetailCard />
-    <Container tight >
+    <Container tight>
       <ThumbLarge
         title=""
         filename="about.jpg"
@@ -22,7 +25,7 @@
 import Wrapper from "@/components/grid/Wrapper.vue";
 import Container from "@/components/grid/Container.vue";
 
-import HeroAbout from "@/components/HeroAbout.vue";
+import HeroBanner from "@/components/HeroBanner.vue";
 // import AnimatedComponent from "@/components/AnimatedComponent.vue";
 // import HeroProject from "@/components/HeroProject.vue";
 
@@ -40,7 +43,7 @@ export default {
   components: {
     Wrapper,
     Container,
-    HeroAbout,
+    HeroBanner,
     // AnimatedComponent,
     // HeroProject,
     ThumbLarge,

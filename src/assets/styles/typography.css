@@ -67,7 +67,7 @@ h6 {
   opacity: 1 !important;
 }
 p {
-  font-size: var(--font-xxs);
+  font-size: var(--font-xs);
   font-weight: var(--font-medium);
   line-height: 1.8;
   margin: 0;

@@ -2,16 +2,16 @@
   
 /** GLOBAL HIGHLIGHT COLOUR **/
 ::selection {
-  background: rgba(160, 91, 224, 0.4);
+  background: rgba(185, 141, 226, 0.4);
 }
 ::-moz-selection {
-  background: rgba(160, 91, 224, 0.4);
+  background: rgba(185, 141, 226, 0.4);
 }
 /* :focus {
   outline: 4px dashed var(--bg-darker);
 } */
 :active {
-  outline: 1px dashed var(--link);
+  /* outline: 1px dashed var(--link); */
   /* outline: 8px solid rgba(21, 156, 228, 0.4); */
   /* outline-offset: .8rem; */
 }

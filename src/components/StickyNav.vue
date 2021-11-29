@@ -127,7 +127,7 @@ export default {
   transition: 0.5s box-shadow ease-in-out !important;
   align-items: middle;
   background: var(--background);
-  /* border: var(--border); */
+border: var(--border); 
   box-shadow: var(--shadow-deep);
   justify-self: stretch;
   /* margin: 0.8rem; */

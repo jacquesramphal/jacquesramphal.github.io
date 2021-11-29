@@ -65,49 +65,37 @@ export default {
 };
 </script>
 
-<style scoped>
-@import "../assets/styles/all.css";
-* {
-  outline: none;
-  text-decoration: none !important;
-}
-.thumbdetail {
-  background-color: #35363a;
-  grid-column: 1 / 4;
-  grid-template-rows: 2, 1fr;
-  text-decoration: none !important;
-}
-.textblock {
-  text-decoration: none !important;
+<style lang="sass" scoped>
+@import "../assets/styles/all.css"
+*
+  outline: none
+  text-decoration: none !important
 
-  color: var(--color-offwhite) !important;
-  text-decoration: none !important;
-}
-.textblock:hover {
-  text-decoration: none !important;
-}
-.title {
-  margin-bottom: 1.6rem;
-}
-.details {
-}
+.thumbdetail
+  background-color: #35363a
+  grid-column: 1 / 4
+  grid-template-rows: 2, 1fr
+  text-decoration: none !important
+  @media only screen and (min-width: 740px)
+    grid-gap: var(--spacing-md)
+    grid-column: 1 / 3
+    grid-template-columns: repeat(2, 1fr)
+    grid-template-rows: none
+  @media only screen and (min-width: 1201px)
+    grid-column: span 2
 
-/* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
-  .thumbdetail {
-    grid-column: 1 / 3;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: none;
-  }
-  .text {
-    grid-column: 1 / 2;
-  }
-}
+.textblock
+  text-decoration: none !important
+  color: var(--color-offwhite) !important
+  text-decoration: none !important
 
-/* ------------ BREAKPOINT LG ------------ */
-@media only screen and (min-width: 1201px) {
-  .thumbdetail {
-    grid-column: span 2;
-  }
-}
+.textblock:hover
+  text-decoration: none !important
+
+.title
+  margin-bottom: 1.6rem
+
+.text
+  @media only screen and (min-width: 740px)
+      grid-column: 1 / 2
 </style>
