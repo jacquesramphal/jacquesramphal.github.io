@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="grid-parent container">
+    <Container class="grid-parent">
       <span id="values">
         <ul tabIndex="0">
           <li class="label subtle"><p>Role</p></li>
@@ -20,14 +20,18 @@
           {{ description }}
         </h5></span
       >
-    </div>
+    </Container>
   </div>
 </template>
 
 <script>
+import Container from "@/components/grid/Container.vue";
+
 export default {
   name: "DetailCard2",
-
+  components: {
+      Container,
+  },
   props: {
     description: {
       type: String,

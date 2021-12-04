@@ -1,7 +1,7 @@
 <template>
-  <div class="form">
+  <Container class="form">
     <form
-      class="grid-parent container"
+      class="grid-parent"
       @submit.prevent="sendEmail"
       onsubmit="alert('submit!');return false"
     >
@@ -40,10 +40,11 @@
         type="submit"
       />
     </form>
-  </div>
+  </Container>
 </template>
 
 <script>
+import Container from "@/components/grid/Container.vue";
 import Input from "@/components/form/Input.vue";
 import TextArea from "@/components/form/TextArea.vue";
 import MyButton from "@/stories/Button.vue";
@@ -53,6 +54,7 @@ import emailjs from "emailjs-com";
 export default {
   name: "FormCentered",
   components: {
+    Container,
     Input,
     TextArea,
     TextBlock,
