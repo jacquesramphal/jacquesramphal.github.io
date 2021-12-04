@@ -90,6 +90,7 @@ import ThumbSmall2 from "@/components/ThumbSmall2.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
 
+
 export default {
   name: "Work",
   components: {
