@@ -17,7 +17,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: "Designer of web things",
+      default: "Under Construction",
     },
   },
 };
