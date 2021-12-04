@@ -4,10 +4,11 @@ import Project from "@/components/Project.vue";
 import Blog from "@/components/Blog.vue";
 import BlogPost from "@/components/BlogPost.vue";
 import Info from "@/components/Info.vue";
-import NotFound from "@/components/NotFound.vue";
-import MaintenancePage from "@/components/MaintenancePage.vue";
+import NotFound from "@/components/misc/NotFound.vue";
+import MaintenancePage from "@/components/misc/MaintenancePage.vue";
 import MyResume from "@/components/MyResume.vue";
-import FormCentered from "@/components/card/FormCentered.vue";
+import Library from "@/components/Library.vue";
+// import FormCentered from "@/components/card/FormCentered.vue";
 // import maintenance from "@/middleware/maintenance.js";
 
 // const MaintenanceMode = {
@@ -26,6 +27,9 @@ const routes = [
     path: "/:pathMatch(.*)*",
     name: "NotFound",
     component: NotFound,
+    meta: {
+      hidePageWrapper: true,
+    },
   },
   {
     path: "/brb",
@@ -33,11 +37,12 @@ const routes = [
     component: MaintenancePage,
     meta: {
       hideNavbar: true,
+      hidePageWrapper: true,
     },
   },
   {
     // hide/show maintenence page
-    redirect: "/brb",
+    // redirect: "/brb",
 
     path: "/",
     name: "Home",
@@ -53,11 +58,11 @@ const routes = [
     name: "About",
     component: Info,
   },
-  {
-    path: "/contact",
-    name: "Contact",
-    component: FormCentered,
-  },
+  // {
+  //   path: "/contact",
+  //   name: "Contact",
+  //   component: FormCentered,
+  // },
   {
     path: "/project",
     name: "Project",
@@ -72,6 +77,11 @@ const routes = [
     path: "/post",
     name: "post",
     component: BlogPost,
+  },
+  {
+    path: "/library",
+    name: "library",
+    component: Library,
   },
 ];
 

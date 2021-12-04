@@ -1,25 +1,17 @@
 <template>
-  <div id="hero-project" class="">
-    <!-- TMP Breadcrumb 
-    <div class="container">
-      <nav class="">
-        <p>
-          <router-link to="Work" style="margin-top: 4rem;">Home</router-link
-          ><span class="subtle" style="margin: 0 1rem;">/</span>Project Template
-        </p>
-      </nav>
-    </div>-->
-
-    <div id="" class="container">
+  <Wrapper id="hero-project" class="">
+    <Container>
       <div id="hero-text" class="">
         <h2 class="">— {{ title }}</h2>
       </div>
-    </div>
-  </div>
+    </Container>
+  </Wrapper>
 </template>
 
 <script>
 // import PageNav from "@/components/PageNav.vue";
+import Wrapper from "@/components/grid/Wrapper.vue";
+import Container from "@/components/grid/Container.vue";
 
 export default {
   name: "HeroProject",
@@ -35,6 +27,8 @@ export default {
   },
   components: {
     // PageNav,
+    Wrapper,
+    Container,
   },
 };
 </script>

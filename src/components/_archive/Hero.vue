@@ -1,19 +1,26 @@
 <template>
-  <div id="hero" class="">
-    <div class="container">
+  <Wrapper id="hero" class="">
+    <Container>
       <div id="hero-text" class="">
         <h2 class="" tabindex="0">
           <span>{{ header1 }}</span
           ><span>{{ header2 }}</span>
         </h2>
       </div>
-    </div>
-  </div>
+    </Container>
+  </Wrapper>
 </template>
 
 <script>
+import Wrapper from "@/components/grid/Wrapper.vue";
+import Container from "@/components/grid/Container.vue";
+
 export default {
   name: "Hero",
+  components: {
+    Wrapper,
+    Container,
+  },
   props: {
     header1: {
       type: String,

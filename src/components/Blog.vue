@@ -1,16 +1,10 @@
 <template>
-  <Wrapper id="blog" class="">
-    <!-- Placeholder breadcrumb
-    <div class="container" style="background: var(--bg-darker);">
-      <nav class="">
-        <p>
-          <router-link :to="{ name: 'Home' }">Home</router-link>
-          <span class="subtle" style="margin: 0 1rem;">/</span>Blog
-        </p>
-      </nav>
-    </div>
- -->
-    <HeroSimple title="Recent Writing" eyebrow="Docs" />
+  <PageWrapper id="blog" class="">
+    <HeroBanner
+      title="Recent Writing"
+      eyebrow="Blog"
+      subtitle="A collection of thoughts and ideas"
+    />
     <Container id="posts">
       <BlogCard
         id=""
@@ -22,25 +16,24 @@
       <BlogCard />
       <BlogCard />
     </Container>
-  </Wrapper>
+  </PageWrapper>
 </template>
 
 <script>
 import BlogCard from "@/components/card/BlogCard.vue";
-import HeroSimple from "@/components/HeroSimple.vue";
-import Wrapper from "@/components/grid/Wrapper.vue";
+import HeroBanner from "@/components/HeroBanner.vue";
+import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Container from "@/components/grid/Container.vue";
 
 export default {
   name: "Blog",
   components: {
-    Wrapper,
+    PageWrapper,
     Container,
     BlogCard,
-    HeroSimple,
+    HeroBanner,
   },
 };
 </script>
 
-<style lang="sass" scoped>
-</style>
+<style lang="sass" scoped></style>

@@ -1,5 +1,5 @@
 <template>
-  <Wrapper>
+  <PageWrapper>
     <ThemeButton />
     <HeroLanding />
     <Container tight>
@@ -74,12 +74,11 @@
         />
       </div>
     </Container>
-
-  </Wrapper>
+  </PageWrapper>
 </template>
 
 <script>
-import Wrapper from "@/components/grid/Wrapper.vue";
+import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Container from "@/components/grid/Container.vue";
 import ThemeButton from "@/components/ThemeButton.vue";
 
@@ -94,7 +93,7 @@ import ThumbLarge from "@/components/ThumbLarge.vue";
 export default {
   name: "Work",
   components: {
-    Wrapper,
+    PageWrapper,
     Container,
     HeroLanding,
     ThumbSmall,

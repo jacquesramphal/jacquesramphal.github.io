@@ -1,6 +1,6 @@
 <template>
-  <div id="hero-landing" class="">
-    <div id="" class="container">
+  <Wrapper id="hero-landing">
+    <Container>
       <div id="hero-text" class="">
          <!--<h2 class="">
           Product Designer at Myplanet, <a href="/" target="blank">Also a Developer</a>
@@ -10,12 +10,13 @@
         </h2> 
         
       </div>
-    </div>
-  </div>
+    </Container>
+  </Wrapper>
 </template>
 
 <script>
-// import PageNav from "@/components/PageNav.vue";
+import Wrapper from "@/components/grid/Wrapper.vue";
+import Container from "@/components/grid/Container.vue";
 
 export default {
   name: "HeroLanding",
@@ -30,7 +31,8 @@ export default {
     },
   },
   components: {
-    // PageNav,
+    Container,
+    Wrapper,
   },
 };
 </script>

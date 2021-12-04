@@ -1,19 +1,23 @@
 <template>
   <div id="hero-bg" class="fullvh">
-    <div class="container">
+    <Container>
       <div id="hero-text" class="">
         <h2>
           {{ header }}
         </h2>
       </div>
-    </div>
+    </Container>
   </div>
 </template>
 
 <script>
+import Container from "@/components/grid/Container.vue";
 
 export default {
   name: "HeroBg",
+  components: {
+      Container,
+    },
   props: {
     header: {
       type: String,

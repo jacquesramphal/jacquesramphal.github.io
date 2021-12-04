@@ -73,6 +73,13 @@ p {
   margin: 0;
   opacity: 1 !important;
 }
+code {
+  background-color: var(--bg-darker);
+  border-radius: 4px;
+  font-family: courier, monospace;
+  padding: 12px 16px;
+  line-height: 4;
+}
 li {
   font-weight: var(--font-medium);
 }

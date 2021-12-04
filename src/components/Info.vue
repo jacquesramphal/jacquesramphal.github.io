@@ -1,5 +1,5 @@
 <template>
-  <Wrapper>
+  <PageWrapper>
     <HeroBanner
       background
       title="About this site"
@@ -17,11 +17,11 @@
     </Container>
     <DetailCard2 />
     <FormCentered />
-  </Wrapper>
+  </PageWrapper>
 </template>
 
 <script>
-import Wrapper from "@/components/grid/Wrapper.vue";
+import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Container from "@/components/grid/Container.vue";
 
 import HeroBanner from "@/components/HeroBanner.vue";
@@ -40,7 +40,7 @@ import FormCentered from "@/components/card/FormCentered.vue";
 export default {
   name: "Info",
   components: {
-    Wrapper,
+    PageWrapper,
     Container,
     HeroBanner,
     // AnimatedComponent,

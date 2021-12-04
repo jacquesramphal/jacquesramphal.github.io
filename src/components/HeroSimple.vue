@@ -1,24 +1,13 @@
 <template>
-  <div id="hero-simple">
-  <div class="container">
+  <Wrapper id="hero-simple">
+    <Container>
       <nav class="">
         <h1 id="wordmark" class="">
           {{ eyebrow }}
         </h1>
       </nav>
-    </div>
-    <!-- Placeholder breadcrumb -->
-
-    <!-- <div class="container">
-      <nav class="">
-        <p>
-          <router-link :to="{ name: 'Home' }">Home</router-link>
-          <span class="subtle" style="margin: 0 1rem;">/</span>Current Page
-        </p>
-      </nav>
-    </div> -->
-
-    <div id="" class="container">
+    </Container>
+    <Container id="">
       <div id="hero-text" class="">
         <h2>
           {{ title }}
@@ -27,12 +16,14 @@
           {{ subtitle }}
         </h6>
       </div>
-    </div>
-  </div>
+    </Container>
+  </Wrapper>
 </template>
 
 <script>
 // import PageNav from "@/components/PageNav.vue";
+import Wrapper from "@/components/grid/Wrapper.vue";
+import Container from "@/components/grid/Container.vue";
 
 export default {
   name: "HeroSimple",
@@ -52,6 +43,8 @@ export default {
   },
   components: {
     // PageNav,
+    Wrapper,
+    Container,
   },
 };
 </script>

@@ -1,23 +1,28 @@
 <template>
   <div :class="classes">
-    <div class="container">
+    <Container>
       <nav class="">
         <h1 id="wordmark" class="">
           {{ eyebrow }}
         </h1>
       </nav>
-    </div>
-    <div id="" class="container">
+    </Container>
+    <Container id="">
       <div id="hero-text" class="">
         <h2 class="">— {{ title }}</h2>
       </div>
-    </div>
+    </Container>
   </div>
 </template>
 
 <script>
+import Container from "@/components/grid/Container.vue";
+
 export default {
   name: "Banner",
+  components: {
+    Container,
+  },
   props: {
     background: {
       default: false,

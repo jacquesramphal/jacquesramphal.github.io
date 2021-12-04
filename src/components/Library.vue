@@ -1,8 +1,8 @@
 <template>
-  <div id="library" class="">
-    <PageNav tag="Component Examples" />
+  <PageWrapper id="library" class="">
+    <HeroBanner eyebrow="ramphal.design" title="Library" />
 
-    <div id="headings" class="container grid-parent">
+    <Container id="headings" class="grid-parent">
       <div class="grid-card">
         <h1>Heading 1</h1>
         <h2>Heading 2</h2>
@@ -12,7 +12,7 @@
         <h6>Heading 6</h6>
       </div>
       <div class="grid-card">
-        <p style="max-width: 560px;">
+        <p style="max-width: 560px">
           Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
           sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
           enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
@@ -26,8 +26,8 @@
           <i>Italics</i>, <em>Emphasis</em>
         </p>
       </div>
-    </div>
-    <!-- <div id="buttons" class="container grid-parent reversed">
+    </Container>
+    <!-- <Container id="buttons" class="grid-parent reversed">
       <h4>Buttons</h4>
       <div class="grid-parent">
         <div id="" class="">
@@ -43,7 +43,8 @@
           <MyButton text="This is Button Text" class="btn-toggle btn-outline" />
         </div>
       </div>
-    </div> -->
+    </Container> -->
+
     <Hero header="Reversed" class="reversed" />
 
     <Hero header="Default" />
@@ -58,16 +59,17 @@
     <FormCentered />
     <TextImage header="Default" />
 
-    <div class="grid-parent container">
+    <Container class="grid-parent">
       <TextDefault />
       <ThumbMedium />
-    </div>
-  </div>
+    </Container>
+  </PageWrapper>
 </template>
 
 <script>
-import PageNav from "@/components/PageNav.vue";
-import Hero from "@/components/Hero.vue";
+import PageWrapper from "@/components/grid/PageWrapper.vue";
+import Container from "@/components/grid/Container.vue";
+import HeroBanner from "@/components/HeroBanner.vue";
 import HeroBg from "@/components/HeroBg.vue";
 import HeroAnimated from "@/components/HeroAnimated.vue";
 import HeroProject from "@/components/HeroProject.vue";
@@ -81,8 +83,9 @@ import FormCentered from "@/components/card/FormCentered.vue";
 export default {
   name: "Info",
   components: {
-    PageNav,
-    Hero,
+    PageWrapper,
+    Container,
+    HeroBanner,
     HeroBg,
     HeroAnimated,
     HeroProject,

@@ -1,11 +1,11 @@
 <template>
-  <div id="project" class="">
+  <PageWrapper id="project" class="">
     <HeroProject title="Project Title" class="" />
 
     <DetailCard2 id="detail1" class="" />
 
-    <div id="" class="">
-      <div id="grid-parent" class="container  ">
+    <Wrapper id="" class="">
+      <Container id="grid-parent">
         <ThumbLarge
           class=""
           style="background-color: var(--color-xxlight);"
@@ -17,11 +17,11 @@
           header=" "
           details="Designer/Developer working and playing at Myplanet."
         />
-      </div>
-    </div>
+      </Container>
+    </Wrapper>
     <DetailCard id="detail2" class="topborder" header="The Solution" />
-    <div id="" class="">
-      <div id="grid-parent" class="container  ">
+    <Wrapper id="" class="">
+      <Container id="grid-parent">
         <ThumbLarge
           class=""
           style="background-color: var(--color-xxlight);"
@@ -33,10 +33,10 @@
           header=" "
           details="Designer/Developer working and playing at Myplanet."
         />
-      </div>
-    </div>
-    <div class="  ">
-      <div class=" container ">
+      </Container>
+    </Wrapper>
+    <Wrapper class="  ">
+      <Container>
         <!-- <h4 style="margin-bottom: 4rem; text-align: center;">More Projects</h4> -->
         <div class="grid-parent  ">
           <div>
@@ -57,12 +57,15 @@
         <!-- <router-link to="Work" style="margin-top: 4rem;">
               <p>All Recent Work</p></router-link
             >-->
-      </div>
-    </div>
-  </div>
+      </Container>
+    </Wrapper>
+  </PageWrapper>
 </template>
 
 <script>
+import PageWrapper from "@/components/grid/PageWrapper.vue";
+import Wrapper from "@/components/grid/Wrapper.vue";
+import Container from "@/components/grid/Container.vue";
 import TextDefault from "@/components/text/TextDefault.vue";
 import HeroProject from "@/components/HeroProject.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
@@ -74,6 +77,9 @@ import DetailCard2 from "@/components/card/DetailCard2.vue";
 export default {
   name: "Project",
   components: {
+    PageWrapper,
+    Wrapper,
+    Container,
     HeroProject,
     TextDefault,
     // ThumbMedium,

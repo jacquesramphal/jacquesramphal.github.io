@@ -12,6 +12,9 @@
         <h2>
           {{ title }}
         </h2>
+        <h6 class="">
+          {{ subtitle }}
+        </h6>
       </div>
     </Container>
   </Wrapper>
@@ -36,6 +39,9 @@ export default {
     title: {
       type: String,
       default: "Banner Title",
+    },
+    subtitle: {
+      type: String,
     },
   },
   components: {

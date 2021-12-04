@@ -1,15 +1,13 @@
 <template>
-  <div
+  <Container
     id="stickynav"
-    class="container navbar"
+    class="navbar"
     :class="{ 'hidden-navbar': !showNavbar }"
   >
     <div class="bg">
       <nav class="">
         <h1 class="hidemobile nav-link" id="wordmark" tabindex="1">
           <router-link :to="{ name: 'Home' }">jacques ramphal</router-link>
-
-          <!--          <a href="#/">Jacques Ramphal</a> -->
         </h1>
 
         <h1 class="showmobile nav-link" id="wordmark" tabindex="1">
@@ -20,11 +18,12 @@
             <router-link to="about">about</router-link>
           </li>
           <li class="nav-link" tabindex="1">
-            <router-link to="cv">info</router-link>
+            <router-link to="cv">cv</router-link>
           </li>
-          <li class="nav-link" tabindex="1">
+         <!-- <li class="nav-link" tabindex="1">
             <router-link class="isDisabled" to="blog">writing</router-link>
-          </li>
+          </li> -->
+
           <!-- <li
             class="nav-link"
             data-aos="fade-left"
@@ -44,16 +43,21 @@
         </ul>
       </nav>
     </div>
-  </div>
+  </Container>
 </template>
 
 <script>
+import Container from "@/components/grid/Container.vue";
+
 /**
  * @component
  */
 const OFFSET = 60;
 export default {
   name: "StickyNav",
+  components: {
+    Container,
+  },
   props: {
     title: {
       type: String,
@@ -104,7 +108,6 @@ export default {
 :active {
   outline: transparent;
 }
-.container,
 .navbar {
   bottom: 0;
   left: 0;
@@ -127,7 +130,7 @@ export default {
   transition: 0.5s box-shadow ease-in-out !important;
   align-items: middle;
   background: var(--background);
-border: var(--border); 
+  /* border: var(--border); */
   box-shadow: var(--shadow-deep);
   justify-self: stretch;
   /* margin: 0.8rem; */
@@ -185,7 +188,6 @@ li:first-child {
 }
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
-  .container,
   .navbar {
     transition: 0.8s all ease-in-out !important;
   }
