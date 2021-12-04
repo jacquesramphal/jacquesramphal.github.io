@@ -1,5 +1,5 @@
 <template>
-  <div class="form fullvh">
+  <div class="form">
     <form
       class="grid-parent container"
       @submit.prevent="sendEmail"

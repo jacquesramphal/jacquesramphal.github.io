@@ -33,10 +33,12 @@ const routes = [
     component: MaintenancePage,
     meta: {
       hideNavbar: true,
-     }
+    },
   },
   {
+    // hide/show maintenence page
     redirect: "/brb",
+
     path: "/",
     name: "Home",
     component: Work,
@@ -61,7 +63,6 @@ const routes = [
     name: "Project",
     component: Project,
   },
-
   {
     path: "/blog",
     name: "Blog",
