@@ -87,8 +87,6 @@ h3 {
     #section-header {
       grid-row: 1 / 3;
     }
-    .container {
-    }
   }
 }
 </style>
