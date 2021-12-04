@@ -4,7 +4,7 @@
   width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
   width: stretch;
   position: relative;
-  padding: var(--spacing-sm) !important;
+  padding: var(--spacing-md) !important;
   display: grid;
   height: auto;
   margin-left: auto;
@@ -23,7 +23,7 @@
 }
 .grid-parent {
   display: grid;
-  grid-gap: var(--spacing-sm);
+  grid-gap: var(--spacing-md);
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(1, 1fr);
 }

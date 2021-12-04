@@ -1,7 +1,7 @@
 <template>
   <Wrapper id="app">
     <router-view />
-    <StickyNav />
+    <StickyNav v-if="!$route.meta.hideNavbar" />
   </Wrapper>
 </template>
 

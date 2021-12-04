@@ -34,7 +34,7 @@ export default {
   margin-top: var(--spacing-sm)
   >.resume-footer-links
     display: flex
-    flex-direction: row
+    flex-direction: column
     flex-wrap: nowrap
     justify-content: left
     align-content: left

@@ -1,5 +1,5 @@
 <template>
-  <div class="resume container">
+  <Container class="resume">
     <resume-segments
       class="segments"
       :segments="segments"
@@ -35,10 +35,11 @@
       />
       <resume-footer class="footer" :information="information.footer" />
     </aside>
-  </div>
+  </Container>
 </template>
 
 <script>
+import Container from "@/components/grid/Container.vue";
 import ResumeHeader from "@/components/resume/ResumeHeader.vue";
 import ResumeFooter from "@/components/resume/ResumeFooter.vue";
 import ResumeSegments from "@/components/resume/ResumeSegments.vue";
@@ -49,6 +50,7 @@ import ResumeSlogan from "@/components/resume/ResumeSlogan.vue";
 export default {
   name: "Resume",
   components: {
+    Container,
     ResumeSlogan,
     ResumeImage,
     ResumeList,

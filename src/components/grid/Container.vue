@@ -49,5 +49,5 @@ export default {
 
 .container-spacing--tight
   @media only screen and (min-width: 740px)
-    padding: var(--spacing-sm) !important
+    padding: var(--spacing-md) !important
 </style>

@@ -3,7 +3,7 @@
     <HeroBanner
       background
       class="bg-fixed"
-      title="Multidisciplinary designer of things"
+      title="About this site"
       eyebrow="About Me"
     />
    
