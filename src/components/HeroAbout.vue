@@ -1,5 +1,5 @@
 <template>
-  <Wrapper id="hero-about" class="bg-fixed">
+  <Wrapper id="hero-about" class="">
     <Container>
       <nav class="">
         <h1 id="wordmark" class="">

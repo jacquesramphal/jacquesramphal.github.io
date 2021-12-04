@@ -2,7 +2,6 @@
   <Wrapper>
     <HeroBanner
       background
-      class="bg-fixed"
       title="About this site"
       eyebrow="About Me"
     />
