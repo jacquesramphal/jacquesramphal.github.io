@@ -42,7 +42,7 @@ const routes = [
   },
   {
     // hide/show maintenence page
-    // redirect: "/brb",
+    redirect: "/brb",
 
     path: "/",
     name: "Home",
