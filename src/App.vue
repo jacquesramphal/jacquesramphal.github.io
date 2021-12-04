@@ -1,18 +1,18 @@
 <template>
-  <Wrapper id="app">
+  <PageWrapper id="app">
     <router-view />
     <StickyNav v-if="!$route.meta.hideNavbar" />
-  </Wrapper>
+  </PageWrapper>
 </template>
 
 <script>
 import StickyNav from "./components/StickyNav.vue";
-import Wrapper from "@/components/grid/Wrapper.vue";
+import PageWrapper from "@/components/grid/PageWrapper.vue";
 
 export default {
   name: "App",
   components: {
-    Wrapper,
+    PageWrapper,
     StickyNav,
 
   },
