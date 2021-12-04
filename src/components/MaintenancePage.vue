@@ -1,6 +1,6 @@
 <template>
   <Wrapper>
-    <HeroBg header="Under Construction" />
+    <HeroBg header="Thanks for visiting my site. Im pushing pixels and will be back soon." />
   </Wrapper>
 </template>
 
