@@ -1,18 +1,21 @@
 <template>
-  <span class="grid-card hero grey">
-    <span tabindex="0" class="caption">
-      <h6 tabIndex="0" class="">{{ title }}</h6>
-      <p tabIndex="0" class="subtle">{{ date }}</p>
-    </span>
-    <router-link :to="`${route}`">
-      <span class="overlay"></span>
-      <img
-        draggable="false"
-        :src="require(`@/assets/images/${filename}`)"
-        :alt="`${alt}`"
-      />
-    </router-link>
-  </span>
+  <figure class="hero grid-card">
+    <span class="grid-card"
+      >
+      <span tabindex="0" class="caption">
+        <h6 tabIndex="0" class="">{{ title }}</h6>
+        <p tabIndex="0" class="subtle">{{ date }}</p>
+      </span>
+      <router-link :to="`${route}`">
+        <span class="overlay"></span>
+        <img
+          draggable="false"
+          :src="require(`@/assets/images/${filename}`)"
+          :alt="`${alt}`"
+        /> </router-link
+    ></span>
+    <figcaption class="subtle">{{ caption }}</figcaption>
+  </figure>
 </template>
 
 <script>
@@ -25,7 +28,10 @@ export default {
     },
     date: {
       type: String,
-      default: " ",
+    },
+    caption: {
+      type: String,
+
     },
     filename: {
       type: String,
@@ -37,7 +43,7 @@ export default {
     },
     route: {
       type: String,
-      default: "Project",
+      default: "#",
     },
   },
 };

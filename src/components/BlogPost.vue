@@ -4,22 +4,13 @@
       <!-- TMP BREADCRUMB -->
       <Container id="section1" class="">
         <p>
-          <!-- <router-link :to="{ name: 'Home' }">Home</router-link>
-            <span class="subtle" style="margin: 0 1rem">/</span> -->
           <router-link :to="{ name: 'Blog' }">Blog</router-link>
           <span class="subtle" style="margin: 0 1rem">/</span>Post
         </p>
       </Container>
       <!-- TMP BREADCRUMB -->
-
-      <Container id="section1" class="width">
-        <TextBlock
-          center
-          eyebrow="Category"
-          header="Post Title"
-          details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        />
+      <Container class="width">
+        <TextHeader title="Hello World"/>
       </Container>
 
       <Container tight id="">
@@ -34,32 +25,48 @@
       <!-- Section 1 -->
       <Wrapper id="section1">
         <Container class="width">
-          <TextBlock
-            left
-            eyebrow=""
-            header="Section 1"
-            details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          <Wrapper
+            ><TextBlock
+              left
+              eyebrow=""
+              header="Section 1"
+              details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. Duis aute irure dolor in
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum."
-          />
-          <p><code>This is a callout or code block</code></p>
+            />
+            <blockquote>
+              <p><em>This</em> is a <strong>blockquote.</strong></p>
+            </blockquote>
+
+            <TextBlock
+              left
+              eyebrow=""
+              header=""
+              details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat."
+            />
+          </Wrapper>
         </Container>
-        <Container tight id="" class="width">
+
+        <Container tight id="" class="width2">
           <ThumbLarge
             class=""
             title=""
             filename="about.jpg"
             alt="Jacques working at Myplanet"
+            caption="This is caption text."
           />
         </Container>
       </Wrapper>
 
       <!-- Section 1 -->
-      <Wrapper id="section2">
+      <Wrapper id="section2" class="">
         <Container class="width">
           <TextBlock
             left
@@ -77,12 +84,13 @@
           aliquip ex ea commodo consequat. "
           />
         </Container>
-        <Container tight id="" class="width">
+        <Container tight id="" class="width2">
           <ThumbLarge
             class=""
             title=""
             filename="about.jpg"
             alt="Jacques working at Myplanet"
+            caption="This is caption text."
           />
         </Container>
       </Wrapper>
@@ -100,6 +108,7 @@
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Wrapper from "@/components/grid/Wrapper.vue";
 import Container from "@/components/grid/Container.vue";
+import TextHeader from "@/components/text/TextHeader.vue";
 // import HeroBanner from "@/components/HeroBanner.vue";
 import TextBlock from "@/stories/TextBlock.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
@@ -112,6 +121,7 @@ export default {
     Wrapper,
     Container,
     // HeroBanner,
+    TextHeader,
     TextBlock,
     ThumbLarge,
     // ThumbMedium,
@@ -136,6 +146,9 @@ h3 {
 }
 .width {
   max-width: 86.4rem;
+}
+.width2 {
+  max-width: 98rem;
 }
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {

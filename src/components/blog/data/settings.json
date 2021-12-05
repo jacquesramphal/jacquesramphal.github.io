@@ -1,0 +1,18 @@
+{
+  "posts": {
+    "title": "Experience",
+    "order": "custom",
+    "entries": {
+      "order": "custom"
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "order": "custom",
+    "entries": {
+      "order": "custom",
+      "display": "list",
+      "levelType": "number"
+    }
+  }
+}

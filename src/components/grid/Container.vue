@@ -35,6 +35,7 @@ export default {
   position: relative
   padding: var(--spacing-sm) !important
   display: grid
+  grid-template-columns: 1
   height: auto
   margin-left: auto
   margin-right: auto

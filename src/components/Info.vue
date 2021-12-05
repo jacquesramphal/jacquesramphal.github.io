@@ -2,10 +2,10 @@
   <PageWrapper>
     <HeroBanner
       background
-      title="About this site"
       eyebrow="About Me"
+      title="About this site"
     />
-   
+
     <DetailCard />
     <Container tight>
       <ThumbLarge

@@ -15,10 +15,10 @@
         </h1>
         <ul class="justify-end">
           <li class="nav-link" tabindex="1">
-            <router-link to="about">about</router-link>
+            <router-link to="info">info</router-link>
           </li>
           <li class="nav-link" tabindex="1">
-            <router-link to="cv">cv</router-link>
+            <router-link to="blog">blog</router-link>
           </li>
          <!-- <li class="nav-link" tabindex="1">
             <router-link class="isDisabled" to="blog">writing</router-link>

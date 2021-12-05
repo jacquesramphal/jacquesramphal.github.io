@@ -1,5 +1,10 @@
 <template>
   <Container class="resume">
+    <blog-posts
+      class="segments"
+      :segments="segments"
+      :settings="settings.segments"
+    />
     <resume-segments
       class="segments"
       :segments="segments"
@@ -39,6 +44,7 @@
 </template>
 
 <script>
+
 import Container from "@/components/grid/Container.vue";
 import ResumeHeader from "@/components/resume/ResumeHeader.vue";
 import ResumeFooter from "@/components/resume/ResumeFooter.vue";
@@ -58,9 +64,6 @@ export default {
     ResumeFooter,
     ResumeSegments,
     ResumeSkills,
-  },
-  created() {
-    this.setCssVariables(document);
   },
   props: {
     settings: {
@@ -84,37 +87,7 @@ export default {
       // TODO add validator for mandatory fields
     },
   },
-  methods: {
-    setCssVariables(doc) {
-      // TODO test if colors are valid hex colors, if not use defaults
-      // TODO use defaults if nothing is provided
-      const colors = this.settings.style.colors;
-      const colorsLight = Object.entries(colors.light)
-        .map(([key, value]) => `--color-${key}: ${value};`)
-        .join(" ");
-      const colorsDark = Object.entries(colors.dark)
-        .map(([key, value]) => `--color-${key}: ${value};`)
-        .join(" ");
-      const fonts = Object.entries(this.settings.style.fonts)
-        .map(([key, value]) => `--font-${key}: ${value};`)
-        .join(" ");
-      const styleNode = document.createTextNode(`
-      :root {
-        ${colorsLight}
-        ${fonts}
-      }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          ${colorsDark}
-        }
-      }
-      `);
-      const styleElement = doc.createElement("style");
-      styleElement.appendChild(styleNode);
-      const ref = doc.querySelector("style");
-      ref.parentNode.insertBefore(styleElement, ref);
-    },
-  },
+  
 };
 </script>
 

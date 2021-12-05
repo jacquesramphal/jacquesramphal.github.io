@@ -30,7 +30,7 @@
 .grid-card {
   background: transparent;
   border-radius: var(--spacing-xxs) !important;
-  cursor: pointer;
+  /* cursor: pointer; */
   display: grid;
   grid-column: 1 / 4;
   grid-template-columns: 1fr;
@@ -64,6 +64,10 @@
 }
 .bottom {
   bottom: 0 !important;
+}
+.justify-start {
+  justify-self: start;
+  position: relative;
 }
 .justify-end {
   justify-self: end;
