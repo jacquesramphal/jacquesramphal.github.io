@@ -4,8 +4,8 @@
     class="navbar"
     :class="{ 'hidden-navbar': !showNavbar }"
   >
-    <div class="bg reversed">
-      <nav class="reversed">
+    <div class="bg">
+      <nav class="">
         <h1 class="hidemobile nav-link" id="wordmark" tabindex="1">
           <router-link :to="{ name: 'Home' }">jacques ramphal</router-link>
         </h1>
@@ -101,7 +101,7 @@ export default {
 </script>
 <style scoped>
 * {
-  color: inherit !important;
+  color: var(--text-reversed) !important;
   margin: 0;
   mix-blend-mode: normal;
 }
