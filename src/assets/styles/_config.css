@@ -2,12 +2,13 @@
 :root {
   --text: var(--color-darktext);
   --background: var(--color-offwhite);
-  --bg-darker: #f2f2f2;
+  --bg-darker: var(--color-highlight2);
   --link: var(--color-action);
   --border: 1px solid var(--color-xxlight);
   /* Reversed */
   --text-reversed: var(--color-offwhite);
   --background-reversed: var(--color-offblack);
+  --bg-darker-reversed: var(--color-highlight);
 
   /* NEUTRAL */
 
@@ -22,6 +23,8 @@
   --color-xxxlight: #f2f2f2;
   --color-white: #fff;
   --color-offwhite: #fafafa;
+  --color-highlight: rgba(0, 0, 0, 0.25);
+  --color-highlight2: rgba(0, 0, 0, 0.1);
 
   /* STATES */
   /* --color-action: #0086e6; */
@@ -100,13 +103,14 @@
 :root.dark-theme {
   --text: var(--color-offwhite);
   --background: var(--color-offblack);
-  --bg-darker: rgba(0, 0, 0, 0.25);
+  --bg-darker: var(--color-highlight);
   --link: var(--color-action-dark);
   --border: 1px solid black;
 
   /* Reversed */
   --text-reversed: var(--color-offblack);
   --background-reversed: var(--color-offwhite);
+  --bg-darker-reversed: var(--color-highlight2);
 
   /* FONT WEIGHT */
   --font-light: 250;
@@ -124,12 +128,13 @@
   :root {
     --text: var(--color-offwhite);
     --background: var(--color-offblack);
-    --bg-darker: rgba(0, 0, 0, 0.25);
+    --bg-darker: var(--color-highlight);
     --link: var(--color-action-dark);
     --border: 1px solid black;
     /* Reversed */
     --text-reversed: var(--color-offblack);
     --background-reversed: var(--color-offwhite);
+    --bg-darker-reversed: var(--color-highlight2);
 
     /* FONT WEIGHT */
     --font-light: 250;
@@ -146,12 +151,13 @@
 :root.light-theme {
   --text: var(--color-darktext);
   --background: var(--color-offwhite);
-  --bg-darker: #f2f2f2;
+  --bg-darker: var(--color-highlight2);
   --link: var(--color-action);
   --border: 1px solid var(--color-xxlight);
   /* Reversed */
   --text-reversed: var(--color-offwhite);
   --background-reversed: var(--color-offblack);
+  --bg-darker-reversed: var(--color-highlight);
 
   /* FONT WEIGHT */
   --font-light: 300;

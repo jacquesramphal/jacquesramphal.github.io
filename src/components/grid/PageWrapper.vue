@@ -8,6 +8,9 @@
 export default {
   name: "PageWrapper",
   props: {},
+  mounted () {
+  window.scrollTo(0, 0)
+}
 };
 </script>
 

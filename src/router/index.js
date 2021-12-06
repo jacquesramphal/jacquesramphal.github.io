@@ -4,26 +4,13 @@ import Project from "@/components/Project.vue";
 import Blog from "@/components/Blog.vue";
 import MyBlog from "@/components/blog/MyBlog.vue";
 import BlogPost from "@/components/BlogPost.vue";
-// import Info from "@/components/Info.vue";
 import NotFound from "@/components/misc/NotFound.vue";
 import MaintenancePage from "@/components/misc/MaintenancePage.vue";
 import MyResume from "@/components/MyResume.vue";
 import Library from "@/components/Library.vue";
-// import FormCentered from "@/components/card/FormCentered.vue";
-// import maintenance from "@/middleware/maintenance.js";
-
-// const MaintenanceMode = {
-//   template: '<div><p>maintenance mode</p></div>'
-// }
+// import Info from "@/components/Info.vue";
 
 const routes = [
-  // {
-  // path: "/:catchAll(.*)",
-  // component: MaintenanceMode,
-  //   meta: {
-  //   requiresAuth: false
-  //   },
-  // },
   {
     path: "/:pathMatch(.*)*",
     name: "NotFound",
@@ -42,9 +29,7 @@ const routes = [
     },
   },
   {
-    // hide/show maintenence page
-    redirect: "/brb",
-
+    // redirect: "/brb",
     path: "/",
     name: "Home",
     component: Work,
@@ -59,11 +44,6 @@ const routes = [
     name: "Resume",
     component: MyResume,
   },
-  // {
-  //   path: "/contact",
-  //   name: "Contact",
-  //   component: FormCentered,
-  // },
   {
     path: "/project",
     name: "Project",

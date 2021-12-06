@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper id="blog" class="">
+  <Wrapper id="blog" class="">
     <HeroBanner
       title="Blog Landing"
       eyebrow="Blog"
@@ -49,11 +49,11 @@
         /></div> -->
       <blog-posts class="posts" :posts="posts" :settings="settings.posts" />
     </Container>
-  </PageWrapper>
+  </Wrapper>
 </template>
 
 <script>
-import PageWrapper from "@/components/grid/PageWrapper.vue";
+import Wrapper from "@/components/grid/Wrapper.vue";
 import Container from "@/components/grid/Container.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
 import BlogPosts from "@/components/blog/BlogPosts.vue";
@@ -62,7 +62,7 @@ import BlogPosts from "@/components/blog/BlogPosts.vue";
 export default {
   name: "Blog2",
   components: {
-    PageWrapper,
+    Wrapper,
     HeroBanner,
     Container,
     BlogPosts,

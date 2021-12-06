@@ -4,8 +4,8 @@
     class="navbar"
     :class="{ 'hidden-navbar': !showNavbar }"
   >
-    <div class="bg">
-      <nav class="">
+    <div class="bg reversed">
+      <nav class="reversed">
         <h1 class="hidemobile nav-link" id="wordmark" tabindex="1">
           <router-link :to="{ name: 'Home' }">jacques ramphal</router-link>
         </h1>
@@ -129,7 +129,7 @@ export default {
 .bg {
   transition: 0.5s box-shadow ease-in-out !important;
   align-items: middle;
-  background: var(--background);
+  background: var(--background-reversed);
   /* border: var(--border); */
   box-shadow: var(--shadow-deep);
   justify-self: stretch;
@@ -161,13 +161,13 @@ nav {
   /* text-decoration: none !important; */
 }
 .nav-link > a:hover {
-  background: var(--bg-darker);
+  background: var(--bg-darker-reversed);
   transition: all 0.25s ease;
 
   /*  box-shadow: var(--shadow-z1); */
 }
 .router-link-exact-active {
-  background: var(--bg-darker);
+  background: var(--bg-darker-reversed);
   text-decoration: none !important;
   /* border-bottom: 2px solid var(--link);*/
 }

@@ -126,7 +126,11 @@ export default {
     ThumbLarge,
     // ThumbMedium,
   },
+  mounted () {
+  window.scrollTo(0, 0)
+}
 };
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
