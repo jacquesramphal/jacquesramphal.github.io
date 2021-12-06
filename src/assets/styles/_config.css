@@ -6,6 +6,7 @@
   --link: var(--color-action);
   --border: 1px solid var(--color-xxlight);
   /* Reversed */
+  --link-reversed: var(--color-action-dark);
   --text-reversed: var(--color-offwhite);
   --background-reversed: var(--color-offblack);
   --bg-darker-reversed: var(--color-highlight);
@@ -108,6 +109,7 @@
   --border: 1px solid black;
 
   /* Reversed */
+  --link-reversed: var(--color-action);
   --text-reversed: var(--color-offblack);
   --background-reversed: var(--color-offwhite);
   --bg-darker-reversed: var(--color-highlight2);
@@ -132,6 +134,7 @@
     --link: var(--color-action-dark);
     --border: 1px solid black;
     /* Reversed */
+    --link-reversed: var(--color-action);
     --text-reversed: var(--color-offblack);
     --background-reversed: var(--color-offwhite);
     --bg-darker-reversed: var(--color-highlight2);
@@ -155,6 +158,7 @@
   --link: var(--color-action);
   --border: 1px solid var(--color-xxlight);
   /* Reversed */
+  --link-reversed: var(--color-action-dark);
   --text-reversed: var(--color-offwhite);
   --background-reversed: var(--color-offblack);
   --bg-darker-reversed: var(--color-highlight);

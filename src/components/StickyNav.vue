@@ -161,6 +161,7 @@ nav {
   /* text-decoration: none !important; */
 }
 .nav-link > a:hover {
+  color: var(--link-reversed) !important;
   background: var(--bg-darker-reversed);
   transition: all 0.25s ease;
 
