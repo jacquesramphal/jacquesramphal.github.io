@@ -108,7 +108,8 @@ blockquote {
 }
 blockquote p {
   padding: var(--spacing-sm);
-  background: var(--bg-darker);
+  background: var(--background-reversed);
+  color: var(--text-reversed);
   border-radius: 0.8rem;
 }
 blockquote p::before {

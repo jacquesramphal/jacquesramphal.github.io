@@ -37,6 +37,7 @@
   overflow: hidden;
   position: relative;
   transition: 0.4s all ease-in-out !important;
+  
 }
 /* .grid-card:hover {
   box-shadow: var(--shadow-hover);

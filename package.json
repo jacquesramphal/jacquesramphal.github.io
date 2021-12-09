@@ -17,6 +17,7 @@
     "core-js": "^3.6.5",
     "emailjs-com": "^3.2.0",
     "vue": "^3.0.0",
+    "vue-animate-transitions": "^1.1.2",
     "vue-router": "^4.0.0-0",
     "vuex-i18n": "^1.8.0"
   },
@@ -40,7 +41,7 @@
     "vue-loader": "^16.8.3",
     "vue-svg-inline-loader": "^2.1.2"
   },
-    "eslintConfig": {
+  "eslintConfig": {
     "root": true,
     "env": {
       "node": true

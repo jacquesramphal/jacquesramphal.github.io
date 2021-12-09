@@ -3162,6 +3162,11 @@
   "resolved" "https://registry.npmjs.org/alphanum-sort/-/alphanum-sort-1.0.2.tgz"
   "version" "1.0.2"
 
+"animate.css@^3.5.2":
+  "integrity" "sha512-0bE8zYo7C0KvgOYrSVfrzkbYk6IOTVPNqkiHg2cbyF4Pq/PXzilz4BRWA3hwEUBoMp5VBgrC29lQIZyhRWdBTw=="
+  "resolved" "https://registry.npmjs.org/animate.css/-/animate.css-3.7.2.tgz"
+  "version" "3.7.2"
+
 "ansi-align@^3.0.0":
   "integrity" "sha512-IOfwwBF5iczOjp/WeY4YxyjqAFMQoZufdQWDd19SEExbVLNXqvpzSJ/M7Za4/sCPmQ0+GRquoA7bGcINcxew6w=="
   "resolved" "https://registry.npmjs.org/ansi-align/-/ansi-align-3.0.1.tgz"
@@ -12837,6 +12842,13 @@
   "integrity" "sha1-YU9/v42AHwu18GYfWy9XhXUOTwk="
   "resolved" "https://registry.npmjs.org/void-elements/-/void-elements-3.1.0.tgz"
   "version" "3.1.0"
+
+"vue-animate-transitions@^1.1.2":
+  "integrity" "sha512-L3PNwAwonVAcUSO9R1ofNOQoR78sOjUqHai6kJydGaygBhqZ9jn7pA7Mx37fv7TbnPgr/2wZN7IRszH8uTfRPg=="
+  "resolved" "https://registry.npmjs.org/vue-animate-transitions/-/vue-animate-transitions-1.1.2.tgz"
+  "version" "1.1.2"
+  dependencies:
+    "animate.css" "^3.5.2"
 
 "vue-docgen-api@^4.38.0", "vue-docgen-api@>=3":
   "integrity" "sha512-AF84gxj9W2Ret3TKeX2KEvr481lseqZIJIVvm5eUOrXT2fAywP94RLQF7BpZQmZxEONfsVgZZ1wTACUN6Csiaw=="

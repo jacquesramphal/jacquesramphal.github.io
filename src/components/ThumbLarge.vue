@@ -55,4 +55,7 @@ export default {
 .caption {
   display: block !important;
 }
+img{
+  aspect-ratio: 16 / 8;
+}
 </style>

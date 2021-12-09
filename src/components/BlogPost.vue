@@ -17,7 +17,7 @@
         <ThumbLarge
           class=""
           title=""
-          filename="about.jpg"
+          filename="jacques.jpeg"
           alt="Jacques working at Myplanet"
         />
       </Container>

@@ -29,7 +29,7 @@ const routes = [
     },
   },
   {
-    redirect: "/brb",
+    // redirect: "/brb",
     path: "/",
     name: "Home",
     component: Work,

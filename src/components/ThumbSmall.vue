@@ -54,5 +54,6 @@ export default {
 }
 img {
   mix-blend-mode: normal;
+  aspect-ratio: 1 / 1;
 }
 </style>
