@@ -130,5 +130,4 @@ export default {
   >.resume-segment-entry-title
     line-height: 1.5
     margin-bottom: var(--spacing-xxs)
-  >.resume-segment-entry-description
 </style>

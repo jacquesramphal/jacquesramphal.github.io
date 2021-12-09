@@ -37,5 +37,4 @@ export default {
 <style scoped lang="sass">
 .resume-header
   margin-bottom: var(--spacing-md)
-  >.resume-header-name
 </style>

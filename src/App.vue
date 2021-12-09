@@ -1,6 +1,6 @@
 <template id="app">
   <router-view v-slot="{ Component }">
-    <transition name="fadeIn" mode="out-in">
+    <transition name="fade" mode="out-in">
       <component :is="Component" />
     </transition>
     <StickyNav v-if="!$route.meta.hideNavbar" />
@@ -18,15 +18,13 @@ export default {
 };
 </script>
 <style lang="sass">
-@import "../dist/transitions/vue-animate-transitions.min.css"
 
-// .test-enter-active,
-// .test-leave-active 
-//   transition: opacity 0.25s ease-in-out
-// }
+.fade-enter-active,
+.fade-leave-active 
+  transition: opacity 0.15s ease-in-out
 
-// .test-enter-from,
-// .test-leave-to 
-//   opacity: 0
-// 
+.fade-enter-from,
+.fade-leave-to 
+  opacity: 0
+
 </style>

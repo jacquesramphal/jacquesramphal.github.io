@@ -86,12 +86,10 @@ export default {
   >.blog-post-entry-title
     line-height: 1.5
     margin-bottom: var(--spacing-xxs)
-  >.blog-post-entry-description
   @media only screen and (min-width: 740px)
     grid-gap: var(--spacing-lg)
     border-bottom: var(--border)
     grid-template-columns: repeat(9, 1fr)
-    >img
     >.blog-image
       grid-column: 1 / 5
     >.blog-info

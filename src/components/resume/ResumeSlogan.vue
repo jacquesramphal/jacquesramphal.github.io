@@ -17,6 +17,5 @@ export default {
 </script>
 
 <style scoped lang="sass">
-.resume-slogan
 
 </style>
