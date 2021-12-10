@@ -1,11 +1,11 @@
 <template>
-    <div ref="target">
-        <transition :name="animationType">
-            <div v-if="animate" class="animated-component">
-                <slot />
-            </div>
-        </transition>
-    </div>
+  <div ref="target">
+    <transition :name="animationType">
+      <div v-appear="animate" class="animated-component">
+        <slot />
+      </div>
+    </transition>
+  </div>
 </template>
 
 <!-- TMP need to keep in page when hidden -->
