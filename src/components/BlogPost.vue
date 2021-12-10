@@ -2,26 +2,28 @@
   <PageWrapper id="blog">
     <Wrapper id="posts" class="">
       <!-- TMP BREADCRUMB -->
-      <Container id="section1" class="">
-        <p>
-          <router-link :to="{ name: 'Blog' }">Blog</router-link>
-          <span class="subtle" style="margin: 0 1rem">/</span>Post
-        </p>
-      </Container>
-      <!-- TMP BREADCRUMB -->
-      <Container class="width">
-        <TextHeader title="Hello World" />
-      </Container>
+        <Container id="section1" class="">
+          <p>
+            <router-link :to="{ name: 'Blog' }">Blog</router-link>
+            <span class="subtle" style="margin: 0 1rem">/</span>Post
+          </p>
+        </Container>
+        <!-- TMP BREADCRUMB -->
+              <AnimatedComponent animation-type="zoom">
 
-      <Container tight id="">
-        <ThumbLarge
-          class=""
-          title=""
-          filename="jacques.jpeg"
-          alt="Jacques working at Myplanet"
-        />
-      </Container>
+        <Container class="width">
+          <TextHeader title="Hello World" />
+        </Container>
 
+        <Container tight id="">
+          <ThumbLarge
+            class=""
+            title=""
+            filename="jacques.jpeg"
+            alt="Jacques working at Myplanet"
+          />
+        </Container>
+      </AnimatedComponent>
       <!-- Section 1 -->
       <Wrapper id="section1">
         <AnimatedComponent animation-type="zoom">
@@ -71,12 +73,13 @@
       <!-- Section 1 -->
 
       <Wrapper id="section2" class="">
-        <Container class="width">
-          <TextBlock
-            left
-            eyebrow=""
-            header="Section 2"
-            details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        <AnimatedComponent animation-type="zoom">
+          <Container class="width">
+            <TextBlock
+              left
+              eyebrow=""
+              header="Section 2"
+              details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -86,17 +89,21 @@
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. "
-          />
-        </Container>
-        <Container tight id="" class="width2">
-          <ThumbLarge
-            class=""
-            title=""
-            filename="about.jpg"
-            alt="Jacques working at Myplanet"
-            caption="This is caption text."
-          />
-        </Container>
+            />
+          </Container>
+        </AnimatedComponent>
+
+        <AnimatedComponent animation-type="zoom">
+          <Container tight id="" class="width2">
+            <ThumbLarge
+              class=""
+              title=""
+              filename="about.jpg"
+              alt="Jacques working at Myplanet"
+              caption="This is caption text."
+            />
+          </Container>
+        </AnimatedComponent>
       </Wrapper>
     </Wrapper>
     <!-- <HeroBanner
