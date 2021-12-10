@@ -7,13 +7,15 @@
   </router-view>
 </template>
 
-<script>
+<script lang="js">
 import StickyNav from "./components/StickyNav.vue";
+import AnimatedComponent from "@/components/AnimatedComponent.vue";
 
 export default {
   name: "App",
   components: {
     StickyNav,
+    AnimatedComponent
   },
 };
 </script>

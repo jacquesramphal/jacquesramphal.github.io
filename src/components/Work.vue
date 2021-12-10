@@ -34,7 +34,7 @@
           alt="Project Template"
           style="background-color: #35363a"
           title="Project Template"
-        />
+        />        
         <ThumbLarge
           alt="Template Project"
           class="hidemobile"

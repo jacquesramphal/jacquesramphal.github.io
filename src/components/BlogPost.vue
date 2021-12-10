@@ -10,7 +10,7 @@
       </Container>
       <!-- TMP BREADCRUMB -->
       <Container class="width">
-        <TextHeader title="Hello World"/>
+        <TextHeader title="Hello World" />
       </Container>
 
       <Container tight id="">
@@ -24,48 +24,52 @@
 
       <!-- Section 1 -->
       <Wrapper id="section1">
-        <Container class="width">
-          <Wrapper
-            ><TextBlock
-              left
-              eyebrow=""
-              header="Section 1"
-              details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        <AnimatedComponent animation-type="zoom">
+          <Container class="width">
+            <Wrapper
+              ><TextBlock
+                left
+                eyebrow=""
+                header="Section 1"
+                details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. Duis aute irure dolor in
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum."
-            />
-            <blockquote>
-              <p><em>This</em> is a <strong>blockquote.</strong></p>
-            </blockquote>
-
-            <TextBlock
-              left
-              eyebrow=""
-              header=""
-              details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              />
+              <blockquote>
+                <p><em>This</em> is a <strong>blockquote.</strong></p>
+              </blockquote>
+              <TextBlock
+                left
+                eyebrow=""
+                header=""
+                details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat."
-            />
-          </Wrapper>
-        </Container>
+              />
+            </Wrapper>
+          </Container>
+        </AnimatedComponent>
 
-        <Container tight id="" class="width2">
-          <ThumbLarge
-            class=""
-            title=""
-            filename="about.jpg"
-            alt="Jacques working at Myplanet"
-            caption="This is caption text."
-          />
-        </Container>
+        <AnimatedComponent animation-type="zoom">
+          <Container tight id="" class="width2">
+            <ThumbLarge
+              class=""
+              title=""
+              filename="about.jpg"
+              alt="Jacques working at Myplanet"
+              caption="This is caption text."
+            />
+          </Container>
+        </AnimatedComponent>
       </Wrapper>
 
       <!-- Section 1 -->
+
       <Wrapper id="section2" class="">
         <Container class="width">
           <TextBlock
@@ -105,6 +109,8 @@
 </template>
 
 <script>
+import AnimatedComponent from "@/components/AnimatedComponent.vue";
+
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Wrapper from "@/components/grid/Wrapper.vue";
 import Container from "@/components/grid/Container.vue";
@@ -117,6 +123,7 @@ import ThumbLarge from "@/components/ThumbLarge.vue";
 export default {
   name: "BlogPost",
   components: {
+    AnimatedComponent,
     PageWrapper,
     Wrapper,
     Container,
@@ -126,11 +133,10 @@ export default {
     ThumbLarge,
     // ThumbMedium,
   },
-  mounted () {
-  window.scrollTo(0, 0)
-}
+  mounted() {
+    window.scrollTo(0, 0);
+  },
 };
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

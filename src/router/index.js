@@ -1,3 +1,13 @@
+// import { createApp } from "vue";
+// import AnimatedComponent from '@/components/AnimatedComponent.vue';
+// import App from "@/App.vue";
+
+// const app = createApp(App);
+
+// app.component("AnimatedComponent", AnimatedComponent); // global registration - can be used anywhere
+
+// app.mount("#app");
+
 import { createRouter, createWebHashHistory } from "vue-router";
 import Work from "@/components/Work.vue";
 import Project from "@/components/Project.vue";
@@ -29,7 +39,7 @@ const routes = [
     },
   },
   {
-    redirect: "/brb",
+    // redirect: "/brb",
     path: "/",
     name: "Home",
     component: Work,
