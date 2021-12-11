@@ -18,7 +18,7 @@
             <router-link to="info">info</router-link>
           </li>
           <li class="nav-link" tabindex="1">
-            <router-link to="blog">blog</router-link>
+            <router-link to="blog2">blog</router-link>
           </li>
          <!-- <li class="nav-link" tabindex="1">
             <router-link class="isDisabled" to="blog">writing</router-link>

@@ -1,7 +1,9 @@
 <template>
   <PageWrapper>
     <ThemeButton />
-    <HeroLanding />
+    <AnimatedComponent animation-type="zoom">
+      <HeroLanding />
+    </AnimatedComponent>
     <Container tight>
       <div id="recentwork" class="grid-parent">
         <ThumbSmall
@@ -34,7 +36,7 @@
           alt="Project Template"
           style="background-color: #35363a"
           title="Project Template"
-        />        
+        />
         <ThumbLarge
           alt="Template Project"
           class="hidemobile"
@@ -68,16 +70,15 @@
           filename="template-sm3.svg"
           title="Small Template"
         />
-        <ThumbDetail
-          alt="Project Template"
-          title="Project Template"
-        />
+        <ThumbDetail alt="Project Template" title="Project Template" />
       </div>
     </Container>
   </PageWrapper>
 </template>
 
 <script>
+import AnimatedComponent from "@/components/AnimatedComponent.vue";
+
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Container from "@/components/grid/Container.vue";
 import ThemeButton from "@/components/ThemeButton.vue";
@@ -89,10 +90,10 @@ import ThumbSmall2 from "@/components/ThumbSmall2.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
 
-
 export default {
   name: "Work",
   components: {
+    AnimatedComponent,
     PageWrapper,
     Container,
     HeroLanding,
@@ -101,7 +102,7 @@ export default {
     ThumbDetail,
     ThumbLarge,
     ThemeButton,
-      // MainFooter,
+    // MainFooter,
   },
 };
 </script>
