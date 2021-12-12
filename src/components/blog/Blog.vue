@@ -47,7 +47,7 @@
           secondary
           size="small"
         /></div> -->
-      <blog-posts class="posts" :posts="posts" :settings="settings.posts" />
+      <BlogPosts class="posts" :posts="posts" :settings="settings.posts" />
     </Container>
   </Wrapper>
 </template>

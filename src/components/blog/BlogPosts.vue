@@ -5,7 +5,7 @@
         :key="i"
         class="blog-post"
     >
-      <h4
+      <h6
           class="blog-post-title"
           v-text="post.title"
       />

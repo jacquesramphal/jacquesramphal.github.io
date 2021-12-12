@@ -11,12 +11,11 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import Work from "@/components/Work.vue";
 import Project from "@/components/Project.vue";
-import Blog from "@/components/Blog.vue";
 import MyBlog from "@/components/blog/MyBlog.vue";
 import BlogPost from "@/components/BlogPost.vue";
 import NotFound from "@/components/misc/NotFound.vue";
 import MaintenancePage from "@/components/misc/MaintenancePage.vue";
-import MyResume from "@/components/MyResume.vue";
+import MyResume from "@/components/resume/MyResume.vue";
 import Library from "@/components/Library.vue";
 // import Info from "@/components/Info.vue";
 
@@ -39,7 +38,7 @@ const routes = [
     },
   },
   {
-    redirect: "/brb",
+    // redirect: "/brb",
     path: "/",
     name: "Home",
     component: Work,
@@ -62,11 +61,6 @@ const routes = [
   {
     path: "/blog",
     name: "Blog",
-    component: Blog,
-  },
-  {
-    path: "/blog2",
-    name: "Blog2",
     component: MyBlog,
   },
   {
