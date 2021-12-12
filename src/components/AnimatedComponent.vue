@@ -37,7 +37,7 @@ import { onMounted, ref } from 'vue';export default {
         animate.value = entry.isIntersecting;
       },
       {
-        threshold: 0.1
+        threshold: 0.3
       }
     );    onMounted(() => {
       observer.observe(target.value);

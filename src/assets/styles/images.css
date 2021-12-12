@@ -22,6 +22,8 @@ img {
   max-width: 100%;
   object-fit: cover;
   width: 101%;
+  border-radius: var(--spacing-xxs) !important;
+
   
 }
 .bg-template {

@@ -2,13 +2,13 @@
   <Wrapper id="hero-landing">
     <Container>
       <div id="hero-text" class="">
-         <!--<h2 class="">
+        <!--<h2 class="">
           Product Designer at Myplanet, <a href="/" target="blank">Also a Developer</a>
         </h2> -->
-         <h2 class="">
-          <span class="subtle"></span>Lorem ipsum dolor sit amet do <a href="/" target="blank">eiusmod tempor</a> incididunt ut labore et dolore magna aliqua. Designer of <a href="/" target="blank">things.</a>
-        </h2> 
-        
+        <h2 class="">
+        Hello World 👋🏽 I’m a
+          <router-link to="post">Front-End Designer</router-link> deep in a rabbit hole.
+        </h2>
       </div>
     </Container>
   </Wrapper>
@@ -37,7 +37,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 * {
   color: inherit;
@@ -46,10 +45,9 @@ export default {
 h2 {
 }
 #hero-landing {
-/*  background: var(--bg-darker); */
+  /*  background: var(--bg-darker); */
   display: grid;
   min-height: 100vh;
-
 }
 #hero-text {
   display: grid;
@@ -70,9 +68,8 @@ h2 {
   }
 
   #hero-text {
-    max-width: 80vw; 
+    max-width: 80vw;
     justify-self: center;
-
   }
 }
 @media only screen and (min-width: 1201px) {

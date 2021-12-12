@@ -1,17 +1,16 @@
 <template>
   <PageWrapper>
     <ThemeButton />
-    <AnimatedComponent animation-type="zoom">
       <HeroLanding />
-    </AnimatedComponent>
+    <TextImage right/>
     <Container tight>
       <div id="recentwork" class="grid-parent">
-        <ThumbSmall
-          alt="J Monogram"
-          filename="j.svg"
-          id="top"
-          title="Monogram"
-        />
+          <ThumbSmall
+            alt="J Monogram"
+            filename="j.svg"
+            id="top"
+            title="Monogram"
+          />        
         <ThumbSmall alt="Giftbook" filename="gob.svg" title="Giftbook" />
         <ThumbSmall2
           alt="Avatar"
@@ -77,11 +76,12 @@
 </template>
 
 <script>
-import AnimatedComponent from "@/components/AnimatedComponent.vue";
+// import AnimatedComponent from "@/components/AnimatedComponent.vue";
 
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Container from "@/components/grid/Container.vue";
 import ThemeButton from "@/components/ThemeButton.vue";
+import TextImage from "@/components/card/TextImage.vue";
 
 // import MainFooter from "@/components/MainFooter.vue";
 import HeroLanding from "@/components/HeroLanding.vue";
@@ -93,7 +93,7 @@ import ThumbLarge from "@/components/ThumbLarge.vue";
 export default {
   name: "Work",
   components: {
-    AnimatedComponent,
+    // AnimatedComponent,
     PageWrapper,
     Container,
     HeroLanding,
@@ -102,12 +102,12 @@ export default {
     ThumbDetail,
     ThumbLarge,
     ThemeButton,
+    TextImage,
     // MainFooter,
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="sass" scoped>
 @import "../assets/styles/all.css"
 

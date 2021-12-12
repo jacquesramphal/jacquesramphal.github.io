@@ -91,7 +91,7 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
 #heroimg {
   border-radius: 0 !important;

@@ -9,7 +9,6 @@
           </p>
         </Container>
         <!-- TMP BREADCRUMB -->
-              <AnimatedComponent animation-type="zoom">
 
         <Container class="width">
           <TextHeader title="Hello World" />
@@ -23,10 +22,9 @@
             alt="Jacques working at Myplanet"
           />
         </Container>
-      </AnimatedComponent>
       <!-- Section 1 -->
       <Wrapper id="section1">
-        <AnimatedComponent animation-type="zoom">
+        <AnimatedComponent>
           <Container class="width">
             <Wrapper
               ><TextBlock
@@ -57,7 +55,7 @@
           </Container>
         </AnimatedComponent>
 
-        <AnimatedComponent animation-type="zoom">
+        <AnimatedComponent>
           <Container tight id="" class="width2">
             <ThumbLarge
               class=""
@@ -73,7 +71,7 @@
       <!-- Section 1 -->
 
       <Wrapper id="section2" class="">
-        <AnimatedComponent animation-type="zoom">
+        <AnimatedComponent>
           <Container class="width">
             <TextBlock
               left
@@ -93,7 +91,7 @@
           </Container>
         </AnimatedComponent>
 
-        <AnimatedComponent animation-type="zoom">
+        <AnimatedComponent>
           <Container tight id="" class="width2">
             <ThumbLarge
               class=""
@@ -146,7 +144,7 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
 * {
 }

@@ -1,20 +1,34 @@
 <template>
-  <div id="textimage" class="">
-    <div id="grid-parent" class="grid-parent container">
-      <TextDefault />
-      <ThumbMedium class="blue" title="" />
-    </div>
-  </div>
+  <Wrapper id="textimage" class="reversed" :class="classes">
+    <Container tight>
+      <div id="grid-parent" class="grid-parent">
+        <img
+          class="splitimg"
+          draggable="false"
+          :src="require(`@/assets/images/${filename}`)"
+          :alt="`${alt}`"
+        />
+        <Container class="textcontainer">
+          <TextBlock
+            cta="Read More"
+            route="blog"
+            eyebrow=""
+            details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        /></Container>
+      </div> </Container
+  ></Wrapper>
 </template>
 <script>
-import TextDefault from "@/components/text/TextDefault.vue";
-import ThumbMedium from "@/components/ThumbMedium.vue";
+import TextBlock from "@/stories/TextBlock.vue";
+import Container from "@/components/grid/Container.vue";
+import Wrapper from "@/components/grid/Wrapper.vue";
 
 export default {
   name: "TextImage",
   components: {
-    TextDefault,
-    ThumbMedium,
+    Container,
+    TextBlock,
+    Wrapper,
   },
   props: {
     header: {
@@ -25,47 +39,69 @@ export default {
       type: String,
       default: "Eyebrow",
     },
+    filename: {
+      type: String,
+      default: "jacques.jpeg",
+    },
+    right: {
+      type: Boolean,
+      default: false,
+      required: true,
+    },
+  },
+  computed: {
+    classes() {
+      return {
+        "textimage-align": true,
+        "textimage-align--right": this.right,
+        "textimage-align--left": !this.right,
+      };
+    },
   },
 };
 </script>
 
-<style scoped>
-* {
-  color: inherit;
-}
-.grid-parent {
-  grid-gap: var(--spacing-lg) !important;
-}
-#details {
-  /* height: 100vh; */
-}
-#section-header {
-  grid-column: 1 / 4;
-}
-#textdefault {
-  grid-column: 1 / 4;
-  padding: 1em 0 0 0;
-}
-#textdefault:first-child {
-}
-h3 {
-  /* margin-top: -10px; */
-}
-/* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
-  #section-header {
-    grid-column: 1 / 1;
-  }
-  #textdefault {
-    grid-column: auto;
-    padding: 0 2.8em 2.8em 0;
-  }
+<style lang="sass" scoped>
 
-  /* ------------ BREAKPOINT LG ------------ */
-  @media only screen and (min-width: 1201px) {
-    #section-header {
-      grid-row: 1 / 3;
-    }
-  }
-}
+
+*
+  color: inherit
+
+.grid-parent
+  grid-gap: 0 !important
+  @media only screen and (min-width: 1201px)
+    grid-template-columns: repeat(2, 1fr) !important
+
+
+.textimage-align
+  overflow: hidden
+  #textblock
+    // align-self: center
+    @media only screen and (min-width: 740px)
+  img
+    aspect-ratio: 4 / 3
+    @media only screen and (min-width: 1201px)
+      aspect-ratio: 16 / 9
+  .textcontainer
+    grid-template-columns: repeat(1fr) !important
+
+.textimage-align--left
+  img
+    @media only screen and (min-width: 740px)
+      grid-column: 2
+      grid-row: 1
+  .textcontainer
+    @media only screen and (min-width: 740px)
+      grid-column: 1
+      grid-row: 1
+
+.textimage-align--right
+  img
+    @media only screen and (min-width: 740px)
+      grid-column: 1
+      grid-row: 1
+  .textcontainer
+    @media only screen and (min-width: 740px)
+      grid-column: 2
+      grid-row: 1
 </style>

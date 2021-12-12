@@ -3,6 +3,7 @@
     <h6 tabIndex="0" class="subtle">{{ eyebrow }}</h6>
     <h3 tabIndex="0">{{ header }}</h3>
     <p tabIndex="0">{{ details }}</p>
+    <router-link :to="`${route}`"><p>{{ cta }}</p></router-link>
   </div>
 </template>
 
@@ -32,6 +33,13 @@ export default {
       default: false,
       required: true,
     },
+    cta: {
+      type: String,
+    },
+    route: {
+      type: String,
+      default: "",
+    },
   },
 
   computed: {
@@ -60,6 +68,9 @@ h6 {
 }
 h3 {
   margin: 0 0 0.5em 0;
+}
+p {
+  margin: 0 0 2rem 0;
 }
 .textblock-align--left {
   text-align: left;
