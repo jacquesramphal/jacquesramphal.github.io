@@ -95,13 +95,16 @@ figcaption {
   font-size: var(--font-sm);
 } */
 strong {
-  font-weight: var(--font-bol);
-  background: -webkit-linear-gradient(top left, var(--color-success), var(--color-action-dark));
+  font-weight: var(--font-bold);
+  background: -webkit-linear-gradient(
+    top left,
+    var(--color-success),
+    var(--color-action-dark)
+  );
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }
 em {
-
 }
 blockquote {
   margin: var(--spacing-md) 0;
@@ -181,6 +184,9 @@ li {
 }
 a {
   color: var(--link) !important;
+}
+.reversed a {
+  color: var(--link-reversed) !important;
 }
 a:hover {
   color: var(--link) !important;

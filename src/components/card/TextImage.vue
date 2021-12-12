@@ -11,10 +11,11 @@
         <Container class="textcontainer">
           <TextBlock
             cta="Read More"
-            route="blog"
             eyebrow=""
             details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        /></Container>
+        />
+
+</Container>
       </div> </Container
   ></Wrapper>
 </template>
@@ -43,6 +44,13 @@ export default {
       type: String,
       default: "jacques.jpeg",
     },
+    cta: {
+      type: String,
+      default: "Read More",
+    },
+    route: {
+      type: String,
+    },
     right: {
       type: Boolean,
       default: false,
@@ -66,7 +74,6 @@ export default {
 
 *
   color: inherit
-
 .grid-parent
   grid-gap: 0 !important
   @media only screen and (min-width: 1201px)
@@ -76,10 +83,10 @@ export default {
 .textimage-align
   overflow: hidden
   #textblock
-    // align-self: center
+    // align-self: center !important
     @media only screen and (min-width: 740px)
   img
-    aspect-ratio: 4 / 3
+    aspect-ratio: 1 / 1
     @media only screen and (min-width: 1201px)
       aspect-ratio: 16 / 9
   .textcontainer

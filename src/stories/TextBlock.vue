@@ -62,7 +62,6 @@ export default {
 .textblock-align {
   grid-column: 1 / 4;
 }
-
 h6 {
   margin-bottom: 1em;
 }
