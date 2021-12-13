@@ -38,9 +38,14 @@ const routes = [
     },
   },
   {
-    // redirect: "/brb",
+    redirect: "/brb",
     path: "/",
     name: "Home",
+    component: Work,
+  },
+  {
+    path: "/work",
+    name: "Work",
     component: Work,
   },
   {
