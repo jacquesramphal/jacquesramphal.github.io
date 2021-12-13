@@ -13,9 +13,8 @@
             cta="Read More"
             eyebrow=""
             details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        />
-
-</Container>
+          />
+        </Container>
       </div> </Container
   ></Wrapper>
 </template>
@@ -51,7 +50,12 @@ export default {
     route: {
       type: String,
     },
-    right: {
+    flipped: {
+      type: Boolean,
+      default: false,
+      required: true,
+    },
+    red: {
       type: Boolean,
       default: false,
       required: true,
@@ -61,8 +65,11 @@ export default {
     classes() {
       return {
         "textimage-align": true,
-        "textimage-align--right": this.right,
-        "textimage-align--left": !this.right,
+        "textimage-align--flipped": this.flipped,
+        "textimage-align--default": !this.flipped,
+        "textimage-color": true,
+        "textimage-color--red": this.red,
+        "textimage-color--default": !this.red,
       };
     },
   },
@@ -79,6 +86,13 @@ export default {
   @media only screen and (min-width: 1201px)
     grid-template-columns: repeat(2, 1fr) !important
 
+// COLOR
+
+.textimage-color--red
+  background-color: red !important
+
+
+// ALIGNMENT
 
 .textimage-align
   overflow: hidden
@@ -86,28 +100,30 @@ export default {
     // align-self: center !important
     @media only screen and (min-width: 740px)
   img
+    overflow: hidden
+    height: 100%
     aspect-ratio: 1 / 1
     @media only screen and (min-width: 1201px)
       aspect-ratio: 16 / 9
   .textcontainer
     grid-template-columns: repeat(1fr) !important
 
-.textimage-align--left
-  img
+.textimage-align--default
+  .textcontainer
     @media only screen and (min-width: 740px)
       grid-column: 2
       grid-row: 1
-  .textcontainer
+  img
     @media only screen and (min-width: 740px)
       grid-column: 1
       grid-row: 1
 
-.textimage-align--right
-  img
+.textimage-align--flipped
+  .textcontainer
     @media only screen and (min-width: 740px)
       grid-column: 1
       grid-row: 1
-  .textcontainer
+  img
     @media only screen and (min-width: 740px)
       grid-column: 2
       grid-row: 1
