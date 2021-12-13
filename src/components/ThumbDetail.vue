@@ -1,9 +1,9 @@
 <template>
   <Wrapper class="thumbdetail grid-card">
     <Container tight class="">
-      <router-link :to="`${route}`">
-        <Wrapper class="text">
-          <TextBlock header="" class="textblock" />
+        <Wrapper class="text">      
+
+<TextBlock cta="Read More" :route="`${route}`" header="" class="textblock" />
 
           <!-- <router-link class="caption" :to="`${route}`">
           <h5 tabIndex="0" class="title">{{ title }}</h5>
@@ -11,8 +11,7 @@
       
       </router-link> -->
           <!-- <button>test</button> -->
-        </Wrapper></router-link
-      >
+       </Wrapper>
     </Container>
     <Wrapper class="">
       <router-link :to="`${route}`">
@@ -72,7 +71,8 @@ export default {
   text-decoration: none !important
 
 .thumbdetail
-  background-color: #35363a
+  // background-color: var(--bg-darker) !important
+  background-color: #35363a !important
   grid-column: 1 / 4
   grid-template-rows: 2, 1fr
   text-decoration: none !important

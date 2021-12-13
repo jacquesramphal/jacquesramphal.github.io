@@ -1,5 +1,5 @@
 <template>
-  <Wrapper id="textimage" class="reversed" :class="classes">
+  <Wrapper id="textimage" :class="classes">
     <Container tight>
       <div id="grid-parent" class="grid-parent">
         <img
@@ -11,6 +11,7 @@
         <Container class="textcontainer">
           <TextBlock
             cta="Read More"
+            :route="`${route}`"
             eyebrow=""
             details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           />

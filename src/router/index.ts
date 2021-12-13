@@ -17,7 +17,7 @@ import NotFound from "@/components/misc/NotFound.vue";
 import MaintenancePage from "@/components/misc/MaintenancePage.vue";
 import MyResume from "@/components/resume/MyResume.vue";
 import Library from "@/components/Library.vue";
-// import Info from "@/components/Info.vue";
+import Info from "@/components/Info.vue";
 
 const routes = [
   {
@@ -50,8 +50,8 @@ const routes = [
   },
   {
     path: "/info",
-    name: "Resume",
-    component: MyResume,
+    name: "Info",
+    component: Info,
   },
   {
     path: "/project",

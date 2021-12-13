@@ -1,16 +1,16 @@
 <template>
   <PageWrapper>
     <ThemeButton />
-      <HeroLanding />
-    <TextImage flipped />
+    <HeroLanding />
+    <TextImage route="blog" class="reversed" />
     <Container tight>
       <div id="recentwork" class="grid-parent">
-          <ThumbSmall
-            alt="J Monogram"
-            filename="j.svg"
-            id="top"
-            title="Monogram"
-          />        
+        <ThumbSmall
+          alt="J Monogram"
+          filename="j.svg"
+          id="top"
+          title="Monogram"
+        />
         <ThumbSmall alt="Giftbook" filename="gob.svg" title="Giftbook" />
         <ThumbSmall2
           alt="Avatar"
@@ -40,7 +40,7 @@
           alt="Template Project"
           class="hidemobile"
           style="background-color: #ffdd9d"
-          route="Project"
+          route="Blog"
           title="Project Template"
         />
         <ThumbSmall
@@ -49,27 +49,6 @@
           style="background-color: #ffdd9d"
           title="Small Template"
         />
-        <ThumbSmall
-          alt="Template Project"
-          filename="template-sm.svg"
-          title="Small Template"
-        />
-        <ThumbSmall
-          alt="Template Project"
-          filename="template-sm.svg"
-          title="Small Template"
-        />
-        <ThumbSmall
-          alt="Template Project"
-          filename="template-sm.svg"
-          title="Small Template"
-        />
-        <ThumbSmall
-          alt="Template Project"
-          filename="template-sm3.svg"
-          title="Small Template"
-        />
-        <ThumbDetail alt="Project Template" title="Project Template" />
       </div>
     </Container>
   </PageWrapper>

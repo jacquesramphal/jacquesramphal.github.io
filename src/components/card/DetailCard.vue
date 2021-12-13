@@ -4,22 +4,10 @@
       <h4 id="section-header" tabIndex="0">
         {{ header }}
       </h4>
-      <TextBlock
-        eyebrow="Subsection Title"
-        header=""
-      />
-      <TextBlock
-        eyebrow="Subsection Title"
-        header=""
-      />
-      <TextBlock
-        eyebrow="Subsection Title"
-        header=""
-      />
-      <TextBlock
-        eyebrow="Subsection Title"
-        header=""
-      />
+      <TextBlock :eyebrow="`${eyebrow1}`" header="" :details="`${detail1}`" />
+      <TextBlock :eyebrow="`${eyebrow2}`" header="" :details="`${detail2}`" />
+      <TextBlock :eyebrow="`${eyebrow3}`" header="" :details="`${detail3}`" />
+      <TextBlock :eyebrow="`${eyebrow4}`" header="" :details="`${detail4}`" />
     </Container>
   </div>
 </template>
@@ -39,9 +27,37 @@ export default {
       type: String,
       default: "Detail Card",
     },
-    eyebrow: {
+    eyebrow1: {
       type: String,
-      default: "Eyebrow",
+      default: "Eyebrow1",
+    },
+    eyebrow2: {
+      type: String,
+      default: "Eyebrow2",
+    },
+    eyebrow3: {
+      type: String,
+      default: "Eyebrow3",
+    },
+    eyebrow4: {
+      type: String,
+      default: "Eyebrow4",
+    },
+    detail1: {
+      type: String,
+      default: "Detail 1. Lorem ipsum doler optima sit amet doler optima sit amet doler optima sit amet optima sit amet amet doler optima sit amet optima sit amet.",
+    },
+    detail2: {
+      type: String,
+      default: "Detail 2. Lorem ipsum doler optima sit amet doler optima sit amet doler optima sit amet optima sit amet amet doler optima sit amet optima sit amet.",
+    },
+    detail3: {
+      type: String,
+      default: "Detail 3. Lorem ipsum doler optima sit amet doler optima sit amet doler optima sit amet optima sit amet amet doler optima sit amet optima sit amet.",
+    },
+    detail4: {
+      type: String,
+      default: "Detail 4. Lorem ipsum doler optima sit amet doler optima sit amet doler optima sit amet optima sit amet amet doler optima sit amet optima sit amet.",
     },
   },
 };

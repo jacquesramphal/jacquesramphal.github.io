@@ -131,7 +131,7 @@ export default {
   align-items: middle;
   background: var(--background-reversed);
   /* border: var(--border); */
-/*  box-shadow: var(--shadow-deep); */
+  box-shadow: var(--shadow-hover);
   justify-self: stretch;
   /* margin: 0.8rem; */
   overflow: visible;

@@ -1,12 +1,14 @@
 <template>
   <PageWrapper>
-    <HeroBanner
-      background
-      eyebrow="About Me"
-      title="About this site"
-    />
+    <HeroBanner background eyebrow="About Me" title="About this site" />
 
-    <DetailCard />
+    <DetailCard
+      header="This is a Header"
+      eyebrow1="Eyebrow 1"
+      eyebrow2="Eyebrow 2"
+      eyebrow3="Eyebrow 3"
+      eyebrow4="Eyebrow 4"
+    />
     <Container tight>
       <ThumbLarge
         title=""
@@ -56,7 +58,6 @@ export default {
   },
 };
 </script>
-
 
 <style scoped>
 #info > .container {
