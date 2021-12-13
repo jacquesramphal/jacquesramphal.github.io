@@ -2,7 +2,7 @@
   <PageWrapper>
     <ThemeButton />
     <HeroLanding />
-    <TextImage route="blog" class="reversed" />
+    <TextImage flipped route="blog" class="reversed" />
     <Container tight>
       <div id="recentwork" class="grid-parent">
         <ThumbSmall

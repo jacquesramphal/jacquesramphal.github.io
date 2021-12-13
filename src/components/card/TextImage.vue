@@ -83,9 +83,12 @@ export default {
 *
   color: inherit
 .grid-parent
+  height: auto
+  position: relative
   grid-gap: 0 !important
   @media only screen and (min-width: 1201px)
     grid-template-columns: repeat(2, 1fr) !important
+    grid-template-rows: 2fr !important
 
 // COLOR
 
@@ -96,36 +99,49 @@ export default {
 // ALIGNMENT
 
 .textimage-align
+  position: relative
   overflow: hidden
+  grid-template-rows: repeat(2, 1fr)
   #textblock
     // align-self: center !important
     @media only screen and (min-width: 740px)
   img
+    width: 100%
+    height: auto
+    display: block
     overflow: hidden
-    height: 100%
     aspect-ratio: 1 / 1
+    grid-column: 1 / 1
+    grid-row: 1 / 1
+    @media only screen and (min-width: 740px)
+      position: absolute
+      height: 100%
     @media only screen and (min-width: 1201px)
       aspect-ratio: 16 / 9
+      height: 100%
   .textcontainer
-    grid-template-columns: repeat(1fr) !important
+    display: block
+    grid-column: auto
+    grid-row: 2 / 2
+    grid-template-columns: 1fr !important
 
 .textimage-align--default
   .textcontainer
     @media only screen and (min-width: 740px)
       grid-column: 2
-      grid-row: 1
+      grid-row: 1 / 1
   img
     @media only screen and (min-width: 740px)
       grid-column: 1
-      grid-row: 1
+      grid-row: 1 / 1
 
 .textimage-align--flipped
   .textcontainer
     @media only screen and (min-width: 740px)
       grid-column: 1
-      grid-row: 1
+      grid-row: 1 / 1
   img
     @media only screen and (min-width: 740px)
       grid-column: 2
-      grid-row: 1
+      grid-row: 1 / 1
 </style>
