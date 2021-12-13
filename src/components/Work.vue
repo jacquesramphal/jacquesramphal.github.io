@@ -27,7 +27,7 @@
         />
         <ThumbSmall
           alt="Template Project"
-          style="background-color: lightblue"
+          style="background-color: var(--link);"
           filename="template-sm3.svg"
           title="Small Template"
         />
