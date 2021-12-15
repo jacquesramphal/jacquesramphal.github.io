@@ -1,11 +1,14 @@
 <template>
   <li class="blog-post-entry grid-parent">
-      <div class="blog-image">
-          <router-link :to="`${route}`">
+    
+    <div class="blog-image">
+      <router-link :to="`${route}`">
+        <img v-if="image" :src="image" alt="Blog picture"
+      /></router-link>
+    </div>
 
-        <img v-if="image" :src="image" alt="Blog picture" /></router-link></div
-    >
     <div class="blog-info">
+      
       <div v-if="category" class="blog-post-entry-information">
         <div
           v-if="category"
@@ -13,15 +16,17 @@
           v-text="category"
         />
       </div>
+
       <h4 class="blog-post-entry-title">
         <span v-if="title" v-text="title" />
-        <span v-if="position" v-text="positionInBrackets" />
       </h4>
+
       <p
         v-if="description"
         class="blog-post-entry-description"
         v-html="description"
       />
+      
     </div>
   </li>
 </template>
@@ -42,10 +47,6 @@ export default {
       default: "",
       type: String,
     },
-    position: {
-      default: "",
-      type: String,
-    },
     category: {
       default: "",
       type: String,
@@ -54,11 +55,6 @@ export default {
       type: String,
       required: true,
       default: "post",
-    },
-  },
-  computed: {
-    positionInBrackets() {
-      return ` (${this.position})`;
     },
   },
 };

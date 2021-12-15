@@ -8,17 +8,6 @@
   </div>
 </template>
 
-<!-- TMP need to keep in page when hidden -->
-<!-- <template>
-  <div ref="target">
-    <transition :name="animationType">
-      <div v-appear="animate" class="animated-component">
-        <slot />
-      </div>
-    </transition>
-  </div>
-</template> -->
-
 
 <script lang="js">
 import { onMounted, ref } from 'vue';export default {
@@ -49,23 +38,6 @@ import { onMounted, ref } from 'vue';export default {
 };
 </script>
 
-<style scoped>
-.animated-component.fade-enter-from,
-.animated-component.zoom-enter-from {
-  transition: none;
-}/* Fade animation */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 300ms ease;
-}.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}/* Zoom animation */
-.zoom-enter-active,
-.zoom-leave-active {
-  transition: transform 300ms ease;
-}.zoom-enter-from,
-.zoom-leave-to {
-  transform: scale(0.9);
-}
+<style lang="sass" scoped>
+// see motion.css for transition styles
 </style>

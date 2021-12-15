@@ -2,7 +2,7 @@
   <PageWrapper id="blog">
     <Wrapper id="posts" class="">
       <!-- TMP BREADCRUMB -->
-        <Container id="section1" class="">
+        <Container id="section1">
           <p>
             <router-link :to="{ name: 'Blog' }">Blog</router-link>
             <span class="subtle" style="margin: 0 1rem">/</span>Post
@@ -24,7 +24,7 @@
         </Container>
       <!-- Section 1 -->
       <Wrapper id="section1">
-        <AnimatedComponent>
+        <AnimatedComponent animationType="zoom">
           <Container class="width">
             <Wrapper
               ><TextBlock

@@ -50,7 +50,6 @@ export default {
 };
 </script>
 <style scoped>
-@import "../assets/styles/all.css";
 .storybook-button {
   border-radius: 4px;
   border: none;

@@ -50,7 +50,6 @@ export default {
 </script>
 
 <style scoped>
-@import "../assets/styles/all.css";
 
 .caption {
   display: block !important;

@@ -40,7 +40,6 @@ export default {
 </script>
 
 <style scoped>
-@import "../assets/styles/all.css";
 
 .twowide {
   grid-column: 1 / 4;

@@ -1,9 +1,9 @@
 <template>
   <PageWrapper>
+      <HeroBanner title="Blog Landing" eyebrow="Blog" />
     <blog
       class="blog"
-      :posts="posts"
-      :information="information"
+      :posts="fakeposts"
       :settings="settings"
     />
   </PageWrapper>
@@ -12,21 +12,24 @@
 <script>
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Blog from "@/components/blog/Blog.vue";
+import HeroBanner from "@/components/HeroBanner.vue";
+
 // Mock data
-import posts from "@/components/blog/data/posts.json";
+import fakeposts from "@/components/blog/data/posts.json";
 import settings from "@/components/blog/data/settings.json";
+
 export default {
   name: "MyBlog",
-  components: { PageWrapper, Blog },
+  components: { PageWrapper, Blog, HeroBanner },
   data() {
     return {
-      posts,
+      fakeposts,
       settings,
-      cposts: [],
+      posts: [],
     };
   },
   async created() {
-    this.cposts = await this.getPosts();
+    this.posts = await this.getPosts();
   },
   methods: {
     getPosts: async () => {

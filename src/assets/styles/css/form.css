@@ -96,7 +96,7 @@ input:required:focus:valid,
 textarea:required:focus:valid,
 select:required:focus:valid {
   
-  background:  url(../images/emoji-wink.png)  no-repeat 97% 12px;
+  background:  url(../../images/emoji-wink.png)  no-repeat 97% 12px;
   background-size: 28px;
   border-color: var(--color-success) !important;
 
@@ -104,7 +104,7 @@ select:required:focus:valid {
 input:required:focus:invalid,
 textarea:required:focus:invalid,
 select:required:focus:invalid {
- background:  url(../images/emoji-think.png)  no-repeat 97% 12px;
+ background:  url(../../images/emoji-think.png)  no-repeat 97% 12px;
   background-size: 28px;
   /* border: 2px solid var(--color-danger) !important; */
 }

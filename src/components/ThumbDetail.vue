@@ -65,7 +65,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "../assets/styles/all.css"
 *
   outline: none
   text-decoration: none !important

@@ -27,7 +27,7 @@
         />
         <ThumbSmall
           alt="Template Project"
-          style="background-color: var(--link);"
+          style="background-color: var(--link)"
           filename="template-sm3.svg"
           title="Small Template"
         />
@@ -88,8 +88,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "../assets/styles/all.css"
-
 .container
   // background-color: var(--color-white)
   padding-top: 0 !important

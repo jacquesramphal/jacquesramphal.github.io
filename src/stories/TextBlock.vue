@@ -54,7 +54,6 @@ export default {
 };
 </script>
 <style scoped>
-@import "../assets/styles/all.css";
 
 * {
   color: inherit;

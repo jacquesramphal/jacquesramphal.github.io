@@ -9,17 +9,20 @@
 
 <script lang="js">
 import StickyNav from "./components/StickyNav.vue";
-import AnimatedComponent from "@/components/AnimatedComponent.vue";
+
+// Register Global Component TBD
+// import AnimatedComponent from "@/components/AnimatedComponent.vue";
 
 export default {
   name: "App",
   components: {
     StickyNav,
-    AnimatedComponent
+    // AnimatedComponent
   },
 };
 </script>
 <style lang="sass">
+@import "./assets/styles/css/all.css"
 
 .fade-enter-active,
 .fade-leave-active 
