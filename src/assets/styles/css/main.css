@@ -2,8 +2,9 @@
   (prefers-reduced-motion: reduce), 
   (update: slow) {
   * {
+    animation: none !important;
     animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important; /* Hat tip Nick/cssremedy (https://css-tricks.com/revisiting-prefers-reduced-motion-the-reduced-motion-media-query/#comment-1700170) */
+    animation-iteration-count: 1 !important; 
     transition-duration: 0.001ms !important;
   }
 }

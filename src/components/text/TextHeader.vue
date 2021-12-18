@@ -1,6 +1,6 @@
 <template>
   <div id="textheader" style="display: grid; grid-gap: var(--spacing-md)">
-    <h2 style="text-align: center">{{ title }}</h2>
+    <h2 class="" style="text-align: center">{{ title }}</h2>
     <div
       class="grid-parent"
       style="text-align: center; grid-template-columns: repeat(2, 1fr)"
@@ -33,16 +33,17 @@ export default {
     },
     subtitle: {
       type: String,
-      default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      default:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
   },
 };
 </script>
 
 <style lang="sass" scoped>
-* 
+*
   color: inherit
-#textheader 
+#textheader
   @media only screen and (min-width: 740px)
   @media only screen and (min-width: 1201px)
 </style>

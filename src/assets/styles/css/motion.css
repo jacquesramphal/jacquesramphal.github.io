@@ -1,3 +1,5 @@
+/* AnimatedComponent Styles */
+
 .animated-component.fade-enter-from,
 .animated-component.zoom-enter-from {
   transition: none;
@@ -16,3 +18,52 @@
 .zoom-leave-to {
   transform: scale(0.9);
 }
+
+
+/* CSS Animation Test */
+.animate {
+    animation-duration: 0.25s;
+    /* animation-delay: 0.5s; */
+    animation-name: animate-fade;
+    animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
+    animation-fill-mode: backwards;
+  }
+  
+  /* Glow In */
+  .animate.glow {
+    animation-name: animate-glow;
+    animation-timing-function: ease-out;
+  }
+  
+  @keyframes animate-glow {
+    0% {
+      opacity: 0;
+      /* filter: brightness(3) saturate(3); */
+      transform: scale(0.9, 0.9);
+    }
+    100% {
+      opacity: 1;
+      /* filter: brightness(1) saturate(1); */
+      transform: scale(1, 1);
+    }
+  }
+  
+  .delay-1 {
+    animation-delay: 0.25s;
+  }
+  .delay-2 {
+    animation-delay: 0.5s;
+  }
+  .delay-3 {
+    animation-delay: 0.75s;
+  }
+/*   
+  .delay-1 {
+    animation-delay: 0.6s;
+  }
+  .delay-2 {
+    animation-delay: 0.7s;
+  }
+  .delay-3 {
+    animation-delay: 0.8s;
+  } */

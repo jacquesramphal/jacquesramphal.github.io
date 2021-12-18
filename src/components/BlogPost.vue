@@ -10,11 +10,12 @@
         </Container>
         <!-- TMP BREADCRUMB -->
 
-        <Container class="width">
+        <Container class="animate glow width">
           <TextHeader title="Hello World" />
         </Container>
 
-        <Container tight id="">
+        <Container class="animate glow delay-1" tight id="">
+
           <ThumbLarge
             class=""
             title=""
