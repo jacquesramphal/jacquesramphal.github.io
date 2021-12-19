@@ -26,6 +26,9 @@
   grid-gap: var(--spacing-md);
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(1, 1fr);
+  @include breakpoint(desktop) {
+    background: red !important;
+  }
 }
 .grid-card {
   background: transparent;

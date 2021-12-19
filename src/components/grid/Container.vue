@@ -11,7 +11,6 @@ export default {
     tight: {
       type: Boolean,
       default: false,
-      required: true,
     },
   },
   computed: {
