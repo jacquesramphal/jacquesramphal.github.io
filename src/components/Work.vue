@@ -1,8 +1,6 @@
 <template>
   <PageWrapper>
-    <ThemeButton />
     <HeroLanding />
-    <TextImage flipped route="blog" class="reversed" />
     <Container tight>
       <div id="recentwork" class="grid-parent">
         <ThumbSmall
@@ -51,6 +49,7 @@
         />
       </div>
     </Container>
+<!--    <TextImage flipped route="blog" class="reversed" /> -->
   </PageWrapper>
 </template>
 
@@ -59,10 +58,7 @@
 
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Container from "@/components/grid/Container.vue";
-import ThemeButton from "@/components/ThemeButton.vue";
-import TextImage from "@/components/card/TextImage.vue";
-
-// import MainFooter from "@/components/MainFooter.vue";
+// import TextImage from "@/components/card/TextImage.vue";
 import HeroLanding from "@/components/HeroLanding.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
@@ -80,9 +76,7 @@ export default {
     ThumbSmall2,
     ThumbDetail,
     ThumbLarge,
-    ThemeButton,
-    TextImage,
-    // MainFooter,
+    // TextImage,
   },
 };
 </script>

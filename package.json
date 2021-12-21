@@ -16,6 +16,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "emailjs-com": "^3.2.0",
+    "storyblok-js-client": "^4.1.5",
     "vue": "^3.0.0",
     "vue-animate-transitions": "^1.1.2",
     "vue-class-component": "^8.0.0-0",
@@ -44,6 +45,7 @@
     "eslint-plugin-vue": "^7.0.0",
     "sass": "^1.43.4",
     "sass-loader": "^10.1.1",
+    "storyblok-vue": "^1.0.5",
     "typescript": "~4.1.5",
     "vue-loader": "^16.8.3",
     "vue-svg-inline-loader": "^2.1.2"

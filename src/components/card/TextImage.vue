@@ -1,13 +1,14 @@
 <template>
   <Wrapper id="textimage" :class="classes">
-    <Container tight>
+    <Container style="padding: 0 !important;">
       <div id="grid-parent" class="grid-parent">
-        <img
-          class="splitimg"
-          draggable="false"
-          :src="require(`@/assets/images/${filename}`)"
-          :alt="`${alt}`"
-        />
+        <Container tight>
+          <img
+            class="splitimg"
+            draggable="false"
+            :src="require(`@/assets/images/${filename}`)"
+            :alt="`${alt}`"
+        /></Container>
         <Container class="textcontainer">
           <TextBlock
             cta="Read More"
@@ -16,7 +17,7 @@
             details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           />
         </Container>
-      </div> </Container
+      </div></Container
   ></Wrapper>
 </template>
 <script>
@@ -78,22 +79,18 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-
-
 *
   color: inherit
 .grid-parent
-  height: auto
-  position: relative
-  grid-gap: 0 !important
+  grid-gap: 0
   @media only screen and (min-width: 1201px)
     grid-template-columns: repeat(2, 1fr) !important
-    grid-template-rows: 2fr !important
+    grid-template-rows: 1fr !important
 
 // COLOR
 
 .textimage-color--red
-  background-color: red !important
+  background-color: yellow !important
 
 
 // ALIGNMENT
@@ -107,41 +104,45 @@ export default {
     @media only screen and (min-width: 740px)
   img
     width: 100%
-    height: auto
+    height: 100%
+    object-fit: cover !important
+    position: relative
     display: block
     overflow: hidden
     aspect-ratio: 1 / 1
-    grid-column: 1 / 1
-    grid-row: 1 / 1
-    @media only screen and (min-width: 740px)
-      position: absolute
-      height: 100%
+    grid-column: 1
+    // Swap img postiton on mobile
+    grid-row: 2
+    // grid-row: 1 / 1
     @media only screen and (min-width: 1201px)
-      aspect-ratio: 16 / 9
-      height: 100%
+      aspect-ratio: 16 / 9 !important
+      // @media screen and (-webkit-min-device-pixel-ratio:0)
+      //   height: auto
+      //   background: yellow
   .textcontainer
+    // align-self: center
     display: block
     grid-column: auto
-    grid-row: 2 / 2
+    // grid-row: 2 / 2
     grid-template-columns: 1fr !important
 
 .textimage-align--default
   .textcontainer
     @media only screen and (min-width: 740px)
       grid-column: 2
-      grid-row: 1 / 1
+      grid-row: 1
   img
     @media only screen and (min-width: 740px)
       grid-column: 1
-      grid-row: 1 / 1
+      grid-row: 1
 
 .textimage-align--flipped
   .textcontainer
     @media only screen and (min-width: 740px)
       grid-column: 1
-      grid-row: 1 / 1
+      grid-row: 1
   img
     @media only screen and (min-width: 740px)
       grid-column: 2
-      grid-row: 1 / 1
+      grid-row: 1
 </style>

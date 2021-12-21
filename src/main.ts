@@ -1,5 +1,7 @@
-import { createApp } from 'vue';
-import App from './App.vue';
+import { createApp } from 'vue'
+import App from './App.vue'
+import StoryblokVue from 'storyblok-vue'
+
 import router from './router';import { Directive, DirectiveBinding, VNode } from 'vue';export const appear: Directive = {
   beforeMount(element: HTMLElement) {
     element.style.visibility = 'hidden';
@@ -19,7 +21,8 @@ import router from './router';import { Directive, DirectiveBinding, VNode } from
     element.style.visibility = '';
     node.transition.enter(element);
   }
-};createApp(App)
-.use(router)
+};
+createApp(App)
+.use(router, StoryblokVue)
 .directive('appear', appear)
 .mount('#app');

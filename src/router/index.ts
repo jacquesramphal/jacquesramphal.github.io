@@ -9,6 +9,7 @@
 // app.mount("#app");
 
 import { createRouter, createWebHashHistory } from "vue-router";
+import HelloWorld from "@/components/HelloWorld.vue";
 import Work from "@/components/Work.vue";
 import Project from "@/components/Project.vue";
 import MyBlog from "@/components/blog/MyBlog.vue";
@@ -42,6 +43,11 @@ const routes = [
     path: "/",
     name: "Home",
     component: Work,
+  },
+  {
+    path: "/helloworld",
+    name: "HelloWorld",
+    component: HelloWorld,
   },
   {
     path: "/work",

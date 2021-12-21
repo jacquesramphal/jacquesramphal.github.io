@@ -127,6 +127,7 @@ blockquote p::before {
 
 li {
   font-weight: var(--font-medium);
+  list-style: none;
 }
 .subtle {
   opacity: 0.6 !important;

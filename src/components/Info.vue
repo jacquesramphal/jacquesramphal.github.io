@@ -1,8 +1,27 @@
 <template>
   <PageWrapper>
     <HeroBanner background eyebrow="About Me" title="About this site" />
+    <DetailCard2 />
+    <Container tight>
+      <ThumbLarge
+        title=""
+        filename="about.jpg"
+        alt="Jacques working at Myplanet"
+        route=""
+      />
+    </Container>
+    <DetailCard
+      header="This is a Header"
+      eyebrow1="Eyebrow 1"
+      eyebrow2="Eyebrow 2"
+      eyebrow3="Eyebrow 3"
+      eyebrow4="Eyebrow 4"
+    />
+    <TextImage route="blog" class="reversed" filename="about.jpg" />
+    <TextImage flipped route="blog" class="" />
 
     <DetailCard
+      class="reversed"
       header="This is a Header"
       eyebrow1="Eyebrow 1"
       eyebrow2="Eyebrow 2"
@@ -17,7 +36,6 @@
         route=""
       />
     </Container>
-    <DetailCard2 />
     <FormCentered />
   </PageWrapper>
 </template>
@@ -25,6 +43,7 @@
 <script>
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Container from "@/components/grid/Container.vue";
+import TextImage from "@/components/card/TextImage.vue";
 
 import HeroBanner from "@/components/HeroBanner.vue";
 // import AnimatedComponent from "@/components/AnimatedComponent.vue";
@@ -45,6 +64,7 @@ export default {
     PageWrapper,
     Container,
     HeroBanner,
+    TextImage,
     // AnimatedComponent,
     // HeroProject,
     ThumbLarge,

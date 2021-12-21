@@ -2,27 +2,26 @@
   <PageWrapper id="blog">
     <Wrapper id="posts" class="">
       <!-- TMP BREADCRUMB -->
-        <Container id="section1">
-          <p>
-            <router-link :to="{ name: 'Blog' }">Blog</router-link>
-            <span class="subtle" style="margin: 0 1rem">/</span>Post
-          </p>
-        </Container>
-        <!-- TMP BREADCRUMB -->
+      <Container id="section1">
+        <p>
+          <router-link :to="{ name: 'Blog' }">Blog</router-link>
+          <span class="subtle" style="margin: 0 1rem">/</span>Post
+        </p>
+      </Container>
+      <!-- TMP BREADCRUMB -->
 
-        <Container class="animate glow width">
-          <TextHeader title="Hello World" />
-        </Container>
+      <Container class="animate glow width">
+        <TextHeader title="Hello World" />
+      </Container>
 
-        <Container class="animate glow delay-1" tight id="">
-
-          <ThumbLarge
-            class=""
-            title=""
-            filename="jacques.jpeg"
-            alt="Jacques working at Myplanet"
-          />
-        </Container>
+      <Container class="animate glow delay-1" tight id="">
+        <ThumbLarge
+          class=""
+          title=""
+          filename="jacques.jpeg"
+          alt="Jacques working at Myplanet"
+        />
+      </Container>
       <!-- Section 1 -->
       <Wrapper id="section1">
         <AnimatedComponent animationType="zoom">
@@ -55,18 +54,12 @@
             </Wrapper>
           </Container>
         </AnimatedComponent>
-
         <AnimatedComponent>
-          <Container tight id="" class="width2">
-            <ThumbLarge
-              class=""
-              title=""
-              filename="about.jpg"
-              alt="Jacques working at Myplanet"
-              caption="This is caption text."
-            />
-          </Container>
-        </AnimatedComponent>
+          <TextImage flipped route="blog" class=""
+        /></AnimatedComponent>
+        <AnimatedComponent>
+          <TextImage route="blog" class=""
+        /></AnimatedComponent>
       </Wrapper>
 
       <!-- Section 1 -->
@@ -121,6 +114,7 @@ import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Wrapper from "@/components/grid/Wrapper.vue";
 import Container from "@/components/grid/Container.vue";
 import TextHeader from "@/components/text/TextHeader.vue";
+import TextImage from "@/components/card/TextImage.vue";
 // import HeroBanner from "@/components/HeroBanner.vue";
 import TextBlock from "@/stories/TextBlock.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
@@ -137,6 +131,7 @@ export default {
     TextHeader,
     TextBlock,
     ThumbLarge,
+    TextImage,
     // ThumbMedium,
   },
   mounted() {
@@ -144,7 +139,6 @@ export default {
   },
 };
 </script>
-
 
 <style scoped>
 * {
