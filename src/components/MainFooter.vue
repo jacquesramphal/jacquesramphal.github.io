@@ -1,58 +1,7 @@
 <template>
   <Wrapper id="wrapper" class="">
     <Container>
-      <div class="grid-parent">
-        <TextBlock id="maindetails" />
-        <div id="links1">
-          <h6 class="subtle">About</h6>
-          <ol>
-            <li>
-              <router-link :to="{ name: '' }">About this site</router-link>
-            </li>
-            <li><router-link :to="{ name: '' }">Resume</router-link></li>
-            <li><router-link :to="{ name: '' }">Ramphal Blog</router-link></li>
-            <li><router-link :to="{ name: '' }">Site Map</router-link></li>
-            <li>
-              <router-link :to="{ name: '' }">About this site</router-link>
-            </li>
-            <li><router-link :to="{ name: '' }">Resume</router-link></li>
-            <li><router-link :to="{ name: '' }">Ramphal Blog</router-link></li>
-            <li><router-link :to="{ name: '' }">Site Map</router-link></li>
-          </ol>
-        </div>
-        <div id="links2">
-          <h6 class="subtle">Contact</h6>
-          <ol>
-            <li>
-              <router-link :to="{ name: '' }">About this site</router-link>
-            </li>
-            <li><router-link :to="{ name: '' }">Resume</router-link></li>
-            <li><router-link :to="{ name: '' }">Ramphal Blog</router-link></li>
-            <li><router-link :to="{ name: '' }">Site Map</router-link></li>
-          </ol>
-        </div>
-        <div id="links3">
-          <h6 class="subtle">Contact</h6>
-          <ol>
-            <li>
-              <router-link :to="{ name: '' }">About this site</router-link>
-            </li>
-            <li><router-link :to="{ name: '' }">Resume</router-link></li>
-            <li><router-link :to="{ name: '' }">Ramphal Blog</router-link></li>
-            <li><router-link :to="{ name: '' }">Site Map</router-link></li>
-          </ol>
-        </div>
-      </div>
-    </Container>
-
-    <div class="footer">
-      <!-- <Container
-        style="
-          padding-top: var(--spacing-sm) !important;
-          padding-bottom: var(--spacing-sm) !important;
-        "
-      > -->
-      <Container>
+      <div class="">
         <img
           class="justify-end"
           draggable="false"
@@ -60,8 +9,71 @@
           alt="logo.svg"
           style="width: 40px"
         />
-      </Container>
-    </div>
+      </div>
+      <div class="grid-parent">
+        <div id="maindetails">
+          <TextBlock eyebrow="" header="What else?" details="If you have questions about design, development, or anything in between, let's connect!" />
+
+          <!-- <form
+            @submit.prevent="sendEmail"
+            onsubmit="alert('submit!');return false"
+          >
+            <div id="form-row">
+              <TextArea
+                label=""
+                id="name"
+                type="name"
+                name="user_name"
+                placeholder="Send me a message"
+              />
+              <MyButton
+                class="btn"
+                label="Send Message"
+                name="submit"
+                primary
+                size="large"
+                type="submit"
+              />
+            </div>
+          </form> -->
+        </div>
+        <div id="links1">
+        
+          <h6 class="subtle">Useful Links</h6>
+          <ol>
+            <li>
+              <router-link :to="{ name: 'Info' }">About this site</router-link>
+            </li>
+            <li><router-link :to="{ name: 'Resume' }">Resume</router-link></li>
+            <li>
+              <router-link :to="{ name: 'Blog' }">Ramphal Blog</router-link>
+            </li>
+            <li><router-link :to="{ name: '' }">Storybook</router-link></li>
+            <li>
+              <router-link :to="{ name: 'Work' }">Recent Work</router-link>
+            </li>
+             <li>
+              <router-link :to="{ name: 'Work' }">Fire Links</router-link>
+            </li>
+          </ol>
+        </div>
+        <div id="links2">
+          <h6 class="subtle">Let's Connect</h6>
+          <ol>
+            <li class="external">
+              <a href="mailto:jacques@ramphal.design">Email Me</a>
+            </li>
+            <li class="external">
+              <a target="blank" href="https://www.linkedin.com/in/jacquesramphal">Connect on LinkedIn</a>
+            </li>
+            <li class="external">
+              <a target="blank" href="https://github.com/jacquesramphal">Submit an issue</a>
+            </li>
+          </ol>
+        </div>
+        
+      </div>
+    </Container>
   </Wrapper>
 </template>
 
@@ -69,6 +81,8 @@
 import Wrapper from "@/components/grid/Wrapper.vue";
 import Container from "@/components/grid/Container.vue";
 import TextBlock from "@/stories/TextBlock.vue";
+// import TextArea from "@/components/form/TextArea.vue";
+// import MyButton from "@/stories/Button.vue";
 
 export default {
   name: "MainFooter",
@@ -76,6 +90,8 @@ export default {
     Wrapper,
     Container,
     TextBlock,
+    // TextArea,
+    // MyButton,
   },
   props: {
     title: {
@@ -86,13 +102,19 @@ export default {
 };
 </script>
 <style lang="sass" scoped>
+#wrapper
+  border-top: var(--border)
+  // background: var(--bg-darker)
+  padding-bottom: var(--spacing-lg)
+  @media only screen and (min-width: 1201px)
+
 .grid-parent
   grid-template-columns: repeat(2, 1fr)
   @media only screen and (min-width: 740px)
     grid-template-columns: repeat(3, 1fr)
   @media only screen and (min-width: 1201px)
     grid-template-columns: repeat(6, 1fr)
-    grid-gap: var(--spacing-xl)
+    // grid-gap: 0
 
 
 #maindetails
@@ -101,6 +123,7 @@ export default {
     grid-column: 1 / 4
   @media only screen and (min-width: 1201px)
     grid-column: 1 / 4
+    margin-right: 120px
 
 #links1
   grid-column: 1
@@ -129,9 +152,7 @@ ul
   list-style: none
   margin: 0
   padding: 0
-#wrapper
-  background: var(--bg-darker)
-  // height: 100vh
+
 #footer
   display: grid
   grid-template-columns: repeat(1, 1fr)
@@ -151,11 +172,14 @@ li
   font-size: 2em
   line-height: 1.5
   font-weight: var(--font-medium)
-  margin: 0
+  margin-top: var(--spacing-xxs)
   float: left
   list-style-type: none
   text-decoration: none
   padding-right: 1em
 li:last-child
   padding-right: 0
+li.external::after
+  content: " ↗"
+  color: var(--link)
 </style>

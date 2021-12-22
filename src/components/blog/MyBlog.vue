@@ -1,6 +1,6 @@
 <template>
   <PageWrapper>
-      <HeroBanner title="Blog Landing" eyebrow="Blog" />
+      <HeroBanner title="Jacques’ Ramblings" eyebrow="Blog" />
     <blog
       class="blog"
       :posts="fakeposts"

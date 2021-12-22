@@ -34,7 +34,8 @@ const routes = [
     name: "MaintenancePage",
     component: MaintenancePage,
     meta: {
-      hideNavbar: true,
+      hideNav: true,
+      hideFooter: true,
       hidePageWrapper: true,
     },
   },
@@ -58,6 +59,9 @@ const routes = [
     path: "/cv",
     name: "Resume",
     component: MyResume,
+    meta: {
+      hideFooter: true,
+    },
   },
   {
     path: "/info",

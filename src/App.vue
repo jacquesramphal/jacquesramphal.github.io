@@ -1,11 +1,11 @@
 <template id="app">
   <router-view v-slot="{ Component }">
-      <ThemeButton v-if="!$route.meta.hideNavbar" />
+      <ThemeButton v-if="!$route.meta.hideNav" />
     <transition name="fade" mode="out-in">
       <component :is="Component" />
     </transition>
-    <StickyNav v-if="!$route.meta.hideNavbar" />
-    <MainFooter v-if="!$route.meta.hideNavbar" />
+    <StickyNav v-if="!$route.meta.hideNav" />
+    <MainFooter v-if="!$route.meta.hideFooter" />
   </router-view>
 </template>
 

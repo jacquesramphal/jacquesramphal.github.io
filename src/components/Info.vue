@@ -36,7 +36,6 @@
         route=""
       />
     </Container>
-    <FormCentered />
   </PageWrapper>
 </template>
 
@@ -56,7 +55,7 @@ import ThumbLarge from "@/components/ThumbLarge.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
 import DetailCard2 from "@/components/card/DetailCard2.vue";
 // import Stats from "@/components/card/Stats.vue";
-import FormCentered from "@/components/card/FormCentered.vue";
+// import FormCentered from "@/components/card/FormCentered.vue";
 
 export default {
   name: "Info",
@@ -74,7 +73,7 @@ export default {
     // MyResume,
     // Stats,
     // Form,
-    FormCentered,
+    // FormCentered,
   },
 };
 </script>
