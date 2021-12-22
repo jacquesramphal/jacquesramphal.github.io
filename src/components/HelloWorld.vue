@@ -9,7 +9,7 @@
 import StoryblokClient from 'storyblok-js-client'
  
 // 2. Set your token
-const token = 'akYA0RB4BzCPUoRfjIvUdQtt';
+const token = 'T4MKBP0WQOarLN7Vags5swtt';
  
 // 3. Initialize the client with the preview token so we can access our API easily
 // from your space dashboard at https://app.storyblok.com

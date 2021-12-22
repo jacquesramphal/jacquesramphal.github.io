@@ -19,6 +19,7 @@ import MaintenancePage from "@/components/misc/MaintenancePage.vue";
 import MyResume from "@/components/resume/MyResume.vue";
 import Library from "@/components/Library.vue";
 import Info from "@/components/Info.vue";
+import Teaser from "@/components/Teaser.vue";
 
 const routes = [
   {
@@ -49,6 +50,11 @@ const routes = [
     path: "/helloworld",
     name: "HelloWorld",
     component: HelloWorld,
+  },
+  {
+    path: "/teaser",
+    name: "Teaser",
+    component: Teaser,
   },
   {
     path: "/work",
