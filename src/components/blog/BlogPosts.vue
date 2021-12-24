@@ -1,36 +1,30 @@
 <template>
-  <div class="blog-posts">
-    <div v-for="(post, i) in posts" :key="i" class="blog-post">
-      <h6 class="blog-post-title" v-text="post.title" />
-
-      <ul class="blog-post-list">
+  <Wrapper id="blog">
+    <Container>
         <blog-post-entry
-          v-for="(entry, j) in post.entries"
-          :key="j"
-          :image="entry.image"
-          :category="entry.category"
-          :title="entry.title"
-          :description="entry.description"
+          v-for="blogPost in posts"
+          v-bind:key="blogPost.sys.id"
+          :image="blogPost.image"
+          :imgurl="blogPost.imgurl"
+          :category="blogPost.category"
+          :title="blogPost.title"
+          :description="blogPost.description"
         />
-      </ul>
-    </div>
-  </div>
+    </Container>
+  </Wrapper>
 </template>
 
 <script>
 import BlogPostEntry from "@/components/blog/BlogPostEntry.vue";
+import Container from "@/components/grid/Container.vue";
+import Wrapper from "@/components/grid/Wrapper.vue";
 
 export default {
   name: "BlogPosts",
-  components: { BlogPostEntry },
+  components: { BlogPostEntry, Container, Wrapper },
   props: {
     posts: {
       type: Array,
-      required: true,
-      // TODO: add validation
-    },
-    settings: {
-      type: Object,
       required: true,
       // TODO: add validation
     },
@@ -39,7 +33,15 @@ export default {
 </script>
 
 <style scoped lang="sass">
+.blog
+  display: grid
+  grid-gap: var(--spacing-xs)
+  background: var(--background)
+  color: var(--text)
+  font-size: var(--font-xs)
+  font-family: inherit
 .blog-post
+  // font-size: var(--font-xxs)
   margin-bottom: var(--spacing-md)
   @media only screen and (min-width: 740px)
     margin-bottom: var(--spacing-lg)

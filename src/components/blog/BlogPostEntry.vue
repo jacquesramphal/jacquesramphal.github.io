@@ -1,16 +1,14 @@
 <template>
   <li class="blog-post-entry grid-parent">
-    
     <div class="blog-image">
       <router-link :to="`${route}`">
-        <img v-if="image" :src="image" alt="Blog picture"
+        <img v-if="imgurl" :src="imgurl" alt="Blog Image"
       /></router-link>
     </div>
 
     <div class="blog-info">
-      
       <div v-if="category" class="blog-post-entry-information">
-        <div
+        <p
           v-if="category"
           class="subtle blog-post-entry-information-category"
           v-text="category"
@@ -26,7 +24,6 @@
         class="blog-post-entry-description"
         v-html="description"
       />
-      
     </div>
   </li>
 </template>
@@ -35,7 +32,7 @@
 export default {
   name: "BlogPostEntry",
   props: {
-    image: {
+    imgurl: {
       required: true,
       type: String,
     },
@@ -73,7 +70,7 @@ export default {
   &:last-child
     border-bottom: none
   >.blog-image
-    aspect-ratio: 4 / 3
+    // aspect-ratio: 4 / 3
     margin: 0 0 2rem 0
     >img
       width: 100%

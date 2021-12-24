@@ -1,27 +1,36 @@
 <template>
   <PageWrapper>
     <HeroBanner title="Jacques’ Ramblings" eyebrow="Blog" />
-    
-    <blog class="blog" :posts="posts" :settings="settings" />
+    <!-- <ul class="container">
+      <li v-for="blogPost in posts" v-bind:key="blogPost.sys.id">
+        <p>{{ blogPost.category }}</p>
+        <h4>{{ blogPost.title }}</h4>
+        <p>{{ blogPost.description }}</p>
+      </li>
+    </ul> -->
+          <BlogPosts :posts="posts" />
+
   </PageWrapper>
 </template>
 
 <script>
 import PageWrapper from "@/components/grid/PageWrapper.vue";
-import Blog from "@/components/blog/Blog.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
+import BlogPosts from "@/components/blog/BlogPosts.vue";
 
 // Mock data
 // import fakeposts from "@/components/blog/data/posts.json";
-import settings from "@/components/blog/data/settings.json";
 
 export default {
   name: "MyBlog",
-  components: { PageWrapper, Blog, HeroBanner },
+  components: { 
+    PageWrapper, 
+    HeroBanner,
+    BlogPosts,
+    },
   data() {
    return {
      posts: [],
-     settings,
    };
  },
  async created() {
@@ -38,6 +47,7 @@ export default {
            category
            title
            description
+           imgurl
            image {
             title
             description
