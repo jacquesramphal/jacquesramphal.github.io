@@ -19,7 +19,7 @@
     />
     <TextImage route="blog" class="reversed" filename="about.jpg" />
     <TextImage flipped route="blog" class="" />
-
+<Stats />
     <DetailCard
       class="reversed"
       header="This is a Header"
@@ -54,7 +54,7 @@ import ThumbLarge from "@/components/ThumbLarge.vue";
 // import MyResume from "@/components/MyResume.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
 import DetailCard2 from "@/components/card/DetailCard2.vue";
-// import Stats from "@/components/card/Stats.vue";
+import Stats from "@/components/card/Stats.vue";
 // import FormCentered from "@/components/card/FormCentered.vue";
 
 export default {
@@ -71,7 +71,7 @@ export default {
     DetailCard,
     DetailCard2,
     // MyResume,
-    // Stats,
+    Stats,
     // Form,
     // FormCentered,
   },

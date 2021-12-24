@@ -1,8 +1,5 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import StoryblokVue from 'storyblok-vue'
-import Page from '@/components/Page.vue'
-import Teaser from '@/components/Teaser.vue'
 
  
 
@@ -28,8 +25,6 @@ import router from './router';import { Directive, DirectiveBinding, VNode } from
   }
 };
 createApp(App)
-.use(router, StoryblokVue)
+.use(router)
 .directive('appear', appear)
 .mount('#app')
-App.component('page', Page)
-App.component('teaser', Teaser)

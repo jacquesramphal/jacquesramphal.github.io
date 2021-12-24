@@ -1,10 +1,10 @@
 <template>
   <div id="stats" class="">
     <div id="grid-parent" class="grid-parent container">
+<!--      <h3>Stats</h3> -->
       <TextValue class="grid-card" label="Git Commits" value="200+" details="" />
       <TextValue class="grid-card"  label="Years Experience" value="8+" details="" />
       <TextValue class="grid-card"  label="Mindful Breaks" value="400+" details="" />
-      <TextValue class="grid-card"  label="Label" value="0" details="" />
     </div>
   </div>
 </template>
@@ -34,7 +34,8 @@ export default {
   color: inherit;
 }
 #stats {
-  background-color: var(--bg-darker)
+  border-top: var(--border);
+  border-bottom: var(--border);
 }
 
 
@@ -44,7 +45,7 @@ export default {
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
     .grid-parent {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 }

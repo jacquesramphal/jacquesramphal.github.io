@@ -5,7 +5,7 @@
         <span id="dates">
           <ul>
             <li class="label subtle">
-              <p>{{ date }}</p>
+              <p>{{ category }}</p>
             </li>
           </ul>
         </span>
@@ -25,7 +25,7 @@ export default {
   name: "BlogCard",
 
   props: {
-    date: {
+    category: {
       type: String,
       default: "00-00",
     },

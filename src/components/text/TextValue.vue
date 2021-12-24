@@ -1,7 +1,7 @@
 <template>
   <div id="TextValue" class="">
   <!-- add "label for" references? -->
-    <h3 tabIndex="0">{{ value }}</h3>
+    <h2 tabIndex="0">{{ value }}</h2>
     <h6 tabIndex="0" class="subtle">{{ label }}</h6>
     <!-- <MyButton 
       text="This is Button Text" 
@@ -37,13 +37,13 @@ export default {
 #TextValue {
   /*  background: var(--color-xlight); */
   grid-column: 1 / 4;
-  text-align: center;
+  text-align: left;
   padding: 0;
 }
 h6 {
   margin-bottom: 1em;
 }
-h3 {
+h2 {
   margin: 0;
   color: var(--link);
 }
