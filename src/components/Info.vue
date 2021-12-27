@@ -20,8 +20,8 @@
       :eyebrow4="about.detailEyebrow1"
       :detail4="about.detailDetails1"
     />
-    <Stats 
-      v-for="about in contentful" 
+    <Stats
+      v-for="about in contentful"
       v-bind:key="about.sys.id"
       :value1="about.statValue1"
       :label1="about.statLabel1"
