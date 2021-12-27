@@ -2,7 +2,7 @@
   <Wrapper id="blog">
     <Container>
         <blog-post-entry
-          v-for="blogPost in posts"
+          v-for="blogPost in contentful"
           v-bind:key="blogPost.sys.id"
           :image="blogPost.image"
           :imgurl="blogPost.imgurl"
@@ -23,7 +23,7 @@ export default {
   name: "BlogPosts",
   components: { BlogPostEntry, Container, Wrapper },
   props: {
-    posts: {
+    contentful: {
       type: Array,
       required: true,
       // TODO: add validation

@@ -2,12 +2,10 @@
   <Wrapper id="hero-landing">
     <Container>
       <div id="hero-text" class="">
-        <!--<h2 class="">
-          Product Designer at Myplanet, <a href="/" target="blank">Also a Developer</a>
-        </h2> -->
         <h2 class="">
-        Hello World 👋🏽 I’m a
-          <router-link to="post">Front-End Designer</router-link> deep in a rabbit hole.
+          {{ heroText }}
+          <!-- Hello World 👋🏽 I’m a
+          <router-link to="post">Front-End Designer</router-link> deep in a rabbit hole. -->
         </h2>
       </div>
     </Container>
@@ -20,19 +18,23 @@ import Container from "@/components/grid/Container.vue";
 
 export default {
   name: "HeroLanding",
+  components: {
+    Container,
+    Wrapper,
+  },
   props: {
+    contentful: {
+      type: Array,
+      required: true,
+    },
     eyebrow: {
       type: String,
       default: "Eyebrow",
     },
-    title: {
+    heroText: {
       type: String,
-      default: "Project Title",
+      default: "Hero Text",
     },
-  },
-  components: {
-    Container,
-    Wrapper,
   },
 };
 </script>

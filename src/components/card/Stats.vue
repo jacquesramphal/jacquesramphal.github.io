@@ -1,29 +1,68 @@
 <template>
-  <div id="stats" class="">
-    <div id="grid-parent" class="grid-parent container">
-<!--      <h3>Stats</h3> -->
-      <TextValue class="grid-card" label="Git Commits" value="200+" details="" />
-      <TextValue class="grid-card"  label="Years Experience" value="8+" details="" />
-      <TextValue class="grid-card"  label="Mindful Breaks" value="400+" details="" />
-    </div>
-  </div>
+  <Wrapper id="stats" class="">
+    <Container class="grid-parent">
+      <!--      <h3>Stats</h3> -->
+      <TextValue
+        class="grid-card"
+        :label="`${label1}`"
+        :value="`${value1}`"
+        details=""
+      />
+      <TextValue
+        class="grid-card"
+        :label="`${label2}`"
+        :value="`${value2}`"
+        details=""
+      />
+      <TextValue
+        class="grid-card"
+        :label="`${label3}`"
+        :value="`${value3}`"
+        details=""
+      />
+    </Container>
+  </Wrapper>
 </template>
 <script>
 import TextValue from "@/components/text/TextValue.vue";
+import Wrapper from "@/components/grid/Wrapper.vue";
+import Container from "@/components/grid/Container.vue";
 
 export default {
   name: "Stats",
   components: {
     TextValue,
+    Container,
+    Wrapper,
   },
   props: {
-    value: {
-      type: String,
-      default: "Detail Card",
+    contentful: {
+      type: Array,
+      required: true,
     },
-    label: {
+    value1: {
       type: String,
-      default: "label",
+      default: "Value1",
+    },
+    label1: {
+      type: String,
+      default: "Label1",
+    },
+    value2: {
+      type: String,
+      default: "Value2",
+    },
+    label2: {
+      type: String,
+      default: "Label2",
+    },
+    value3: {
+      type: String,
+      default: "Value3",
+    },
+    label3: {
+      type: String,
+      default: "Label3",
     },
   },
 };
@@ -34,14 +73,13 @@ export default {
   color: inherit;
 }
 #stats {
-  border-top: var(--border);
-  border-bottom: var(--border);
+  background: var(--bg-darker);
+  /* border-top: var(--border);
+  border-bottom: var(--border); */
 }
-
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
-
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
     .grid-parent {

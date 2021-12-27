@@ -23,6 +23,10 @@ export default {
     TextBlock,
   },
   props: {
+    contentful: {
+      type: Array,
+      required: true,
+    },
     header: {
       type: String,
       default: "Detail Card",

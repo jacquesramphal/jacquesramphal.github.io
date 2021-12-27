@@ -8,7 +8,7 @@
         <p>{{ blogPost.description }}</p>
       </li>
     </ul> -->
-          <BlogPosts :posts="posts" />
+          <BlogPosts :contentful="contentful" />
 
   </PageWrapper>
 </template>
@@ -30,14 +30,14 @@ export default {
     },
   data() {
    return {
-     posts: [],
+     contentful: [],
    };
  },
  async created() {
-   this.posts = await this.getPosts();
+   this.contentful = await this.getContentful();
  },
   methods: {
-    getPosts: async () => {
+    getContentful: async () => {
       const query = `{
        blogPostCollection {
          items {

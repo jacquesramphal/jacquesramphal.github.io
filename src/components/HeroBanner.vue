@@ -2,9 +2,7 @@
   <Wrapper :class="classes">
     <Container>
       <nav class="">
-        <h1 id="wordmark" class="">
-          {{ eyebrow }}
-        </h1>
+        <h1 id="wordmark" class="" v-if="eyebrow" v-text="eyebrow" />
       </nav>
     </Container>
     <Container>
@@ -27,6 +25,11 @@ import Container from "@/components/grid/Container.vue";
 export default {
   name: "HeroBanner",
   props: {
+    contentful: {
+      type: Array,
+      required: true,
+      // TODO: add validation
+    },
     background: {
       type: Boolean,
       default: false,
