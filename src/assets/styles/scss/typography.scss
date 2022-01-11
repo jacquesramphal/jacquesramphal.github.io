@@ -1,19 +1,16 @@
 @font-face {
-  font-family: "Epilogue";
-  src: url("../../type/epilogue/epilogue-regular.ttf") format("truetype");
-  font-style: normal;
   font-display: auto;
-  font-weight: 100 900;
-}
-/* ---- GLOBAL ---- */
-* {
   font-family: "Epilogue";
-  unicode-range: U+000-5FF;
-  text-rendering: optimizeLegibility;
+  font-style: normal;
+  font-weight: 100 900;
+  src: url("../../type/epilogue/epilogue-regular.ttf") format("truetype");
+}
+* {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-  Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+  font-family: "Futura";
+  text-rendering: optimizeLegibility;
+  unicode-range: U+000-5FF;
 }
 /* Header AAA */
 h1 {
@@ -25,9 +22,8 @@ h1 {
 h2 {
   font-size: var(--font-lg);
   font-weight: var(--font-bold);
-  line-height: 1.3;
   letter-spacing: -0.1rem;
-  font-variation-settings: "wdth" 1000;
+  line-height: 1.3;
   margin: 0;
   opacity: 1 !important;
   /* background: -webkit-linear-gradient(var(--color-action), var(--color-success)) !important; */
@@ -87,9 +83,9 @@ hr {
   border: var(--border);
 }
 figcaption {
-  margin: var(--spacing-xs) 0 0 0;
-  font-style: italic;
   font-size: var(--font-xs) !important;
+  font-style: italic;
+  margin: var(--spacing-xs) 0 0 0;
 }
 /* figcaption p::before {
   content: "—";
@@ -105,26 +101,23 @@ strong {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }
-em {
-}
 blockquote {
   margin: var(--spacing-md) 0;
 }
 blockquote p {
-  padding: var(--spacing-sm);
   background: var(--background-reversed);
-  color: var(--text-reversed);
   border-radius: 0.8rem;
+  color: var(--text-reversed);
+  padding: var(--spacing-sm);
 }
 blockquote p::before {
   content: "👉🏽";
-  margin: var(--spacing-xs);
   font-size: var(--font-sm);
+  margin: var(--spacing-xs);
 }
 /* blockquote p::after {
   content: "\201D";
 } */
-
 li {
   font-weight: var(--font-medium);
   list-style: none;
@@ -144,15 +137,15 @@ li {
   text-rendering: optimizeLegibility;
 } */
 .caption {
-  float: left;
-  padding: var(--spacing-sm);
-  position: absolute;
-  text-rendering: optimizeLegibility;
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
   -webkit-transition: all 0.1s ease-in-out;
   color: transparent !important;
   display: block !important;
+  float: left;
+  padding: var(--spacing-sm);
+  position: absolute;
+  text-rendering: optimizeLegibility;
   transition: all 0.1s ease-in-out;
 }
 .grid-card:hover .caption {
@@ -230,41 +223,12 @@ p a:active {
 h1 a:hover {
   position: relative;
 }
-h1 a:active {
-}
-
 h2 a:active {
   position: relative;
 }
 h3 a:active {
   position: relative;
 }
-/* .nav-link {
-  display: inline;
-  position: relative;
-  overflow: hidden;
-}
- .nav-link a:after {
-  background: #4e92df;
-  bottom: -8px;
-  content: "";
-  height: 2px;
-  mix-blend-mode: multiply !important;
-  position: absolute;
-  right: 0;
-  transition-duration: 0.2s;
-  transition-property: width;
-  transition-timing-function: ease-out;
-  width: 0;
-  z-index: -1;
-}
-.nav-link a:hover:after,
-.nav-link a:focus:after,
-.nav-link a:active:after {
-  left: 0;
-  right: auto;
-  width: 100%;
-} */
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {

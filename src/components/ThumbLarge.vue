@@ -49,12 +49,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="sass" scoped>
 
-.caption {
-  display: block !important;
-}
-img{
-  aspect-ratio: 16 / 8;
-}
+.caption 
+  display: block !important
+img
+  aspect-ratio: 16 / 8
+.hero 
+  grid-column: 1 / 4
+  @media only screen and (min-width: 740px)
+    grid-column: 1 / 3
+  @media only screen and (min-width: 1201px)
+    grid-column: 1 / 4    
 </style>

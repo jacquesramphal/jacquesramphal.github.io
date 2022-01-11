@@ -1,5 +1,5 @@
 /* ---- ACCESSIBILITY ---- */
-  
+
 /** GLOBAL HIGHLIGHT COLOUR **/
 ::selection {
   background: rgba(185, 141, 226, 0.4);
@@ -10,11 +10,11 @@
 /* :focus {
   outline: 4px dashed var(--bg-darker);
 } */
-:active {
-  /* outline: 1px dashed var(--link); */
-  /* outline: 8px solid rgba(21, 156, 228, 0.4); */
-  /* outline-offset: .8rem; */
-}
+/*:active {
+ outline: 1px dashed var(--link);
+  outline: 8px solid rgba(21, 156, 228, 0.4);
+  outline-offset: .8rem; 
+}*/
 /* outline: 3px solid var(--color-action) !important; */
 /* box-shadow: 20px 15px 30px yellow, -20px 15px 30px lime, -20px -15px 30px blue, 20px -15px 30px red;} */
 
@@ -28,10 +28,7 @@
   box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
 } */
 
-
-
 /* -------- FORM INPUT -------- */
-
 
 label {
   font-size: 1.6rem;
@@ -59,7 +56,6 @@ select {
   border-radius: 4px;
   background-color: var(--bg-darker);
   /* box-shadow: var(--shadow-z1); */
-  
 }
 textarea {
   resize: vertical;
@@ -73,7 +69,6 @@ select:focus {
   -moz-transition: outline 0.1s ease-out;
   -o-transition: outline 0.1s ease-out;
   -webkit-transition: outline 0.1s ease-out;
-
 }
 input:optional,
 textarea:optional,
@@ -95,16 +90,14 @@ select:required:invalid {
 input:required:focus:valid,
 textarea:required:focus:valid,
 select:required:focus:valid {
-  
-  background:  url(../../images/emoji-wink.png)  no-repeat 97% 12px;
+  background: url(../../images/emoji-wink.png) no-repeat 97% 12px;
   background-size: 28px;
   border-color: var(--color-success) !important;
-
 }
 input:required:focus:invalid,
 textarea:required:focus:invalid,
 select:required:focus:invalid {
- background:  url(../../images/emoji-think.png)  no-repeat 97% 12px;
+  background: url(../../images/emoji-think.png) no-repeat 97% 12px;
   background-size: 28px;
   /* border: 2px solid var(--color-danger) !important; */
 }
@@ -116,10 +109,9 @@ option:first {
 /* ------- Dark Form UI ------- */
 
 @media (prefers-color-scheme: dark) {
-  
   label {
     color: var(--text) !important;
-  }  
+  }
   input,
   textarea,
   select {
@@ -127,15 +119,12 @@ option:first {
     /* border: 2px solid black; */
     background-color: var(--bg-darker);
     box-shadow: none;
-
-
   }
   input:focus,
   textarea:focus,
   select:focus {
     /* border-color: var(--color-action) !important; */
     background-color: inherit !important;
-
   }
   input:required:valid,
   textarea:required:valid,

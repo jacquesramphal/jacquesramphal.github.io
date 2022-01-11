@@ -42,7 +42,7 @@ export default {
   font-family: inherit
 .blog-post
   // font-size: var(--font-xxs)
-  margin-bottom: var(--spacing-md)
+  // margin-bottom: var(--spacing-md)
   @media only screen and (min-width: 740px)
     margin-bottom: var(--spacing-lg)
 .blog-post:first-child

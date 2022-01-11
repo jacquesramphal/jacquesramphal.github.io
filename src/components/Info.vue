@@ -129,9 +129,7 @@ export default {
 </script>
 
 <style scoped>
-#info > .container {
-  /* padding-top: 0 !important; */
-}
+
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
   #image-highlight {

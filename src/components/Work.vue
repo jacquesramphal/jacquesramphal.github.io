@@ -5,6 +5,7 @@
       v-bind:key="homePage.sys.id"
       :heroText="homePage.heroText"
     />
+
     <Container tight>
       <div id="recentwork" class="grid-parent">
         <ThumbSmall
@@ -58,6 +59,9 @@
 </template>
 
 <script>
+
+// import RichTextRenderer from 'contentful-rich-text-vue-renderer';
+
 // import AnimatedComponent from "@/components/AnimatedComponent.vue";
 
 import PageWrapper from "@/components/grid/PageWrapper.vue";
@@ -80,6 +84,7 @@ export default {
     ThumbSmall2,
     ThumbDetail,
     ThumbLarge,
+    // RichTextRenderer,
     // TextImage,
   },
   data() {

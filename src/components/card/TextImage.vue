@@ -90,7 +90,7 @@ export default {
 // COLOR
 
 .textimage-color--red
-  background-color: yellow !important
+  background-color: red !important
 
 
 // ALIGNMENT

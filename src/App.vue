@@ -1,9 +1,5 @@
 <template id="app">
   <router-view v-slot="{ Component }">
-    <!-- tmp contentful -->
-  
-    <!-- tmp contentful end ^ -->
-
     <ThemeButton v-if="!$route.meta.hideNav" />
     <transition name="fade" mode="out-in">
       <component :is="Component" />
@@ -34,12 +30,4 @@ export default {
 
 <style lang="sass">
 @import "./assets/styles/css/all.css"
-
-.fade-enter-active,
-.fade-leave-active
-  transition: opacity 0.15s ease-in-out
-
-.fade-enter-from,
-.fade-leave-to
-  opacity: 0
 </style>

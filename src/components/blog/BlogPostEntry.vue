@@ -64,14 +64,14 @@ export default {
 .blog-post-entry
   position: relative
   display: grid
-  margin-top: var(--spacing-xs)
-  padding: var(--spacing-md) 0 var(--spacing-md) 0
+  // margin-top: var(--spacing-xs)
+  padding: 0 0 var(--spacing-md) 0
   grid-template-columns: repeat(1, 1fr)
   &:last-child
     border-bottom: none
   >.blog-image
     // aspect-ratio: 4 / 3
-    margin: 0 0 2rem 0
+    // margin: 0 0 2rem 0
     >img
       width: 100%
       max-width: 100%
@@ -80,6 +80,7 @@ export default {
     line-height: 1.5
     margin-bottom: var(--spacing-xxs)
   @media only screen and (min-width: 740px)
+    padding: var(--spacing-md) 0 var(--spacing-md) 0
     grid-gap: var(--spacing-lg)
     border-bottom: var(--border)
     grid-template-columns: repeat(9, 1fr)
@@ -89,8 +90,8 @@ export default {
       grid-column: 5 / 10
   @media only screen and (min-width: 1201px)
     >.blog-image
-      aspect-ratio: 16 / 9
+      // aspect-ratio: 16 / 9
       grid-column: 1 / 3
-    >.blog-info
+    >.blog-info 
       grid-column: 3 / 10
 </style>

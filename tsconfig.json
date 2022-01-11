@@ -35,7 +35,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-  ],
+, "src/stories/Button.stories.js", "src/stories/TextBlock.stories.js"  ],
   "exclude": [
     "node_modules"
   ]

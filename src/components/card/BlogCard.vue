@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper container">
+  <Container class="wrapper">
     <router-link :to="`${route}`">
       <div class="grid-parent blog-card">
         <span id="dates">
@@ -17,13 +17,17 @@
         >
       </div>
     </router-link>
-  </div>
+  </Container>
 </template>
 
 <script>
+import Container from "@/components/grid/Container.vue";
+
 export default {
   name: "BlogCard",
-
+  components: {
+    Container
+  }
   props: {
     category: {
       type: String,
@@ -48,11 +52,7 @@ export default {
 <style scoped>
 * {
   color: inherit !important;
-    text-decoration: none !important;
-
-}
-.container {
-  padding: 0 !important;
+  text-decoration: none !important;
 }
 .grid-parent {
   grid-gap: var(--spacing-xxs);
@@ -76,8 +76,8 @@ export default {
   background: var(--bg-darker);
 } */
 
-.wrapper{
-    border-bottom: var(--border);
+.wrapper {
+  border-bottom: var(--border);
 }
 .wrapper:last-child {
   border-bottom: none;
@@ -85,21 +85,19 @@ export default {
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
-   #dates {
-  grid-column: 1 / 2;
-}
-    #info {
-        grid-column: 2 / 8;
-
-    }
+  #dates {
+    grid-column: 1 / 2;
+  }
+  #info {
+    grid-column: 2 / 8;
+  }
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
-   #dates {
-  grid-column: 1 / 2;
-}
+    #dates {
+      grid-column: 1 / 2;
+    }
     #info {
-        grid-column: 2 / 8;
-
+      grid-column: 2 / 8;
     }
     .container {
     }

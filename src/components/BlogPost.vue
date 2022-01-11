@@ -57,7 +57,6 @@
         <AnimatedComponent>
           <TextImage flipped route="blog" class=""
         /></AnimatedComponent>
-        
       </Wrapper>
 
       <!-- Section 1 -->
@@ -97,14 +96,14 @@
 
         <!-- Section 3 -->
 
-      <Wrapper id="section3" class="">
-        <AnimatedComponent>
-          <Container class="width">
-            <TextBlock
-              left
-              eyebrow=""
-              header="Section 3"
-              details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        <Wrapper id="section3" class="">
+          <AnimatedComponent>
+            <Container class="width">
+              <TextBlock
+                left
+                eyebrow=""
+                header="Section 3"
+                details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -114,11 +113,11 @@
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. "
-            />
-          </Container>
-        </AnimatedComponent>
-      </Wrapper>
-      <AnimatedComponent>
+              />
+            </Container>
+          </AnimatedComponent>
+        </Wrapper>
+        <AnimatedComponent>
           <TextImage route="blog" class=""
         /></AnimatedComponent>
       </Wrapper>
