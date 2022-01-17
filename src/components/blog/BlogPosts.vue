@@ -45,7 +45,10 @@ export default {
   // margin-bottom: var(--spacing-md)
   @media only screen and (min-width: 740px)
     margin-bottom: var(--spacing-lg)
-.blog-post:first-child
-  // margin-top: var(--spacing-lg)
+.blog-post-entry:first-child
+  padding-top: 0
+.blog-post-entry:last-child
+  @media only screen and (min-width: 740px)
+    padding-bottom: 0
   @media only screen and (min-width: 740px)
 </style>

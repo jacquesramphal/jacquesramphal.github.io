@@ -5,7 +5,7 @@
       <p tabIndex="0" class="subtle">{{ date }}</p>
     </span>
     <span class="overlay"> </span>
-    <a class="zoom">
+    <a class="">
       <img
         draggable="false"
         :src="require(`@/assets/images/${filename}`)"
@@ -44,17 +44,18 @@ export default {
 };
 </script>
 
-<style scoped>
-.caption {
-}
-.grid-card {
-}
-* {
-}
-img {
-  mix-blend-mode: normal;
-  aspect-ratio: 1 / 1;
-  height: 101%;
-  object-fit: cover;
-}
+<style lang="sass" scoped>
+.caption 
+
+.grid-card 
+  // box-shadow: var(--shadow-z1)
+  // &:hover
+  //   box-shadow: none
+
+img 
+  mix-blend-mode: normal
+  aspect-ratio: 1 / 1
+  height: 101%
+  object-fit: cover
+
 </style>

@@ -1,6 +1,6 @@
 <template>
   <PageWrapper>
-    <HeroBanner title="Jacques’ Ramblings" eyebrow="Blog" />
+    <HeroBanner background title="Jacques’ Ramblings" eyebrow="" />
     <!-- <ul class="container">
       <li v-for="blogPost in posts" v-bind:key="blogPost.sys.id">
         <p>{{ blogPost.category }}</p>

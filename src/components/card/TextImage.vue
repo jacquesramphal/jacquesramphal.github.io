@@ -2,7 +2,7 @@
   <Wrapper id="textimage" :class="classes">
     <Container style="padding: 0 !important;">
       <div id="grid-parent" class="grid-parent">
-        <Container tight>
+        <Container tight class="imgcontainer">
           <img
             class="splitimg"
             draggable="false"
@@ -13,7 +13,6 @@
           <TextBlock
             cta="Read More"
             :route="`${route}`"
-            eyebrow=""
             details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           />
         </Container>
@@ -135,6 +134,9 @@ export default {
     @media only screen and (min-width: 740px)
       grid-column: 1
       grid-row: 1
+  .imgcontainer
+    @media only screen and (min-width: 740px)
+      padding-right: 0 !important
 
 .textimage-align--flipped
   .textcontainer
@@ -145,4 +147,7 @@ export default {
     @media only screen and (min-width: 740px)
       grid-column: 2
       grid-row: 1
+  .imgcontainer
+    @media only screen and (min-width: 740px)
+      padding-left: 0 !important
 </style>

@@ -5,7 +5,7 @@
         :key="i"
         class="resume-skills-category"
     >
-      <p
+      <h6
           class="resume-skills-category-title"
           v-text="skill.title"
       />
@@ -56,5 +56,5 @@ export default {
       flex-direction: row
       flex-wrap: wrap
 ul
-  font-size: var(--font-xxs)
+  font-size: var(--font-xs)
 </style>

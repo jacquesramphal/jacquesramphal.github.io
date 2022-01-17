@@ -5,43 +5,37 @@
     <DetailCard2 id="detail1" class="" />
 
     <Wrapper id="" class="">
-      <Container id="grid-parent">
+     <Container>
         <ThumbLarge
           class=""
-          style="background-color: var(--color-xxlight);"
           title=""
+          filename="template.svg"
           alt="Jacques working at Myplanet"
+          caption="This is caption text."
         />
-        <TextDefault
-          eyebrow=" "
-          header=" "
-          details="Designer/Developer working and playing at Myplanet."
-        />
+        
       </Container>
     </Wrapper>
     <DetailCard id="detail2" class="topborder" header="The Solution" />
     <Wrapper id="" class="">
-      <Container id="grid-parent">
+      <Container>
         <ThumbLarge
           class=""
-          style="background-color: var(--color-xxlight);"
           title=""
+          filename="template.svg"
           alt="Jacques working at Myplanet"
+          caption="This is caption text."
         />
-        <TextDefault
-          eyebrow=" "
-          header=" "
-          details="Designer/Developer working and playing at Myplanet."
-        />
+        
       </Container>
     </Wrapper>
     <Wrapper class="  ">
       <Container>
         <!-- <h4 style="margin-bottom: 4rem; text-align: center;">More Projects</h4> -->
-        <div class="grid-parent  ">
+        <div class="grid-parent">
           <div>
-            <h4 style="margin-bottom: 4rem;">More Projects</h4>
-            <router-link to="Work" style="margin-top: 4rem;">
+            <h4 style="margin-bottom: 4rem">More Projects</h4>
+            <router-link to="Work" style="margin-top: 4rem">
               <p>All Recent Work</p></router-link
             >
           </div>
@@ -66,7 +60,7 @@
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Wrapper from "@/components/grid/Wrapper.vue";
 import Container from "@/components/grid/Container.vue";
-import TextDefault from "@/components/text/TextDefault.vue";
+// import TextDefault from "@/components/text/TextDefault.vue";
 import HeroProject from "@/components/HeroProject.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
@@ -81,7 +75,7 @@ export default {
     Wrapper,
     Container,
     HeroProject,
-    TextDefault,
+    // TextDefault,
     // ThumbMedium,
     ThumbSmall,
     ThumbLarge,
@@ -90,7 +84,6 @@ export default {
   },
 };
 </script>
-
 
 <style scoped>
 #heroimg {

@@ -12,9 +12,64 @@
       </div>
       <div class="grid-parent">
         <div id="maindetails">
-          <TextBlock eyebrow="" header="What else?" details="If you have questions about design, development, or anything in between, let's connect!" />
-
-          <!-- <form
+          <TextBlock
+            eyebrow=""
+            header="What else?"
+            details="If you have questions about design, development, or anything in between, let's connect!"
+          />
+        </div>
+        <div id="links1">
+          <p class="subtle">Useful Links</p>
+          <ol>
+            <li>
+              <router-link :to="{ name: 'Info' }">About this site</router-link>
+            </li>
+            <li><router-link :to="{ name: 'Resume' }">Resume</router-link></li>
+            <li>
+              <router-link :to="{ name: 'Blog' }">Ramphal Blog</router-link>
+            </li>
+            <li><router-link :to="{ name: '' }">Storybook</router-link></li>
+            <li>
+              <router-link :to="{ name: 'Work' }">Recent Work</router-link>
+            </li>
+            <li>
+              <router-link :to="{ name: 'Work' }">Fire Links</router-link>
+            </li>
+          </ol>
+        </div>
+        <div id="links2">
+          <p class="subtle">Let's Connect</p>
+          <ol>
+            <li class="external">
+              <a href="mailto:jacques@ramphal.design">Email Me</a>
+            </li>
+            <li class="external">
+              <a
+                target="blank"
+                href="https://www.linkedin.com/in/jacquesramphal"
+                >Connect on LinkedIn</a
+              >
+            </li>
+            <li class="external">
+              <a target="blank" href="https://github.com/jacquesramphal"
+                >Submit an issue</a
+              >
+            </li>
+          </ol>
+        </div>
+      </div>
+    </Container>
+    <Container>
+      <div class="">
+        <p style="font-size: var(--font-xxs);">
+          © Jacques Ramphal 2022. Built with <a>Vue3</a>, <a>Typescript</a> &
+          <a>Sass</a>
+        </p>
+      </div>
+    </Container>
+  </Wrapper>
+</template>
+<!-- <form
             @submit.prevent="sendEmail"
             onsubmit="alert('submit!');return false"
           >
@@ -36,46 +91,6 @@
               />
             </div>
           </form> -->
-        </div>
-        <div id="links1">
-        
-          <h6 class="subtle">Useful Links</h6>
-          <ol>
-            <li>
-              <router-link :to="{ name: 'Info' }">About this site</router-link>
-            </li>
-            <li><router-link :to="{ name: 'Resume' }">Resume</router-link></li>
-            <li>
-              <router-link :to="{ name: 'Blog' }">Ramphal Blog</router-link>
-            </li>
-            <li><router-link :to="{ name: '' }">Storybook</router-link></li>
-            <li>
-              <router-link :to="{ name: 'Work' }">Recent Work</router-link>
-            </li>
-             <li>
-              <router-link :to="{ name: 'Work' }">Fire Links</router-link>
-            </li>
-          </ol>
-        </div>
-        <div id="links2">
-          <h6 class="subtle">Let's Connect</h6>
-          <ol>
-            <li class="external">
-              <a href="mailto:jacques@ramphal.design">Email Me</a>
-            </li>
-            <li class="external">
-              <a target="blank" href="https://www.linkedin.com/in/jacquesramphal">Connect on LinkedIn</a>
-            </li>
-            <li class="external">
-              <a target="blank" href="https://github.com/jacquesramphal">Submit an issue</a>
-            </li>
-          </ol>
-        </div>
-        
-      </div>
-    </Container>
-  </Wrapper>
-</template>
 
 <script>
 import Wrapper from "@/components/grid/Wrapper.vue";
@@ -103,10 +118,11 @@ export default {
 </script>
 <style lang="sass" scoped>
 #wrapper
-  border-top: var(--border)
-  // background: var(--bg-darker)
+  // border-top: var(--border)
+  background: var(--bg-darker)
   padding-bottom: var(--spacing-lg)
   @media only screen and (min-width: 1201px)
+    padding-bottom: inherit
 
 .grid-parent
   grid-template-columns: repeat(2, 1fr)
@@ -114,7 +130,7 @@ export default {
     grid-template-columns: repeat(3, 1fr)
   @media only screen and (min-width: 1201px)
     grid-template-columns: repeat(6, 1fr)
-    // grid-gap: 0
+    grid-gap: 0
 
 
 #maindetails

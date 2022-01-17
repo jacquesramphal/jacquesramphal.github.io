@@ -67,6 +67,7 @@
 
   /* FONT-SIZE */
 
+  --font-display: 10rem;
   --font-xxxl: 8rem;
   --font-xxl: 7.2rem;
   --font-xl: 6.4rem;
@@ -97,8 +98,7 @@
   --spacing-xxl: 25.6rem;
   --spacing-xxxl: 51.2rem;
 }
-  /* PADDING -- TBD */
-
+/* PADDING -- TBD */
 
 /* Override light mode with dark mode styles if the user decides to swap */
 :root.dark-theme {
@@ -110,7 +110,7 @@
 
   /* Reversed */
   --link-reversed: var(--color-action);
-  --text-reversed: var(--color-offblack);
+  --text-reversed: var(--color-darktext);
   --background-reversed: var(--color-offwhite);
   --bg-darker-reversed: var(--color-highlight2);
 
@@ -121,8 +121,9 @@
   --font-bold: 550;
   --font-heavy: 750;
 
-  --shadow-deep: 0px 16px 24px var(--color-offblack),
-    0px 6px 30px var(--color-offblack), 0px 8px 10px var(--color-offblack);
+  --shadow-light: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  --shadow-deep: 0px 16px 24px rgba(0, 0, 0, 0.25),
+    0px 6px 30px rgba(0, 0, 0, 0.25), 0px 8px 10px rgba(0, 0, 0, 0.25);
 }
 
 /* Styles for users who prefer dark mode at the OS level */
@@ -135,7 +136,7 @@
     --border: 1px solid black;
     /* Reversed */
     --link-reversed: var(--color-action);
-    --text-reversed: var(--color-offblack);
+    --text-reversed: var(--color-darktext);
     --background-reversed: var(--color-offwhite);
     --bg-darker-reversed: var(--color-highlight2);
 

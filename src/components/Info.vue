@@ -1,7 +1,6 @@
 <template>
   <PageWrapper>
     <HeroBanner
-      background
       v-for="about in contentful"
       v-bind:key="about.sys.id"
       :eyebrow="about.eyebrow"
@@ -20,7 +19,8 @@
       :eyebrow4="about.detailEyebrow1"
       :detail4="about.detailDetails1"
     />
-    <Stats
+
+    <!--   <Stats
       v-for="about in contentful"
       v-bind:key="about.sys.id"
       :value1="about.statValue1"
@@ -29,7 +29,7 @@
       :label2="about.statLabel2"
       :value3="about.statValue3"
       :label3="about.statLabel3"
-    />
+    /> -->
     <Container>
       <ThumbLarge
         title=""
@@ -43,12 +43,14 @@
 </template>
 
 <script>
+// import TextImage from "@/components/card/TextImage.vue";
+
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Container from "@/components/grid/Container.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
-import Stats from "@/components/card/Stats.vue";
+// import Stats from "@/components/card/Stats.vue";
 // import TextImage from "@/components/card/TextImage.vue";
 // import AnimatedComponent from "@/components/AnimatedComponent.vue";
 // import HeroProject from "@/components/HeroProject.vue";
@@ -60,12 +62,13 @@ import Stats from "@/components/card/Stats.vue";
 export default {
   name: "Info",
   components: {
+    // TextImage,
     PageWrapper,
     Container,
     HeroBanner,
     ThumbLarge,
     DetailCard,
-    Stats,
+    // Stats,
     // TextImage,
     // AnimatedComponent,
     // HeroProject,
@@ -129,7 +132,6 @@ export default {
 </script>
 
 <style scoped>
-
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
   #image-highlight {

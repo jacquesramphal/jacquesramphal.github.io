@@ -5,8 +5,8 @@
         :key="i"
         class="resume-segment"
     >
-      <h4
-          class="resume-segment-title"
+      <h6
+          class="subtle resume-segment-title"
           v-text="segment.title"
       />
       <ul class="resume-segment-list">

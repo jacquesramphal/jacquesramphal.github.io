@@ -1,11 +1,12 @@
 <template>
   <PageWrapper>
+    <!-- <RichTextRenderer :document="document" /> -->
     <HeroLanding
       v-for="homePage in contentful"
       v-bind:key="homePage.sys.id"
       :heroText="homePage.heroText"
-    />
 
+    />
     <Container tight>
       <div id="recentwork" class="grid-parent">
         <ThumbSmall
@@ -59,24 +60,45 @@
 </template>
 
 <script>
+// import RichTextRenderer from "contentful-rich-text-vue-renderer";
+import { BLOCKS } from "@contentful/rich-text-types";
 
-// import RichTextRenderer from 'contentful-rich-text-vue-renderer';
-
-// import AnimatedComponent from "@/components/AnimatedComponent.vue";
-
+// import RichText from "@/components/RichText.vue";
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Container from "@/components/grid/Container.vue";
-// import TextImage from "@/components/card/TextImage.vue";
 import HeroLanding from "@/components/HeroLanding.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
 
+
+
+const mock = {
+
+      nodeType: "document",
+      content: [
+        {
+          nodeType: "paragraph",
+          content: [
+            {
+              nodeType: "text",
+              value: "Hello World 👋🏽 I’m a Front-End Designer deep in a rabbit hole.",
+              marks: [],
+              data: {}
+            }
+          ],
+          data: {}
+        }
+      ]
+    };
+
+
+
+
 export default {
   name: "Work",
   components: {
-    // AnimatedComponent,
     PageWrapper,
     Container,
     HeroLanding,
@@ -84,12 +106,14 @@ export default {
     ThumbSmall2,
     ThumbDetail,
     ThumbLarge,
+    // RichText,
     // RichTextRenderer,
     // TextImage,
   },
   data() {
     return {
       contentful: [],
+      mock,
     };
   },
   async created() {
@@ -104,6 +128,9 @@ export default {
              id
            }
            heroText
+           heroRichText {
+             json
+           }
          }
        }
      }`;
@@ -125,6 +152,34 @@ export default {
       } catch (error) {
         throw new Error("Could not receive the data from Contentful!");
       }
+    },
+    renderNodes() {
+      return {
+        break: (_node, key, h) => h("br", key, {}),
+        [BLOCKS.PARAGRAPH]: (node, key, h, next) => {
+          const nodeContentWithNewlineBr = node.content.map((childNode) => {
+            if (childNode.nodeType === "text") {
+              const splittedValue = childNode.value.split("\n");
+              return splittedValue
+                .reduce(
+                  (aggregate, v, i) => [
+                    ...aggregate,
+                    { ...childNode, value: v },
+                    { nodeType: "break", key: `${key}-br-${i}` },
+                  ],
+                  []
+                )
+                .slice(0, -1);
+            }
+
+            return childNode;
+          });
+
+          node.content = [].concat.apply([], nodeContentWithNewlineBr);
+
+          return h("p", { key }, next(node.content, key, h, next));
+        },
+      };
     },
   },
 };

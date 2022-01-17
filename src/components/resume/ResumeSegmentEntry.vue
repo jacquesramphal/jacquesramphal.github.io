@@ -88,9 +88,11 @@ export default {
   justify-content: flex-start
   align-items: flex-start
   margin-top: var(--spacing-xs)
-  padding: 4rem
-  border-radius: 1rem
-  background-color: var(--bg-darker)
+  padding: var(--spacing-md)
+  border-radius: .8rem
+  border: var(--border)
+  box-shadow: var(--shadow-light)
+  // background-color: var(--bg-darker)
   // &:before
   //   content: ''
   //   position: absolute
@@ -108,6 +110,11 @@ export default {
   //   background: var(--link)
   //   border: 2px solid var(--link)
   //   border-radius: 50%
+  -moz-transition: all 0.25s ease-in-out
+  -o-transition: all 0.25s ease-in-out
+  -webkit-transition: all 0.25s ease-in-out
+  &:hover
+    box-shadow: var(--shadow-deep)
   >.resume-segment-entry-information
     display: flex
     flex-direction: row

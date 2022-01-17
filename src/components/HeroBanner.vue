@@ -48,13 +48,13 @@ export default {
     },
   },
   components: {
-      Wrapper,
-      Container,
-    },
+    Wrapper,
+    Container,
+  },
   computed: {
     classes() {
       return {
-        "herobanner": true,
+        herobanner: true,
         "herobanner--background": this.background,
         "herobanner--normal": !this.background,
       };
@@ -64,7 +64,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-* 
+*
   color: inherit
   mix-blend-mode: normal
 
@@ -86,7 +86,7 @@ export default {
 .herobanner--background
   background-image: url("../assets/images/jacques.jpeg")
   color: white !important
-  text-shadow: var(--shadow-text)
+  text-shadow: var(--shadow-hover)
 
 #hero-text
   display: grid
@@ -97,5 +97,4 @@ export default {
   @media only screen and (min-width: 740px)
     max-width: 60vw
     align-items: end !important
-    
 </style>

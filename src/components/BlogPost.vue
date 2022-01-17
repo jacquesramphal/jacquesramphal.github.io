@@ -18,16 +18,28 @@
         <ThumbLarge
           class=""
           title=""
-          filename="jacques.jpeg"
+          filename="template.svg"
           alt="Jacques working at Myplanet"
         />
       </Container>
       <!-- Section 1 -->
       <Wrapper id="section1">
-        <AnimatedComponent animationType="zoom">
+        <!-- <AnimatedComponent animationType="zoom"> -->
+        <AnimatedComponent>
           <Container class="width">
-            <Wrapper
-              ><TextBlock
+              <p class="dropcap">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p></Container></AnimatedComponent>
+        <AnimatedComponent>
+          <Container class="width">
+            <Wrapper>
+              <TextBlock
                 left
                 eyebrow=""
                 header="Section 1"
@@ -55,7 +67,11 @@
           </Container>
         </AnimatedComponent>
         <AnimatedComponent>
-          <TextImage flipped route="blog" class=""
+          <TextImage
+            flipped
+            filename="template.svg"
+            route="blog"
+            class="reversed"
         /></AnimatedComponent>
       </Wrapper>
 
@@ -87,7 +103,7 @@
             <ThumbLarge
               class=""
               title=""
-              filename="about.jpg"
+              filename="template.svg"
               alt="Jacques working at Myplanet"
               caption="This is caption text."
             />
@@ -118,7 +134,7 @@
           </AnimatedComponent>
         </Wrapper>
         <AnimatedComponent>
-          <TextImage route="blog" class=""
+          <TextImage route="blog" filename="template.svg" class=""
         /></AnimatedComponent>
       </Wrapper>
     </Wrapper>
@@ -167,6 +183,7 @@ export default {
 <style scoped>
 * {
 }
+
 blog-card {
   margin-bottom: var(--spacing-md) !important;
 }
