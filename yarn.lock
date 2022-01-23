@@ -1110,7 +1110,7 @@
 
 "@contentful/axios@^0.18.0":
   version "0.18.0"
-  resolved "https://registry.yarnpkg.com/@contentful/axios/-/axios-0.18.0.tgz#576e0e6047411a66971e82d40688a8c795e62f27"
+  resolved "https://registry.npmjs.org/@contentful/axios/-/axios-0.18.0.tgz"
   integrity sha512-4r4Ww1IJlmRolKgovLTTmdS6CsdvXYVxgXRFwWSh1x36T/0Wg9kTwdaVaApZXcv1DfYyw9RSNdxIGSwTP2/Lag==
   dependencies:
     follow-redirects "^1.2.5"
@@ -1128,7 +1128,7 @@
 
 "@contentful/rich-text-html-renderer@^13.1.0":
   version "13.4.0"
-  resolved "https://registry.yarnpkg.com/@contentful/rich-text-html-renderer/-/rich-text-html-renderer-13.4.0.tgz#03c08f4196a9eb9bae9af993b5644624fe256fa9"
+  resolved "https://registry.npmjs.org/@contentful/rich-text-html-renderer/-/rich-text-html-renderer-13.4.0.tgz"
   integrity sha512-g5maEnoGlhMOA/FcF8UTE6V3BHDx8ygfjF5AZKEFcpi+cDL5SfCKvV9FkaasNashrttECy9ncjRsIHPlAmKONg==
   dependencies:
     "@contentful/rich-text-types" "^13.4.0"
@@ -1144,7 +1144,7 @@
 
 "@contentful/rich-text-types@^13.4.0":
   version "13.4.0"
-  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-13.4.0.tgz#a59c311ebd1b801ee00edbc08663c8d78da26171"
+  resolved "https://registry.npmjs.org/@contentful/rich-text-types/-/rich-text-types-13.4.0.tgz"
   integrity sha512-YPdYqGmWiGAood7ri2BUXfPQKNthkQYV1rmQdaq4UAxWK5NLB5NXckaUYLbohqhHKtrq4tnfzVn+ePWID7Dzbg==
 
 "@contentful/rich-text-types@^14.1.2":
@@ -1154,7 +1154,7 @@
 
 "@contentful/rich-text-types@^15.11.1":
   version "15.11.1"
-  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-15.11.1.tgz#755e3efd5e0ac277d554e6f731ba9fdc1c45f6fe"
+  resolved "https://registry.npmjs.org/@contentful/rich-text-types/-/rich-text-types-15.11.1.tgz"
   integrity sha512-seO8Nl9cp894v7an6R8isX+HqYwVUesviGULTh/rIj2DCv2tXUU1GCqzSkt84XN6c6nbFYow9+Wzezkxx/IdIA==
 
 "@discoveryjs/json-ext@^0.5.3":
@@ -1271,7 +1271,7 @@
 
 "@gridsome/source-contentful@^0.6.0":
   version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@gridsome/source-contentful/-/source-contentful-0.6.0.tgz#a2ae12cfff2095bc85037aeef590005575c5e68b"
+  resolved "https://registry.npmjs.org/@gridsome/source-contentful/-/source-contentful-0.6.0.tgz"
   integrity sha512-/ZdZEPkuagZq8/KnmySrO20kzPlfcSm3QmA6Tuapt96ax3rjPrhG8SK1r/JpIbXALV3D5t592Vlj5o6x8NK+IQ==
   dependencies:
     "@contentful/rich-text-html-renderer" "^13.1.0"
@@ -4827,7 +4827,7 @@ contentful-sdk-core@^6.0.1, contentful-sdk-core@^6.10.4:
 
 contentful@^6.1.1:
   version "6.1.3"
-  resolved "https://registry.yarnpkg.com/contentful/-/contentful-6.1.3.tgz#272f59e070807321ed6985882803bf804af65d6b"
+  resolved "https://registry.npmjs.org/contentful/-/contentful-6.1.3.tgz"
   integrity sha512-uf4MQey/aP/buRo4oCuyIfSD/r+ruxDyXN2z/n0XCi7s2x5NjKiKbbRIjRiYu5ylNiAvc+smLIXBooujtmqWEw==
   dependencies:
     "@contentful/axios" "^0.18.0"
@@ -6434,15 +6434,10 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-follow-redirects@^1.0.0, follow-redirects@^1.14.4:
+follow-redirects@^1.0.0, follow-redirects@^1.14.4, follow-redirects@^1.2.5:
   version "1.14.5"
   resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.5.tgz"
   integrity sha512-wtphSXy7d4/OR+MvIFbCVBDzZ5520qV8XfPklSN5QtxuMUJZ+b0Wnst1e1lCDocfzuCkHqj8k0FpZqO+UIaKNA==
-
-follow-redirects@^1.2.5:
-  version "1.14.7"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.7.tgz#2004c02eb9436eee9a21446a6477debf17e81685"
-  integrity sha512-+hbxoLbFMbRKDwohX8GkTataGqO6Jb7jGwpAlwgy2bIz25XtRm7KEzJM76R1WiNT5SwZkX4Y75SwBolkpmE7iQ==
 
 for-in@^1.0.2:
   version "1.0.2"
@@ -7529,7 +7524,7 @@ inquirer@^7.0.0, inquirer@^7.1.0:
 
 insights-js@^1.2.10:
   version "1.2.10"
-  resolved "https://registry.yarnpkg.com/insights-js/-/insights-js-1.2.10.tgz#e109c83c9d5052c8a4b099f7ecde6924aef538e0"
+  resolved "https://registry.npmjs.org/insights-js/-/insights-js-1.2.10.tgz"
   integrity sha512-BFk00KuGKK9ri4hAC8CuP8ap1xvYfDtU+J6VU9tBhcMKFPIoLR9LTFkb7H0HLW2ltT232DAb8xIlAmZ1JVT7dA==
 
 internal-ip@^4.3.0:
