@@ -1,26 +1,29 @@
 <template>
-  <Wrapper :class="classes">
-    <Container>
-      <nav class="">
-        <h1 id="wordmark" class="" v-if="eyebrow" v-text="eyebrow" />
-      </nav>
-    </Container>
-    <Container>
-      <div id="hero-text" class="">
-        <h2>
-          {{ title }}
-        </h2>
-        <h6 class="">
-          {{ subtitle }}
-        </h6>
-      </div>
-    </Container>
-  </Wrapper>
+  <AnimatedComponent>
+    <Wrapper id="hero-banner" :class="classes">
+      <Container>
+        <nav class="animate delay-1">
+          <p id="wordmark" class="subtle" v-if="eyebrow" v-text="eyebrow" />
+        </nav>
+      </Container>
+      <Container>
+        <div id="hero-text" class="animate glow">
+          <h2>
+            {{ title }}
+          </h2>
+          <!-- <h6 class="">
+            {{ subtitle }}
+          </h6> -->
+        </div>
+      </Container>
+    </Wrapper>
+  </AnimatedComponent>
 </template>
 
 <script>
 import Wrapper from "@/components/grid/Wrapper.vue";
 import Container from "@/components/grid/Container.vue";
+import AnimatedComponent from "@/components/AnimatedComponent.vue";
 
 export default {
   name: "HeroBanner",
@@ -50,6 +53,7 @@ export default {
   components: {
     Wrapper,
     Container,
+    AnimatedComponent,
   },
   computed: {
     classes() {
@@ -80,8 +84,8 @@ export default {
     background-position: 100% 50%
 
 .herobanner--normal
-  background: var(--bg-darker)
-
+  // background: var(--bg-darker)
+  // border-bottom: var(--border)
 
 .herobanner--background
   background-image: url("../assets/images/jacques.jpeg")
@@ -94,7 +98,6 @@ export default {
   justify-content: left
   text-align: left
   align-items: end !important
-  @media only screen and (min-width: 740px)
+  @media only screen and (min-width: 1201px)
     max-width: 60vw
-    align-items: end !important
 </style>

@@ -209,7 +209,10 @@ a {
   cursor: pointer;
   text-decoration: underline !important;
 }
-
+.external:after {
+  content: " ↗";
+  color: var(--link);
+}
 h1 a {
   text-decoration: none !important;
 }

@@ -29,7 +29,11 @@ export default {
     // AnimatedComponent
   }
 };
+
+
 </script>
+
+
 
 <style lang="sass">
 @import "./assets/styles/css/all.css"

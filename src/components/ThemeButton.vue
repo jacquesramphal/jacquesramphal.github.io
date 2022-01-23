@@ -7,9 +7,7 @@
       class="switch-checkbox"
     />
     <label for="checkbox" class="switch-label">
-      <!-- <span>⬤</span> -->
-      <!-- <span>&odot;</span> -->
-      <!-- <span><a>Toggle Theme</a></span> -->
+     <!-- <span><a><p>Toggle Theme</p></a></span> -->
 
       <div class="switch-toggle" :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
       ></div>

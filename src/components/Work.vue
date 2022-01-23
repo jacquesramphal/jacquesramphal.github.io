@@ -1,13 +1,23 @@
 <template>
   <PageWrapper>
-    <!-- <RichTextRenderer :document="document" /> -->
-    <HeroLanding
+    <!--  <RichTextRenderer :document="document" /> -->
+    <HeroBanner
+      id="hero"
       v-for="homePage in contentful"
       v-bind:key="homePage.sys.id"
-      :heroText="homePage.heroText"
-
+      :title="homePage.heroText"
+      eyebrow="Jake Ramphal"
     />
-    <Container tight>
+
+    <!--  <div v-html="homePage.heroRichText" /> -->
+
+    <!-- NOT WORKING -->
+    <div v-for="homePage in contentful" v-bind:key="homePage.sys.id">
+      <p v-html="richtextToHTML(homePage.heroRichText)"></p>
+    </div>
+    <!-- ^ NOT WORKING -->
+
+    <Container tight id="work">
       <div id="recentwork" class="grid-parent">
         <ThumbSmall
           alt="J Monogram"
@@ -29,6 +39,7 @@
           filename="avatar.svg"
           title="Avatar"
         />
+
         <ThumbSmall
           alt="Template Project"
           style="background-color: var(--link)"
@@ -55,53 +66,41 @@
         />
       </div>
     </Container>
+    <CardRow />
+    <!--   <HeroLanding
+      v-for="homePage in contentful"
+      v-bind:key="homePage.sys.id"
+      :heroText="homePage.heroText"
+    /> -->
+
     <!--    <TextImage flipped route="blog" class="reversed" /> -->
   </PageWrapper>
 </template>
 
 <script>
 // import RichTextRenderer from "contentful-rich-text-vue-renderer";
+// import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
-
 // import RichText from "@/components/RichText.vue";
+
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Container from "@/components/grid/Container.vue";
-import HeroLanding from "@/components/HeroLanding.vue";
+// import HeroLanding from "@/components/HeroLanding.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
-
-
-
-const mock = {
-
-      nodeType: "document",
-      content: [
-        {
-          nodeType: "paragraph",
-          content: [
-            {
-              nodeType: "text",
-              value: "Hello World 👋🏽 I’m a Front-End Designer deep in a rabbit hole.",
-              marks: [],
-              data: {}
-            }
-          ],
-          data: {}
-        }
-      ]
-    };
-
-
-
+import HeroBanner from "@/components/HeroBanner.vue";
+import CardRow from "@/components/CardRow.vue";
 
 export default {
   name: "Work",
   components: {
+    HeroBanner,
     PageWrapper,
     Container,
-    HeroLanding,
+    // HeroLanding,
     ThumbSmall,
     ThumbSmall2,
     ThumbDetail,
@@ -109,17 +108,28 @@ export default {
     // RichText,
     // RichTextRenderer,
     // TextImage,
+    CardRow,
   },
   data() {
     return {
       contentful: [],
-      mock,
     };
   },
   async created() {
     this.contentful = await this.getContentful();
   },
+
   methods: {
+    richtextToHTML(content) {
+      return documentToHtmlString(content, {
+        renderNode: {
+          [BLOCKS.EMBEDDED_ASSET]: (node) => {
+            return `<img src="${node.data.target.fields.file.url}" alt="${node.data.target.fields.title}" />`;
+          },
+        },
+      });
+    },
+
     getContentful: async () => {
       const query = `{
        homePageCollection {
@@ -134,6 +144,7 @@ export default {
          }
        }
      }`;
+
       const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
       const fetchOptions = {
         method: "POST",
@@ -153,39 +164,15 @@ export default {
         throw new Error("Could not receive the data from Contentful!");
       }
     },
-    renderNodes() {
-      return {
-        break: (_node, key, h) => h("br", key, {}),
-        [BLOCKS.PARAGRAPH]: (node, key, h, next) => {
-          const nodeContentWithNewlineBr = node.content.map((childNode) => {
-            if (childNode.nodeType === "text") {
-              const splittedValue = childNode.value.split("\n");
-              return splittedValue
-                .reduce(
-                  (aggregate, v, i) => [
-                    ...aggregate,
-                    { ...childNode, value: v },
-                    { nodeType: "break", key: `${key}-br-${i}` },
-                  ],
-                  []
-                )
-                .slice(0, -1);
-            }
-
-            return childNode;
-          });
-
-          node.content = [].concat.apply([], nodeContentWithNewlineBr);
-
-          return h("p", { key }, next(node.content, key, h, next));
-        },
-      };
-    },
   },
 };
 </script>
 
 <style lang="sass" scoped>
+#hero
+  border-bottom: none !important
+#work
+  padding-top: 0 !important
 .container
   // background-color: var(--color-white)
   padding-top: 0 !important

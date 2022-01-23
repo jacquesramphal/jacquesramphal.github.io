@@ -33,19 +33,21 @@ export default {
   name: "BlogPostEntry",
   props: {
     imgurl: {
+      default: "https://wallpaperaccess.com/full/399952.jpg",
       required: true,
       type: String,
     },
     title: {
+      default: "Title",
       required: true,
       type: String,
     },
     description: {
-      default: "",
+      default: "Description",
       type: String,
     },
     category: {
-      default: "",
+      default: "Category",
       type: String,
     },
     route: {

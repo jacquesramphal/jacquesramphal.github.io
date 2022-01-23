@@ -57,12 +57,20 @@
             </li>
           </ol>
         </div>
+        <div id="links3">
+          <p class="subtle">More</p>
+          <ol>
+            <li class="">
+              <a>Privacy Policy</a>
+            </li>
+          </ol>
+        </div>
       </div>
     </Container>
     <Container>
       <div class="">
-        <p style="font-size: var(--font-xxs);">
-          © Jacques Ramphal 2022. Built with <a>Vue3</a>, <a>Typescript</a> &
+        <p style="font-size: var(--font-xxs)">
+          © 2022 Jacques Ramphal. Built with <a>Vue3</a>, <a>Typescript</a> &
           <a>Sass</a>
         </p>
       </div>
@@ -119,7 +127,9 @@ export default {
 <style lang="sass" scoped>
 #wrapper
   // border-top: var(--border)
-  background: var(--bg-darker)
+  // background: var(--bg-darker)
+  // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, var(--bg-darker)), color-stop(100%, transparent))
+  // background-image: -moz-linear-gradient(bottom, var(--bg-darker) 0%, transparent 100%)
   padding-bottom: var(--spacing-lg)
   @media only screen and (min-width: 1201px)
     padding-bottom: inherit

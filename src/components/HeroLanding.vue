@@ -49,7 +49,7 @@ export default {
   mix-blend-mode: normal
 
 #hero-landing
-  background-image: url("../assets/images/splash4.svg")
+  // background-image: url("../assets/images/splash4.svg")
   // background: -webkit-linear-gradient(top left, var(--link-reversed), var(--link-reversed))  
   // background: var(--color-pink)
   display: grid
@@ -60,8 +60,9 @@ export default {
   background-size: cover
   background-position: 100% 0%
   @media only screen and (min-width: 1201px)
-    min-height: 100vh
-    align-items: center !important
+    // min-height: 100vh
+    min-height: 60vh
+    align-items: end !important
     background-size: cover
     background-position: 100% 50%
 
@@ -72,6 +73,6 @@ h2
   grid-row: 1 / 8
   text-align: left
   @media only screen and (min-width: 740px)
-    max-width: 80vw
+    max-width: 85vw
     justify-self: center !important
 </style>

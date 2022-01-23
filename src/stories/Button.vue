@@ -74,7 +74,7 @@ background-color: transparent !important;
 .storybook-button--small {
   font-size: 12px;
   padding: 1rem 2rem 1rem 2rem;
-    border-radius: 100px;
+  /* border-radius: 100px; */
 
 }
 .storybook-button--large {

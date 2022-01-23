@@ -144,6 +144,8 @@
       eyebrow="Blog / Blog Post"
       subtitle="Post Description"
     /> -->
+        <CardRow header="Related" />
+
   </PageWrapper>
 </template>
 
@@ -154,6 +156,7 @@ import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Wrapper from "@/components/grid/Wrapper.vue";
 import Container from "@/components/grid/Container.vue";
 import TextHeader from "@/components/text/TextHeader.vue";
+import CardRow from "@/components/CardRow.vue";
 import TextImage from "@/components/card/TextImage.vue";
 // import HeroBanner from "@/components/HeroBanner.vue";
 import TextBlock from "@/stories/TextBlock.vue";
@@ -167,6 +170,7 @@ export default {
     PageWrapper,
     Wrapper,
     Container,
+    CardRow,
     // HeroBanner,
     TextHeader,
     TextBlock,

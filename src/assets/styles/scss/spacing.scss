@@ -23,7 +23,7 @@
 } */
 .grid-parent {
   display: grid;
-  grid-gap: var(--spacing-md);
+  grid-gap: var(--spacing-sm);
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(1, 1fr);
 }
@@ -99,6 +99,8 @@
   .grid-parent {
     grid-template-columns: repeat(2, 1fr);
     margin-top: 0;
+    grid-gap: var(--spacing-md);
+
   }
   .grid-card {
     grid-column: auto;

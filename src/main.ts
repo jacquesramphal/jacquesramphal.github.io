@@ -1,8 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-
- 
-
+import { init, track, parameters } from "insights-js"
 
 import router from './router';import { Directive, DirectiveBinding, VNode } from 'vue';export const appear: Directive = {
   beforeMount(element: HTMLElement) {
@@ -25,6 +23,7 @@ import router from './router';import { Directive, DirectiveBinding, VNode } from
   }
 };
 createApp(App)
-.use(router)
+.use(router, init, track, parameters)
 .directive('appear', appear)
 .mount('#app')
+

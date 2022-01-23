@@ -7,18 +7,18 @@
     <div class="bg">
       <nav class="">
         <h1 class="hidemobile nav-link" id="wordmark" tabindex="1">
-          <router-link :to="{ name: 'Work' }"><strong>Jake Ramphal</strong></router-link>
+          <router-link :to="{ name: 'Work' }"><strong>ramphal.design</strong></router-link>
         </h1>
 
         <h1 class="showmobile nav-link" id="wordmark" tabindex="1">
-          <router-link :to="{ name: 'Work' }">Jake</router-link>
+          <router-link :to="{ name: 'Work' }"><strong>ramphal.design</strong></router-link>
         </h1>
         <ul class="justify-end">
           <li class="nav-link" tabindex="1">
-            <router-link to="info">Info</router-link>
+            <router-link to="info">info</router-link>
           </li>
           <li class="nav-link" tabindex="1">
-            <router-link to="blog">Blog</router-link>
+            <router-link to="blog">blog</router-link>
           </li>
          <!-- <li class="nav-link" tabindex="1">
             <router-link class="isDisabled" to="blog">writing</router-link>

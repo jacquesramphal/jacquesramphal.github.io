@@ -1,3 +1,8 @@
+.imgzoom:hover {
+  z-index: 2000 !important;
+  transform: scale(1.05);
+}
+
 /* AnimatedComponent Styles */
 .animated-component.fade-enter-from,
 .animated-component.zoom-enter-from {
@@ -29,6 +34,18 @@
   animation-name: animate-fade;
   animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
   animation-fill-mode: backwards;
+}
+.animate.fade {
+  animation-name: animate-fade;
+  animation-timing-function: ease-out;
+}
+@keyframes animate-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 /* Glow In */
 .animate.glow {
