@@ -30,12 +30,12 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
-  background-image: url("../assets/images/avatar.svg");
+  background-image: url("../assets/images/avatar/avatar.svg");
 }
 span:hover > #avatar {
-  background-image: url("../assets/images/avatar-h.svg");
+  background-image: url("../assets/images/avatar/avatar-h.svg");
 }
 span:active > #avatar {
-  background-image: url("../assets/images/avatar-a.svg");
+  background-image: url("../assets/images/avatar/avatar-a.svg");
 }
 </style>

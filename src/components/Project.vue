@@ -5,15 +5,15 @@
     <DetailCard2 id="detail1" class="" />
 
     <Wrapper id="" class="">
-     <Container>
+      <Container>
         <ThumbLarge
           class=""
           title=""
-          filename="template.svg"
+          filename="templates/template-lg.svg"
           alt="Jacques working at Myplanet"
           caption="This is caption text."
+          style="background-color: #ffdd9d"
         />
-        
       </Container>
     </Wrapper>
     <DetailCard id="detail2" class="topborder" header="The Solution" />
@@ -22,11 +22,11 @@
         <ThumbLarge
           class=""
           title=""
-          filename="template.svg"
+          filename="templates/template-lg.svg"
           alt="Jacques working at Myplanet"
           caption="This is caption text."
+          style="background-color: #ffdd9d"
         />
-        
       </Container>
     </Wrapper>
     <Wrapper class="  ">

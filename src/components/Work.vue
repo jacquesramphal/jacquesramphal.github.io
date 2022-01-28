@@ -1,12 +1,24 @@
 <template>
   <PageWrapper>
     <!--  <RichTextRenderer :document="document" /> -->
+    <Container class="hidemobile" tight
+      ><HeroBanner
+        id="hero"
+        class="display"
+        v-for="homePage in contentful"
+        v-bind:key="homePage.sys.id"
+        :title="homePage.heroText"
+        eyebrow=""
+      />
+    </Container>
+
     <HeroBanner
       id="hero"
+      class="display showmobile"
       v-for="homePage in contentful"
       v-bind:key="homePage.sys.id"
       :title="homePage.heroText"
-      eyebrow="Jake Ramphal"
+      eyebrow=""
     />
 
     <!--  <div v-html="homePage.heroRichText" /> -->
@@ -21,35 +33,39 @@
       <div id="recentwork" class="grid-parent">
         <ThumbSmall
           alt="J Monogram"
-          filename="j.svg"
+          filename="work/j.svg"
           id="top"
           title="Monogram"
         />
-        <ThumbSmall alt="Giftbook" filename="gob.svg" title="Giftbook" />
+
         <ThumbSmall2
           alt="Avatar"
           class="hidemobile"
-          filename="avatar.svg"
+          filename="avatar/avatar.svg"
           route="Project"
           title="Avatar"
         />
         <ThumbSmall
           alt="Avatar"
           class="showmobile"
-          filename="avatar.svg"
+          filename="avatar/avatar.svg"
           title="Avatar"
         />
-
         <ThumbSmall
           alt="Template Project"
           style="background-color: var(--link)"
-          filename="template-sm3.svg"
           title="Small Template"
+          filename="templates/template-mobile.svg"
         />
+        <ThumbSmall alt="Giftbook" filename="work/gob.svg" title="Giftbook" />
+
         <ThumbDetail
           alt="Project Template"
           style="background-color: #35363a"
           title="Project Template"
+          route="project"
+          cta="cta"
+          details="This is a project description that would give a preview into the project..."
         />
         <ThumbLarge
           alt="Template Project"

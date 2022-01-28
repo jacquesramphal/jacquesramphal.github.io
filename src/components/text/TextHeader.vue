@@ -1,6 +1,6 @@
 <template>
   <div id="textheader" style="display: grid; grid-gap: var(--spacing-md)">
-    <h2 class="" style="text-align: center">{{ title }}</h2>
+    <h2 class="" style="text-align: center" v-if="title" v-text="title" />
     <div
       class="grid-parent"
       style="text-align: center; grid-template-columns: repeat(2, 1fr)"
@@ -9,7 +9,7 @@
       <p id="tag2" class="subtle justify-start">{{ tag2 }}</p>
     </div>
     <p style="text-align: center">
-      {{ subtitle }}
+      {{ description }}
     </p>
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Post Title",
+      default: "Text Header Default",
     },
     tag1: {
       type: String,
@@ -31,7 +31,7 @@ export default {
       type: String,
       default: "Category",
     },
-    subtitle: {
+    description: {
       type: String,
       default:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",

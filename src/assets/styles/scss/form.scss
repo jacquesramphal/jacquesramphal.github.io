@@ -78,7 +78,7 @@ select:optional {
 input:required:valid,
 textarea:required:valid,
 select:required:valid {
-  /* background:  url(../images/emoji-smile.png)  no-repeat 97% 12px; */
+  /* background:  url(../images/emoji/emoji-smile.png)  no-repeat 97% 12px; */
   background-size: 28px;
   background-color: var(--bg-darker);
 }
@@ -90,14 +90,14 @@ select:required:invalid {
 input:required:focus:valid,
 textarea:required:focus:valid,
 select:required:focus:valid {
-  background: url(../../images/emoji-wink.png) no-repeat 97% 12px;
+  background: url(../../images/emoji/emoji-wink.png) no-repeat 97% 12px;
   background-size: 28px;
   border-color: var(--color-success) !important;
 }
 input:required:focus:invalid,
 textarea:required:focus:invalid,
 select:required:focus:invalid {
-  background: url(../../images/emoji-think.png) no-repeat 97% 12px;
+  background: url(../../images/emoji/emoji-think.png) no-repeat 97% 12px;
   background-size: 28px;
   /* border: 2px solid var(--color-danger) !important; */
 }

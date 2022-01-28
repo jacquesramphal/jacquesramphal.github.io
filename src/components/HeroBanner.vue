@@ -40,7 +40,7 @@ export default {
     },
     eyebrow: {
       type: String,
-      default: "Eyebrow",
+      default: "Breadcrumb / Current Page",
     },
     title: {
       type: String,
@@ -99,5 +99,5 @@ export default {
   text-align: left
   align-items: end !important
   @media only screen and (min-width: 1201px)
-    max-width: 60vw
+    max-width: 75vw
 </style>

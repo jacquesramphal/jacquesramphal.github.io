@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1905px" height="1905px" viewBox="0 0 1905 1905" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>template-v2</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="1905" height="1905"></rect>
+        <path d="M176.619262,0 L2268.89509,0 C2303.46489,0 2331.48923,28.0263308 2331.48923,62.5914349 L2331.48923,1527.7512 L114.16617,1527.7512 L114.02512,62.5914349 C114.02512,28.0263308 142.043693,0 176.613483,0 C176.615409,0 176.617335,0 176.619262,0 L176.619262,0 Z" id="path-3"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        
+        <g id="template-v2">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="background"></g>
+            <g id="device" mask="url(#mask-2)">
+                <g transform="translate(129.000000, 180.000000)">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <use id="frame" stroke="none" fill="#202427" fill-rule="nonzero" xlink:href="#path-3"></use>
+                    <rect id="screen" stroke="none" fill="#000000" fill-rule="nonzero" mask="url(#mask-4)" x="210.436603" y="100.119617" width="1638.99522" height="1263.54665"></rect>
+                    <path d="M0,1478.83705 C0,1473.59643 4.26695281,1469.34809 9.5425133,1469.34809 L2436.89888,1469.34809 C2442.16906,1469.34809 2446.44139,1473.59898 2446.44139,1478.83705 L2446.44139,1509.67404 C2446.44139,1531.94545 2428.34421,1550 2405.9929,1550 L40.4484692,1550 C18.1093961,1550 0,1531.95035 0,1509.67404 L0,1478.83705 Z" id="base" stroke="none" fill="#B6B6B6" fill-rule="nonzero"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
+

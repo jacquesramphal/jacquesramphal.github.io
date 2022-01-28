@@ -9,7 +9,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import Work from "@/components/Work.vue";
 import Project from "@/components/Project.vue";
 import MyBlog from "@/components/blog/MyBlog.vue";
-import BlogPost from "@/components/BlogPost.vue";
+import BlogPost from "@/components/blog/BlogPost.vue";
 import NotFound from "@/components/misc/NotFound.vue";
 import MaintenancePage from "@/components/misc/MaintenancePage.vue";
 import MyResume from "@/components/resume/MyResume.vue";
@@ -69,9 +69,15 @@ const routes = [
     name: "Blog",
     component: MyBlog,
   },
+  // {
+  //   path: "/post",
+  //   name: "post",
+  //   component: BlogPost,
+  // },
   {
-    path: "/post",
+    path: "/read/:blogPost",
     name: "post",
+    props: true,
     component: BlogPost,
   },
   {

@@ -11,14 +11,21 @@
       <!-- TMP BREADCRUMB -->
 
       <Container class="animate glow width">
-        <TextHeader title="Hello World" />
+        <TextHeader
+          v-for="blogPost in contentful"
+          v-bind:key="blogPost.sys.id"
+          :title="blogPost.title"
+          :tag2="blogPost.category"
+          :description="blogPost.description"
+        />
+        <!-- <TextHeader :title="title" /> -->
       </Container>
 
       <Container class="animate glow delay-1" tight id="">
         <ThumbLarge
           class=""
           title=""
-          filename="template.svg"
+          filename="work/glo.svg"
           alt="Jacques working at Myplanet"
         />
       </Container>
@@ -27,15 +34,17 @@
         <!-- <AnimatedComponent animationType="zoom"> -->
         <AnimatedComponent>
           <Container class="width">
-              <p class="dropcap">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p></Container></AnimatedComponent>
+            <p class="dropcap">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p></Container
+          ></AnimatedComponent
+        >
         <AnimatedComponent>
           <Container class="width">
             <Wrapper>
@@ -69,7 +78,7 @@
         <AnimatedComponent>
           <TextImage
             flipped
-            filename="template.svg"
+            filename="work/glo.svg"
             route="blog"
             class="reversed"
         /></AnimatedComponent>
@@ -103,7 +112,7 @@
             <ThumbLarge
               class=""
               title=""
-              filename="template.svg"
+              filename="work/glo.svg"
               alt="Jacques working at Myplanet"
               caption="This is caption text."
             />
@@ -134,7 +143,10 @@
           </AnimatedComponent>
         </Wrapper>
         <AnimatedComponent>
-          <TextImage route="blog" filename="template.svg" class=""
+          <TextImage
+            route="blog"
+            filename="work/glo.svg"
+            class=""
         /></AnimatedComponent>
       </Wrapper>
     </Wrapper>
@@ -144,8 +156,7 @@
       eyebrow="Blog / Blog Post"
       subtitle="Post Description"
     /> -->
-        <CardRow header="Related" />
-
+    <CardRow header="Related" />
   </PageWrapper>
 </template>
 
@@ -164,7 +175,29 @@ import ThumbLarge from "@/components/ThumbLarge.vue";
 // import ThumbMedium from "@/components/ThumbMedium.vue";
 
 export default {
+  // data() {
+  //   return {
+  //     blogPost: [],
+  //   };
+  // },
   name: "BlogPost",
+  props: {
+    contentful: {
+      type: Array,
+      required: true,
+      // TODO: add validation
+    },
+    title: {
+      default: "Hello World",
+      required: true,
+      type: String,
+    },
+    tag2: {
+      default: "Category",
+      required: true,
+      type: String,
+    },
+  },
   components: {
     AnimatedComponent,
     PageWrapper,

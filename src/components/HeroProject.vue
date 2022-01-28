@@ -57,7 +57,7 @@ export default {
 
 @media only screen and (min-width: 740px) {
   #hero-project {
-    background-image: url("../assets/images/template-sm.svg");
+    background-image: url("../assets/images/templates/template-v2.svg");
     background-repeat: no-repeat;
     background-size: 40%;
     background-position: 101% 50%;

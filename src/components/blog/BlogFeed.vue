@@ -20,7 +20,7 @@ import Container from "@/components/grid/Container.vue";
 import Wrapper from "@/components/grid/Wrapper.vue";
 
 export default {
-  name: "BlogPosts",
+  name: "BlogFeed",
   components: { BlogPostEntry, Container, Wrapper },
   props: {
     contentful: {

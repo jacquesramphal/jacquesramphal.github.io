@@ -200,7 +200,7 @@ a {
 }
 a:hover {
   color: var(--link) !important;
-  text-decoration: underline solid !important;
+  text-decoration: none !important;
 }
 a:active {
   text-decoration: underline wavy !important;
@@ -279,7 +279,7 @@ h3 a:active {
     }
     /* ------------ BREAKPOINT XXL ------------ */
     @media only screen and (min-width: 1680px) {
-      h2.display {
+     .display h2{
         font-size: var(--font-display);
       }
     }

@@ -29,12 +29,9 @@ export default {
       type: String,
       default: " ",
     },
-    /**
-     * Sets the image
-     */
     filename: {
       type: String,
-      default: "template-sm.svg",
+      default: "templates/template-sm.svg",
     },
     alt: {
       type: String,

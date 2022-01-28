@@ -1,6 +1,6 @@
 <template>
   <PageWrapper>
-    <HeroBanner background title="Jacques’ Ramblings" eyebrow="" />
+    <HeroBanner background title="Jacques’ Ramblings" />
     <!-- <ul class="container">
       <li v-for="blogPost in posts" v-bind:key="blogPost.sys.id">
         <p>{{ blogPost.category }}</p>
@@ -8,7 +8,8 @@
         <p>{{ blogPost.description }}</p>
       </li>
     </ul> -->
-          <BlogPosts :contentful="contentful" />
+          <BlogFeed :contentful="contentful" />
+          <BlogPost :contentful="contentful"  /> 
 
   </PageWrapper>
 </template>
@@ -16,17 +17,20 @@
 <script>
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
-import BlogPosts from "@/components/blog/BlogPosts.vue";
+import BlogFeed from "@/components/blog/BlogFeed.vue";
+import BlogPost from "@/components/blog/BlogPost.vue";
 
 // Mock data
 // import fakeposts from "@/components/blog/data/posts.json";
 
 export default {
+
   name: "MyBlog",
   components: { 
     PageWrapper, 
     HeroBanner,
-    BlogPosts,
+    BlogFeed,
+    BlogPost,
     },
   data() {
    return {

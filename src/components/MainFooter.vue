@@ -18,7 +18,8 @@
             details="If you have questions about design, development, or anything in between, let's connect!"
           />
         </div>
-        <div id="links1">
+        <AnimatedComponent>
+        <div id="links1" class="animate glow delay-1">
           <p class="subtle">Useful Links</p>
           <ol>
             <li>
@@ -37,6 +38,8 @@
             </li>
           </ol>
         </div>
+        </AnimatedComponent>
+        
         <div id="links2">
           <p class="subtle">Let's Connect</p>
           <ol>
@@ -70,7 +73,7 @@
     <Container>
       <div class="">
         <p style="font-size: var(--font-xxs)">
-          © 2022 Jacques Ramphal. Built with <a>Vue3</a>, <a>Typescript</a> &
+          © 2022 Jake Ramphal. Built with <a>Vue3</a>, <a>Typescript</a> &
           <a>Sass</a>
         </p>
       </div>
@@ -106,6 +109,7 @@ import Container from "@/components/grid/Container.vue";
 import TextBlock from "@/stories/TextBlock.vue";
 // import TextArea from "@/components/form/TextArea.vue";
 // import MyButton from "@/stories/Button.vue";
+import AnimatedComponent from "@/components/AnimatedComponent.vue";
 
 export default {
   name: "MainFooter",
@@ -113,6 +117,7 @@ export default {
     Wrapper,
     Container,
     TextBlock,
+    AnimatedComponent,
     // TextArea,
     // MyButton,
   },
@@ -126,7 +131,7 @@ export default {
 </script>
 <style lang="sass" scoped>
 #wrapper
-  // border-top: var(--border)
+  border-top: var(--border)
   // background: var(--bg-darker)
   // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, var(--bg-darker)), color-stop(100%, transparent))
   // background-image: -moz-linear-gradient(bottom, var(--bg-darker) 0%, transparent 100%)

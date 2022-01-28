@@ -1,6 +1,6 @@
 <template>
   <Wrapper id="textimage" :class="classes">
-    <Container style="padding: 0 !important;">
+    <Container style="padding: 0 !important">
       <div id="grid-parent" class="grid-parent">
         <Container tight class="imgcontainer">
           <img
@@ -11,12 +11,12 @@
         /></Container>
         <Container class="textcontainer">
           <TextBlock
+            :header="`${header}`"
             cta="Read More"
             :route="`${route}`"
             details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           />
-        </Container>
-      </div></Container
+        </Container></div></Container
   ></Wrapper>
 </template>
 <script>

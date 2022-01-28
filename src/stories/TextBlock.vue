@@ -1,6 +1,6 @@
 <template>
   <div id="textblock" :class="classes">
-    <h6 tabIndex="0" class="subtle">{{ eyebrow }}</h6>
+    <p tabIndex="0" class="subtle">{{ eyebrow }}</p>
     <h3 tabIndex="0">{{ header }}</h3>
     <p tabIndex="0">{{ details }}</p>
     <router-link :to="`${route}`"><p>{{ cta }}</p></router-link>

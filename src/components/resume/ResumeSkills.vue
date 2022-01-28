@@ -1,21 +1,14 @@
 <template>
   <div class="resume-skills">
-    <div
-        v-for="(skill, i) in skills"
-        :key="i"
-        class="resume-skills-category"
-    >
-      <h6
-          class="resume-skills-category-title"
-          v-text="skill.title"
-      />
+    <div v-for="(skill, i) in skills" :key="i" class="resume-skills-category">
+      <h6 class="resume-skills-category-title" v-text="skill.title" />
       <ul class="resume-skills-category-entries">
         <resume-skill-entry
-            v-for="(entry, j) in skill.entries"
-            :key="j"
-            :title="entry.title"
-            :level="entry.level"
-            class="resume-skills-category-entry"
+          v-for="(entry, j) in skill.entries"
+          :key="j"
+          :title="entry.title"
+          :level="entry.level"
+          class="resume-skills-category-entry"
         />
       </ul>
     </div>
@@ -23,25 +16,25 @@
 </template>
 
 <script>
-import ResumeSkillEntry from '@/components/resume/ResumeSkillEntry.vue'
+import ResumeSkillEntry from "@/components/resume/ResumeSkillEntry.vue";
 export default {
-  name: 'ResumeSkills',
+  name: "ResumeSkills",
   components: {
-    ResumeSkillEntry
+    ResumeSkillEntry,
   },
   props: {
     skills: {
       type: Array,
-      required: true
+      required: true,
       // TODO: add validation
     },
     settings: {
       type: Object,
-      required: true
+      required: true,
       // TODO: add validation
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped lang="sass">

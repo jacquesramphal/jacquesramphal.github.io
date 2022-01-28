@@ -1,7 +1,6 @@
 <template>
-  <!-- <div style="background: var(--bg-darker);" class=""> -->
   <div class="">
-    <Container id="cards" style="overflow: visible;">
+    <Container id="cards" style="overflow: visible">
       <div
         class="grid-parent"
         style="
@@ -12,15 +11,19 @@
       >
         <h3 style="text-align: left">{{ header }}</h3>
         <p class="external justify-end">
-          <router-link  :to="{ name: 'Blog' }"
-            >View All</router-link
-          >
+          <router-link :to="{ name: 'Blog' }">View All</router-link>
         </p>
       </div>
       <div class="grid-parent">
-        <DefaultCard imgurl="https://wallpaperaccess.com/full/399952.jpg" />
-        <DefaultCard imgurl="https://wallpaperaccess.com/full/141254.jpg" />
-        <DefaultCard imgurl="https://wallpaperaccess.com/full/533108.jpg" />
+        <DefaultCard
+          v-for="blogPost in contentful"
+          v-bind:key="blogPost.sys.id"
+          :image="blogPost.image"
+          :category="blogPost.category"
+          :imgurl="blogPost.imgurl"
+          :title="blogPost.title"
+          :description="blogPost.description"
+        />
       </div>
     </Container>
   </div>
@@ -40,6 +43,59 @@ export default {
     header: {
       type: String,
       default: "Ramblings",
+    },
+  },
+  data() {
+    return {
+      contentful: [],
+    };
+  },
+  async created() {
+    this.contentful = await this.getContentful();
+  },
+  methods: {
+    getContentful: async () => {
+      const query = `{
+       blogPostCollection(limit: 3) {
+         items {
+           sys {
+             id
+           }
+           category
+           title
+           description
+           imgurl
+           image {
+            title
+            description
+            contentType
+            fileName
+            size
+            url
+            width
+            height
+          }
+         }
+       }
+     }`;
+      const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
+      const fetchOptions = {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ query }),
+      };
+
+      try {
+        const response = await fetch(fetchUrl, fetchOptions).then((response) =>
+          response.json()
+        );
+        return response.data.blogPostCollection.items;
+      } catch (error) {
+        throw new Error("Could not receive the data from Contentful!");
+      }
     },
   },
 };

@@ -35,7 +35,7 @@ export default {
     },
     filename: {
       type: String,
-      default: "template-lg.svg",
+      default: "templates/template-lg.svg",
     },
     alt: {
       type: String,
