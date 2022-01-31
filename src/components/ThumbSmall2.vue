@@ -31,6 +31,8 @@ export default {
   background-repeat: no-repeat;
   background-size: 100%;
   background-image: url("../assets/images/avatar/avatar.svg");
+  filter: var(--filter);
+
 }
 span:hover > #avatar {
   background-image: url("../assets/images/avatar/avatar-h.svg");

@@ -68,11 +68,11 @@
           details="This is a project description that would give a preview into the project..."
         />
         <ThumbLarge
-          alt="Template Project"
-          class="hidemobile"
-          style="background-color: #ffdd9d"
-          route="Blog"
-          title="Project Template"
+          title=""
+          alt="Jacques working at Myplanet"
+          route=""
+          style="background-color: var(--link)"
+          caption=""
         />
         <ThumbSmall
           alt="Template Project"

@@ -9,7 +9,7 @@
       </li>
     </ul> -->
           <BlogFeed :contentful="contentful" />
-          <BlogPost :contentful="contentful"  /> 
+<!--          <BlogPost :contentful="contentful"  />  -->
 
   </PageWrapper>
 </template>
@@ -18,7 +18,7 @@
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
 import BlogFeed from "@/components/blog/BlogFeed.vue";
-import BlogPost from "@/components/blog/BlogPost.vue";
+// import BlogPost from "@/components/blog/BlogPost.vue";
 
 // Mock data
 // import fakeposts from "@/components/blog/data/posts.json";
@@ -30,7 +30,7 @@ export default {
     PageWrapper, 
     HeroBanner,
     BlogFeed,
-    BlogPost,
+    // BlogPost,
     },
   data() {
    return {

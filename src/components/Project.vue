@@ -16,7 +16,12 @@
         />
       </Container>
     </Wrapper>
-    <DetailCard id="detail2" class="topborder" header="The Solution" />
+    <DetailCard
+      id="detail2"
+      class="topborder"
+      header="The Solution"
+      eyebrow1="testing"
+    />
     <Wrapper id="" class="">
       <Container>
         <ThumbLarge

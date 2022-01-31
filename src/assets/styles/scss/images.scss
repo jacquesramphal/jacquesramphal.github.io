@@ -13,6 +13,9 @@
   position: absolute;
   width: 100%;
 } */
+
+
+
 img {
   background-position: center;
   background-repeat: no-repeat;
@@ -20,9 +23,9 @@ img {
   width: 100%;
   margin: 0;
   border-radius: var(--spacing-xxs) !important;
-
-  
+  filter: var(--filter);
 }
+
 .bg-template {
   background-image: url("/images/template.svg");
 }

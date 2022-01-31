@@ -1,7 +1,6 @@
 <template>
   <figure class="hero grid-card">
-    <span class="grid-card"
-      >
+    <span class="grid-card" >
       <span tabindex="0" class="caption">
         <h6 tabIndex="0" class="">{{ title }}</h6>
         <p tabIndex="0" class="subtle">{{ date }}</p>
@@ -9,12 +8,13 @@
       <router-link :to="`${route}`">
         <span class="overlay"></span>
         <img
+        
           draggable="false"
           :src="require(`@/assets/images/${filename}`)"
           :alt="`${alt}`"
         /> </router-link
-    ></span>
-    <figcaption class="subtle">{{ caption }}</figcaption>
+    >
+</span>    <figcaption class="subtle">{{ caption }}</figcaption>
   </figure>
 </template>
 
@@ -31,7 +31,7 @@ export default {
     },
     caption: {
       type: String,
-
+      required: false,
     },
     filename: {
       type: String,
@@ -51,14 +51,14 @@ export default {
 
 <style lang="sass" scoped>
 
-.caption 
+.caption
   display: block !important
 img
   aspect-ratio: 16 / 8
-.hero 
+.hero
   grid-column: 1 / 4
   @media only screen and (min-width: 740px)
     grid-column: 1 / 3
   @media only screen and (min-width: 1201px)
-    grid-column: 1 / 4    
+    grid-column: 1 / 4
 </style>

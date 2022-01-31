@@ -149,6 +149,7 @@ li {
   position: absolute;
   text-rendering: optimizeLegibility;
   transition: all 0.1s ease-in-out;
+  z-index: 100;
 }
 .grid-card:hover .caption {
   color: var(--color-dark) !important;

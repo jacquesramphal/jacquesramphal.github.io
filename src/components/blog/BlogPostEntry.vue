@@ -1,8 +1,8 @@
 <template>
   <li class="blog-post-entry grid-parent">
     <div class="blog-image">
-      <router-link :to="`/read/${blogPost.id}`">
-     <!-- <router-link :to="`${route}`"> -->
+      <!-- <router-link :to="`/read/${blogPost.id}`"> -->
+    <router-link :to="`${route}`">
         <img v-if="imgurl" :src="imgurl" alt="Blog Image"
       /></router-link>
     </div>
@@ -56,11 +56,11 @@ export default {
       default: "Category",
       type: String,
     },
-    // route: {
-    //   type: String,
-    //   required: true,
-    //   default: "post",
-    // },
+    route: {
+      type: String,
+      required: true,
+      default: "post",
+    },
   },
 };
 </script>

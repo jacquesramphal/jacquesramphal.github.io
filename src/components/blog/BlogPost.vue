@@ -12,11 +12,9 @@
 
       <Container class="animate glow width">
         <TextHeader
-          v-for="blogPost in contentful"
-          v-bind:key="blogPost.sys.id"
-          :title="blogPost.title"
-          :tag2="blogPost.category"
-          :description="blogPost.description"
+          v-for="about in contentful"
+          v-bind:key="about.sys.id"
+          :title="about.pageTitle"
         />
         <!-- <TextHeader :title="title" /> -->
       </Container>
@@ -143,10 +141,7 @@
           </AnimatedComponent>
         </Wrapper>
         <AnimatedComponent>
-          <TextImage
-            route="blog"
-            filename="work/glo.svg"
-            class=""
+          <TextImage route="blog" filename="work/glo.svg" class=""
         /></AnimatedComponent>
       </Wrapper>
     </Wrapper>
@@ -182,11 +177,11 @@ export default {
   // },
   name: "BlogPost",
   props: {
-    contentful: {
-      type: Array,
-      required: true,
-      // TODO: add validation
-    },
+    // contentful: {
+    //   type: Array,
+    //   required: true,
+    //   // TODO: add validation
+    // },
     title: {
       default: "Hello World",
       required: true,
@@ -213,6 +208,48 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0);
+  },
+  data() {
+    return {
+      contentful: [],
+    };
+  },
+  async created() {
+    this.contentful = await this.getContentful();
+  },
+  methods: {
+    getContentful: async () => {
+      const query = `{
+       aboutCollection {
+         items {
+           sys {
+             id
+           }
+           eyebrow
+           pageTitle
+          
+         }
+       }
+     }`;
+      const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
+      const fetchOptions = {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ query }),
+      };
+
+      try {
+        const response = await fetch(fetchUrl, fetchOptions).then((response) =>
+          response.json()
+        );
+        return response.data.aboutCollection.items;
+      } catch (error) {
+        throw new Error("Could not receive the data from Contentful!");
+      }
+    },
   },
 };
 </script>
