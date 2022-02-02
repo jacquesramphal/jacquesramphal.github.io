@@ -1,12 +1,14 @@
 <template>
   <PageWrapper>
     <HeroBanner
+      style="background: var(--link-reversed)"
       v-for="about in contentful"
       v-bind:key="about.sys.id"
       :eyebrow="about.eyebrow"
       :title="about.pageTitle"
     />
     <DetailCard
+      style="border-top: var(--border)"
       v-for="about in contentful"
       v-bind:key="about.sys.id"
       :header="about.detailHeader"

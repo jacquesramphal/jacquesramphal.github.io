@@ -23,6 +23,7 @@
           :imgurl="blogPost.imgurl"
           :title="blogPost.title"
           :description="blogPost.description"
+          :route="blogPost.route"
         />
       </div>
     </Container>
@@ -65,6 +66,7 @@ export default {
            title
            description
            imgurl
+           route
            image {
             title
             description

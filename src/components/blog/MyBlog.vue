@@ -1,6 +1,10 @@
 <template>
   <PageWrapper>
-    <HeroBanner background title="Jacques’ Ramblings" />
+    <HeroBanner
+      style="background: var(--bg-darker)"
+      title="Jacques’ Ramblings"
+      eyebrow=""
+    />
     <!-- <ul class="container">
       <li v-for="blogPost in posts" v-bind:key="blogPost.sys.id">
         <p>{{ blogPost.category }}</p>
@@ -8,9 +12,9 @@
         <p>{{ blogPost.description }}</p>
       </li>
     </ul> -->
-          <BlogFeed :contentful="contentful" />
-<!--          <BlogPost :contentful="contentful"  />  -->
 
+    <BlogFeed :contentful="contentful" />
+    <!--          <BlogPost :contentful="contentful"  />  -->
   </PageWrapper>
 </template>
 
@@ -24,22 +28,21 @@ import BlogFeed from "@/components/blog/BlogFeed.vue";
 // import fakeposts from "@/components/blog/data/posts.json";
 
 export default {
-
   name: "MyBlog",
-  components: { 
-    PageWrapper, 
+  components: {
+    PageWrapper,
     HeroBanner,
     BlogFeed,
     // BlogPost,
-    },
+  },
   data() {
-   return {
-     contentful: [],
-   };
- },
- async created() {
-   this.contentful = await this.getContentful();
- },
+    return {
+      contentful: [],
+    };
+  },
+  async created() {
+    this.contentful = await this.getContentful();
+  },
   methods: {
     getContentful: async () => {
       const query = `{
@@ -52,6 +55,7 @@ export default {
            title
            description
            imgurl
+           route
            image {
             title
             description
@@ -65,26 +69,26 @@ export default {
          }
        }
      }`;
-     const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
-     const fetchOptions = {
-       method: "POST",
-       headers: {
-         Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
-         "Content-Type": "application/json"
-       },
-       body: JSON.stringify({ query })
-     };
+      const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
+      const fetchOptions = {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ query }),
+      };
 
-     try {
-       const response = await fetch(fetchUrl, fetchOptions).then(response =>
-         response.json()
-       );
-       return response.data.blogPostCollection.items;
-     } catch (error) {
-       throw new Error("Could not receive the data from Contentful!");
-     }
-   }
- }
+      try {
+        const response = await fetch(fetchUrl, fetchOptions).then((response) =>
+          response.json()
+        );
+        return response.data.blogPostCollection.items;
+      } catch (error) {
+        throw new Error("Could not receive the data from Contentful!");
+      }
+    },
+  },
 };
 </script>
 

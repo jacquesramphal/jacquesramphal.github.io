@@ -12,7 +12,8 @@
       </h4>
 
       <p v-if="description" class="entry-description" v-html="description" />
-      <MyButton label="Read More" size="large" />
+      <MyButton label="Read More" size="large" :route="`${route}`"/>
+      <!-- <MyButton label="Read More" size="large" :onclick="window.location='http://www.google.com';" /> -->
     </div>
   </li>
 </template>
@@ -46,7 +47,6 @@ export default {
     route: {
       type: String,
       required: true,
-      default: "post",
     },
   },
 };

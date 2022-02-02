@@ -1,17 +1,25 @@
 <template>
-  <button type="button" :class="classes" @click="onClick" :style="style">{{ label }}</button>
+  <router-link :to="`${route}`">
+    <button type="button" :class="classes" @click="onClick" :style="style">
+      {{ label }}
+    </button></router-link
+  >
 </template>
 
 <script>
-import { reactive, computed } from 'vue';
+import { reactive, computed } from "vue";
 
 export default {
-  name: 'my-button',
+  name: "my-button",
 
   props: {
     label: {
       type: String,
       required: true,
+    },
+    route: {
+      type: String,
+      required: false,
     },
     primary: {
       type: Boolean,
@@ -20,7 +28,7 @@ export default {
     size: {
       type: String,
       validator: function (value) {
-        return ['small', 'large'].indexOf(value) !== -1;
+        return ["small", "large"].indexOf(value) !== -1;
       },
     },
     backgroundColor: {
@@ -28,24 +36,24 @@ export default {
     },
   },
 
-  emits: ['click'],
+  emits: ["click"],
 
   setup(props, { emit }) {
     props = reactive(props);
     return {
       classes: computed(() => ({
-        'storybook-button': true,
-        'storybook-button--primary': props.primary,
-        'storybook-button--secondary': !props.primary,
-        [`storybook-button--${props.size || 'large'}`]: true,
+        "storybook-button": true,
+        "storybook-button--primary": props.primary,
+        "storybook-button--secondary": !props.primary,
+        [`storybook-button--${props.size || "large"}`]: true,
       })),
       style: computed(() => ({
         backgroundColor: props.backgroundColor,
       })),
       onClick() {
-        emit('click');
-      }
-    }
+        emit("click");
+      },
+    };
   },
 };
 </script>
@@ -67,7 +75,7 @@ export default {
   background-color: var(--link) !important;
 }
 .storybook-button--secondary {
-background-color: transparent !important;
+  background-color: transparent !important;
   color: var(--text) !important;
   border: 1px solid var(--link) !important;
 }
@@ -75,11 +83,9 @@ background-color: transparent !important;
   font-size: 12px;
   padding: 1rem 2rem 1rem 2rem;
   /* border-radius: 100px; */
-
 }
 .storybook-button--large {
   font-size: 16px;
   padding: 1.5rem 2.5rem 1.5rem 2.5rem;
 }
-
 </style>

@@ -59,7 +59,6 @@ export default {
     route: {
       type: String,
       required: true,
-      default: "post",
     },
   },
 };

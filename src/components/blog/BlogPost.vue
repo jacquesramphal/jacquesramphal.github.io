@@ -11,12 +11,12 @@
       <!-- TMP BREADCRUMB -->
 
       <Container class="animate glow width">
-        <TextHeader
+       <!-- <TextHeader
           v-for="about in contentful"
           v-bind:key="about.sys.id"
           :title="about.pageTitle"
-        />
-        <!-- <TextHeader :title="title" /> -->
+        /> -->
+        <TextHeader :title="title" /> 
       </Container>
 
       <Container class="animate glow delay-1" tight id="">

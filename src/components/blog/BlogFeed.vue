@@ -1,27 +1,54 @@
 <template>
   <Wrapper id="blog">
-    <Container>
-        <blog-post-entry
-          v-for="blogPost in contentful"
-          v-bind:key="blogPost.sys.id"
-          :image="blogPost.image"
-          :imgurl="blogPost.imgurl"
-          :category="blogPost.category"
-          :title="blogPost.title"
-          :description="blogPost.description"
-        />
-    </Container>
+    <!--  list view -->
+    <!-- <Container>
+      <blog-post-entry
+        v-for="blogPost in contentful"
+        v-bind:key="blogPost.sys.id"
+        :image="blogPost.image"
+        :imgurl="blogPost.imgurl"
+        :category="blogPost.category"
+        :title="blogPost.title"
+        :description="blogPost.description"
+        :route="blogPost.route"
+      />
+    </Container> -->
+
+    <!--  card view -->
+
+    <div class="">
+      <Container id="cards" style="overflow: visible">
+        
+        <div class="grid-parent">
+          <DefaultCard
+            v-for="blogPost in contentful"
+            v-bind:key="blogPost.sys.id"
+            :image="blogPost.image"
+            :category="blogPost.category"
+            :imgurl="blogPost.imgurl"
+            :title="blogPost.title"
+            :description="blogPost.description"
+            :route="blogPost.route"
+          />
+        </div>
+      </Container>
+    </div>
   </Wrapper>
 </template>
 
 <script>
-import BlogPostEntry from "@/components/blog/BlogPostEntry.vue";
+// import BlogPostEntry from "@/components/blog/BlogPostEntry.vue";
+import DefaultCard from "@/components/card/DefaultCard.vue";
 import Container from "@/components/grid/Container.vue";
 import Wrapper from "@/components/grid/Wrapper.vue";
 
 export default {
   name: "BlogFeed",
-  components: { BlogPostEntry, Container, Wrapper },
+  components: { 
+    // BlogPostEntry, 
+  Container, 
+  Wrapper, 
+  DefaultCard },
   props: {
     contentful: {
       type: Array,

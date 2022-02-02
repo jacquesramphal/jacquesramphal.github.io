@@ -19,27 +19,31 @@
           />
         </div>
         <AnimatedComponent>
-        <div id="links1" class="animate glow delay-1">
-          <p class="subtle">Useful Links</p>
-          <ol>
-            <li>
-              <router-link :to="{ name: 'Info' }">About this site</router-link>
-            </li>
-            <li><router-link :to="{ name: 'Resume' }">Resume</router-link></li>
-            <li>
-              <router-link :to="{ name: 'Blog' }">Ramphal Blog</router-link>
-            </li>
-            <li><router-link :to="{ name: '' }">Storybook</router-link></li>
-            <li>
-              <router-link :to="{ name: 'Work' }">Recent Work</router-link>
-            </li>
-            <li>
-              <router-link :to="{ name: 'Work' }">Fire Links</router-link>
-            </li>
-          </ol>
-        </div>
+          <div id="links1" class="animate glow delay-1">
+            <p class="subtle">Useful Links</p>
+            <ol>
+              <li>
+                <router-link :to="{ name: 'Info' }"
+                  >About this site</router-link
+                >
+              </li>
+              <li>
+                <router-link :to="{ name: 'Resume' }">Resume</router-link>
+              </li>
+              <li>
+                <router-link :to="{ name: 'Blog' }">Ramphal Blog</router-link>
+              </li>
+              <li><router-link :to="{ name: '' }">Storybook</router-link></li>
+              <li>
+                <router-link :to="{ name: 'Work' }">Recent Work</router-link>
+              </li>
+              <li>
+                <router-link :to="{ name: 'Work' }">Fire Links</router-link>
+              </li>
+            </ol>
+          </div>
         </AnimatedComponent>
-        
+
         <div id="links2">
           <p class="subtle">Let's Connect</p>
           <ol>
@@ -54,27 +58,29 @@
               >
             </li>
             <li class="external">
-              <a target="blank" href="https://github.com/jacquesramphal"
+              <a target="blank" href="https://github.com/jacquesramphal/jacquesramphal.github.io/issues"
                 >Submit an issue</a
               >
             </li>
           </ol>
         </div>
-        <div id="links3">
+       <!-- <div id="links3">
           <p class="subtle">More</p>
           <ol>
             <li class="">
               <a>Privacy Policy</a>
             </li>
           </ol>
-        </div>
+        </div> -->
       </div>
     </Container>
     <Container>
       <div class="">
         <p style="font-size: var(--font-xxs)">
-          © 2022 Jake Ramphal. Built with <a>Vue3</a>, <a>Typescript</a> &
-          <a>Sass</a>
+          © 2022 Jake Ramphal. Built with
+          <a target="blank" href="https://v3.vuejs.org/">Vue3</a>,
+          <a target="blank" href="https://www.typescriptlang.org/">Typescript</a> &
+          <a target="blank" href="https://sass-lang.com/">Sass</a>
         </p>
       </div>
     </Container>
