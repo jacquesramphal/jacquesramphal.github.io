@@ -5,7 +5,7 @@
 // app.component("AnimatedComponent", AnimatedComponent); // global registration - can be used anywhere
 // app.mount("#app");
 
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import BlogPost from "@/components/blog/BlogPost.vue";
 import Info from "@/components/Info.vue";
 import Library from "@/components/Library.vue";
@@ -88,8 +88,10 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 });
+
+
 
 export default router;
