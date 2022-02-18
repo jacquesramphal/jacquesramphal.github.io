@@ -58,13 +58,15 @@
               >
             </li>
             <li class="external">
-              <a target="blank" href="https://github.com/jacquesramphal/jacquesramphal.github.io/issues"
+              <a
+                target="blank"
+                href="https://github.com/jacquesramphal/jacquesramphal.github.io/issues"
                 >Submit an issue</a
               >
             </li>
           </ol>
         </div>
-       <!-- <div id="links3">
+        <!-- <div id="links3">
           <p class="subtle">More</p>
           <ol>
             <li class="">
@@ -79,8 +81,11 @@
         <p style="font-size: var(--font-xxs)">
           © 2022 Jake Ramphal. Built with
           <a target="blank" href="https://v3.vuejs.org/">Vue3</a>,
-          <a target="blank" href="https://www.typescriptlang.org/">Typescript</a> &
-          <a target="blank" href="https://sass-lang.com/">Sass</a>
+          <a target="blank" href="https://www.typescriptlang.org/"
+            >Typescript</a
+          >
+          & <a target="blank" href="https://sass-lang.com/">Sass</a>. Deployed
+          on <a target="blank" href="https://www.netlify.com/">Netlify</a>.
         </p>
       </div>
     </Container>
@@ -137,8 +142,8 @@ export default {
 </script>
 <style lang="sass" scoped>
 #wrapper
-  border-top: var(--border)
-  // background: var(--bg-darker)
+  // border-top: var(--border)
+  background: var(--bg-darker)
   // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, var(--bg-darker)), color-stop(100%, transparent))
   // background-image: -moz-linear-gradient(bottom, var(--bg-darker) 0%, transparent 100%)
   padding-bottom: var(--spacing-lg)

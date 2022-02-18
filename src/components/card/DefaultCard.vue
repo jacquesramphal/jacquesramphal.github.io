@@ -67,7 +67,7 @@ export default {
   -moz-transition: all 0.25s ease-in-out
   -o-transition: all 0.25s ease-in-out
   -webkit-transition: all 0.25s ease-in-out
-  // box-shadow: var(--shadow-light)
+  box-shadow: var(--shadow-light)
   border: var(--border)
   &:hover
     box-shadow: var(--shadow-heavy  )
