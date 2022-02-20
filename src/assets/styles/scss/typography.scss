@@ -277,12 +277,13 @@ h3 a:active {
       h2 {
         font-size: var(--font-xxxl);
       }
+      .display h2{
+        font-size: var(--font-display);
+      }
     }
     /* ------------ BREAKPOINT XXL ------------ */
     @media only screen and (min-width: 1680px) {
-     .display h2{
-        font-size: var(--font-display);
-      }
+     
     }
   }
 }

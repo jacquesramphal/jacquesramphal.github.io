@@ -1,16 +1,14 @@
 <template>
   <PageWrapper>
     <!--  <RichTextRenderer :document="document" /> -->
-    <Container class="hidemobile" tight
-      ><HeroBanner
-        id="hero"
-        class="display"
-        v-for="homePage in contentful"
-        v-bind:key="homePage.sys.id"
-        :title="homePage.heroText"
-        eyebrow=""
-      />
-    </Container>
+    <HeroBanner
+      id="hero"
+      class="display hidemobile"
+      v-for="homePage in contentful"
+      v-bind:key="homePage.sys.id"
+      :title="homePage.heroText"
+      eyebrow=""
+    />
 
     <HeroBanner
       id="hero"
@@ -23,13 +21,27 @@
 
     <!--  <div v-html="homePage.heroRichText" /> -->
 
-    <!-- NOT WORKING -->
+    <!-- NOT WORKING
     <div v-for="homePage in contentful" v-bind:key="homePage.sys.id">
       <p v-html="richtextToHTML(homePage.heroRichText)"></p>
     </div>
-    <!-- ^ NOT WORKING -->
+^ NOT WORKING -->
 
-    <Container tight id="work">
+    <Container id="work">
+      <div
+        id="tmp-header-link"
+        class="grid-parent"
+        style="
+          padding-bottom: var(--spacing-md);
+          align-items: center;
+          grid-template-columns: repeat(2, 1fr);
+        "
+      >
+        <h3 class="subtle" style="text-align: left">{{ header }}</h3>
+        <p class="external justify-end">
+          <router-link :to="{ name: 'Work' }">Request Access</router-link>
+        </p>
+      </div>
       <div id="recentwork" class="grid-parent">
         <ThumbSmall
           alt="J Monogram"
@@ -67,19 +79,19 @@
           cta="cta"
           details="This is a project description that would give a preview into the project..."
         />
-        <ThumbLarge
+       <!-- <ThumbLarge
           title=""
+          filename="work/glo.svg"
+          class="hidemobile"
           alt="Jacques working at Myplanet"
           route=""
-          style="background-color: var(--link)"
-          caption=""
         />
         <ThumbSmall
           alt="Template Project"
           class="showmobile"
           style="background-color: #ffdd9d"
           title="Small Template"
-        />
+        /> -->
       </div>
     </Container>
     <CardRow />
@@ -106,7 +118,7 @@ import Container from "@/components/grid/Container.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
-import ThumbLarge from "@/components/ThumbLarge.vue";
+// import ThumbLarge from "@/components/ThumbLarge.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
 import CardRow from "@/components/CardRow.vue";
 
@@ -120,17 +132,24 @@ export default {
     ThumbSmall,
     ThumbSmall2,
     ThumbDetail,
-    ThumbLarge,
+    // ThumbLarge,
     // RichText,
     // RichTextRenderer,
     // TextImage,
     CardRow,
+  },
+  props: {
+    header: {
+      type: String,
+      default: "Work",
+    },
   },
   data() {
     return {
       contentful: [],
     };
   },
+
   async created() {
     this.contentful = await this.getContentful();
   },
@@ -188,7 +207,7 @@ export default {
 #hero
   border-bottom: none !important
 #work
-  padding-top: 0 !important
+  // padding-top: 0 !important
 .container
   // background-color: var(--color-white)
   padding-top: 0 !important

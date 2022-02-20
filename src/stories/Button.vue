@@ -21,7 +21,7 @@ export default {
       type: String,
       required: false,
     },
-    primary: {
+    secondary: {
       type: Boolean,
       default: false,
     },
@@ -43,8 +43,8 @@ export default {
     return {
       classes: computed(() => ({
         "storybook-button": true,
-        "storybook-button--primary": props.primary,
-        "storybook-button--secondary": !props.primary,
+        "storybook-button--secondary": props.secondary,
+        "storybook-button--primary": !props.secondary,
         [`storybook-button--${props.size || "large"}`]: true,
       })),
       style: computed(() => ({
@@ -74,10 +74,17 @@ export default {
   color: var(--text-reversed) !important;
   background-color: var(--link) !important;
 }
+.storybook-button--primary:hover {
+  opacity: 0.8;
+}
 .storybook-button--secondary {
   background-color: transparent !important;
   color: var(--text) !important;
   border: 1px solid var(--link) !important;
+}
+.storybook-button--secondary:hover {
+  color: var(--text-reversed) !important;
+  background-color: var(--link) !important;
 }
 .storybook-button--small {
   font-size: 12px;

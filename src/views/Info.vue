@@ -1,7 +1,7 @@
 <template>
   <PageWrapper>
     <HeroBanner
-      style="background: var(--link-reversed)"
+      background
       v-for="about in contentful"
       v-bind:key="about.sys.id"
       :eyebrow="about.eyebrow"

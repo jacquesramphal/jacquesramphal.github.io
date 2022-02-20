@@ -7,7 +7,7 @@
       class="switch-checkbox"
     />
     <label for="checkbox" class="switch-label">
-   <span><a><p>Theme</p></a></span>
+   <!--<span><a><p>Theme</p></a></span>-->
 
       <div class="switch-toggle" :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
       ></div>
@@ -72,7 +72,7 @@ export default {
   border-radius: 100px
   cursor: pointer
   color: var(--text) !important
-  font-size: var(--font-xs)
+  font-size: var(--font-sm)
   height: var(--font-xs)
   display: flex
   position: absolute
@@ -94,17 +94,17 @@ export default {
 // EMOJI SWITCH
 
 
-// .switch-toggle::before
-//   content: "🌒"
+.switch-toggle::before
+  content: "🌒"
 
-// .switch-toggle:hover::before
-//   content: "🌓"
+.switch-toggle:hover::before
+  content: "🌓"
 
-// .switch-toggle:active::before
-//   content: "🌓"
+.switch-toggle:active::before
+  content: "🌓"
 
-// .switch-toggle-checked::before
-//   content: "🌔"
+.switch-toggle-checked::before
+  content: "🌔"
 
 
 

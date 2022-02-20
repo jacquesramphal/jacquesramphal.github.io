@@ -84,7 +84,7 @@ export default {
     background-position: 100% 50%
 
 .herobanner--normal
-  // background: var(--bg-darker)
+  background: var(--bg-darker)
   // border-bottom: var(--border)
 
 .herobanner--background

@@ -12,7 +12,7 @@
       </h4>
 
       <p v-if="description" class="entry-description" v-html="description" />
-      <MyButton label="Read More" size="large" :route="`${route}`"/>
+      <MyButton secondary label="Read More" size="large" :route="`${route}`"/>
       <!-- <MyButton label="Read More" size="large" :onclick="window.location='http://www.google.com';" /> -->
     </div>
   </li>
@@ -68,9 +68,11 @@ export default {
   -o-transition: all 0.25s ease-in-out
   -webkit-transition: all 0.25s ease-in-out
   box-shadow: var(--shadow-light)
-  border: var(--border)
+  // border: var(--border)
   &:hover
-    box-shadow: var(--shadow-heavy  )
+    box-shadow: var(--shadow-hover  )
+      // border: var(--border)
+
 .info
   padding: var(--spacing-md)
 .entry-description

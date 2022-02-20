@@ -14,8 +14,8 @@
         <div id="maindetails">
           <TextBlock
             eyebrow=""
-            header="What else?"
-            details="If you have questions about design, development, or anything in between, let's connect!"
+            header="Full-stack Product Designer at Myplanet"
+            details="If you have questions about design, development, or anything in between, let’s connect!"
           />
         </div>
         <AnimatedComponent>
@@ -66,14 +66,14 @@
             </li>
           </ol>
         </div>
-        <!-- <div id="links3">
+       <div id="links3">
           <p class="subtle">More</p>
           <ol>
             <li class="">
               <a>Privacy Policy</a>
             </li>
           </ol>
-        </div> -->
+        </div> 
       </div>
     </Container>
     <Container>
@@ -143,7 +143,7 @@ export default {
 <style lang="sass" scoped>
 #wrapper
   // border-top: var(--border)
-  background: var(--bg-darker)
+  // background: var(--bg-darker)
   // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, var(--bg-darker)), color-stop(100%, transparent))
   // background-image: -moz-linear-gradient(bottom, var(--bg-darker) 0%, transparent 100%)
   padding-bottom: var(--spacing-lg)

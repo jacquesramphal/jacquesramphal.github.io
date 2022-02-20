@@ -7,14 +7,14 @@
 
 import { createRouter, createWebHistory } from "vue-router";
 import BlogPost from "@/components/blog/BlogPost.vue";
-import Info from "@/components/Info.vue";
-import Library from "@/components/Library.vue";
-import MaintenancePage from "@/components/misc/MaintenancePage.vue";
-import MyBlog from "@/components/blog/MyBlog.vue";
-import MyResume from "@/components/resume/MyResume.vue";
-import NotFound from "@/components/misc/NotFound.vue";
-import Project from "@/components/Project.vue";
-import Work from "@/components/Work.vue";
+import Info from "@/views/Info.vue";
+import Library from "@/views/Library.vue";
+import MaintenancePage from "@/views/misc/MaintenancePage.vue";
+import MyBlog from "@/views/MyBlog.vue";
+import MyResume from "@/views/MyResume.vue";
+import NotFound from "@/views/misc/NotFound.vue";
+import Project from "@/views/Project.vue";
+import Work from "@/views/Work.vue";
 
 const routes = [
   {

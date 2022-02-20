@@ -14,7 +14,7 @@
           :alt="`${alt}`"
         /> </router-link
     >
-</span>    <figcaption class="subtle">{{ caption }}</figcaption>
+</span>    <figcaption v-if="caption" v-text="caption" class="subtle" />
   </figure>
 </template>
 
