@@ -1,7 +1,7 @@
 <template>
   <span class="grid-card">
     <span tabindex="0" class="caption">
-      <h6 tabIndex="0" class="">{{ title }}</h6>
+      <p tabIndex="0" class="">{{ title }}</p>
     </span>
     <span class="overlay"> </span>
     <div id="avatar" draggable="false" :alt="`${alt}`" />
@@ -23,6 +23,8 @@ export default {
 </script>
 
 <style scoped>
+
+
 #avatar {
   cursor: help;
   height: 100%;

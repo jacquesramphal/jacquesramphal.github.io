@@ -2,7 +2,7 @@
   <figure class="hero grid-card">
     <span class="grid-card" >
       <span tabindex="0" class="caption">
-        <h6 tabIndex="0" class="">{{ title }}</h6>
+        <p tabIndex="0" class="">{{ title }}</p>
         <p tabIndex="0" class="subtle">{{ date }}</p>
       </span>
       <router-link :to="`${route}`">

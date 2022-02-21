@@ -3,22 +3,12 @@
     <!--  <RichTextRenderer :document="document" /> -->
     <HeroBanner
       id="hero"
-      class="display hidemobile"
+      class="display"
       v-for="homePage in contentful"
       v-bind:key="homePage.sys.id"
       :title="homePage.heroText"
       eyebrow=""
     />
-
-    <HeroBanner
-      id="hero"
-      class="display showmobile"
-      v-for="homePage in contentful"
-      v-bind:key="homePage.sys.id"
-      :title="homePage.heroText"
-      eyebrow=""
-    />
-
     <!--  <div v-html="homePage.heroRichText" /> -->
 
     <!-- NOT WORKING
@@ -27,21 +17,7 @@
     </div>
 ^ NOT WORKING -->
 
-    <Container id="work">
-      <div
-        id="tmp-header-link"
-        class="grid-parent"
-        style="
-          padding-bottom: var(--spacing-md);
-          align-items: center;
-          grid-template-columns: repeat(2, 1fr);
-        "
-      >
-        <h3 class="subtle" style="text-align: left">{{ header }}</h3>
-        <p class="external justify-end">
-          <router-link :to="{ name: 'Work' }">Request Access</router-link>
-        </p>
-      </div>
+    <Container tight id="work">
       <div id="recentwork" class="grid-parent">
         <ThumbSmall
           alt="J Monogram"
@@ -95,14 +71,7 @@
       </div>
     </Container>
     <CardRow />
-    <!--   <HeroLanding
-      v-for="homePage in contentful"
-      v-bind:key="homePage.sys.id"
-      :heroText="homePage.heroText"
-    /> -->
-
-    <!--    <TextImage flipped route="blog" class="reversed" /> -->
-  </PageWrapper>
+     </PageWrapper>
 </template>
 
 <script>
@@ -114,7 +83,6 @@ import { BLOCKS } from "@contentful/rich-text-types";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Container from "@/components/grid/Container.vue";
-// import HeroLanding from "@/components/HeroLanding.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
@@ -128,14 +96,11 @@ export default {
     HeroBanner,
     PageWrapper,
     Container,
-    // HeroLanding,
     ThumbSmall,
     ThumbSmall2,
     ThumbDetail,
-    // ThumbLarge,
     // RichText,
     // RichTextRenderer,
-    // TextImage,
     CardRow,
   },
   props: {
@@ -207,7 +172,7 @@ export default {
 #hero
   border-bottom: none !important
 #work
-  // padding-top: 0 !important
+  padding-top: 0 !important
 .container
   // background-color: var(--color-white)
   padding-top: 0 !important

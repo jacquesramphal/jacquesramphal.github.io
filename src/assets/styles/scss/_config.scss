@@ -10,6 +10,11 @@
   --text-reversed: var(--color-offwhite);
   --background-reversed: var(--color-offblack);
   --bg-darker-reversed: var(--color-highlight);
+  --font-reversed-light: 250;
+  --font-reversed-normal: 350;
+  --font-reversed-medium: 450;
+  --font-reversed-bold: 550;
+  --font-reversed-heavy: 750;
 
   /* NEUTRAL */
 
@@ -116,6 +121,11 @@
   --text-reversed: var(--color-darktext);
   --background-reversed: var(--color-offwhite);
   --bg-darker-reversed: var(--color-highlight2);
+  --font-reversed-light: 300;
+  --font-reversed-normal: 400;
+  --font-reversed-medium: 500;
+  --font-reversed-bold: 600;
+  --font-reversed-heavy: 800;
 
   /* FONT WEIGHT */
   --font-light: 250;
@@ -145,6 +155,11 @@
     --text-reversed: var(--color-darktext);
     --background-reversed: var(--color-offwhite);
     --bg-darker-reversed: var(--color-highlight2);
+    --font-reversed-light: 300;
+    --font-reversed-normal: 400;
+    --font-reversed-medium: 500;
+    --font-reversed-bold: 600;
+    --font-reversed-heavy: 800;
 
     /* FONT WEIGHT */
     --font-light: 250;
@@ -172,6 +187,11 @@
   --text-reversed: var(--color-offwhite);
   --background-reversed: var(--color-offblack);
   --bg-darker-reversed: var(--color-highlight);
+  --font-reversed-light: 250;
+  --font-reversed-normal: 350;
+  --font-reversed-medium: 450;
+  --font-reversed-bold: 550;
+  --font-reversed-heavy: 750;
 
   /* FONT WEIGHT */
   --font-light: 300;

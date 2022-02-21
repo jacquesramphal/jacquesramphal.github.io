@@ -1,8 +1,8 @@
 <template>
   <div id="textblock" :class="classes">
-    <p tabIndex="0" class="subtle">{{ eyebrow }}</p>
-    <h3 tabIndex="0">{{ header }}</h3>
-    <p tabIndex="0">{{ details }}</p>
+    <h6 tabIndex="0" class="subtle" v-if="eyebrow" v-text="eyebrow" />
+    <h3 tabIndex="0" v-if="header" v-text="header" />
+    <p tabIndex="0" v-if="details" v-text="details" />
     <router-link :to="`${route}`"><p>{{ cta }}</p></router-link>
   </div>
 </template>
@@ -14,7 +14,6 @@ export default {
   props: {
     eyebrow: {
       type: String,
-      default: "Eyebrow",
       required: false,
     },
     header: {

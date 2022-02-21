@@ -13,7 +13,6 @@
       <div class="grid-parent">
         <div id="maindetails">
           <TextBlock
-            eyebrow=""
             header="Full-stack Product Designer at Myplanet"
             details="If you have questions about design, development, or anything in between, let’s connect!"
           />
@@ -152,6 +151,7 @@ export default {
 
 .grid-parent
   grid-template-columns: repeat(2, 1fr)
+  margin-top: var(--spacing-sm)
   @media only screen and (min-width: 740px)
     grid-template-columns: repeat(3, 1fr)
   @media only screen and (min-width: 1201px)

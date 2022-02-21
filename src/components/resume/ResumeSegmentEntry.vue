@@ -114,7 +114,7 @@ export default {
   -o-transition: all 0.25s ease-in-out
   -webkit-transition: all 0.25s ease-in-out
   &:hover
-    box-shadow: var(--shadow-deep)
+    // box-shadow: var(--shadow-deep)
   >.resume-segment-entry-information
     display: flex
     flex-direction: row

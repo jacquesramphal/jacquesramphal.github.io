@@ -7,10 +7,19 @@
       class="switch-checkbox"
     />
     <label for="checkbox" class="switch-label">
-   <!--<span><a><p>Theme</p></a></span>-->
+      <!--<span><a><p>Theme</p></a></span>-->
 
-      <div class="switch-toggle" :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
+      <div
+        class="switch-toggle"
+        :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
       ></div>
+      <!-- <img
+          class="justify-end"
+          draggable="false"
+          src="@/assets/images/j-logo.svg"
+          alt="logo.svg"
+          style="width: 32px"
+        /> -->
     </label>
   </div>
 </template>
@@ -58,7 +67,6 @@ export default {
 };
 </script>
 
-
 <style lang="sass" scoped>
 :active
   outline: transparent
@@ -67,11 +75,10 @@ export default {
   display: none
 
 .switch-label
-  align-items: center
   border: calc(var(--element-size) * 0.025) solid var(--accent-color)
-  border-radius: 100px
+  border-radius: var(--spacing-xxs)
   cursor: pointer
-  color: var(--text) !important
+  color: var(--link) !important
   font-size: var(--font-sm)
   height: var(--font-xs)
   display: flex
@@ -80,36 +87,55 @@ export default {
   // background: red
   // box-shadow: var(--shadow-deep)
   padding: var(--spacing-xs)
+  // padding: var(--spacing-sm) var(--spacing-xs)
   transition: all 0.5s ease
   justify-items: center
   align-items: center
   z-index: 1
   margin: var(--spacing-xxs)
+  text-align: center
 
 .switch-label:hover
   // box-shadow: var(--shadow-hover)
   // background: var(--bg-darker)
-  
+
 
 // EMOJI SWITCH
+// .switch-toggle::before
+//   content: "🌒"
 
+// .switch-toggle:hover::before
+//   content: "🌓"
+
+// .switch-toggle:active::before
+//   content: "🌓"
+
+// .switch-toggle-checked::before
+//   content: "🌔"
+
+// UNICODE SWITCH
+
+.switch-toggle
+  // display: grid
+  // justify-items: center
+  // align-items: center
+  // text-align: center
 
 .switch-toggle::before
-  content: "🌒"
+  content: "⊚"
 
 .switch-toggle:hover::before
-  content: "🌓"
+  content: "⊚"
 
 .switch-toggle:active::before
-  content: "🌓"
+  content: "⊖"
 
 .switch-toggle-checked::before
-  content: "🌔"
+  content: "⊚"
 
 
 
 // TEXT SWITCH
-
 // .switch-toggle::before
 //   content: "Light"
 //   padding-left: 1rem
