@@ -88,7 +88,7 @@ export default {
   // border-bottom: var(--border)
 
 .herobanner--background
-  background-image: url("../assets/images/jacques.jpeg")
+  background-image: url("../assets/images/jacques.jpg")
   color: white !important
   text-shadow: var(--shadow-hover)
 
