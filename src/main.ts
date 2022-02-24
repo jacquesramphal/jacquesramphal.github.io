@@ -1,29 +1,38 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import { init, track, parameters } from "insights-js"
+import { createApp } from "vue";
+import App from "./App.vue";
+import { init, track, parameters } from "insights-js";
+import VueMeta from "vue-meta";
 
-import router from './router';import { Directive, DirectiveBinding, VNode } from 'vue';export const appear: Directive = {
+import router from "./router";
+import { Directive, DirectiveBinding, VNode } from "vue";
+export const appear: Directive = {
   beforeMount(element: HTMLElement) {
-    element.style.visibility = 'hidden';
+    element.style.visibility = "hidden";
   },
-  updated(element: HTMLElement, 
-          binding: DirectiveBinding<boolean>, 
-          node: VNode) {
-    if (!binding.value === !binding.oldValue 
-        || null === node.transition) {
+  updated(
+    element: HTMLElement,
+    binding: DirectiveBinding<boolean>,
+    node: VNode
+  ) {
+    if (!binding.value === !binding.oldValue || null === node.transition) {
       return;
-    }    if (!binding.value) {
+    }
+    if (!binding.value) {
       node.transition.leave(element, () => {
-        element.style.visibility = 'hidden';
+        element.style.visibility = "hidden";
       });
       return;
-    }    node.transition.beforeEnter(element);
-    element.style.visibility = '';
+    }
+    node.transition.beforeEnter(element);
+    element.style.visibility = "";
     node.transition.enter(element);
-  }
+  },
 };
-createApp(App)
-.use(router, init, track, parameters)
-.directive('appear', appear)
-.mount('#app')
 
+createApp(App)
+  .use(router, init, track, parameters, VueMeta, {
+    // optional pluginOptions
+    refreshOnceOnNavigation: true,
+  })
+  .directive("appear", appear)
+  .mount("#app");
