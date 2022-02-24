@@ -7,10 +7,10 @@ module.exports = {
       .options({});
   },
   devServer: {
-    open: process.platform === "darwin",
-    host: "0.0.0.0",
+    // open: process.platform === "darwin",
+    // host: "0.0.0.0",
     port: 8085, // CHANGE YOUR PORT HERE!
     https: true,
-	hot: true,
+	  // hot: true,
   },
 };

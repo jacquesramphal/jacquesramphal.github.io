@@ -6,7 +6,7 @@
           class="justify-end"
           draggable="false"
           src="@/assets/images/j-logo.svg"
-          alt="logo.svg"
+          alt="logo"
           style="width: 40px"
         />
       </div>
