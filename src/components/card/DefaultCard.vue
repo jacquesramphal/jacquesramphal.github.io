@@ -1,5 +1,5 @@
 <template>
-  <li class="entry grid-parent imgzoom">
+  <li class="entry grid-parent">
     <div class="image">
       <router-link :to="`${route}`">
         <img v-if="imgurl" :src="imgurl" alt="Blog Image"
@@ -70,7 +70,7 @@ export default {
   box-shadow: var(--shadow-light)
   // border: var(--border)
   &:hover
-    box-shadow: var(--shadow-hover  )
+    // box-shadow: var(--shadow-hover  )
       // border: var(--border)
 
 .info
