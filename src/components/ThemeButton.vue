@@ -101,17 +101,17 @@ export default {
 
 
 // EMOJI SWITCH
-// .switch-toggle::before
-//   content: "🌒"
+.switch-toggle::before
+  content: "🌒"
 
-// .switch-toggle:hover::before
-//   content: "🌓"
+.switch-toggle:hover::before
+  content: "🌓"
 
-// .switch-toggle:active::before
-//   content: "🌓"
+.switch-toggle:active::before
+  content: "🌓"
 
-// .switch-toggle-checked::before
-//   content: "🌔"
+.switch-toggle-checked::before
+  content: "🌔"
 
 // UNICODE SWITCH
 
@@ -121,17 +121,17 @@ export default {
   // align-items: center
   // text-align: center
 
-.switch-toggle::before
-  content: "⊚"
+// .switch-toggle::before
+//   content: "⊚"
 
-.switch-toggle:hover::before
-  content: "⊚"
+// .switch-toggle:hover::before
+//   content: "⊚"
 
-.switch-toggle:active::before
-  content: "⊖"
+// .switch-toggle:active::before
+//   content: "⊖"
 
-.switch-toggle-checked::before
-  content: "⊚"
+// .switch-toggle-checked::before
+//   content: "⊚"
 
 
 

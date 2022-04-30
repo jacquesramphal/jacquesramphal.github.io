@@ -3,7 +3,6 @@
     <HeroBanner
       v-for="about in contentful"
       v-bind:key="about.sys.id"
-      
       :title="about.pageTitle"
     />
     <DetailCard

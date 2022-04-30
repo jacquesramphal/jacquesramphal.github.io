@@ -1,5 +1,5 @@
 <template>
-  <li class="entry grid-parent">
+  <li class="card grid-parent">
     <div class="image">
       <router-link :to="`${route}`">
         <img v-if="imgurl" :src="imgurl" alt="Blog Image"
@@ -7,12 +7,12 @@
     </div>
 
     <div class="info">
-      <h4 class="entry-title">
+      <h4 class="card-title">
         <span v-if="title" v-text="title" />
       </h4>
 
-      <p v-if="description" class="entry-description" v-html="description" />
-      <MyButton secondary label="Read More" size="large" :route="`${route}`"/>
+      <p v-if="description" class="card-description" v-html="description" />
+      <MyButton secondary label="Read More" size="large" :route="`${route}`" />
       <!-- <MyButton label="Read More" size="large" :onclick="window.location='http://www.google.com';" /> -->
     </div>
   </li>
@@ -56,7 +56,7 @@ export default {
 
 *
   border-radius: 0
-.entry
+.card
   position: relative
   display: grid
   grid-gap: 0
@@ -71,20 +71,25 @@ export default {
   // border: var(--border)
   &:hover
     // box-shadow: var(--shadow-hover  )
-      // border: var(--border)
+    // transform: scale(1.01)
+    img
+      // transform: scale(1.5)
+  &:active
+    // box-shadow: var(--shadow-hover  )
+    // transform: rotate(1deg)
 
 .info
   padding: var(--spacing-md)
-.entry-description
+.card-description
   margin-bottom: var(--spacing-md) !important
-  
+
 img
   width: 100%
   max-width: 100%
   border-radius: 0 !important
 .image
   border-radius: 0 !important
-.entry-title
+.card-title
   line-height: 1.5
   margin-bottom: var(--spacing-xxs)
 </style>
