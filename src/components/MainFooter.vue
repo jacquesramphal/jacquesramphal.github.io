@@ -13,7 +13,7 @@
       <div class="grid-parent">
         <div id="maindetails">
           <TextBlock
-            header="Full-stack Product Designer at Myplanet"
+            header="Expert Generalist at Myplanet"
             details="If you have questions about design, development, or anything in between, let’s connect!"
           />
         </div>

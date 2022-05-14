@@ -38,7 +38,7 @@ export default {
   height: auto
   margin-left: auto
   margin-right: auto
-  max-width: 1680px
+  max-width: 1440px
   overflow: hidden
 
 .container-spacing--normal
