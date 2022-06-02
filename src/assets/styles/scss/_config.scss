@@ -14,7 +14,7 @@
   --font-reversed-normal: 350;
   --font-reversed-medium: 450;
   --font-reversed-bold: 550;
-  --font-reversed-heavy: 750;
+  --font-reversed-heavy: 700;
 
   /* NEUTRAL */
 
@@ -91,6 +91,8 @@
   --font-heavy: 800;
 
   /* SPACING */
+  --spacing-tight: -0.2rem;
+  --spacing-normal: 0;
 
   --spacing-xxxs: 0.4rem;
   --spacing-xxs: 0.8rem;
@@ -102,7 +104,7 @@
   --spacing-xl: 12.8rem;
   --spacing-xxl: 25.6rem;
   --spacing-xxxl: 51.2rem;
-
+  
   /* IMAGE FILTERS */
   --filter: brightness(1) saturate(1);
 }
@@ -132,7 +134,7 @@
   --font-normal: 350;
   --font-medium: 450;
   --font-bold: 550;
-  --font-heavy: 750;
+  --font-heavy: 700;
 
   --shadow-light: 0px 2px 4px rgba(0, 0, 0, 0.25);
   --shadow-deep: 0px 16px 24px rgba(0, 0, 0, 0.25),
@@ -140,6 +142,10 @@
 
   /* IMAGE FILTERS */
   --filter: brightness(0.8) saturate(1.25);
+
+  /* SPACING - testing calc */
+  --spacing-tight: calc(var(--spacing-normal) - 0.12rem);
+  --spacing-normal: 0.01rem;
 }
 
 /* Styles for users who prefer dark mode at the OS level */
@@ -166,13 +172,17 @@
     --font-normal: 350;
     --font-medium: 450;
     --font-bold: 550;
-    --font-heavy: 750;
+    --font-heavy: 700;
 
     --shadow-deep: 0px 16px 24px var(--color-offblack),
       0px 6px 30px var(--color-offblack), 0px 8px 10px var(--color-offblack);
 
     /* IMAGE FILTERS */
     --filter: brightness(0.8) saturate(1.25);
+    
+    /* SPACING */
+    --spacing-tight: calc(var(--spacing-normal) - 0.12rem);
+    --spacing-normal: 0.01rem;
   }
 }
 /* Override dark mode with light mode styles if the user decides to swap */
@@ -191,7 +201,7 @@
   --font-reversed-normal: 350;
   --font-reversed-medium: 450;
   --font-reversed-bold: 550;
-  --font-reversed-heavy: 750;
+  --font-reversed-heavy: 700;
 
   /* FONT WEIGHT */
   --font-light: 300;
@@ -205,6 +215,10 @@
 
   /* IMAGE FILTERS */
   --filter: brightness(1) saturate(1);
+  
+  /* SPACING */
+  --spacing-tight: -0.2rem;
+  --spacing-normal: 0;
 }
 
 /* needs cleanup and consolidation */

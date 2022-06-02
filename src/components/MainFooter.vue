@@ -13,7 +13,7 @@
       <div class="grid-parent">
         <div id="maindetails">
           <TextBlock
-            header="Full-stack Product Designer at Myplanet"
+            header="Expert Generalist at Myplanet"
             details="If you have questions about design, development, or anything in between, let’s connect!"
           />
         </div>
@@ -78,7 +78,7 @@
     <Container>
       <div class="">
         <p style="font-size: var(--font-xxs)">
-          © 2022 Jake Ramphal. Built with
+          © 2022 Jake Ramphal 🇨🇦 Built with
           <a target="blank" href="https://v3.vuejs.org/">Vue3</a>,
           <a target="blank" href="https://www.typescriptlang.org/"
             >Typescript</a

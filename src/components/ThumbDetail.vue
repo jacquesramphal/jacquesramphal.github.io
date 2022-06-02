@@ -4,7 +4,7 @@
       <Wrapper class="text">
         <TextBlock
           cta="Read More"
-          header=""
+          :header4="`${title}`"
           :route="`${route}`"
           :details="`${details}`"
           class="textblock"
@@ -43,7 +43,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Default Caption",
+      default: "Default Title",
     },
     details: {
       type: String,

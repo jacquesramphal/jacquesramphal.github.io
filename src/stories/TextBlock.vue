@@ -2,6 +2,7 @@
   <div id="textblock" :class="classes">
     <h6 tabIndex="0" class="subtle" v-if="eyebrow" v-text="eyebrow" />
     <h3 tabIndex="0" v-if="header" v-text="header" />
+    <h4 tabIndex="0" v-if="header4" v-text="header4" />
     <p tabIndex="0" v-if="details" v-text="details" />
     <router-link :to="`${route}`"><p>{{ cta }}</p></router-link>
   </div>
@@ -18,7 +19,12 @@ export default {
     },
     header: {
       type: String,
-      default: "Header",
+      default: "",
+      required: false,
+    },
+    header4: {
+      type: String,
+      default: "",
       required: false,
     },
     details: {
