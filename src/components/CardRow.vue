@@ -9,7 +9,7 @@
           grid-template-columns: repeat(2, 1fr);
         "
       >
-        <h3 class="" style="text-align: left">{{ header }}</h3>
+        <h3 class="subtle" style="text-align: left">{{ header }}</h3>
         <p class="external justify-end">
           <router-link :to="{ name: 'Blog' }">View All</router-link>
         </p>
@@ -24,6 +24,7 @@
           :title="blogPost.title"
           :description="blogPost.description"
           :route="blogPost.route"
+          :label="blogPost.label"
         />
       </div>
     </Container>
@@ -43,7 +44,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: "Blog",
+      default: "🗂️ Documents",
     },
   },
   data() {
@@ -66,6 +67,7 @@ export default {
            title
            description
            imgurl
+           label
            route
            image {
             title

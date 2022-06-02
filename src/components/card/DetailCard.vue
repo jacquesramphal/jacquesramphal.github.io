@@ -1,9 +1,9 @@
 <template>
   <div class="">
     <Container class="grid-parent">
-      <h4 id="section-header" tabIndex="0">
+      <h3 id="section-header" tabIndex="0">
         {{ header }}
-      </h4>
+      </h3>
       <TextBlock :eyebrow="`${eyebrow1}`" header="" :details="`${detail1}`" />
       <TextBlock :eyebrow="`${eyebrow2}`" header="" :details="`${detail2}`" />
       <TextBlock :eyebrow="`${eyebrow3}`" header="" :details="`${detail3}`" />
@@ -71,13 +71,13 @@ export default {
 * {
   color: inherit;
 }
-.container {
-  /*  padding-top: 4rem !important;
-  padding-bottom: 9.6rem !important; */
-}
-#details {
-  /* height: 100vh; */
-}
+/* .container {
+ padding-top: 4rem !important;
+  padding-bottom: 9.6rem !important; 
+} */
+/* #details {
+height: 100vh;
+} */
 #section-header {
   grid-column: 1 / 4;
 }
@@ -85,12 +85,12 @@ export default {
   grid-column: 1 / 4;
   padding: 1em 0 0 0;
 }
-#textblock:first-child {
-  /*  background: yellow; */
-}
-h3 {
-  /* margin-top: -10px; */
-}
+/* #textblock:first-child {
+  background: yellow; 
+} */
+/* h3 {
+  margin-top: -10px;
+} */
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
   #section-header {

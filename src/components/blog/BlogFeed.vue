@@ -30,6 +30,7 @@
             :title="blogPost.title"
             :description="blogPost.description"
             :route="blogPost.route"
+            :label="blogPost.label"
           />
         </div>
       </Container>

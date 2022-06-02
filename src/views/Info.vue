@@ -1,7 +1,6 @@
 <template>
   <PageWrapper>
     <HeroBanner
-      background
       v-for="about in contentful"
       v-bind:key="about.sys.id"
       :eyebrow="about.eyebrow"

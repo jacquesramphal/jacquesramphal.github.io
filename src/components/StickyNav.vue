@@ -22,7 +22,7 @@
             <router-link :to="{ name: 'Info' }">info</router-link>
           </li>
           <li class="nav-link" tabindex="1">
-            <router-link :to="{ name: 'Blog' }">blog</router-link>
+            <router-link :to="{ name: 'Blog' }">docs</router-link>
           </li>
           <!-- <li class="nav-link" tabindex="1">
             <router-link class="isDisabled" to="blog">writing</router-link>

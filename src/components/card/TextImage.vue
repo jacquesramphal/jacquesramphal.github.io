@@ -1,6 +1,6 @@
 <template>
   <Wrapper id="textimage" :class="classes">
-    <Container style="padding: 0 !important">
+    <Container tight style="padding: 0 !important">
       <div id="grid-parent" class="grid-parent">
         <Container tight class="imgcontainer">
           <img
@@ -9,10 +9,10 @@
             :src="require(`@/assets/images/${filename}`)"
             :alt="`${alt}`"
         /></Container>
-        <Container class="textcontainer">
+        <Container  class="textcontainer">
           <TextBlock
             :header="`${header}`"
-            cta="Read More"
+            :cta="`${cta}`"
             :route="`${route}`"
             details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           />

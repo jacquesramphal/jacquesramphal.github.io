@@ -17,7 +17,20 @@
     </div>
 ^ NOT WORKING -->
 
-    <Container tight id="work">
+    <Container id="work">
+      <div
+        class="grid-parent"
+        style="
+          padding-bottom: var(--spacing-md);
+          align-items: center;
+          grid-template-columns: repeat(2, 1fr);
+        "
+      >
+        <h3 class="subtle" style="text-align: left">🎨 Work</h3>
+        <p class="external justify-end">
+          <router-link :to="{ name: 'Work' }">View All</router-link>
+        </p>
+      </div>
       <div id="recentwork" class="grid-parent">
         <ThumbSmall
           alt="J Monogram"
@@ -50,12 +63,12 @@
         <ThumbDetail
           alt="Project Template"
           style="background-color: #35363a"
-          title="Project Template"
+          title="Project Title"
           route="project"
           cta="cta"
           details="This is a project description that would give a preview into the project..."
         />
-       <!-- <ThumbLarge
+        <!-- <ThumbLarge
           title=""
           filename="work/glo.svg"
           class="hidemobile"
@@ -70,8 +83,9 @@
         /> -->
       </div>
     </Container>
+    <TextImage class="" filename="about.jpg" header="About Me" route="info" cta="Learn More"/>
     <CardRow />
-     </PageWrapper>
+  </PageWrapper>
 </template>
 
 <script>
@@ -85,6 +99,8 @@ import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Container from "@/components/grid/Container.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
+import TextImage from "@/components/card/TextImage.vue";
+
 import ThumbDetail from "@/components/ThumbDetail.vue";
 // import ThumbLarge from "@/components/ThumbLarge.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
@@ -102,12 +118,13 @@ export default {
     // RichText,
     // RichTextRenderer,
     CardRow,
+    TextImage,
   },
   props: {
-    header: {
-      type: String,
-      default: "Work",
-    },
+    // header: {
+    //   type: String,
+    //   default: "Work",
+    // },
   },
   data() {
     return {
@@ -172,7 +189,7 @@ export default {
 #hero
   border-bottom: none !important
 #work
-  padding-top: 0 !important
+  padding-top: var(--spacing-sm) !important
 .container
   // background-color: var(--color-white)
   padding-top: 0 !important

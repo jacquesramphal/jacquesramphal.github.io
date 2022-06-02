@@ -11,8 +11,8 @@
         <span v-if="title" v-text="title" />
       </h4>
 
-      <p v-if="description" class="card-description" v-html="description" />
-      <MyButton secondary label="Read More" size="large" :route="`${route}`" />
+      <p v-if="description" class="card-description line-clamp" v-html="description" />
+      <MyButton secondary :label="`${label}`" size="large" :route="`${route}`" />
       <!-- <MyButton label="Read More" size="large" :onclick="window.location='http://www.google.com';" /> -->
     </div>
   </li>
@@ -41,10 +41,15 @@ export default {
       type: String,
     },
     category: {
-      default: "Category",
+      default: "Read More",
       type: String,
     },
     route: {
+      type: String,
+      required: true,
+    },
+    label: {
+      default: "Read More",
       type: String,
       required: true,
     },
@@ -82,8 +87,15 @@ export default {
   padding: var(--spacing-md)
 .card-description
   margin-bottom: var(--spacing-md) !important
+  overflow: hidden
+
+.line-clamp 
+  display: -webkit-box
+  -webkit-line-clamp: 3
+  -webkit-box-orient: vertical 
 
 img
+  aspect-ratio: 16/9
   width: 100%
   max-width: 100%
   border-radius: 0 !important

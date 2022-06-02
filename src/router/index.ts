@@ -65,7 +65,7 @@ const routes = [
     component: Project,
   },
   {
-    path: "/blog",
+    path: "/docs",
     name: "Blog",
     component: MyBlog,
   },

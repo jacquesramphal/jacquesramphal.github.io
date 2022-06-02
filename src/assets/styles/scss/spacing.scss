@@ -9,7 +9,6 @@
   height: auto;
   margin-left: auto;
   margin-right: auto;
-  max-width: 1680px;
   overflow: hidden;
 }
 .sticky{
@@ -41,10 +40,10 @@
 }
 /* .grid-card:hover {
   box-shadow: var(--shadow-hover);
-} */
-.grid-card:active {
-  /* cursor: pointer; */
 }
+.grid-card:active {
+  cursor: pointer;
+} */
 .fullvh {
   height: 100vh;
 }

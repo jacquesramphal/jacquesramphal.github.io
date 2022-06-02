@@ -2,7 +2,7 @@
   <PageWrapper>
     <HeroBanner
       style="background: var(--bg-darker)"
-      title="Jacques’ Ramblings"
+      title="🗂️ Documents"
       eyebrow=""
     />
     <!-- <ul class="container">
@@ -56,6 +56,7 @@ export default {
            description
            imgurl
            route
+           label
            image {
             title
             description
