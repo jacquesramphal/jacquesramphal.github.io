@@ -1,24 +1,18 @@
 <template>
   <PageWrapper>
     <HeroBanner
+      background
       v-for="about in contentful"
       v-bind:key="about.sys.id"
       :eyebrow="about.eyebrow"
       :title="about.pageTitle"
     />
     <DetailCard
-      style="border-top: var(--border)"
       v-for="about in contentful"
       v-bind:key="about.sys.id"
       :header="about.detailHeader"
       :eyebrow1="about.detailEyebrow1"
       :detail1="about.detailDetails1"
-      :eyebrow2="about.detailEyebrow1"
-      :detail2="about.detailDetails1"
-      :eyebrow3="about.detailEyebrow1"
-      :detail3="about.detailDetails1"
-      :eyebrow4="about.detailEyebrow1"
-      :detail4="about.detailDetails1"
     />
 
     <!--   <Stats
@@ -31,7 +25,7 @@
       :value3="about.statValue3"
       :label3="about.statLabel3"
     /> -->
-    <Container>
+<Container  style="padding-top: 0 !important;">
       <ThumbLarge
         title=""
         filename="about.jpg"

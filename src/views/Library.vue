@@ -81,7 +81,7 @@ import Form from "@/components/card/Form.vue";
 import FormCentered from "@/components/card/FormCentered.vue";
 
 export default {
-  name: "Info",
+  name: "Library",
   components: {
     PageWrapper,
     Container,

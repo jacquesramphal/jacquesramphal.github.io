@@ -16,9 +16,9 @@
         </ul>
       </span>
       <span id="info">
-        <h5 tabIndex="0">
+        <h4 style="font-weight: var(--font-medium);" tabIndex="0">
           {{ description }}
-        </h5></span
+        </h4></span
       >
     </Container>
   </div>

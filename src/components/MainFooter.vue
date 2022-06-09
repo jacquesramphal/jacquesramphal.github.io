@@ -13,7 +13,7 @@
       <div class="grid-parent">
         <div id="maindetails">
           <TextBlock
-            header="Expert Generalist at Myplanet"
+            header="Product Generalist pushing pixels into eternity"
             details="If you have questions about design, development, or anything in between, let’s connect!"
           />
         </div>
@@ -78,12 +78,14 @@
     <Container>
       <div class="">
         <p style="font-size: var(--font-xxs)">
-          © 2022 Jake Ramphal 🇨🇦 Built with
-          <a target="blank" href="https://v3.vuejs.org/">Vue3</a>,
-          <a target="blank" href="https://www.typescriptlang.org/"
+          © 2022 Jacques Ramphal — Built with
+          <a target="blank" href="https://v3.vuejs.org/">Vue3</a>.
+          <!-- <a target="blank" href="https://www.typescriptlang.org/"
             >Typescript</a
           >
-          & <a target="blank" href="https://sass-lang.com/">Sass</a>. Deployed
+          & <a target="blank" href="https://sass-lang.com/">Sass</a>.  -->
+          
+          Deployed
           on <a target="blank" href="https://www.netlify.com/">Netlify</a>.
         </p>
       </div>
@@ -142,6 +144,7 @@ export default {
 <style lang="sass" scoped>
 #wrapper
   // border-top: var(--border)
+  // box-shadow: var(--shadow-inner)
   // background: var(--bg-darker)
   // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, var(--bg-darker)), color-stop(100%, transparent))
   // background-image: -moz-linear-gradient(bottom, var(--bg-darker) 0%, transparent 100%)

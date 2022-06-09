@@ -11,12 +11,13 @@
       <!-- TMP BREADCRUMB -->
 
       <Container class="animate glow width">
-       <!-- <TextHeader
-          v-for="about in contentful"
-          v-bind:key="about.sys.id"
-          :title="about.pageTitle"
-        /> -->
-        <TextHeader :title="title" /> 
+       <TextHeader
+          v-for="blogPost in contentful"
+          v-bind:key="blogPost.sys.id"
+          :title="blogPost.title"
+          :description="blogPost.description"
+          :tag2="blogPost.category"
+        />
       </Container>
 
       <Container class="animate glow delay-1" tight id="">
@@ -164,24 +165,23 @@ import Container from "@/components/grid/Container.vue";
 import TextHeader from "@/components/text/TextHeader.vue";
 import CardRow from "@/components/CardRow.vue";
 import TextImage from "@/components/card/TextImage.vue";
-// import HeroBanner from "@/components/HeroBanner.vue";
 import TextBlock from "@/stories/TextBlock.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
-// import ThumbMedium from "@/components/ThumbMedium.vue";
 
 export default {
-  // data() {
-  //   return {
-  //     blogPost: [],
-  //   };
-  // },
   name: "BlogPost",
+  components: {
+    AnimatedComponent,
+    PageWrapper,
+    Wrapper,
+    Container,
+    CardRow,
+    TextHeader,
+    TextBlock,
+    ThumbLarge,
+    TextImage,
+  },
   props: {
-    // contentful: {
-    //   type: Array,
-    //   required: true,
-    //   // TODO: add validation
-    // },
     title: {
       default: "Hello World",
       required: true,
@@ -192,19 +192,6 @@ export default {
       required: true,
       type: String,
     },
-  },
-  components: {
-    AnimatedComponent,
-    PageWrapper,
-    Wrapper,
-    Container,
-    CardRow,
-    // HeroBanner,
-    TextHeader,
-    TextBlock,
-    ThumbLarge,
-    TextImage,
-    // ThumbMedium,
   },
   mounted() {
     window.scrollTo(0, 0);
@@ -220,15 +207,15 @@ export default {
   methods: {
     getContentful: async () => {
       const query = `{
-       aboutCollection {
-         items {
-           sys {
-             id
-           }
-           eyebrow
-           pageTitle
-          
-         }
+       blogPostCollection(limit: 1) {
+        items {
+          sys {
+            id
+          }
+          title
+          description
+          category
+       }
        }
      }`;
       const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
@@ -245,7 +232,7 @@ export default {
         const response = await fetch(fetchUrl, fetchOptions).then((response) =>
           response.json()
         );
-        return response.data.aboutCollection.items;
+        return response.data.blogPostCollection.items;
       } catch (error) {
         throw new Error("Could not receive the data from Contentful!");
       }

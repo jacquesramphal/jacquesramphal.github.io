@@ -140,7 +140,7 @@ export default {
   overflow: visible;
   position: relative;
   padding: var(--spacing-xxs);
-  box-shadow: var(--shadow-deep);
+  /* box-shadow: var(--shadow-deep); */
 }
 /* .bg:hover {
   box-shadow: var(--shadow-deep);

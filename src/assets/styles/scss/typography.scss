@@ -5,6 +5,7 @@
   font-weight: 100 900;
   src: url("../../type/epilogue/epilogue-regular.ttf") format("truetype");
 }
+
 * {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -22,6 +23,7 @@ h1 {
   line-height: 1.2;
   margin: 0;
 }
+
 h2 {
   font-size: var(--font-lg);
   font-weight: var(--font-heavy);
@@ -43,6 +45,7 @@ h3 {
   margin: 0;
   opacity: 1 !important;
 }
+
 h4 {
   font-size: var(--font-sm);
   font-weight: var(--font-heavy);
@@ -58,6 +61,7 @@ h5 {
   margin: 0;
   opacity: 1 !important;
 }
+
 /* eyebrow text */
 h6 {
   font-size: var(--font-xs);
@@ -66,6 +70,7 @@ h6 {
   margin: 0;
   opacity: 1 !important;
 }
+
 p {
   font-size: var(--font-xs);
   font-weight: var(--font-medium);
@@ -73,6 +78,7 @@ p {
   margin: 0;
   opacity: 1 !important;
 }
+
 /* code {
   color: var(--text-reversed);
   background-color: var(--background-reversed);
@@ -85,39 +91,43 @@ p {
 hr {
   border: var(--border);
 }
+
 figcaption {
   font-size: var(--font-xs) !important;
   font-style: italic;
   margin: var(--spacing-xs) 0 0 0;
 }
+
 /* figcaption p::before {
   content: "—";
   font-size: var(--font-sm);
 } */
 strong {
   font-weight: var(--font-bold);
-  background: -webkit-linear-gradient(
-    top left,
-    var(--link-reversed),
-    var(--link-reversed)
-  );
+  background: -webkit-linear-gradient(top left,
+      var(--link-reversed),
+      var(--link-reversed));
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }
+
 blockquote {
   margin: var(--spacing-md) 0;
 }
+
 blockquote p {
   background: var(--background-reversed);
   border-radius: 0.8rem;
   color: var(--text-reversed);
   padding: var(--spacing-sm);
 }
+
 blockquote p::before {
   content: "👉🏽";
   font-size: var(--font-sm);
   margin: var(--spacing-xs);
 }
+
 /* blockquote p::after {
   content: "\201D";
 } */
@@ -125,9 +135,11 @@ li {
   font-weight: var(--font-medium);
   list-style: none;
 }
+
 .subtle {
   opacity: 0.7 !important;
 }
+
 /* .caption-project {
   mix-blend-mode: multiply;
   display: block !important;
@@ -152,10 +164,12 @@ li {
   transition: all 0.1s ease-in-out;
   z-index: 100;
 }
+
 .grid-card:hover .caption {
   color: var(--color-dark) !important;
   display: block !important;
 }
+
 .grid-card:active .caption {
   /* display: none !important; */
 }
@@ -178,77 +192,127 @@ li {
   0% {
     width: 0;
   }
+
   100% {
     width: 100%;
   }
 }
+
 .isDisabled {
   color: currentColor;
   cursor: not-allowed;
   opacity: 0.5;
   text-decoration: none;
 }
+
+a {
+  position: relative;
+  color: var(--link) !important;
+  cursor: pointer;
+  text-decoration: underline !important;
+  text-underline-offset: 0.75rem;
+  text-decoration-thickness: .1rem !important;
+}
+
+/* ---- ROUTER LINKS ---- */
 .router-link-exact {
   text-decoration: none !important;
 }
-.router-link-exact-active {
-  text-decoration: underline dotted !important;
-}
-a {
-  color: var(--link) !important;
-}
+
+/* ---- Reversed States ---- */
+
 .reversed a {
   color: var(--link-reversed) !important;
 }
+
+/* ---- Hover States ---- */
+/*
+a::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: .1rem;
+  bottom: -0.75rem;
+  left: 0;
+  background-color: var(--link);
+  transform: scaleX(0);
+  transform-origin: top left;
+  transition: transform 0.3s ease;
+}
+a:hover::before {
+  transform: scaleX(1);
+}
+*/
+
 a:hover {
-  color: var(--link) !important;
   text-decoration: none !important;
+  text-underline-offset: 0.75rem;
+  text-decoration-thickness: .1rem !important;
 }
-a:active {
-  text-decoration: underline wavy !important;
+/* ---- Active States ---- */
+
+a:active,
+.router-link-exact-active {
+  text-decoration: underline dashed !important;
+  text-underline-offset: 0.75rem;
+  text-decoration-thickness: .1rem !important;
 }
-a {
-  cursor: pointer;
-  text-decoration: underline !important;
-}
+
+/* ---- External Link ---- */
+
 .external:after {
   content: " ↗";
   color: var(--link);
 }
+
+/* ---- Link click + adjust position ---- */
+
+a:active p {
+  position: relative;
+  /* top: 1px; */
+}
+
+p a:active {
+  position: relative;
+  /* top: 1px; */
+}
+
+h1 a:hover {
+  position: relative;
+}
+
+h2 a:active {
+  position: relative;
+}
+
+h3 a:active {
+  position: relative;
+}
+
+/* ---- Heading link overrides ---- */
+
+
 h1 a {
   text-decoration: none !important;
 }
-h2 > a {
+
+h2>a {
   /* background: -webkit-linear-gradient(top left, var(--color-action), var(--color-action-dark));
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important; */
   /* text-shadow: var(--shadow-deep); */
   /* background: var(--bg-darker); */
 }
-h2 > a:hover {
+
+h2>a:hover {
   /* background: -webkit-linear-gradient(bottom right, var(--color-action), var(--color-action-dark));
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   text-shadow: var(--shadow-hover); */
 }
 
-a:active p {
-  position: relative;
-  /* top: 1px; */
-}
-p a:active {
-  position: relative;
-  /* top: 1px; */
-}
-h1 a:hover {
-  position: relative;
-}
-h2 a:active {
-  position: relative;
-}
-h3 a:active {
-  position: relative;
-}
+
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
@@ -256,35 +320,41 @@ h3 a:active {
     font-size: var(--font-xl);
     padding-bottom: 4px;
   }
+
   h3 {
     font-size: var(--font-lg);
   }
+
   h4 {
     font-size: var(--font-md);
   }
+
   h5 {
     font-size: var(--font-sm);
   }
+
   p {
     font-size: var(--font-xs);
   }
+
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
     h2 {
       font-size: var(--font-xxl);
     }
+
     /* ------------ BREAKPOINT XL ------------ */
     @media only screen and (min-width: 1441px) {
       h2 {
         font-size: var(--font-xxxl);
       }
-      .display h2{
+
+      .display h2 {
         font-size: var(--font-display);
       }
     }
+
     /* ------------ BREAKPOINT XXL ------------ */
-    @media only screen and (min-width: 1680px) {
-     
-    }
+    @media only screen and (min-width: 1680px) {}
   }
 }
