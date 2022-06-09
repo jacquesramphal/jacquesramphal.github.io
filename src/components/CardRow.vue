@@ -44,7 +44,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: "🗂️ Documents",
+      default: "🗂️ Docs",
     },
   },
   data() {

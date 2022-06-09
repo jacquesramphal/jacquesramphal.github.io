@@ -74,17 +74,18 @@ const routes = [
     name: "post",
     component: BlogPost,
   },
+  {
+    path: "/library",
+    name: "Library",
+    component: Library,
+  },
   // {
   //   path: "/read/:title",
   //   name: "post",
   //   props: true,
   //   component: BlogPost,
   // },
-  {
-    path: "/library",
-    name: "library",
-    component: Library,
-  },
+  
 ];
 
 const router = createRouter({

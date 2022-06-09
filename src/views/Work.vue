@@ -18,7 +18,7 @@
 ^ NOT WORKING -->
 
     <Container id="work">
-      <div
+      <!-- <div
         class="grid-parent"
         style="
           padding-bottom: var(--spacing-md);
@@ -30,7 +30,7 @@
         <p class="external justify-end">
           <router-link :to="{ name: 'Work' }">View All</router-link>
         </p>
-      </div>
+      </div> -->
       <div id="recentwork" class="grid-parent">
         <ThumbSmall
           alt="J Monogram"
@@ -83,7 +83,7 @@
         /> -->
       </div>
     </Container>
-    <TextImage class="" filename="about.jpg" header="About Me" route="info" cta="Learn More"/>
+    <TextImage class="reversed" filename="about.jpg" header="About Me" route="info" cta="Learn More"/>
     <CardRow />
   </PageWrapper>
 </template>
