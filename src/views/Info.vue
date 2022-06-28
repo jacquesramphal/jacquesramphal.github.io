@@ -1,19 +1,21 @@
 <template>
   <PageWrapper>
-    <HeroBanner
+    <HeroBanner />
+    <!-- <HeroBanner
       background
       v-for="about in contentful"
       v-bind:key="about.sys.id"
       :eyebrow="about.eyebrow"
       :title="about.pageTitle"
-    />
-    <DetailCard
+    /> -->
+    <DetailCard />
+    <!-- <DetailCard
       v-for="about in contentful"
       v-bind:key="about.sys.id"
       :header="about.detailHeader"
       :eyebrow1="about.detailEyebrow1"
       :detail1="about.detailDetails1"
-    />
+    /> -->
 
     <!--   <Stats
       v-for="about in contentful"
@@ -25,7 +27,7 @@
       :value3="about.statValue3"
       :label3="about.statLabel3"
     /> -->
-<Container  style="padding-top: 0 !important;">
+    <Container style="padding-top: 0 !important">
       <ThumbLarge
         title=""
         filename="about.jpg"

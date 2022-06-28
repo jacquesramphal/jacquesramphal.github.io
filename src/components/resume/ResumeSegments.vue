@@ -5,9 +5,10 @@
         :key="i"
         class="resume-segment"
     >
-      <h6
-          class="subtle resume-segment-title"
+      <h5
+          class="resume-segment-title"
           v-text="segment.title"
+          style="color: var(--link); font-weight: var(--font-medium); text-transform: none;"
       />
       <ul class="resume-segment-list">
         <resume-segment-entry

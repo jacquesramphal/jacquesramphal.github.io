@@ -5,6 +5,8 @@
 // app.component("AnimatedComponent", AnimatedComponent); // global registration - can be used anywhere
 // app.mount("#app");
 
+import Login from "@/components/Login.vue";
+
 import { createRouter, createWebHistory } from "vue-router";
 import BlogPost from "@/components/blog/BlogPost.vue";
 import Info from "@/views/Info.vue";
@@ -34,6 +36,11 @@ const routes = [
       hideFooter: true,
       hidePageWrapper: true,
     },
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
   },
   {
     redirect: "/brb",
@@ -96,3 +103,6 @@ const router = createRouter({
 
 
 export default router;
+
+
+

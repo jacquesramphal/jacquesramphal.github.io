@@ -2,22 +2,16 @@
   <div id="input" class="">
     <label :for="`${name}`">{{ label }}</label
     ><br />
-    <select
-      :id="`${id}`"
-      :name="`${name}`"
-      required
-    >
+    <select :id="`${id}`" :name="`${name}`" required>
       <option value="" disabled selected>Select your option</option>
       <option value="Option 1">Option 1</option>
       <option value="Option 2">Option 2</option>
       <option value="Option 3">Option 3</option>
     </select>
   </div>
-
 </template>
 
 <script>
-
 export default {
   name: "Select",
   components: {

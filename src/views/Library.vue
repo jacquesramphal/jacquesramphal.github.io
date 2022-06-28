@@ -27,7 +27,7 @@
         </p>
       </div>
     </Container>
-    <!-- <Container id="buttons" class="grid-parent reversed">
+    <Container id="buttons" class="grid-parent reversed">
       <h4>Buttons</h4>
       <div class="grid-parent">
         <div id="" class="">
@@ -43,7 +43,7 @@
           <MyButton text="This is Button Text" class="btn-toggle btn-outline" />
         </div>
       </div>
-    </Container> -->
+    </Container>
 
     <Hero header="Reversed" class="reversed" />
 
@@ -61,7 +61,6 @@
 
     <Container class="grid-parent">
       <TextDefault />
-      <ThumbMedium />
     </Container>
   </PageWrapper>
 </template>
@@ -74,14 +73,13 @@ import HeroBg from "@/components/HeroBg.vue";
 import HeroAnimated from "@/components/HeroAnimated.vue";
 import HeroProject from "@/components/HeroProject.vue";
 import TextDefault from "@/components/text/TextDefault.vue";
-import ThumbMedium from "@/components/ThumbMedium.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
 import TextImage from "@/components/card/TextImage.vue";
 import Form from "@/components/card/Form.vue";
 import FormCentered from "@/components/card/FormCentered.vue";
 
 export default {
-  name: "Library",
+  name: "Info",
   components: {
     PageWrapper,
     Container,
@@ -90,7 +88,6 @@ export default {
     HeroAnimated,
     HeroProject,
     TextDefault,
-    ThumbMedium,
     DetailCard,
     TextImage,
     Form,

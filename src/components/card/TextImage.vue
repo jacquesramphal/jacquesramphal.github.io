@@ -14,7 +14,7 @@
             :header="`${header}`"
             :cta="`${cta}`"
             :route="`${route}`"
-            details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            :details="`${details}`"
           />
         </Container></div></Container
   ></Wrapper>
@@ -35,6 +35,10 @@ export default {
     header: {
       type: String,
       default: "Detail Card",
+    },
+    details: {
+      type: String,
+      default: "    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     eyebrow: {
       type: String,

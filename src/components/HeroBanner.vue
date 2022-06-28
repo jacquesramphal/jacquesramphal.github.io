@@ -88,11 +88,10 @@ export default {
   // border-bottom: var(--border)
 
 .herobanner--background
-  background: linear-gradient( 45deg, var(--background), rgba(0,0,0,0)), url("../assets/images/jacques.jpeg")
-  background-size: cover
-  font-weight: 500 !important
-  // text-shadow: var(--shadow-hover)
-
+  background-image: url("../assets/images/jacques.jpeg")
+  color: white !important
+  text-shadow: var(--shadow-hover)
+  
 #hero-text
   display: grid
   grid-row: 1 / 8

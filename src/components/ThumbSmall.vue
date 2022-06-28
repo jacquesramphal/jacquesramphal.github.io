@@ -42,8 +42,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.caption 
-
 .grid-card 
   // box-shadow: var(--shadow-z1)
   // &:hover
