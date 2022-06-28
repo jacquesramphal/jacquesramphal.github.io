@@ -97,7 +97,7 @@ export default {
   grid-template-areas: "sidebar header" "sidebar segments" "footer footer"
   grid-template-columns: 30% 1fr
   grid-template-rows: auto 1fr auto
-  grid-gap: var(--spacing-xs)
+  grid-gap: var(--spacing-lg)
   background: var(--background)
   color: var(--text)
   font-size: var(--font-xxs)

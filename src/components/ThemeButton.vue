@@ -101,25 +101,24 @@ export default {
 
 
 // EMOJI SWITCH
-.switch-toggle::before
-  content: "🌒"
+// .switch-toggle::before
+//   content: "🌒"
 
-.switch-toggle:hover::before
-  content: "🌓"
+// .switch-toggle:hover::before
+//   content: "🌓"
 
-.switch-toggle:active::before
-  content: "🌓"
+// .switch-toggle:active::before
+//   content: "🌓"
 
-.switch-toggle-checked::before
-  content: "🌔"
+// .switch-toggle-checked::before
+//   content: "🌔"
 
 // UNICODE SWITCH
-
-.switch-toggle
-  // display: grid
-  // justify-items: center
-  // align-items: center
-  // text-align: center
+// .switch-toggle
+//   display: grid
+//   justify-items: center
+//   align-items: center
+//   text-align: center
 
 // .switch-toggle::before
 //   content: "⊚"
@@ -136,12 +135,12 @@ export default {
 
 
 // TEXT SWITCH
-// .switch-toggle::before
-//   content: "Light"
-//   padding-left: 1rem
+.switch-toggle::before
+  content: "Zzz"
+  padding-left: 1rem
 
-// .switch-toggle-checked::before
-//   content: "Dark"
+.switch-toggle-checked::before
+  content: "zZZ"
 
 
 // .switch-toggle

@@ -83,8 +83,8 @@
         /> -->
       </div>
     </Container>
-    <TextImage class="reversed" filename="about.jpg" header="About Me" route="info" cta="Learn More"/>
-    <CardRow />
+    <TextImage class="" style="background: var(--bg-darker);" filename="jacques.jpeg" header="The tools I use" details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. " route="post" cta="Read More"/>
+    <!-- <CardRow /> -->
   </PageWrapper>
 </template>
 
@@ -104,7 +104,7 @@ import TextImage from "@/components/card/TextImage.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
 // import ThumbLarge from "@/components/ThumbLarge.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
-import CardRow from "@/components/CardRow.vue";
+// import CardRow from "@/components/CardRow.vue";
 
 export default {
   name: "Work",
@@ -117,7 +117,7 @@ export default {
     ThumbDetail,
     // RichText,
     // RichTextRenderer,
-    CardRow,
+    // CardRow,
     TextImage,
   },
   props: {

@@ -88,10 +88,11 @@ export default {
   justify-content: flex-start
   align-items: flex-start
   margin-top: var(--spacing-xs)
-  padding: var(--spacing-md)
-  border-radius: .8rem
-  border: var(--border)
-  box-shadow: var(--shadow-light)
+  padding: var(--spacing-md) 0
+  // border-radius: .8rem
+  border-top: var(--border)
+  // border: var(--border)
+  // box-shadow: var(--shadow-light)
   // background-color: var(--bg-darker)
   // &:before
   //   content: ''
@@ -119,6 +120,7 @@ export default {
     display: flex
     flex-direction: row
     flex-wrap: nowrap
+    font-size: var(--font-xs)
     .resume-segment-entry-information-date
       display: flex
       flex-direction: row

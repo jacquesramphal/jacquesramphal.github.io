@@ -36,6 +36,12 @@ export default {
   filter: var(--filter);
 
 }
+/* @media (prefers-color-scheme: dark) {
+  #avatar {
+      background-image: url("../assets/images/avatar/avatar-h.svg");
+
+  }
+} */
 span:hover > #avatar {
   background-image: url("../assets/images/avatar/avatar-h.svg");
 }

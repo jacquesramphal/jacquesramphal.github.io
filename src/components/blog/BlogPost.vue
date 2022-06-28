@@ -11,7 +11,7 @@
       <!-- TMP BREADCRUMB -->
 
       <Container class="animate glow width">
-       <TextHeader
+        <TextHeader
           v-for="blogPost in contentful"
           v-bind:key="blogPost.sys.id"
           :title="blogPost.title"
@@ -24,14 +24,14 @@
         <ThumbLarge
           class=""
           title=""
-          filename="work/glo.svg"
+          filename="about.jpg"
           alt="Jacques working at Myplanet"
         />
       </Container>
       <!-- Section 1 -->
       <Wrapper id="section1">
         <!-- <AnimatedComponent animationType="zoom"> -->
-        <AnimatedComponent>
+        <!-- <AnimatedComponent>
           <Container class="width">
             <p class="dropcap">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -43,7 +43,7 @@
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p></Container
           ></AnimatedComponent
-        >
+        > -->
         <AnimatedComponent>
           <Container class="width">
             <Wrapper>
@@ -60,7 +60,7 @@
           culpa qui officia deserunt mollit anim id est laborum."
               />
               <blockquote>
-                <p><em>This</em> is a <strong>blockquote.</strong></p>
+                <p><em>This</em> is a blockquote.</p>
               </blockquote>
               <TextBlock
                 left
@@ -76,11 +76,14 @@
         </AnimatedComponent>
         <AnimatedComponent>
           <TextImage
-            flipped
-            filename="work/glo.svg"
-            route="blog"
-            class="reversed"
-        /></AnimatedComponent>
+          flipped
+            class=""
+            style="background: var(--bg-darker)"
+            header="About Me"
+            route="post"
+            cta="Learn More"
+          />
+        </AnimatedComponent>
       </Wrapper>
 
       <!-- Section 1 -->
@@ -142,8 +145,12 @@
           </AnimatedComponent>
         </Wrapper>
         <AnimatedComponent>
-          <TextImage route="blog" filename="work/glo.svg" class=""
-        /></AnimatedComponent>
+          <TextImage
+            class=""
+            style="background: var(--bg-darker)"
+          />
+          /></AnimatedComponent
+        >
       </Wrapper>
     </Wrapper>
     <!-- <HeroBanner
