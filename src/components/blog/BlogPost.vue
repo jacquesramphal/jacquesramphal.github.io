@@ -24,7 +24,7 @@
         <ThumbLarge
           class=""
           title=""
-          filename="about.jpg"
+          filename="jacques.jpeg"
           alt="Jacques working at Myplanet"
         />
       </Container>
@@ -79,7 +79,6 @@
           flipped
             class=""
             style="background: var(--bg-darker)"
-            header="About Me"
             route="post"
             cta="Learn More"
           />

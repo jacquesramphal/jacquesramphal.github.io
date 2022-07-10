@@ -1,8 +1,15 @@
 <template>
   <PageWrapper>
-    <HeroBanner
+    <!-- <HeroBanner
       style="background: var(--bg-darker)"
       title="🗂️ Documents"
+      eyebrow=""
+    /> -->
+    <HeroBanner
+      id="hero"
+      style="background: var(--bg-darker)"
+      title="🗂️ Documents"
+      subtitle="A collection of ramblings and lessons learned. Design, Dev, Mindfulness"
       eyebrow=""
     />
     <!-- <ul class="container">

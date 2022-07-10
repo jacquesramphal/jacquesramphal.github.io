@@ -42,8 +42,6 @@
 <script>
 // import TextImage from "@/components/card/TextImage.vue";
 
-import PageWrapper from "@/components/grid/PageWrapper.vue";
-import Container from "@/components/grid/Container.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
@@ -60,8 +58,6 @@ export default {
   name: "Info",
   components: {
     // TextImage,
-    PageWrapper,
-    Container,
     HeroBanner,
     ThumbLarge,
     DetailCard,

@@ -1,29 +1,47 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import { init, track, parameters } from "insights-js"
+import { createApp } from "vue";
+import App from "./App.vue";
+import { init, track, parameters } from "insights-js";
 
-import router from './router';import { Directive, DirectiveBinding, VNode } from 'vue';export const appear: Directive = {
+// Global Components
+import HeroBanner from "@/components/HeroBanner.vue";
+import Container from "@/components/grid/Container.vue";
+import Wrapper from "@/components/grid/Wrapper.vue";
+import PageWrapper from "@/components/grid/PageWrapper.vue";
+
+import router from "./router";
+import { Directive, DirectiveBinding, VNode } from "vue";
+export const appear: Directive = {
   beforeMount(element: HTMLElement) {
-    element.style.visibility = 'hidden';
+    element.style.visibility = "hidden";
   },
-  updated(element: HTMLElement, 
-          binding: DirectiveBinding<boolean>, 
-          node: VNode) {
-    if (!binding.value === !binding.oldValue 
-        || null === node.transition) {
+  updated(
+    element: HTMLElement,
+    binding: DirectiveBinding<boolean>,
+    node: VNode
+  ) {
+    if (!binding.value === !binding.oldValue || null === node.transition) {
       return;
-    }    if (!binding.value) {
+    }
+    if (!binding.value) {
       node.transition.leave(element, () => {
-        element.style.visibility = 'hidden';
+        element.style.visibility = "hidden";
       });
       return;
-    }    node.transition.beforeEnter(element);
-    element.style.visibility = '';
+    }
+    node.transition.beforeEnter(element);
+    element.style.visibility = "";
     node.transition.enter(element);
-  }
+  },
 };
-createApp(App)
-.use(router, init, track, parameters)
-.directive('appear', appear)
-.mount('#app')
+const app = createApp(App);
+app
+  .use(router, init, track, parameters)
+  .directive("appear", appear)
+  .mount("#app");
 
+// Global Components
+app
+  .component("HeroBanner", HeroBanner)
+  .component("Container", Container)
+  .component("Wrapper", Wrapper)
+  .component("PageWrapper", PageWrapper);

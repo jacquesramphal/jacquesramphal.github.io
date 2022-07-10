@@ -1,17 +1,26 @@
 <template>
-  <div id="textblock" :class="classes">
+  <div id="textblock" :class="classes" >
     <h6 tabIndex="0" class="subtle" v-if="eyebrow" v-text="eyebrow" />
     <h3 tabIndex="0" v-if="header" v-text="header" />
     <h4 tabIndex="0" v-if="header4" v-text="header4" />
+    <h5 tabIndex="0" v-if="header5" v-text="header5" />
     <p tabIndex="0" v-if="details" v-text="details" />
-    <router-link :to="`${route}`"><p>{{ cta }}</p></router-link>
+
+    <router-link v-if="route" :to="`${route}`"
+      ><p class="route">{{ cta }}</p>
+      <!-- <MyButton :label="`${cta}`" size="large" :route="`${route}`" /> -->
+    </router-link>
   </div>
 </template>
 
 <script>
+// import MyButton from "@/stories/Button.vue";
+
 export default {
   name: "TextBlock",
-
+  // components: {
+  //   MyButton,
+  // },
   props: {
     eyebrow: {
       type: String,
@@ -23,6 +32,11 @@ export default {
       required: false,
     },
     header4: {
+      type: String,
+      default: "",
+      required: false,
+    },
+    header5: {
       type: String,
       default: "",
       required: false,
@@ -40,10 +54,14 @@ export default {
     },
     cta: {
       type: String,
+      default: "Read More",
     },
     route: {
       type: String,
       default: "",
+    },
+    label: {
+      type: String,
     },
   },
 
@@ -59,7 +77,6 @@ export default {
 };
 </script>
 <style scoped>
-
 * {
   color: inherit;
 }
@@ -69,11 +86,11 @@ export default {
 h6 {
   margin-bottom: 1em;
 }
-h3 {
-  margin: 0 0 0.5em 0;
-}
 p {
-  margin: 0 0 2rem 0;
+  margin: 1rem 0 0 0;
+}
+.route {
+  margin: var(--spacing-sm) 0 0 0;
 }
 .textblock-align--left {
   text-align: left;

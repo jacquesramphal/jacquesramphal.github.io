@@ -1,23 +1,21 @@
 <template>
   <PageWrapper>
-    <!--  <RichTextRenderer :document="document" /> -->
-    <HeroBanner
+    <!-- <HeroBanner
       id="hero"
       class="display"
       v-for="homePage in contentful"
       v-bind:key="homePage.sys.id"
       :title="homePage.heroText"
       eyebrow=""
+    /> -->
+    <HeroBanner
+      id="hero"
+      class="display"
+      title="Designer of things, working & playing at Orium"
+      eyebrow=""
     />
-    <!--  <div v-html="homePage.heroRichText" /> -->
 
-    <!-- NOT WORKING
-    <div v-for="homePage in contentful" v-bind:key="homePage.sys.id">
-      <p v-html="richtextToHTML(homePage.heroRichText)"></p>
-    </div>
-^ NOT WORKING -->
-
-    <Container id="work">
+    <Container id="work" tight>
       <!-- <div
         class="grid-parent"
         style="
@@ -26,9 +24,9 @@
           grid-template-columns: repeat(2, 1fr);
         "
       >
-        <h3 class="subtle" style="text-align: left">🎨 Work</h3>
+        <h4 class="subtle" style="text-align: left">Selected Work</h4>
         <p class="external justify-end">
-          <router-link :to="{ name: 'Work' }">View All</router-link>
+          <router-link :to="{ name: 'Work2' }">See More</router-link>
         </p>
       </div> -->
       <div id="recentwork" class="grid-parent">
@@ -43,7 +41,6 @@
           alt="Avatar"
           class="hidemobile"
           filename="avatar/avatar.svg"
-          route="Project"
           title="Avatar"
         />
         <ThumbSmall
@@ -53,72 +50,110 @@
           title="Avatar"
         />
         <ThumbSmall
+          style="background-color: var(--bg-darker)"
           alt="Template Project"
-          style="background-color: var(--link)"
+          filename="templates/template-v2.svg"
+          route="project"
           title="Small Template"
-          filename="templates/template-mobile.svg"
+          details="This is a project description that would give a preview into the project..."
         />
         <ThumbSmall alt="Giftbook" filename="work/gob.svg" title="Giftbook" />
 
         <ThumbDetail
           alt="Project Template"
+          filename="templates/template-mobile-blank.svg"
           style="background-color: #35363a"
           title="Project Title"
           route="project"
           cta="cta"
           details="This is a project description that would give a preview into the project..."
         />
-        <!-- <ThumbLarge
-          title=""
+
+        <!-- Large tile mobile override START -->
+        <ThumbSmall
+          class="showmobile"
+          alt="Template Project"
           filename="work/glo.svg"
+          route="project"
+          title="Fortune 100"
+          details="This is a project description that would give a preview into the project..."
+        />
+        <ThumbLarge
           class="hidemobile"
-          alt="Jacques working at Myplanet"
-          route=""
+          filename="work/glo.svg"
+          route="project"
+          title="Fortune 100"
+          details="This is a project description that would give a preview into the project..."
+        />
+        <!-- Large tile mobile override END -->
+
+        <!-- Medium tile mobile override START -->
+        <ThumbSmall
+          class="showmobile"
+          alt="Template Project"
+          filename="work/dod.svg"
+          title="DevopsDays Toronto"
+        />
+        <ThumbMedium
+          class="hidemobile"
+          alt="DevopsDays Toronto"
+          filename="work/dod.svg"
+          title="DevopsDays Toronto"
+        />
+        <!-- Medium tile mobile override END -->
+
+        <ThumbSmall
+          style="background-color: var(--bg-darker)"
+          alt="Template Project"
+          filename="templates/template-desktop-mobile.svg"
+                    title="Project Template"
+
+        />
+        <ThumbSmall
+          alt="Brb Splash"
+          details="This is a project description that would give a preview into the project..."
+          filename="splash.svg"
+          title="BRB Splash"
+        />
+        <ThumbSmall
+                  style="background-color: var(--color-lightyellow)"
+
+          alt="Template Project"
+          filename="templates/template-v2.svg"
+          title="Small Template"
+          details="This is a project description that would give a preview into the project..."
         />
         <ThumbSmall
           alt="Template Project"
-          class="showmobile"
-          style="background-color: #ffdd9d"
+          style="background-color: var(--link)"
+          details="This is a project description that would give a preview into the project..."
+          filename="templates/template-mobile-blank.svg"
           title="Small Template"
-        /> -->
+        />
       </div>
     </Container>
-    <TextImage class="" style="background: var(--bg-darker);" filename="jacques.jpeg" header="The tools I use" details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. " route="post" cta="Read More"/>
+    <!-- <TextImage class="" style="background: var(--bg-darker);" filename="jacques.jpeg" header="The tools I use" details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. " route="post" cta="Read More"/> -->
     <!-- <CardRow /> -->
   </PageWrapper>
 </template>
 
 <script>
-// import RichTextRenderer from "contentful-rich-text-vue-renderer";
-// import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
-// import RichText from "@/components/RichText.vue";
-
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import PageWrapper from "@/components/grid/PageWrapper.vue";
-import Container from "@/components/grid/Container.vue";
+// import CardRow from "@/components/CardRow.vue";
+// import TextImage from "@/components/card/TextImage.vue";
+import ThumbDetail from "@/components/ThumbDetail.vue";
+import ThumbLarge from "@/components/ThumbLarge.vue";
+import ThumbMedium from "@/components/ThumbMedium.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
-import TextImage from "@/components/card/TextImage.vue";
-
-import ThumbDetail from "@/components/ThumbDetail.vue";
-// import ThumbLarge from "@/components/ThumbLarge.vue";
-import HeroBanner from "@/components/HeroBanner.vue";
-// import CardRow from "@/components/CardRow.vue";
 
 export default {
   name: "Work",
   components: {
-    HeroBanner,
-    PageWrapper,
-    Container,
+    ThumbDetail,
+    ThumbLarge,
+    ThumbMedium,
     ThumbSmall,
     ThumbSmall2,
-    ThumbDetail,
-    // RichText,
-    // RichTextRenderer,
-    // CardRow,
-    TextImage,
   },
   props: {
     // header: {
@@ -137,16 +172,6 @@ export default {
   },
 
   methods: {
-    richtextToHTML(content) {
-      return documentToHtmlString(content, {
-        renderNode: {
-          [BLOCKS.EMBEDDED_ASSET]: (node) => {
-            return `<img src="${node.data.target.fields.file.url}" alt="${node.data.target.fields.title}" />`;
-          },
-        },
-      });
-    },
-
     getContentful: async () => {
       const query = `{
        homePageCollection {
@@ -189,7 +214,7 @@ export default {
 #hero
   border-bottom: none !important
 #work
-  padding-top: var(--spacing-sm) !important
+  // padding-top: var(--spacing-sm) !important
 .container
   // background-color: var(--color-white)
   padding-top: 0 !important
