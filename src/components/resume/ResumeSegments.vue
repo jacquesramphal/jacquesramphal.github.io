@@ -5,11 +5,26 @@
         :key="i"
         class="resume-segment"
     >
-      <h5
-          class="resume-segment-title"
+      
+      <div
+        class="grid-parent"
+        style="
+          padding-bottom: var(--spacing-md);
+          align-items: center;
+          grid-template-columns: repeat(2, 1fr);
+        "
+      >
+        <h4
+          class="subtle resume-segment-title"
           v-text="segment.title"
-          style="color: var(--link); font-weight: var(--font-medium); text-transform: none;"
+          style="text-align: left"
       />
+        <!-- <p class="external justify-end">
+          <router-link :to="{ name: 'Work' }">View All</router-link>
+        </p> -->
+      </div>
+
+      
       <ul class="resume-segment-list">
         <resume-segment-entry
             v-for="(entry, j) in segment.entries"

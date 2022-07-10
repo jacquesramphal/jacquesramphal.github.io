@@ -13,7 +13,6 @@
 import StickyNav from "./components/StickyNav.vue";
 import MainFooter from "@/components/MainFooter.vue";
 import ThemeButton from "@/components/ThemeButton.vue";
-// import RichTextRenderer from "@/components/RichText.vue";
 
 // Register Global Component TBD
 // import AnimatedComponent from "@/components/AnimatedComponent.vue";
@@ -24,7 +23,6 @@ export default {
     StickyNav,
     MainFooter,
     ThemeButton,
-    // RichTextRenderer,
     // AnimatedComponent
   }
 };

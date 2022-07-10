@@ -65,7 +65,7 @@ h5 {
 /* eyebrow text */
 h6 {
   font-size: var(--font-xs);
-  font-weight: var(--font-bold);
+  font-weight: var(--font-heavy);
   line-height: 1.5;
   margin: 0;
   opacity: 1 !important;
@@ -151,28 +151,6 @@ li {
   font-size: 12px;
   text-rendering: optimizeLegibility;
 } */
-.caption {
-  -moz-transition: all 0.1s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
-  -webkit-transition: all 0.1s ease-in-out;
-  color: transparent !important;
-  display: block !important;
-  float: left;
-  padding: var(--spacing-sm);
-  position: absolute;
-  text-rendering: optimizeLegibility;
-  transition: all 0.1s ease-in-out;
-  z-index: 100;
-}
-
-.grid-card:hover .caption {
-  color: var(--color-dark) !important;
-  display: block !important;
-}
-
-.grid-card:active .caption {
-  /* display: none !important; */
-}
 
 /* DROPCAP */
 

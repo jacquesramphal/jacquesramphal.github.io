@@ -19,10 +19,13 @@
     <style>
         <!-- #favicon { stroke: #0086e6; } -->
         #favicon { stroke: black; }
+        <!-- #favicon { stroke: #6a5eff; } -->
+
 
     @media (prefers-color-scheme: dark) {
       <!-- #favicon { stroke: #fcb13a; } -->
       #favicon { stroke: white; }
+      <!-- #favicon { stroke: #9c95fc; } -->
     }
   </style>
 </svg>

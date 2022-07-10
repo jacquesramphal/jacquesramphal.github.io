@@ -73,7 +73,7 @@
 
   /* FONT-SIZE */
 
-  --font-display: 10rem;
+  --font-display: 12rem;
   --font-xxxl: 8rem;
   --font-xxl: 7.2rem;
   --font-xl: 6.4rem;
@@ -94,6 +94,8 @@
   /* SPACING */
   --spacing-tight: -0.2rem;
   --spacing-normal: 0;
+  --spacing-reversed-tight: calc(var(--spacing-normal) - 0.12rem);
+  --spacing-reversed-normal: 0.01rem;
 
   --spacing-xxxs: 0.4rem;
   --spacing-xxs: 0.8rem;
@@ -105,10 +107,11 @@
   --spacing-xl: 12.8rem;
   --spacing-xxl: 25.6rem;
   --spacing-xxxl: 51.2rem;
-  
+
   /* IMAGE FILTERS */
   --filter: brightness(1) saturate(1);
 }
+
 /* PADDING -- TBD */
 
 /* Override light mode with dark mode styles if the user decides to swap */
@@ -147,6 +150,8 @@
   /* SPACING - testing calc */
   --spacing-tight: calc(var(--spacing-normal) - 0.12rem);
   --spacing-normal: 0.01rem;
+  --spacing-reversed-tight: -0.2rem;
+  --spacing-reversed-normal: 0;
 }
 
 /* Styles for users who prefer dark mode at the OS level */
@@ -180,12 +185,15 @@
 
     /* IMAGE FILTERS */
     --filter: brightness(0.8) saturate(1.25);
-    
+
     /* SPACING */
     --spacing-tight: calc(var(--spacing-normal) - 0.12rem);
     --spacing-normal: 0.01rem;
+    --spacing-reversed-tight: -0.2rem;
+    --spacing-reversed-normal: 0;
   }
 }
+
 /* Override dark mode with light mode styles if the user decides to swap */
 :root.light-theme {
   --text: var(--color-darktext);
@@ -216,10 +224,12 @@
 
   /* IMAGE FILTERS */
   --filter: brightness(1) saturate(1);
-  
+
   /* SPACING */
   --spacing-tight: -0.2rem;
   --spacing-normal: 0;
+  --spacing-reversed-tight: calc(var(--spacing-normal) - 0.12rem);
+  --spacing-reversed-normal: 0.01rem;
 }
 
 /* needs cleanup and consolidation */
@@ -227,19 +237,16 @@
 
 /* Filters & Gradients */
 .gradient-sunrise {
-  background: linear-gradient(
-    #387ffb 0%,
-    #34c4ff 40%,
-    #ffc6d0 75%,
-    #ffceaa 95%
-  );
+  background: linear-gradient(#387ffb 0%,
+      #34c4ff 40%,
+      #ffc6d0 75%,
+      #ffceaa 95%);
 }
+
 .gradient2 {
-  background: -webkit-linear-gradient(
-    top left,
-    var(--link-reversed),
-    var(--link-reversed)
-  );
+  background: -webkit-linear-gradient(top left,
+      var(--link-reversed),
+      var(--link-reversed));
 }
 
 .shadow-top {
@@ -261,6 +268,7 @@
 .shadow-all {
   box-shadow: 0 0 5px #333;
 }
+
 .opacity {
   opacity: 0.95;
 }
@@ -268,57 +276,75 @@
 .lightgrey {
   background-color: #f4f4f4;
 }
+
 .darkgrey {
   background-color: #35363a;
 }
+
 .slate {
   background-color: #3e4953;
 }
+
 .black {
   background-color: #000;
 }
+
 .offblack {
   background-color: #202124;
 }
+
 .grey {
   background-color: #e3e3e3;
 }
+
 .white {
   background-color: #fff;
 }
+
 .greenblue {
   background-color: #0d98ba;
 }
+
 .dodgerblue {
   background-color: #1e90ff;
 }
+
 .blue {
   background-color: #4e92df;
 }
+
 .lightblue {
   background-color: #cfe6ff;
 }
+
 .purple {
   background-color: #686c99;
 }
+
 .yellow {
   background-color: #ffdd9d;
 }
+
 .goldenrod {
   background-color: #fcb13a;
 }
+
 .rose {
   background-color: #eb5364;
 }
+
 .red {
   background-color: #b12026;
 }
+
 .lightpink {
   background-color: #ffeef1;
 }
+
 .pink {
   background-color: #ffd3d9;
 }
+
 .brown {
   background-color: #e8a191;
 }

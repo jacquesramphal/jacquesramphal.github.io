@@ -6,20 +6,23 @@
   >
     <div class="bg">
       <nav class="">
-        <h1 class="hidemobile nav-link" id="wordmark" tabindex="1">
-          <router-link :to="{ name: 'Work' }"
-            ><strong>ramphal.design</strong></router-link
-          >
+        <h1
+          class="hidemobile nav-link"
+          id="wordmark"
+          style="font-weight: var(--font-reversed-bold) !important"
+          tabindex="1"
+        >
+          <router-link :to="{ name: 'Work' }"><strong>ramphal.design</strong></router-link>
         </h1>
 
-        <h1 class="showmobile nav-link" id="wordmark" tabindex="1">
+        <h1 class="showmobile nav-link" id="wordmark" style="font-weight: var(--font-reversed-bold);" tabindex="1">
           <router-link :to="{ name: 'Work' }"
             ><strong>ramphal.design</strong></router-link
           >
         </h1>
         <ul class="justify-end">
           <li class="nav-link" tabindex="1">
-            <router-link :to="{ name: 'Info' }">info</router-link>
+            <router-link :to="{ name: 'Resume' }">info</router-link>
           </li>
           <li class="nav-link" tabindex="1">
             <router-link :to="{ name: 'Blog' }">docs</router-link>
@@ -186,6 +189,7 @@ li {
   line-height: 1;
   margin: 0;
   text-decoration: none;
+  font-weight: var(--font-reversed-medium);
 }
 li:first-child {
   padding-right: 0;

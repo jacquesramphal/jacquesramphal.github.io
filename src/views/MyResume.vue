@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Resume from "@/components/resume/Resume.vue";
 // Mock data
 import segments from "@/components/resume/data/segments.json";
@@ -20,7 +19,7 @@ import information from "@/components/resume/data/information.json";
 import settings from "@/components/resume/data/settings.json";
 export default {
   name: "MyResume",
-  components: { PageWrapper, Resume },
+  components: { Resume },
   data() {
     return {
       segments,
@@ -31,7 +30,6 @@ export default {
   },
 };
 </script>
-
 
 <style scoped>
 #info > .container {

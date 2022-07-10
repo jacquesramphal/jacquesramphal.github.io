@@ -44,8 +44,10 @@
 .grid-card:active {
   cursor: pointer;
 } */
-.fullvh {
-  height: 100vh;
+@media only screen and (min-width: 1441px) {
+  .fullvh {
+    height: 100vh;
+  }
 }
 .eightyvh {
   height: 80vh;

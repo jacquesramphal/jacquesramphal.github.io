@@ -1,48 +1,84 @@
 <template>
-  <span class="grid-card twowide">
-    <span tabindex="0" class="caption">
-      <h6 tabIndex="0" class="">{{ title }}</h6>
-      <p tabIndex="0" class="subtle">{{ date }}</p>
-    </span>
-    <span class="overlay"> </span>
-    <a class="zoom">
+  <figure class="grid-card twowide" style="background-color: var(--bg-darker)">
+    <span>
+      <span tabindex="0" class="caption" v-if="title">
+        <TextBlock
+          class="reversed"
+          :eyebrow="`${eyebrow}`"
+          :header5="`${title}`"
+          :details="`${details}`"
+          :route="`${route}`"
+        />
+      </span>
+      <router-link
+        class="card-route"
+        v-if="route"
+        :to="`${route}`"
+        draggable="false"
+      />
+
+      <span class="overlay"> </span>
       <img
         draggable="false"
         :src="require(`@/assets/images/${filename}`)"
         :alt="`${alt}`"
       />
-    </a>
-  </span>
+    </span>
+    <figcaption v-if="caption" v-text="caption" class="subtle" />
+  </figure>
 </template>
 
 <script>
+import TextBlock from "@/stories/TextBlock.vue";
+
 export default {
   name: "ThumbMedium",
+  components: {
+    TextBlock,
+  },
   props: {
+    eyebrow: {
+      type: String,
+      default: "",
+    },
     title: {
       type: String,
-      default: "Default Caption",
     },
-    date: {
+    details: {
       type: String,
-      default: " ",
+      default: "",
+    },
+    caption: {
+      type: String,
+      required: false,
     },
     filename: {
       type: String,
-      default: "template.svg",
+      default: "templates/template-sm.svg",
     },
     alt: {
       type: String,
       default: "This is an image",
     },
+    route: {
+      type: String,
+      default: "",
+    },
   },
 };
 </script>
 
-<style scoped>
+<style lang="sass" scoped>
+img
+  mix-blend-mode: normal
+  height: 101%
+  object-fit: cover
+</style>
 
+<style scoped>
 .twowide {
   grid-column: 1 / 4;
+  
 }
 
 /* ------------ BREAKPOINT MD ------------ */

@@ -1,10 +1,5 @@
 <template>
   <Container class="resume">
-    <blog-posts
-      class="segments"
-      :segments="segments"
-      :settings="settings.segments"
-    />
     <resume-segments
       class="segments"
       :segments="segments"

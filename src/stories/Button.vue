@@ -1,8 +1,7 @@
 <template>
   <router-link :to="`${route}`">
-    <button type="button" :class="classes" @click="onClick" :style="style">
-      {{ label }}
-    </button></router-link
+    <button type="button" :class="classes" @click="onClick" :style="style" v-if="label" v-text="label" />
+   </router-link
   >
 </template>
 

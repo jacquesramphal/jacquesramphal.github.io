@@ -1,33 +1,52 @@
 <template>
-  <figure class="hero grid-card">
-    <span class="grid-card" >
-      <span tabindex="0" class="caption">
-        <p tabIndex="0" class="">{{ title }}</p>
-        <p tabIndex="0" class="subtle">{{ date }}</p>
+  <figure class="hero grid-card" >
+  <!-- <figure class="hero grid-card" style="background-color: var(--bg-darker)"> -->
+    <span>
+      <span tabindex="0" class="caption" v-if="title">
+        <TextBlock
+          class="reversed"
+          :eyebrow="`${eyebrow}`"
+          :header="`${title}`"
+          :details="`${details}`"
+          :route="`${route}`"
+        />
       </span>
-      <router-link :to="`${route}`">
-        <span class="overlay"></span>
-        <img
-        
-          draggable="false"
-          :src="require(`@/assets/images/${filename}`)"
-          :alt="`${alt}`"
-        /> </router-link
-    >
-</span>    <figcaption v-if="caption" v-text="caption" class="subtle" />
+      <router-link
+        class="card-route"
+        v-if="route"
+        :to="`${route}`"
+        draggable="false"
+      />
+      <span class="overlay"></span>
+      <img
+        draggable="false"
+        :src="require(`@/assets/images/${filename}`)"
+        :alt="`${alt}`"
+      />
+    </span>
+    <figcaption v-if="caption" v-text="caption" class="subtle" />
   </figure>
 </template>
 
 <script>
+import TextBlock from "@/stories/TextBlock.vue";
+
 export default {
   name: "ThumbLarge",
+  components: {
+    TextBlock,
+  },
   props: {
+    eyebrow: {
+      type: String,
+      default: "",
+    },
     title: {
       type: String,
-      default: "ThumbLarge",
     },
-    date: {
+    details: {
       type: String,
+      default: "",
     },
     caption: {
       type: String,
@@ -43,17 +62,20 @@ export default {
     },
     route: {
       type: String,
-      default: "#",
+      default: "",
     },
   },
 };
 </script>
 
 <style lang="sass" scoped>
-
 .caption
-  display: block !important
+  padding: var(--spacing-lg) var(--spacing-lg)
+
 img
+  mix-blend-mode: normal
+  height: 101%
+  object-fit: cover
   aspect-ratio: 16 / 8
 .hero
   grid-column: 1 / 4

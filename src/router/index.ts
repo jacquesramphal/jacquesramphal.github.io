@@ -17,6 +17,7 @@ import MyResume from "@/views/MyResume.vue";
 import NotFound from "@/views/misc/NotFound.vue";
 import Project from "@/views/Project.vue";
 import Work from "@/views/Work.vue";
+import Work2 from "@/views/Work2.vue";
 
 const routes = [
   {
@@ -52,6 +53,11 @@ const routes = [
     path: "/work",
     name: "Work",
     component: Work,
+  },
+  {
+    path: "/work2",
+    name: "Work2",
+    component: Work2,
   },
   {
     path: "/cv",

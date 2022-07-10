@@ -11,10 +11,25 @@
           <h2>
             {{ title }}
           </h2>
-          <h5 v-if="subtitle" v-text="subtitle" class="" style="margin-top: var(--spacing-xs); font-weight: var(--font-medium);" />
-
+          <h5
+            v-if="subtitle"
+            v-text="subtitle"
+            class=""
+            style="
+              font-weight: var(--font-medium);
+            "
+          />
+          <div
+            id="hero-cta"
+            v-show="label"
+          >
+            <MyButton
+              :label="`${label}`"
+              size="large"
+              :route="`${route}`"
+            />
+          </div>
         </div>
-        
       </Container>
     </Wrapper>
   </AnimatedComponent>
@@ -24,6 +39,7 @@
 import Wrapper from "@/components/grid/Wrapper.vue";
 import Container from "@/components/grid/Container.vue";
 import AnimatedComponent from "@/components/AnimatedComponent.vue";
+import MyButton from "@/stories/Button.vue";
 
 export default {
   name: "HeroBanner",
@@ -49,11 +65,18 @@ export default {
     subtitle: {
       type: String,
     },
+    route: {
+      type: String,
+    },
+    label: {
+      type: String,
+    },
   },
   components: {
     Wrapper,
     Container,
     AnimatedComponent,
+    MyButton,
   },
   computed: {
     classes() {
@@ -91,10 +114,11 @@ export default {
   background-image: url("../assets/images/jacques.jpeg")
   color: white !important
   text-shadow: var(--shadow-hover)
-  
+
 #hero-text
   display: grid
   grid-row: 1 / 8
+  gap: var(--spacing-md)
   justify-content: left
   text-align: left
   align-items: end !important

@@ -1,6 +1,6 @@
 <template>
   <Wrapper class="thumbdetail grid-card" style="padding: 0">
-    <Container tight class="">
+    <Container class="text-container">
       <Wrapper class="text">
         <TextBlock
           cta="Read More"
@@ -12,21 +12,17 @@
       </Wrapper>
     </Container>
     <Wrapper class="">
-      <router-link :to="`${route}`">
+      <router-link :to="`${route}`" draggable="false">
         <img
           class="zoom"
           draggable="false"
           :src="require(`@/assets/images/${filename}`)"
           :alt="`${alt}`"
         />
-      </router-link> 
-
+      </router-link>
     </Wrapper>
   </Wrapper>
 </template>
-
-
-
 
 <script>
 import Wrapper from "@/components/grid/Wrapper.vue";
@@ -74,6 +70,12 @@ export default {
 #screen
   background-image: url("../assets/images/avatar/avatar.svg")
 
+img
+  mix-blend-mode: normal
+  aspect-ratio: 1 / 1
+  height: 101%
+  object-fit: cover
+
 .thumbdetail
   background-color: var(--bg-darker) !important
   // background-color: #35363a !important
@@ -87,8 +89,12 @@ export default {
     grid-template-rows: none
   @media only screen and (min-width: 1201px)
     grid-column: span 2
-
-
+.text-container
+  padding: var(--spacing-md) var(--spacing-md) 0 var(--spacing-md) !important
+  @media only screen and (min-width: 740px)
+    padding: var(--spacing-md) 0 var(--spacing-md) var(--spacing-md)!important
+  @media only screen and (min-width: 1201px)
+    padding: var(--spacing-lg) 0 var(--spacing-lg) var(--spacing-lg)!important
 .textblock
   text-decoration: none !important
   // color: var(--color-offwhite) !important
