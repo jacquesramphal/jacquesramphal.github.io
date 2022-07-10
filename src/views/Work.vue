@@ -11,7 +11,7 @@
     <HeroBanner
       id="hero"
       class="display"
-      title="Designer of things, working & playing at Orium"
+      title="Designer of things, working & playing at Myplanet"
       eyebrow=""
     />
 
