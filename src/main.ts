@@ -41,7 +41,7 @@ app
 
 // Global Components
 app
-  .component("HeroBanner", HeroBanner)
   .component("Container", Container)
+  .component("HeroBanner", HeroBanner)
+  .component("PageWrapper", PageWrapper)
   .component("Wrapper", Wrapper)
-  .component("PageWrapper", PageWrapper);
