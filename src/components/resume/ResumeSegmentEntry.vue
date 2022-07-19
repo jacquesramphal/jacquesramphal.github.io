@@ -1,83 +1,84 @@
 <template>
   <li class="resume-segment-entry">
-    <div
-        v-if="from || to || location"
-        class="resume-segment-entry-information"
-    >
+    <h3 class="resume-segment-entry-title">
+      <span v-if="title" v-text="title" />
+      <span v-if="position" v-text="positionInBrackets" />
+    </h3>
+    <div v-if="from || to || location" class="resume-segment-entry-information">
       <div
-          v-if="from || to"
-          class="subtle resume-segment-entry-information-date"
+        v-if="from || to"
+        class="subtle resume-segment-entry-information-date"
       >
         <span
-            v-if="from"
-            class="resume-segment-entry-information-from"
-            v-text="from"
+          v-if="from"
+          class="resume-segment-entry-information-from"
+          v-text="from"
         />
         <span
-            v-if="to"
-            class="resume-segment-entry-information-to"
-            v-text="to"
+          v-if="to"
+          class="resume-segment-entry-information-to"
+          v-text="to"
         />
       </div>
       <div
-          v-if="location"
-          class="subtle resume-segment-entry-information-location"
-          v-text="location"
+        v-if="location"
+        class="subtle resume-segment-entry-information-location"
+        v-text="location"
       />
     </div>
-    <h6 class="resume-segment-entry-title">
-      <span
-          v-if="title"
-          v-text="title"
-      />
-      <span
-          v-if="position"
-          v-text="positionInBrackets"
-      />
-    </h6>
     <p
-        v-if="description"
-        class="resume-segment-entry-description"
-        v-html="description"
+      v-if="description"
+      class="resume-segment-entry-description"
+      v-html="description"
     />
+    <blockquote v-if="callout">
+      <p
+        class="resume-segment-entry-description"
+        v-html="callout"
+      />
+    </blockquote>
   </li>
 </template>
 
 <script>
 export default {
-  name: 'ResumeSegmentEntry',
+  name: "ResumeSegmentEntry",
   props: {
     title: {
       required: true,
-      type: String
+      type: String,
     },
     description: {
-      default: '',
-      type: String
+      default: "",
+      type: String,
+    },
+     callout: {
+      default: "",
+      type: String,
     },
     position: {
-      default: '',
-      type: String
+      default: "",
+      type: String,
     },
     location: {
-      default: '',
-      type: String
+      default: "",
+      type: String,
     },
     from: {
-      default: '',
-      type: String
+      default: "",
+      type: String,
     },
     to: {
-      default: '',
-      type: String
-    }
+      default: "",
+      type: String,
+    },
   },
   computed: {
-    positionInBrackets () {
-      return ` (${this.position})`
-    }
-  }
-}
+    positionInBrackets() {
+      return ` (${this.position})`;
+    },
+  },
+};
 </script>
 
 <style scoped lang="sass">
@@ -87,10 +88,10 @@ export default {
   flex-flow: column wrap
   justify-content: flex-start
   align-items: flex-start
-  margin-top: var(--spacing-xs)
+  // margin-top: var(--spacing-xs)
   padding: var(--spacing-md) 0
   // border-radius: .8rem
-  border-top: var(--border)
+  // border-top: var(--border)
   // border: var(--border)
   // box-shadow: var(--shadow-light)
   // background-color: var(--bg-darker)

@@ -8,6 +8,15 @@
       :eyebrow="about.eyebrow"
       :title="about.pageTitle"
     /> -->
+    <Container style="padding-top: 0 !important">
+      <ThumbLarge
+        title=""
+        filename="about.jpg"
+        alt="Jacques working at Myplanet"
+        route=""
+        caption="This is an image caption"
+      />
+    </Container>
     <DetailCard />
     <!-- <DetailCard
       v-for="about in contentful"
@@ -27,15 +36,7 @@
       :value3="about.statValue3"
       :label3="about.statLabel3"
     /> -->
-    <Container style="padding-top: 0 !important">
-      <ThumbLarge
-        title=""
-        filename="about.jpg"
-        alt="Jacques working at Myplanet"
-        route=""
-        caption="This is an image caption"
-      />
-    </Container>
+    
   </PageWrapper>
 </template>
 

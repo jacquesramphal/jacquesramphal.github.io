@@ -6,25 +6,31 @@
           v-for="(link, i) in information.links"
           :key="i"
       >
-        <a
+      <TextLink
+      :link="link.url"
+      :label="link.title"
+      />
+        <!-- <a
             :href="link.url"
             v-text="link.title"
-        />
+        /> -->
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import TextLink from '../text/TextLink.vue';
 export default {
-  name: 'ResumeFooter',
-  props: {
-    information: {
-      type: Object,
-      required: true
-      // TODO: add validation
-    }
-  }
+    name: "ResumeFooter",
+    props: {
+        information: {
+            type: Object,
+            required: true
+            // TODO: add validation
+        }
+    },
+    components: { TextLink }
 }
 </script>
 

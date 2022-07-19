@@ -66,6 +66,7 @@ export default {
       required: true,
     },
   },
+  // Multiple classes
   computed: {
     classes() {
       return {

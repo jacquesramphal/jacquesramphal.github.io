@@ -56,8 +56,10 @@ export default {
     },
     route: {
       type: String,
-      default: "Project",
     },
+    // link: {
+    //   type: String,
+    // },
   },
 };
 </script>

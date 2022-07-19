@@ -297,12 +297,7 @@ a:active,
   text-decoration-thickness: .1rem !important;
 }
 
-/* ---- External Link ---- */
 
-.external:after {
-  content: " ↗";
-  color: var(--link);
-}
 
 /* ---- Link click + adjust position ---- */
 

@@ -9,17 +9,17 @@
     <label for="checkbox" class="switch-label">
       <!--<span><a><p>Theme</p></a></span>-->
 
-      <div
+      <!-- <div
         class="switch-toggle"
         :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
-      ></div>
-      <!-- <img
+      ></div> -->
+      <img
           class="justify-end"
           draggable="false"
           src="favicon.svg"
           alt="logo.svg"
           style="width: 32px"
-        />-->
+        />
     </label>
   </div>
 </template>
