@@ -3,14 +3,13 @@
     <!--  <RichTextRenderer :document="document" /> -->
     <HeroBanner
       id="hero"
-      title="Recent Work"
+      title="Selected Work"
       subtitle="A collection of recent work and play lorem ipsum doler."
       eyebrow=""
       label="Request Access"
       route="login"
     />
 
-  
     <Container id="work">
       <div
         class="grid-parent"
@@ -26,56 +25,27 @@
         </p> -->
       </div>
       <div id="recentwork" class="grid-parent">
-        <ThumbSmall alt="Template Project" title="Small Template" />
+        <ThumbSmall
+          filename="templates/template-v2.svg"
+          style="background-color: lightpink"
+        />
         <ThumbSmall
           alt="Template Project"
-          title="Small Template"
-          filename="templates/template-mobile.svg"
-        />
-
-        <ThumbSmall
-          alt="Template Project"
-          title="Small Template"
-          filename="templates/template-mobile-v2.svg"
-        />
-
-        <ThumbSmall alt="Template Project" title="Small Template" />
-        <ThumbSmall
-          alt="Template Project"
-          title="Small Template"
-                    filename="templates/template-v2.svg"
-
-        />
-        <ThumbSmall alt="Template Project" title="Small Template" />
-        <ThumbSmall alt="Giftbook" filename="work/gob.svg" title="Giftbook" />
-
-        <!-- <ThumbDetail
-          alt="Project Template"
-          style="background-color: #35363a"
-          title="Project Title"
-          route="project"
-          cta="cta"
+          style="background-color: var(--link)"
           details="This is a project description that would give a preview into the project..."
-        /> -->
+          filename="templates/template-mobile-blank.svg"
+          title="Small Template"
+        />
         <ThumbSmall
-          alt="J Monogram"
-          filename="work/j.svg"
-          id="top"
-          title="Monogram"
-        /><ThumbSmall
-          alt="J Monogram"
-          filename="work/j.svg"
-          id="top"
-          title="Monogram"
-        /><ThumbSmall
-          alt="J Monogram"
-          filename="work/j.svg"
-          id="top"
-          title="Monogram"
+          style="background-color: var(--color-lightyellow)"
+          alt="Template Project"
+          filename="templates/template-v2.svg"
+          title="Small Template"
+          details="This is a project description that would give a preview into the project..."
         />
       </div>
     </Container>
-      <TextImage
+    <TextImage
       class=""
       flipped
       style="background: var(--bg-darker)"
@@ -85,6 +55,121 @@
       route="project"
       cta="Read More"
     />
+    <Container id="work">
+      <div
+        class="grid-parent"
+        style="
+          padding-bottom: var(--spacing-md);
+          align-items: center;
+          grid-template-columns: repeat(2, 1fr);
+        "
+      >
+        <h4 class="subtle" style="text-align: left">Section Title</h4>
+        <!-- <p class="external justify-end">
+          <router-link :to="{ name: 'Work' }">View All</router-link>
+        </p> -->
+      </div>
+      <div id="recentwork" class="grid-parent">
+        <ThumbSmall
+          filename="templates/template-v2.svg"
+          style="background-color: lightpink"
+        />
+        <ThumbSmall
+          alt="Template Project"
+          style="background-color: var(--link)"
+          details="This is a project description that would give a preview into the project..."
+          filename="templates/template-mobile-blank.svg"
+          title="Small Template"
+        />
+        <ThumbSmall
+          style="background-color: var(--color-lightyellow)"
+          alt="Template Project"
+          filename="templates/template-v2.svg"
+          title="Small Template"
+          details="This is a project description that would give a preview into the project..."
+        />
+<ThumbSmall
+          alt="Template Project"
+          style="background-color: pu"
+          details="This is a project description that would give a preview into the project..."
+          filename="templates/template-mobile-blank.svg"
+          title="Small Template"
+        />
+        
+        <ThumbSmall
+          style="background-color: palegoldenrod"
+          alt="Template Project"
+          filename="templates/template-v2.svg"
+          title="Small Template"
+          details="This is a project description that would give a preview into the project..."
+        />
+        <ThumbSmall
+          filename="templates/template-mobile-blank.svg"
+          style="background-color: lightgreen"
+        />
+         <!-- Large tile mobile override START -->
+        <ThumbSmall
+          class="showmobile"
+          alt="Template Project"
+          filename="work/glo.svg"
+          route="project"
+          title="Fortune 100"
+          details="This is a project description that would give a preview into the project..."
+        />
+        <ThumbLarge
+          class="hidemobile"
+          filename="work/glo.svg"
+          route="project"
+          title="Fortune 100"
+          details="This is a project description that would give a preview into the project..."
+        />
+        <!-- Large tile mobile override END -->
+
+        <!-- Medium tile mobile override START -->
+        <ThumbSmall
+          class="showmobile"
+          alt="Template Project"
+          filename="work/dod.svg"
+          title="DevopsDays Toronto"
+        />
+        <ThumbMedium
+          class="hidemobile"
+          alt="DevopsDays Toronto"
+          filename="work/dod.svg"
+          title="DevopsDays Toronto"
+        />
+        <!-- Medium tile mobile override END -->
+
+        <ThumbSmall
+          style="background-color: var(--bg-darker)"
+          alt="Template Project"
+          filename="templates/template-desktop-mobile.svg"
+                    title="Project Template"
+
+        />
+        <ThumbSmall
+          alt="Brb Splash"
+          details="This is a project description that would give a preview into the project..."
+          filename="splash.svg"
+          title="BRB Splash"
+        />
+        <ThumbSmall
+                  style="background-color: var(--color-lightyellow)"
+
+          alt="Template Project"
+          filename="templates/template-v2.svg"
+          title="Small Template"
+          details="This is a project description that would give a preview into the project..."
+        />
+        <ThumbSmall
+          alt="Template Project"
+          style="background-color: var(--link)"
+          details="This is a project description that would give a preview into the project..."
+          filename="templates/template-mobile-blank.svg"
+          title="Small Template"
+        />
+      </div>
+    </Container>  
 
     <!-- <CardRow /> -->
   </PageWrapper>

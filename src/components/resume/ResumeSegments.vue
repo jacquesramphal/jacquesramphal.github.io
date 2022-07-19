@@ -14,7 +14,7 @@
           grid-template-columns: repeat(2, 1fr);
         "
       >
-        <h4
+        <h5
           class="subtle resume-segment-title"
           v-text="segment.title"
           style="text-align: left"
@@ -31,6 +31,7 @@
             :key="j"
             :title="entry.title"
             :description="entry.description"
+            :callout="entry.callout"
             :from="entry.from"
             :to="entry.to"
             :location="entry.location"

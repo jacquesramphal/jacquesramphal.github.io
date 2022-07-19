@@ -1,15 +1,18 @@
 <template>
-  <div id="textblock" :class="classes" >
+  <div id="textblock" :class="classes">
     <h6 tabIndex="0" class="subtle" v-if="eyebrow" v-text="eyebrow" />
     <h3 tabIndex="0" v-if="header" v-text="header" />
     <h4 tabIndex="0" v-if="header4" v-text="header4" />
     <h5 tabIndex="0" v-if="header5" v-text="header5" />
     <p tabIndex="0" v-if="details" v-text="details" />
 
-    <router-link v-if="route" :to="`${route}`"
+<!-- Temporary Texlink -->
+    <TextLink v-show="route" :label="`${cta}`" :route="`${route}`" />
+    <TextLink v-show="link" :label="`${cta}`" :link="`${link}`" />
+
+    <!-- <router-link v-if="route" :to="`${route}`"
       ><p class="route">{{ cta }}</p>
-      <!-- <MyButton :label="`${cta}`" size="large" :route="`${route}`" /> -->
-    </router-link>
+    </router-link> -->
   </div>
 </template>
 
@@ -60,6 +63,9 @@ export default {
       type: String,
       default: "",
     },
+    link: {
+      type: String,
+    },
     label: {
       type: String,
     },
@@ -88,6 +94,9 @@ h6 {
 }
 p {
   margin: 1rem 0 0 0;
+}
+#richlink {
+  margin-top: var(--spacing-sm) !important;
 }
 .route {
   margin: var(--spacing-sm) 0 0 0;

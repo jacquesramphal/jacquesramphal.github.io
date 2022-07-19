@@ -1,47 +1,76 @@
 [
   {
-    "title": "Education",
-    "entries": [
-      {
-        "title": "Ontario College of Art & Design (OCADU)",
-        "location": "Toronto",
-        "from": "2010",
-        "to": "2014",
-        "description": "Graphic Design. Print Production"
-      }
-    ]
-  },
-  {
     "title": "Experience",
     "entries": [
       {
-        "title": "Unicorns nature conservation",
-        "position": "Guard",
-        "location": "Dreamland",
-        "from": "2021",
-        "to": "2025",
-        "description": "Maintain the highly protected reserve for Unicorns."
+        "title": "Sr. Product Designer",
+        "position": "",
+        "location": "Myplanet",
+        "from": "2013",
+        "to": "Present",
+        "description": "[See new language around MP on WR] I work with high-performing teams to make interfaces that empower the workplace and engage users. I'm a Designer/Developer at Myplanet where process and values are grounded in the principle of empathy-for-all and emphasize collaboration, flexibility, and humanity. As an early hire, I've seen the culture adapt and grow in an ever-changing tech landscape of the unknown. Self-awareness and empathy are at the core of both my journey, and Myplanet's.",
+        "callout": "For the past 9 years, I've been growing alongside Myplanet, defining new ways of learning through UI Development and front-end polish."
       },
       {
-        "title": "Unicorns nature conservation2",
-        "position": "Guard2",
-        "location": "Dreamland2",
-        "from": "2021",
-        "to": "2025",
-        "description": "Maintain the highly protected reserve for Unicorns.2"
+        "title": "Mindfulness Fascilitator",
+        "position": "",
+        "location": "Myplanet",
+        "from": "2016",
+        "to": "Present",
+        "description": "Mindfulness has been a supporting pillar in my growth and in the evolution of Myplanet; we create a space for individuals to learn and grow.",
+        "callout": "I'm one of many day-to-day mindfulness ambassador promoting good-vibes and fostering emotional intelligence on multi-disciplinary teams."
+      },
+      {
+        "title": "UX Designer",
+        "position": "",
+        "location": "University Health Network",
+        "from": "",
+        "to": "Summer 2013",
+        "description": ""
+      },
+      {
+        "title": "UI Designer",
+        "position": "Fellow",
+        "location": "Myplanet",
+        "from": "Jan 2013",
+        "to": "April 2013",
+        "description": "A unique learning opportunity for students, recent graduates and those looking to re-train."
+      },
+      {
+        "title": "Print Shop Rep",
+        "position": "",
+        "location": "Staples",
+        "from": "Nov 2010",
+        "to": "Dec 2012",
+        "description": ""
+      },
+      {
+        "title": "Graphic Designer",
+        "position": "",
+        "location": "Bethel Group",
+        "from": "Sep 2008",
+        "to": "Jul 2010",
+        "description": ""
+      },
+      {
+        "title": "Design Intern",
+        "position": "",
+        "location": "Media Enterprises Ltd.",
+        "from": "Mar 2008",
+        "to": "Aug 2008",
+        "description": "This is where I learned the magic of photoshop"
       }
     ]
   },
   {
-    "title": "Community",
+    "title": "Education",
     "entries": [
       {
-        "title": "Graphic Design Thesis Panel",
-        "position": "Judge",
-        "location": "George Brown College, Toronto",
-        "from": "2018",
-        "to": "2019",
-        "description": "I was invited to judge the George Brown College graphic design students completing their 3rd year Thesis projects. I was asked to judge the best projects within a group of approximately 60 students in various categories:"
+        "title": "Graphic Design",
+        "location": "OCADU",
+        "from": "2010",
+        "to": "2014",
+        "description": "Graphic Design. Print Production"
       }
     ]
   }

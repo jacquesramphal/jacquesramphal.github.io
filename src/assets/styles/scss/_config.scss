@@ -18,20 +18,20 @@
 
   /* NEUTRAL */
 
-  --color-offblack: #1C1A21;
+  --color-offblack: hsl(257, 11%, 12%);
   /* --color-offblack: #202124; */
-  --color-darktext: #2c3e50;
-  --color-slate: #40454d;
-  --color-dark: #24292e;
-  --color-medium: #666;
-  --color-light: #999;
-  --color-xlight: #d6d6d6;
-  --color-xxlight: #e6e6e6;
-  --color-xxxlight: #f2f2f2;
-  --color-white: #fff;
-  --color-offwhite: #fafafa;
-  --color-highlight: rgba(0, 0, 0, 0.25);
-  --color-highlight2: rgba(0, 0, 0, 0.05);
+  --color-darktext: hsl(210, 29%, 24%);
+  --color-slate: hsl(217, 9%, 28%);
+  --color-dark: hsl(210, 12%, 16%);
+  --color-medium: hsl(0, 0%, 40%);
+  --color-light: hsl(0, 0%, 60%);
+  --color-xlight: hsl(0, 0%, 84%);
+  --color-xxlight: hsl(0, 0%, 90%);
+  --color-xxxlight: hsl(0, 0%, 95%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-offwhite: hsl(0, 0%, 98%);
+  --color-highlight: hsla(0, 0%, 0%, 0.25);
+  --color-highlight2: hsla(0, 0%, 0%, 0.05);
 
   /* STATES */
   /* --color-action: #0086e6; */
@@ -40,36 +40,39 @@
   /* --color-action-dark: var(--color-blue); */
   /* --color-action-dark: #fcb13a; */
   --color-action-dark: var(--color-lightpurple);
-  --color-danger: #e74848;
-  --color-success: #0dba38;
-  --color-disabled: #f2f2f2;
+  --color-danger: hsl(0, 77%, 59%);
+  --color-success: hsl(135, 87%, 39%);
+  --color-disabled: hsl(0, 0%, 95%);
   /* ACCENT */
-  --color-red: #e74848;
-  --color-green: #58ad84;
-  --color-blue: #0086e6;
-  --color-purple: #6a5eff;
-  --color-lightpurple: #9c95fc;
-  --color-yellow: #fcb13a;
-  --color-lightyellow: #ffdd9d;
-  --color-brown: #e8a191;
-  --color-darkbrown: #7f4b4f;
+  --color-red: hsl(0, 77%, 59%);
+  --color-green: hsl(151, 34%, 51%);
+  --color-blue: hsl(205, 100%, 45%);
+  --color-purple: hsl(244, 100%, 68%);
+  --color-lightpurple: hsl(244, 94%, 79%);
+  --color-yellow: hsl(37, 97%, 61%);
+  --color-lightyellow: hsl(39, 100%, 81%);
+  --color-brown: hsl(11, 65%, 74%);
+  --color-darkbrown: hsl(355, 26%, 40%);
+
+
+
 
   /* HIGHLIGHT */
   /* SHADOW */
-  --shadow-z1: 0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.23);
-  --shadow-z2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  --shadow-z3: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  --shadow-z4: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  --shadow-z5: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-  --shadow-inner: inset 0 4px 12px rgba(0, 0, 0, 0.095);
+  --shadow-z1: 0 1px 3px hsla(0, 0%, 0%, 0.16), 0 1px 2px hsla(0, 0%, 0%, 0.23);
+  --shadow-z2: 0 3px 6px hsla(0, 0%, 0%, 0.16), 0 3px 6px hsla(0, 0%, 0%, 0.23);
+  --shadow-z3: 0 10px 20px hsla(0, 0%, 0%, 0.19), 0 6px 6px hsla(0, 0%, 0%, 0.23);
+  --shadow-z4: 0 14px 28px hsla(0, 0%, 0%, 0.25), 0 10px 10px hsla(0, 0%, 0%, 0.22);
+  --shadow-z5: 0 19px 38px hsla(0, 0%, 0%, 0.3), 0 15px 12px hsla(0, 0%, 0%, 0.22);
+  --shadow-inner: inset 0 4px 12px hsla(0, 0%, 0%, 0.095);
 
-  --shadow-text: 0px 16px 24px rgba(0, 0, 0, 0.07),
-    0px 6px 30px rgba(0, 0, 0, 0.06), 0px 8px 10px rgba(0, 0, 0, 0.15);
-  --shadow-light: 0px 2px 4px rgba(14, 30, 37, 0.12);
-  --shadow-heavy: -10px 10px 80px rgba(0, 0, 0, 0.1);
-  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.25);
-  --shadow-deep: 0px 16px 24px rgba(0, 0, 0, 0.07),
-    0px 6px 30px rgba(0, 0, 0, 0.06), 0px 8px 10px rgba(0, 0, 0, 0.1);
+  --shadow-text: 0px 16px 24px hsla(0, 0%, 0%, 0.07),
+    0px 6px 30px hsla(0, 0%, 0%, 0.06), 0px 8px 10px hsla(0, 0%, 0%, 0.15);
+  --shadow-light: 0px 2px 4px hsla(198, 45%, 10%, 0.12);
+  --shadow-heavy: -10px 10px 80px hsla(0, 0%, 0%, 0.1);
+  --shadow-hover: 0 4px 12px hsla(0, 0%, 0%, 0.25);
+  --shadow-deep: 0px 16px 24px hsla(0, 0%, 0%, 0.07),
+    0px 6px 30px hsla(0, 0%, 0%, 0.06), 0px 8px 10px hsla(0, 0%, 0%, 0.1);
 
   /* FONT-SIZE */
 

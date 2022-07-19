@@ -8,6 +8,7 @@
       :title="homePage.heroText"
       eyebrow=""
     /> -->
+
     <HeroBanner
       id="hero"
       class="display"
@@ -65,72 +66,15 @@
           style="background-color: #35363a"
           title="Project Title"
           route="project"
-          cta="cta"
           details="This is a project description that would give a preview into the project..."
-        />
-
-        <!-- Large tile mobile override START -->
-        <ThumbSmall
-          class="showmobile"
-          alt="Template Project"
-          filename="work/glo.svg"
-          route="project"
-          title="Fortune 100"
-          details="This is a project description that would give a preview into the project..."
-        />
-        <ThumbLarge
-          class="hidemobile"
-          filename="work/glo.svg"
-          route="project"
-          title="Fortune 100"
-          details="This is a project description that would give a preview into the project..."
-        />
-        <!-- Large tile mobile override END -->
-
-        <!-- Medium tile mobile override START -->
-        <ThumbSmall
-          class="showmobile"
-          alt="Template Project"
-          filename="work/dod.svg"
-          title="DevopsDays Toronto"
-        />
-        <ThumbMedium
-          class="hidemobile"
-          alt="DevopsDays Toronto"
-          filename="work/dod.svg"
-          title="DevopsDays Toronto"
-        />
-        <!-- Medium tile mobile override END -->
-
-        <ThumbSmall
-          style="background-color: var(--bg-darker)"
-          alt="Template Project"
-          filename="templates/template-desktop-mobile.svg"
-                    title="Project Template"
-
-        />
-        <ThumbSmall
-          alt="Brb Splash"
-          details="This is a project description that would give a preview into the project..."
-          filename="splash.svg"
-          title="BRB Splash"
-        />
-        <ThumbSmall
-                  style="background-color: var(--color-lightyellow)"
-
-          alt="Template Project"
-          filename="templates/template-v2.svg"
-          title="Small Template"
-          details="This is a project description that would give a preview into the project..."
-        />
-        <ThumbSmall
-          alt="Template Project"
-          style="background-color: var(--link)"
-          details="This is a project description that would give a preview into the project..."
-          filename="templates/template-mobile-blank.svg"
-          title="Small Template"
         />
       </div>
+      <TextLink
+        style="padding-top: var(--spacing-sm)"
+        class="justify-end"
+        label="See more work"
+        route="work2"
+      />
     </Container>
     <!-- <TextImage class="" style="background: var(--bg-darker);" filename="jacques.jpeg" header="The tools I use" details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. " route="post" cta="Read More"/> -->
     <!-- <CardRow /> -->
@@ -141,19 +85,16 @@
 // import CardRow from "@/components/CardRow.vue";
 // import TextImage from "@/components/card/TextImage.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
-import ThumbLarge from "@/components/ThumbLarge.vue";
-import ThumbMedium from "@/components/ThumbMedium.vue";
-import ThumbSmall from "@/components/ThumbSmall.vue";
+
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
+import TextLink from "@/components/text/TextLink.vue";
 
 export default {
   name: "Work",
   components: {
     ThumbDetail,
-    ThumbLarge,
-    ThumbMedium,
-    ThumbSmall,
     ThumbSmall2,
+    TextLink,
   },
   props: {
     // header: {

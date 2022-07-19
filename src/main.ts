@@ -7,6 +7,10 @@ import HeroBanner from "@/components/HeroBanner.vue";
 import Container from "@/components/grid/Container.vue";
 import Wrapper from "@/components/grid/Wrapper.vue";
 import PageWrapper from "@/components/grid/PageWrapper.vue";
+import TextLink from "@/components/text/TextLink.vue";
+import ThumbLarge from "@/components/ThumbLarge.vue";
+import ThumbMedium from "@/components/ThumbMedium.vue";
+import ThumbSmall from "@/components/ThumbSmall.vue";
 
 import router from "./router";
 import { Directive, DirectiveBinding, VNode } from "vue";
@@ -45,3 +49,7 @@ app
   .component("HeroBanner", HeroBanner)
   .component("PageWrapper", PageWrapper)
   .component("Wrapper", Wrapper)
+  .component("TextLink", TextLink)
+  .component("ThumbSmall", ThumbSmall)
+  .component("ThumbMedium", ThumbMedium)
+  .component("ThumbLarge", ThumbLarge)

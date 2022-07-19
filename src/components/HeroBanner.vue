@@ -15,19 +15,10 @@
             v-if="subtitle"
             v-text="subtitle"
             class=""
-            style="
-              font-weight: var(--font-medium);
-            "
+            style="font-weight: var(--font-medium)"
           />
-          <div
-            id="hero-cta"
-            v-show="label"
-          >
-            <MyButton
-              :label="`${label}`"
-              size="large"
-              :route="`${route}`"
-            />
+          <div id="hero-cta" v-show="label">
+            <MyButton :label="`${label}`" size="large" :route="`${route}`" />
           </div>
         </div>
       </Container>
@@ -49,11 +40,7 @@ export default {
       required: true,
       // TODO: add validation
     },
-    background: {
-      type: Boolean,
-      default: false,
-      required: true,
-    },
+
     eyebrow: {
       type: String,
       default: "Breadcrumb / Current Page",
@@ -70,6 +57,12 @@ export default {
     },
     label: {
       type: String,
+    },
+    // Override props
+    background: {
+      type: Boolean,
+      default: false,
+      required: true,
     },
   },
   components: {
