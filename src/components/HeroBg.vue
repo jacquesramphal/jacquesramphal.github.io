@@ -1,5 +1,5 @@
 <template>
-  <div id="hero-bg" class="fullvh">
+  <div id="hero-bg" class="">
     <Container>
       <div id="hero-text" class="">
         <h2>
@@ -36,6 +36,7 @@ export default {
 #hero-bg {
   display: grid;
   min-height: 320px;
+  height: 100vh;
   /* color: var(--color-action2) */
   background-image: url("../assets/images/splash.svg");
   background-repeat: no-repeat;
@@ -47,7 +48,7 @@ export default {
   margin-top: -2.8em;
   grid-row: 1 / 8;
   justify-content: center;
-  text-align: center;
+  text-align: left;
   align-items: center !important;
 }
 h2 {
