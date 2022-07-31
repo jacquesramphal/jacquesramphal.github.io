@@ -1,7 +1,9 @@
 <template>
-  <figure class="grid-card">
+
+  <figure class="grid-card" :data-category="`${eyebrow}`">
     <span>
       <span tabindex="0" class="caption" v-if="title">
+
         <TextBlock
           class="reversed"
           :eyebrow="`${eyebrow}`"
@@ -28,12 +30,10 @@
 </template>
 
 <script>
-import TextBlock from "@/stories/TextBlock.vue";
 
 export default {
   name: "ThumbSmall",
   components: {
-    TextBlock,
   },
   props: {
     eyebrow: {

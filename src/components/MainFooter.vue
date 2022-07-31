@@ -3,13 +3,13 @@
     <Container>
       <div class="">
         <!-- Profile Picture -->
-        <img
+        <router-link to="cv"><img
           class="justify-end"
           draggable="false"
           src="@/assets/images/portrait.jpg"
           alt="logo.svg"
           style="width: 120px; aspect-ratio: 1 / 1;"
-        />
+        /></router-link>
         
         <!-- Unicorn SVG -->
         <!-- <img
@@ -49,11 +49,17 @@
             header="Toronto-based, UX Generalist at Myplanet"
             details="If you have questions about design, development, or anything in between, let’s connect!"
           />
+          <!-- <TextBlock
+            header="Toronto-based, UX Generalist at Myplanet"
+            details="If you have questions about design, development, or anything in between, let’s connect!"
+            cta="Get in touch"
+            route="info"
+          /> -->
         </div>
         <AnimatedComponent>
           <div id="links1" class="animate glow delay-1">
             <p class="subtle">Useful Links</p>
-            <ol>
+            <ul>
               <li>
                 <router-link :to="{ name: 'Info' }" class="hover-2"
                   >About this site</router-link
@@ -70,9 +76,9 @@
                 <router-link :to="{ name: 'Work' }">Recent Work</router-link>
               </li>
               <li>
-                <router-link :to="{ name: 'Work' }">Fire Links</router-link>
+                <router-link :to="{ name: 'Links' }">Useful Links</router-link>
               </li>
-            </ol>
+            </ul>
           </div>
         </AnimatedComponent>
 

@@ -11,11 +11,18 @@
         :image="information.image"
         v-if="information.image"
       />
+
+
+
       <resume-header
         class="header"
         :name="information.name"
         :label="information.label"
       />
+
+
+
+
 
       <resume-slogan
         class="slogan"

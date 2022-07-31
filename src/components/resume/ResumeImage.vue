@@ -1,9 +1,17 @@
 <template>
   <div class="resume-image">
-    <img
+     <img
+          class="justify-end"
+          draggable="false"
+          src="@/assets/images/portrait.jpg"
+          alt="Resume picture"
+          style="width: 120px; aspect-ratio: 1 / 1;"
+        />
+    <!-- <img
         :src="image"
         alt="Resume picture"
-    >
+    > -->
+   
   </div>
 </template>
 

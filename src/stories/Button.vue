@@ -58,7 +58,7 @@ export default {
 </script>
 <style scoped>
 .storybook-button {
-  border-radius: 4px;
+  border-radius: var(--spacing-xxs);
   border: none;
   cursor: pointer;
   display: inline-block;
@@ -66,32 +66,45 @@ export default {
   font-weight: 500;
   padding: 0.5rem 1rem 0.5rem 1rem;
   text-decoration: none;
-  transition: box-shadow 0.15s ease-in-out;
-  -webkit-transition: box-shadow 0.15s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+}
+.storybook-button:hover {
+  animation: animate-shake 1s; 
+  animation-delay: 1s;
+
+}
+.storybook-button:active {
+  /* animation: animate-glow 1s;  */
+  transform: scale(0.98);
+  /* box-shadow: var(--shadow-text); */
+
 }
 .storybook-button--primary {
   color: var(--text-reversed) !important;
-  background-color: var(--link) !important;
+  background: -webkit-linear-gradient(var(--link-reversed), var(--link)) !important;
+  border: 2px solid var(--link) !important;
+
 }
 .storybook-button--primary:hover {
-  opacity: 0.8;
+  background: -webkit-linear-gradient(var(--link), var(--link)) !important;
 }
 .storybook-button--secondary {
   background-color: transparent !important;
-  color: var(--text) !important;
-  border: 1px solid var(--link) !important;
+  color: var(--link) !important;
+  border: 2px solid var(--link) !important;
 }
 .storybook-button--secondary:hover {
   color: var(--text-reversed) !important;
   background-color: var(--link) !important;
 }
 .storybook-button--small {
-  font-size: 12px;
+  font-size: var(--font-xxs);
   padding: 1rem 2rem 1rem 2rem;
   /* border-radius: 100px; */
 }
 .storybook-button--large {
-  font-size: 16px;
+  font-size: var(--font-xs);
   padding: 1.5rem 2.5rem 1.5rem 2.5rem;
 }
 </style>

@@ -6,24 +6,22 @@
     <h5 tabIndex="0" v-if="header5" v-text="header5" />
     <p tabIndex="0" v-if="details" v-text="details" />
 
-<!-- Temporary Texlink -->
     <TextLink v-show="route" :label="`${cta}`" :route="`${route}`" />
     <TextLink v-show="link" :label="`${cta}`" :link="`${link}`" />
-
-    <!-- <router-link v-if="route" :to="`${route}`"
-      ><p class="route">{{ cta }}</p>
-    </router-link> -->
+    <!-- <MyButton
+      v-show="btnroute"
+      :label="label"
+      :route="info"
+      secondary
+      size="large"
+    /> -->
   </div>
 </template>
 
 <script>
-// import MyButton from "@/stories/Button.vue";
-
 export default {
   name: "TextBlock",
-  // components: {
-  //   MyButton,
-  // },
+
   props: {
     eyebrow: {
       type: String,
@@ -57,11 +55,14 @@ export default {
     },
     cta: {
       type: String,
-      default: "Read More",
+      default: "",
     },
     route: {
       type: String,
       default: "",
+    },
+    btnroute: {
+      type: String,
     },
     link: {
       type: String,

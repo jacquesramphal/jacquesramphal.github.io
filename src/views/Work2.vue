@@ -3,14 +3,105 @@
     <!--  <RichTextRenderer :document="document" /> -->
     <HeroBanner
       id="hero"
-      title="Selected Work"
+      style="background: var(--bg-darker)"
+      :title="info.name"
       subtitle="A collection of recent work and play lorem ipsum doler."
       eyebrow=""
       label="Request Access"
-      route="login"
+      route="work2"
     />
+    <Container>
+      <input type="radio" id="All" name="categories" value="All" checked />
+      <input type="radio" id="CSS" name="categories" value="CSS" />
+      <input
+        type="radio"
+        id="JavaScript"
+        name="categories"
+        value="JavaScript"
+      />
+      <input type="radio" id="jQuery" name="categories" value="jQuery" />
+      <input type="radio" id="WordPress" name="categories" value="WordPress" />
+      <input type="radio" id="Slider" name="categories" value="Slider" />
+      <input
+        type="radio"
+        id="fullPage.js"
+        name="categories"
+        value="fullPage.js"
+      />
 
-    <Container id="work">
+      <ol class="filters">
+        <li>
+          <label for="All">All</label>
+        </li>
+        <li>
+          <label for="CSS">CSS</label>
+        </li>
+        <li>
+          <label for="JavaScript">JavaScript</label>
+        </li>
+        <li>
+          <label for="jQuery">jQuery</label>
+        </li>
+        <li>
+          <label for="WordPress">WordPress</label>
+        </li>
+        <li>
+          <label for="Slider">Slider</label>
+        </li>
+        <li>
+          <label for="fullPage.js">fullPage.js</label>
+        </li>
+      </ol>
+      <div id="recentwork" class="posts grid-parent">
+        <ThumbSmall v-for="(entry, i) in projects.entries" :key="i"
+          class="post"
+          :eyebrow="entry.location"
+          :title="entry.title"
+          style="background-color: var(--bg-darker)"
+        />
+      </div>
+
+      <!-- <div id="recentwork" class="posts grid-parent">
+        <ThumbSmall
+          class="post"
+          eyebrow="Wordpress jQuery"
+          title="title"
+          style="background-color: var(--bg-darker)"
+        />
+        <ThumbSmall
+          class="post"
+          eyebrow="Slider CSS"
+          title="title"
+          style="background-color: var(--bg-darker)"
+        />
+        <ThumbSmall
+          class="post"
+          eyebrow="JavaScript jQuery"
+          title="title"
+          style="background-color: var(--bg-darker)"
+        />
+        <ThumbSmall
+          class="post"
+          eyebrow="Wordpress jQuery"
+          title="title"
+          style="background-color: var(--bg-darker)"
+        />
+        <ThumbSmall
+          class="post"
+          eyebrow="Slider CSS"
+          title="title"
+          style="background-color: var(--bg-darker)"
+        />
+        <ThumbSmall
+          class="post"
+          eyebrow="JavaScript jQuery"
+          title="title"
+          style="background-color: var(--bg-darker)"
+        />
+      </div> -->
+    </Container>
+
+    <!-- <Container id="work">
       <div
         class="grid-parent"
         style="
@@ -20,9 +111,7 @@
         "
       >
         <h4 class="subtle" style="text-align: left">Section Title</h4>
-        <!-- <p class="external justify-end">
-          <router-link :to="{ name: 'Work' }">View All</router-link>
-        </p> -->
+       
       </div>
       <div id="recentwork" class="grid-parent">
         <ThumbSmall
@@ -46,7 +135,6 @@
       </div>
     </Container>
     <TextImage
-      class=""
       flipped
       style="background: var(--bg-darker)"
       filename="work/glo.svg"
@@ -54,8 +142,8 @@
       details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. "
       route="project"
       cta="Read More"
-    />
-    <Container id="work">
+    /> -->
+    <!-- <Container id="work">
       <div
         class="grid-parent"
         style="
@@ -65,9 +153,7 @@
         "
       >
         <h4 class="subtle" style="text-align: left">Section Title</h4>
-        <!-- <p class="external justify-end">
-          <router-link :to="{ name: 'Work' }">View All</router-link>
-        </p> -->
+
       </div>
       <div id="recentwork" class="grid-parent">
         <ThumbSmall
@@ -88,14 +174,14 @@
           title="Small Template"
           details="This is a project description that would give a preview into the project..."
         />
-<ThumbSmall
+        <ThumbSmall
           alt="Template Project"
           style="background-color: pu"
           details="This is a project description that would give a preview into the project..."
           filename="templates/template-mobile-blank.svg"
           title="Small Template"
         />
-        
+
         <ThumbSmall
           style="background-color: palegoldenrod"
           alt="Template Project"
@@ -107,7 +193,6 @@
           filename="templates/template-mobile-blank.svg"
           style="background-color: lightgreen"
         />
-         <!-- Large tile mobile override START -->
         <ThumbSmall
           class="showmobile"
           alt="Template Project"
@@ -123,9 +208,7 @@
           title="Fortune 100"
           details="This is a project description that would give a preview into the project..."
         />
-        <!-- Large tile mobile override END -->
-
-        <!-- Medium tile mobile override START -->
+        
         <ThumbSmall
           class="showmobile"
           alt="Template Project"
@@ -138,14 +221,13 @@
           filename="work/dod.svg"
           title="DevopsDays Toronto"
         />
-        <!-- Medium tile mobile override END -->
+       
 
         <ThumbSmall
           style="background-color: var(--bg-darker)"
           alt="Template Project"
           filename="templates/template-desktop-mobile.svg"
-                    title="Project Template"
-
+          title="Project Template"
         />
         <ThumbSmall
           alt="Brb Splash"
@@ -154,8 +236,7 @@
           title="BRB Splash"
         />
         <ThumbSmall
-                  style="background-color: var(--color-lightyellow)"
-
+          style="background-color: var(--color-lightyellow)"
           alt="Template Project"
           filename="templates/template-v2.svg"
           title="Small Template"
@@ -169,43 +250,21 @@
           title="Small Template"
         />
       </div>
-    </Container>  
+    </Container> -->
 
     <!-- <CardRow /> -->
   </PageWrapper>
 </template>
 
 <script>
-// import RichTextRenderer from "contentful-rich-text-vue-renderer";
-// import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
-// import RichText from "@/components/RichText.vue";
-
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Container from "@/components/grid/Container.vue";
-import ThumbSmall from "@/components/ThumbSmall.vue";
-// import ThumbSmall2 from "@/components/ThumbSmall2.vue";
-import TextImage from "@/components/card/TextImage.vue";
-
-// import ThumbDetail from "@/components/ThumbDetail.vue";
-// import ThumbLarge from "@/components/ThumbLarge.vue";
-import HeroBanner from "@/components/HeroBanner.vue";
-// import CardRow from "@/components/CardRow.vue";
+import projects from "@/assets/data/projects.json";
+import info from "@/assets/data/info.json";
 
 export default {
   name: "Work2",
   components: {
-    HeroBanner,
-    PageWrapper,
     Container,
-    ThumbSmall,
-    // ThumbSmall2,
-    // ThumbDetail,
-    // RichText,
-    // RichTextRenderer,
-    // CardRow,
-    TextImage,
   },
   props: {
     // header: {
@@ -215,59 +274,9 @@ export default {
   },
   data() {
     return {
-      contentful: [],
+      projects,
+      info,
     };
-  },
-
-  async created() {
-    this.contentful = await this.getContentful();
-  },
-
-  methods: {
-    richtextToHTML(content) {
-      return documentToHtmlString(content, {
-        renderNode: {
-          [BLOCKS.EMBEDDED_ASSET]: (node) => {
-            return `<img src="${node.data.target.fields.file.url}" alt="${node.data.target.fields.title}" />`;
-          },
-        },
-      });
-    },
-
-    getContentful: async () => {
-      const query = `{
-       homePageCollection {
-         items {
-           sys {
-             id
-           }
-           heroText
-           heroRichText {
-             json
-           }
-         }
-       }
-     }`;
-
-      const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
-      const fetchOptions = {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ query }),
-      };
-
-      try {
-        const response = await fetch(fetchUrl, fetchOptions).then((response) =>
-          response.json()
-        );
-        return response.data.homePageCollection.items;
-      } catch (error) {
-        throw new Error("Could not receive the data from Contentful!");
-      }
-    },
   },
 };
 </script>
@@ -280,4 +289,68 @@ export default {
 .container
   // background-color: var(--color-white)
   padding-top: 0 !important
+</style>
+
+<style scoped>
+input[type="radio"] {
+  position: absolute;
+  left: -9999px;
+}
+
+/* FILTERS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.filters {
+  text-align: right;
+  margin-bottom: 2rem;
+}
+
+.filters * {
+  display: inline-block;
+}
+
+.filters label {
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.25rem;
+  border-radius: 2rem;
+  min-width: 50px;
+  line-height: normal;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.filters label:hover {
+  background: var(--green);
+  color: var(--white);
+}
+
+/* FILTERED ELEMENTS (POSTS)
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/* FILTERING RULES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+[value="All"]:checked ~ .filters [for="All"],
+[value="CSS"]:checked ~ .filters [for="CSS"],
+[value="JavaScript"]:checked ~ .filters [for="JavaScript"],
+[value="jQuery"]:checked ~ .filters [for="jQuery"],
+[value="WordPress"]:checked ~ .filters [for="WordPress"],
+[value="Slider"]:checked ~ .filters [for="Slider"],
+[value="fullPage.js"]:checked ~ .filters [for="fullPage.js"] {
+  background: var(--green);
+  color: var(--white);
+}
+
+[value="All"]:checked ~ .posts [data-category] {
+  display: block;
+}
+
+[value="CSS"]:checked ~ .posts .post:not([data-category~="CSS"]),
+[value="JavaScript"]:checked ~ .posts .post:not([data-category~="JavaScript"]),
+[value="jQuery"]:checked ~ .posts .post:not([data-category~="jQuery"]),
+[value="WordPress"]:checked ~ .posts .post:not([data-category~="WordPress"]),
+[value="Slider"]:checked ~ .posts .post:not([data-category~="Slider"]),
+[value="fullPage.js"]:checked
+  ~ .posts
+  .post:not([data-category~="fullPage.js"]) {
+  display: none;
+}
 </style>

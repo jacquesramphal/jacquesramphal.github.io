@@ -10,24 +10,24 @@
           class="hidemobile nav-link"
           id="wordmark"
           style="font-weight: var(--font-reversed-bold) !important"
-          tabindex="1"
+          tabindex="0"
         >
           <router-link :to="{ name: 'Work' }"><strong>ramphal.design</strong></router-link>
         </h1>
 
-        <h1 class="showmobile nav-link" id="wordmark" style="font-weight: var(--font-reversed-bold);" tabindex="1">
+        <h1 class="showmobile nav-link" id="wordmark" style="font-weight: var(--font-reversed-bold);" tabindex="0">
           <router-link :to="{ name: 'Work' }"
             ><strong>ramphal.design</strong></router-link
           >
         </h1>
         <ul class="justify-end">
-          <li class="nav-link" tabindex="1">
+          <li class="nav-link" tabindex="0">
             <router-link :to="{ name: 'Resume' }">info</router-link>
           </li>
-          <li class="nav-link" tabindex="1">
+          <li class="nav-link" tabindex="0">
             <router-link :to="{ name: 'Blog' }">docs</router-link>
           </li>
-          <!-- <li class="nav-link" tabindex="1">
+          <!-- <li class="nav-link" tabindex="0">
             <router-link class="isDisabled" to="blog">writing</router-link>
           </li> -->
 
@@ -38,7 +38,6 @@
             data-aos-delay="250"
             data-aos-once="true"
             data-aos-anchor-placement="top"
-            tabindex="3"
           >
             <router-link to="Work">Work</router-link>
             <router-link class="isDisabled" to="/">Work</router-link> 

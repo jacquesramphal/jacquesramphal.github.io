@@ -76,7 +76,7 @@
         </AnimatedComponent>
         <AnimatedComponent>
           <TextImage
-          flipped
+            flipped
             class=""
             style="background: var(--bg-darker)"
             route="post"
@@ -144,10 +144,7 @@
           </AnimatedComponent>
         </Wrapper>
         <AnimatedComponent>
-          <TextImage
-            class=""
-            style="background: var(--bg-darker)"
-          />
+          <TextImage class="" style="background: var(--bg-darker)" />
           /></AnimatedComponent
         >
       </Wrapper>
@@ -163,28 +160,15 @@
 </template>
 
 <script>
-import AnimatedComponent from "@/components/AnimatedComponent.vue";
-
-import PageWrapper from "@/components/grid/PageWrapper.vue";
-import Wrapper from "@/components/grid/Wrapper.vue";
-import Container from "@/components/grid/Container.vue";
 import TextHeader from "@/components/text/TextHeader.vue";
 import CardRow from "@/components/CardRow.vue";
 import TextImage from "@/components/card/TextImage.vue";
-import TextBlock from "@/stories/TextBlock.vue";
-import ThumbLarge from "@/components/ThumbLarge.vue";
 
 export default {
   name: "BlogPost",
   components: {
-    AnimatedComponent,
-    PageWrapper,
-    Wrapper,
-    Container,
     CardRow,
     TextHeader,
-    TextBlock,
-    ThumbLarge,
     TextImage,
   },
   props: {
@@ -246,7 +230,14 @@ export default {
   },
 };
 </script>
-
+<style>
+.width {
+  max-width: 86.4rem !important;
+}
+.width2 {
+  max-width: 98rem;
+}
+</style>
 <style scoped>
 * {
 }
@@ -262,12 +253,7 @@ h3 {
 }
 #hero-simple {
 }
-.width {
-  max-width: 86.4rem;
-}
-.width2 {
-  max-width: 98rem;
-}
+
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
   /* ------------ BREAKPOINT LG ------------ */

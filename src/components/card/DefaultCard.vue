@@ -1,5 +1,5 @@
 <template>
-  <li class="card grid-parent">
+  <li class="card grid-parent" :data-category="`${eyebrow}`" >
     <div class="image">
       <router-link :to="`${route}`">
         <img v-if="imgurl" :src="imgurl" alt="Blog Image"
@@ -7,11 +7,18 @@
     </div>
 
     <div class="info">
-      <h4 class="card-title">
+      <TextBlock
+          class="textblock"
+          :eyebrow="`${eyebrow}`"
+          :header5="`${title}`"
+          :details="`${description}`"
+          :route="`${route}`"
+        />
+      <!-- <h4 class="card-title">
         <span v-if="title" v-text="title" />
       </h4>
 
-      <p v-if="description" class="card-description line-clamp" v-html="description" />
+      <p v-if="description" class="card-description line-clamp" v-html="description" /> -->
       <MyButton secondary :label="`${label}`" size="large" :route="`${route}`" />
       <!-- <MyButton label="Read More" size="large" :onclick="window.location='http://www.google.com';" /> -->
     </div>
@@ -28,6 +35,11 @@ export default {
   },
   props: {
     imgurl: {
+      type: String,
+    },
+    eyebrow: {
+      default: "",
+      required: false,
       type: String,
     },
     title: {
@@ -84,7 +96,15 @@ export default {
     // transform: rotate(1deg)
 
 .info
+  // background: red
+  position: relative
+  // grid-row: span
+  // height: 100% !important
+  // height: -moz-available !important
+  // height: -webkit-fill-available !important
+  // display: grid
   padding: var(--spacing-md)
+  // justify-content: space-between
 .card-description
   margin-bottom: var(--spacing-md) !important
   overflow: hidden
