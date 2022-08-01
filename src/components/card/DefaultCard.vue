@@ -1,5 +1,5 @@
 <template>
-  <li class="card grid-parent" :data-category="`${eyebrow}`" >
+  <div class="card grid-parent" :data-category="`${eyebrow}`">
     <div class="image">
       <router-link :to="`${route}`">
         <img v-if="imgurl" :src="imgurl" alt="Blog Image"
@@ -8,31 +8,25 @@
 
     <div class="info">
       <TextBlock
-          class="textblock"
-          :eyebrow="`${eyebrow}`"
-          :header5="`${title}`"
-          :details="`${description}`"
-          :route="`${route}`"
-        />
-      <!-- <h4 class="card-title">
-        <span v-if="title" v-text="title" />
-      </h4>
+        clamped
+        class="textblock"
+        :eyebrow="`${eyebrow}`"
+        :header5="`${title}`"
+        :details="`${description}`"
+        :btnroute="`${route}`"
+        :cta="`${label}`"
+      />
 
-      <p v-if="description" class="card-description line-clamp" v-html="description" /> -->
-      <MyButton secondary :label="`${label}`" size="large" :route="`${route}`" />
-      <!-- <MyButton label="Read More" size="large" :onclick="window.location='http://www.google.com';" /> -->
     </div>
-  </li>
+          <!-- <MyButton style="" secondary :label="`${label}`" size="large" :route="`${route}`" /> -->
+
+  </div>
 </template>
 
 <script>
-import MyButton from "@/stories/Button.vue";
-
 export default {
   name: "DefaultCard",
-  components: {
-    MyButton,
-  },
+  components: {},
   props: {
     imgurl: {
       type: String,
@@ -58,7 +52,6 @@ export default {
     },
     route: {
       type: String,
-      required: true,
     },
     label: {
       default: "Read More",
@@ -94,25 +87,16 @@ export default {
   &:active
     // box-shadow: var(--shadow-hover  )
     // transform: rotate(1deg)
+#textblock
 
 .info
-  // background: red
-  position: relative
   // grid-row: span
-  // height: 100% !important
-  // height: -moz-available !important
-  // height: -webkit-fill-available !important
-  // display: grid
+
   padding: var(--spacing-md)
   // justify-content: space-between
 .card-description
   margin-bottom: var(--spacing-md) !important
   overflow: hidden
-
-.line-clamp 
-  display: -webkit-box
-  -webkit-line-clamp: 3
-  -webkit-box-orient: vertical 
 
 img
   aspect-ratio: 16/9

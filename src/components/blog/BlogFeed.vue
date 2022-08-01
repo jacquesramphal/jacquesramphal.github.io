@@ -67,6 +67,19 @@
             :route="blogPost.route"
             :label="blogPost.label"
           />
+           <!-- <DefaultCard
+            class="post"
+            v-for="blogPost in contentful"
+            v-bind:key="blogPost.sys.id"
+            :image="blogPost.image"
+            :category="blogPost.category"
+            :imgurl="blogPost.imgurl"
+            :eyebrow="blogPost.category"
+            :title="blogPost.title"
+            :description="blogPost.description"
+            :route="blogPost.route"
+            :label="blogPost.label"
+          /> -->
         </div>
       </Container>
     </div>

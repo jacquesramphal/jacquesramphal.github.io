@@ -56,8 +56,8 @@
           style="background-color: var(--bg-darker)"
           alt="Template Project"
           filename="templates/template-v2.svg"
-          route="project"
           title="Small Template"
+          route="project"
           details="This is a project description that would give a preview into the project..."
         />
         <ThumbSmall alt="Giftbook" filename="work/gob.svg" title="Giftbook" />
@@ -72,6 +72,7 @@
         />
       </div>
       <MyButton
+      secondary
         style="margin-top: var(--spacing-sm)"
         class="justify-end"
         label="View More"

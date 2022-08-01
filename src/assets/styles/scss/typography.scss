@@ -18,7 +18,11 @@
 @mixin test {
   background: red;
 }
-
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
 /* Header AAA */
 h1 {
   font-size: var(--font-xs);
@@ -269,8 +273,9 @@ transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s)); */
 
 /* ---- Reversed States ---- */
 
-.reversed a {
+.reversed a, .reversed a::after {
   color: var(--link-reversed) !important;
+  font-weight: var(--font-reversed-medium) !important;
 }
 
 /* ---- Hover States ---- */

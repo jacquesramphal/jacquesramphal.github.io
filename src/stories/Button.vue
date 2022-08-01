@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="`${route}`">
+  <router-link id="btn" :to="`${route}`">
     <button type="button" :class="classes" @click="onClick" :style="style" v-if="label" v-text="label" />
    </router-link
   >
@@ -94,6 +94,7 @@ export default {
   color: var(--link) !important;
   border: 2px solid var(--link) !important;
 }
+
 .storybook-button--secondary:hover {
   color: var(--text-reversed) !important;
   background-color: var(--link) !important;
@@ -106,5 +107,15 @@ export default {
 .storybook-button--large {
   font-size: var(--font-xs);
   padding: 1.5rem 2.5rem 1.5rem 2.5rem;
+}
+
+/* Reversed States */
+.reversed .storybook-button--secondary {
+  color: var(--link-reversed) !important;
+  border: 2px solid var(--link-reversed) !important;
+}
+.reversed .storybook-button--secondary:hover {
+  color: var(--text) !important;
+  background-color: var(--link-reversed) !important;
 }
 </style>

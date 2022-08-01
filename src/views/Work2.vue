@@ -12,21 +12,21 @@
     />
     <Container>
       <input type="radio" id="All" name="categories" value="All" checked />
-      <input type="radio" id="CSS" name="categories" value="CSS" />
+      <input type="radio" id="Tag1" name="categories" value="Tag1" />
       <input
         type="radio"
-        id="JavaScript"
+        id="Tag2"
         name="categories"
-        value="JavaScript"
+        value="Tag2"
       />
-      <input type="radio" id="jQuery" name="categories" value="jQuery" />
-      <input type="radio" id="WordPress" name="categories" value="WordPress" />
-      <input type="radio" id="Slider" name="categories" value="Slider" />
+      <input type="radio" id="Tag3" name="categories" value="Tag3" />
+      <input type="radio" id="Tag4" name="categories" value="Tag4" />
+      <input type="radio" id="Tag5" name="categories" value="Tag5" />
       <input
         type="radio"
-        id="fullPage.js"
+        id="Tag6"
         name="categories"
-        value="fullPage.js"
+        value="Tag6"
       />
 
       <ol class="filters">
@@ -34,71 +34,40 @@
           <label for="All">All</label>
         </li>
         <li>
-          <label for="CSS">CSS</label>
+          <label for="Tag1">Tag1</label>
         </li>
         <li>
-          <label for="JavaScript">JavaScript</label>
+          <label for="Tag2">Tag2</label>
         </li>
         <li>
-          <label for="jQuery">jQuery</label>
+          <label for="Tag3">Tag3</label>
         </li>
         <li>
-          <label for="WordPress">WordPress</label>
+          <label for="Tag4">Tag4</label>
         </li>
         <li>
-          <label for="Slider">Slider</label>
+          <label for="Tag5">Tag5</label>
         </li>
         <li>
-          <label for="fullPage.js">fullPage.js</label>
+          <label for="Tag6">Tag6</label>
         </li>
       </ol>
       <div id="recentwork" class="posts grid-parent">
-        <ThumbSmall v-for="(entry, i) in projects.entries" :key="i"
+        <ThumbSmall
+          v-for="(entry, i) in projects.entries"
+          :key="i"
           class="post"
-          :eyebrow="entry.location"
+          :eyebrow="entry.tag"
           :title="entry.title"
-          style="background-color: var(--bg-darker)"
+          :details="entry.description"
+          :cta="entry.cta"
+          :route="entry.route"
+          :btnroute="entry.btnroute"
+          :link="entry.link"
+          :filename="entry.filename"
+          :style="entry.bgcolor"
         />
       </div>
-
-      <!-- <div id="recentwork" class="posts grid-parent">
-        <ThumbSmall
-          class="post"
-          eyebrow="Wordpress jQuery"
-          title="title"
-          style="background-color: var(--bg-darker)"
-        />
-        <ThumbSmall
-          class="post"
-          eyebrow="Slider CSS"
-          title="title"
-          style="background-color: var(--bg-darker)"
-        />
-        <ThumbSmall
-          class="post"
-          eyebrow="JavaScript jQuery"
-          title="title"
-          style="background-color: var(--bg-darker)"
-        />
-        <ThumbSmall
-          class="post"
-          eyebrow="Wordpress jQuery"
-          title="title"
-          style="background-color: var(--bg-darker)"
-        />
-        <ThumbSmall
-          class="post"
-          eyebrow="Slider CSS"
-          title="title"
-          style="background-color: var(--bg-darker)"
-        />
-        <ThumbSmall
-          class="post"
-          eyebrow="JavaScript jQuery"
-          title="title"
-          style="background-color: var(--bg-darker)"
-        />
-      </div> -->
     </Container>
 
     <!-- <Container id="work">
@@ -329,12 +298,12 @@ input[type="radio"] {
 /* FILTERING RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 [value="All"]:checked ~ .filters [for="All"],
-[value="CSS"]:checked ~ .filters [for="CSS"],
-[value="JavaScript"]:checked ~ .filters [for="JavaScript"],
-[value="jQuery"]:checked ~ .filters [for="jQuery"],
-[value="WordPress"]:checked ~ .filters [for="WordPress"],
-[value="Slider"]:checked ~ .filters [for="Slider"],
-[value="fullPage.js"]:checked ~ .filters [for="fullPage.js"] {
+[value="Tag1"]:checked ~ .filters [for="Tag1"],
+[value="Tag2"]:checked ~ .filters [for="Tag2"],
+[value="Tag3"]:checked ~ .filters [for="Tag3"],
+[value="Tag4"]:checked ~ .filters [for="Tag4"],
+[value="Tag5"]:checked ~ .filters [for="Tag5"],
+[value="Tag6"]:checked ~ .filters [for="Tag6"] {
   background: var(--green);
   color: var(--white);
 }
@@ -343,14 +312,14 @@ input[type="radio"] {
   display: block;
 }
 
-[value="CSS"]:checked ~ .posts .post:not([data-category~="CSS"]),
-[value="JavaScript"]:checked ~ .posts .post:not([data-category~="JavaScript"]),
-[value="jQuery"]:checked ~ .posts .post:not([data-category~="jQuery"]),
-[value="WordPress"]:checked ~ .posts .post:not([data-category~="WordPress"]),
-[value="Slider"]:checked ~ .posts .post:not([data-category~="Slider"]),
-[value="fullPage.js"]:checked
+[value="Tag1"]:checked ~ .posts .post:not([data-category~="Tag1"]),
+[value="Tag2"]:checked ~ .posts .post:not([data-category~="Tag2"]),
+[value="Tag3"]:checked ~ .posts .post:not([data-category~="Tag3"]),
+[value="Tag4"]:checked ~ .posts .post:not([data-category~="Tag4"]),
+[value="Tag5"]:checked ~ .posts .post:not([data-category~="Tag5"]),
+[value="Tag6"]:checked
   ~ .posts
-  .post:not([data-category~="fullPage.js"]) {
+  .post:not([data-category~="Tag6"]) {
   display: none;
 }
 </style>

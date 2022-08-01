@@ -2,47 +2,34 @@
   "entries": [
     {
       "title": "Project Name",
-      "location": "CSS",
+      "tag": "Tag1",
       "from": "2010",
       "to": "2014",
-      "description": "Graphic Design. Print Production"
+      "description": "This is a description",
+      "btnroute": "project",
+      "cta": "Request Access",
+      "filename": "templates/template-v2.svg",
+      "bgcolor": "background-color: var(--bg-darker)"
     },
     {
-      "title": "Graphic Design",
-      "location": "Test 2",
+      "title": "Project Name",
+      "tag": "Tag1 Tag2",
       "from": "2010",
       "to": "2014",
-      "description": "Graphic Design. Print Production"
+      "description": "This is a description",
+      "route": "project",
+      "filename": "templates/template-mobile-blank.svg",
+      "bgcolor": "background-color: var(--bg-darker)"
     },
     {
-      "title": "Graphic Design",
-      "location": "Test 2",
+      "title": "Project Name",
+      "tag": "Tag1 Tag3 Tag4",
       "from": "2010",
       "to": "2014",
-      "description": "Graphic Design. Print Production"
-    },
-    {
-      "title": "Graphic Design",
-      "location": "Test 2",
-      "from": "2010",
-      "to": "2014",
-      "description": "Graphic Design. Print Production"
-    },
-    {
-      "title": "Graphic Design",
-      "location": "Test 2",
-      "from": "2010",
-      "to": "2014",
-      "description": "Graphic Design. Print Production"
-    },
-    {
-      "title": "Graphic Design",
-      "location": "OCADU",
-      "from": "2010",
-      "to": "2014",
-      "description": "Graphic Design. Print Production"
+      "description": "This is a description",
+      "link": "https://google.com",
+      "filename": "templates/template-desktop-blank.svg",
+      "bgcolor": "background-color: var(--bg-darker)"
     }
-    
   ]
-  }
-
+}
