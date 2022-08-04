@@ -3,31 +3,19 @@
     <!--  <RichTextRenderer :document="document" /> -->
     <HeroBanner
       id="hero"
-      style="background: var(--bg-darker)"
       :title="info.name"
       subtitle="A collection of recent work and play lorem ipsum doler."
       eyebrow=""
-      label="Request Access"
-      route="work2"
+
     />
     <Container>
       <input type="radio" id="All" name="categories" value="All" checked />
       <input type="radio" id="Tag1" name="categories" value="Tag1" />
-      <input
-        type="radio"
-        id="Tag2"
-        name="categories"
-        value="Tag2"
-      />
+      <input type="radio" id="Tag2" name="categories" value="Tag2" />
       <input type="radio" id="Tag3" name="categories" value="Tag3" />
       <input type="radio" id="Tag4" name="categories" value="Tag4" />
       <input type="radio" id="Tag5" name="categories" value="Tag5" />
-      <input
-        type="radio"
-        id="Tag6"
-        name="categories"
-        value="Tag6"
-      />
+      <input type="radio" id="Tag6" name="categories" value="Tag6" />
 
       <ol class="filters">
         <li>
@@ -54,7 +42,7 @@
       </ol>
       <div id="recentwork" class="posts grid-parent">
         <ThumbSmall
-          v-for="(entry, i) in projects.entries"
+          v-for="(entry, i) in info.entries"
           :key="i"
           class="post"
           :eyebrow="entry.tag"
@@ -68,8 +56,17 @@
           :style="entry.bgcolor"
         />
       </div>
+      
     </Container>
-
+<TextImage
+      flipped
+      style="background: var(--bg-darker)"
+      filename="work/glo.svg"
+      header="Featured Project"
+      details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. "
+      route="project"
+      cta="Read More"
+    /> 
     <!-- <Container id="work">
       <div
         class="grid-parent"
@@ -317,9 +314,7 @@ input[type="radio"] {
 [value="Tag3"]:checked ~ .posts .post:not([data-category~="Tag3"]),
 [value="Tag4"]:checked ~ .posts .post:not([data-category~="Tag4"]),
 [value="Tag5"]:checked ~ .posts .post:not([data-category~="Tag5"]),
-[value="Tag6"]:checked
-  ~ .posts
-  .post:not([data-category~="Tag6"]) {
+[value="Tag6"]:checked ~ .posts .post:not([data-category~="Tag6"]) {
   display: none;
 }
 </style>

@@ -19,8 +19,12 @@
         <p>{{ blogPost.description }}</p>
       </li>
     </ul> -->
-
+<!-- <BlogCard />
+    <BlogCard />
+    <BlogCard />
+    <BlogCard /> -->
     <BlogFeed :contentful="contentful" />
+    
     <!--          <BlogPost :contentful="contentful"  />  -->
   </PageWrapper>
 </template>
@@ -29,6 +33,7 @@
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
 import BlogFeed from "@/components/blog/BlogFeed.vue";
+// import BlogCard from "@/components/card/BlogCard.vue";
 // import BlogPost from "@/components/blog/BlogPost.vue";
 
 // Mock data
@@ -40,8 +45,8 @@ export default {
     PageWrapper,
     HeroBanner,
     BlogFeed,
-    // BlogPost,
-  },
+    // BlogCard,
+},
   data() {
     return {
       contentful: [],
