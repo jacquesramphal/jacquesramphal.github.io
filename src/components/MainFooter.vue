@@ -1,25 +1,27 @@
 <template>
-  <Wrapper id="wrapper" class="">
-    <Container>
-      <div class="">
-        <!-- Profile Picture -->
-        <img
-          class="justify-end"
-          draggable="false"
-          src="@/assets/images/portrait.jpg"
-          alt="logo.svg"
-          style="width: 120px; aspect-ratio: 1 / 1;"
-        />
-        
-        <!-- Unicorn SVG -->
-        <!-- <img
+  <AnimatedComponent
+    ><Wrapper id="wrapper" class="">
+      <Container>
+        <div class="">
+          <!-- Profile Picture -->
+          <router-link to="cv"
+            ><img
+              class="justify-end"
+              draggable="false"
+              src="@/assets/images/portrait.jpg"
+              alt="logo.svg"
+              style="width: 120px; aspect-ratio: 1 / 1"
+          /></router-link>
+
+          <!-- Unicorn SVG -->
+          <!-- <img
           class="justify-end"
           draggable="false"
           src="@/assets/images/j-logo.svg"
           alt=""
           style="width: 40px"
         /> -->
-<!-- <svg width="52px" viewBox="0 0 35 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- <svg width="52px" viewBox="0 0 35 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>J Unicorn - UX Generalist</title>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Group" transform="translate(1.000000, 1.000000)">
@@ -40,20 +42,18 @@
         </g>
     </g>
 </svg> -->
-
-        
-      </div>
-      <div class="grid-parent">
-        <div id="maindetails">
-          <TextBlock
-            header="Toronto-based, UX Generalist at Myplanet"
-            details="If you have questions about design, development, or anything in between, let’s connect!"
-          />
         </div>
-        <AnimatedComponent>
-          <div id="links1" class="animate glow delay-1">
+        <div class="grid-parent">
+          <div id="maindetails">
+            <TextBlock
+              header="Toronto-based, UX Generalist at Myplanet"
+              details="If you have questions about design, development, or anything in between, let’s connect!"
+            />
+          </div>
+
+          <div id="links1">
             <p class="subtle">Useful Links</p>
-            <ol>
+            <ul>
               <li>
                 <router-link :to="{ name: 'Info' }" class="hover-2"
                   >About this site</router-link
@@ -70,60 +70,60 @@
                 <router-link :to="{ name: 'Work' }">Recent Work</router-link>
               </li>
               <li>
-                <router-link :to="{ name: 'Work' }">Fire Links</router-link>
+                <router-link :to="{ name: 'Links' }">Useful Links</router-link>
+              </li>
+            </ul>
+          </div>
+
+          <div id="links2">
+            <p class="subtle">Let's Connect</p>
+            <ol>
+              <li class="external">
+                <a href="mailto:jacques@ramphal.design">Email Me</a>
+              </li>
+              <li class="external">
+                <a
+                  target="blank"
+                  href="https://www.linkedin.com/in/jacquesramphal"
+                  >Connect on LinkedIn</a
+                >
+              </li>
+              <li class="external">
+                <a
+                  target="blank"
+                  href="https://github.com/jacquesramphal/jacquesramphal.github.io/issues"
+                  >Submit an issue</a
+                >
               </li>
             </ol>
           </div>
-        </AnimatedComponent>
-
-        <div id="links2">
-          <p class="subtle">Let's Connect</p>
-          <ol>
-            <li class="external">
-              <a href="mailto:jacques@ramphal.design">Email Me</a>
-            </li>
-            <li class="external">
-              <a
-                target="blank"
-                href="https://www.linkedin.com/in/jacquesramphal"
-                >Connect on LinkedIn</a
-              >
-            </li>
-            <li class="external">
-              <a
-                target="blank"
-                href="https://github.com/jacquesramphal/jacquesramphal.github.io/issues"
-                >Submit an issue</a
-              >
-            </li>
-          </ol>
+          <div id="links3">
+            <p class="subtle">More</p>
+            <ol>
+              <li class="">
+                <a>Privacy Policy</a>
+              </li>
+            </ol>
+          </div>
         </div>
-        <div id="links3">
-          <p class="subtle">More</p>
-          <ol>
-            <li class="">
-              <a>Privacy Policy</a>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </Container>
-    <Container>
-      <div class="">
-        <p style="font-size: var(--font-xxs)">
-          © 2022 Jacques Ramphal — Built with
-          <a target="blank" href="https://v3.vuejs.org/">Vue3</a>.
-          <!-- <a target="blank" href="https://www.typescriptlang.org/"
+      </Container>
+      <Container>
+        <div class="">
+          <p style="font-size: var(--font-xxs)">
+            © 2022 Jacques Ramphal — Built with
+            <a target="blank" href="https://v3.vuejs.org/">Vue3</a>.
+            <!-- <a target="blank" href="https://www.typescriptlang.org/"
             >Typescript</a
           >
           & <a target="blank" href="https://sass-lang.com/">Sass</a>.  -->
 
-          Deployed on
-          <a target="blank" href="https://www.netlify.com/">Netlify</a>.
-        </p>
-      </div>
-    </Container>
-  </Wrapper>
+            Deployed on
+            <a target="blank" href="https://www.netlify.com/">Netlify</a>.
+          </p>
+        </div>
+      </Container>
+    </Wrapper>
+  </AnimatedComponent>
 </template>
 <!-- <form
             @submit.prevent="sendEmail"
@@ -152,9 +152,9 @@
 import Wrapper from "@/components/grid/Wrapper.vue";
 import Container from "@/components/grid/Container.vue";
 import TextBlock from "@/stories/TextBlock.vue";
+import AnimatedComponent from "./AnimatedComponent.vue";
 // import TextArea from "@/components/form/TextArea.vue";
 // import MyButton from "@/stories/Button.vue";
-import AnimatedComponent from "@/components/AnimatedComponent.vue";
 
 export default {
   name: "MainFooter",
@@ -163,8 +163,6 @@ export default {
     Container,
     TextBlock,
     AnimatedComponent,
-    // TextArea,
-    // MyButton,
   },
   props: {
     title: {

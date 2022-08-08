@@ -30,6 +30,8 @@
           <router-link :to="{ name: 'Work2' }">See More</router-link>
         </p>
       </div> -->
+
+
       <div id="recentwork" class="grid-parent">
         <ThumbSmall
           alt="J Monogram"
@@ -54,8 +56,8 @@
           style="background-color: var(--bg-darker)"
           alt="Template Project"
           filename="templates/template-v2.svg"
-          route="project"
           title="Small Template"
+          route="project"
           details="This is a project description that would give a preview into the project..."
         />
         <ThumbSmall alt="Giftbook" filename="work/gob.svg" title="Giftbook" />
@@ -69,12 +71,19 @@
           details="This is a project description that would give a preview into the project..."
         />
       </div>
-      <TextLink
+      <MyButton
+      secondary
+        style="margin-top: var(--spacing-sm)"
+        class="justify-end"
+        label="View More"
+        route="work2"
+      />
+      <!-- <TextLink
         style="padding-top: var(--spacing-sm)"
         class="justify-end"
         label="See more work"
         route="work2"
-      />
+      /> -->
     </Container>
     <!-- <TextImage class="" style="background: var(--bg-darker);" filename="jacques.jpeg" header="The tools I use" details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. " route="post" cta="Read More"/> -->
     <!-- <CardRow /> -->
@@ -87,14 +96,12 @@
 import ThumbDetail from "@/components/ThumbDetail.vue";
 
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
-import TextLink from "@/components/text/TextLink.vue";
 
 export default {
   name: "Work",
   components: {
     ThumbDetail,
     ThumbSmall2,
-    TextLink,
   },
   props: {
     // header: {

@@ -3,7 +3,13 @@
     <router-link :class="classes" v-if="route" :to="`${route}`"
       >{{ label }}
     </router-link>
-    <a :class="classes" class="external" v-if="link" target="blank" :href="`${link}`">
+    <a
+      :class="classes"
+      class="external"
+      v-if="link"
+      target="blank"
+      :href="`${link}`"
+    >
       {{ label }}
     </a>
   </div>
@@ -48,11 +54,11 @@ export default {
         "link-size": true,
         "link-size--large": this.large,
         "link-size--normal": !this.large,
-        
+
         "link-left": true,
         "link-left--left": this.left,
         "link-left--normal": !this.left,
-        
+
         "link-right": true,
         "link-right--right": this.right,
         "link-right--normal": !this.right,
@@ -61,6 +67,7 @@ export default {
   },
 };
 </script>
+<style></style>
 
 <style lang="sass" scoped>
 *
@@ -70,15 +77,15 @@ export default {
 .link-size
   /*  background: var(--color-xlight); */
   font-size: var(--font-xs)
-.link-size--normal
+/* .link-size--normal */
 .link-size--large
   font-size: var(--font-lg) !important
 
-.link-left
+/* .link-left */
 .link-left--left:before
   content: "★ "
   color: var(--link)
-.link-right
+/* .link-right */
 .link-right--right:after
   content: " ★"
   color: var(--link)

@@ -1,6 +1,5 @@
 <template>
-  <figure class="grid-card">
-    <span>
+  <figure class="grid-card" :data-category="`${eyebrow}`">
       <span tabindex="0" class="caption" v-if="title">
         <TextBlock
           class="reversed"
@@ -8,33 +7,25 @@
           :header5="`${title}`"
           :details="`${details}`"
           :route="`${route}`"
+          :link="`${link}`"
+          :btnroute="`${btnroute}`"
+          :cta="`${cta}`"
         />
       </span>
-      <!-- <router-link
-        class="card-route"
-        v-if="route"
-        :to="`${route}`"
-        draggable="false"
-      /> -->
       <span class="overlay"> </span>
       <img
         draggable="false"
         :src="require(`@/assets/images/${filename}`)"
         :alt="`${alt}`"
       />
-    </span>
     <figcaption v-if="caption" v-text="caption" class="subtle" />
   </figure>
 </template>
 
 <script>
-import TextBlock from "@/stories/TextBlock.vue";
-
 export default {
   name: "ThumbSmall",
-  components: {
-    TextBlock,
-  },
+  components: {},
   props: {
     eyebrow: {
       type: String,
@@ -53,7 +44,7 @@ export default {
     },
     filename: {
       type: String,
-      default: "templates/template-sm.svg",
+      default: "templates/template-v2.svg",
     },
     alt: {
       type: String,
@@ -62,6 +53,18 @@ export default {
     route: {
       type: String,
       default: "",
+    },
+    btnroute: {
+      type: String,
+      default: "",
+    },
+    link: {
+      type: String,
+      default: "",
+    },
+    cta: {
+      type: String,
+      default: "Read More",
     },
   },
 };

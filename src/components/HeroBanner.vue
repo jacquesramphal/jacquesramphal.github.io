@@ -18,7 +18,11 @@
             style="font-weight: var(--font-medium)"
           />
           <div id="hero-cta" v-show="label">
-            <MyButton :label="`${label}`" size="large" :route="`${route}`" />
+
+          <!-- refactor button and props -->
+            <span style="gap: 2rem; display: flex;" ><MyButton :label="`${label}`" size="large" :route="`${route}`" />
+            <MyButton secondary :label="`${label}`" size="large" :route="`${route}`" />
+            </span>
           </div>
         </div>
       </Container>
@@ -27,10 +31,6 @@
 </template>
 
 <script>
-import Wrapper from "@/components/grid/Wrapper.vue";
-import Container from "@/components/grid/Container.vue";
-import AnimatedComponent from "@/components/AnimatedComponent.vue";
-import MyButton from "@/stories/Button.vue";
 
 export default {
   name: "HeroBanner",
@@ -64,12 +64,6 @@ export default {
       default: false,
       required: true,
     },
-  },
-  components: {
-    Wrapper,
-    Container,
-    AnimatedComponent,
-    MyButton,
   },
   computed: {
     classes() {

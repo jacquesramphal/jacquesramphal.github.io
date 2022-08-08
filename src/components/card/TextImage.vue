@@ -9,7 +9,7 @@
             :src="require(`@/assets/images/${filename}`)"
             :alt="`${alt}`"
         /></Container>
-        <Container  class="textcontainer">
+        <Container class="textcontainer">
           <TextBlock
             :header="`${header}`"
             :cta="`${cta}`"
@@ -38,7 +38,8 @@ export default {
     },
     details: {
       type: String,
-      default: "    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      default:
+        "    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     eyebrow: {
       type: String,

@@ -4,26 +4,25 @@
     <h3 tabIndex="0" v-if="header" v-text="header" />
     <h4 tabIndex="0" v-if="header4" v-text="header4" />
     <h5 tabIndex="0" v-if="header5" v-text="header5" />
-    <p tabIndex="0" v-if="details" v-text="details" />
+    <p id="details" tabIndex="0" v-if="details" v-text="details" />
 
-<!-- Temporary Texlink -->
-    <TextLink v-show="route" :label="`${cta}`" :route="`${route}`" />
-    <TextLink v-show="link" :label="`${cta}`" :link="`${link}`" />
-
-    <!-- <router-link v-if="route" :to="`${route}`"
-      ><p class="route">{{ cta }}</p>
-    </router-link> -->
+    <TextLink v-if="route" :label="`${cta}`" :route="`${route}`" />
+    <TextLink v-if="link" :label="`${cta}`" :link="`${link}`" />
+    <MyButton
+      id="btn"
+      v-if="btnroute"
+      :label="`${cta}`"
+      :route="btnroute"
+      secondary
+      size="large"
+    />
   </div>
 </template>
 
 <script>
-// import MyButton from "@/stories/Button.vue";
-
 export default {
   name: "TextBlock",
-  // components: {
-  //   MyButton,
-  // },
+
   props: {
     eyebrow: {
       type: String,
@@ -55,15 +54,24 @@ export default {
       default: false,
       required: true,
     },
+    clamped: {
+      type: Boolean,
+      default: false,
+      required: true,
+    },
     cta: {
       type: String,
-      default: "Read More",
     },
     route: {
       type: String,
       default: "",
     },
+    btnroute: {
+      type: String,
+      default: "",
+    },
     link: {
+      default: "",
       type: String,
     },
     label: {
@@ -77,6 +85,9 @@ export default {
         "textblock-align": true,
         "textblock-align--center": this.center,
         "textblock-align--left": !this.center,
+
+        "textblock--clamped": this.clamped,
+        "textblock--normal": !this.clamped,
       };
     },
   },
@@ -94,6 +105,22 @@ h6 {
 }
 p {
   margin: 1rem 0 0 0;
+}
+.textblock--clamped p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.line-clamp {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+#btn {
+  display: inline-block;
+  margin-top: var(--spacing-sm);
 }
 #richlink {
   margin-top: var(--spacing-sm) !important;

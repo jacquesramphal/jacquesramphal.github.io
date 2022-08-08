@@ -10,9 +10,9 @@
           </ul>
         </span>
         <span id="info">
-          <h5 tabIndex="0">
+          <h4 tabIndex="0">
             {{ title }}
-          </h5>
+          </h4>
           <p class="subtle">{{ description }}</p></span
         >
       </div>
@@ -26,8 +26,8 @@ import Container from "@/components/grid/Container.vue";
 export default {
   name: "BlogCard",
   components: {
-    Container
-  }
+    Container,
+  },
   props: {
     category: {
       type: String,

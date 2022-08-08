@@ -3,14 +3,71 @@
     <!--  <RichTextRenderer :document="document" /> -->
     <HeroBanner
       id="hero"
-      title="Selected Work"
+      :title="info.name"
       subtitle="A collection of recent work and play lorem ipsum doler."
       eyebrow=""
-      label="Request Access"
-      route="login"
-    />
 
-    <Container id="work">
+    />
+    <Container>
+      <input type="radio" id="All" name="categories" value="All" checked />
+      <input type="radio" id="Tag1" name="categories" value="Tag1" />
+      <input type="radio" id="Tag2" name="categories" value="Tag2" />
+      <input type="radio" id="Tag3" name="categories" value="Tag3" />
+      <input type="radio" id="Tag4" name="categories" value="Tag4" />
+      <input type="radio" id="Tag5" name="categories" value="Tag5" />
+      <input type="radio" id="Tag6" name="categories" value="Tag6" />
+
+      <ol class="filters">
+        <li>
+          <label for="All">All</label>
+        </li>
+        <li>
+          <label for="Tag1">Tag1</label>
+        </li>
+        <li>
+          <label for="Tag2">Tag2</label>
+        </li>
+        <li>
+          <label for="Tag3">Tag3</label>
+        </li>
+        <li>
+          <label for="Tag4">Tag4</label>
+        </li>
+        <li>
+          <label for="Tag5">Tag5</label>
+        </li>
+        <li>
+          <label for="Tag6">Tag6</label>
+        </li>
+      </ol>
+      <div id="recentwork" class="posts grid-parent">
+        <ThumbSmall
+          v-for="(entry, i) in info.entries"
+          :key="i"
+          class="post"
+          :eyebrow="entry.tag"
+          :title="entry.title"
+          :details="entry.description"
+          :cta="entry.cta"
+          :route="entry.route"
+          :btnroute="entry.btnroute"
+          :link="entry.link"
+          :filename="entry.filename"
+          :style="entry.bgcolor"
+        />
+      </div>
+      
+    </Container>
+<TextImage
+      flipped
+      style="background: var(--bg-darker)"
+      filename="work/glo.svg"
+      header="Featured Project"
+      details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. "
+      route="project"
+      cta="Read More"
+    /> 
+    <!-- <Container id="work">
       <div
         class="grid-parent"
         style="
@@ -20,9 +77,7 @@
         "
       >
         <h4 class="subtle" style="text-align: left">Section Title</h4>
-        <!-- <p class="external justify-end">
-          <router-link :to="{ name: 'Work' }">View All</router-link>
-        </p> -->
+       
       </div>
       <div id="recentwork" class="grid-parent">
         <ThumbSmall
@@ -46,7 +101,6 @@
       </div>
     </Container>
     <TextImage
-      class=""
       flipped
       style="background: var(--bg-darker)"
       filename="work/glo.svg"
@@ -54,8 +108,8 @@
       details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. "
       route="project"
       cta="Read More"
-    />
-    <Container id="work">
+    /> -->
+    <!-- <Container id="work">
       <div
         class="grid-parent"
         style="
@@ -65,9 +119,7 @@
         "
       >
         <h4 class="subtle" style="text-align: left">Section Title</h4>
-        <!-- <p class="external justify-end">
-          <router-link :to="{ name: 'Work' }">View All</router-link>
-        </p> -->
+
       </div>
       <div id="recentwork" class="grid-parent">
         <ThumbSmall
@@ -88,14 +140,14 @@
           title="Small Template"
           details="This is a project description that would give a preview into the project..."
         />
-<ThumbSmall
+        <ThumbSmall
           alt="Template Project"
           style="background-color: pu"
           details="This is a project description that would give a preview into the project..."
           filename="templates/template-mobile-blank.svg"
           title="Small Template"
         />
-        
+
         <ThumbSmall
           style="background-color: palegoldenrod"
           alt="Template Project"
@@ -107,7 +159,6 @@
           filename="templates/template-mobile-blank.svg"
           style="background-color: lightgreen"
         />
-         <!-- Large tile mobile override START -->
         <ThumbSmall
           class="showmobile"
           alt="Template Project"
@@ -123,9 +174,7 @@
           title="Fortune 100"
           details="This is a project description that would give a preview into the project..."
         />
-        <!-- Large tile mobile override END -->
-
-        <!-- Medium tile mobile override START -->
+        
         <ThumbSmall
           class="showmobile"
           alt="Template Project"
@@ -138,14 +187,13 @@
           filename="work/dod.svg"
           title="DevopsDays Toronto"
         />
-        <!-- Medium tile mobile override END -->
+       
 
         <ThumbSmall
           style="background-color: var(--bg-darker)"
           alt="Template Project"
           filename="templates/template-desktop-mobile.svg"
-                    title="Project Template"
-
+          title="Project Template"
         />
         <ThumbSmall
           alt="Brb Splash"
@@ -154,8 +202,7 @@
           title="BRB Splash"
         />
         <ThumbSmall
-                  style="background-color: var(--color-lightyellow)"
-
+          style="background-color: var(--color-lightyellow)"
           alt="Template Project"
           filename="templates/template-v2.svg"
           title="Small Template"
@@ -169,43 +216,21 @@
           title="Small Template"
         />
       </div>
-    </Container>  
+    </Container> -->
 
     <!-- <CardRow /> -->
   </PageWrapper>
 </template>
 
 <script>
-// import RichTextRenderer from "contentful-rich-text-vue-renderer";
-// import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
-// import RichText from "@/components/RichText.vue";
-
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import PageWrapper from "@/components/grid/PageWrapper.vue";
 import Container from "@/components/grid/Container.vue";
-import ThumbSmall from "@/components/ThumbSmall.vue";
-// import ThumbSmall2 from "@/components/ThumbSmall2.vue";
-import TextImage from "@/components/card/TextImage.vue";
-
-// import ThumbDetail from "@/components/ThumbDetail.vue";
-// import ThumbLarge from "@/components/ThumbLarge.vue";
-import HeroBanner from "@/components/HeroBanner.vue";
-// import CardRow from "@/components/CardRow.vue";
+import projects from "@/assets/data/projects.json";
+import info from "@/assets/data/info.json";
 
 export default {
   name: "Work2",
   components: {
-    HeroBanner,
-    PageWrapper,
     Container,
-    ThumbSmall,
-    // ThumbSmall2,
-    // ThumbDetail,
-    // RichText,
-    // RichTextRenderer,
-    // CardRow,
-    TextImage,
   },
   props: {
     // header: {
@@ -215,59 +240,9 @@ export default {
   },
   data() {
     return {
-      contentful: [],
+      projects,
+      info,
     };
-  },
-
-  async created() {
-    this.contentful = await this.getContentful();
-  },
-
-  methods: {
-    richtextToHTML(content) {
-      return documentToHtmlString(content, {
-        renderNode: {
-          [BLOCKS.EMBEDDED_ASSET]: (node) => {
-            return `<img src="${node.data.target.fields.file.url}" alt="${node.data.target.fields.title}" />`;
-          },
-        },
-      });
-    },
-
-    getContentful: async () => {
-      const query = `{
-       homePageCollection {
-         items {
-           sys {
-             id
-           }
-           heroText
-           heroRichText {
-             json
-           }
-         }
-       }
-     }`;
-
-      const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
-      const fetchOptions = {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ query }),
-      };
-
-      try {
-        const response = await fetch(fetchUrl, fetchOptions).then((response) =>
-          response.json()
-        );
-        return response.data.homePageCollection.items;
-      } catch (error) {
-        throw new Error("Could not receive the data from Contentful!");
-      }
-    },
   },
 };
 </script>
@@ -280,4 +255,66 @@ export default {
 .container
   // background-color: var(--color-white)
   padding-top: 0 !important
+</style>
+
+<style scoped>
+input[type="radio"] {
+  position: absolute;
+  left: -9999px;
+}
+
+/* FILTERS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.filters {
+  text-align: right;
+  margin-bottom: 2rem;
+}
+
+.filters * {
+  display: inline-block;
+}
+
+.filters label {
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.25rem;
+  border-radius: 2rem;
+  min-width: 50px;
+  line-height: normal;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.filters label:hover {
+  background: var(--green);
+  color: var(--white);
+}
+
+/* FILTERED ELEMENTS (POSTS)
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/* FILTERING RULES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+[value="All"]:checked ~ .filters [for="All"],
+[value="Tag1"]:checked ~ .filters [for="Tag1"],
+[value="Tag2"]:checked ~ .filters [for="Tag2"],
+[value="Tag3"]:checked ~ .filters [for="Tag3"],
+[value="Tag4"]:checked ~ .filters [for="Tag4"],
+[value="Tag5"]:checked ~ .filters [for="Tag5"],
+[value="Tag6"]:checked ~ .filters [for="Tag6"] {
+  background: var(--green);
+  color: var(--white);
+}
+
+[value="All"]:checked ~ .posts [data-category] {
+  display: block;
+}
+
+[value="Tag1"]:checked ~ .posts .post:not([data-category~="Tag1"]),
+[value="Tag2"]:checked ~ .posts .post:not([data-category~="Tag2"]),
+[value="Tag3"]:checked ~ .posts .post:not([data-category~="Tag3"]),
+[value="Tag4"]:checked ~ .posts .post:not([data-category~="Tag4"]),
+[value="Tag5"]:checked ~ .posts .post:not([data-category~="Tag5"]),
+[value="Tag6"]:checked ~ .posts .post:not([data-category~="Tag6"]) {
+  display: none;
+}
 </style>

@@ -15,7 +15,14 @@
   letter-spacing: var(--spacing-normal);
 }
 
-
+@mixin test {
+  background: red;
+}
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
 /* Header AAA */
 h1 {
   font-size: var(--font-xs);
@@ -23,6 +30,7 @@ h1 {
   line-height: 1.2;
   margin: 0;
 }
+
 
 h2 {
   font-size: var(--font-lg);
@@ -112,23 +120,27 @@ strong {
 }
 
 blockquote {
+
   margin: var(--spacing-md) 0;
+   background: var(--bg-darker); 
+  /* background: hsl(var(--link),calc(var(--l) + 10%)); */
+   border-radius: var(--spacing-xxxs); 
+  color: var(--text);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-left: var(--spacing-xxxs) solid var(--link)
 }
 
 blockquote p {
-  background: var(--bg-darker);
-  border-radius: 0.8rem;
-  color: var(--text);
-  padding: var(--spacing-sm);
 }
 
-blockquote p::before {
-  content: "👉🏽";
-  font-size: var(--font-sm);
-  margin: var(--spacing-xs);
-}
+/* blockquote::before {
+  content: "“"; 
+  font-size: var(--font-xxxl);
+  margin: 0 var(--spacing-xs) 0 0 ;
+} */
 
-/* blockquote p::after {
+/*
+ blockquote p::after {
   content: "\201D";
 } */
 li {
@@ -139,6 +151,8 @@ li {
 .subtle {
   opacity: 0.7 !important;
 }
+
+
 
 /* .caption-project {
   mix-blend-mode: multiply;
@@ -191,7 +205,7 @@ a {
   text-underline-offset: 0.75rem;
   text-decoration-thickness: .1rem !important;
 
- /* background: 
+  /* background: 
   linear-gradient(#1095c1 0 0) no-repeat
    calc(200% - var(--p,0%)) 100% / 200% var(--p,.08em);
 transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s)); */
@@ -259,8 +273,9 @@ transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s)); */
 
 /* ---- Reversed States ---- */
 
-.reversed a {
+.reversed a, .reversed a::after {
   color: var(--link-reversed) !important;
+  font-weight: var(--font-reversed-medium) !important;
 }
 
 /* ---- Hover States ---- */
@@ -284,10 +299,11 @@ a:hover::before {
 */
 
 a:hover {
-  text-decoration: none !important;
+  text-decoration: underline !important;
   text-underline-offset: 0.75rem;
-  text-decoration-thickness: .1rem !important;
+  text-decoration-thickness: .2rem !important;
 }
+
 /* ---- Active States ---- */
 
 a:active,
@@ -313,6 +329,7 @@ p a:active {
 
 h1 a:hover {
   position: relative;
+  text-decoration: none !important;
 }
 
 h2 a:active {

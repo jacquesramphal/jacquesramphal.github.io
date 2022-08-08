@@ -3,11 +3,12 @@
     <Container class="text-container">
       <Wrapper class="text">
         <TextBlock
-          cta="Read More"
-          :header4="`${title}`"
-          :route="`${route}`"
           :details="`${details}`"
+          :header4="`${title}`"
+          :link="`${link}`"
+          :route="`${route}`"
           class="textblock"
+          :cta="`${cta}`"
         />
       </Wrapper>
     </Container>
@@ -56,10 +57,16 @@ export default {
     },
     route: {
       type: String,
+      default: "",
     },
-    // link: {
-    //   type: String,
-    // },
+    link: {
+      type: String,
+      default: "",
+    },
+    cta: {
+      type: String,
+      default: "Read More",
+    },
   },
 };
 </script>
