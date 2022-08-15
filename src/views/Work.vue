@@ -1,22 +1,29 @@
 <template>
   <PageWrapper>
-    <!-- <HeroBanner
+    <HeroBanner
       id="hero"
       class="display"
       v-for="homePage in contentful"
       v-bind:key="homePage.sys.id"
       :title="homePage.heroText"
       eyebrow=""
-    /> -->
-
-    <HeroBanner
+    />
+     <!-- <HeroBanner
       id="hero"
       class="display"
-      title="Designer of things, working & playing at Myplanet"
       eyebrow=""
-    />
+      title="Product Designer Developer"
+    /> -->
+    <ThemeButton v-if="!$route.meta.hideNav" />
 
-    <Container id="work" tight>
+    <!-- <HeroBanner
+      id="hero"
+      class="display"
+      eyebrow=""
+      title="Product Designer Developer"
+    /> -->
+
+    <Container id="work" class="animate glow delay-1" tight>
       <!-- <div
         class="grid-parent"
         style="

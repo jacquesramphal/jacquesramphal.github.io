@@ -18,11 +18,13 @@
 @mixin test {
   background: red;
 }
+
 .line-clamp {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+
 /* Header AAA */
 h1 {
   font-size: var(--font-xs);
@@ -34,7 +36,7 @@ h1 {
 
 h2 {
   font-size: var(--font-lg);
-  font-weight: var(--font-heavy);
+  font-weight: var(--font-bold);
   letter-spacing: var(--spacing-tight);
   line-height: 1.1;
   margin: 0;
@@ -48,7 +50,7 @@ h2 {
 
 h3 {
   font-size: var(--font-md);
-  font-weight: var(--font-heavy);
+  font-weight: var(--font-bold);
   line-height: 1.4;
   margin: 0;
   opacity: 1 !important;
@@ -56,7 +58,7 @@ h3 {
 
 h4 {
   font-size: var(--font-sm);
-  font-weight: var(--font-heavy);
+  font-weight: var(--font-bold);
   line-height: 1.5;
   margin: 0;
   opacity: 1 !important;
@@ -64,7 +66,7 @@ h4 {
 
 h5 {
   font-size: var(--font-xs);
-  font-weight: var(--font-heavy);
+  font-weight: var(--font-bold);
   line-height: 1.5;
   margin: 0;
   opacity: 1 !important;
@@ -73,7 +75,7 @@ h5 {
 /* eyebrow text */
 h6 {
   font-size: var(--font-xs);
-  font-weight: var(--font-heavy);
+  font-weight: var(--font-bold);
   line-height: 1.5;
   margin: 0;
   opacity: 1 !important;
@@ -122,16 +124,15 @@ strong {
 blockquote {
 
   margin: var(--spacing-md) 0;
-   background: var(--bg-darker); 
+  background: var(--bg-darker);
   /* background: hsl(var(--link),calc(var(--l) + 10%)); */
-   border-radius: var(--spacing-xxxs); 
+  border-radius: var(--spacing-xxxs);
   color: var(--text);
   padding: var(--spacing-sm) var(--spacing-md);
   border-left: var(--spacing-xxxs) solid var(--link)
 }
 
-blockquote p {
-}
+blockquote p {}
 
 /* blockquote::before {
   content: "“"; 
@@ -273,7 +274,8 @@ transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s)); */
 
 /* ---- Reversed States ---- */
 
-.reversed a, .reversed a::after {
+.reversed a,
+.reversed a::after {
   color: var(--link-reversed) !important;
   font-weight: var(--font-reversed-medium) !important;
 }
@@ -400,6 +402,7 @@ h2>a:hover {
       }
 
       .display h2 {
+        font-weight: var(--font-bold);
         font-size: var(--font-display);
       }
     }

@@ -6,6 +6,7 @@
           <!-- Profile Picture -->
           <router-link to="cv"
             ><img
+              id="avatar"
               class="justify-end"
               draggable="false"
               src="@/assets/images/portrait.jpg"
@@ -46,7 +47,7 @@
         <div class="grid-parent">
           <div id="maindetails">
             <TextBlock
-              header="Toronto-based, UX Generalist at Myplanet"
+              header="Toronto-based, tech tinkerer at Orium"
               details="If you have questions about design, development, or anything in between, let’s connect!"
             />
           </div>
@@ -259,6 +260,10 @@ li.external::after
   content: " ↗"
   color: var(--link)
 
+#avatar:hover 
+  animation: animate-shake 1s
+  animation-delay: 1s
+
 
 /* Monogram styling */
 #monogram
@@ -273,4 +278,5 @@ li.external::after
 @keyframes dash
   to
     stroke-dashoffset: 1000
+    
 </style>

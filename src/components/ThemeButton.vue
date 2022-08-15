@@ -8,18 +8,23 @@
     />
     <label for="checkbox" class="switch-label">
       <!--<span><a><p>Theme</p></a></span>-->
-
-      <div
+<!-- 
+      <TextLink
+      cta="test"
         class="switch-toggle"
         :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
-      ></div>
+      /> -->
+      <h6
+        class="switch-toggle"
+        :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
+      ></h6>
       <!-- <img
           class="justify-end"
           draggable="false"
           src="favicon.svg"
           alt="logo.svg"
           style="width: 32px"
-        />-->
+        /> -->
     </label>
   </div>
 </template>
@@ -30,13 +35,11 @@ export default {
     const initUserTheme = this.getMediaPreference();
     this.setTheme(initUserTheme);
   },
-
   data() {
     return {
       userTheme: "light-theme",
     };
   },
-
   methods: {
     toggleTheme() {
       const activeTheme = localStorage.getItem("user-theme");
@@ -46,13 +49,11 @@ export default {
         this.setTheme("light-theme");
       }
     },
-
     setTheme(theme) {
       localStorage.setItem("user-theme", theme);
       this.userTheme = theme;
       document.documentElement.className = theme;
     },
-
     getMediaPreference() {
       const hasDarkPreference = window.matchMedia(
         "(prefers-color-scheme: dark)"
@@ -79,21 +80,21 @@ export default {
   border-radius: var(--spacing-xxs)
   cursor: pointer
   color: var(--link) !important
-  font-size: var(--font-sm)
-  height: var(--font-xs)
+  font-size: var(--font-xs)
+  height: var(--font-sm)
   display: flex
   position: absolute
   right: 0
-  // background: red
   // box-shadow: var(--shadow-deep)
-  padding: var(--spacing-xs)
+  padding: var(--spacing-sm)
   // padding: var(--spacing-sm) var(--spacing-xs)
-  transition: all 0.5s ease
+  // transition: all 0.5s ease
   justify-items: center
   align-items: center
   z-index: 1
-  margin: var(--spacing-xxs)
   text-align: center
+  @media only screen and (min-width: 740px)
+    padding: var(--spacing-lg)
 
 .switch-label:hover
   // box-shadow: var(--shadow-hover)
@@ -101,46 +102,47 @@ export default {
 
 
 // EMOJI SWITCH
-// .switch-toggle::before
-//   content: "🌒"
+.switch-toggle::before
+  content: "🌒"
 
-// .switch-toggle:hover::before
-//   content: "🌓"
+.switch-toggle:hover::before
+  content: "🌓"
 
-// .switch-toggle:active::before
-//   content: "🌓"
+.switch-toggle:active::before
+  content: "🌓"
 
-// .switch-toggle-checked::before
-//   content: "🌔"
+.switch-toggle-checked::before
+  content: "🌔"
 
 // UNICODE SWITCH
-// .switch-toggle
-//   display: grid
-//   justify-items: center
-//   align-items: center
-//   text-align: center
+.switch-toggle
+  display: grid
+  justify-items: center
+  align-items: center
+  text-align: center
+  font-size: var(--font-sm)
 
-// .switch-toggle::before
-//   content: "⊚"
+.switch-toggle::before
+  content: "⊚"
 
-// .switch-toggle:hover::before
-//   content: "⊚"
+.switch-toggle:hover::before
+  content: "⊚"
 
-// .switch-toggle:active::before
-//   content: "⊖"
+.switch-toggle:active::before
+  content: "⊖"
 
-// .switch-toggle-checked::before
-//   content: "⊚"
+.switch-toggle-checked::before
+  content: "⊚"
 
 
 
 // TEXT SWITCH
-.switch-toggle::before
-  content: "Zzz"
-  padding-left: 1rem
+// .switch-toggle::before
+//   content: "Zzz"
+//   padding-left: 1rem
 
-.switch-toggle-checked::before
-  content: "zZZ"
+// .switch-toggle-checked::before
+//   content: "zZZ"
 
 
 // .switch-toggle

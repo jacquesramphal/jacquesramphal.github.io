@@ -87,7 +87,7 @@ export default {
   &:active
     // box-shadow: var(--shadow-hover  )
     // transform: rotate(1deg)
-#textblock
+// #textblock
 
 .info
   // grid-row: span

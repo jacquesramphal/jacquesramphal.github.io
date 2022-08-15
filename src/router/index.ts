@@ -45,31 +45,27 @@ const routes = [
   //   component: TheLogin,
   // },
   {
-    redirect: "/brb",
+    // redirect: "/brb",
     path: "/",
     name: "Home",
     component: Work,
   },
   {
-    redirect: "/brb",
     path: "/work",
     name: "Work",
     component: Work,
   },
   {
-    redirect: "/brb",
     path: "/work2",
     name: "Work2",
     component: Work2,
   },
   {
-    redirect: "/brb",
     path: "/links",
     name: "Links",
     component: Links,
   },
   {
-    redirect: "/brb",
     path: "/cv",
     name: "Resume",
     component: MyResume,
@@ -78,31 +74,26 @@ const routes = [
     },
   },
   {
-    redirect: "/brb",
     path: "/info",
     name: "Info",
     component: Info,
   },
   {
-    redirect: "/brb",
     path: "/project",
     name: "Project",
     component: Project,
   },
   {
-    redirect: "/brb",
     path: "/docs",
     name: "Blog",
     component: MyBlog,
   },
   {
-    redirect: "/brb",
     path: "/post",
     name: "post",
     component: BlogPost,
   },
   {
-    redirect: "/brb",
     path: "/library",
     name: "Library",
     component: Library,
@@ -113,6 +104,7 @@ const routes = [
   //   props: true,
   //   component: BlogPost,
   // },
+  
 ];
 
 const router = createRouter({
@@ -120,4 +112,9 @@ const router = createRouter({
   routes,
 });
 
+
+
 export default router;
+
+
+

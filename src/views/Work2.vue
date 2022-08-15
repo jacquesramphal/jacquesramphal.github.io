@@ -1,12 +1,10 @@
 <template>
   <PageWrapper>
-    <!--  <RichTextRenderer :document="document" /> -->
     <HeroBanner
       id="hero"
       :title="info.name"
       subtitle="A collection of recent work and play lorem ipsum doler."
       eyebrow=""
-
     />
     <Container>
       <input type="radio" id="All" name="categories" value="All" checked />
@@ -56,49 +54,6 @@
           :style="entry.bgcolor"
         />
       </div>
-      
-    </Container>
-<TextImage
-      flipped
-      style="background: var(--bg-darker)"
-      filename="work/glo.svg"
-      header="Featured Project"
-      details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. "
-      route="project"
-      cta="Read More"
-    /> 
-    <!-- <Container id="work">
-      <div
-        class="grid-parent"
-        style="
-          padding-bottom: var(--spacing-md);
-          align-items: center;
-          grid-template-columns: repeat(2, 1fr);
-        "
-      >
-        <h4 class="subtle" style="text-align: left">Section Title</h4>
-       
-      </div>
-      <div id="recentwork" class="grid-parent">
-        <ThumbSmall
-          filename="templates/template-v2.svg"
-          style="background-color: lightpink"
-        />
-        <ThumbSmall
-          alt="Template Project"
-          style="background-color: var(--link)"
-          details="This is a project description that would give a preview into the project..."
-          filename="templates/template-mobile-blank.svg"
-          title="Small Template"
-        />
-        <ThumbSmall
-          style="background-color: var(--color-lightyellow)"
-          alt="Template Project"
-          filename="templates/template-v2.svg"
-          title="Small Template"
-          details="This is a project description that would give a preview into the project..."
-        />
-      </div>
     </Container>
     <TextImage
       flipped
@@ -108,115 +63,7 @@
       details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. "
       route="project"
       cta="Read More"
-    /> -->
-    <!-- <Container id="work">
-      <div
-        class="grid-parent"
-        style="
-          padding-bottom: var(--spacing-md);
-          align-items: center;
-          grid-template-columns: repeat(2, 1fr);
-        "
-      >
-        <h4 class="subtle" style="text-align: left">Section Title</h4>
-
-      </div>
-      <div id="recentwork" class="grid-parent">
-        <ThumbSmall
-          filename="templates/template-v2.svg"
-          style="background-color: lightpink"
-        />
-        <ThumbSmall
-          alt="Template Project"
-          style="background-color: var(--link)"
-          details="This is a project description that would give a preview into the project..."
-          filename="templates/template-mobile-blank.svg"
-          title="Small Template"
-        />
-        <ThumbSmall
-          style="background-color: var(--color-lightyellow)"
-          alt="Template Project"
-          filename="templates/template-v2.svg"
-          title="Small Template"
-          details="This is a project description that would give a preview into the project..."
-        />
-        <ThumbSmall
-          alt="Template Project"
-          style="background-color: pu"
-          details="This is a project description that would give a preview into the project..."
-          filename="templates/template-mobile-blank.svg"
-          title="Small Template"
-        />
-
-        <ThumbSmall
-          style="background-color: palegoldenrod"
-          alt="Template Project"
-          filename="templates/template-v2.svg"
-          title="Small Template"
-          details="This is a project description that would give a preview into the project..."
-        />
-        <ThumbSmall
-          filename="templates/template-mobile-blank.svg"
-          style="background-color: lightgreen"
-        />
-        <ThumbSmall
-          class="showmobile"
-          alt="Template Project"
-          filename="work/glo.svg"
-          route="project"
-          title="Fortune 100"
-          details="This is a project description that would give a preview into the project..."
-        />
-        <ThumbLarge
-          class="hidemobile"
-          filename="work/glo.svg"
-          route="project"
-          title="Fortune 100"
-          details="This is a project description that would give a preview into the project..."
-        />
-        
-        <ThumbSmall
-          class="showmobile"
-          alt="Template Project"
-          filename="work/dod.svg"
-          title="DevopsDays Toronto"
-        />
-        <ThumbMedium
-          class="hidemobile"
-          alt="DevopsDays Toronto"
-          filename="work/dod.svg"
-          title="DevopsDays Toronto"
-        />
-       
-
-        <ThumbSmall
-          style="background-color: var(--bg-darker)"
-          alt="Template Project"
-          filename="templates/template-desktop-mobile.svg"
-          title="Project Template"
-        />
-        <ThumbSmall
-          alt="Brb Splash"
-          details="This is a project description that would give a preview into the project..."
-          filename="splash.svg"
-          title="BRB Splash"
-        />
-        <ThumbSmall
-          style="background-color: var(--color-lightyellow)"
-          alt="Template Project"
-          filename="templates/template-v2.svg"
-          title="Small Template"
-          details="This is a project description that would give a preview into the project..."
-        />
-        <ThumbSmall
-          alt="Template Project"
-          style="background-color: var(--link)"
-          details="This is a project description that would give a preview into the project..."
-          filename="templates/template-mobile-blank.svg"
-          title="Small Template"
-        />
-      </div>
-    </Container> -->
+    />
 
     <!-- <CardRow /> -->
   </PageWrapper>
@@ -233,10 +80,6 @@ export default {
     Container,
   },
   props: {
-    // header: {
-    //   type: String,
-    //   default: "Work",
-    // },
   },
   data() {
     return {

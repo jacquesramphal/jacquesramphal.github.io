@@ -2,12 +2,12 @@
   <AnimatedComponent>
     <Wrapper id="hero-banner" :class="classes">
       <Container>
-        <nav class="animate delay-1">
+        <nav class="animate fade delay-3 ">
           <p id="wordmark" class="subtle" v-if="eyebrow" v-text="eyebrow" />
         </nav>
       </Container>
       <Container>
-        <div id="hero-text" class="animate glow">
+        <div id="hero-text" class="animate glow delay-1">
           <h2>
             {{ title }}
           </h2>

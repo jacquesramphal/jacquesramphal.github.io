@@ -42,7 +42,7 @@ img {
 
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
-    /* .zoom {
+    .zoom {
       -moz-transition: all 0.25s ease-in-out;
       -o-transition: all 0.25s ease-in-out;
       -webkit-transition: all 0.25s ease-in-out;
@@ -51,11 +51,12 @@ img {
       padding: 0;
       transition: all 0.25s ease-in-out;
     }
+  
     span:hover > .zoom {
       -moz-transform: scale(1.03);
       -webkit-transform: scale(1.03);
       cursor: zoom-in;
       transform: scale(1.03);
-    } */
+    } 
   }
 }
