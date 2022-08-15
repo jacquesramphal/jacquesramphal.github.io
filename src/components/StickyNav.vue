@@ -1,5 +1,5 @@
 <template>
-  <Container
+  <GridContainer
     id="stickynav"
     class="navbar"
     :class="{ 'hidden-navbar': !showNavbar }"
@@ -49,11 +49,12 @@
         </ul>
       </nav>
     </div>
-  </Container>
+  </GridContainer>
 </template>
 
 <script>
-import Container from "@/components/grid/Container.vue";
+// Must import here and on footer since they are global router components?
+import GridContainer from "@/components/grid/GridContainer.vue";
 
 /**
  * @component
@@ -62,7 +63,7 @@ const OFFSET = 60;
 export default {
   name: "StickyNav",
   components: {
-    Container,
+    GridContainer
   },
   props: {
     title: {

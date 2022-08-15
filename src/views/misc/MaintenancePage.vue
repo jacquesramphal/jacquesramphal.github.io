@@ -1,17 +1,17 @@
 <template>
-  <Wrapper>
+  <GridWrapper>
     <HeroBg header="Thanks for visiting my site. Im pushing pixels and will be back soon." />
-  </Wrapper>
+  </GridWrapper>
 </template>
 
 <script>
-import Wrapper from "@/components/grid/Wrapper.vue";
+
 import HeroBg from "@/components/HeroBg.vue";
 
 export default {
   name: "MaintenancePage",
   components: {
-    Wrapper,
+    
     HeroBg,
   },
 };

@@ -23,7 +23,7 @@
       title="Product Designer Developer"
     /> -->
 
-    <Container id="work" class="animate glow delay-1" tight>
+    <GridContainer id="work" class="animate glow delay-1" tight>
       <!-- <div
         class="grid-parent"
         style="
@@ -34,7 +34,7 @@
       >
         <h4 class="subtle" style="text-align: left">Selected Work</h4>
         <p class="external justify-end">
-          <router-link :to="{ name: 'Work2' }">See More</router-link>
+          <router-link :to="{ name: 'MoreWork' }">See More</router-link>
         </p>
       </div> -->
 
@@ -91,7 +91,7 @@
         label="See more work"
         route="work2"
       /> -->
-    </Container>
+    </GridContainer>
     <!-- <TextImage class="" style="background: var(--bg-darker);" filename="jacques.jpeg" header="The tools I use" details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. " route="post" cta="Read More"/> -->
     <!-- <CardRow /> -->
   </PageWrapper>
@@ -105,7 +105,7 @@ import ThumbDetail from "@/components/ThumbDetail.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
 
 export default {
-  name: "Work",
+  name: "HomePage",
   components: {
     ThumbDetail,
     ThumbSmall2,

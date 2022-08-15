@@ -1,7 +1,7 @@
 <template>
   <AnimatedComponent
-    ><Wrapper id="wrapper" class="">
-      <Container>
+    ><GridWrapper id="wrapper" class="">
+      <GridContainer>
         <div class="">
           <!-- Profile Picture -->
           <router-link to="cv"
@@ -107,8 +107,8 @@
             </ol>
           </div>
         </div>
-      </Container>
-      <Container>
+      </GridContainer>
+      <GridContainer>
         <div class="">
           <p style="font-size: var(--font-xxs)">
             © 2022 Jacques Ramphal — Built with
@@ -122,8 +122,8 @@
             <a target="blank" href="https://www.netlify.com/">Netlify</a>.
           </p>
         </div>
-      </Container>
-    </Wrapper>
+      </GridContainer>
+    </GridWrapper>
   </AnimatedComponent>
 </template>
 <!-- <form
@@ -150,8 +150,9 @@
           </form> -->
 
 <script>
-import Wrapper from "@/components/grid/Wrapper.vue";
-import Container from "@/components/grid/Container.vue";
+import GridContainer from "@/components/grid/GridContainer.vue";
+import GridWrapper from "@/components/grid/GridWrapper.vue";
+
 import TextBlock from "@/stories/TextBlock.vue";
 import AnimatedComponent from "./AnimatedComponent.vue";
 // import TextArea from "@/components/form/TextArea.vue";
@@ -160,8 +161,8 @@ import AnimatedComponent from "./AnimatedComponent.vue";
 export default {
   name: "MainFooter",
   components: {
-    Wrapper,
-    Container,
+    GridContainer,
+    GridWrapper,
     TextBlock,
     AnimatedComponent,
   },
@@ -260,7 +261,7 @@ li.external::after
   content: " ↗"
   color: var(--link)
 
-#avatar:hover 
+#avatar:hover
   animation: animate-shake 1s
   animation-delay: 1s
 
@@ -278,5 +279,4 @@ li.external::after
 @keyframes dash
   to
     stroke-dashoffset: 1000
-    
 </style>

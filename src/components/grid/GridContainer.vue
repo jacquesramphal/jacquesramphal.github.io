@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "Container",
+  name: "GridContainer",
   props: {
     tight: {
       type: Boolean,

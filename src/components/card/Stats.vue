@@ -1,6 +1,6 @@
 <template>
-  <Wrapper id="stats" class="">
-    <Container class="grid-parent">
+  <GridWrapper id="stats" class="">
+    <GridContainer class="grid-parent">
       <!--      <h3>Stats</h3> -->
       <TextValue
         class="grid-card"
@@ -20,20 +20,20 @@
         :value="`${value3}`"
         details=""
       />
-    </Container>
-  </Wrapper>
+    </GridContainer>
+  </GridWrapper>
 </template>
 <script>
 import TextValue from "@/components/text/TextValue.vue";
-import Wrapper from "@/components/grid/Wrapper.vue";
-import Container from "@/components/grid/Container.vue";
+
+
 
 export default {
   name: "Stats",
   components: {
     TextValue,
-    Container,
-    Wrapper,
+    
+    
   },
   props: {
     contentful: {

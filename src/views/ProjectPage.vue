@@ -3,19 +3,19 @@
     <!-- <HeroProject title="Project Title" class="" /> -->
     <HeroBanner title="Project Title" subtitle="Short description of the project details and overview."/>
 
-    <Container tight>
+    <GridContainer tight>
       <ThumbLarge
         title=""
         filename="work/glo.svg"
         alt="Jacques working at Myplanet"
         route=""
       />
-    </Container>
+    </GridContainer>
   
         <DetailCard2 id="detail1" class="" />
 
      
-<Container  style="padding-top: 0 !important;">
+<GridContainer  style="padding-top: 0 !important;">
       <ThumbLarge
         title=""
         filename="work/glo.svg"
@@ -23,7 +23,7 @@
         route=""
         caption="This is an image caption"
       />
-    </Container>
+    </GridContainer>
     <!-- <Stats/> -->
 
         <TextImage filename="work/glo.svg" flipped class=""/>
@@ -43,7 +43,7 @@
 
 <script>
 import PageWrapper from "@/components/grid/PageWrapper.vue";
-import Container from "@/components/grid/Container.vue";
+
 // import TextDefault from "@/components/text/TextDefault.vue";
 // import HeroProject from "@/components/HeroProject.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
@@ -57,10 +57,10 @@ import HeroBanner from "@/components/HeroBanner.vue";
 import TextImage from "@/components/card/TextImage.vue";
 
 export default {
-  name: "Project",
+  name: "ProjectPage",
   components: {
     PageWrapper,
-    Container,
+    
     TextImage,
     // HeroProject,
     // TextDefault,

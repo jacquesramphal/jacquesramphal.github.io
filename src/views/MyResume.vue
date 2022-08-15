@@ -1,6 +1,6 @@
 <template>
   <PageWrapper>
-    <resume
+    <the-resume
       class="resume"
       :segments="segments"
       :skills="skills"
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Resume from "@/components/resume/Resume.vue";
+import TheResume from "@/components/resume/TheResume.vue";
 // Mock data
 import segments from "@/components/resume/data/segments.json";
 import skills from "@/components/resume/data/skills.json";
@@ -19,7 +19,7 @@ import information from "@/components/resume/data/information.json";
 import settings from "@/components/resume/data/settings.json";
 export default {
   name: "MyResume",
-  components: { Resume },
+  components: { TheResume },
   data() {
     return {
       segments,

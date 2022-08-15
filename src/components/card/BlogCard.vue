@@ -1,5 +1,5 @@
 <template>
-  <Container class="wrapper">
+  <GridContainer class="wrapper">
     <router-link :to="`${route}`">
       <div class="grid-parent blog-card">
         <span id="dates">
@@ -17,16 +17,16 @@
         >
       </div>
     </router-link>
-  </Container>
+  </GridContainer>
 </template>
 
 <script>
-import Container from "@/components/grid/Container.vue";
+
 
 export default {
   name: "BlogCard",
   components: {
-    Container,
+    
   },
   props: {
     category: {

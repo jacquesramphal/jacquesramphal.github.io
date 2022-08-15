@@ -1,12 +1,12 @@
 <template>
   <AnimatedComponent>
-    <Wrapper id="hero-banner" :class="classes">
-      <Container>
+    <GridWrapper id="hero-banner" :class="classes">
+      <GridContainer>
         <nav class="animate fade delay-3 ">
           <p id="wordmark" class="subtle" v-if="eyebrow" v-text="eyebrow" />
         </nav>
-      </Container>
-      <Container>
+      </GridContainer>
+      <GridContainer>
         <div id="hero-text" class="animate glow delay-1">
           <h2>
             {{ title }}
@@ -25,8 +25,8 @@
             </span>
           </div>
         </div>
-      </Container>
-    </Wrapper>
+      </GridContainer>
+    </GridWrapper>
   </AnimatedComponent>
 </template>
 

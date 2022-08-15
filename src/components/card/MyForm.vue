@@ -22,14 +22,14 @@
     >
       <TextDefault header="Contact Me" />
 
-      <Input
+      <MyInput
         label="Name"
         id="name"
         type="name"
         name="user_name"
         placeholder="Enter your name"
       />
-      <Input
+      <MyInput
         label="Email"
         id="email"
         type="email"
@@ -87,18 +87,16 @@
         <button type="submit" class="btn btn-primary">Login</button>
       </form> -->
 <script>
-import Input from "@/components/form/Input.vue";
+import MyInput from "@/components/form/MyInput.vue";
 import TextArea from "@/components/form/TextArea.vue";
-import MyButton from "@/stories/Button.vue";
 import emailjs from "emailjs-com";
 import TextDefault from "@/components/text/TextDefault.vue";
 
 export default {
-  name: "Form",
+  name: "MyForm",
   components: {
-    Input,
+    MyInput,
     TextArea,
-    MyButton,
     TextDefault,
   },
   props: {

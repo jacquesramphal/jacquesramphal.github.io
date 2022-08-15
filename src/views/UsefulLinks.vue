@@ -7,7 +7,7 @@
       subtitle="A collection of links and writing to help you fall back in love with typography."
     />
     <!-- TMP - should be a v-for list - see resume -->
-    <Container style="border-bottom: var(--border)">
+    <GridContainer style="border-bottom: var(--border)">
       <div
         class=""
         style="
@@ -131,11 +131,11 @@
           </li>
         </ul>
       </div>
-    </Container>
+    </GridContainer>
 
         <!-- New Section -->
 
-    <Container style="border-bottom: var(--border)">
+    <GridContainer style="border-bottom: var(--border)">
       <div
         class=""
         style="
@@ -260,8 +260,8 @@
           </li>
         </ul>
       </div>
-      </Container>
-      <Container style="border-bottom: var(--border)">
+      </GridContainer>
+      <GridContainer style="border-bottom: var(--border)">
       <div
         class=""
         style="
@@ -386,7 +386,7 @@
           </li>
         </ul>
       </div>
-    </Container>
+    </GridContainer>
     <CardRow header="My Ramblings" />
     <!-- TMP - should be a v-for list - see resume -->
   </PageWrapper>
@@ -396,7 +396,7 @@
 import CardRow from "@/components/CardRow.vue";
 
 export default {
-  name: "Links",
+  name: "UsefulLinks",
   components: {
     CardRow,
   },

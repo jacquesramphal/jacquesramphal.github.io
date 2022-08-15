@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <Container class="grid-parent">
+    <GridContainer class="grid-parent">
       <h3 id="section-header" tabIndex="0">
         {{ header }}
       </h3>
@@ -8,18 +8,18 @@
       <TextBlock :eyebrow="`${eyebrow2}`" header="" :details="`${detail2}`" />
       <TextBlock :eyebrow="`${eyebrow3}`" header="" :details="`${detail3}`" />
       <TextBlock :eyebrow="`${eyebrow4}`" header="" :details="`${detail4}`" />
-    </Container>
+    </GridContainer>
   </div>
 </template>
 
 <script>
 import TextBlock from "@/stories/TextBlock.vue";
-import Container from "@/components/grid/Container.vue";
+
 
 export default {
   name: "DetailCard",
   components: {
-    Container,
+    
     TextBlock,
   },
   props: {

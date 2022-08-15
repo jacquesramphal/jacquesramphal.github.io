@@ -2,7 +2,7 @@
   <PageWrapper id="library" class="">
     <HeroBanner eyebrow="ramphal.design" title="Library" />
 
-    <Container id="headings" class="grid-parent">
+    <GridContainer id="headings" class="grid-parent">
       <div class="grid-card">
         <h1>Heading 1</h1>
         <h2>Heading 2</h2>
@@ -26,8 +26,8 @@
           <i>Italics</i>, <em>Emphasis</em>
         </p>
       </div>
-    </Container>
-    <Container id="buttons" class="grid-parent reversed">
+    </GridContainer>
+    <GridContainer id="buttons" class="grid-parent reversed">
       <h4>Buttons</h4>
       <div class="grid-parent">
         <div id="" class="">
@@ -43,7 +43,7 @@
           <MyButton text="This is Button Text" class="btn-toggle btn-outline" />
         </div>
       </div>
-    </Container>
+    </GridContainer>
 
     <Hero header="Reversed" class="reversed" />
 
@@ -55,19 +55,19 @@
 
     <DetailCard header="Reversed" class="reversed" />
 
-    <Form />
+    <MyForm />
     <FormCentered />
     <TextImage header="Default" />
 
-    <Container class="grid-parent">
+    <GridContainer class="grid-parent">
       <TextDefault />
-    </Container>
+    </GridContainer>
   </PageWrapper>
 </template>
 
 <script>
 import PageWrapper from "@/components/grid/PageWrapper.vue";
-import Container from "@/components/grid/Container.vue";
+
 import HeroBanner from "@/components/HeroBanner.vue";
 import HeroBg from "@/components/HeroBg.vue";
 import HeroAnimated from "@/components/HeroAnimated.vue";
@@ -75,14 +75,13 @@ import HeroProject from "@/components/HeroProject.vue";
 import TextDefault from "@/components/text/TextDefault.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
 import TextImage from "@/components/card/TextImage.vue";
-import Form from "@/components/card/Form.vue";
+import MyForm from "@/components/card/MyForm.vue";
 import FormCentered from "@/components/card/FormCentered.vue";
 
 export default {
-  name: "Info",
+  name: "MyLibrary",
   components: {
-    PageWrapper,
-    Container,
+    PageWrapper,    
     HeroBanner,
     HeroBg,
     HeroAnimated,
@@ -90,7 +89,7 @@ export default {
     TextDefault,
     DetailCard,
     TextImage,
-    Form,
+    MyForm,
     FormCentered,
   },
   mounted() {

@@ -1,7 +1,7 @@
 <template>
-  <Wrapper id="blog">
+  <GridWrapper id="blog">
     <!--  list view -->
-    <!-- <Container>
+    <!-- <GridContainer>
       <blog-post-entry
         v-for="blogPost in contentful"
         v-bind:key="blogPost.sys.id"
@@ -12,12 +12,12 @@
         :description="blogPost.description"
         :route="blogPost.route"
       />
-    </Container> -->
+    </GridContainer> -->
 
     <!--  card view -->
 
     <div class="">
-      <Container id="cards" style="overflow: visible">
+      <GridContainer id="cards" style="overflow: visible">
         <input type="radio" id="All" name="categories" value="All" checked />
         <input type="radio" id="CSS" name="categories" value="CSS" />
         <input
@@ -81,23 +81,23 @@
             :label="blogPost.label"
           /> -->
         </div>
-      </Container>
+      </GridContainer>
     </div>
-  </Wrapper>
+  </GridWrapper>
 </template>
 
 <script>
 // import BlogPostEntry from "@/components/blog/BlogPostEntry.vue";
 import DefaultCard from "@/components/card/DefaultCard.vue";
-import Container from "@/components/grid/Container.vue";
-import Wrapper from "@/components/grid/Wrapper.vue";
+
+
 
 export default {
   name: "BlogFeed",
   components: {
     // BlogPostEntry,
-    Container,
-    Wrapper,
+    
+    
     DefaultCard,
   },
   props: {

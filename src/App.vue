@@ -18,8 +18,6 @@ import MainFooter from "@/components/MainFooter.vue";
 // import TheLogin from "@/components/TheLogin.vue";
 import ThemeButton from "@/components/ThemeButton.vue";
 
-// Register Global Component TBD
-// import AnimatedComponent from "@/components/AnimatedComponent.vue";
 
 export default {
   name: "App",
@@ -27,8 +25,7 @@ export default {
     StickyNav,
     MainFooter,
     ThemeButton,
-    // TheLogin,
-    // AnimatedComponent
+
   },
   // data() {
   //   return {

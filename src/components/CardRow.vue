@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <Container id="cards" style="overflow: visible">
+    <GridContainer id="cards" style="overflow: visible">
       <div
         class="grid-parent"
         style="
@@ -27,18 +27,18 @@
           :label="blogPost.label"
         />
       </div>
-    </Container>
+    </GridContainer>
   </div>
 </template>
 
 <script>
 import DefaultCard from "@/components/card/DefaultCard.vue";
-import Container from "@/components/grid/Container.vue";
+
 
 export default {
   name: "CardRow",
   components: {
-    Container,
+    
     DefaultCard,
   },
   props: {

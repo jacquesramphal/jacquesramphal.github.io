@@ -6,7 +6,7 @@
       subtitle="A collection of recent work and play lorem ipsum doler."
       eyebrow=""
     />
-    <Container>
+    <GridContainer>
       <input type="radio" id="All" name="categories" value="All" checked />
       <input type="radio" id="Tag1" name="categories" value="Tag1" />
       <input type="radio" id="Tag2" name="categories" value="Tag2" />
@@ -54,7 +54,7 @@
           :style="entry.bgcolor"
         />
       </div>
-    </Container>
+    </GridContainer>
     <TextImage
       flipped
       style="background: var(--bg-darker)"
@@ -70,14 +70,14 @@
 </template>
 
 <script>
-import Container from "@/components/grid/Container.vue";
+
 import projects from "@/assets/data/projects.json";
 import info from "@/assets/data/info.json";
 
 export default {
-  name: "Work2",
+  name: "MoreWork",
   components: {
-    Container,
+    
   },
   props: {
   },

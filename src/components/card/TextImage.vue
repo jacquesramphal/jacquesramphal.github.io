@@ -1,35 +1,35 @@
 <template>
-  <Wrapper id="textimage" :class="classes">
-    <Container tight style="padding: 0 !important">
+  <GridWrapper id="textimage" :class="classes">
+    <GridContainer tight style="padding: 0 !important">
       <div id="grid-parent" class="grid-parent">
-        <Container tight class="imgcontainer">
+        <GridContainer tight class="imgcontainer">
           <img
             class="splitimg"
             draggable="false"
             :src="require(`@/assets/images/${filename}`)"
             :alt="`${alt}`"
-        /></Container>
-        <Container class="textcontainer">
+        /></GridContainer>
+        <GridContainer class="textcontainer">
           <TextBlock
             :header="`${header}`"
             :cta="`${cta}`"
             :route="`${route}`"
             :details="`${details}`"
           />
-        </Container></div></Container
-  ></Wrapper>
+        </GridContainer></div></GridContainer
+  ></GridWrapper>
 </template>
 <script>
 import TextBlock from "@/stories/TextBlock.vue";
-import Container from "@/components/grid/Container.vue";
-import Wrapper from "@/components/grid/Wrapper.vue";
+
+
 
 export default {
   name: "TextImage",
   components: {
-    Container,
+    
     TextBlock,
-    Wrapper,
+    
   },
   props: {
     header: {

@@ -1,7 +1,7 @@
 <template>
   <AnimatedComponent
-    ><Wrapper id="hero-landing">
-      <Container>
+    ><GridWrapper id="hero-landing">
+      <GridContainer>
         <div id="hero-text" class="">
           <h2 class="display animate glow">
             {{ heroText }}
@@ -9,22 +9,22 @@
           <router-link to="post">Front-End Designer</router-link> deep in a rabbit hole. -->
           </h2>
         </div>
-      </Container>
-    </Wrapper></AnimatedComponent
+      </GridContainer>
+    </GridWrapper></AnimatedComponent
   >
 </template>
 
 <script>
-import Wrapper from "@/components/grid/Wrapper.vue";
-import Container from "@/components/grid/Container.vue";
+
+
 import AnimatedComponent from "@/components/AnimatedComponent.vue";
 
 export default {
   name: "HeroLanding",
   components: {
     AnimatedComponent,
-    Container,
-    Wrapper,
+    
+    
   },
   props: {
     contentful: {

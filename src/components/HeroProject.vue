@@ -1,17 +1,17 @@
 <template>
-  <Wrapper id="hero-project" class="">
-    <Container>
+  <GridWrapper id="hero-project" class="">
+    <GridContainer>
       <div id="hero-text" class="">
         <h2 class="">— {{ title }}</h2>
       </div>
-    </Container>
-  </Wrapper>
+    </GridContainer>
+  </GridWrapper>
 </template>
 
 <script>
 // import PageNav from "@/components/PageNav.vue";
-import Wrapper from "@/components/grid/Wrapper.vue";
-import Container from "@/components/grid/Container.vue";
+
+
 
 export default {
   name: "HeroProject",
@@ -27,8 +27,8 @@ export default {
   },
   components: {
     // PageNav,
-    Wrapper,
-    Container,
+    
+    
   },
 };
 </script>

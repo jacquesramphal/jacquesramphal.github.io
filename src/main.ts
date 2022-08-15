@@ -5,8 +5,8 @@ import { init, track, parameters } from "insights-js";
 // Global Components
 import HeroBanner from "@/components/HeroBanner.vue";
 import CardRow from "@/components/CardRow.vue";
-import Container from "@/components/grid/Container.vue";
-import Wrapper from "@/components/grid/Wrapper.vue";
+import GridContainer from "@/components/grid/GridContainer.vue";
+import GridWrapper from "@/components/grid/GridWrapper.vue";
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import TextLink from "@/components/text/TextLink.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
@@ -51,10 +51,10 @@ app
 
 // Global Components
 app
-  .component("Container", Container)
+  .component("GridContainer", GridContainer)
   .component("HeroBanner", HeroBanner)
   .component("PageWrapper", PageWrapper)
-  .component("Wrapper", Wrapper)
+  .component("GridWrapper", GridWrapper)
   .component("TextLink", TextLink)
   .component("ThumbSmall", ThumbSmall)
   .component("ThumbMedium", ThumbMedium)

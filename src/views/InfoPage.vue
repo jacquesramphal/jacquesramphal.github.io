@@ -8,7 +8,7 @@
       :eyebrow="about.eyebrow"
       :title="about.pageTitle"
     /> -->
-    <Container style="padding-top: 0 !important">
+    <GridContainer style="padding-top: 0 !important">
       <ThumbLarge
         title=""
         filename="about.jpg"
@@ -16,7 +16,7 @@
         route=""
         caption="This is an image caption"
       />
-    </Container>
+    </GridContainer>
     <DetailCard />
     <!-- <DetailCard
       v-for="about in contentful"
@@ -56,7 +56,7 @@ import DetailCard from "@/components/card/DetailCard.vue";
 // import FormCentered from "@/components/card/FormCentered.vue";
 
 export default {
-  name: "Info",
+  name: "InfoPage",
   components: {
     // TextImage,
     HeroBanner,

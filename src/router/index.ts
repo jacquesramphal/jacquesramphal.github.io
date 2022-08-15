@@ -9,16 +9,16 @@
 
 import { createRouter, createWebHistory } from "vue-router";
 import BlogPost from "@/components/blog/BlogPost.vue";
-import Info from "@/views/Info.vue";
-import Library from "@/views/Library.vue";
+import InfoPage from "@/views/InfoPage.vue";
+import MyLibrary from "@/views/MyLibrary.vue";
 import MaintenancePage from "@/views/misc/MaintenancePage.vue";
 import MyBlog from "@/views/MyBlog.vue";
 import MyResume from "@/views/MyResume.vue";
 import NotFound from "@/views/misc/NotFound.vue";
-import Project from "@/views/Project.vue";
-import Work from "@/views/Work.vue";
-import Work2 from "@/views/Work2.vue";
-import Links from "@/views/Links.vue";
+import ProjectPage from "@/views/ProjectPage.vue";
+import HomePage from "@/views/HomePage.vue";
+import MoreWork from "@/views/MoreWork.vue";
+import UsefulLinks from "@/views/UsefulLinks.vue";
 
 const routes = [
   {
@@ -48,22 +48,22 @@ const routes = [
     // redirect: "/brb",
     path: "/",
     name: "Home",
-    component: Work,
+    component: HomePage,
   },
   {
     path: "/work",
     name: "Work",
-    component: Work,
+    component: HomePage,
   },
   {
     path: "/work2",
-    name: "Work2",
-    component: Work2,
+    name: "MoreWork",
+    component: MoreWork,
   },
   {
     path: "/links",
     name: "Links",
-    component: Links,
+    component: UsefulLinks,
   },
   {
     path: "/cv",
@@ -76,12 +76,12 @@ const routes = [
   {
     path: "/info",
     name: "Info",
-    component: Info,
+    component: InfoPage,
   },
   {
     path: "/project",
     name: "Project",
-    component: Project,
+    component: ProjectPage,
   },
   {
     path: "/docs",
@@ -96,7 +96,7 @@ const routes = [
   {
     path: "/library",
     name: "Library",
-    component: Library,
+    component: MyLibrary,
   },
   // {
   //   path: "/read/:title",
