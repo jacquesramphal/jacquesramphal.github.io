@@ -1,23 +1,22 @@
+// TextBlock.stories.js
+
 import TextBlock from './TextBlock.vue';
 
-
 export default {
-  title: 'Components/TextBlock',
+  /* 👇 The title prop is optional.
+  * See https://storybook.js.org/docs/vue/configure/overview#configure-story-loading
+  * to learn how to generate automatic titles
+  */
+  title: 'Path/To/TextBlock',
   component: TextBlock,
 };
 
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
+export const Left = () => ({
   components: { TextBlock },
-  template: '<TextBlock v-bind="$props" />',
+  template: '<TextBlock />',
 });
 
-export const Left = Template.bind({});
-Left.args = {
-  left: true,
-};
-
-export const Center = Template.bind({});
-Center.args = {
-  center: true,
-};
+export const Center = () => ({
+  components: { TextBlock },
+    template: '<TextBlock prop="value"/>',
+});

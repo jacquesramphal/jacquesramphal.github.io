@@ -31,7 +31,8 @@
     "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.2",
-    "vuex-i18n": "^1.8.0"
+    "vuex-i18n": "^1.8.0",
+    "webpack": "^5.74.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -59,7 +60,8 @@
     "typescript": "~4.1.5",
     "vue-loader": "^16.8.3",
     "vue-loader-v16": "^16.8.3",
-    "vue-svg-inline-loader": "^2.1.2"
+    "vue-svg-inline-loader": "^2.1.2",
+    "webpack-cli": "^4.10.0"
   },
   "eslintConfig": {
     "root": true,

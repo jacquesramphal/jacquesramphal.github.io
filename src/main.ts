@@ -14,7 +14,7 @@ import ThumbMedium from "@/components/ThumbMedium.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
 import AnimatedComponent from "@/components/AnimatedComponent.vue";
 import TextBlock from "@/stories/TextBlock.vue";
-import MyButton from "@/stories/Button.vue";
+import MyButton from "@/components/Button.vue";
 import TextImage from "@/components/card/TextImage.vue";
 
 
