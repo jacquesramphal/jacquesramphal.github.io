@@ -1,5 +1,9 @@
 <template>
-  <div class="card grid-parent" :data-category="`${eyebrow}`">
+  <div
+    id="defaultCard"
+    class="defaultCard card grid-parent"
+    :data-category="`${eyebrow}`"
+  >
     <div class="image">
       <router-link :to="`${route}`">
         <img v-if="imgurl" :src="imgurl" alt="Blog Image"
@@ -16,10 +20,8 @@
         :btnroute="`${route}`"
         :cta="`${label}`"
       />
-
     </div>
-          <!-- <MyButton style="" secondary :label="`${label}`" size="large" :route="`${route}`" /> -->
-
+    <!-- <MyButton style="" secondary :label="`${label}`" size="large" :route="`${route}`" /> -->
   </div>
 </template>
 

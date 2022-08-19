@@ -20,7 +20,7 @@
   ></GridWrapper>
 </template>
 <script>
-import TextBlock from "@/stories/TextBlock.vue";
+
 
 
 
@@ -28,7 +28,7 @@ export default {
   name: "TextImage",
   components: {
     
-    TextBlock,
+    
     
   },
   props: {

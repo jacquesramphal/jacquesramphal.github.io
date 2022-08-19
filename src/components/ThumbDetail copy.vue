@@ -70,13 +70,13 @@
 <script>
 
 
-import TextBlock from "@/stories/TextBlock.vue";
+
 
 export default {
   name: "ThumbDetail",
   components: {
     
-    TextBlock,
+    
     
   },
   props: {

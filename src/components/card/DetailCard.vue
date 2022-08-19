@@ -13,14 +13,14 @@
 </template>
 
 <script>
-import TextBlock from "@/stories/TextBlock.vue";
+
 
 
 export default {
   name: "DetailCard",
   components: {
     
-    TextBlock,
+    
   },
   props: {
     contentful: {

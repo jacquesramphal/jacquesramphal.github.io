@@ -8,9 +8,8 @@
     <HeroBanner
       id="hero"
       style="background: var(--bg-darker)"
-      title="🗂️ Documents"
-      subtitle="A collection of ramblings and lessons learned. Design, Dev, Mindfulness"
-      eyebrow=""
+      title="A collection of ramblings and lessons earned"
+      eyebrow="Docs & Resources"
     />
     <!-- <ul class="container">
       <li v-for="blogPost in posts" v-bind:key="blogPost.sys.id">
@@ -19,12 +18,11 @@
         <p>{{ blogPost.description }}</p>
       </li>
     </ul> -->
-<!-- <BlogCard />
-    <BlogCard />
-    <BlogCard />
-    <BlogCard /> -->
+
     <BlogFeed :contentful="contentful" />
-    
+       <BlogCard />
+    <BlogCard />
+    <BlogCard /> 
     <!--          <BlogPost :contentful="contentful"  />  -->
   </PageWrapper>
 </template>
@@ -33,7 +31,7 @@
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
 import BlogFeed from "@/components/blog/BlogFeed.vue";
-// import BlogCard from "@/components/card/BlogCard.vue";
+import BlogCard from "@/components/card/BlogCard.vue";
 // import BlogPost from "@/components/blog/BlogPost.vue";
 
 // Mock data
@@ -45,7 +43,7 @@ export default {
     PageWrapper,
     HeroBanner,
     BlogFeed,
-    // BlogCard,
+    BlogCard,
 },
   data() {
     return {

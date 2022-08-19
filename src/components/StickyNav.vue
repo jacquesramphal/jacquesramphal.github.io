@@ -22,7 +22,7 @@
         </h1>
         <ul class="justify-end">
           <li class="nav-link" tabindex="0">
-            <router-link :to="{ name: 'Resume' }">info</router-link>
+            <router-link :to="{ name: 'Info' }">info</router-link>
           </li>
           <li class="nav-link" tabindex="0">
             <router-link :to="{ name: 'Blog' }">docs</router-link>

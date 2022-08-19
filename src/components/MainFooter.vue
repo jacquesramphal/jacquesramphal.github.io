@@ -8,8 +8,8 @@
             ><img
               id="avatar"
               class="justify-end"
-              draggable="false"
               src="@/assets/images/portrait.jpg"
+              draggable="false"
               alt="logo.svg"
               style="width: 120px; aspect-ratio: 1 / 1"
           /></router-link>
@@ -152,8 +152,7 @@
 <script>
 import GridContainer from "@/components/grid/GridContainer.vue";
 import GridWrapper from "@/components/grid/GridWrapper.vue";
-
-import TextBlock from "@/stories/TextBlock.vue";
+import TextBlock from "@/components/TextBlock.vue";
 import AnimatedComponent from "./AnimatedComponent.vue";
 // import TextArea from "@/components/form/TextArea.vue";
 // import MyButton from "@/stories/Button.vue";
@@ -261,8 +260,16 @@ li.external::after
   content: " ↗"
   color: var(--link)
 
+// #avatar 
+//   width: 120px 
+//   height: 120px
+//   aspect-ratio: 1 / 1
+//   background: url(@/assets/images/portrait.jpg)
+//   background-size: 100%
+
 #avatar:hover
   animation: animate-shake 1s
+  background-image: url(@/assets/images/luna1.jpg)
   animation-delay: 1s
 
 

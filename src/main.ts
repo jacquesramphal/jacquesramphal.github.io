@@ -13,7 +13,7 @@ import ThumbLarge from "@/components/ThumbLarge.vue";
 import ThumbMedium from "@/components/ThumbMedium.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
 import AnimatedComponent from "@/components/AnimatedComponent.vue";
-import TextBlock from "@/stories/TextBlock.vue";
+import TextBlock from "@/components/TextBlock.vue";
 import MyButton from "@/components/Button.vue";
 import TextImage from "@/components/card/TextImage.vue";
 

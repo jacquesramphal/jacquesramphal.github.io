@@ -26,14 +26,13 @@
           name="categories"
           value="JavaScript"
         />
-        <input type="radio" id="Typography" name="categories" value="Typography" />
         <input
           type="radio"
-          id="Figma"
+          id="Typography"
           name="categories"
-          value="Figma"
+          value="Typography"
         />
-        
+        <input type="radio" id="Figma" name="categories" value="Figma" />
 
         <ol class="filters">
           <li>
@@ -51,9 +50,20 @@
           <li>
             <label for="Figma">Figma</label>
           </li>
-         
+
+          <!-- Testing Functions -->
+
+          <MyButton
+            v-on:click="ChangeView"
+            label="Change View"
+            size="small"
+            route="#"
+          />
+
+          <!-- If you don't need to access the toggle from outside the element, this code works without a data variable: -->
+          <p @click="(e) => e.target.classList.toggle('mystyle2')">Test</p>
         </ol>
-        <div class="grid-parent posts">
+        <div class="grid-parent posts" id="testDiv">
           <DefaultCard
             class="post"
             v-for="blogPost in contentful"
@@ -67,19 +77,6 @@
             :route="blogPost.route"
             :label="blogPost.label"
           />
-           <!-- <DefaultCard
-            class="post"
-            v-for="blogPost in contentful"
-            v-bind:key="blogPost.sys.id"
-            :image="blogPost.image"
-            :category="blogPost.category"
-            :imgurl="blogPost.imgurl"
-            :eyebrow="blogPost.category"
-            :title="blogPost.title"
-            :description="blogPost.description"
-            :route="blogPost.route"
-            :label="blogPost.label"
-          /> -->
         </div>
       </GridContainer>
     </div>
@@ -90,27 +87,40 @@
 // import BlogPostEntry from "@/components/blog/BlogPostEntry.vue";
 import DefaultCard from "@/components/card/DefaultCard.vue";
 
-
-
 export default {
   name: "BlogFeed",
   components: {
     // BlogPostEntry,
-    
-    
     DefaultCard,
+  },
+
+  // Testing Functions/Methods
+  methods: {
+    ChangeView: function () {
+      var e = document.getElementById("testDiv");
+      e.classList.toggle("mystyle");
+    },
+    // const testElements = document.getElementsByClassName('test');
+    // const testDivs = Array.prototype.filter.call(
+    //   testElements,
+    //   (testElement) => testElement.nodeName === 'DIV',
+    // );
   },
   props: {
     contentful: {
       type: Array,
       required: true,
-      // TODO: add validation
     },
   },
 };
 </script>
 
 <style scoped lang="sass">
+.mystyle
+  background: red
+.mystyle2
+  color: red
+  font-size: var(--font-xl)
 .blog
   display: grid
   grid-gap: var(--spacing-xs)
@@ -182,8 +192,6 @@ input[type="radio"] {
 [value="CSS"]:checked ~ .filters [for="CSS"],
 [value="JavaScript"]:checked ~ .filters [for="JavaScript"],
 [value="Figma"]:checked ~ .filters [for="Figma"],
-
-
 [value="All"]:checked ~ .posts [data-category] {
   display: block;
 }
@@ -191,8 +199,7 @@ input[type="radio"] {
 [value="CSS"]:checked ~ .posts .post:not([data-category~="CSS"]),
 [value="JavaScript"]:checked ~ .posts .post:not([data-category~="JavaScript"]),
 [value="Typography"]:checked ~ .posts .post:not([data-category~="Typography"]),
-[value="Figma"]:checked ~ .posts .post:not([data-category~="Figma"])
- {
+[value="Figma"]:checked ~ .posts .post:not([data-category~="Figma"]) {
   display: none;
 }
 </style>

@@ -29,12 +29,12 @@
 </template>
 
 <script>
-import TextBlock from "@/stories/TextBlock.vue";
+
 
 export default {
   name: "ThumbLarge",
   components: {
-    TextBlock,
+    
   },
   props: {
     eyebrow: {

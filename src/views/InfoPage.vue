@@ -1,6 +1,10 @@
 <template>
   <PageWrapper>
-    <HeroBanner />
+    <HeroBanner
+      id="hero"
+      title="About me, but mostly my site"
+      eyebrow="Information"
+    />
     <!-- <HeroBanner
       background
       v-for="about in contentful"
@@ -41,36 +45,13 @@
 </template>
 
 <script>
-// import TextImage from "@/components/card/TextImage.vue";
 
-import HeroBanner from "@/components/HeroBanner.vue";
-import ThumbLarge from "@/components/ThumbLarge.vue";
-import DetailCard from "@/components/card/DetailCard.vue";
-// import Stats from "@/components/card/Stats.vue";
-// import TextImage from "@/components/card/TextImage.vue";
-// import AnimatedComponent from "@/components/AnimatedComponent.vue";
-// import HeroProject from "@/components/HeroProject.vue";
-// import TextBlock from "@/stories/TextBlock.vue";
-// import MyResume from "@/components/MyResume.vue";
-// import DetailCard2 from "@/components/card/DetailCard2.vue";
-// import FormCentered from "@/components/card/FormCentered.vue";
+
 
 export default {
   name: "InfoPage",
   components: {
-    // TextImage,
-    HeroBanner,
-    ThumbLarge,
-    DetailCard,
-    // Stats,
-    // TextImage,
-    // AnimatedComponent,
-    // HeroProject,
-    // TextBlock,
-    // DetailCard2,
-    // MyResume,
-    // Form,
-    // FormCentered,
+
   },
   data() {
     return {
