@@ -5,12 +5,12 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "storybook": "NODE_PATH=src start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@contentful/rich-text-from-markdown": "^15.11.1",
-    "@contentful/rich-text-html-renderer": "^15.11.1",
-    "@contentful/rich-text-types": "^15.11.1",
+    "@emailjs/browser": "^3.2.0",
     "contentful": "^9.1.5",
     "contentful-rich-text-vue-renderer": "^2.0.1",
     "core-js": "^3.6.5",
@@ -28,6 +28,14 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
+    "@storybook/addon-actions": "^6.5.10",
+    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/addon-interactions": "^6.5.10",
+    "@storybook/addon-links": "^6.5.10",
+    "@storybook/builder-webpack5": "^6.5.10",
+    "@storybook/manager-webpack5": "^6.5.10",
+    "@storybook/testing-library": "^0.0.13",
+    "@storybook/vue3": "^6.5.10",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.8",
