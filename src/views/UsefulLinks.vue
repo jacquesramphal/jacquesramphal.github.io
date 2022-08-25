@@ -1,11 +1,11 @@
 <template>
   <PageWrapper>
-    <HeroBanner
+    <!-- <HeroBanner
       style="background: var(--bg-darker)"
-      eyebrow=""
-      title="🚀 Recommended Links"
-      subtitle="A collection of links and writing to help you fall back in love with typography."
-    />
+      eyebrow="🚀 Recommended Links"
+      title="A collection of links and writing to help you fall back in love typography."
+      subtitle=""
+    /> -->
     <!-- TMP - should be a v-for list - see resume -->
     <GridContainer style="border-bottom: var(--border)">
       <div

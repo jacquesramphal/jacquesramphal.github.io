@@ -16,7 +16,7 @@ import AnimatedComponent from "@/components/AnimatedComponent.vue";
 import TextBlock from "@/components/TextBlock.vue";
 import MyButton from "@/components/Button.vue";
 import TextImage from "@/components/card/TextImage.vue";
-
+import DetailCard from "@/components/card/DetailCard.vue";
 
 import router from "./router";
 import { Directive, DirectiveBinding, VNode } from "vue";
@@ -64,4 +64,5 @@ app
   .component("TextBlock", TextBlock)
   .component("MyButton", MyButton)
   .component("TextImage", TextImage)
+  .component("DetailCard", DetailCard)
   

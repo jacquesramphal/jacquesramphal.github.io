@@ -7,7 +7,6 @@
     /> -->
     <HeroBanner
       id="hero"
-      style="background: var(--bg-darker)"
       title="A collection of ramblings and lessons earned"
       eyebrow="Docs & Resources"
     />

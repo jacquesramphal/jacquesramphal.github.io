@@ -51,8 +51,7 @@
             <label for="Figma">Figma</label>
           </li>
 
-          <!-- Testing Functions -->
-
+<!-- 
           <MyButton
             v-on:click="ChangeView"
             label="Change View"
@@ -60,8 +59,7 @@
             route="#"
           />
 
-          <!-- If you don't need to access the toggle from outside the element, this code works without a data variable: -->
-          <p @click="(e) => e.target.classList.toggle('mystyle2')">Test</p>
+          <p @click="(e) => e.target.classList.toggle('mystyle2')">Test</p> -->
         </ol>
         <div class="grid-parent posts" id="testDiv">
           <DefaultCard

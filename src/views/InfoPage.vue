@@ -1,17 +1,17 @@
 <template>
   <PageWrapper>
-    <HeroBanner
+    <!-- <HeroBanner
       id="hero"
       title="About me, but mostly my site"
       eyebrow="Information"
-    />
-    <!-- <HeroBanner
-      background
+    /> -->
+    <HeroBanner
+      id="hero"
       v-for="about in contentful"
       v-bind:key="about.sys.id"
       :eyebrow="about.eyebrow"
       :title="about.pageTitle"
-    /> -->
+    />
     <GridContainer style="padding-top: 0 !important">
       <ThumbLarge
         title=""
@@ -21,14 +21,19 @@
         caption="This is an image caption"
       />
     </GridContainer>
-    <DetailCard />
-    <!-- <DetailCard
+    <DetailCard
       v-for="about in contentful"
       v-bind:key="about.sys.id"
       :header="about.detailHeader"
       :eyebrow1="about.detailEyebrow1"
       :detail1="about.detailDetails1"
-    /> -->
+      eyebrow2="Component Library"
+      detail2="UI Regression Testing with Storybook and Chromatic ensures my components are throughly tested and documented"
+      eyebrow3="SEO & Accessibility"
+      detail3="UI Regression Testing with Storybook and Chromatic ensures my components are throughly tested and documented"
+      eyebrow4="Future-Proof Ramstack"
+      detail4="Clean design, Javascript, API, Headless CMS. Carefully selected tools and frameworks keep this site alive and flexible to grow as I do."
+    />
 
     <!--   <Stats
       v-for="about in contentful"
@@ -40,19 +45,13 @@
       :value3="about.statValue3"
       :label3="about.statLabel3"
     /> -->
-    
   </PageWrapper>
 </template>
 
 <script>
-
-
-
 export default {
   name: "InfoPage",
-  components: {
-
-  },
+  components: {},
   data() {
     return {
       contentful: [],

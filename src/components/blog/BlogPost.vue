@@ -2,6 +2,15 @@
   <PageWrapper id="blog">
     <GridWrapper id="posts" class="">
       <!-- TMP BREADCRUMB -->
+      <HeroBanner
+        center
+        class=""
+        v-for="blogPost in contentful"
+        v-bind:key="blogPost.sys.id"
+        :title="blogPost.title"
+        :subtitle="blogPost.description"
+        :tag2="blogPost.category"
+      />
       <GridContainer id="section1">
         <p>
           <router-link :to="{ name: 'Blog' }">Blog</router-link>
@@ -9,7 +18,7 @@
         </p>
       </GridContainer>
       <!-- TMP BREADCRUMB -->
-
+      
       <GridContainer class="animate glow width">
         <TextHeader
           v-for="blogPost in contentful"
@@ -145,8 +154,7 @@
         </GridWrapper>
         <AnimatedComponent>
           <TextImage class="" style="background: var(--bg-darker)" />
-          </AnimatedComponent
-        >
+        </AnimatedComponent>
       </GridWrapper>
     </GridWrapper>
     <!-- <HeroBanner

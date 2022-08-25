@@ -4,8 +4,10 @@
       id="hero"
       :title="info.name"
       subtitle="A collection of recent work and play lorem ipsum doler."
-      eyebrow=""
-    />
+      eyebrow="Portfolio"
+    
+
+/>
     <GridContainer>
       <input type="radio" id="All" name="categories" value="All" checked />
       <input type="radio" id="Tag1" name="categories" value="Tag1" />
@@ -128,7 +130,7 @@ input[type="radio"] {
 }
 
 .filters label:hover {
-  background: var(--green);
+  background: green;
   color: var(--white);
 }
 

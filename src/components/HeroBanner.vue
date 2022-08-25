@@ -64,6 +64,11 @@ export default {
       default: false,
       required: true,
     },
+    center: {
+      type: Boolean,
+      default: false,
+      required: true,
+    },
   },
   computed: {
     classes() {
@@ -71,6 +76,9 @@ export default {
         herobanner: true,
         "herobanner--background": this.background,
         "herobanner--normal": !this.background,
+
+        "herobanner--center": this.center,
+        // "herobanner--left": !this.center,
       };
     },
   },
@@ -101,6 +109,11 @@ export default {
   background-image: url("../assets/images/jacques.jpeg")
   color: white !important
   text-shadow: var(--shadow-hover)
+
+.herobanner--center
+  #hero-text
+    justify-self: center
+    text-align: center !important
 
 #hero-text
   display: grid
