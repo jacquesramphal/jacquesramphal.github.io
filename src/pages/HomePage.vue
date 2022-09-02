@@ -109,7 +109,7 @@ export default {
   components: {
     ThumbDetail,
     ThumbSmall2,
-  },
+},
   props: {
     // header: {
     //   type: String,

@@ -25,7 +25,7 @@
             <router-link :to="{ name: 'Info' }">info</router-link>
           </li>
           <li class="nav-link" tabindex="0">
-            <router-link :to="{ name: 'Blog' }">docs</router-link>
+            <router-link :to="{ name: 'Blog' }">library</router-link>
           </li>
           <!-- <li class="nav-link" tabindex="0">
             <router-link class="isDisabled" to="blog">writing</router-link>

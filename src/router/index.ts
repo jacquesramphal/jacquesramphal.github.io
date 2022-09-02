@@ -9,16 +9,20 @@
 
 import { createRouter, createWebHistory } from "vue-router";
 import BlogPost from "@/components/blog/BlogPost.vue";
-import InfoPage from "@/views/InfoPage.vue";
-import MyLibrary from "@/views/MyLibrary.vue";
-import MaintenancePage from "@/views/misc/MaintenancePage.vue";
-import MyBlog from "@/views/MyBlog.vue";
-import MyResume from "@/views/MyResume.vue";
-import NotFound from "@/views/misc/NotFound.vue";
-import ProjectPage from "@/views/ProjectPage.vue";
-import HomePage from "@/views/HomePage.vue";
-import MoreWork from "@/views/MoreWork.vue";
-import UsefulLinks from "@/views/UsefulLinks.vue";
+import InfoPage from "@/pages/InfoPage.vue";
+import MyLibrary from "@/pages/MyLibrary.vue";
+import MaintenancePage from "@/pages/misc/MaintenancePage.vue";
+import MyBlog from "@/pages/MyBlog.vue";
+import MyResume from "@/pages/MyResume.vue";
+import NotFound from "@/pages/misc/NotFound.vue";
+import ProjectPage from "@/pages/ProjectPage.vue";
+import HomePage from "@/pages/HomePage.vue";
+import MoreWork from "@/pages/MoreWork.vue";
+import UsefulLinks from "@/pages/UsefulLinks.vue";
+import CoursesHome from '@/pages/library/CoursesHome.vue'
+import CoursePage from '@/pages/library/CoursePage.vue'
+import LessonPage from '@/pages/library/LessonPage.vue'
+
 
 const routes = [
   {
@@ -84,7 +88,7 @@ const routes = [
     component: ProjectPage,
   },
   {
-    path: "/docs",
+    path: "/library",
     name: "Blog",
     component: MyBlog,
   },
@@ -104,7 +108,9 @@ const routes = [
   //   props: true,
   //   component: BlogPost,
   // },
-  
+  { name: 'coursehome', path: '/courses', component: CoursesHome },
+  { name: 'coursepage', path: '/courses/:courseId', component: CoursePage },
+  { name: 'lessonpage', path: '/courses/:courseId/lessons/:lessonId', component: LessonPage }
 ];
 
 const router = createRouter({

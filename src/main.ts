@@ -18,6 +18,7 @@ import MyButton from "@/components/Button.vue";
 import TextImage from "@/components/card/TextImage.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
 
+
 import router from "./router";
 import { Directive, DirectiveBinding, VNode } from "vue";
 export const appear: Directive = {
