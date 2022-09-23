@@ -5,8 +5,6 @@
       :title="info.name"
       subtitle="A collection of recent work and play lorem ipsum doler."
       eyebrow="Portfolio"
-    
-
 />
     <GridContainer>
       <input type="radio" id="All" name="categories" value="All" checked />

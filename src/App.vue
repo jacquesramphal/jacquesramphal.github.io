@@ -1,7 +1,7 @@
 <template id="app">
   <!-- <router-view v-if="isLoggedIn" v-slot="{ Component }"> -->
   <router-view v-slot="{ Component }">
-    <ThemeButton v-if="!$route.meta.hideNav" />
+    <ThemeButton v-if="!$route.meta.hideThemeButton" />
     <transition name="fade" mode="out-in">
       <component :is="Component" />
     </transition>

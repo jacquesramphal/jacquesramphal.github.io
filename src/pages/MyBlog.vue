@@ -28,7 +28,6 @@
 
 <script>
 import PageWrapper from "@/components/grid/PageWrapper.vue";
-import HeroBanner from "@/components/HeroBanner.vue";
 import BlogFeed from "@/components/blog/BlogFeed.vue";
 import BlogCard from "@/components/card/BlogCard.vue";
 // import BlogPost from "@/components/blog/BlogPost.vue";
@@ -40,7 +39,6 @@ export default {
   name: "MyBlog",
   components: {
     PageWrapper,
-    HeroBanner,
     BlogFeed,
     BlogCard,
 },

@@ -18,13 +18,13 @@
         class="switch-toggle"
         :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
       ></h6>
-      <!-- <img
+      <img
           class="justify-end"
           draggable="false"
-          src="favicon.svg"
-          alt="logo.svg"
-          style="width: 32px"
-        /> -->
+          src="favicon2.svg"
+          alt="theme-toggle"
+          style="width: 32px; border-radius: 0 !important;"
+        />
     </label>
   </div>
 </template>
@@ -76,8 +76,9 @@ export default {
   display: none
 
 .switch-label
-  border: calc(var(--element-size) * 0.025) solid var(--accent-color)
-  border-radius: var(--spacing-xxs)
+  // border: calc(var(--element-size) * 0.025) solid var(--accent-color)
+  // border-radius: var(--spacing-xxs)
+  border-radius: 0
   cursor: pointer
   color: var(--link) !important
   font-size: var(--font-xs)
@@ -85,6 +86,7 @@ export default {
   display: flex
   position: absolute
   right: 0
+  top: 0
   // box-shadow: var(--shadow-deep)
   padding: var(--spacing-sm)
   // padding: var(--spacing-sm) var(--spacing-xs)
@@ -102,17 +104,17 @@ export default {
 
 
 // EMOJI SWITCH
-.switch-toggle::before
-  content: "🌒"
+// .switch-toggle::before
+//   content: "🌒"
 
-.switch-toggle:hover::before
-  content: "🌓"
+// .switch-toggle:hover::before
+//   content: "🌓"
 
-.switch-toggle:active::before
-  content: "🌓"
+// .switch-toggle:active::before
+//   content: "🌓"
 
-.switch-toggle-checked::before
-  content: "🌔"
+// .switch-toggle-checked::before
+//   content: "🌔"
 
 // UNICODE SWITCH
 .switch-toggle
@@ -122,17 +124,17 @@ export default {
   text-align: center
   font-size: var(--font-sm)
 
-.switch-toggle::before
-  content: "⊚"
+// .switch-toggle::before
+//   content: "⊚"
 
-.switch-toggle:hover::before
-  content: "⊚"
+// .switch-toggle:hover::before
+//   content: "⊚"
 
-.switch-toggle:active::before
-  content: "⊖"
+// .switch-toggle:active::before
+//   content: "⊖"
 
-.switch-toggle-checked::before
-  content: "⊚"
+// .switch-toggle-checked::before
+//   content: "⊚"
 
 
 

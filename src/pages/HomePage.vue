@@ -1,19 +1,19 @@
 <template>
   <PageWrapper>
-    <HeroBanner
+    <!-- <HeroBanner
       id="hero"
       class="display"
       v-for="homePage in contentful"
       v-bind:key="homePage.sys.id"
       :title="homePage.heroText"
       eyebrow=""
-    />
-     <!-- <HeroBanner
+    /> -->
+     <HeroBanner
       id="hero"
       class="display"
       eyebrow=""
-      title="Product Designer Developer"
-    /> -->
+      title="Senior Design Generalist at Orium"
+    />
     <ThemeButton v-if="!$route.meta.hideNav" />
 
     <!-- <HeroBanner

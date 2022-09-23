@@ -100,7 +100,6 @@ export default {
     background-repeat: no-repeat
     background-size: cover
     background-position: 100% 50%
-
 .herobanner--normal
   // background: var(--bg-darker)
   // border-bottom: var(--border)

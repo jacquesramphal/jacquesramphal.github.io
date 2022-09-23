@@ -118,7 +118,7 @@
         </AnimatedComponent>
 
         <AnimatedComponent>
-          <GridContainer tight id="" class="width2">
+          <GridContainer id="" class="width2">
             <ThumbLarge
               class=""
               title=""

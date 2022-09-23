@@ -19,6 +19,7 @@ import ProjectPage from "@/pages/ProjectPage.vue";
 import HomePage from "@/pages/HomePage.vue";
 import MoreWork from "@/pages/MoreWork.vue";
 import UsefulLinks from "@/pages/UsefulLinks.vue";
+
 import CoursesHome from '@/pages/library/CoursesHome.vue'
 import CoursePage from '@/pages/library/CoursePage.vue'
 import LessonPage from '@/pages/library/LessonPage.vue'
@@ -53,11 +54,9 @@ const routes = [
     path: "/",
     name: "Home",
     component: HomePage,
-  },
-  {
-    path: "/work",
-    name: "Work",
-    component: HomePage,
+    meta: {
+      hideNav: false,
+    },
   },
   {
     path: "/work2",

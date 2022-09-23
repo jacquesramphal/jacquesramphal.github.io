@@ -68,7 +68,7 @@
               </li>
               <li><router-link :to="{ name: '' }">Storybook</router-link></li>
               <li>
-                <router-link :to="{ name: 'Work' }">Recent Work</router-link>
+                <router-link :to="{ name: 'MoreWork' }">Recent Work</router-link>
               </li>
               <li>
                 <router-link :to="{ name: 'Links' }">Useful Links</router-link>
@@ -177,7 +177,7 @@ export default {
 #wrapper
   // border-top: var(--border)
   // box-shadow: var(--shadow-inner)
-  // background: var(--bg-darker)
+  background: var(--bg-darker)
   // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, var(--bg-darker)), color-stop(100%, transparent))
   // background-image: -moz-linear-gradient(bottom, var(--bg-darker) 0%, transparent 100%)
   padding-bottom: var(--spacing-lg)

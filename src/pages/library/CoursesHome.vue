@@ -8,13 +8,7 @@
     />
     <GridContainer>
       <div id="courses" class="posts grid-parent">
-        <!-- <TextBlock
-          v-for="course in courses"
-          :key="course.id"
-          :header5="course.title"
-          :details="course.description"
-          eyebrow="eyebrow"
-        /> -->
+   
         <TextBlock
           v-for="course in courses.entries"
           :key="course.id"
@@ -24,34 +18,10 @@
           :cta="course.title"
           :route="{ name: 'coursepage', params: { courseId: course.id } }"
         />
-        <!-- <ThumbSmall
-          v-for="(entry, i) in info.entries"
-          :key="i"
-          class="post"
-          :eyebrow="entry.tag"
-          :title="entry.title"
-          :details="entry.description"
-          :cta="entry.cta"
-          :route="entry.route"
-          :btnroute="entry.btnroute"
-          :link="entry.link"
-          :filename="entry.filename"
-          :style="entry.bgcolor"
-        /> -->
-        <!-- <ThumbSmall
-          v-for="(course, i) in courses.entries"
-          :key="i"
-          class="post"
-          :title="entry.title"
-          :details="entry.description"
-          :cta="entry.cta"
-          :route="entry.route"
-        />
-         -->
+        
       </div>
     </GridContainer>
 
-    <!-- <CardRow /> -->
   </PageWrapper>
 </template>
 
