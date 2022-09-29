@@ -4,17 +4,19 @@
   "label": "(He/Him) UX Generalist",
   "entries": [
     {
+      "id": 1,
       "title": "Project Name",
       "tag": "Tag1",
       "from": "2010",
       "to": "2014",
       "description": "This is a description",
-      "btnroute": "project",
+      "btnroute": "project/:title",
       "cta": "Request Access",
       "filename": "templates/template-v2.svg",
       "bgcolor": "background-color: var(--bg-darker)"
     },
     {
+      "id": 2,
       "title": "Project Name",
       "tag": "Tag1 Tag2",
       "from": "2010",
@@ -25,6 +27,7 @@
       "bgcolor": "background-color: var(--bg-darker)"
     },
     {
+      "id": 3,
       "title": "Project Name",
       "tag": "Tag1 Tag3 Tag4",
       "from": "2010",
@@ -35,6 +38,7 @@
       "bgcolor": "background-color: var(--bg-darker)"
     },
     {
+      "id": 4,
       "title": "Project Name",
       "tag": "Tag1",
       "from": "2010",
@@ -46,6 +50,7 @@
       "bgcolor": "background-color: var(--bg-darker)"
     },
     {
+      "id": 5,
       "title": "Project Name",
       "tag": "Tag1 Tag2",
       "from": "2010",
@@ -56,6 +61,7 @@
       "bgcolor": "background-color: var(--bg-darker)"
     },
     {
+      "id": 6,
       "title": "Project Name",
       "tag": "Tag1 Tag3 Tag4",
       "from": "2010",

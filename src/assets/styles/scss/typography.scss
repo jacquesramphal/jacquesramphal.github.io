@@ -16,6 +16,8 @@
   letter-spacing: var(--spacing-normal);
 }
 
+/* TEST AND EXPAND MIXINS */
+
 @mixin test {
   background: red;
 }
@@ -27,23 +29,30 @@
 }
 
 /* Header AAA */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  opacity: 1 !important;
+}
+
 h1 {
   font-size: var(--font-xs);
   font-weight: var(--font-bold);
   line-height: 1.2;
-  margin: 0;
 }
-
 
 h2 {
   font-size: var(--font-lg);
   font-weight: var(--font-heavy);
   letter-spacing: var(--spacing-tight);
   line-height: 1.1;
-  margin: 0;
-  opacity: 1 !important;
   /* background: -webkit-linear-gradient(var(--color-action), var(--color-success)) !important; */
-
   /* background: -webkit-linear-gradient(left, var(--color-action), var(--color-success));
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important; */
@@ -53,16 +62,12 @@ h3 {
   font-size: var(--font-md);
   font-weight: var(--font-heavy);
   line-height: 1.4;
-  margin: 0;
-  opacity: 1 !important;
 }
 
 h4 {
   font-size: var(--font-sm);
   font-weight: var(--font-heavy);
   line-height: 1.5;
-  margin: 0;
-  opacity: 1 !important;
 }
 
 h5 {
@@ -70,7 +75,6 @@ h5 {
   font-weight: var(--font-heavy);
   line-height: 1.5;
   margin: 0;
-  opacity: 1 !important;
 }
 
 /* eyebrow text */
@@ -78,16 +82,12 @@ h6 {
   font-size: var(--font-xs);
   font-weight: var(--font-heavy);
   line-height: 1.5;
-  margin: 0;
-  opacity: 1 !important;
 }
 
 p {
   font-size: var(--font-xs);
   font-weight: var(--font-medium);
   line-height: 1.8;
-  margin: 0;
-  opacity: 1 !important;
 }
 
 /* code {
@@ -123,14 +123,13 @@ strong {
 }
 
 blockquote {
-
-  margin: var(--spacing-md) 0;
-  background: var(--bg-darker);
   /* background: hsl(var(--link),calc(var(--l) + 10%)); */
+  background: var(--bg-darker);
+  border-left: var(--spacing-xxxs) solid var(--link);
   border-radius: var(--spacing-xxxs);
   color: var(--text);
+  margin: var(--spacing-md) 0;
   padding: var(--spacing-sm) var(--spacing-md);
-  border-left: var(--spacing-xxxs) solid var(--link)
 }
 
 blockquote p {}
@@ -406,7 +405,7 @@ h2>a:hover {
         font-size: var(--font-display);
       }
 
-     .display .herobanner {
+      .display .herobanner {
         /* height: 100vh;
         background-color: var(--color-purple);
         color: white; */

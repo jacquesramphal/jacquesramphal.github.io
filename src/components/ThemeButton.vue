@@ -23,7 +23,7 @@
           draggable="false"
           src="favicon2.svg"
           alt="theme-toggle"
-          style="width: 32px; border-radius: 0 !important;"
+          style="width: 40px; border-radius: 0 !important;"
         />
     </label>
   </div>

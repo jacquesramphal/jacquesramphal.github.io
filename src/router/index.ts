@@ -91,13 +91,18 @@ const routes = [
     name: "Blog",
     component: MyBlog,
   },
+  // {
+  //   path: "/post/:title",
+  //   name: "post",
+  //   component: BlogPost,
+  // },
   {
     path: "/post",
     name: "post",
     component: BlogPost,
   },
   {
-    path: "/library",
+    path: "/library2",
     name: "Library",
     component: MyLibrary,
   },
@@ -107,9 +112,7 @@ const routes = [
   //   props: true,
   //   component: BlogPost,
   // },
-  { name: 'coursehome', path: '/courses', component: CoursesHome },
-  { name: 'coursepage', path: '/courses/:courseId', component: CoursePage },
-  { name: 'lessonpage', path: '/courses/:courseId/lessons/:lessonId', component: LessonPage }
+
 ];
 
 const router = createRouter({

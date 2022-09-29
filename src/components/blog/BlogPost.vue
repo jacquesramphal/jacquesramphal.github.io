@@ -1,8 +1,18 @@
 <template>
   <PageWrapper id="blog">
     <GridWrapper id="posts" class="">
+      
       <!-- TMP BREADCRUMB -->
-      <HeroBanner
+
+      <GridContainer id="section1">
+        <p>
+          <router-link :to="{ name: 'Blog' }">Blog</router-link>
+          <span class="subtle" style="margin: 0 1rem">/</span>Post
+        </p>
+      </GridContainer>
+      <!-- TMP BREADCRUMB -->
+
+      <!-- <HeroBanner
         center
         class=""
         v-for="blogPost in contentful"
@@ -11,14 +21,7 @@
         :subtitle="blogPost.description"
         :tag2="blogPost.category"
       />
-      <GridContainer id="section1">
-        <p>
-          <router-link :to="{ name: 'Blog' }">Blog</router-link>
-          <span class="subtle" style="margin: 0 1rem">/</span>Post
-        </p>
-      </GridContainer>
-      <!-- TMP BREADCRUMB -->
-      
+       -->
       <GridContainer class="animate glow width">
         <TextHeader
           v-for="blogPost in contentful"
@@ -168,7 +171,6 @@
 </template>
 
 <script>
-import TextHeader from "@/components/text/TextHeader.vue";
 import CardRow from "@/components/CardRow.vue";
 import TextImage from "@/components/card/TextImage.vue";
 
@@ -176,7 +178,6 @@ export default {
   name: "BlogPost",
   components: {
     CardRow,
-    TextHeader,
     TextImage,
   },
   props: {

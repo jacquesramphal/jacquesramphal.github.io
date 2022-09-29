@@ -1,15 +1,21 @@
 <template>
   <PageWrapper>
-    <!-- <HeroBanner
-      style="background: var(--bg-darker)"
+
+<!-- This works! BG as a prop  -->
+<!-- <HeroBanner
+      background
+      filename="bg.jpg"
       title="🗂️ Documents"
       eyebrow=""
     /> -->
+
     <HeroBanner
-      id="hero"
-      title="A collection of ramblings and lessons earned"
-      eyebrow="Docs & Resources"
+      style="background: var(--bg-darker)"
+      title="Docs & Resources"
+      eyebrow=""
     />
+ 
+
     <!-- <ul class="container">
       <li v-for="blogPost in posts" v-bind:key="blogPost.sys.id">
         <p>{{ blogPost.category }}</p>
@@ -19,9 +25,9 @@
     </ul> -->
 
     <BlogFeed :contentful="contentful" />
-       <BlogCard />
     <BlogCard />
-    <BlogCard /> 
+    <BlogCard />
+    <BlogCard />
     <!--          <BlogPost :contentful="contentful"  />  -->
   </PageWrapper>
 </template>
@@ -41,7 +47,7 @@ export default {
     PageWrapper,
     BlogFeed,
     BlogCard,
-},
+  },
   data() {
     return {
       contentful: [],

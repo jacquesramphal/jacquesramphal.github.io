@@ -4,11 +4,12 @@
     class="defaultCard card grid-parent"
     :data-category="`${eyebrow}`"
   >
-    <div class="image">
+    <!-- <div class="image">
       <router-link :to="`${route}`">
         <img v-if="imgurl" :src="imgurl" alt="Blog Image"
-      /></router-link>
-    </div>
+      />
+    </router-link>
+    </div> -->
 
     <div class="info">
       <TextBlock

@@ -1,8 +1,16 @@
 <template>
   <AnimatedComponent>
+    <!-- Background url as prop but not working -->
+    <!-- <GridWrapper id="hero-banner" :class="classes" style="background: url('require(`@/assets/images/${filename}`)')">-->
+
     <GridWrapper id="hero-banner" :class="classes">
+      <img
+        draggable="false"
+        :src="require(`@/assets/images/${filename}`)"
+        :alt="`${alt}`"
+      />
       <GridContainer>
-        <nav class="animate fade delay-3 ">
+        <nav class="animate fade delay-3">
           <p id="wordmark" class="subtle" v-if="eyebrow" v-text="eyebrow" />
         </nav>
       </GridContainer>
@@ -18,20 +26,27 @@
             style="font-weight: var(--font-medium)"
           />
           <div id="hero-cta" v-show="label">
-
-          <!-- refactor button and props -->
-            <span style="gap: 2rem; display: flex;" ><MyButton :label="`${label}`" size="large" :route="`${route}`" />
-            <MyButton secondary :label="`${label}`" size="large" :route="`${route}`" />
+            <!-- refactor button and props -->
+            <span style="gap: 2rem; display: flex"
+              ><MyButton :label="`${label}`" size="large" :route="`${route}`" />
+              <MyButton
+                secondary
+                :label="`${label}`"
+                size="large"
+                :route="`${route}`"
+              />
             </span>
           </div>
+          
         </div>
+        
       </GridContainer>
+      
     </GridWrapper>
   </AnimatedComponent>
 </template>
 
 <script>
-
 export default {
   name: "HeroBanner",
   props: {
@@ -58,6 +73,22 @@ export default {
     label: {
       type: String,
     },
+    filename: {
+      type: String,
+      default: "jacques.jpeg",
+    },
+    // Background url as prop but not working
+
+    // bgimg: {
+    //   type: String,
+    //   default: "url(../assets/images/jacques.jpeg)",
+    // },
+
+    // filename: {
+    //   type: String,
+    //   default: "jacques.jpeg",
+    // },
+
     // Override props
     background: {
       type: Boolean,
@@ -90,7 +121,13 @@ export default {
   color: inherit
   mix-blend-mode: normal
 
+nav, #wordmark, #hero-text
+  z-index: 1000
+img
+  display: none
 .herobanner
+  position: relative
+  overflow: hidden !important
   display: grid
   min-height: 320px
   background-repeat: no-repeat
@@ -105,9 +142,27 @@ export default {
   // border-bottom: var(--border)
 
 .herobanner--background
-  background-image: url("../assets/images/jacques.jpeg")
+  // background-image: url("../assets/images/jacques.jpeg")
   color: white !important
   text-shadow: var(--shadow-hover)
+  overflow: hidden !important
+  img
+    border-radius: 0px !important
+    overflow: hidden !important
+    display: block
+    mix-blend-mode: normal
+    position: absolute
+    z-index: 0
+    // width: 100%
+    height: 100%
+    // max-height: 100%
+    // max-width: 100%
+    object-fit: cover !important
+  #hero-text 
+      h2
+        font-weight: 700 !important
+        letter-spacing: calc(0.01rem - 0.12rem)
+        // letter-spacing: -0.11rem
 
 .herobanner--center
   #hero-text

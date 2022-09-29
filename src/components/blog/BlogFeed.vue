@@ -158,7 +158,7 @@ input[type="radio"] {
 /* FILTERS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .filters {
-  text-align: right;
+  text-align: left;
   margin-bottom: 2rem;
 }
 

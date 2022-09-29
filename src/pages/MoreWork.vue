@@ -2,10 +2,10 @@
   <PageWrapper>
     <HeroBanner
       id="hero"
-      :title="info.name"
-      subtitle="A collection of recent work and play lorem ipsum doler."
-      eyebrow="Portfolio"
-/>
+      :eyebrow="projects.eyebrow"
+      :title="projects.title"
+      :subtitle="projects.subtitle"
+    />
     <GridContainer>
       <input type="radio" id="All" name="categories" value="All" checked />
       <input type="radio" id="Tag1" name="categories" value="Tag1" />
@@ -40,7 +40,7 @@
       </ol>
       <div id="recentwork" class="posts grid-parent">
         <ThumbSmall
-          v-for="(entry, i) in info.entries"
+          v-for="(entry, i) in projects.entries"
           :key="i"
           class="post"
           :eyebrow="entry.tag"
@@ -70,17 +70,13 @@
 </template>
 
 <script>
-
 import projects from "@/assets/data/projects.json";
 import info from "@/assets/data/info.json";
 
 export default {
   name: "MoreWork",
-  components: {
-    
-  },
-  props: {
-  },
+  components: {},
+  props: {},
   data() {
     return {
       projects,
