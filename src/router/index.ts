@@ -1,10 +1,3 @@
-// import { createApp } from "vue";
-// import AnimatedComponent from '@/components/AnimatedComponent.vue';
-// import App from "@/App.vue";
-// const app = createApp(App);
-// app.component("AnimatedComponent", AnimatedComponent); // global registration - can be used anywhere
-// app.mount("#app");
-
 // import TheLogin from "@/components/TheLogin.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
@@ -19,11 +12,6 @@ import ProjectPage from "@/pages/ProjectPage.vue";
 import HomePage from "@/pages/HomePage.vue";
 import MoreWork from "@/pages/MoreWork.vue";
 import UsefulLinks from "@/pages/UsefulLinks.vue";
-
-import CoursesHome from '@/pages/library/CoursesHome.vue'
-import CoursePage from '@/pages/library/CoursePage.vue'
-import LessonPage from '@/pages/library/LessonPage.vue'
-
 
 const routes = [
   {
@@ -82,20 +70,10 @@ const routes = [
     component: InfoPage,
   },
   {
-    path: "/project",
-    name: "Project",
-    component: ProjectPage,
-  },
-  {
     path: "/library",
     name: "Blog",
     component: MyBlog,
   },
-  // {
-  //   path: "/post/:title",
-  //   name: "post",
-  //   component: BlogPost,
-  // },
   {
     path: "/post",
     name: "post",
@@ -106,6 +84,11 @@ const routes = [
     name: "Library",
     component: MyLibrary,
   },
+  {
+    name: "Project",
+    path: "/project/:id",
+    component: ProjectPage,
+  },
   // {
   //   path: "/read/:title",
   //   name: "post",
@@ -113,6 +96,17 @@ const routes = [
   //   component: BlogPost,
   // },
 
+  // {
+  //   name: "Project",
+  //   path: "/project",
+  //   component: ProjectPage,
+  // },
+
+  // {
+  //   name: "Project",
+  //   path: "/projects/:entryId",
+  //   component: ProjectPage
+  // },
 ];
 
 const router = createRouter({
@@ -120,9 +114,4 @@ const router = createRouter({
   routes,
 });
 
-
-
 export default router;
-
-
-

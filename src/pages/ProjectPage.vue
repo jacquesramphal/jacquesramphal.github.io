@@ -1,21 +1,26 @@
 <template>
   <PageWrapper id="project" class="">
-    <!-- <HeroProject title="Project Title" class="" /> -->
-    <HeroBanner title="Project Title" subtitle="Short description of the project details and overview."/>
+    
+    <!-- Testing Route Params -->
+    <h2>{{ $route.params.id }}</h2>
 
+    <HeroBanner
+      :key="entry.id"
+      :title="`${entry.title}`"
+      :subtitle="`${entry.description}`"
+    />
     <GridContainer tight>
       <ThumbLarge
         title=""
-        filename="work/glo.svg"
-        alt="Jacques working at Myplanet"
+        :filename="`${entry.filename}`"
+        :alt="`${entry.alt}`"
         route=""
       />
     </GridContainer>
-  
-        <DetailCard2 id="detail1" class="" />
 
-     
-<GridContainer  style="padding-top: 0 !important;">
+    <DetailCard2 id="detail1" class="" />
+
+    <GridContainer style="padding-top: 0 !important">
       <ThumbLarge
         title=""
         filename="work/glo.svg"
@@ -24,53 +29,48 @@
         caption="This is an image caption"
       />
     </GridContainer>
-    <!-- <Stats/> -->
 
-        <TextImage filename="work/glo.svg" flipped class=""/>
-        <TextImage filename="work/glo.svg"  class=""/>
-
- 
- 
-
-
-
-  
+    <TextImage filename="work/glo.svg" flipped class="" />
+    <TextImage filename="work/glo.svg" class="" />
 
     <!-- <CardRow header="Related Work" /> -->
-    
   </PageWrapper>
 </template>
 
 <script>
 import PageWrapper from "@/components/grid/PageWrapper.vue";
-
-// import TextDefault from "@/components/text/TextDefault.vue";
-// import HeroProject from "@/components/HeroProject.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
-// import ThumbMedium from "@/components/ThumbMedium.vue";
-// import DetailCard from "@/components/card/DetailCard.vue";
-// import Stats from "@/components/card/Stats.vue";
 import DetailCard2 from "@/components/card/DetailCard2.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
-// import CardRow from "@/components/CardRow.vue";
-
 import TextImage from "@/components/card/TextImage.vue";
+import projectData from "@/assets/data/projects.json";
 
 export default {
   name: "ProjectPage",
   components: {
     PageWrapper,
-    
     TextImage,
-    // HeroProject,
-    // TextDefault,
-    // ThumbMedium,
     ThumbLarge,
-    // DetailCard,
     DetailCard2,
     HeroBanner,
-    // Stats,
-    // CardRow,
+  },
+  // computed: {
+  //   destinationId() {
+  //     return parseInt(this.$route.params.id)
+  //     // return parseInt(this.$route.replace("/Project/"+this.id))
+  //   },
+  //   destination(){
+  //     return sourceData.destinations.find(destination => destination.Id == this.destinationId)
+  //   }
+  // }
+
+  computed: {
+    projectId() {
+      return parseInt(this.$route.params.id);
+    },
+    entry() {
+      return projectData.entries.find((entry) => entry.Id == this.entryId);
+    },
   },
 };
 </script>

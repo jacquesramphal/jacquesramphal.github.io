@@ -1,20 +1,16 @@
 {
-  "title": "Project Index",
-  "subtitle": "A collection of recent work and play lorem ipsum doler",
-  "eyebrow": "More Work",
-  "tag1": "TAG 1",
-  "tag2": "TAG 2",
   "entries": [
     {
       "id": 1,
-      "title": "Project Name",
+      "title": "Project Name TEST",
       "tag": "Tag1",
       "from": "2010",
       "to": "2014",
-      "description": "This is a description",
-      "btnroute": "project",
+      "description": "This is a description TEST",
+      "btnroute": "project/1",
       "cta": "Request Access",
-      "filename": "templates/template-v2.svg",
+      "filename": "templates/template-desktop-blank.svg",
+      "alt": "Alt Test",
       "bgcolor": "background-color: var(--bg-darker)"
     },
     {
@@ -24,7 +20,7 @@
       "from": "2010",
       "to": "2014",
       "description": "This is a description",
-      "route": "project",
+      "route": "project/2",
       "filename": "templates/template-mobile-blank.svg",
       "bgcolor": "background-color: var(--bg-darker)"
     },

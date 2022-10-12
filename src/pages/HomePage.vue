@@ -8,22 +8,14 @@
       :title="homePage.heroText"
       eyebrow=""
     /> -->
-     <HeroBanner
+    <HeroBanner
       id="hero"
       class="display"
       eyebrow=""
-      title="Senior Design Generalist at Orium"
+      title="Senior Product Designer at Orium"
     />
     <ThemeButton v-if="!$route.meta.hideNav" />
-
-    <!-- <HeroBanner
-      id="hero"
-      class="display"
-      eyebrow=""
-      title="Product Designer Developer"
-    /> -->
-
-    <GridContainer id="work" class="animate glow delay-1" tight>
+    <GridContainer id="work" class="" tight>
       <!-- <div
         class="grid-parent"
         style="
@@ -38,15 +30,50 @@
         </p>
       </div> -->
 
+      <div id="recentwork" class="animate glow delay-3 grid-parent">
+       
+        <ThumbSmall
+          v-for="entry in projects.entries"
+          :key="entry.id"
+          class="post"
+          :eyebrow="entry.tag"
+          :title="entry.title"
+          :details="entry.description"
+          :cta="entry.cta"
+          :route="entry.route"
 
-      <div id="recentwork" class="grid-parent">
+         
+          :btnroute="entry.btnroute"
+          :link="entry.link"
+         
+          :filename="entry.filename"
+          :style="entry.bgcolor"
+        />
+        <!-- 
+                    :route="{ name: 'project', params: { entryId: entry.id } }"
+
+          <ThumbSmall
+          v-for="entry in projects.entries"
+          :key="entry.id"
+          class="post"
+          :eyebrow="entry.tag"
+          :title="entry.title"
+          :details="entry.description"
+          :cta="entry.cta"
+          :route="entry.route"
+          :btnroute="entry.btnroute"
+          :link="entry.link"
+          :filename="entry.filename"
+          :style="entry.bgcolor"
+        /> -->
+        
+      
         <ThumbSmall
           alt="J Monogram"
           filename="work/j.svg"
           id="top"
           title="Monogram"
         />
-
         <ThumbSmall2
           alt="Avatar"
           class="hidemobile"
@@ -62,29 +89,29 @@
         <ThumbSmall
           style="background-color: var(--bg-darker)"
           alt="Template Project"
-          filename="templates/template-v2.svg"
+          filename="templates/template-mobile-blank.svg"
           title="Small Template"
           route="project"
           details="This is a project description that would give a preview into the project..."
         />
         <ThumbSmall alt="Giftbook" filename="work/gob.svg" title="Giftbook" />
-
         <ThumbDetail
           alt="Project Template"
-          filename="templates/template-mobile-blank.svg"
+          filename="templates/template-v2.svg"
           style="background-color: #35363a"
           title="Project Title"
           route="project"
           details="This is a project description that would give a preview into the project..."
         />
+       
       </div>
-      <MyButton
+      <!-- <MyButton
       secondary
         style="margin-top: var(--spacing-sm)"
         class="justify-end"
         label="View More"
         route="work2"
-      />
+      /> -->
       <!-- <TextLink
         style="padding-top: var(--spacing-sm)"
         class="justify-end"
@@ -92,33 +119,36 @@
         route="work2"
       /> -->
     </GridContainer>
-    <!-- <TextImage class="" style="background: var(--bg-darker);" filename="jacques.jpeg" header="The tools I use" details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. " route="post" cta="Read More"/> -->
-    <!-- <CardRow /> -->
+    <!-- <TextImage class="" style="background: var(--bg-darker);" filename="jacques.jpeg" header="The tools I use" details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. " route="post" cta="Read More"/>
+    <CardRow /> -->
   </PageWrapper>
 </template>
 
 <script>
-// import CardRow from "@/components/CardRow.vue";
-// import TextImage from "@/components/card/TextImage.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
-
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
+import projects from "@/assets/data/projects.json";
 
 export default {
   name: "HomePage",
   components: {
     ThumbDetail,
     ThumbSmall2,
-},
+  },
   props: {
     // header: {
     //   type: String,
     //   default: "Work",
     // },
+    project: {
+    type: Object,
+    required: true
+  }
   },
   data() {
     return {
       contentful: [],
+      projects,
     };
   },
 
@@ -166,11 +196,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-#hero
-  border-bottom: none !important
-#work
-  // padding-top: var(--spacing-sm) !important
-.container
-  // background-color: var(--color-white)
-  padding-top: 0 !important
+@media only screen and (min-width: 1201px)
+    #work
+      padding-top: 0 !important
+      padding-bottom: 0 !important
 </style>
