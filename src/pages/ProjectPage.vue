@@ -1,90 +1,130 @@
 <template>
   <PageWrapper id="project" class="">
-    
-    <!-- Testing Route Params -->
-    <h2>{{ $route.params.id }}</h2>
-
+    <!-- <h2>{{ $route.params.id }}</h2> -->
     <HeroBanner
+      class="animate glow"
       :key="entry.id"
       :title="`${entry.title}`"
+      :tag="`${entry.tag}`"
       :subtitle="`${entry.description}`"
     />
-    <GridContainer tight>
+    <GridContainer class="animate glow delay-2" tight>
       <ThumbLarge
         title=""
-        :filename="`${entry.filename}`"
+        :filename="`${entry.images.filename1}`"
         :alt="`${entry.alt}`"
         route=""
       />
     </GridContainer>
+    <DetailCard2
+      id="detail1"
+      class=""
+      label1="Role"
+      :value1="`${entry.role}`"
+      label2="Type"
+      :value2="`${entry.type}`"
+      label3="Year"
+      :value3="`${entry.year}`"
+      :description="`${entry.description}`"
+    />
+    <!-- <DetailCard/> -->
 
-    <DetailCard2 id="detail1" class="" />
+    <!-- <StatsBar /> -->
+    <!-- <StatsBar
+      label1="Role"
+      :value1="`${entry.role}`"
+      label2="Type"
+      :value2="`${entry.type}`"
+      label3="Year"
+      :value3="`${entry.year}`"
+    /> -->
+    <AnimatedComponent>
+      <GridContainer>
+        <ThumbLarge
+          title=""
+          :filename="`${entry.images.filename2}`"
+          :alt="`${entry.images.alt1}`"
+          route=""
+          :caption="`${entry.images.caption1}`"
+        />
+      </GridContainer>
+    </AnimatedComponent>
+    <!-- Section 1 - START -->
 
-    <GridContainer style="padding-top: 0 !important">
-      <ThumbLarge
-        title=""
-        filename="work/glo.svg"
-        alt="Jacques working at Myplanet"
-        route=""
-        caption="This is an image caption"
-      />
-    </GridContainer>
+    <GridWrapper id="section1">
+      <AnimatedComponent>
+        <GridContainer class="width">
+          <GridWrapper>
+            <TextBlock
+              left
+              eyebrow=""
+              header="Section 1"
+              :details="`${entry.description}`"
+              :blockquote="`${entry.description}`"
+            />
 
-    <TextImage filename="work/glo.svg" flipped class="" />
+            <TextBlock
+              left
+              eyebrow=""
+              header=""
+              :details="`${entry.description}`"
+            />
+          </GridWrapper>
+        </GridContainer>
+      </AnimatedComponent>
+      <AnimatedComponent>
+        <GridContainer id="" tight class="width">
+          <ThumbLarge
+            class=""
+            title=""
+            filename="work/glo.svg"
+            alt="Jacques working at Myplanet"
+            caption="This is caption text."
+          />
+        </GridContainer>
+      </AnimatedComponent>
+    </GridWrapper>
+
+    <!-- Section 1 - END - Make this a mapped component ^ duplicate for # of sections in data-->
+
+    <AnimatedComponent>
+      <GridContainer>
+        <ThumbLarge
+          title=""
+          :filename="`${entry.images.filename2}`"
+          :alt="`${entry.images.alt1}`"
+          route=""
+          :caption="`${entry.images.caption1}`"
+        />
+      </GridContainer>
+    </AnimatedComponent>
+    <TextImage
+      filename="work/glo.svg"
+      flipped
+      class=""
+      style="background: var(--bg-darker)"
+    />
     <TextImage filename="work/glo.svg" class="" />
 
-    <!-- <CardRow header="Related Work" /> -->
+    <CardRow header="Related Work" />
   </PageWrapper>
 </template>
 
 <script>
-import PageWrapper from "@/components/grid/PageWrapper.vue";
-import ThumbLarge from "@/components/ThumbLarge.vue";
-import DetailCard2 from "@/components/card/DetailCard2.vue";
-import HeroBanner from "@/components/HeroBanner.vue";
-import TextImage from "@/components/card/TextImage.vue";
 import projectData from "@/assets/data/projects.json";
 
 export default {
   name: "ProjectPage",
-  components: {
-    PageWrapper,
-    TextImage,
-    ThumbLarge,
-    DetailCard2,
-    HeroBanner,
-  },
-  // computed: {
-  //   destinationId() {
-  //     return parseInt(this.$route.params.id)
-  //     // return parseInt(this.$route.replace("/Project/"+this.id))
-  //   },
-  //   destination(){
-  //     return sourceData.destinations.find(destination => destination.Id == this.destinationId)
-  //   }
-  // }
-
+  components: {},
   computed: {
     projectId() {
       return parseInt(this.$route.params.id);
     },
     entry() {
-      return projectData.entries.find((entry) => entry.Id == this.entryId);
+      return projectData.entries.find((entry) => entry.id == this.projectId);
     },
   },
 };
 </script>
-
-<style scoped>
-#heroimg {
-  border-radius: 0 !important;
-}
-/* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
-  /* ------------ BREAKPOINT LG ------------ */
-  @media only screen and (min-width: 1201px) {
-  }
-}
-</style>
 
 <style scoped></style>

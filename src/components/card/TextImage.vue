@@ -1,8 +1,8 @@
 <template>
-  <GridWrapper id="textimage" :class="classes">
+  <GridWrapper :class="classes">
     <GridContainer tight style="padding: 0 !important">
       <div id="grid-parent" class="grid-parent">
-        <GridContainer tight class="imgcontainer">
+        <GridContainer class="imgcontainer">
           <img
             class="splitimg"
             draggable="false"
@@ -55,6 +55,8 @@ export default {
     },
     route: {
       type: String,
+      default: "",
+      required: false,
     },
     flipped: {
       type: Boolean,
@@ -125,7 +127,7 @@ export default {
       //   height: auto
       //   background: yellow
   .textcontainer
-    // align-self: center
+    align-self: center
     display: block
     grid-column: auto
     // grid-row: 2 / 2

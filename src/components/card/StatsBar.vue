@@ -29,7 +29,7 @@ import TextValue from "@/components/text/TextValue.vue";
 
 
 export default {
-  name: "Stats",
+  name: "StatsBar",
   components: {
     TextValue,
     

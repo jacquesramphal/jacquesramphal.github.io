@@ -86,7 +86,7 @@ const routes = [
   },
   {
     name: "Project",
-    path: "/project/:id",
+    path: "/:id",
     component: ProjectPage,
   },
   // {

@@ -1,6 +1,6 @@
 <template>
-  <AnimatedComponent
-    ><GridWrapper id="wrapper" class="">
+  <AnimatedComponent>
+    <GridWrapper id="wrapper" class="">
       <GridContainer>
         <div class="">
           <!-- Profile Picture -->
@@ -177,7 +177,7 @@ export default {
 #wrapper
   // border-top: var(--border)
   // box-shadow: var(--shadow-inner)
-  background: var(--bg-darker)
+  // background: var(--bg-darker)
   // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, var(--bg-darker)), color-stop(100%, transparent))
   // background-image: -moz-linear-gradient(bottom, var(--bg-darker) 0%, transparent 100%)
   padding-bottom: var(--spacing-lg)

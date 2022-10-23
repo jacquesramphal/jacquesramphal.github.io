@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <GridContainer id="cards" style="overflow: visible">
+    <GridContainer id="cards" style="overflow: visible; background: var(--bg-darker);">
       <div
         class="grid-parent"
         style="
@@ -44,7 +44,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: "🗂️ Docs",
+      default: "Docs",
     },
   },
   data() {

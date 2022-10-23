@@ -25,9 +25,9 @@
     </ul> -->
 
     <BlogFeed :contentful="contentful" />
+    <!-- <BlogCard />
     <BlogCard />
-    <BlogCard />
-    <BlogCard />
+    <BlogCard /> -->
     <!--          <BlogPost :contentful="contentful"  />  -->
   </PageWrapper>
 </template>
@@ -35,7 +35,7 @@
 <script>
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import BlogFeed from "@/components/blog/BlogFeed.vue";
-import BlogCard from "@/components/card/BlogCard.vue";
+// import BlogCard from "@/components/card/BlogCard.vue";
 // import BlogPost from "@/components/blog/BlogPost.vue";
 
 // Mock data
@@ -46,7 +46,7 @@ export default {
   components: {
     PageWrapper,
     BlogFeed,
-    BlogCard,
+    // BlogCard,
   },
   data() {
     return {

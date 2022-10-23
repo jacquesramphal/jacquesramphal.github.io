@@ -1,5 +1,11 @@
 <template>
   <PageWrapper>
+    <HeroBanner
+      id="hero"
+      class="display"
+      eyebrow=""
+      title="Senior Product Designer at Orium"
+    />
     <!-- <HeroBanner
       id="hero"
       class="display"
@@ -8,15 +14,9 @@
       :title="homePage.heroText"
       eyebrow=""
     /> -->
-    <HeroBanner
-      id="hero"
-      class="display"
-      eyebrow=""
-      title="Senior Product Designer at Orium"
-    />
     <ThemeButton v-if="!$route.meta.hideNav" />
-    <GridContainer id="work" class="" tight>
-      <!-- <div
+    <!-- <GridContainer id="work" class="">
+      <div
         class="grid-parent"
         style="
           padding-bottom: var(--spacing-md);
@@ -25,13 +25,20 @@
         "
       >
         <h4 class="subtle" style="text-align: left">Selected Work</h4>
+        <MyButton
+          secondary
+          style="margin-top: var(--spacing-sm)"
+          class="justify-end"
+          label="View More"
+          route="work2"
+        />
         <p class="external justify-end">
           <router-link :to="{ name: 'MoreWork' }">See More</router-link>
         </p>
-      </div> -->
-
+      </div>
+    </GridContainer> -->
+    <GridContainer id="work" class="" tight>
       <div id="recentwork" class="animate glow delay-3 grid-parent">
-       
         <ThumbSmall
           v-for="entry in projects.entries"
           :key="entry.id"
@@ -41,33 +48,11 @@
           :details="entry.description"
           :cta="entry.cta"
           :route="entry.route"
-
-         
           :btnroute="entry.btnroute"
           :link="entry.link"
-         
-          :filename="entry.filename"
+          :filename="entry.thumbnail"
           :style="entry.bgcolor"
         />
-        <!-- 
-                    :route="{ name: 'project', params: { entryId: entry.id } }"
-
-          <ThumbSmall
-          v-for="entry in projects.entries"
-          :key="entry.id"
-          class="post"
-          :eyebrow="entry.tag"
-          :title="entry.title"
-          :details="entry.description"
-          :cta="entry.cta"
-          :route="entry.route"
-          :btnroute="entry.btnroute"
-          :link="entry.link"
-          :filename="entry.filename"
-          :style="entry.bgcolor"
-        /> -->
-        
-      
         <ThumbSmall
           alt="J Monogram"
           filename="work/j.svg"
@@ -89,7 +74,7 @@
         <ThumbSmall
           style="background-color: var(--bg-darker)"
           alt="Template Project"
-          filename="templates/template-mobile-blank.svg"
+          filename="splash.svg"
           title="Small Template"
           route="project"
           details="This is a project description that would give a preview into the project..."
@@ -103,24 +88,16 @@
           route="project"
           details="This is a project description that would give a preview into the project..."
         />
-       
       </div>
       <!-- <MyButton
-      secondary
+        secondary
         style="margin-top: var(--spacing-sm)"
         class="justify-end"
         label="View More"
         route="work2"
       /> -->
-      <!-- <TextLink
-        style="padding-top: var(--spacing-sm)"
-        class="justify-end"
-        label="See more work"
-        route="work2"
-      /> -->
     </GridContainer>
-    <!-- <TextImage class="" style="background: var(--bg-darker);" filename="jacques.jpeg" header="The tools I use" details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. " route="post" cta="Read More"/>
-    <CardRow /> -->
+    <CardRow />
   </PageWrapper>
 </template>
 
@@ -136,62 +113,58 @@ export default {
     ThumbSmall2,
   },
   props: {
-    // header: {
-    //   type: String,
-    //   default: "Work",
+    // project: {
+    //   type: Object,
+    //   required: true,
     // },
-    project: {
-    type: Object,
-    required: true
-  }
   },
   data() {
     return {
-      contentful: [],
       projects,
+      // contentful: [],
     };
   },
 
-  async created() {
-    this.contentful = await this.getContentful();
-  },
+  // async created() {
+  //   this.contentful = await this.getContentful();
+  // },
 
-  methods: {
-    getContentful: async () => {
-      const query = `{
-       homePageCollection {
-         items {
-           sys {
-             id
-           }
-           heroText
-           heroRichText {
-             json
-           }
-         }
-       }
-     }`;
+  // methods: {
+  //   getContentful: async () => {
+  //     const query = `{
+  //      homePageCollection {
+  //        items {
+  //          sys {
+  //            id
+  //          }
+  //          heroText
+  //          heroRichText {
+  //            json
+  //          }
+  //        }
+  //      }
+  //    }`;
 
-      const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
-      const fetchOptions = {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ query }),
-      };
+  //     const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
+  //     const fetchOptions = {
+  //       method: "POST",
+  //       headers: {
+  //         Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({ query }),
+  //     };
 
-      try {
-        const response = await fetch(fetchUrl, fetchOptions).then((response) =>
-          response.json()
-        );
-        return response.data.homePageCollection.items;
-      } catch (error) {
-        throw new Error("Could not receive the data from Contentful!");
-      }
-    },
-  },
+  //     try {
+  //       const response = await fetch(fetchUrl, fetchOptions).then((response) =>
+  //         response.json()
+  //       );
+  //       return response.data.homePageCollection.items;
+  //     } catch (error) {
+  //       throw new Error("Could not receive the data from Contentful!");
+  //     }
+  //   },
+  // },
 };
 </script>
 
@@ -199,5 +172,5 @@ export default {
 @media only screen and (min-width: 1201px)
     #work
       padding-top: 0 !important
-      padding-bottom: 0 !important
+      // padding-bottom: 0 !important
 </style>

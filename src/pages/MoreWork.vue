@@ -40,8 +40,8 @@
       </ol>
       <div id="recentwork" class="posts grid-parent">
         <ThumbSmall
-          v-for="(entry, i) in projects.entries"
-          :key="i"
+          v-for="entry in projects.entries"
+          :key="entry.id"
           class="post"
           :eyebrow="entry.tag"
           :title="entry.title"
@@ -50,7 +50,7 @@
           :route="entry.route"
           :btnroute="entry.btnroute"
           :link="entry.link"
-          :filename="entry.filename"
+          :filename="entry.thumbnail"
           :style="entry.bgcolor"
         />
       </div>

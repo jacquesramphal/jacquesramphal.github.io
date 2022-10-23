@@ -239,14 +239,7 @@ export default {
   },
 };
 </script>
-<style>
-.width {
-  max-width: 86.4rem !important;
-}
-.width2 {
-  max-width: 98rem;
-}
-</style>
+
 <style scoped>
 * {
 }

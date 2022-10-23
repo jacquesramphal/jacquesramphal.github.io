@@ -84,7 +84,7 @@ h6 {
   line-height: 1.5;
 }
 
-p {
+p, blockquote {
   font-size: var(--font-xs);
   font-weight: var(--font-medium);
   line-height: 1.8;
@@ -131,8 +131,6 @@ blockquote {
   margin: var(--spacing-md) 0;
   padding: var(--spacing-sm) var(--spacing-md);
 }
-
-blockquote p {}
 
 /* blockquote::before {
   content: "“"; 

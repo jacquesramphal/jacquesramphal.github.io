@@ -1,17 +1,17 @@
 <template>
   <PageWrapper>
-    <!-- <HeroBanner
+    <HeroBanner
       id="hero"
       title="About me, but mostly my site"
       eyebrow="Information"
-    /> -->
-    <HeroBanner
+    />
+    <!-- <HeroBanner
       id="hero"
       v-for="about in contentful"
       v-bind:key="about.sys.id"
       :eyebrow="about.eyebrow"
       :title="about.pageTitle"
-    />
+    /> -->
     <GridContainer style="padding-top: 0 !important">
       <ThumbLarge
         title=""

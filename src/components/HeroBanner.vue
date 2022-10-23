@@ -10,21 +10,24 @@
         :alt="`${alt}`"
       />
       <GridContainer>
-        <nav class="animate fade delay-3">
-          <p id="wordmark" class="subtle" v-if="eyebrow" v-text="eyebrow" />
-        </nav>
+        <div class="animate fade delay-3">
+          <p id="eyebrow" class="subtle" v-if="eyebrow" v-text="eyebrow" />
+        </div>
       </GridContainer>
       <GridContainer>
         <div id="hero-text" class="animate glow delay-1">
           <h2>
             {{ title }}
           </h2>
+
           <h5
             v-if="subtitle"
             v-text="subtitle"
-            class=""
+            class="width"
             style="font-weight: var(--font-medium)"
           />
+          <p id="tags" v-if="tag" v-text="tag" class="subtle" />
+
           <div id="hero-cta" v-show="label">
             <!-- refactor button and props -->
             <span style="gap: 2rem; display: flex"
@@ -37,11 +40,8 @@
               />
             </span>
           </div>
-          
         </div>
-        
       </GridContainer>
-      
     </GridWrapper>
   </AnimatedComponent>
 </template>
@@ -63,6 +63,11 @@ export default {
     title: {
       type: String,
       default: "Banner Title",
+    },
+    tag: {
+      type: String,
+      required: false,
+      default: "",
     },
     subtitle: {
       type: String,
@@ -121,10 +126,12 @@ export default {
   color: inherit
   mix-blend-mode: normal
 
-nav, #wordmark, #hero-text
+#hero-text
   z-index: 1000
 img
   display: none
+#tags
+  word-spacing: 2rem
 .herobanner
   position: relative
   overflow: hidden !important
@@ -153,12 +160,13 @@ img
     mix-blend-mode: normal
     position: absolute
     z-index: 0
-    // width: 100%
-    height: 100%
+    width: 100%
+    height: auto
+    min-height: 100%
     // max-height: 100%
     // max-width: 100%
     object-fit: cover !important
-  #hero-text 
+  #hero-text
       h2
         font-weight: 700 !important
         letter-spacing: calc(0.01rem - 0.12rem)

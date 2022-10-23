@@ -17,8 +17,10 @@ import TextBlock from "@/components/TextBlock.vue";
 import MyButton from "@/components/Button.vue";
 import TextImage from "@/components/card/TextImage.vue";
 import DetailCard from "@/components/card/DetailCard.vue";
+import DetailCard2 from "@/components/card/DetailCard2.vue";
 import TextHeader from "@/components/text/TextHeader.vue";
 import FilterBar from "@/components/FilterBar.vue";
+import StatsBar from "@/components/card/StatsBar.vue";
 
 import router from "./router";
 import { Directive, DirectiveBinding, VNode } from "vue";
@@ -67,6 +69,8 @@ app
   .component("MyButton", MyButton)
   .component("TextImage", TextImage)
   .component("DetailCard", DetailCard)
+  .component("DetailCard2", DetailCard2)
   .component("TextHeader", TextHeader)
   .component("FilterBar", FilterBar)
+  .component("StatsBar", StatsBar)
   

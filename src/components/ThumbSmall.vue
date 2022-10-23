@@ -2,6 +2,7 @@
   <figure class="grid-card" :data-category="`${eyebrow}`">
       <span tabindex="0" class="caption" v-if="title">
         <TextBlock
+          clamped
           class="reversed"
           :eyebrow="`${eyebrow}`"
           :header5="`${title}`"
