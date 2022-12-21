@@ -10,7 +10,6 @@
     /> -->
 
     <HeroBanner
-      style="background: var(--bg-darker)"
       title="Docs & Resources"
       eyebrow=""
     />

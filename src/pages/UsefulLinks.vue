@@ -387,18 +387,15 @@
         </ul>
       </div>
     </GridContainer>
-    <CardRow header="My Ramblings" />
     <!-- TMP - should be a v-for list - see resume -->
   </PageWrapper>
 </template>
 
 <script>
-import CardRow from "@/components/CardRow.vue";
 
 export default {
   name: "UsefulLinks",
   components: {
-    CardRow,
   },
 };
 </script>

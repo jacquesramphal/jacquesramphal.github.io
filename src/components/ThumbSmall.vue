@@ -125,6 +125,10 @@ figcaption
 // .grid-card:hover 
 //   transform: scale(1.01)
 
+// .grid-card
+//   &:hover
+//     box-shadow: var(--shadow-hover)
+//     transform: scale(1.04)  
 .grid-card:hover .caption
   opacity: 1
   color: var(--color-offwhite) !important

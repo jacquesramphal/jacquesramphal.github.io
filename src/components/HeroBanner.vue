@@ -16,17 +16,18 @@
       </GridContainer>
       <GridContainer>
         <div id="hero-text" class="animate glow delay-1">
+
           <h2>
             {{ title }}
           </h2>
+          <p id="tags" v-if="tag" v-text="tag" class="subtle" />
 
-          <h5
+          <p
             v-if="subtitle"
             v-text="subtitle"
-            class="width"
+            class="subtitle"
             style="font-weight: var(--font-medium)"
           />
-          <p id="tags" v-if="tag" v-text="tag" class="subtle" />
 
           <div id="hero-cta" v-show="label">
             <!-- refactor button and props -->
@@ -128,10 +129,14 @@ export default {
 
 #hero-text
   z-index: 1000
+.subtitle
+  max-width: 86.4rem
+
 img
   display: none
 #tags
   word-spacing: 2rem
+  // color: var(--link)
 .herobanner
   position: relative
   overflow: hidden !important
@@ -140,6 +145,7 @@ img
   background-repeat: no-repeat
   background-size: cover
   background-position: 50% 0%
+  
   @media only screen and (min-width: 740px)
     background-repeat: no-repeat
     background-size: cover
@@ -174,8 +180,15 @@ img
 
 .herobanner--center
   #hero-text
-    justify-self: center
-    text-align: center !important
+    @media only screen and (min-width: 740px)
+      justify-self: center
+      text-align: center !important
+  .subtitle
+    max-width: 86.4rem !important
+    float: none
+    margin-left: auto
+    margin-right: auto
+
 
 #hero-text
   display: grid

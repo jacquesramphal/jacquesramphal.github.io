@@ -2,13 +2,6 @@
   <GridWrapper :class="classes">
     <GridContainer tight style="padding: 0 !important">
       <div id="grid-parent" class="grid-parent">
-        <GridContainer class="imgcontainer">
-          <img
-            class="splitimg"
-            draggable="false"
-            :src="require(`@/assets/images/${filename}`)"
-            :alt="`${alt}`"
-        /></GridContainer>
         <GridContainer class="textcontainer">
           <TextBlock
             :header="`${header}`"
@@ -16,21 +9,20 @@
             :route="`${route}`"
             :details="`${details}`"
           />
-        </GridContainer></div></GridContainer
+        </GridContainer>
+        <GridContainer class="imgcontainer">
+          <img
+            class="splitimg"
+            draggable="false"
+            :src="require(`@/assets/images/${filename}`)"
+            :alt="`${alt}`"
+        /></GridContainer></div></GridContainer
   ></GridWrapper>
 </template>
 <script>
-
-
-
-
 export default {
   name: "TextImage",
-  components: {
-    
-    
-    
-  },
+  components: {},
   props: {
     header: {
       type: String,
@@ -108,7 +100,10 @@ export default {
   grid-template-rows: repeat(2, 1fr)
   #textblock
     // align-self: center !important
+    padding-top: var(--spacing-xs)
     @media only screen and (min-width: 740px)
+      padding-top: 0
+
   img
     width: 100%
     height: 100%
@@ -126,6 +121,11 @@ export default {
       // @media screen and (-webkit-min-device-pixel-ratio:0)
       //   height: auto
       //   background: yellow
+  .imgcontainer
+    padding-top: 0 !important
+    @media only screen and (min-width: 740px)
+      padding-top: var(--spacing-lg) !important
+
   .textcontainer
     align-self: center
     display: block

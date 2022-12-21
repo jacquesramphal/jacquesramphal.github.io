@@ -1,6 +1,8 @@
 <template>
   <PageWrapper>
     <HeroBanner
+    style="background: var(--bg-darker)"
+
       id="hero"
       title="About me, but mostly my site"
       eyebrow="Information"
@@ -12,7 +14,7 @@
       :eyebrow="about.eyebrow"
       :title="about.pageTitle"
     /> -->
-    <GridContainer style="padding-top: 0 !important">
+    <!-- <GridContainer style="padding-top: 0 !important">
       <ThumbLarge
         title=""
         filename="about.jpg"
@@ -20,7 +22,7 @@
         route=""
         caption="This is an image caption"
       />
-    </GridContainer>
+    </GridContainer> -->
     <DetailCard
       v-for="about in contentful"
       v-bind:key="about.sys.id"

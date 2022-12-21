@@ -4,12 +4,19 @@
     class="defaultCard card grid-parent"
     :data-category="`${eyebrow}`"
   >
-    <!-- <div class="image">
+    <div class="image">
       <router-link :to="`${route}`">
         <img v-if="imgurl" :src="imgurl" alt="Blog Image"
       />
+      <img
+        draggable="false"
+        v-if="filename"
+        :src="require(`@/assets/images/${filename}`)"
+        :alt="`${alt}`"
+      />
+
     </router-link>
-    </div> -->
+    </div>
 
     <div class="info">
       <TextBlock
@@ -32,6 +39,9 @@ export default {
   components: {},
   props: {
     imgurl: {
+      type: String,
+    },
+    filename: {
       type: String,
     },
     eyebrow: {
@@ -80,13 +90,15 @@ export default {
   -moz-transition: all 0.25s ease-in-out
   -o-transition: all 0.25s ease-in-out
   -webkit-transition: all 0.25s ease-in-out
-  box-shadow: var(--shadow-light)
+  // box-shadow: var(--shadow-light)
   // border: var(--border)
   &:hover
-    // box-shadow: var(--shadow-hover  )
-    // transform: scale(1.01)
+    background: var(--background)
+    box-shadow: var(--shadow-heavy)
+    transform: scale(1.01)
     img
-      // transform: scale(1.5)
+      transform: scale(1.1)
+      
   &:active
     // box-shadow: var(--shadow-hover  )
     // transform: rotate(1deg)
@@ -106,7 +118,11 @@ img
   width: 100%
   max-width: 100%
   border-radius: 0 !important
+  -moz-transition: transform 0.25s ease-in-out
+  -o-transition: transform 0.25s ease-in-out
+  -webkit-transition: transform 0.25s ease-in-out
 .image
+  overflow: hidden
   border-radius: 0 !important
 .card-title
   line-height: 1.5

@@ -1,5 +1,20 @@
 <template>
   <GridWrapper id="blog">
+    <!-- <div class="showmobile scrolling-wrapper">
+      <DefaultCard
+        class="post card"
+        v-for="blogPost in contentful"
+        v-bind:key="blogPost.sys.id"
+        :image="blogPost.image"
+        :category="blogPost.category"
+        :imgurl="blogPost.imgurl"
+        :eyebrow="blogPost.category"
+        :title="blogPost.title"
+        :description="blogPost.description"
+        :route="blogPost.route"
+        :label="blogPost.label"
+      />
+    </div> -->
     <!--  list view -->
     <!-- <GridContainer>
       <blog-post-entry
@@ -51,7 +66,7 @@
             <label for="Figma">Figma</label>
           </li>
 
-<!-- 
+          <!-- 
           <MyButton
             v-on:click="ChangeView"
             label="Change View"
@@ -61,7 +76,8 @@
 
           <p @click="(e) => e.target.classList.toggle('mystyle2')">Test</p> -->
         </ol>
-        <div class="grid-parent posts" id="testDiv">
+
+        <div class="hs grid-parent posts" id="testDiv">
           <DefaultCard
             class="post"
             v-for="blogPost in contentful"
@@ -76,6 +92,10 @@
             :label="blogPost.label"
           />
         </div>
+        <!-- <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard /> -->
       </GridContainer>
     </div>
   </GridWrapper>
@@ -112,13 +132,31 @@ export default {
   },
 };
 </script>
-
+<style scoped lang="scss">
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  .card {
+    margin: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-sm);
+    display: inline-block;
+    width: 85vw;
+  }
+  .card:last-child{
+    margin-right: var(--spacing-sm);
+  }
+}
+</style>
 <style scoped lang="sass">
 .mystyle
   background: red
 .mystyle2
   color: red
   font-size: var(--font-xl)
+#blog
+  background: var(--bg-darker)
+
 .blog
   display: grid
   grid-gap: var(--spacing-xs)

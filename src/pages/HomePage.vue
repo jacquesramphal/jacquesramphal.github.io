@@ -4,7 +4,7 @@
       id="hero"
       class="display"
       eyebrow=""
-      title="Senior Product Designer at Orium"
+      title="Front-end Designer, based in Toronto."
     />
     <!-- <HeroBanner
       id="hero"
@@ -39,20 +39,7 @@
     </GridContainer> -->
     <GridContainer id="work" class="" tight>
       <div id="recentwork" class="animate glow delay-3 grid-parent">
-        <ThumbSmall
-          v-for="entry in projects.entries"
-          :key="entry.id"
-          class="post"
-          :eyebrow="entry.tag"
-          :title="entry.title"
-          :details="entry.description"
-          :cta="entry.cta"
-          :route="entry.route"
-          :btnroute="entry.btnroute"
-          :link="entry.link"
-          :filename="entry.thumbnail"
-          :style="entry.bgcolor"
-        />
+        
         <ThumbSmall
           alt="J Monogram"
           filename="work/j.svg"
@@ -71,15 +58,16 @@
           filename="avatar/avatar.svg"
           title="Avatar"
         />
+        <ThumbSmall alt="Giftbook" filename="work/gob.svg" title="Giftbook" />
+
         <ThumbSmall
           style="background-color: var(--bg-darker)"
           alt="Template Project"
-          filename="splash.svg"
+          filename="templates/template-desktop-blank.svg"
           title="Small Template"
           route="project"
           details="This is a project description that would give a preview into the project..."
         />
-        <ThumbSmall alt="Giftbook" filename="work/gob.svg" title="Giftbook" />
         <ThumbDetail
           alt="Project Template"
           filename="templates/template-v2.svg"
@@ -87,6 +75,20 @@
           title="Project Title"
           route="project"
           details="This is a project description that would give a preview into the project..."
+        />
+        <ThumbSmall
+          v-for="entry in projects.entries"
+          :key="entry.id"
+          class="post"
+          :eyebrow="entry.tag"
+          :title="entry.title"
+          :details="entry.description"
+          :cta="entry.cta"
+          :route="entry.route"
+          :btnroute="entry.btnroute"
+          :link="entry.link"
+          :filename="entry.thumbnail"
+          :style="entry.bgcolor"
         />
       </div>
       <!-- <MyButton
@@ -97,19 +99,19 @@
         route="work2"
       /> -->
     </GridContainer>
-    <CardRow />
+    <TextImage/>
+    <!-- <CardRow /> -->
+    <!-- <CardRow2 /> -->
   </PageWrapper>
 </template>
 
 <script>
-import ThumbDetail from "@/components/ThumbDetail.vue";
 import ThumbSmall2 from "@/components/ThumbSmall2.vue";
 import projects from "@/assets/data/projects.json";
 
 export default {
   name: "HomePage",
   components: {
-    ThumbDetail,
     ThumbSmall2,
   },
   props: {

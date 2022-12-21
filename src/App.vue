@@ -15,7 +15,7 @@
 
 import StickyNav from "./components/StickyNav.vue";
 import MainFooter from "@/components/MainFooter.vue";
-// import TheLogin from "@/components/TheLogin.vue";
+import TheLogin from "@/components/TheLogin.vue";
 import ThemeButton from "@/components/ThemeButton.vue";
 
 
@@ -25,7 +25,7 @@ export default {
     StickyNav,
     MainFooter,
     ThemeButton,
-
+    TheLogin,
   },
   // data() {
   //   return {

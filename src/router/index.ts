@@ -1,4 +1,4 @@
-// import TheLogin from "@/components/TheLogin.vue";
+import TheLogin from "@/components/TheLogin.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
 import BlogPost from "@/components/blog/BlogPost.vue";
@@ -9,6 +9,7 @@ import MyBlog from "@/pages/MyBlog.vue";
 import MyResume from "@/pages/MyResume.vue";
 import NotFound from "@/pages/misc/NotFound.vue";
 import ProjectPage from "@/pages/ProjectPage.vue";
+import ArticlePage from "@/pages/ArticlePage.vue";
 import HomePage from "@/pages/HomePage.vue";
 import MoreWork from "@/pages/MoreWork.vue";
 import UsefulLinks from "@/pages/UsefulLinks.vue";
@@ -86,27 +87,16 @@ const routes = [
   },
   {
     name: "Project",
-    path: "/:id",
+    path: "/project/:id",
     component: ProjectPage,
   },
-  // {
-  //   path: "/read/:title",
-  //   name: "post",
-  //   props: true,
-  //   component: BlogPost,
-  // },
+ 
+  {
+    name: "Article",
+    path: "/post/:id",
+    component: ArticlePage,
+  },
 
-  // {
-  //   name: "Project",
-  //   path: "/project",
-  //   component: ProjectPage,
-  // },
-
-  // {
-  //   name: "Project",
-  //   path: "/projects/:entryId",
-  //   component: ProjectPage
-  // },
 ];
 
 const router = createRouter({

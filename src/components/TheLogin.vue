@@ -1,6 +1,6 @@
 <template>
   <GridWrapper>
-    <GridContainer class="width2">
+    <GridContainer class="login">
       <h1>Login</h1>
       <div>
         <input type="text" name="username" placeholder="Username" />
@@ -24,3 +24,7 @@ export default {
   },
 };
 </script>
+<style lang="sass" scoped>
+.login 
+  max-width: 100px !important
+</style>

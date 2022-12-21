@@ -12,6 +12,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    full: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     classes() {
@@ -19,6 +23,7 @@ export default {
         "container-spacing": true,
         "container-spacing--tight": this.tight,
         "container-spacing--normal": !this.tight,
+        "container-spacing--full": this.full,
       };
     },
   },
@@ -52,4 +57,12 @@ export default {
     padding: var(--spacing-md) !important
   @media only screen and (min-width: 1201px)
     padding: var(--spacing-md) !important
+
+.container-spacing--full
+  padding: 0 !important
+  // img 
+  //   border: 1px solid red !important
+  //   border-radius: none !important
+  
+
 </style>
