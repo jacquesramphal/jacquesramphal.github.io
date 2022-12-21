@@ -16,7 +16,6 @@
       </GridContainer>
       <GridContainer>
         <div id="hero-text" class="animate glow delay-1">
-
           <h2>
             {{ title }}
           </h2>
@@ -145,7 +144,7 @@ img
   background-repeat: no-repeat
   background-size: cover
   background-position: 50% 0%
-  
+
   @media only screen and (min-width: 740px)
     background-repeat: no-repeat
     background-size: cover
