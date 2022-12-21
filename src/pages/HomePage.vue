@@ -101,7 +101,7 @@
     </GridContainer>
     <TextImage/>
     <!-- <CardRow /> -->
-    <!-- <CardRow2 /> -->
+    <CardRow2 />
   </PageWrapper>
 </template>
 

@@ -1,14 +1,15 @@
 <template>
   <PageWrapper id="project" class="">
-    <HeroBanner
-      center
-      eyebrow=""
-      class="animate glow"
-      :key="entry.id"
-      :title="`${entry.title}`"
-      :subtitle="`${entry.description}`"
-      :tag="`${entry.tag}`"
-    />
+    <transition appear @before-enter="beforeEnter" @enter="enter">
+      <HeroBanner
+        center
+        eyebrow=""
+        class="animate glow"
+        :key="entry.id"
+        :title="`${entry.title}`"
+        :subtitle="`${entry.description}`"
+        :tag="`${entry.tag}`"
+    /></transition>
     <GridContainer class="animate glow delay-2">
       <ThumbLarge
         title=""
@@ -61,6 +62,10 @@
 <script>
 import projectData from "@/assets/data/projects.json";
 
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 export default {
   name: "ProjectPage",
   components: {},
@@ -70,6 +75,22 @@ export default {
     },
     entry() {
       return projectData.entries.find((entry) => entry.id == this.projectId);
+    },
+  },
+  methods: {
+    // where the animation will start from
+    beforeEnter(el) {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(-100px)";
+    },
+    // where the animation will end up
+    enter(el) {
+      gsap.to(el, {
+        duration: 1,
+        y: 0,
+        rotate: 360,
+        opacity: 1,
+      });
     },
   },
 };

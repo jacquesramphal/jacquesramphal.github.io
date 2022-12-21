@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import { init, track, parameters } from "insights-js";
 
+
 // Global Components
 import AnimatedComponent from "@/components/AnimatedComponent.vue";
 import BlogCard from "@/components/card/BlogCard.vue";
