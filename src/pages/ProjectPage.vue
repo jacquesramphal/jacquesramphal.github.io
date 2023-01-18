@@ -1,16 +1,14 @@
 <template>
   <PageWrapper id="project" class="">
     <!-- Replace this transition component with lifecycle hooks, see vue 3 tutorial -->
-    <transition appear @before-enter="beforeEnter" @enter="enter">
-      <HeroBanner
-        center
-        eyebrow=""
-        class="animate glow"
-        :key="entry.id"
-        :title="`${entry.title}`"
-        :subtitle="`${entry.description}`"
-        :tag="`${entry.tag}`"
-    /></transition>
+    <HeroBanner
+      center
+      eyebrow=""
+      :key="entry.id"
+      :title="`${entry.title}`"
+      :subtitle="`${entry.description}`"
+      :tag="`${entry.tag}`"
+    />
 
     <GridContainer class="animate glow delay-2">
       <ThumbLarge
@@ -22,43 +20,41 @@
     </GridContainer>
 
     <!-- Section 1 - START -->
-    <!-- Replace this transition component with lifecycle hooks, see vue 3 tutorial -->
-    <transition appear @before-enter="beforeEnter" @enter="enter">
-      <GridWrapper id="section1">
-        <AnimatedComponent>
-          <GridContainer class="width">
-            <GridWrapper>
-              <TextBlock
-                left
-                eyebrow=""
-                header="Section 1"
-                :details="`${entry.description}`"
-                :blockquote="`${entry.description}`"
-              />
-
-              <TextBlock
-                left
-                eyebrow=""
-                header=""
-                :details="`${entry.description}`"
-              />
-            </GridWrapper>
-          </GridContainer>
-        </AnimatedComponent>
-        <AnimatedComponent>
-          <GridContainer id="" style="padding-top: 0 !important">
-            <ThumbLarge
-              class="width2"
-              title=""
-              filename="work/glo.svg"
-              alt="Jacques working at Myplanet"
-              caption="This is caption text."
+    <GridWrapper id="section1">
+      <AnimatedComponent>
+        <GridContainer class="width">
+          <GridWrapper>
+            <TextBlock
+              left
+              eyebrow=""
+              header="Section 1"
+              :details="`${entry.description}`"
+              :blockquote="`${entry.description}`"
             />
-          </GridContainer>
-        </AnimatedComponent>
-      </GridWrapper>
-    </transition>
+
+            <TextBlock
+              left
+              eyebrow=""
+              header=""
+              :details="`${entry.description}`"
+            />
+          </GridWrapper>
+        </GridContainer>
+      </AnimatedComponent>
+      <AnimatedComponent>
+        <GridContainer id="" style="padding-top: 0 !important" class="">
+          <ThumbLarge
+            class="width2"
+            title=""
+            filename="work/glo.svg"
+            alt="Jacques working at Myplanet"
+            caption="This is caption text."
+          />
+        </GridContainer>
+      </AnimatedComponent>
+    </GridWrapper>
     <!-- Section 1 - END - Make this a mapped component ^ duplicate for # of sections in data-->
+    <TextImage flipped />
   </PageWrapper>
 </template>
 
@@ -81,22 +77,24 @@ export default {
       return projectData.entries.find((entry) => entry.id == this.projectId);
     },
   },
-  methods: {
-    // where the animation will start from
-    beforeEnter(el) {
-      el.style.opacity = "0";
-      el.style.transform = "translateY(-100px)";
-    },
-    // where the animation will end up
-    // NOTE: Find gsap set approach for animating components on load instead of all at oncuechange, see cv3 code and common problems thread
-    enter(el) {
-      gsap.to(el, {
-        duration: 1,
-        y: 0,
-        rotate: 360,
-        opacity: 1,
+  mounted() {
+    const gsapTest = gsap.utils.toArray(".gsapTest");
+
+    gsapTest.forEach((gsapTest) => {
+      gsap.from(gsapTest, {
+        scrollTrigger: {
+          trigger: gsapTest,
+          start: "top bottom",
+          end: "bottom bottom",
+          scrub: 3,
+          toggleActions: "restart pause reverse pause",
+        },
+        y: 100,
+        // autoAlpha: 1,
+        duration: 3,
+        ease: "none",
       });
-    },
+    });
   },
 };
 </script>

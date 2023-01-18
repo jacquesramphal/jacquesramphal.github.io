@@ -4,7 +4,7 @@
       id="hero"
       class="display"
       eyebrow=""
-      title="Front-end Designer, based in Toronto."
+      title="Front-end Designer, based in Toronto"
     />
     <!-- <HeroBanner
       id="hero"
