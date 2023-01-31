@@ -6,13 +6,20 @@
   src: url("../../type/epilogue/epilogue-regular.ttf") format("truetype");
 }
 
+/*@font-face {
+  font-display: auto;
+  font-family: "RobotoFlex";
+  font-style: normal;
+  font-weight: 100 900;
+  src: url("../../type/RobotoFlex.ttf") format("truetype");
+} */
 * {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-/*  font-family: Arial, Helvetica, sans-serif; */
-  font-family: "Epilogue", "Helvetica Neue", Helvetica, Arial, sans-serif; 
-  /*  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
-  text-rendering: optimizeLegibility;
+  /*  font-family: Arial, Helvetica, sans-serif; */
+  /* font-family: "Epilogue", "Helvetica Neue", Helvetica, Arial, sans-serif;  */
+  /*   font-family: "RobotoFlex";*/
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";  text-rendering: optimizeLegibility;
   unicode-range: U+000-5FF;
   letter-spacing: var(--spacing-normal);
 }
@@ -41,6 +48,7 @@ p {
   margin: 0;
   opacity: 1 !important;
 }
+
 p {
   /*letter-spacing: var(--spacing-normal);*/
 }
@@ -53,9 +61,30 @@ h1 {
 
 h2 {
   font-size: var(--font-lg);
-  font-weight: var(--font-heavy);
+  font-weight: var(--font-bold);
   letter-spacing: var(--spacing-tight);
   line-height: 1.1;
+  font-variation-settings:
+
+    /* Accepts a font weight between 0 and 900 and is applied equally to all characters. */
+    /*'wght' 750,*/
+
+    /* 400-1000 
+    Similar to weight, but without touching horizontal spacing. 
+    It accepts values between 400 and 1000.*/
+    'GRAD' 500,
+
+    /* 400-1000 
+    Stretches the glyph vertically. It accepts values between 400 and 1000.*/
+    'YAXS' 500,
+
+    /* values expressed as a percentage above or below 'normal' (100%) */
+    'wdth' 130,
+
+    /* 19 or 20 
+    Optical sizing is similar to kerning or letter-spacing, but the spacing is done by a human eye instead of math. A value of 19 or below is intended for text and body copy spacing, while 20 or above is for spacing display headers and titles.*/
+    'opsz' 20;
+
 
   /* background: -webkit-linear-gradient(var(--color-action), var(--color-success)) !important; */
   /* background: -webkit-linear-gradient(left, var(--color-action), var(--color-success));
@@ -89,7 +118,8 @@ h6 {
   line-height: 1.5;
 }
 
-p, blockquote {
+p,
+blockquote {
   font-size: var(--font-xs);
   font-weight: var(--font-medium);
   line-height: 1.8;
