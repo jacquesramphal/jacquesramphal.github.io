@@ -27,7 +27,7 @@
           v-for="entry in articles.entries"
           :key="entry.id"
           :image="entry.image"
-          :category="entry.category"
+          :tag="entry.tag"
           :filename="entry.thumbnail"
           :title="entry.title"
           :description="entry.description"
@@ -56,30 +56,28 @@
     </GridContainer>
 
     <div class="showmobile scrolling-wrapper">
-      <DefaultCard
-        class="post cardmobile"
-        v-for="entry in articles.entries"
-        :key="entry.id"
-        :image="entry.image"
-        :category="entry.category"
-        :filename="entry.thumbnail"
-        :title="entry.title"
-        :description="entry.description"
-        :route="entry.btnroute"
-        :label="entry.label"
-      />
+      <div class="cardmobile" v-for="entry in articles.entries"
+          :key="entry.id">
+        <DefaultCard
+          :image="entry.image"
+          :tag="entry.tag"
+          :filename="entry.thumbnail"
+          :title="entry.title"
+          :description="entry.description"
+          :route="entry.btnroute"
+          :label="entry.label"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import DefaultCard from "@/components/card/DefaultCard.vue";
 import articles from "@/assets/data/articles.json";
 
 export default {
   name: "CardRow2",
   components: {
-    DefaultCard,
   },
   props: {
     header: {
@@ -100,10 +98,19 @@ export default {
   overflow-y: hidden;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
+  // display: flex;
+  flex-direction: row;
   .cardmobile {
     margin: 0 0 var(--spacing-sm) var(--spacing-sm);
-    display: inline-block;
-    width: 85vw;
+    display: inline-flex;
+    width: 25vw;
+  }
+  /* ------------ BREAKPOINT MD ------------ */
+  @media only screen and (max-width: 740px) {
+    .cardmobile {
+      margin: 0 0 var(--spacing-sm) var(--spacing-sm);
+      width: 85vw;
+    }
   }
   .cardmobile:last-child {
     margin-right: var(--spacing-sm);

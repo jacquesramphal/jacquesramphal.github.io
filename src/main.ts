@@ -25,6 +25,7 @@ import TextLink from "@/components/text/TextLink.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
 import ThumbMedium from "@/components/ThumbMedium.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
+import ThumbSmall2 from "@/components/ThumbSmall2.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
 
 import router from "./router";
@@ -65,6 +66,7 @@ app
   .component("PageWrapper", PageWrapper)
   .component("GridWrapper", GridWrapper)
   .component("TextLink", TextLink)
+  .component("ThumbSmall2", ThumbSmall2)
   .component("ThumbSmall", ThumbSmall)
   .component("ThumbMedium", ThumbMedium)
   .component("ThumbLarge", ThumbLarge)

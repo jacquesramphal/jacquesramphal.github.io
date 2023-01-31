@@ -1,5 +1,8 @@
 <template>
-  <div class="" style="overflow: visible !important; background-color: var(--bg-darker);">
+  <div
+    class=""
+    style="overflow: visible !important; background-color: var(--bg-darker)"
+  >
     <GridContainer
       class="hidemobile"
       id="cards"
@@ -19,12 +22,12 @@
         </p>
       </div>
 
-      <div class=" grid-parent">
+      <div class="grid-parent">
         <DefaultCard
           v-for="blogPost in contentful"
           v-bind:key="blogPost.sys.id"
           :image="blogPost.image"
-          :category="blogPost.category"
+          :tag="blogPost.tag"
           :imgurl="blogPost.imgurl"
           :title="blogPost.title"
           :description="blogPost.description"
@@ -51,32 +54,34 @@
         </p>
       </div>
     </GridContainer>
-    
+
     <div class="showmobile scrolling-wrapper">
+      <div class="cardmobile" v-for="entry in articles.entries"
+          :key="entry.id">
       <DefaultCard
         class="post cardmobile"
         v-for="blogPost in contentful"
         v-bind:key="blogPost.sys.id"
         :image="blogPost.image"
-        :category="blogPost.category"
+        :tag="blogPost.tag"
         :imgurl="blogPost.imgurl"
-        :eyebrow="blogPost.category"
+        :eyebrow="blogPost.tag"
         :title="blogPost.title"
         :description="blogPost.description"
         :route="blogPost.route"
         :label="blogPost.label"
       />
     </div>
+
+    </div>
   </div>
 </template>
 
 <script>
-import DefaultCard from "@/components/card/DefaultCard.vue";
 
 export default {
   name: "CardRow",
   components: {
-    DefaultCard,
   },
   props: {
     header: {
@@ -100,7 +105,7 @@ export default {
            sys {
              id
            }
-           category
+           tag
            title
            description
            imgurl
@@ -147,10 +152,19 @@ export default {
   overflow-y: hidden;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
+  // display: flex;
+  flex-direction: row;
   .cardmobile {
     margin: 0 0 var(--spacing-sm) var(--spacing-sm);
-    display: inline-block;
-    width: 85vw;
+    display: inline-flex;
+    width: 25vw;
+  }
+  /* ------------ BREAKPOINT MD ------------ */
+  @media only screen and (max-width: 740px) {
+    .cardmobile {
+      margin: 0 0 var(--spacing-sm) var(--spacing-sm);
+      width: 85vw;
+    }
   }
   .cardmobile:last-child {
     margin-right: var(--spacing-sm);

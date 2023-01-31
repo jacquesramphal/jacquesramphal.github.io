@@ -4,7 +4,7 @@
       id="hero"
       class="display"
       eyebrow=""
-      title="Front-end Designer, based in Toronto"
+      title="Front-end Designer of things"
     />
     <!-- <HeroBanner
       id="hero"
@@ -99,20 +99,18 @@
         route="work2"
       /> -->
     </GridContainer>
-    <TextImage/>
+    <!-- <TextImage/> -->
     <!-- <CardRow /> -->
-    <CardRow2 />
+    <!-- <CardRow2 /> -->
   </PageWrapper>
 </template>
 
 <script>
-import ThumbSmall2 from "@/components/ThumbSmall2.vue";
 import projects from "@/assets/data/projects.json";
 
 export default {
   name: "HomePage",
   components: {
-    ThumbSmall2,
   },
   props: {
     // project: {

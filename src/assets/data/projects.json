@@ -28,7 +28,7 @@
     {
       "id": 2,
       "title": "Project Name TWO",
-      "tag": "Tag1  Tag2",
+      "tag": "tag1  tag2",
       "description": "This is a description TWO",
       "btnroute": "project/2",
       "cta": "Read More",     
@@ -47,7 +47,7 @@
     {
       "id": 3,
       "title": "Project Name 3",
-      "tag": "UX/UI  Product Design  Tag4",
+      "tag": "UX/UI  Product Design  tag4",
       "description": "This is a description",
       "btnroute": "project/3",
       "cta": "Read More",     

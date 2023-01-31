@@ -19,7 +19,7 @@
         v-bind:key="blogPost.sys.id"
         :title="blogPost.title"
         :subtitle="blogPost.description"
-        :tag2="blogPost.category"
+        :tag2="blogPost.tag"
       />
        -->
       <GridContainer class="animate glow width">
@@ -28,7 +28,7 @@
           v-bind:key="blogPost.sys.id"
           :title="blogPost.title"
           :description="blogPost.description"
-          :tag2="blogPost.category"
+          :tag2="blogPost.tag"
         />
       </GridContainer>
 
@@ -187,7 +187,7 @@ export default {
       type: String,
     },
     tag2: {
-      default: "Category",
+      default: "tag",
       required: true,
       type: String,
     },
@@ -213,7 +213,7 @@ export default {
           }
           title
           description
-          category
+          tag
        }
        }
      }`;

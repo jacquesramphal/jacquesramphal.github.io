@@ -17,11 +17,13 @@
 
     <!-- <ul class="container">
       <li v-for="blogPost in posts" v-bind:key="blogPost.sys.id">
-        <p>{{ blogPost.category }}</p>
+        <p>{{ blogPost.tag }}</p>
         <h4>{{ blogPost.title }}</h4>
         <p>{{ blogPost.description }}</p>
       </li>
     </ul> -->
+    <CardRow2 />
+    <CardRow2 />
 
     <BlogFeed :contentful="contentful" />
     <!-- <BlogCard />
@@ -63,7 +65,7 @@ export default {
            sys {
              id
            }
-           category
+           tag
            title
            description
            imgurl

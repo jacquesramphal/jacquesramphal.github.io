@@ -1,14 +1,14 @@
 <template>
   <div class="resume-skills">
-    <div v-for="(skill, i) in skills" :key="i" class="resume-skills-category">
-      <h6 class="resume-skills-category-title" v-text="skill.title" />
-      <ul class="resume-skills-category-entries">
+    <div v-for="(skill, i) in skills" :key="i" class="resume-skills-tag">
+      <h6 class="resume-skills-tag-title" v-text="skill.title" />
+      <ul class="resume-skills-tag-entries">
         <resume-skill-entry
           v-for="(entry, j) in skill.entries"
           :key="j"
           :title="entry.title"
           :level="entry.level"
-          class="resume-skills-category-entry"
+          class="resume-skills-tag-entry"
         />
       </ul>
     </div>
@@ -40,9 +40,9 @@ export default {
 <style scoped lang="sass">
 .resume-skills
   margin-top: var(--spacing-sm)
-  >.resume-skills-category
+  >.resume-skills-tag
     margin-top: var(--spacing-sm)
-    .resume-skills-category-entries
+    .resume-skills-tag-entries
       margin-top: var(--spacing-xxs)
       list-style: none
       display: flex

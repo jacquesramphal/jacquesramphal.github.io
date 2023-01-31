@@ -75,11 +75,11 @@ const routes = [
     name: "Blog",
     component: MyBlog,
   },
-  {
-    path: "/post",
-    name: "post",
-    component: BlogPost,
-  },
+  // {
+  //   path: "/post",
+  //   name: "post",
+  //   component: BlogPost,
+  // },
   {
     path: "/library2",
     name: "Library",

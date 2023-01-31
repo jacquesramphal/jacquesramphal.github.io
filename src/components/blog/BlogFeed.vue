@@ -6,9 +6,9 @@
         v-for="blogPost in contentful"
         v-bind:key="blogPost.sys.id"
         :image="blogPost.image"
-        :category="blogPost.category"
+        :tag="blogPost.tag"
         :imgurl="blogPost.imgurl"
-        :eyebrow="blogPost.category"
+        :eyebrow="blogPost.tag"
         :title="blogPost.title"
         :description="blogPost.description"
         :route="blogPost.route"
@@ -22,7 +22,7 @@
         v-bind:key="blogPost.sys.id"
         :image="blogPost.image"
         :imgurl="blogPost.imgurl"
-        :category="blogPost.category"
+        :tag="blogPost.tag"
         :title="blogPost.title"
         :description="blogPost.description"
         :route="blogPost.route"
@@ -76,16 +76,14 @@
 
           <p @click="(e) => e.target.classList.toggle('mystyle2')">Test</p> -->
         </ol>
-
         <div class="hs grid-parent posts" id="testDiv">
           <DefaultCard
             class="post"
             v-for="blogPost in contentful"
             v-bind:key="blogPost.sys.id"
             :image="blogPost.image"
-            :category="blogPost.category"
+            :tag="blogPost.tag"
             :imgurl="blogPost.imgurl"
-            :eyebrow="blogPost.category"
             :title="blogPost.title"
             :description="blogPost.description"
             :route="blogPost.route"
@@ -133,6 +131,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+
 .scrolling-wrapper {
   overflow-x: scroll;
   overflow-y: hidden;

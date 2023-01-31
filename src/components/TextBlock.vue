@@ -1,10 +1,10 @@
 <template>
   <div id="textblock" :class="classes">
-    <h6 tabIndex="0" class="subtle" v-if="eyebrow" v-text="eyebrow" />
+    <h6 tabIndex="0" class="eyebrow subtle" v-if="eyebrow" v-text="eyebrow" />
     <h3 tabIndex="0" v-if="header" v-text="header" />
     <h4 tabIndex="0" v-if="header4" v-text="header4" />
     <h5 tabIndex="0" v-if="header5" v-text="header5" />
-    <p id="details" tabIndex="0" v-if="details" v-text="details" />
+    <p id="" class="details" tabIndex="0" v-if="details" v-text="details" />
     <TextLink v-if="route" :label="`${cta}`" :route="`${route}`" />
     <TextLink v-if="link" :label="`${cta}`" :link="`${link}`" />
     <blockquote v-if="blockquote" v-text="blockquote" />
@@ -102,14 +102,32 @@ export default {
 * {
   color: inherit;
 }
+#textblock{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+}
+.eyebrow{
+  word-spacing: 1rem;
+  font-weight: var(--font-medium);
+  margin-bottom: 1em;
+
+}
+.details{
+  flex: 1;
+  width: 100%;
+  white-space: normal;
+}
 .textblock-align {
   grid-column: 1 / 4;
 }
 h6 {
-  margin-bottom: 1em;
 }
 p {
   margin: 1rem 0 0 0;
+}
+.details {
 }
 .textblock--clamped p {
   overflow: hidden;

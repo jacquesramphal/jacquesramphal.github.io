@@ -5,7 +5,7 @@
         <span id="dates">
           <ul>
             <li class="label subtle">
-              <p>{{ category }}</p>
+              <p>{{ tag }}</p>
             </li>
           </ul>
         </span>
@@ -29,7 +29,7 @@ export default {
     
   },
   props: {
-    category: {
+    tag: {
       type: String,
       default: "00-00",
     },

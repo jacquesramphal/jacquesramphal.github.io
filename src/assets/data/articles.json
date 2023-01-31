@@ -81,6 +81,46 @@
         "filename2": "work/glo.svg",
         "filename3": "work/dod.svg"
       }
+    },
+    {
+      "id": 5,
+      "title": "Article Name TWO",
+      "tag": "Tag1  Tag2",
+      "description": "This is a description TWO",
+      "btnroute": "post/2",
+      "cta": "Read More",
+      "tag": "tag1 tag2",
+      "thumbnail": "article/jacques.jpeg",
+      "bgcolor": "background-color: var(--bg-darker)",
+      "role": "Designer/Developer",
+      "type": "Project Type",
+      "year": "XXXX-XXXX",
+      "images": {
+        "filename1": "work/glo.svg",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "filename3": "work/dod.svg"
+      }
+    },
+    {
+      "id": 6,
+      "title": "Article Name 3",
+      "tag": "UX/UI  Product Design  Tag4",
+      "description": "This is a description This is a description This is a description This is a description This is a description",
+      "btnroute": "post/3",
+      "cta": "Read More",
+      "tag": "tag1 tag2",
+      "thumbnail": "article/jacques.jpeg",
+      "bgcolor": "background-color: var(--bg-darker)",
+      "role": "Designer/Developer",
+      "type": "Project Type",
+      "year": "XXXX-XXXX",
+      "images": {
+        "filename1": "work/glo.svg",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "filename3": "work/dod.svg"
+      }
     }
   ]
 }
