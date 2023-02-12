@@ -118,7 +118,7 @@ figcaption
     color: var(--text-reversed) !important
     letter-spacing: var(--spacing-reversed-normal)
   h3, h4, h5
-    font-weight: var(--font-reversed-heavy) !important
+    font-weight: var(--font-reversed-bold) !important
   p
     font-weight: var(--font-reversed-medium) !important
 
