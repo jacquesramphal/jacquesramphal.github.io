@@ -19,7 +19,8 @@
   /*  font-family: Arial, Helvetica, sans-serif; */
   /* font-family: "Epilogue", "Helvetica Neue", Helvetica, Arial, sans-serif;  */
   /*   font-family: "RobotoFlex";*/
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";  text-rendering: optimizeLegibility;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  text-rendering: optimizeLegibility;
   unicode-range: U+000-5FF;
   letter-spacing: var(--spacing-normal);
 }
@@ -64,6 +65,12 @@ h2 {
   font-weight: var(--font-bold);
   letter-spacing: var(--spacing-tight);
   line-height: 1.1;
+  /*
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  */
   font-variation-settings:
 
     /* Accepts a font weight between 0 and 900 and is applied equally to all characters. */
@@ -76,46 +83,94 @@ h2 {
 
     /* 400-1000 
     Stretches the glyph vertically. It accepts values between 400 and 1000.*/
-    'YAXS' 500,
+    'YAXS' 400,
 
     /* values expressed as a percentage above or below 'normal' (100%) */
-    'wdth' 130,
+    'wdth' 110,
 
     /* 19 or 20 
     Optical sizing is similar to kerning or letter-spacing, but the spacing is done by a human eye instead of math. A value of 19 or below is intended for text and body copy spacing, while 20 or above is for spacing display headers and titles.*/
     'opsz' 20;
 
 
-  /* background: -webkit-linear-gradient(var(--color-action), var(--color-success)) !important; */
-  /* background: -webkit-linear-gradient(left, var(--color-action), var(--color-success));
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important; */
 }
+
+/*
+h2:hover {
+  font-variation-settings: 'wdth' 200;
+}*/
+
+/* .display h2 {
+  background: -webkit-linear-gradient(var(--color-action), var(--color-action-dark)) !important;
+  background: -webkit-linear-gradient(left, var(--color-action), var(--color-action-dark));
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+} */
 
 h3 {
   font-size: var(--font-md);
-  font-weight: var(--font-heavy);
+  font-weight: var(--font-bold);
   line-height: 1.4;
+  font-variation-settings:
+
+    'GRAD' 500,
+
+    'YAXS' 400,
+
+    'wdth' 110,
+
+    'opsz' 20;
+
 }
 
 h4 {
   font-size: var(--font-sm);
-  font-weight: var(--font-heavy);
+  font-weight: var(--font-bold);
   line-height: 1.5;
+  font-variation-settings:
+
+    'GRAD' 500,
+
+    'YAXS' 400,
+
+    'wdth' 110,
+
+    'opsz' 20;
+
 }
 
 h5 {
   font-size: var(--font-xs);
-  font-weight: var(--font-heavy);
+  font-weight: var(--font-bold);
   line-height: 1.5;
+  font-variation-settings:
+
+    'GRAD' 500,
+
+    'YAXS' 400,
+
+    'wdth' 110,
+
+    'opsz' 20;
+
   margin: 0;
 }
 
 /* eyebrow text */
 h6 {
   font-size: var(--font-xs);
-  font-weight: var(--font-heavy);
+  font-weight: var(--font-bold);
   line-height: 1.5;
+  font-variation-settings:
+
+    'GRAD' 500,
+
+    'YAXS' 400,
+
+    'wdth' 110,
+
+    'opsz' 20;
+
 }
 
 p,
@@ -123,7 +178,7 @@ blockquote {
   font-size: var(--font-xs);
   font-weight: var(--font-medium);
   line-height: 1.8;
-
+  font-variation-settings: 'wdth' 102, 'opsz' 19;
 }
 
 /* code {
@@ -238,7 +293,7 @@ a {
   text-decoration: underline !important;
   text-underline-offset: 0.75rem;
   text-decoration-thickness: .1rem !important;
-
+  font-variation-settings: 'opsz' 19;
   /* background: 
   linear-gradient(#1095c1 0 0) no-repeat
    calc(200% - var(--p,0%)) 100% / 200% var(--p,.08em);
