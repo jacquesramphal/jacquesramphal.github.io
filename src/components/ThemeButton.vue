@@ -14,17 +14,17 @@
         class="switch-toggle"
         :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
       /> -->
-      <h6
+      <!-- <h6
         class="switch-toggle"
         :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
-      ></h6>
-      <!-- <img
+      ></h6> -->
+      <img
           class="justify-end"
           draggable="false"
           src="favicon2.svg"
           alt="theme-toggle"
-          style="width: 48px; border-radius: 0 !important;"
-        /> -->
+          style="width: var(--spacing-big); border-radius: 0 !important;"
+        />
         <!-- <svg width="52px" viewBox="0 0 35 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>J Unicorn - UX Generalist</title>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -113,7 +113,7 @@ export default {
   cursor: pointer
   color: var(--link) !important
   font-size: var(--font-xs)
-  height: var(--font-sm)
+  // height: var(--font-sm)
   display: flex
   position: absolute
   right: 0
