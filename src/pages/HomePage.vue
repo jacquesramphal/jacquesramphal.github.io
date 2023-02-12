@@ -1,6 +1,7 @@
 <template>
   <PageWrapper>
     <HeroBanner
+    
       id="hero"
       class="display"
       eyebrow=""
