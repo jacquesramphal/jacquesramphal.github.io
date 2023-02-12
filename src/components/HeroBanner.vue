@@ -130,6 +130,7 @@ export default {
   z-index: 1000
 .subtitle
   max-width: 86.4rem
+  width: 100%
 
 img
   display: none
