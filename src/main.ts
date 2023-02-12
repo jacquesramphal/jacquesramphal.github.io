@@ -2,21 +2,31 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import { init, track, parameters } from "insights-js";
 
+
 // Global Components
-import HeroBanner from "@/components/HeroBanner.vue";
+import AnimatedComponent from "@/components/AnimatedComponent.vue";
+import BlogCard from "@/components/card/BlogCard.vue";
 import CardRow from "@/components/CardRow.vue";
-import Container from "@/components/grid/Container.vue";
-import Wrapper from "@/components/grid/Wrapper.vue";
+import CardRow2 from "@/components/CardRow2.vue";
+import DefaultCard from "@/components/card/DefaultCard.vue";
+import DetailCard from "@/components/card/DetailCard.vue";
+import DetailCard2 from "@/components/card/DetailCard2.vue";
+import FilterBar from "@/components/FilterBar.vue";
+import GridContainer from "@/components/grid/GridContainer.vue";
+import GridWrapper from "@/components/grid/GridWrapper.vue";
+import HeroBanner from "@/components/HeroBanner.vue";
+import MyButton from "@/components/Button.vue";
 import PageWrapper from "@/components/grid/PageWrapper.vue";
+import StatsBar from "@/components/card/StatsBar.vue";
+import TextBlock from "@/components/TextBlock.vue";
+import TextHeader from "@/components/text/TextHeader.vue";
+import TextImage from "@/components/card/TextImage.vue";
 import TextLink from "@/components/text/TextLink.vue";
 import ThumbLarge from "@/components/ThumbLarge.vue";
 import ThumbMedium from "@/components/ThumbMedium.vue";
 import ThumbSmall from "@/components/ThumbSmall.vue";
-import AnimatedComponent from "@/components/AnimatedComponent.vue";
-import TextBlock from "@/stories/TextBlock.vue";
-import MyButton from "@/stories/Button.vue";
-import TextImage from "@/components/card/TextImage.vue";
-
+import ThumbSmall2 from "@/components/ThumbSmall2.vue";
+import ThumbDetail from "@/components/ThumbDetail.vue";
 
 import router from "./router";
 import { Directive, DirectiveBinding, VNode } from "vue";
@@ -51,17 +61,27 @@ app
 
 // Global Components
 app
-  .component("Container", Container)
+  .component("GridContainer", GridContainer)
   .component("HeroBanner", HeroBanner)
   .component("PageWrapper", PageWrapper)
-  .component("Wrapper", Wrapper)
+  .component("GridWrapper", GridWrapper)
   .component("TextLink", TextLink)
+  .component("ThumbSmall2", ThumbSmall2)
   .component("ThumbSmall", ThumbSmall)
   .component("ThumbMedium", ThumbMedium)
   .component("ThumbLarge", ThumbLarge)
+  .component("ThumbDetail", ThumbDetail)
   .component("CardRow", CardRow)
+  .component("CardRow2", CardRow2)
+  .component("BlogCard", BlogCard)
   .component("AnimatedComponent", AnimatedComponent)
   .component("TextBlock", TextBlock)
   .component("MyButton", MyButton)
   .component("TextImage", TextImage)
+  .component("DetailCard", DetailCard)
+  .component("DetailCard2", DetailCard2)
+  .component("TextHeader", TextHeader)
+  .component("FilterBar", FilterBar)
+  .component("StatsBar", StatsBar)
+  .component("DefaultCard", DefaultCard)
   

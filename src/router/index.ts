@@ -1,24 +1,17 @@
-// import { createApp } from "vue";
-// import AnimatedComponent from '@/components/AnimatedComponent.vue';
-// import App from "@/App.vue";
-// const app = createApp(App);
-// app.component("AnimatedComponent", AnimatedComponent); // global registration - can be used anywhere
-// app.mount("#app");
-
-// import TheLogin from "@/components/TheLogin.vue";
+import TheLogin from "@/components/TheLogin.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
-import BlogPost from "@/components/blog/BlogPost.vue";
-import Info from "@/views/Info.vue";
-import Library from "@/views/Library.vue";
-import MaintenancePage from "@/views/misc/MaintenancePage.vue";
-import MyBlog from "@/views/MyBlog.vue";
-import MyResume from "@/views/MyResume.vue";
-import NotFound from "@/views/misc/NotFound.vue";
-import Project from "@/views/Project.vue";
-import Work from "@/views/Work.vue";
-import Work2 from "@/views/Work2.vue";
-import Links from "@/views/Links.vue";
+import InfoPage from "@/pages/InfoPage.vue";
+import MyLibrary from "@/pages/MyLibrary.vue";
+import MaintenancePage from "@/pages/misc/MaintenancePage.vue";
+import MyBlog from "@/pages/MyBlog.vue";
+import MyResume from "@/pages/MyResume.vue";
+import NotFound from "@/pages/misc/NotFound.vue";
+import ProjectPage from "@/pages/ProjectPage.vue";
+import ArticlePage from "@/pages/ArticlePage.vue";
+import HomePage from "@/pages/HomePage.vue";
+import MoreWork from "@/pages/MoreWork.vue";
+import UsefulLinks from "@/pages/UsefulLinks.vue";
 
 const routes = [
   {
@@ -39,37 +32,32 @@ const routes = [
       hidePageWrapper: true,
     },
   },
-  // {
-  //   path: "/login",
-  //   name: "Login",
-  //   component: TheLogin,
-  // },
   {
-    redirect: "/brb",
+    path: "/login",
+    name: "Login",
+    component: TheLogin,
+  },
+  {
     path: "/",
+    redirect: { name: 'MaintenancePage' },
     name: "Home",
-    component: Work,
+    component: HomePage,
+    children: [],
+    meta: {
+      hideNav: false,
+    },
   },
   {
-    redirect: "/brb",
-    path: "/work",
-    name: "Work",
-    component: Work,
-  },
-  {
-    redirect: "/brb",
     path: "/work2",
-    name: "Work2",
-    component: Work2,
+    name: "MoreWork",
+    component: MoreWork,
   },
   {
-    redirect: "/brb",
     path: "/links",
     name: "Links",
-    component: Links,
+    component: UsefulLinks,
   },
   {
-    redirect: "/brb",
     path: "/cv",
     name: "Resume",
     component: MyResume,
@@ -78,41 +66,32 @@ const routes = [
     },
   },
   {
-    redirect: "/brb",
     path: "/info",
     name: "Info",
-    component: Info,
+    component: InfoPage,
   },
   {
-    redirect: "/brb",
-    path: "/project",
-    name: "Project",
-    component: Project,
-  },
-  {
-    redirect: "/brb",
-    path: "/docs",
+    path: "/library",
     name: "Blog",
     component: MyBlog,
   },
   {
-    redirect: "/brb",
-    path: "/post",
-    name: "post",
-    component: BlogPost,
+    path: "/library2",
+    name: "Library",
+    component: MyLibrary,
   },
   {
-    redirect: "/brb",
-    path: "/library",
-    name: "Library",
-    component: Library,
+    name: "Project",
+    path: "/project/:id",
+    component: ProjectPage,
   },
-  // {
-  //   path: "/read/:title",
-  //   name: "post",
-  //   props: true,
-  //   component: BlogPost,
-  // },
+ 
+  {
+    name: "Article",
+    path: "/post/:id",
+    component: ArticlePage,
+  },
+
 ];
 
 const router = createRouter({

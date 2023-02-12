@@ -6,85 +6,179 @@
   src: url("../../type/epilogue/epilogue-regular.ttf") format("truetype");
 }
 
+/*@font-face {
+  font-display: auto;
+  font-family: "RobotoFlex";
+  font-style: normal;
+  font-weight: 100 900;
+  src: url("../../type/RobotoFlex.ttf") format("truetype");
+} */
 * {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-family: "Epilogue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*  font-family: Arial, Helvetica, sans-serif; */
+  /* font-family: "Epilogue", "Helvetica Neue", Helvetica, Arial, sans-serif;  */
+  /*   font-family: "RobotoFlex";*/
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   text-rendering: optimizeLegibility;
   unicode-range: U+000-5FF;
   letter-spacing: var(--spacing-normal);
 }
 
+/* TEST AND EXPAND MIXINS */
+
 @mixin test {
   background: red;
 }
+
 .line-clamp {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+
 /* Header AAA */
-h1 {
-  font-size: var(--font-xs);
-  font-weight: var(--font-bold);
-  line-height: 1.2;
-  margin: 0;
-}
 
-
-h2 {
-  font-size: var(--font-lg);
-  font-weight: var(--font-heavy);
-  letter-spacing: var(--spacing-tight);
-  line-height: 1.1;
-  margin: 0;
-  opacity: 1 !important;
-  /* background: -webkit-linear-gradient(var(--color-action), var(--color-success)) !important; */
-
-  /* background: -webkit-linear-gradient(left, var(--color-action), var(--color-success));
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important; */
-}
-
-h3 {
-  font-size: var(--font-md);
-  font-weight: var(--font-heavy);
-  line-height: 1.4;
-  margin: 0;
-  opacity: 1 !important;
-}
-
-h4 {
-  font-size: var(--font-sm);
-  font-weight: var(--font-heavy);
-  line-height: 1.5;
-  margin: 0;
-  opacity: 1 !important;
-}
-
-h5 {
-  font-size: var(--font-xs);
-  font-weight: var(--font-heavy);
-  line-height: 1.5;
-  margin: 0;
-  opacity: 1 !important;
-}
-
-/* eyebrow text */
-h6 {
-  font-size: var(--font-xs);
-  font-weight: var(--font-heavy);
-  line-height: 1.5;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0;
   opacity: 1 !important;
 }
 
 p {
+  /*letter-spacing: var(--spacing-normal);*/
+}
+
+h1 {
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: var(--font-lg);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--spacing-tight);
+  line-height: 1.1;
+  /*
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  */
+  font-variation-settings:
+
+    /* Accepts a font weight between 0 and 900 and is applied equally to all characters. */
+    /*'wght' 750,*/
+
+    /* 400-1000 
+    Similar to weight, but without touching horizontal spacing. 
+    It accepts values between 400 and 1000.*/
+    'GRAD' 500,
+
+    /* 400-1000 
+    Stretches the glyph vertically. It accepts values between 400 and 1000.*/
+    'YAXS' 400,
+
+    /* values expressed as a percentage above or below 'normal' (100%) */
+    'wdth' 110,
+
+    /* 19 or 20 
+    Optical sizing is similar to kerning or letter-spacing, but the spacing is done by a human eye instead of math. A value of 19 or below is intended for text and body copy spacing, while 20 or above is for spacing display headers and titles.*/
+    'opsz' 20;
+
+
+}
+
+/*
+h2:hover {
+  font-variation-settings: 'wdth' 200;
+}*/
+
+/* .display h2 {
+  background: -webkit-linear-gradient(var(--color-action), var(--color-action-dark)) !important;
+  background: -webkit-linear-gradient(left, var(--color-action), var(--color-action-dark));
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+} */
+
+h3 {
+  font-size: var(--font-md);
+  font-weight: var(--font-bold);
+  line-height: 1.4;
+  font-variation-settings:
+
+    'GRAD' 500,
+
+    'YAXS' 400,
+
+    'wdth' 110,
+
+    'opsz' 20;
+
+}
+
+h4 {
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  line-height: 1.5;
+  font-variation-settings:
+
+    'GRAD' 500,
+
+    'YAXS' 400,
+
+    'wdth' 110,
+
+    'opsz' 20;
+
+}
+
+h5 {
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  line-height: 1.5;
+  font-variation-settings:
+
+    'GRAD' 500,
+
+    'YAXS' 400,
+
+    'wdth' 110,
+
+    'opsz' 20;
+
+  margin: 0;
+}
+
+/* eyebrow text */
+h6 {
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  line-height: 1.5;
+  font-variation-settings:
+
+    'GRAD' 500,
+
+    'YAXS' 400,
+
+    'wdth' 110,
+
+    'opsz' 20;
+
+}
+
+p,
+blockquote {
   font-size: var(--font-xs);
   font-weight: var(--font-medium);
   line-height: 1.8;
-  margin: 0;
-  opacity: 1 !important;
+  font-variation-settings: 'wdth' 102, 'opsz' 19;
 }
 
 /* code {
@@ -120,17 +214,13 @@ strong {
 }
 
 blockquote {
-
-  margin: var(--spacing-md) 0;
-   background: var(--bg-darker); 
   /* background: hsl(var(--link),calc(var(--l) + 10%)); */
-   border-radius: var(--spacing-xxxs); 
+  background: var(--bg-darker);
+  border-left: var(--spacing-xxxs) solid var(--link);
+  border-radius: var(--spacing-xxxs);
   color: var(--text);
+  margin: var(--spacing-md) 0;
   padding: var(--spacing-sm) var(--spacing-md);
-  border-left: var(--spacing-xxxs) solid var(--link)
-}
-
-blockquote p {
 }
 
 /* blockquote::before {
@@ -178,7 +268,6 @@ li {
   color: var(--text-reversed);
 }
 
-
 /* ---- LINKS/BUTTONS ---- */
 @keyframes strike {
   0% {
@@ -204,7 +293,7 @@ a {
   text-decoration: underline !important;
   text-underline-offset: 0.75rem;
   text-decoration-thickness: .1rem !important;
-
+  font-variation-settings: 'opsz' 19;
   /* background: 
   linear-gradient(#1095c1 0 0) no-repeat
    calc(200% - var(--p,0%)) 100% / 200% var(--p,.08em);
@@ -273,7 +362,8 @@ transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s)); */
 
 /* ---- Reversed States ---- */
 
-.reversed a, .reversed a::after {
+.reversed a,
+.reversed a::after {
   color: var(--link-reversed) !important;
   font-weight: var(--font-reversed-medium) !important;
 }
@@ -401,6 +491,12 @@ h2>a:hover {
 
       .display h2 {
         font-size: var(--font-display);
+      }
+
+      .display .herobanner {
+        /* height: 100vh;
+        background-color: var(--color-purple);
+        color: white; */
       }
     }
 

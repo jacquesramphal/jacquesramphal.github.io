@@ -1,5 +1,5 @@
 <template>
-  <Container
+  <GridContainer
     id="stickynav"
     class="navbar"
     :class="{ 'hidden-navbar': !showNavbar }"
@@ -12,12 +12,19 @@
           style="font-weight: var(--font-reversed-bold) !important"
           tabindex="0"
         >
-          <router-link :to="{ name: 'Work' }"><strong>ramphal.design</strong></router-link>
+          <router-link :to="{ name: 'Home' }"
+            ><strong>Jacques Ramphal</strong></router-link
+          >
         </h1>
 
-        <h1 class="showmobile nav-link" id="wordmark" style="font-weight: var(--font-reversed-bold);" tabindex="0">
-          <router-link :to="{ name: 'Work' }"
-            ><strong>ramphal.design</strong></router-link
+        <h1
+          class="showmobile nav-link"
+          id="wordmark"
+          style="font-weight: var(--font-reversed-bold)"
+          tabindex="0"
+        >
+          <router-link :to="{ name: 'Home' }"
+            ><strong>Jake Ramphal</strong></router-link
           >
         </h1>
         <ul class="justify-end">
@@ -25,7 +32,7 @@
             <router-link :to="{ name: 'Resume' }">info</router-link>
           </li>
           <li class="nav-link" tabindex="0">
-            <router-link :to="{ name: 'Blog' }">docs</router-link>
+            <router-link :to="{ name: 'Blog' }">library</router-link>
           </li>
           <!-- <li class="nav-link" tabindex="0">
             <router-link class="isDisabled" to="blog">writing</router-link>
@@ -49,11 +56,12 @@
         </ul>
       </nav>
     </div>
-  </Container>
+  </GridContainer>
 </template>
 
 <script>
-import Container from "@/components/grid/Container.vue";
+// Must import here and on footer since they are global router components?
+import GridContainer from "@/components/grid/GridContainer.vue";
 
 /**
  * @component
@@ -62,7 +70,7 @@ const OFFSET = 60;
 export default {
   name: "StickyNav",
   components: {
-    Container,
+    GridContainer,
   },
   props: {
     title: {

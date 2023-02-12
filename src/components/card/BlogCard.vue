@@ -1,11 +1,11 @@
 <template>
-  <Container class="wrapper">
+  <GridContainer class="wrapper">
     <router-link :to="`${route}`">
       <div class="grid-parent blog-card">
         <span id="dates">
           <ul>
             <li class="label subtle">
-              <p>{{ category }}</p>
+              <p>{{ tag }}</p>
             </li>
           </ul>
         </span>
@@ -17,19 +17,19 @@
         >
       </div>
     </router-link>
-  </Container>
+  </GridContainer>
 </template>
 
 <script>
-import Container from "@/components/grid/Container.vue";
+
 
 export default {
   name: "BlogCard",
   components: {
-    Container,
+    
   },
   props: {
-    category: {
+    tag: {
       type: String,
       default: "00-00",
     },

@@ -11,6 +11,19 @@
   margin-right: auto;
   overflow: hidden;
 }
+
+.width {
+  max-width: 86.4rem !important;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+.width2 {
+  max-width: 98rem;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
 .sticky{
   position: -webkit-sticky; /* Safari */
   position: sticky;

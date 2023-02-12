@@ -1,38 +1,50 @@
 <template>
   <PageWrapper id="blog">
-    <Wrapper id="posts" class="">
+    <GridWrapper id="posts" class="">
+      
       <!-- TMP BREADCRUMB -->
-      <Container id="section1">
+
+      <GridContainer id="section1">
         <p>
           <router-link :to="{ name: 'Blog' }">Blog</router-link>
           <span class="subtle" style="margin: 0 1rem">/</span>Post
         </p>
-      </Container>
+      </GridContainer>
       <!-- TMP BREADCRUMB -->
 
-      <Container class="animate glow width">
+      <!-- <HeroBanner
+        center
+        class=""
+        v-for="blogPost in contentful"
+        v-bind:key="blogPost.sys.id"
+        :title="blogPost.title"
+        :subtitle="blogPost.description"
+        :tag2="blogPost.tag"
+      />
+       -->
+      <GridContainer class="animate glow width">
         <TextHeader
           v-for="blogPost in contentful"
           v-bind:key="blogPost.sys.id"
           :title="blogPost.title"
           :description="blogPost.description"
-          :tag2="blogPost.category"
+          :tag2="blogPost.tag"
         />
-      </Container>
+      </GridContainer>
 
-      <Container class="animate glow delay-1" tight id="">
+      <GridContainer class="animate glow delay-1" tight id="">
         <ThumbLarge
           class=""
           title=""
           filename="jacques.jpeg"
           alt="Jacques working at Myplanet"
         />
-      </Container>
+      </GridContainer>
       <!-- Section 1 -->
-      <Wrapper id="section1">
+      <GridWrapper id="section1">
         <!-- <AnimatedComponent animationType="zoom"> -->
         <!-- <AnimatedComponent>
-          <Container class="width">
+          <GridContainer class="width">
             <p class="dropcap">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -41,12 +53,12 @@
               reprehenderit in voluptate velit esse cillum dolore eu fugiat
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
               sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p></Container
+            </p></GridContainer
           ></AnimatedComponent
         > -->
         <AnimatedComponent>
-          <Container class="width">
-            <Wrapper>
+          <GridContainer class="width">
+            <GridWrapper>
               <TextBlock
                 left
                 eyebrow=""
@@ -71,8 +83,8 @@
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat."
               />
-            </Wrapper>
-          </Container>
+            </GridWrapper>
+          </GridContainer>
         </AnimatedComponent>
         <AnimatedComponent>
           <TextImage
@@ -83,13 +95,13 @@
             cta="Learn More"
           />
         </AnimatedComponent>
-      </Wrapper>
+      </GridWrapper>
 
       <!-- Section 1 -->
 
-      <Wrapper id="section2" class="">
+      <GridWrapper id="section2" class="">
         <AnimatedComponent>
-          <Container class="width">
+          <GridContainer class="width">
             <TextBlock
               left
               eyebrow=""
@@ -105,11 +117,11 @@
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. "
             />
-          </Container>
+          </GridContainer>
         </AnimatedComponent>
 
         <AnimatedComponent>
-          <Container tight id="" class="width2">
+          <GridContainer id="" class="width2">
             <ThumbLarge
               class=""
               title=""
@@ -117,14 +129,14 @@
               alt="Jacques working at Myplanet"
               caption="This is caption text."
             />
-          </Container>
+          </GridContainer>
         </AnimatedComponent>
 
         <!-- Section 3 -->
 
-        <Wrapper id="section3" class="">
+        <GridWrapper id="section3" class="">
           <AnimatedComponent>
-            <Container class="width">
+            <GridContainer class="width">
               <TextBlock
                 left
                 eyebrow=""
@@ -140,15 +152,14 @@
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. "
               />
-            </Container>
+            </GridContainer>
           </AnimatedComponent>
-        </Wrapper>
+        </GridWrapper>
         <AnimatedComponent>
           <TextImage class="" style="background: var(--bg-darker)" />
-          /></AnimatedComponent
-        >
-      </Wrapper>
-    </Wrapper>
+        </AnimatedComponent>
+      </GridWrapper>
+    </GridWrapper>
     <!-- <HeroBanner
       
       title="Post Title"
@@ -160,7 +171,6 @@
 </template>
 
 <script>
-import TextHeader from "@/components/text/TextHeader.vue";
 import CardRow from "@/components/CardRow.vue";
 import TextImage from "@/components/card/TextImage.vue";
 
@@ -168,7 +178,6 @@ export default {
   name: "BlogPost",
   components: {
     CardRow,
-    TextHeader,
     TextImage,
   },
   props: {
@@ -178,7 +187,7 @@ export default {
       type: String,
     },
     tag2: {
-      default: "Category",
+      default: "tag",
       required: true,
       type: String,
     },
@@ -204,7 +213,7 @@ export default {
           }
           title
           description
-          category
+          tag
        }
        }
      }`;
@@ -230,14 +239,7 @@ export default {
   },
 };
 </script>
-<style>
-.width {
-  max-width: 86.4rem !important;
-}
-.width2 {
-  max-width: 98rem;
-}
-</style>
+
 <style scoped>
 * {
 }

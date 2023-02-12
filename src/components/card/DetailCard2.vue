@@ -1,18 +1,18 @@
 <template>
   <div class="">
-    <Container class="grid-parent">
+    <GridContainer class="grid-parent">
       <span id="values">
         <ul tabIndex="0">
-          <li class="label subtle"><p>Role</p></li>
-          <li class="value"><p>UI Designer/Developer</p></li>
+          <li class="label subtle"><p v-if="label1" v-text="label1" /></li>
+          <li class="value"><p v-if="value1" v-text="value1" /></li>
         </ul>
         <ul tabIndex="0">
-          <li class="label subtle"><p>Type</p></li>
-          <li class="value"><p>Proof of Concept</p></li>
+          <li class="label subtle"><p v-if="label2" v-text="label2" /></li>
+          <li class="value"><p v-if="value2" v-text="value2" /></li>
         </ul>
         <ul tabIndex="0">
-          <li class="label subtle"><p>Year</p></li>
-          <li class="value"><p>2020-2021</p></li>
+          <li class="label subtle"><p v-if="label3" v-text="label3" /></li>
+          <li class="value"><p v-if="value3" v-text="value3" /></li>
         </ul>
       </span>
       <span id="info">
@@ -20,23 +20,52 @@
           {{ description }}
         </h4></span
       >
-    </Container>
+    </GridContainer>
   </div>
 </template>
 
 <script>
-import Container from "@/components/grid/Container.vue";
+
 
 export default {
   name: "DetailCard2",
-  components: {
-      Container,
-  },
+
   props: {
+    label1: {
+      type: String,
+      default: 'label1',
+      required: 'true',
+    },
+    label2: {
+      type: String,
+      default: 'label2',
+      required: 'true',
+    },
+    label3: {
+      type: String,
+      default: 'label2',
+      required: 'true',
+    },
+    value1: {
+      type: String,
+      default: 'value1',
+      required: 'true',
+    },
+    value2: {
+      type: String,
+      default: 'value2',
+      required: 'true',
+    },
+    value3: {
+      type: String,
+      default: 'value3',
+      required: 'true',
+    },
     description: {
       type: String,
       default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
     },
+    
   },
 };
 </script>

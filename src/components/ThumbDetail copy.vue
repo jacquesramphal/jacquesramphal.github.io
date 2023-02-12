@@ -1,7 +1,7 @@
 <template>
-  <Wrapper class="thumbdetail grid-card" style="padding: 0">
-    <Container tight class="">
-      <Wrapper class="text">
+  <GridWrapper class="thumbdetail grid-card" style="padding: 0">
+    <GridContainer tight class="">
+      <GridWrapper class="text">
         <TextBlock
           cta="Read More"
           header=""
@@ -9,9 +9,9 @@
           :details="`${details}`"
           class="textblock"
         />
-      </Wrapper>
-    </Container>
-    <Wrapper class="">
+      </GridWrapper>
+    </GridContainer>
+    <GridWrapper class="">
       <!-- <router-link :to="`${route}`">
         <img
           class="zoom"
@@ -60,24 +60,24 @@
           />
         </defs>
       </svg>
-    </Wrapper>
-  </Wrapper>
+    </GridWrapper>
+  </GridWrapper>
 </template>
 
 
 
 
 <script>
-import Wrapper from "@/components/grid/Wrapper.vue";
-import Container from "@/components/grid/Container.vue";
-import TextBlock from "@/stories/TextBlock.vue";
+
+
+
 
 export default {
   name: "ThumbDetail",
   components: {
-    Wrapper,
-    TextBlock,
-    Container,
+    
+    
+    
   },
   props: {
     title: {

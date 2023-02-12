@@ -1,8 +1,9 @@
 <template>
   <div id="TextValue" class="">
   <!-- add "label for" references? -->
-    <h2 tabIndex="0">{{ value }}</h2>
     <h6 tabIndex="0" class="subtle">{{ label }}</h6>
+    <h4 tabIndex="0">{{ value }}</h4>
+
     <!-- <MyButton 
       text="This is Button Text" 
       class="btn-primary"
@@ -43,9 +44,9 @@ export default {
 h6 {
   margin-bottom: 1em;
 }
-h2 {
+h4 {
   margin: 0;
-  color: var(--link);
+  /* color: var(--link); */
 }
 
 /* ------------ BREAKPOINT MD ------------ */

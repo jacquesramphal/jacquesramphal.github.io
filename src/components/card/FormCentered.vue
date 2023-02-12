@@ -1,27 +1,40 @@
 <template>
-  <Container class="form">
+
+
+  <GridContainer class="form">
+
+
     <form
       class="grid-parent"
       @submit.prevent="sendEmail"
       onsubmit="alert('submit!');return false"
     >
-    <TextBlock center eyebrow="" header="Contact Me" details="" />
+
+
+      <TextBlock center eyebrow="" header="Contact Me" details="" />
+
 
       <div id="form-row">
-        <Input
+
+
+        <MyInput
           label="Name"
           id="name"
           type="name"
           name="user_name"
           placeholder="What's your name?"
         />
-        <Input
+
+
+        <MyInput
           id="email"
           label="Email"
           name="user_email"
           placeholder="example@mail.com "
           type="email"
         />
+
+
         <TextArea
           class="wide"
           id="message"
@@ -29,7 +42,10 @@
           name="message"
           placeholder="What's on your mind?"
         />
+
+
       </div>
+
 
       <MyButton
         class="btn"
@@ -39,26 +55,28 @@
         size="large"
         type="submit"
       />
+
+
     </form>
-  </Container>
+
+
+  </GridContainer>
+
+
 </template>
 
+
 <script>
-import Container from "@/components/grid/Container.vue";
-import Input from "@/components/form/Input.vue";
+import MyInput from "@/components/form/MyInput.vue";
 import TextArea from "@/components/form/TextArea.vue";
-import MyButton from "@/stories/Button.vue";
-import TextBlock from "@/stories/TextBlock.vue";
+
 import emailjs from "emailjs-com";
 
 export default {
   name: "FormCentered",
   components: {
-    Container,
-    Input,
+    MyInput,
     TextArea,
-    TextBlock,
-    MyButton,
   },
   props: {
     header: {
@@ -91,6 +109,7 @@ export default {
   },
 };
 </script>
+
 
 <style scoped>
 * {
@@ -158,3 +177,5 @@ export default {
   }
 }
 </style>
+
+

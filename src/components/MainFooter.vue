@@ -1,14 +1,15 @@
 <template>
-  <AnimatedComponent
-    ><Wrapper id="wrapper" class="">
-      <Container>
+  <AnimatedComponent>
+    <GridWrapper id="wrapper" class="">
+      <GridContainer>
         <div class="">
           <!-- Profile Picture -->
           <router-link to="cv"
             ><img
+              id="avatar"
               class="justify-end"
-              draggable="false"
               src="@/assets/images/portrait.jpg"
+              draggable="false"
               alt="logo.svg"
               style="width: 120px; aspect-ratio: 1 / 1"
           /></router-link>
@@ -46,7 +47,7 @@
         <div class="grid-parent">
           <div id="maindetails">
             <TextBlock
-              header="Toronto-based, UX Generalist at Myplanet"
+              header="Toronto-based, tech tinkerer at Orium"
               details="If you have questions about design, development, or anything in between, let’s connect!"
             />
           </div>
@@ -67,7 +68,7 @@
               </li>
               <li><router-link :to="{ name: '' }">Storybook</router-link></li>
               <li>
-                <router-link :to="{ name: 'Work' }">Recent Work</router-link>
+                <router-link :to="{ name: 'MoreWork' }">Recent Work</router-link>
               </li>
               <li>
                 <router-link :to="{ name: 'Links' }">Useful Links</router-link>
@@ -106,8 +107,8 @@
             </ol>
           </div>
         </div>
-      </Container>
-      <Container>
+      </GridContainer>
+      <GridContainer>
         <div class="">
           <p style="font-size: var(--font-xxs)">
             © 2022 Jacques Ramphal — Built with
@@ -121,8 +122,8 @@
             <a target="blank" href="https://www.netlify.com/">Netlify</a>.
           </p>
         </div>
-      </Container>
-    </Wrapper>
+      </GridContainer>
+    </GridWrapper>
   </AnimatedComponent>
 </template>
 <!-- <form
@@ -149,9 +150,9 @@
           </form> -->
 
 <script>
-import Wrapper from "@/components/grid/Wrapper.vue";
-import Container from "@/components/grid/Container.vue";
-import TextBlock from "@/stories/TextBlock.vue";
+import GridContainer from "@/components/grid/GridContainer.vue";
+import GridWrapper from "@/components/grid/GridWrapper.vue";
+import TextBlock from "@/components/TextBlock.vue";
 import AnimatedComponent from "./AnimatedComponent.vue";
 // import TextArea from "@/components/form/TextArea.vue";
 // import MyButton from "@/stories/Button.vue";
@@ -159,8 +160,8 @@ import AnimatedComponent from "./AnimatedComponent.vue";
 export default {
   name: "MainFooter",
   components: {
-    Wrapper,
-    Container,
+    GridContainer,
+    GridWrapper,
     TextBlock,
     AnimatedComponent,
   },
@@ -258,6 +259,18 @@ li:last-child
 li.external::after
   content: " ↗"
   color: var(--link)
+
+// #avatar 
+//   width: 120px 
+//   height: 120px
+//   aspect-ratio: 1 / 1
+//   background: url(@/assets/images/portrait.jpg)
+//   background-size: 100%
+
+#avatar:hover
+  animation: animate-shake 1s
+  background-image: url(@/assets/images/luna1.jpg)
+  animation-delay: 1s
 
 
 /* Monogram styling */

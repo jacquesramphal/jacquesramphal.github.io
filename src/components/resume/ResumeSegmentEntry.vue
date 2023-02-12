@@ -1,4 +1,6 @@
 <template>
+  <AnimatedComponent>
+
   <li class="resume-segment-entry">
     <h3 class="resume-segment-entry-title">
       <span v-if="title" v-text="title" />
@@ -38,6 +40,7 @@
       />
     </blockquote>
   </li>
+  </AnimatedComponent>
 </template>
 
 <script>

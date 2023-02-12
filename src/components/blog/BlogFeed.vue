@@ -1,23 +1,38 @@
 <template>
-  <Wrapper id="blog">
+  <GridWrapper id="blog">
+    <!-- <div class="showmobile scrolling-wrapper">
+      <DefaultCard
+        class="post card"
+        v-for="blogPost in contentful"
+        v-bind:key="blogPost.sys.id"
+        :image="blogPost.image"
+        :tag="blogPost.tag"
+        :imgurl="blogPost.imgurl"
+        :eyebrow="blogPost.tag"
+        :title="blogPost.title"
+        :description="blogPost.description"
+        :route="blogPost.route"
+        :label="blogPost.label"
+      />
+    </div> -->
     <!--  list view -->
-    <!-- <Container>
+    <!-- <GridContainer>
       <blog-post-entry
         v-for="blogPost in contentful"
         v-bind:key="blogPost.sys.id"
         :image="blogPost.image"
         :imgurl="blogPost.imgurl"
-        :category="blogPost.category"
+        :tag="blogPost.tag"
         :title="blogPost.title"
         :description="blogPost.description"
         :route="blogPost.route"
       />
-    </Container> -->
+    </GridContainer> -->
 
     <!--  card view -->
 
     <div class="">
-      <Container id="cards" style="overflow: visible">
+      <GridContainer id="cards" style="overflow: visible">
         <input type="radio" id="All" name="categories" value="All" checked />
         <input type="radio" id="CSS" name="categories" value="CSS" />
         <input
@@ -26,14 +41,13 @@
           name="categories"
           value="JavaScript"
         />
-        <input type="radio" id="Typography" name="categories" value="Typography" />
         <input
           type="radio"
-          id="Figma"
+          id="Typography"
           name="categories"
-          value="Figma"
+          value="Typography"
         />
-        
+        <input type="radio" id="Figma" name="categories" value="Figma" />
 
         <ol class="filters">
           <li>
@@ -51,66 +65,97 @@
           <li>
             <label for="Figma">Figma</label>
           </li>
-         
+
+          <!-- 
+          <MyButton
+            v-on:click="ChangeView"
+            label="Change View"
+            size="small"
+            route="#"
+          />
+
+          <p @click="(e) => e.target.classList.toggle('mystyle2')">Test</p> -->
         </ol>
-        <div class="grid-parent posts">
+        <div class="hs grid-parent posts" id="testDiv">
           <DefaultCard
             class="post"
             v-for="blogPost in contentful"
             v-bind:key="blogPost.sys.id"
             :image="blogPost.image"
-            :category="blogPost.category"
+            :tag="blogPost.tag"
             :imgurl="blogPost.imgurl"
-            :eyebrow="blogPost.category"
             :title="blogPost.title"
             :description="blogPost.description"
             :route="blogPost.route"
             :label="blogPost.label"
           />
-           <!-- <DefaultCard
-            class="post"
-            v-for="blogPost in contentful"
-            v-bind:key="blogPost.sys.id"
-            :image="blogPost.image"
-            :category="blogPost.category"
-            :imgurl="blogPost.imgurl"
-            :eyebrow="blogPost.category"
-            :title="blogPost.title"
-            :description="blogPost.description"
-            :route="blogPost.route"
-            :label="blogPost.label"
-          /> -->
         </div>
-      </Container>
+        <!-- <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard /> -->
+      </GridContainer>
     </div>
-  </Wrapper>
+  </GridWrapper>
 </template>
 
 <script>
 // import BlogPostEntry from "@/components/blog/BlogPostEntry.vue";
 import DefaultCard from "@/components/card/DefaultCard.vue";
-import Container from "@/components/grid/Container.vue";
-import Wrapper from "@/components/grid/Wrapper.vue";
 
 export default {
   name: "BlogFeed",
   components: {
     // BlogPostEntry,
-    Container,
-    Wrapper,
     DefaultCard,
+  },
+
+  // Testing Functions/Methods
+  methods: {
+    ChangeView: function () {
+      var e = document.getElementById("testDiv");
+      e.classList.toggle("mystyle");
+    },
+    // const testElements = document.getElementsByClassName('test');
+    // const testDivs = Array.prototype.filter.call(
+    //   testElements,
+    //   (testElement) => testElement.nodeName === 'DIV',
+    // );
   },
   props: {
     contentful: {
       type: Array,
       required: true,
-      // TODO: add validation
     },
   },
 };
 </script>
+<style scoped lang="scss">
 
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  .card {
+    margin: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-sm);
+    display: inline-block;
+    width: 85vw;
+  }
+  .card:last-child{
+    margin-right: var(--spacing-sm);
+  }
+}
+</style>
 <style scoped lang="sass">
+.mystyle
+  background: red
+.mystyle2
+  color: red
+  font-size: var(--font-xl)
+#blog
+  background: var(--bg-darker)
+
 .blog
   display: grid
   grid-gap: var(--spacing-xs)
@@ -150,7 +195,7 @@ input[type="radio"] {
 /* FILTERS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .filters {
-  text-align: right;
+  text-align: left;
   margin-bottom: 2rem;
 }
 
@@ -182,8 +227,6 @@ input[type="radio"] {
 [value="CSS"]:checked ~ .filters [for="CSS"],
 [value="JavaScript"]:checked ~ .filters [for="JavaScript"],
 [value="Figma"]:checked ~ .filters [for="Figma"],
-
-
 [value="All"]:checked ~ .posts [data-category] {
   display: block;
 }
@@ -191,8 +234,7 @@ input[type="radio"] {
 [value="CSS"]:checked ~ .posts .post:not([data-category~="CSS"]),
 [value="JavaScript"]:checked ~ .posts .post:not([data-category~="JavaScript"]),
 [value="Typography"]:checked ~ .posts .post:not([data-category~="Typography"]),
-[value="Figma"]:checked ~ .posts .post:not([data-category~="Figma"])
- {
+[value="Figma"]:checked ~ .posts .post:not([data-category~="Figma"]) {
   display: none;
 }
 </style>

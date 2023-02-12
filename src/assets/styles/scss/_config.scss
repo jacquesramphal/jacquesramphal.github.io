@@ -19,7 +19,8 @@
 
   /* NEUTRAL */
   --color: 0, 100%;
-  --l:50%; /*the initial lightness*/
+  --l: 50%;
+  /*the initial lightness*/
 
   --color-offblack: #1d1b22;
   --color-black: #030201;
@@ -47,7 +48,7 @@
   --color-red: #e74646;
   --color-green: #0dba38;
   --color-blue: #0086e6;
-  --color-purple: rgba(100,21,255,1);
+  --color-purple: rgba(100, 21, 255, 1);
   --color-lightpurple: #a099ff;
   --color-yellow: #fcb23b;
   --color-lightyellow: #ffdd9e;
@@ -95,6 +96,8 @@
   /* SPACING */
   --spacing-tight: -0.2rem;
   --spacing-normal: 0;
+  /* NEED TO APPLY DARK VERSIONS TO LOOSE */
+  --spacing-loose: 0.02rem;
   --spacing-reversed-tight: calc(var(--spacing-normal) - 0.12rem);
   --spacing-reversed-normal: 0.01rem;
 
@@ -103,6 +106,10 @@
   --spacing-xs: 1.6rem;
   --spacing-sm: 2.4rem;
   --spacing-md: 3.2rem;
+  
+  /* New, needed? */
+  --spacing-big: 4.8rem;
+
   /* --spacing-lg: 6.4rem; */
   --spacing-lg: 8rem;
   --spacing-xl: 12.8rem;

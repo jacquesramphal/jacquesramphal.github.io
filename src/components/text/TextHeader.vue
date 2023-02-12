@@ -29,7 +29,7 @@ export default {
     },
     tag2: {
       type: String,
-      default: "Category",
+      default: "tag",
     },
     description: {
       type: String,

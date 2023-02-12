@@ -1,0 +1,126 @@
+{
+  "entries": [
+    {
+      "id": 1,
+      "title": "Article Name 1",
+      "tag": "AAA  Typography Front-end",
+      "description": "This is a short description taken from the project and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
+      "btnroute": "post/1",
+      "cta": "Read More",
+      "thumbnail": "article/jacques.jpeg",
+      "alt": "Alt Test",
+      "bgcolor": "background-color: var(--bg-darker)",
+      "role": "Designer/Developer",
+      "type": "Project Type",
+      "year": "XXXX-XXXX",
+      "images": {
+        "filename1": "work/glo.svg",
+        "alt1": "This is Alt1",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "caption2": "This is a Caption2",
+        "alt2": "This is Alt2",
+        "filename3": "work/dod.svg",
+        "caption3": "This is a Caption3",
+        "alt3": "This is Alt3"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Article Name 2",
+      "tag": "Tag1  Tag2",
+      "description": "This is a description TWO",
+      "btnroute": "post/2",
+      "cta": "Read More",
+      "thumbnail": "article/jacques.jpeg",
+      "bgcolor": "background-color: var(--bg-darker)",
+      "role": "Designer/Developer",
+      "type": "Project Type",
+      "year": "XXXX-XXXX",
+      "images": {
+        "filename1": "work/glo.svg",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "filename3": "work/dod.svg"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Article Name 3",
+      "tag": "UX/UI  Product Design  Tag4",
+      "description": "This is a description",
+      "btnroute": "post/3",
+      "cta": "Read More",
+      "thumbnail": "article/jacques.jpeg",
+      "bgcolor": "background-color: var(--bg-darker)",
+      "role": "Designer/Developer",
+      "type": "Project Type",
+      "year": "XXXX-XXXX",
+      "images": {
+        "filename1": "work/glo.svg",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "filename3": "work/dod.svg"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Article Name 4",
+      "tag": "UX/UI  Product Design  Tag4",
+      "description": "This is a description",
+      "btnroute": "post/3",
+      "cta": "Read More",
+      "thumbnail": "article/jacques.jpeg",
+      "bgcolor": "background-color: var(--bg-darker)",
+      "role": "Designer/Developer",
+      "type": "Project Type",
+      "year": "XXXX-XXXX",
+      "images": {
+        "filename1": "work/glo.svg",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "filename3": "work/dod.svg"
+      }
+    },
+    {
+      "id": 5,
+      "title": "Article Name TWO",
+      "tag": "Tag1  Tag2",
+      "description": "This is a description TWO",
+      "btnroute": "post/2",
+      "cta": "Read More",
+      "tag": "tag1 tag2",
+      "thumbnail": "article/jacques.jpeg",
+      "bgcolor": "background-color: var(--bg-darker)",
+      "role": "Designer/Developer",
+      "type": "Project Type",
+      "year": "XXXX-XXXX",
+      "images": {
+        "filename1": "work/glo.svg",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "filename3": "work/dod.svg"
+      }
+    },
+    {
+      "id": 6,
+      "title": "Article Name 3",
+      "tag": "UX/UI  Product Design  Tag4",
+      "description": "This is a description This is a description This is a description This is a description This is a description",
+      "btnroute": "post/3",
+      "cta": "Read More",
+      "tag": "tag1 tag2",
+      "thumbnail": "article/jacques.jpeg",
+      "bgcolor": "background-color: var(--bg-darker)",
+      "role": "Designer/Developer",
+      "type": "Project Type",
+      "year": "XXXX-XXXX",
+      "images": {
+        "filename1": "work/glo.svg",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "filename3": "work/dod.svg"
+      }
+    }
+  ]
+}

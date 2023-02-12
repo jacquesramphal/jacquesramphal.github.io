@@ -1,37 +1,52 @@
 <template>
   <AnimatedComponent>
-    <Wrapper id="hero-banner" :class="classes">
-      <Container>
-        <nav class="animate delay-1">
-          <p id="wordmark" class="subtle" v-if="eyebrow" v-text="eyebrow" />
-        </nav>
-      </Container>
-      <Container>
-        <div id="hero-text" class="animate glow">
+    <!-- Background url as prop but not working -->
+    <!-- <GridWrapper id="hero-banner" :class="classes" style="background: url('require(`@/assets/images/${filename}`)')">-->
+
+    <GridWrapper id="hero-banner" :class="classes">
+      <img
+        draggable="false"
+        :src="require(`@/assets/images/${filename}`)"
+        :alt="`${alt}`"
+      />
+      <GridContainer>
+        <div class="animate fade delay-3">
+          <p id="eyebrow" class="subtle" v-if="eyebrow" v-text="eyebrow" />
+        </div>
+      </GridContainer>
+      <GridContainer>
+        <div id="hero-text" class="animate glow delay-1">
           <h2>
             {{ title }}
           </h2>
-          <h5
+          <p id="tags" v-if="tag" v-text="tag" class="subtle" />
+
+          <p
             v-if="subtitle"
             v-text="subtitle"
-            class=""
+            class="subtitle"
             style="font-weight: var(--font-medium)"
           />
-          <div id="hero-cta" v-show="label">
 
-          <!-- refactor button and props -->
-            <span style="gap: 2rem; display: flex;" ><MyButton :label="`${label}`" size="large" :route="`${route}`" />
-            <MyButton secondary :label="`${label}`" size="large" :route="`${route}`" />
+          <div id="hero-cta" v-show="label">
+            <!-- refactor button and props -->
+            <span style="gap: 2rem; display: flex"
+              ><MyButton :label="`${label}`" size="large" :route="`${route}`" />
+              <MyButton
+                secondary
+                :label="`${label}`"
+                size="large"
+                :route="`${route}`"
+              />
             </span>
           </div>
         </div>
-      </Container>
-    </Wrapper>
+      </GridContainer>
+    </GridWrapper>
   </AnimatedComponent>
 </template>
 
 <script>
-
 export default {
   name: "HeroBanner",
   props: {
@@ -49,6 +64,11 @@ export default {
       type: String,
       default: "Banner Title",
     },
+    tag: {
+      type: String,
+      required: false,
+      default: "",
+    },
     subtitle: {
       type: String,
     },
@@ -58,8 +78,29 @@ export default {
     label: {
       type: String,
     },
+    filename: {
+      type: String,
+      default: "jacques.jpeg",
+    },
+    // Background url as prop but not working
+
+    // bgimg: {
+    //   type: String,
+    //   default: "url(../assets/images/jacques.jpeg)",
+    // },
+
+    // filename: {
+    //   type: String,
+    //   default: "jacques.jpeg",
+    // },
+
     // Override props
     background: {
+      type: Boolean,
+      default: false,
+      required: true,
+    },
+    center: {
       type: Boolean,
       default: false,
       required: true,
@@ -71,6 +112,9 @@ export default {
         herobanner: true,
         "herobanner--background": this.background,
         "herobanner--normal": !this.background,
+
+        "herobanner--center": this.center,
+        // "herobanner--left": !this.center,
       };
     },
   },
@@ -82,25 +126,68 @@ export default {
   color: inherit
   mix-blend-mode: normal
 
+#hero-text
+  z-index: 1000
+.subtitle
+  max-width: 86.4rem
+
+img
+  display: none
+#tags
+  word-spacing: 2rem
+  // color: var(--link)
 .herobanner
+  position: relative
+  overflow: hidden !important
   display: grid
   min-height: 320px
   background-repeat: no-repeat
   background-size: cover
   background-position: 50% 0%
+
   @media only screen and (min-width: 740px)
     background-repeat: no-repeat
     background-size: cover
     background-position: 100% 50%
-
 .herobanner--normal
   // background: var(--bg-darker)
   // border-bottom: var(--border)
 
 .herobanner--background
-  background-image: url("../assets/images/jacques.jpeg")
+  // background-image: url("../assets/images/jacques.jpeg")
   color: white !important
   text-shadow: var(--shadow-hover)
+  overflow: hidden !important
+  img
+    border-radius: 0px !important
+    overflow: hidden !important
+    display: block
+    mix-blend-mode: normal
+    position: absolute
+    z-index: 0
+    width: 100%
+    height: auto
+    min-height: 100%
+    // max-height: 100%
+    // max-width: 100%
+    object-fit: cover !important
+  #hero-text
+      h2
+        font-weight: 700 !important
+        letter-spacing: calc(0.01rem - 0.12rem)
+        // letter-spacing: -0.11rem
+
+.herobanner--center
+  #hero-text
+    @media only screen and (min-width: 740px)
+      justify-self: center
+      text-align: center !important
+  .subtitle
+    max-width: 86.4rem !important
+    float: none
+    margin-left: auto
+    margin-right: auto
+
 
 #hero-text
   display: grid

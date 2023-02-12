@@ -1,36 +1,33 @@
 <template>
-  <Wrapper id="textimage" :class="classes">
-    <Container tight style="padding: 0 !important">
+  <GridWrapper :class="classes">
+    <GridContainer tight style="padding: 0 !important">
       <div id="grid-parent" class="grid-parent">
-        <Container tight class="imgcontainer">
-          <img
-            class="splitimg"
-            draggable="false"
-            :src="require(`@/assets/images/${filename}`)"
-            :alt="`${alt}`"
-        /></Container>
-        <Container class="textcontainer">
+        <GridContainer class="textcontainer fadeInUp">
           <TextBlock
             :header="`${header}`"
             :cta="`${cta}`"
             :route="`${route}`"
             :details="`${details}`"
           />
-        </Container></div></Container
-  ></Wrapper>
+        </GridContainer>
+        <GridContainer class="imgcontainer fadeInLeft">
+          <img
+            class="splitimg"
+            draggable="false"
+            :src="require(`@/assets/images/${filename}`)"
+            :alt="`${alt}`"
+        /></GridContainer></div></GridContainer
+  ></GridWrapper>
 </template>
 <script>
-import TextBlock from "@/stories/TextBlock.vue";
-import Container from "@/components/grid/Container.vue";
-import Wrapper from "@/components/grid/Wrapper.vue";
+// Import GSAP and ScrollTrigger
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: "TextImage",
-  components: {
-    Container,
-    TextBlock,
-    Wrapper,
-  },
+  components: {},
   props: {
     header: {
       type: String,
@@ -55,6 +52,8 @@ export default {
     },
     route: {
       type: String,
+      default: "",
+      required: false,
     },
     flipped: {
       type: Boolean,
@@ -79,6 +78,116 @@ export default {
         "textimage-color--default": !this.red,
       };
     },
+  },
+  mounted() {
+    const fadeInUp = gsap.utils.toArray(".fadeInUp");
+    const fadeInDown = gsap.utils.toArray(".fadeInDown");
+    const fadeInRight = gsap.utils.toArray(".fadeInRight");
+    const fadeInLeft = gsap.utils.toArray(".fadeInLeft");
+    const parallaxBack = gsap.utils.toArray(".parallaxBack");
+    const parallaxFront = gsap.utils.toArray(".parallaxFront");
+
+    
+    // Not working for multiple instances when duplicating textImage on projectPage, lags and hides component
+
+    fadeInUp.forEach((fadeInUp) => {
+      gsap.from(fadeInUp, {
+        scrollTrigger: {
+          trigger: fadeInUp,
+          start: "top bottom",
+          end: "bottom bottom",
+          scrub: 1,
+          toggleActions: "restart pause reverse pause",
+        },
+        autoAlpha: 0,
+        y: 100,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    fadeInDown.forEach((fadeInDown) => {
+      gsap.from(fadeInDown, {
+        scrollTrigger: {
+          trigger: fadeInDown,
+          start: "top bottom",
+          end: "bottom bottom",
+          scrub: 1,
+          toggleActions: "restart pause reverse pause",
+        },
+        autoAlpha: 0,
+        y: -100,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    fadeInRight.forEach((fadeInRight) => {
+      gsap.from(fadeInRight, {
+        scrollTrigger: {
+          trigger: fadeInRight,
+          start: "top bottom",
+          end: "bottom bottom",
+          scrub: 1,
+          toggleActions: "restart pause reverse pause",
+        },
+        autoAlpha: 0,
+
+        x: 100,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    fadeInLeft.forEach((fadeInLeft) => {
+      gsap.from(fadeInLeft, {
+        scrollTrigger: {
+          trigger: fadeInLeft,
+          start: "top bottom",
+          end: "bottom bottom",
+          scrub: 1,
+          toggleActions: "restart pause reverse pause",
+        },
+        autoAlpha: 0,
+
+        x: -100,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    fadeInRight.forEach((fadeInRight) => {
+      gsap.from(fadeInRight, {
+        scrollTrigger: {
+          trigger: fadeInRight,
+          start: "top bottom",
+          end: "bottom bottom",
+          scrub: 1,
+          toggleActions: "restart pause reverse pause",
+        },
+        x: 100,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    parallaxBack.forEach((parallaxBack) => {
+      gsap.to(parallaxBack, {
+        scrollTrigger: {
+          trigger: parallaxBack,
+          scrub: true,
+        },
+        yPercent: 10,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    parallaxFront.forEach((parallaxFront) => {
+      gsap.to(parallaxFront, {
+        scrollTrigger: {
+          trigger: parallaxFront,
+          scrub: true,
+        },
+        yPercent: -10,
+        duration: 3,
+        ease: "none",
+      });
+    });
   },
 };
 </script>
@@ -106,7 +215,10 @@ export default {
   grid-template-rows: repeat(2, 1fr)
   #textblock
     // align-self: center !important
+    padding-top: var(--spacing-xs)
     @media only screen and (min-width: 740px)
+      padding-top: 0
+
   img
     width: 100%
     height: 100%
@@ -124,8 +236,13 @@ export default {
       // @media screen and (-webkit-min-device-pixel-ratio:0)
       //   height: auto
       //   background: yellow
+  .imgcontainer
+    padding-top: 0 !important
+    @media only screen and (min-width: 740px)
+      padding-top: var(--spacing-lg) !important
+
   .textcontainer
-    // align-self: center
+    align-self: center
     display: block
     grid-column: auto
     // grid-row: 2 / 2
