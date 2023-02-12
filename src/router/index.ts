@@ -1,7 +1,6 @@
 import TheLogin from "@/components/TheLogin.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
-import BlogPost from "@/components/blog/BlogPost.vue";
 import InfoPage from "@/pages/InfoPage.vue";
 import MyLibrary from "@/pages/MyLibrary.vue";
 import MaintenancePage from "@/pages/misc/MaintenancePage.vue";
@@ -33,16 +32,17 @@ const routes = [
       hidePageWrapper: true,
     },
   },
-  // {
-  //   path: "/login",
-  //   name: "Login",
-  //   component: TheLogin,
-  // },
   {
-    // redirect: "/brb",
+    path: "/login",
+    name: "Login",
+    component: TheLogin,
+  },
+  {
     path: "/",
+    redirect: { name: 'MaintenancePage' },
     name: "Home",
     component: HomePage,
+    children: [],
     meta: {
       hideNav: false,
     },
@@ -75,11 +75,6 @@ const routes = [
     name: "Blog",
     component: MyBlog,
   },
-  // {
-  //   path: "/post",
-  //   name: "post",
-  //   component: BlogPost,
-  // },
   {
     path: "/library2",
     name: "Library",
