@@ -2,7 +2,7 @@
   "entries": [
     {
       "id": 1,
-      "title": "Project Name ONE",
+      "title": "Project Name 1",
       "tag": "AAA  Typography Front-end",
       "description": "This is a short description taken from the project and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
       "btnroute": "project/1",
@@ -27,7 +27,7 @@
     },
     {
       "id": 2,
-      "title": "Project Name TWO",
+      "title": "Project Name 2",
       "tag": "tag1  tag2",
       "description": "This is a description TWO",
       "btnroute": "project/2",
@@ -50,6 +50,25 @@
       "tag": "UX/UI  Product Design  tag4",
       "description": "This is a description",
       "btnroute": "project/3",
+      "cta": "Read More",     
+      "thumbnail": "templates/template-desktop-blank.svg",
+      "bgcolor": "background-color: var(--bg-darker)",
+      "role":"Designer/Developer",
+      "type":"Project Type",
+      "year":"XXXX-XXXX",
+      "images": {
+        "filename1": "work/glo.svg",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "filename3": "work/dod.svg"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Project Name 4",
+      "tag": "UX/UI  Product Design  tag4",
+      "description": "This is a description",
+      "btnroute": "project/4",
       "cta": "Read More",     
       "thumbnail": "templates/template-desktop-blank.svg",
       "bgcolor": "background-color: var(--bg-darker)",

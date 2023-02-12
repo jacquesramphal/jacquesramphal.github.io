@@ -2,7 +2,7 @@
   "entries": [
     {
       "id": 1,
-      "title": "Article NAMA ONE",
+      "title": "Article Name 1",
       "tag": "AAA  Typography Front-end",
       "description": "This is a short description taken from the project and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
       "btnroute": "post/1",
@@ -27,7 +27,7 @@
     },
     {
       "id": 2,
-      "title": "Article Name TWO",
+      "title": "Article Name 2",
       "tag": "Tag1  Tag2",
       "description": "This is a description TWO",
       "btnroute": "post/2",
@@ -65,7 +65,7 @@
     },
     {
       "id": 4,
-      "title": "Article Name 3",
+      "title": "Article Name 4",
       "tag": "UX/UI  Product Design  Tag4",
       "description": "This is a description",
       "btnroute": "post/3",
