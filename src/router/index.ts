@@ -38,8 +38,8 @@ const routes = [
     component: TheLogin,
   },
   {
+    // redirect: { name: 'MaintenancePage' },
     path: "/",
-    redirect: { name: 'MaintenancePage' },
     name: "Home",
     component: HomePage,
     children: [],

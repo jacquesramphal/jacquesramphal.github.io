@@ -8,24 +8,24 @@
     />
     <label for="checkbox" class="switch-label">
       <!--<span><a><p>Theme</p></a></span>-->
-<!-- 
+
       <TextLink
-      cta="test"
+        cta="test"
         class="switch-toggle"
         :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
-      /> -->
+      />
       <!-- <h6
         class="switch-toggle"
         :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
       ></h6> -->
-      <img
+      <!-- <img
           class="justify-end"
           draggable="false"
           src="favicon2.svg"
           alt="theme-toggle"
           style="width: var(--spacing-big); border-radius: 0 !important;"
-        />
-        <!-- <svg width="52px" viewBox="0 0 35 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        /> -->
+      <svg width="52px" viewBox="0 0 35 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>J Unicorn - UX Generalist</title>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Group" transform="translate(1.000000, 1.000000)">
@@ -45,7 +45,7 @@
             </g>
         </g>
     </g>
-</svg> -->
+</svg>
     </label>
   </div>
 </template>
@@ -92,13 +92,13 @@ export default {
 <style lang="sass" scoped>
 
 /* Monogram styling */
-// #monogram
-//   transition: all .5s ease-in-out
-//   z-index: 10000
+#monogram
+  transition: all .5s ease-in-out
+  z-index: 10000
 
-// #monogram:hover
-//   stroke-dasharray: 100
-//   animation: dash infinite 10s ease-in-out
+#monogram:hover
+  stroke-dasharray: 100
+  animation: dash infinite 10s ease-in-out
 
 :active
   outline: transparent
@@ -129,7 +129,15 @@ export default {
   @media only screen and (min-width: 740px)
     padding: var(--spacing-lg)
 
-.switch-label:hover
+    .switch-toggle
+  display: grid
+  justify-items: center
+  align-items: center
+  text-align: center
+  font-size: var(--font-xs)
+
+
+// .switch-label:hover
   // box-shadow: var(--shadow-hover)
   // background: var(--bg-darker)
 
@@ -147,36 +155,33 @@ export default {
 // .switch-toggle-checked::before
 //   content: "🌔"
 
+
 // UNICODE SWITCH
-.switch-toggle
-  display: grid
-  justify-items: center
-  align-items: center
-  text-align: center
-  font-size: var(--font-sm)
 
-.switch-toggle::before
-  content: "⊚"
+// .switch-toggle::before
+//   content: "⊚"
 
-.switch-toggle:hover::before
-  content: "⊚"
+// .switch-toggle:hover::before
+//   content: "⊚"
 
-.switch-toggle:active::before
-  content: "⊖"
+// .switch-toggle:active::before
+//   content: "⊖"
 
-.switch-toggle-checked::before
-  content: "⊚"
+// .switch-toggle-checked::before
+//   content: "⊚"
 
 
 
 // TEXT SWITCH
 // .switch-toggle::before
-//   content: "Zzz"
+//   content: "Light"
 //   padding-left: 1rem
 
 // .switch-toggle-checked::before
-//   content: "zZZ"
+//   content: "Dark"
 
+
+  // Moving toggle
 
 // .switch-toggle
 //   position: absolute
