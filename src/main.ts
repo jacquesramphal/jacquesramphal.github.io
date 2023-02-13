@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import { init, track, parameters } from "insights-js";
+// import { init, track, parameters } from "insights-js";
 
 
 // Global Components
@@ -55,7 +55,7 @@ export const appear: Directive = {
 };
 const app = createApp(App);
 app
-  .use(router, init, track, parameters)
+  .use(router)
   .directive("appear", appear)
   .mount("#app");
 
