@@ -1,32 +1,17 @@
 <template>
-  <GridWrapper>
-    <HeroBg
-      header="Thanks for visiting my site. Im pushing pixels and will be back soon."
+  <PageWrapper>
+    <HeroBanner
+      eyebrow="Jake Ramphal"
+      title="Welcome to my online playground. Im pushing pixels and will be back soon. If you’d like to connect, email me at jake@ramphal.design."
     />
-  </GridWrapper>
+  </PageWrapper>
 </template>
 
 <script>
-import HeroBg from "@/components/HeroBg.vue";
-
 export default {
   name: "MaintenancePage",
-  components: {
-    HeroBg,
-  },
+  components: {},
 };
 </script>
 
-<style scoped>
-* {
-  color: inherit;
-  mix-blend-mode: normal;
-}
-
-.grid-parent {
-  grid-gap: var(--spacing-lg) !important;
-}
-#stickynav .container {
-  display: none !important;
-}
-</style>
+<style scoped></style>
