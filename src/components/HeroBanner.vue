@@ -10,13 +10,13 @@
         :alt="`${alt}`"
       />
       <GridContainer>
-        <div class="animate fade delay-3">
+        <div v-if="eyebrow" class="animate fade delay-3">
           <p id="eyebrow" class="subtle" v-if="eyebrow" v-text="eyebrow" />
         </div>
       </GridContainer>
       <GridContainer>
         <div id="hero-text" class="animate glow delay-1">
-          <h2>
+          <span><h2 id="title">
             {{ title }}
           </h2>
           <p id="tags" v-if="tag" v-text="tag" class="subtle" />
@@ -24,7 +24,7 @@
           <p
             v-if="subtitle"
             v-text="subtitle"
-            class="subtitle"
+            id="subtitle"
             style="font-weight: var(--font-medium)"
           />
 
@@ -40,6 +40,7 @@
               />
             </span>
           </div>
+        </span>
         </div>
       </GridContainer>
     </GridWrapper>
@@ -128,20 +129,35 @@ export default {
 
 #hero-text
   z-index: 1000
-.subtitle
-  max-width: 86.4rem
-  width: 100%
+  overflow-wrap: break-word
+  word-wrap: break-word
+  hyphens: auto
 
 img
   display: none
+#eyebrow
+  margin-bottom: 4rem
+#title 
 #tags
+  color: var(--link)
+  margin-top: 2rem
   word-spacing: 2rem
-  // color: var(--link)
+  @media only screen and (min-width: 740px)
+    margin-top: 3.2rem
+
+#subtitle
+  margin-top: 2rem 
+  max-width: 86.4rem
+  width: 100%
+  @media only screen and (min-width: 740px)
+    margin-top: 3.2rem 
+  @media only screen and (min-width: 1201px)
+
 .herobanner
   position: relative
   overflow: hidden !important
   display: grid
-  min-height: 320px
+  min-height: 48rem
   background-repeat: no-repeat
   background-size: cover
   background-position: 50% 0%
@@ -192,11 +208,12 @@ img
 
 #hero-text
   display: grid
-  grid-row: 1 / 8
-  gap: var(--spacing-md)
+  // grid-row: 1 / 8
   justify-content: left
   text-align: left
   align-items: end !important
+  @media only screen and (min-width: 740px)
+    // gap: var(--spacing-md)
   @media only screen and (min-width: 1201px)
     max-width: 75vw
 </style>
