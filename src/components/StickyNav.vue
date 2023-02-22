@@ -13,7 +13,7 @@
           tabindex="0"
         >
           <router-link :to="{ name: 'Home' }"
-            ><strong>Jacques Ramphal</strong></router-link
+            >Jacques Ramphal</router-link
           >
         </h1>
 
@@ -29,11 +29,12 @@
         </h1>
         <ul class="justify-end">
           <li class="nav-link" tabindex="0">
-            <router-link :to="{ name: 'Resume' }">info</router-link>
+            <router-link :to="{ name: 'Blog' }">docs</router-link>
           </li>
           <li class="nav-link" tabindex="0">
-            <router-link :to="{ name: 'Blog' }">library</router-link>
+            <router-link :to="{ name: 'Resume' }">info</router-link>
           </li>
+          
           <!-- <li class="nav-link" tabindex="0">
             <router-link class="isDisabled" to="blog">writing</router-link>
           </li> -->
@@ -139,7 +140,6 @@ export default {
 .navbar.hidden-navbar {
   transform: translate3d(0, 150%, 0) !important;
 }
-
 .bg {
   transition: 0.5s box-shadow ease-in-out !important;
   align-items: middle;

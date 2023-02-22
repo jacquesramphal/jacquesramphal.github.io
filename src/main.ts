@@ -4,6 +4,7 @@ import App from "./App.vue";
 
 
 // Global Components
+import BlogFeed from "@/components/blog/BlogFeed.vue";
 import AnimatedComponent from "@/components/AnimatedComponent.vue";
 import BlogCard from "@/components/card/BlogCard.vue";
 import CardRow from "@/components/CardRow.vue";
@@ -84,4 +85,5 @@ app
   .component("FilterBar", FilterBar)
   .component("StatsBar", StatsBar)
   .component("DefaultCard", DefaultCard)
+  .component("BlogFeed", BlogFeed)
   

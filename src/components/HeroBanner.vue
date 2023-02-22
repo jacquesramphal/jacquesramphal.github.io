@@ -19,7 +19,7 @@
           <span><h2 id="title">
             {{ title }}
           </h2>
-          <p id="tags" v-if="tag" v-text="tag" class="subtle" />
+          <h6 id="tags" v-if="tag" v-text="tag" class="subtle" />
 
           <p
             v-if="subtitle"
@@ -144,7 +144,7 @@ img
 // #title 
   
 #tags
-  color: var(--link)
+  // color: var(--link)
   margin-top: 2rem
   word-spacing: 2rem
   @media only screen and (min-width: 740px)
@@ -162,7 +162,7 @@ img
   position: relative
   overflow: hidden !important
   display: grid
-  min-height: 48rem
+  min-height: 40vh
   background-repeat: no-repeat
   background-size: cover
   background-position: 50% 0%

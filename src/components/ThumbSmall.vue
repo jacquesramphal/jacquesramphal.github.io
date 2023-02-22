@@ -121,6 +121,8 @@ figcaption
     font-weight: var(--font-reversed-bold) !important
   p
     font-weight: var(--font-reversed-medium) !important
+  // h6  
+  //   color: var(--link-reversed)
 
 // .grid-card:hover 
 //   transform: scale(1.01)

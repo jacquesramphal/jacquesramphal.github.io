@@ -23,9 +23,8 @@
       </li>
     </ul> -->
     <CardRow2 />
-    <CardRow2 />
 
-    <BlogFeed :contentful="contentful" />
+    <!-- <BlogFeed :contentful="contentful" /> -->
     <!-- <BlogCard />
     <BlogCard />
     <BlogCard /> -->
@@ -35,7 +34,6 @@
 
 <script>
 import PageWrapper from "@/components/grid/PageWrapper.vue";
-import BlogFeed from "@/components/blog/BlogFeed.vue";
 // import BlogCard from "@/components/card/BlogCard.vue";
 // import BlogPost from "@/components/blog/BlogPost.vue";
 
@@ -46,7 +44,6 @@ export default {
   name: "MyBlog",
   components: {
     PageWrapper,
-    BlogFeed,
     // BlogCard,
   },
   data() {

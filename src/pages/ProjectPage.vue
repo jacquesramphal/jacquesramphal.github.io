@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper id="project" class="">
+  <PageWrapper id="work" class="">
     <!-- Replace this transition component with lifecycle hooks, see vue 3 tutorial -->
     <HeroBanner
       center
@@ -29,7 +29,6 @@
               eyebrow=""
               header="Section 1"
               :details="`${entry.description}`"
-              :blockquote="`${entry.description}`"
             />
 
             <TextBlock
@@ -59,7 +58,7 @@
 </template>
 
 <script>
-import projectData from "@/assets/data/projects.json";
+import workData from "@/assets/data/work.json";
 
 // Import GSAP and ScrollTrigger
 import { gsap } from "gsap";
@@ -70,11 +69,11 @@ export default {
   name: "ProjectPage",
   components: {},
   computed: {
-    projectId() {
+    workId() {
       return parseInt(this.$route.params.id);
     },
     entry() {
-      return projectData.entries.find((entry) => entry.id == this.projectId);
+      return workData.entries.find((entry) => entry.id == this.workId);
     },
   },
   mounted() {

@@ -207,8 +207,8 @@ figcaption {
 strong {
   font-weight: var(--font-bold);
   background: -webkit-linear-gradient(top left,
-      var(--link-reversed),
-      var(--link-reversed));
+      var(--link),
+      var(--link));
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }

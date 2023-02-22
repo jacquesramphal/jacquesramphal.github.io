@@ -3,8 +3,12 @@
     class=""
     style="overflow: visible !important; background-color: var(--bg-darker)"
   >
-    <GridContainer
+    <!-- <GridContainer
       class="hidemobile"
+      id="cards"
+      style="overflow: visible !important"
+    > -->
+    <GridContainer
       id="cards"
       style="overflow: visible !important"
     >
@@ -24,7 +28,7 @@
 
       <div class="grid-parent">
         <DefaultCard
-          v-for="entry in articles.entries"
+          v-for="entry in docs.entries"
           :key="entry.id"
           :image="entry.image"
           :tag="entry.tag"
@@ -36,7 +40,7 @@
         />
       </div>
     </GridContainer>
-    <GridContainer
+    <!-- <GridContainer
       class="showmobile"
       style="padding-bottom: 0 !important; overflow: visible !important"
     >
@@ -53,10 +57,10 @@
           <router-link :to="{ name: 'Blog' }">View All</router-link>
         </p>
       </div>
-    </GridContainer>
+    </GridContainer> -->
 
-    <div class="showmobile scrolling-wrapper">
-      <div class="cardmobile" v-for="entry in articles.entries"
+    <!-- <div class="showmobile scrolling-wrapper">
+      <div class="cardmobile" v-for="entry in docs.entries"
           :key="entry.id">
         <DefaultCard
           :image="entry.image"
@@ -68,12 +72,12 @@
           :label="entry.label"
         />
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-import articles from "@/assets/data/articles.json";
+import docs from "@/assets/data/docs.json";
 
 export default {
   name: "CardRow2",
@@ -87,7 +91,7 @@ export default {
   },
   data() {
     return {
-      articles,
+      docs,
     };
   },
 };

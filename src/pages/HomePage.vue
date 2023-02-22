@@ -66,19 +66,19 @@
           alt="Template Project"
           filename="templates/template-desktop-blank.svg"
           title="Small Template"
-          route="project"
-          details="This is a project description that would give a preview into the project..."
+          route="work"
+          details="This is a work description that would give a preview into the work..."
         />
         <ThumbDetail
           alt="Project Template"
           filename="templates/template-v2.svg"
           style="background-color: #35363a"
           title="Project Title"
-          route="project"
-          details="This is a project description that would give a preview into the project..."
+          route="work"
+          details="This is a work description that would give a preview into the work..."
         />
         <ThumbSmall
-          v-for="entry in projects.entries"
+          v-for="entry in works.entries"
           :key="entry.id"
           class="post"
           :eyebrow="entry.tag"
@@ -101,27 +101,27 @@
       /> -->
     </GridContainer>
     <!-- <TextImage/> -->
-    <!-- <CardRow /> -->
-    <!-- <CardRow2 /> -->
+    <!-- <CardRow />
+    <CardRow2 /> -->
   </PageWrapper>
 </template>
 
 <script>
-import projects from "@/assets/data/projects.json";
+import works from "@/assets/data/work.json";
 
 export default {
   name: "HomePage",
   components: {
   },
   props: {
-    // project: {
+    // work: {
     //   type: Object,
     //   required: true,
     // },
   },
   data() {
     return {
-      projects,
+      works,
       // contentful: [],
     };
   },

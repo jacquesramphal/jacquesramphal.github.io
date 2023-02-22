@@ -4,10 +4,10 @@
     <h3 tabIndex="0" v-if="header" v-text="header" />
     <h4 tabIndex="0" v-if="header4" v-text="header4" />
     <h5 tabIndex="0" v-if="header5" v-text="header5" />
-    <p id="" class="details" tabIndex="0" v-if="details" v-text="details" />
+    <p id="" class="details" tabIndex="0" v-if="details" v-html="details" />
     <TextLink v-if="route" :label="`${cta}`" :route="`${route}`" />
     <TextLink v-if="link" :label="`${cta}`" :link="`${link}`" />
-    <blockquote v-if="blockquote" v-text="blockquote" />
+    <!-- <blockquote v-if="blockquote" v-text="blockquote" /> -->
     <MyButton
       id="btn"
       v-if="btnroute"
@@ -49,11 +49,11 @@ export default {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       required: false,
     },
-    blockquote: {
-      type: String,
-      default: "",
-      required: false,
-    },
+    // blockquote: {
+    //   type: String,
+    //   default: "",
+    //   required: false,
+    // },
     center: {
       type: Boolean,
       default: false,
