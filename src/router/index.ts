@@ -20,6 +20,7 @@ const routes = [
     component: NotFound,
     meta: {
       hidePageWrapper: true,
+      hideFooter: true,
     },
   },
   {
@@ -90,7 +91,6 @@ const routes = [
     path: "/doc/:id",
     component: DocPage,
   },
-
 ];
 
 const router = createRouter({

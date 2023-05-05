@@ -39,7 +39,7 @@
         </li>
       </ol>
       <div id="recentwork" class="posts grid-parent">
-        <ThumbSmall
+        <ImageCard
           v-for="entry in works.entries"
           :key="entry.id"
           class="post"

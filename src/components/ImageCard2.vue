@@ -1,8 +1,5 @@
 <template>
   <span class="grid-card">
-    <!-- <span tabindex="0" class="caption">
-      <p tabIndex="0" class="">{{ title }}</p>
-    </span> -->
     <span class="overlay"> </span>
     <div id="avatar" draggable="false" :alt="`${alt}`" />
   </span>
@@ -10,9 +7,8 @@
 
 <script>
 export default {
-  name: "ThumbSmall2",
+  name: "ImageCard2",
   props: {
-    // title: String,
     filename: String,
     alt: {
       type: String,
@@ -23,8 +19,6 @@ export default {
 </script>
 
 <style scoped>
-
-
 #avatar {
   cursor: help;
   height: 100%;
@@ -34,14 +28,7 @@ export default {
   background-size: cover;
   background-image: url("../assets/images/avatar/avatar.svg");
   filter: var(--filter);
-
 }
-/* @media (prefers-color-scheme: dark) {
-  #avatar {
-      background-image: url("../assets/images/avatar/avatar-alt.svg");
-
-  }
-} */
 span:hover > #avatar {
   background-image: url("../assets/images/avatar/avatar-h.svg");
 }

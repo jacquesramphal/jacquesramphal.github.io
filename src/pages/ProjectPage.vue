@@ -1,64 +1,84 @@
 <template>
   <PageWrapper id="work" class="">
-    <!-- Replace this transition component with lifecycle hooks, see vue 3 tutorial -->
     <HeroBanner
-      center
+      overlap
       eyebrow=""
+      :filename="`${entry.thumbnail}`"
       :key="entry.id"
       :title="`${entry.title}`"
-      :subtitle="`${entry.description}`"
-      :tag="`${entry.tag}`"
     />
 
-    <GridContainer class="animate glow delay-2">
-      <ThumbLarge
+    <DetailCard2
+      id="detail1"
+      class=""
+      label1="Role"
+      :value1="`${entry.role}`"
+      label2="Type"
+      :value2="`${entry.type}`"
+      label3="Year"
+      :value3="`${entry.year}`"
+      :subtitle="`${entry.subtitle}`"
+      :description="`${entry.description}`"
+    />
+    <TextImage class="fadeInLeft" />
+    <div v-html="htmlContent"></div>
+
+    <!-- <StatsBar
+      label1="Role"
+      :value1="`${entry.role}`"
+      label2="Type"
+      :value2="`${entry.type}`"
+      label3="Year"
+      :value3="`${entry.year}`"
+    /> -->
+    <!-- <ProjectPreview
+      screenshotUrl="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/091abd59-87bb-46c8-92d2-14d6faf629d1/d2hr6ab-356b2e45-5725-4994-9851-a754ea9fd5bc.jpg/v1/fill/w_1600,h_1000,q_75,strp/desktop_screenshot_by_juggleboy711.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl0sIm9iaiI6W1t7InBhdGgiOiIvZi8wOTFhYmQ1OS04N2JiLTQ2YzgtOTJkMi0xNGQ2ZmFmNjI5ZDEvZDJocjZhYi0zNTZiMmU0NS01NzI1LTQ5OTQtOTg1MS1hNzU0ZWE5ZmQ1YmMuanBnIiwid2lkdGgiOiI8PTE2MDAiLCJoZWlnaHQiOiI8PTEwMDAifV1dfQ.6FQZz6R88KV-NlQ73JUgAEXGSOEMK6oDdhQbXB0pxaw"
+    /> -->
+    <GridContainer class="fadeInLeft">
+      <ImageCard
+        large
         title=""
         :filename="`${entry.images.filename1}`"
         :alt="`${entry.alt}`"
         route=""
+        caption="This is a caption."
       />
     </GridContainer>
-
-    <!-- Section 1 - START -->
-    <GridWrapper id="section1">
-      <AnimatedComponent>
-        <GridContainer class="width">
-          <GridWrapper>
-            <TextBlock
-              left
-              eyebrow=""
-              header="Section 1"
-              :details="`${entry.description}`"
-            />
-
-            <TextBlock
-              left
-              eyebrow=""
-              header=""
-              :details="`${entry.description}`"
-            />
-          </GridWrapper>
-        </GridContainer>
-      </AnimatedComponent>
-      <AnimatedComponent>
-        <GridContainer id="" style="padding-top: 0 !important" class="">
-          <ThumbLarge
-            class="width2"
-            title=""
-            filename="work/glo.svg"
-            alt="Jacques working at Myplanet"
-            caption="This is caption text."
-          />
-        </GridContainer>
-      </AnimatedComponent>
-    </GridWrapper>
-    <!-- Section 1 - END - Make this a mapped component ^ duplicate for # of sections in data-->
-    <TextImage flipped />
+    <GridContainer class="fadeInRight">
+      <ImageCard
+        large
+        title=""
+        :filename="`${entry.images.filename1}`"
+        :alt="`${entry.alt}`"
+        route=""
+        caption="This is a caption."
+      />
+    </GridContainer>
+    <GridContainer class="fadeInDown">
+      <ImageCard
+        large
+        title=""
+        :filename="`${entry.images.filename1}`"
+        :alt="`${entry.alt}`"
+        route=""
+        caption="This is a caption."
+      />
+    </GridContainer>
+    <TextImage class="" flipped />
+    <TextImage class="" />
+    <TextImage class="" flipped />
+    <TextImage class="" />
+    <TextImage class="fadeInLeft" flipped />
+    <TextImage class="fadeInRight" />
+    <TextImage class="fadeInLeft" flipped />
+    <TextImage class="fadeInRight" />
   </PageWrapper>
 </template>
 
 <script>
 import workData from "@/assets/data/work.json";
+// import content from "@/assets/content/content.md";
+// import marked from 'marked';
 
 // Import GSAP and ScrollTrigger
 import { gsap } from "gsap";
@@ -68,6 +88,13 @@ gsap.registerPlugin(ScrollTrigger);
 export default {
   name: "ProjectPage",
   components: {},
+
+  // data() {
+  //   return {
+  //     htmlContent: "",
+  //   };
+  // },
+
   computed: {
     workId() {
       return parseInt(this.$route.params.id);
@@ -77,19 +104,94 @@ export default {
     },
   },
   mounted() {
-    const gsapTest = gsap.utils.toArray(".gsapTest");
+    // this.htmlContent = marked(content);
+    const fadeInUp = gsap.utils.toArray(".fadeInUp");
+    const fadeInDown = gsap.utils.toArray(".fadeInDown");
+    const fadeInRight = gsap.utils.toArray(".fadeInRight");
+    const fadeInLeft = gsap.utils.toArray(".fadeInLeft");
+    const parallaxBack = gsap.utils.toArray(".parallaxBack");
+    const parallaxFront = gsap.utils.toArray(".parallaxFront");
 
-    gsapTest.forEach((gsapTest) => {
-      gsap.from(gsapTest, {
+    // Not working for multiple instances when duplicating textImage on projectPage, lags and hides component
+
+    fadeInUp.forEach((fadeInUp) => {
+      gsap.from(fadeInUp, {
         scrollTrigger: {
-          trigger: gsapTest,
+          trigger: fadeInUp,
           start: "top bottom",
           end: "bottom bottom",
-          scrub: 3,
+          scrub: 1,
           toggleActions: "restart pause reverse pause",
         },
+        autoAlpha: 0,
         y: 100,
-        // autoAlpha: 1,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    fadeInDown.forEach((fadeInDown) => {
+      gsap.from(fadeInDown, {
+        scrollTrigger: {
+          trigger: fadeInDown,
+          start: "top bottom",
+          end: "bottom bottom",
+          scrub: 1,
+          toggleActions: "restart pause reverse pause",
+        },
+        autoAlpha: 0,
+        y: -100,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    fadeInRight.forEach((fadeInRight) => {
+      gsap.from(fadeInRight, {
+        scrollTrigger: {
+          trigger: fadeInRight,
+          start: "top bottom",
+          end: "bottom bottom",
+          scrub: 1,
+          toggleActions: "restart pause reverse pause",
+        },
+        autoAlpha: 0,
+        x: 100,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    fadeInLeft.forEach((fadeInLeft) => {
+      gsap.from(fadeInLeft, {
+        scrollTrigger: {
+          trigger: fadeInLeft,
+          start: "top bottom",
+          end: "bottom bottom",
+          scrub: 1,
+          toggleActions: "restart pause reverse pause",
+        },
+        autoAlpha: 0,
+        x: -100,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    parallaxBack.forEach((parallaxBack) => {
+      gsap.to(parallaxBack, {
+        scrollTrigger: {
+          trigger: parallaxBack,
+          scrub: true,
+        },
+        yPercent: 10,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    parallaxFront.forEach((parallaxFront) => {
+      gsap.to(parallaxFront, {
+        scrollTrigger: {
+          trigger: parallaxFront,
+          scrub: true,
+        },
+        yPercent: -10,
         duration: 3,
         ease: "none",
       });

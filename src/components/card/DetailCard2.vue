@@ -16,56 +16,62 @@
         </ul>
       </span>
       <span id="info">
-        <h4 style="font-weight: var(--font-medium);" tabIndex="0">
-          {{ description }}
-        </h4></span
-      >
+        <TextBlock left eyebrow="" :header4="`${subtitle}`" :details="`${description}`" />
+        <!-- <p
+          style="font-size: var(--font-md)"
+          tabIndex="0"
+          v-html="description"
+      /> -->
+    </span>
     </GridContainer>
   </div>
 </template>
 
 <script>
-
-
 export default {
   name: "DetailCard2",
 
   props: {
     label1: {
       type: String,
-      default: 'label1',
-      required: 'true',
+      default: "label1",
+      required: "true",
     },
     label2: {
       type: String,
-      default: 'label2',
-      required: 'true',
+      default: "label2",
+      required: "true",
     },
     label3: {
       type: String,
-      default: 'label2',
-      required: 'true',
+      default: "label2",
+      required: "true",
     },
     value1: {
       type: String,
-      default: 'value1',
-      required: 'true',
+      default: "value1",
+      required: "true",
     },
     value2: {
       type: String,
-      default: 'value2',
-      required: 'true',
+      default: "value2",
+      required: "true",
     },
     value3: {
       type: String,
-      default: 'value3',
-      required: 'true',
+      default: "value3",
+      required: "true",
+    },
+    subtitle: {
+      type: String,
+      default:
+        "Placeholder Subtitle",
     },
     description: {
       type: String,
-      default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+      default:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     },
-    
   },
 };
 </script>
@@ -74,13 +80,13 @@ export default {
 * {
   color: inherit;
 }
-.container {
-  /*  padding-top: 4rem !important;
-  padding-bottom: 9.6rem !important; */
-}
-#details {
-  /* height: 100vh; */
-}
+/* .container {
+   padding-top: 4rem !important;
+  padding-bottom: 9.6rem !important; 
+}*/
+/* #details {
+  height: 100vh;
+} */
 #values {
   grid-column: 1 / 4;
 }
@@ -114,8 +120,6 @@ ul {
     }
     #info {
       grid-column: 2 / 4;
-    }
-    .container {
     }
   }
 }

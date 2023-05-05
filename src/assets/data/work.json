@@ -2,8 +2,10 @@
   "entries": [
     {
       "id": 1,
+      "format": "large",
       "title": "Work Name 1",
       "tag": "AAA  Typography Front-end",
+      "subtitle": "This is a subtitle 1",
       "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
       "btnroute": "work/1",
       "cta": "Read More",
@@ -29,6 +31,7 @@
       "id": 2,
       "title": "Work Name 2",
       "tag": "tag1  tag2",
+      "subtitle": "This is a subtitle 2",
       "description": "This is a description TWO",
       "btnroute": "work/2",
       "cta": "Read More",     
@@ -70,7 +73,7 @@
       "description": "This is a description",
       "btnroute": "work/4",
       "cta": "Read More",     
-      "thumbnail": "templates/template-desktop-blank.svg",
+      "thumbnail": "work/glo.svg",
       "bgcolor": "background-color: var(--bg-darker)",
       "role":"Designer/Developer",
       "type":"Work Type",

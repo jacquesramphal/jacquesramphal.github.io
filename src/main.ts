@@ -23,11 +23,11 @@ import TextBlock from "@/components/TextBlock.vue";
 import TextHeader from "@/components/text/TextHeader.vue";
 import TextImage from "@/components/card/TextImage.vue";
 import TextLink from "@/components/text/TextLink.vue";
-import ThumbLarge from "@/components/ThumbLarge.vue";
-import ThumbMedium from "@/components/ThumbMedium.vue";
-import ThumbSmall from "@/components/ThumbSmall.vue";
-import ThumbSmall2 from "@/components/ThumbSmall2.vue";
+import ImageCard from "@/components/ImageCard.vue";
+import ImageCard2 from "@/components/ImageCard2.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
+import ProjectPreview from "@/components/ProjectPreview.vue";
+
 
 import router from "./router";
 import { Directive, DirectiveBinding, VNode } from "vue";
@@ -67,10 +67,8 @@ app
   .component("PageWrapper", PageWrapper)
   .component("GridWrapper", GridWrapper)
   .component("TextLink", TextLink)
-  .component("ThumbSmall2", ThumbSmall2)
-  .component("ThumbSmall", ThumbSmall)
-  .component("ThumbMedium", ThumbMedium)
-  .component("ThumbLarge", ThumbLarge)
+  .component("ImageCard2", ImageCard2)
+  .component("ImageCard", ImageCard)
   .component("ThumbDetail", ThumbDetail)
   .component("CardRow", CardRow)
   .component("CardRow2", CardRow2)
@@ -86,4 +84,5 @@ app
   .component("StatsBar", StatsBar)
   .component("DefaultCard", DefaultCard)
   .component("BlogFeed", BlogFeed)
+  .component("ProjectPreview", ProjectPreview)
   

@@ -5,42 +5,46 @@
 
     <GridWrapper id="hero-banner" :class="classes">
       <img
+        class="animate glow delay-2"
         draggable="false"
         :src="require(`@/assets/images/${filename}`)"
         :alt="`${alt}`"
       />
-      <GridContainer>
+      <GridContainer v-if="eyebrow">
         <div v-if="eyebrow" class="animate fade delay-3">
           <p id="eyebrow" class="subtle" v-if="eyebrow" v-text="eyebrow" />
         </div>
       </GridContainer>
       <GridContainer>
         <div id="hero-text" class="animate glow delay-1">
-          <span><h2 id="title">
-            {{ title }}
-          </h2>
-          <h6 id="tags" v-if="tag" v-text="tag" class="subtle" />
+          <span
+            ><h2 id="title" v-html="title" />
+            <h6 id="tags" v-if="tag" v-text="tag" class="subtle" />
 
-          <p
-            v-if="subtitle"
-            v-text="subtitle"
-            id="subtitle"
-            style="font-weight: var(--font-medium)"
-          />
+            <p
+              v-if="subtitle"
+              v-text="subtitle"
+              id="subtitle"
+              style="font-weight: var(--font-medium)"
+            />
 
-          <div id="hero-cta" v-show="label">
-            <!-- refactor button and props -->
-            <span style="gap: 2rem; display: flex"
-              ><MyButton :label="`${label}`" size="large" :route="`${route}`" />
-              <MyButton
-                secondary
-                :label="`${label}`"
-                size="large"
-                :route="`${route}`"
-              />
-            </span>
-          </div>
-        </span>
+            <div id="hero-cta" v-show="label">
+              <!-- refactor button and props -->
+              <span style="gap: 2rem; display: flex"
+                ><MyButton
+                  :label="`${label}`"
+                  size="large"
+                  :route="`${route}`"
+                />
+                <MyButton
+                  secondary
+                  :label="`${label}`"
+                  size="large"
+                  :route="`${route}`"
+                />
+              </span>
+            </div>
+          </span>
         </div>
       </GridContainer>
     </GridWrapper>
@@ -83,17 +87,6 @@ export default {
       type: String,
       default: "jacques.jpeg",
     },
-    // Background url as prop but not working
-
-    // bgimg: {
-    //   type: String,
-    //   default: "url(../assets/images/jacques.jpeg)",
-    // },
-
-    // filename: {
-    //   type: String,
-    //   default: "jacques.jpeg",
-    // },
 
     // Override props
     background: {
@@ -106,15 +99,26 @@ export default {
       default: false,
       required: true,
     },
+    overlap: {
+      type: Boolean,
+      default: false,
+    },
+    tall: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     classes() {
       return {
         herobanner: true,
-        "herobanner--background": this.background,
         "herobanner--normal": !this.background,
-
+        "herobanner--background": this.background,
         "herobanner--center": this.center,
+        "herobanner--overlap": this.overlap,
+        "herobanner--tall": this.tall,
+        "herobanner--red": this.red,
+
         // "herobanner--left": !this.center,
       };
     },
@@ -127,98 +131,97 @@ export default {
   color: inherit
   mix-blend-mode: normal
 
-#hero-text
-  z-index: 1000
-  overflow-wrap: break-word
-  word-wrap: break-word
-  -webkit-hyphens: auto
-  -ms-hyphens: auto
-  -moz-hyphens: auto
-  hyphens: auto
-
-
 img
   display: none
-#eyebrow
-  margin-bottom: 4rem
-// #title 
-  
-#tags
-  // color: var(--link)
-  margin-top: 2rem
-  word-spacing: 2rem
-  @media only screen and (min-width: 740px)
-    margin-top: 3.2rem
 
-#subtitle
-  margin-top: 2rem 
-  max-width: 86.4rem
-  width: 100%
-  @media only screen and (min-width: 740px)
-    margin-top: 3.2rem 
-  @media only screen and (min-width: 1201px)
-
-.herobanner
-  position: relative
-  overflow: hidden !important
+#hero-text
+  align-items: end !important
   display: grid
-  min-height: 40vh
+  justify-content: left
+  text-align: left
+  z-index: 1000
+  @media only screen and (min-width: 1201px)
+    max-width: 75vw
+  #eyebrow
+    margin-bottom: 4rem
+  #tags
+    margin-top: 2rem
+    word-spacing: 2rem
+    @media only screen and (min-width: 740px)
+      margin-top: 3.2rem
+  #subtitle
+    margin-top: 2rem
+    max-width: 86.4rem
+    width: 100%
+    @media only screen and (min-width: 740px)
+      margin-top: 3.2rem
+    @media only screen and (min-width: 1201px)
+.herobanner
+  background-position: 50% 0%
   background-repeat: no-repeat
   background-size: cover
-  background-position: 50% 0%
-
+  display: grid
+  overflow: hidden !important
+  position: relative
+  min-height: 60vh
   @media only screen and (min-width: 740px)
+    background-position: 100% 100%
     background-repeat: no-repeat
     background-size: cover
-    background-position: 100% 50%
-.herobanner--normal
-  // background: var(--bg-darker)
-  // border-bottom: var(--border)
 
-.herobanner--background
-  // background-image: url("../assets/images/jacques.jpeg")
-  color: white !important
-  text-shadow: var(--shadow-hover)
+
+.herobanner--background, .herobanner--overlap
   overflow: hidden !important
   img
     border-radius: 0px !important
-    overflow: hidden !important
     display: block
-    mix-blend-mode: normal
-    position: absolute
-    z-index: 0
-    width: 100%
     height: auto
     min-height: 100%
-    // max-height: 100%
-    // max-width: 100%
+    mix-blend-mode: normal
     object-fit: cover !important
+    object-position: 0% 100%
+    overflow: hidden !important
+    position: absolute
+    width: 100%
+    z-index: 0
   #hero-text
+    h2
+      background-color: var(--background-reversed)
+      border-radius: var(--spacing-xxs)
+      color: var(--background)
+      font-weight: var(--font-reversed-bold)
+      letter-spacing: var(--spacing-reversed-tight)
+      padding: var(--spacing-xxs) var(--spacing-sm) var(--spacing-xs) var(--spacing-sm)
+.herobanner--overlap
+  img
+    background-color: var(--bg-darker)
+    height: 100% !important
+  @media only screen and (min-width: 1201px)
+    margin-bottom: 20vh
+    min-height: 80vh
+    img
+      aspect-ratio: 4 / 3
+      border-radius: 0 0 0 var(--spacing-xxs) !important
+      display: block
+      right: 0
+      width: auto
+    #hero-text
       h2
-        font-weight: 700 !important
-        letter-spacing: calc(0.01rem - 0.12rem)
-        // letter-spacing: -0.11rem
-
+        font-size: var(--font-display)
 .herobanner--center
   #hero-text
     @media only screen and (min-width: 740px)
       justify-self: center
       text-align: center !important
   .subtitle
-    max-width: 86.4rem !important
     float: none
     margin-left: auto
     margin-right: auto
+    max-width: 86.4rem !important
 
+.herobanner--tall
+  height: 100vh !important
+  #hero-text
+    align-items: center !important
 
-#hero-text
-  display: grid
-  // grid-row: 1 / 8
-  justify-content: left
-  text-align: left
-  align-items: end !important
-  @media only screen and (min-width: 740px)
-    // gap: var(--spacing-md)
-  @media only screen and (min-width: 1201px)
-    max-width: 75vw
 </style>

@@ -20,7 +20,8 @@ body {
   background: var(--background);
 }
 #app {
-  color: var(--text) !important;
+   color: var(--text) !important;
+  /*color: var(--background-reversed) !important; */
   background: var(--background);
   font-size: 10px !important;
   height: 100%;
@@ -31,7 +32,8 @@ body {
   width: 100%;
 }
 .reversed {
-  color: var(--text-reversed) !important;
+   color: var(--text-reversed) !important;
+ /* color: var(--background) !important; */
   mix-blend-mode: normal !important;
   background: var(--background-reversed);
 }

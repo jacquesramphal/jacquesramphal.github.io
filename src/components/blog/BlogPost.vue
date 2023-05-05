@@ -1,7 +1,6 @@
 <template>
   <PageWrapper id="blog">
     <GridWrapper id="posts" class="">
-      
       <!-- TMP BREADCRUMB -->
 
       <GridContainer id="section1">
@@ -33,7 +32,8 @@
       </GridContainer>
 
       <GridContainer class="animate glow delay-1" tight id="">
-        <ThumbLarge
+        <ImageCard
+          large
           class=""
           title=""
           filename="jacques.jpeg"
@@ -122,7 +122,8 @@
 
         <AnimatedComponent>
           <GridContainer id="" class="width2">
-            <ThumbLarge
+            <ImageCard
+              large
               class=""
               title=""
               filename="work/glo.svg"

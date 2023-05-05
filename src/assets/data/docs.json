@@ -36,11 +36,20 @@
         },
         {
           "title": "Sub Section 2",
-          "body": "<strong>Rich Text</strong> - This is a <i>short</i> description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. <blockquote>Inline Blockquote</blockquote> The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer.",
+          "body": "<h5>Subheading h5</h5><strong>Rich Text</strong> - This is a <i>short</i> description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. <blockquote>Inline Blockquote</blockquote> The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text.<br><br><h5>Subheading h5</h5>The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text.",
           "images": {
             "filename": "work/dod.svg",
             "alt": "This is Alt!",
             "caption": "This is a Caption!"
+          }
+        },
+        {
+          "title": "Sub Section 3",
+          "body": "Body 1 - This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer.",
+          "images": {
+            "filename": "",
+            "alt": "",
+            "caption": ""
           }
         }
       ]
@@ -52,7 +61,7 @@
       "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
       "btnroute": "doc/2",
       "cta": "Read More",
-      "thumbnail": "article/luna.jpg",
+      "thumbnail": "article/bike.gif",
       "alt": "Alt Test",
       "bgcolor": "background-color: var(--bg-darker)",
       "role": "Designer/Developer",
