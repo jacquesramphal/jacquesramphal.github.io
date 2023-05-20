@@ -103,7 +103,7 @@ export default {
   @media only screen and (min-width: 740px)
     padding: var(--spacing-lg)
 
-    .switch-toggle
+.switch-toggle
   display: grid
   justify-items: center
   align-items: center

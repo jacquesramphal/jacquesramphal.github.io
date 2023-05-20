@@ -1,12 +1,17 @@
 <template>
   <PageWrapper>
     <HeroBanner
-    
       id="hero"
       class="display"
       eyebrow=""
-      title="Front-end Designer of things"
+      title="Multi-disciplinary Designer."
     />
+    <!-- <HeroBanner
+      id="hero"
+      class="display"
+      eyebrow=""
+      title="<strong>Front-end Designer</strong> of things."
+    /> -->
     <!-- <HeroBanner
       id="hero"
       class="display"
@@ -38,47 +43,41 @@
         </p>
       </div>
     </GridContainer> -->
-    <GridContainer id="work" class="" tight>
-      <div id="recentwork" class="animate glow delay-3 grid-parent">
-        
-        <ThumbSmall
-          alt="J Monogram"
-          filename="work/j.svg"
-          id="top"
-          title="Monogram"
-        />
-        <ThumbSmall2
+    <GridContainer id="work" class="animate delay-2" tight>
+      <div id="recentwork" class="grid-parent">
+        <ImageCard alt="J Monogram" filename="work/j.svg" id="top" />
+        <ImageCard2
           alt="Avatar"
           class="hidemobile"
           filename="avatar/avatar.svg"
           title="Avatar"
         />
-        <ThumbSmall
+        <ImageCard
           alt="Avatar"
           class="showmobile"
           filename="avatar/avatar.svg"
           title="Avatar"
         />
-        <ThumbSmall alt="Giftbook" filename="work/gob.svg" title="Giftbook" />
+        <ImageCard alt="Giftbook" filename="work/gob.svg" title="Giftbook" />
 
-        <ThumbSmall
+        <ImageCard
           style="background-color: var(--bg-darker)"
           alt="Template Project"
           filename="templates/template-desktop-blank.svg"
           title="Small Template"
-          route="project"
-          details="This is a project description that would give a preview into the project..."
+          route="work"
+          details="This is a work description that would give a preview into the work..."
         />
         <ThumbDetail
           alt="Project Template"
           filename="templates/template-v2.svg"
           style="background-color: #35363a"
           title="Project Title"
-          route="project"
-          details="This is a project description that would give a preview into the project..."
+          route="work/1"
+          details="This is a work description that would give a preview into the work..."
         />
-        <ThumbSmall
-          v-for="entry in projects.entries"
+        <ImageCard
+          v-for="entry in works.entries"
           :key="entry.id"
           class="post"
           :eyebrow="entry.tag"
@@ -92,36 +91,25 @@
           :style="entry.bgcolor"
         />
       </div>
-      <!-- <MyButton
-        secondary
-        style="margin-top: var(--spacing-sm)"
-        class="justify-end"
-        label="View More"
-        route="work2"
-      /> -->
     </GridContainer>
-    <!-- <TextImage/> -->
-    <!-- <CardRow /> -->
-    <!-- <CardRow2 /> -->
   </PageWrapper>
 </template>
 
 <script>
-import projects from "@/assets/data/projects.json";
+import works from "@/assets/data/work.json";
 
 export default {
   name: "HomePage",
-  components: {
-  },
+  components: {},
   props: {
-    // project: {
+    // work: {
     //   type: Object,
     //   required: true,
     // },
   },
   data() {
     return {
-      projects,
+      works,
       // contentful: [],
     };
   },
@@ -173,5 +161,4 @@ export default {
 @media only screen and (min-width: 1201px)
     #work
       padding-top: 0 !important
-      // padding-bottom: 0 !important
 </style>

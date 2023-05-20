@@ -8,7 +8,7 @@ import MyBlog from "@/pages/MyBlog.vue";
 import MyResume from "@/pages/MyResume.vue";
 import NotFound from "@/pages/misc/NotFound.vue";
 import ProjectPage from "@/pages/ProjectPage.vue";
-import ArticlePage from "@/pages/ArticlePage.vue";
+import DocPage from "@/pages/DocPage.vue";
 import HomePage from "@/pages/HomePage.vue";
 import MoreWork from "@/pages/MoreWork.vue";
 import UsefulLinks from "@/pages/UsefulLinks.vue";
@@ -20,6 +20,7 @@ const routes = [
     component: NotFound,
     meta: {
       hidePageWrapper: true,
+      hideFooter: true,
     },
   },
   {
@@ -71,7 +72,7 @@ const routes = [
     component: InfoPage,
   },
   {
-    path: "/library",
+    path: "/docs",
     name: "Blog",
     component: MyBlog,
   },
@@ -82,16 +83,14 @@ const routes = [
   },
   {
     name: "Project",
-    path: "/project/:id",
+    path: "/work/:id",
     component: ProjectPage,
   },
- 
   {
-    name: "Article",
-    path: "/post/:id",
-    component: ArticlePage,
+    name: "Doc",
+    path: "/doc/:id",
+    component: DocPage,
   },
-
 ];
 
 const router = createRouter({

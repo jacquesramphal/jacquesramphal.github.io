@@ -56,7 +56,7 @@
     </GridContainer>
 
     <div class="showmobile scrolling-wrapper">
-      <div class="cardmobile" v-for="entry in articles.entries"
+      <div class="cardmobile" v-for="entry in docs.entries"
           :key="entry.id">
       <DefaultCard
         class="post cardmobile"

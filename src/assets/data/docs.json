@@ -1,0 +1,106 @@
+{
+  "entries": [
+    {
+      "id": 1,
+      "title": "Doc Name 1",
+      "tag": "Tag1  Tag2",
+      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
+      "btnroute": "doc/1",
+      "cta": "Read More",
+      "thumbnail": "article/jacques.jpeg",
+      "alt": "Alt Test",
+      "bgcolor": "background-color: var(--bg-darker)",
+      "role": "Designer/Developer",
+      "type": "Work Type",
+      "year": "XXXX-XXXX",
+      "images": {
+        "filename1": "work/glo.svg",
+        "alt1": "This is Alt1",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "caption2": "This is a Caption2",
+        "alt2": "This is Alt2",
+        "filename3": "work/dod.svg",
+        "caption3": "This is a Caption3",
+        "alt3": "This is Alt3"
+      },
+      "entries": [
+        {
+          "title": "Sub Section 1",
+          "body": "Body 1 - This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer.",
+          "images": {
+            "filename": "work/glo.svg",
+            "alt": "This is Alt!",
+            "caption": "This is a Caption!"
+          }
+        },
+        {
+          "title": "Sub Section 2",
+          "body": "<h5>Subheading h5</h5><strong>Rich Text</strong> - This is a <i>short</i> description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. <blockquote>Inline Blockquote</blockquote> The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text.<br><br><h5>Subheading h5</h5>The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text.",
+          "images": {
+            "filename": "work/dod.svg",
+            "alt": "This is Alt!",
+            "caption": "This is a Caption!"
+          }
+        },
+        {
+          "title": "Sub Section 3",
+          "body": "Body 1 - This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer.",
+          "images": {
+            "filename": "",
+            "alt": "",
+            "caption": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Doc Name 2",
+      "tag": "Tag1  Tag2",
+      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
+      "btnroute": "doc/2",
+      "cta": "Read More",
+      "thumbnail": "article/bike.gif",
+      "alt": "Alt Test",
+      "bgcolor": "background-color: var(--bg-darker)",
+      "role": "Designer/Developer",
+      "type": "Work Type",
+      "year": "XXXX-XXXX",
+      "images": {
+        "filename1": "work/dod.svg",
+        "alt1": "This is Alt1",
+        "caption1": "This is a Caption1"
+      },
+      "entries": [
+        {
+          "title": "Sub Section 1",
+          "body": "Body 1 - This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer.",
+          "images": {
+            "filename": "work/dod.svg",
+            "alt": "This is Alt!",
+            "caption": "This is a Caption!"
+          }
+        },
+        {
+          "title": "Sub Section 2",
+          "body": "Body 2 - This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer.",
+          "images": {
+            "filename": "work/dod.svg",
+            "alt": "This is Alt!",
+            "caption": "This is a Caption!"
+          }
+        },
+        {
+          "title": "Sub Section 3",
+          "body": "Body 3 - This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer.",
+          "images": {
+            "filename": "work/dod.svg",
+            "alt": "This is Alt!",
+            "caption": "This is a Caption!"
+          }
+        }
+      ]
+    }
+  ]
+}

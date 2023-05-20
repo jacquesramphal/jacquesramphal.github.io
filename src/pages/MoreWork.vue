@@ -2,9 +2,9 @@
   <PageWrapper>
     <HeroBanner
       id="hero"
-      :eyebrow="projects.eyebrow"
-      :title="projects.title"
-      :subtitle="projects.subtitle"
+      :eyebrow="works.eyebrow"
+      :title="works.title"
+      :subtitle="works.subtitle"
     />
     <GridContainer>
       <input type="radio" id="All" name="categories" value="All" checked />
@@ -39,8 +39,8 @@
         </li>
       </ol>
       <div id="recentwork" class="posts grid-parent">
-        <ThumbSmall
-          v-for="entry in projects.entries"
+        <ImageCard
+          v-for="entry in works.entries"
           :key="entry.id"
           class="post"
           :eyebrow="entry.tag"
@@ -61,7 +61,7 @@
       filename="work/glo.svg"
       header="Featured Project"
       details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. "
-      route="project"
+      route="work"
       cta="Read More"
     />
 
@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import projects from "@/assets/data/projects.json";
+import works from "@/assets/data/work.json";
 import info from "@/assets/data/info.json";
 
 export default {
@@ -79,7 +79,7 @@ export default {
   props: {},
   data() {
     return {
-      projects,
+      works,
       info,
     };
   },

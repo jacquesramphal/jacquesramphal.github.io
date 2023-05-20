@@ -113,13 +113,13 @@ export default {
   color: inherit
   
 /* Monogram styling */
-// #monogram
-//   transition: all .5s ease-in-out
-//   z-index: 10000
+#monogram
+  transition: all .5s ease-in-out
+  z-index: 10000
 
-// #monogram:hover
-//   stroke-dasharray: 100
-//   animation: dash infinite 10s ease-in-out
+#monogram:hover
+  stroke-dasharray: 100
+  animation: dash infinite 10s ease-in-out
 
 #MyLogo
   height: 3.6rem

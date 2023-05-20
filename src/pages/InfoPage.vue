@@ -7,22 +7,7 @@
       title="About me, but mostly my site"
       eyebrow="Information"
     />
-    <!-- <HeroBanner
-      id="hero"
-      v-for="about in contentful"
-      v-bind:key="about.sys.id"
-      :eyebrow="about.eyebrow"
-      :title="about.pageTitle"
-    /> -->
-    <!-- <GridContainer style="padding-top: 0 !important">
-      <ThumbLarge
-        title=""
-        filename="about.jpg"
-        alt="Jacques working at Myplanet"
-        route=""
-        caption="This is an image caption"
-      />
-    </GridContainer> -->
+
     <DetailCard
       v-for="about in contentful"
       v-bind:key="about.sys.id"

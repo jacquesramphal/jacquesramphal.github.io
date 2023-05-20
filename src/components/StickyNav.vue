@@ -12,9 +12,7 @@
           style="font-weight: var(--font-reversed-bold) !important"
           tabindex="0"
         >
-          <router-link :to="{ name: 'Home' }"
-            ><strong>Jacques Ramphal</strong></router-link
-          >
+          <router-link :to="{ name: 'Home' }">Jacques Ramphal</router-link>
         </h1>
 
         <h1
@@ -23,17 +21,16 @@
           style="font-weight: var(--font-reversed-bold)"
           tabindex="0"
         >
-          <router-link :to="{ name: 'Home' }"
-            ><strong>Jake Ramphal</strong></router-link
-          >
+          <router-link :to="{ name: 'Home' }">Jake Ramphal</router-link>
         </h1>
         <ul class="justify-end">
           <li class="nav-link" tabindex="0">
-            <router-link :to="{ name: 'Resume' }">info</router-link>
+            <router-link :to="{ name: 'Blog' }">docs</router-link>
           </li>
           <li class="nav-link" tabindex="0">
-            <router-link :to="{ name: 'Blog' }">library</router-link>
+            <router-link :to="{ name: 'Resume' }">info</router-link>
           </li>
+
           <!-- <li class="nav-link" tabindex="0">
             <router-link class="isDisabled" to="blog">writing</router-link>
           </li> -->
@@ -115,7 +112,7 @@ export default {
 </script>
 <style scoped>
 * {
-  color: var(--text-reversed) !important;
+  color: var(--text) !important;
   margin: 0;
   mix-blend-mode: normal;
 }
@@ -123,9 +120,9 @@ export default {
   outline: transparent;
 }
 .navbar {
-  bottom: 0;
-  left: 0;
   right: 0;
+  left: 0;
+  bottom: 0;
   max-width: none;
   mix-blend-mode: normal !important;
   overflow: visible;
@@ -139,18 +136,17 @@ export default {
 .navbar.hidden-navbar {
   transform: translate3d(0, 150%, 0) !important;
 }
-
 .bg {
   transition: 0.5s box-shadow ease-in-out !important;
   align-items: middle;
-  background: var(--background-reversed);
+  background: var(--background);
   /* border: var(--border); */
   justify-self: stretch;
   /* margin: 0.8rem; */
   overflow: visible;
   position: relative;
   padding: var(--spacing-xxs);
-  /* box-shadow: var(--shadow-deep); */
+  box-shadow: var(--shadow-deep);
 }
 /* .bg:hover {
   box-shadow: var(--shadow-deep);
@@ -175,14 +171,14 @@ nav {
   /* text-decoration: none !important; */
 }
 .nav-link > a:hover {
-  color: var(--link-reversed) !important;
-  background: var(--bg-darker-reversed);
+  color: var(--link) !important;
+  background: var(--bg-darker);
   transition: all 0.25s ease;
 
   /*  box-shadow: var(--shadow-z1); */
 }
 .router-link-exact-active {
-  background: var(--bg-darker-reversed);
+  background: var(--bg-darker);
   text-decoration: none !important;
   /* border-bottom: 2px solid var(--link);*/
 }
@@ -196,7 +192,6 @@ li {
   line-height: 1;
   margin: 0;
   text-decoration: none;
-  font-weight: var(--font-reversed-medium);
 }
 li:first-child {
   padding-right: 0;
