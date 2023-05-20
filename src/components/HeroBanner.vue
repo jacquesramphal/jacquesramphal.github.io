@@ -103,7 +103,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    tall: {
+    fullvh: {
       type: Boolean,
       default: false,
     },
@@ -116,7 +116,7 @@ export default {
         "herobanner--background": this.background,
         "herobanner--center": this.center,
         "herobanner--overlap": this.overlap,
-        "herobanner--tall": this.tall,
+        "herobanner--fullvh": this.fullvh,
         "herobanner--red": this.red,
 
         // "herobanner--left": !this.center,
@@ -200,7 +200,7 @@ img
     margin-bottom: 20vh
     min-height: 80vh
     img
-      aspect-ratio: 4 / 3
+      aspect-ratio: 16 / 9
       border-radius: 0 0 0 var(--spacing-xxs) !important
       display: block
       right: 0
@@ -219,7 +219,7 @@ img
     margin-right: auto
     max-width: 86.4rem !important
 
-.herobanner--tall
+.herobanner--fullvh
   height: 100vh !important
   #hero-text
     align-items: center !important

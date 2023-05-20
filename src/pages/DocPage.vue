@@ -32,7 +32,7 @@
               />
             </GridWrapper>
           </GridContainer>
-          <GridContainer id="" style="padding-top: 0 !important">
+          <GridContainer v-if="entry.images.filename" id="" style="padding-top: 0 !important">
             <ImageCard
               large
               v-if="entry.images.filename"
