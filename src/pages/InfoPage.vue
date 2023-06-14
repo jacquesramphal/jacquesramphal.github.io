@@ -1,17 +1,39 @@
 <template>
   <PageWrapper>
-    <HeroBanner
-    style="background: var(--bg-darker)"
-
-      id="hero"
-      title="About me, but mostly my site"
-      eyebrow="Information"
-    />
-
-    <DetailCard
+    <HeroBanner id="hero" title="About" />
+    <!-- <Stats
       v-for="about in contentful"
       v-bind:key="about.sys.id"
-      :header="about.detailHeader"
+      :value1="about.statValue1"
+      :label1="about.statLabel1"
+      :value2="about.statValue2"
+      :label2="about.statLabel2"
+      :value3="about.statValue3"
+      :label3="about.statLabel3"
+    />  -->
+    <GridContainer class="animate delay-2">
+      <TextStats/>
+
+      <GridParent>
+        <TextBlock
+          as="h4"
+          title="TextBlock"
+          icon="j-logo.svg"
+          iconsize="128"
+          alt="Image alt"
+        />
+        <TextBlock as="h4" title="TextBlock" icon="j-logo.svg" alt="Image alt" />
+        <TextBlock as="h4" title="TextBlock" icon="j-logo.svg" alt="Image alt" />
+      </GridParent>
+    </GridContainer>
+  
+    <TestimonialCarousel />
+    <TextImage />
+    <TextImage flipped />
+    <TextGrid
+      v-for="about in contentful"
+      v-bind:key="about.sys.id"
+      :title="about.detailHeader"
       :eyebrow1="about.detailEyebrow1"
       :detail1="about.detailDetails1"
       eyebrow2="Component Library"
@@ -21,24 +43,20 @@
       eyebrow4="Future-Proof Ramstack"
       detail4="Clean design, Javascript, API, Headless CMS. Carefully selected tools and frameworks keep this site alive and flexible to grow as I do."
     />
-
-    <!--   <Stats
-      v-for="about in contentful"
-      v-bind:key="about.sys.id"
-      :value1="about.statValue1"
-      :label1="about.statLabel1"
-      :value2="about.statValue2"
-      :label2="about.statLabel2"
-      :value3="about.statValue3"
-      :label3="about.statLabel3"
+    <!-- <HeroBanner
+      id="hero"
+      style="background: var(--background-darker)"
+      eyebrow=""
+      title="Multi-disciplinary Designer."
     /> -->
+    
+
   </PageWrapper>
 </template>
 
 <script>
 export default {
   name: "InfoPage",
-  components: {},
   data() {
     return {
       contentful: [],
@@ -78,7 +96,6 @@ export default {
         },
         body: JSON.stringify({ query }),
       };
-
       try {
         const response = await fetch(fetchUrl, fetchOptions).then((response) =>
           response.json()
@@ -94,9 +111,9 @@ export default {
 
 <style scoped>
 /* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
+@media only screen and (min-width: 768px) {
   #image-highlight {
-    height: 60vh;
+    block-size: 60vh;
   }
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {

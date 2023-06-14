@@ -3,11 +3,11 @@
     ><GridWrapper id="hero-landing">
       <GridContainer>
         <div id="hero-text" class="">
-          <h2 class="display animate glow">
+          <h1 class="display animate glow">
             {{ heroText }}
             <!-- Hello World 👋🏽 I’m a
           <router-link to="post">Front-End Designer</router-link> deep in a rabbit hole. -->
-          </h2>
+          </h1>
         </div>
       </GridContainer>
     </GridWrapper></AnimatedComponent
@@ -54,25 +54,25 @@ export default {
   // background: var(--color-pink)
   display: grid
   align-items: end !important
-  min-height: 50vh
+  min-block-size: 50vh
   background-repeat: no-repeat
   // background-attachment: fixed
   background-size: cover
   background-position: 100% 0%
   @media only screen and (min-width: 1201px)
-    // min-height: 100vh
-    min-height: 60vh
+    // min-block-size: 100vh
+    min-block-size: 60vh
     align-items: end !important
     background-size: cover
     background-position: 100% 50%
 
-h2
+h1
   // text-shadow: var(--shadow-z1)
 #hero-text
   display: grid
   grid-row: 1 / 8
   text-align: left
-  @media only screen and (min-width: 740px)
+  @media only screen and (min-width: 768px)
     max-width: 85vw
     justify-self: center !important
 </style>

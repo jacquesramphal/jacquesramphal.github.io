@@ -1,28 +1,76 @@
 <template>
-  <router-link id="btn" :to="`${route}`">
-    <button type="button" :class="classes" @click="onClick" :style="style" v-if="label" v-text="label" />
-   </router-link
-  >
+  <span>
+    <router-link
+      active-class="active-class"
+      v-if="route"
+      id="btn"
+      :to="`${route}`"
+    >
+      <button
+        class="custom-btn"
+        type="button"
+        :class="classes"
+        @click="onClick"
+        :style="style"
+      >
+        <!-- <span v-if="icon" class="button-icon">{{ icon }}</span> -->
+
+        <MyIcon
+          class="button-icon"
+          v-if="icon"
+          :name="`${icon}`"
+          :is-svg="true"
+          size="16"
+        />
+        <span class="button-label">{{ label }}</span>
+      </button>
+    </router-link>
+    <button
+      v-else
+      class="custom-btn"
+      type="button"
+      :class="classes"
+      @click="onClick"
+      :style="style"
+    >
+      <!-- <span v-if="icon" class="button-icon">{{ icon }}</span> -->
+
+      <MyIcon
+        class="button-icon"
+        v-if="icon"
+        :name="`${icon}`"
+        :is-svg="true"
+        size="16"
+      />
+      <span class="button-label">{{ label }}</span>
+    </button>
+  </span>
 </template>
 
 <script>
 import { reactive, computed } from "vue";
+import MyIcon from "./Icon.vue";
 
 export default {
   name: "my-button",
-
+  components: {
+    MyIcon,
+  },
   props: {
     label: {
       type: String,
       required: true,
+      default: "Button Label",
     },
     route: {
       type: String,
       required: false,
     },
-    secondary: {
-      type: Boolean,
-      default: false,
+    type: {
+      type: String,
+      validator: function (value) {
+        return ["solid", "outline", "ghost", "textlink"].indexOf(value) !== -1;
+      },
     },
     size: {
       type: String,
@@ -30,8 +78,11 @@ export default {
         return ["small", "large"].indexOf(value) !== -1;
       },
     },
-    backgroundColor: {
+    icon: {
       type: String,
+      validator: function (value) {
+        return ["none", "left", "right"].indexOf(value) !== -1;
+      },
     },
   },
 
@@ -41,13 +92,20 @@ export default {
     props = reactive(props);
     return {
       classes: computed(() => ({
-        "storybook-button": true,
-        "storybook-button--secondary": props.secondary,
-        "storybook-button--primary": !props.secondary,
-        [`storybook-button--${props.size || "large"}`]: true,
-      })),
-      style: computed(() => ({
-        backgroundColor: props.backgroundColor,
+        button: true,
+        // "button--outline": props.outline,
+        // "button--solid": !props.outline,
+        [`button--${props.type || "solid"}`]: true,
+        [`button--${props.size || "large"}`]: true,
+        [`button--${props.icon || "none"}`]: true,
+
+        // "link-left": true,
+        // "link-left--left": this.left,
+        // "link-left--default": !this.left,
+
+        // "link-right": true,
+        // "link-right--right": this.right,
+        // "link-right--default": !this.right,
       })),
       onClick() {
         emit("click");
@@ -56,66 +114,185 @@ export default {
   },
 };
 </script>
-<style scoped>
-.storybook-button {
+<style lang="scss" scoped>
+
+
+.button-icon {
+  margin-inline-end: var(--spacing-xxs); // Adjust spacing between icon and label
+  line-height: var(--lineHeight-none);
+  // Add any other styling as needed for the icon
+}
+
+.button-label {
+  // Add styling for the label
+}
+.button {
   border-radius: var(--spacing-xxs);
   border: none;
   cursor: pointer;
   display: inline-block;
   font-size: inherit;
-  font-weight: 500;
-  padding: 0.5rem 1rem 0.5rem 1rem;
+  // font-weight: var(--fontWeight-medium);
+  // padding: 0.5rem 1rem 0.5rem 1rem;
   text-decoration: none;
   transition: all 0.1s ease-in-out;
-  -webkit-transition: all 0.1s ease-in-out;
+  &:hover {
+    animation: animate-shake 1s;
+    animation-delay: 1s;
+  }
+  &:active {
+    /* animation: animate-glow 1s;  */
+    transform: scale(0.98);
+    /* box-shadow: var(--shadow-text); */
+  }
 }
-.storybook-button:hover {
-  animation: animate-shake 1s; 
-  animation-delay: 1s;
 
-}
-.storybook-button:active {
-  /* animation: animate-glow 1s;  */
-  transform: scale(0.98);
-  /* box-shadow: var(--shadow-text); */
-
-}
-.storybook-button--primary {
-  color: var(--text-reversed) !important;
-  background: -webkit-linear-gradient(var(--link-reversed), var(--link)) !important;
+.button--solid {
+  color: var(--color-offwhite) !important;
+  background: -webkit-linear-gradient(
+    var(--color-lightpurple),
+    var(--color-purple)
+  ) !important;
   border: 2px solid var(--link) !important;
+  &:before,
+  &:after {
+    color: var(--color-offwhite) !important;
+  }
+  &:hover {
+    background: -webkit-linear-gradient(var(--link), var(--link)) !important;
+  }
+}
 
-}
-.storybook-button--primary:hover {
-  background: -webkit-linear-gradient(var(--link), var(--link)) !important;
-}
-.storybook-button--secondary {
+.button--outline {
   background-color: transparent !important;
   color: var(--link) !important;
-  border: 2px solid var(--link) !important;
+  border: 1px solid var(--link) !important;
+  font-weight: var(--fontWeight-normal);
+
+  &:before,
+  &:after {
+    color: var(--link) !important;
+  }
+  &:hover {
+    color: var(--text-reversed) !important;
+    background-color: var(--link) !important;
+    &:before,
+    &:after {
+      color: var(--text) !important;
+    }
+  }
 }
 
-.storybook-button--secondary:hover {
-  color: var(--text-reversed) !important;
-  background-color: var(--link) !important;
+.button--ghost {
+  color: var(--link) !important;
+  background-color: transparent;
+  border: 1px solid transparent !important;
+  font-weight: var(--fontWeight-normal);
+  &:before,
+  &:after {
+    color: inherit !important;
+  }
+  &:hover {
+    border: 1px solid var(--link) !important;
+  }
+  // &:active,
+  // .router-link-exact-active {
+  //   border: dashed !important;
+  // }
 }
-.storybook-button--small {
-  font-size: var(--font-xxs);
-  padding: 1rem 2rem 1rem 2rem;
+.reversed .button--ghost {
+  color: var(--link-reversed) !important;
+  &:hover {
+    border: 1px solid var(--link-reversed) !important;
+  }
+  &:before,
+  &:after {
+    color: var(--link-reversed) !important;
+  }
+  &:active {
+    // border: dashed !important;
+    opacity: 0.5;
+  }
+}
+
+.button--textlink {
+  color: var(--text) !important;
+
+  padding: 0 !important;
+  color: var(--link);
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  text-underline-offset: 0.625rem;
+  text-decoration-thickness: 0.1rem !important;
+  &:before,
+  &:after {
+    color: inherit !important;
+  }
+  &:hover {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 0.625rem;
+    text-decoration-thickness: 0.2rem !important;
+  }
+  &:active,
+  .router-link-exact-active {
+    text-decoration: underline dashed !important;
+    text-underline-offset: 0.625rem;
+    text-decoration-thickness: 0.1rem !important;
+  }
+}
+
+.actve-class {
+  text-decoration: underline dashed !important;
+}
+
+.button--small {
+  font-size: var(--font-2xs);
+  // padding: var(--spacing-xxs);
+  padding: 0.95rem 1.25rem 1rem 1.25rem;
+
   /* border-radius: 100px; */
 }
-.storybook-button--large {
+.button--large {
   font-size: var(--font-xs);
-  padding: 1.5rem 2.5rem 1.5rem 2.5rem;
+  padding: 1.5rem 2rem 1.65rem 2rem;
+  // padding: var(--spacing-xs);
 }
 
-/* Reversed States */
-.reversed .storybook-button--secondary {
-  color: var(--link-reversed) !important;
-  border: 2px solid var(--link-reversed) !important;
+/* Icon Styles */
+.button--none:before {
+  content: "";
 }
-.reversed .storybook-button--secondary:hover {
-  color: var(--text) !important;
-  background-color: var(--link-reversed) !important;
+.button--left:before {
+  content: "★ ";
+  color: var(--link);
+}
+.button--right:after {
+  content: " ★";
+  color: var(--link);
+}
+
+.reversed {
+  &:before,
+  &:after {
+    color: var(--link-reversed);
+  }
+  .button--outline {
+    color: var(--link-reversed) !important;
+    border: 1px solid var(--link-reversed) !important;
+    &:before,
+    &:after {
+      color: var(--link-reversed) !important;
+    }
+  }
+  .button--outline:hover {
+    color: var(--text) !important;
+    background-color: var(--link-reversed) !important;
+    &:before,
+    &:after {
+      color: var(--text) !important;
+    }
+  }
 }
 </style>

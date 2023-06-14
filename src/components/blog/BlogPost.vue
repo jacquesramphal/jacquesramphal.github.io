@@ -1,11 +1,11 @@
 <template>
-  <PageWrapper id="blog">
+  <PageWrapper id="Docs">
     <GridWrapper id="posts" class="">
       <!-- TMP BREADCRUMB -->
 
       <GridContainer id="section1">
         <p>
-          <router-link :to="{ name: 'Blog' }">Blog</router-link>
+          <router-link :to="{ name: 'Library' }">Blog</router-link>
           <span class="subtle" style="margin: 0 1rem">/</span>Post
         </p>
       </GridContainer>
@@ -18,7 +18,7 @@
         v-bind:key="blogPost.sys.id"
         :title="blogPost.title"
         :subtitle="blogPost.description"
-        :tag2="blogPost.tag"
+        :typography="blogPost.tag"
       />
        -->
       <GridContainer class="animate glow width">
@@ -27,7 +27,7 @@
           v-bind:key="blogPost.sys.id"
           :title="blogPost.title"
           :description="blogPost.description"
-          :tag2="blogPost.tag"
+          :typography="blogPost.tag"
         />
       </GridContainer>
 
@@ -36,8 +36,8 @@
           large
           class=""
           title=""
-          filename="jacques.jpeg"
-          alt="Jacques working at Myplanet"
+          filename="jacques.jpg"
+          alt="Jacques working at Orium"
         />
       </GridContainer>
       <!-- Section 1 -->
@@ -62,8 +62,8 @@
               <TextBlock
                 left
                 eyebrow=""
-                header="Section 1"
-                details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                title="Section 1"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -77,8 +77,8 @@
               <TextBlock
                 left
                 eyebrow=""
-                header=""
-                details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                title=""
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat."
@@ -90,7 +90,7 @@
           <TextImage
             flipped
             class=""
-            style="background: var(--bg-darker)"
+            style="background: var(--background-darker)"
             route="post"
             cta="Learn More"
           />
@@ -105,8 +105,8 @@
             <TextBlock
               left
               eyebrow=""
-              header="Section 2"
-              details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              title="Section 2"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -121,13 +121,13 @@
         </AnimatedComponent>
 
         <AnimatedComponent>
-          <GridContainer id="" class="width2">
+          <GridContainer id="" class="width1">
             <ImageCard
               large
               class=""
               title=""
               filename="work/glo.svg"
-              alt="Jacques working at Myplanet"
+              alt="Jacques working at Orium"
               caption="This is caption text."
             />
           </GridContainer>
@@ -141,8 +141,8 @@
               <TextBlock
                 left
                 eyebrow=""
-                header="Section 3"
-                details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                title="Section 3"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -157,7 +157,7 @@
           </AnimatedComponent>
         </GridWrapper>
         <AnimatedComponent>
-          <TextImage class="" style="background: var(--bg-darker)" />
+          <TextImage class="" style="background: var(--background-darker)" />
         </AnimatedComponent>
       </GridWrapper>
     </GridWrapper>
@@ -167,7 +167,7 @@
       eyebrow="Blog / Blog Post"
       subtitle="Post Description"
     /> -->
-    <CardRow header="Related" />
+    <CardRow title="Related" />
   </PageWrapper>
 </template>
 
@@ -187,7 +187,7 @@ export default {
       required: true,
       type: String,
     },
-    tag2: {
+    typography: {
       default: "tag",
       required: true,
       type: String,
@@ -221,7 +221,7 @@ export default {
       const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
       const fetchOptions = {
         method: "POST",
-        headers: {
+        titles: {
           Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
           "Content-Type": "application/json",
         },
@@ -246,10 +246,10 @@ export default {
 }
 
 blog-card {
-  margin-bottom: var(--spacing-md) !important;
+  margin-block-end: var(--spacing-md) !important;
 }
 h3 {
-  margin-bottom: var(--spacing-md) !important;
+  margin-block-end: var(--spacing-md) !important;
 }
 #posts {
   justify-self: center;
@@ -258,7 +258,7 @@ h3 {
 }
 
 /* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
+@media only screen and (min-width: 768px) {
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
     .container {

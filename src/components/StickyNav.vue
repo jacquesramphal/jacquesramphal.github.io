@@ -4,70 +4,54 @@
     class="navbar"
     :class="{ 'hidden-navbar': !showNavbar }"
   >
-    <div class="bg">
+    <div class="bg reversed">
       <nav class="">
-        <h1
-          class="hidemobile nav-link"
-          id="wordmark"
-          style="font-weight: var(--font-reversed-bold) !important"
-          tabindex="0"
-        >
-          <router-link :to="{ name: 'Home' }">Jacques Ramphal</router-link>
-        </h1>
+        <li class="wordmark">
+          <MyButton
+            label="Jacques Ramphal"
+            route="/"
+            type="ghost"
+            v-show="isDesktopScreen && !menuOpen"
+          />
+          <MyButton
+            label="Jake Ramphal"
+            route="/"
+            type="ghost"
+            v-show="isMobileScreen && !menuOpen"
+          />
+        </li>
 
-        <h1
-          class="showmobile nav-link"
-          id="wordmark"
-          style="font-weight: var(--font-reversed-bold)"
-          tabindex="0"
-        >
-          <router-link :to="{ name: 'Home' }">Jake Ramphal</router-link>
-        </h1>
-        <ul class="justify-end">
-          <li class="nav-link" tabindex="0">
-            <router-link :to="{ name: 'Blog' }">docs</router-link>
+        <div class="justify-end">
+        
+          <li>
+            <MyButton
+              v-show="isDesktopScreen && !menuOpen"
+              type="ghost"
+              route="docs"
+              label="docs"
+            />
           </li>
-          <li class="nav-link" tabindex="0">
-            <router-link :to="{ name: 'Resume' }">info</router-link>
+        
+          <!-- Slot for the menu button -->
+          <li class="nav-link" tabindex="0" style="width: 98px;">
+            <slot name="menu-button"></slot>
           </li>
-
-          <!-- <li class="nav-link" tabindex="0">
-            <router-link class="isDisabled" to="blog">writing</router-link>
-          </li> -->
-
-          <!-- <li
-            class="nav-link"
-            data-aos="fade-left"
-            data-aos-duration="1000"
-            data-aos-delay="250"
-            data-aos-once="true"
-            data-aos-anchor-placement="top"
-          >
-            <router-link to="Work">Work</router-link>
-            <router-link class="isDisabled" to="/">Work</router-link> 
-
-            <router-link :to="{ 'info/'+'#info'}">Info</router-link> 
-            <a href="mailto:jacques@ramphal.design">Email</a>
-           <router-link to="Info">Info</router-link> 
-          </li> -->
-        </ul>
+        </div>
       </nav>
     </div>
   </GridContainer>
 </template>
 
 <script>
-// Must import here and on footer since they are global router components?
-import GridContainer from "@/components/grid/GridContainer.vue";
+import GridContainer from "./grid/GridContainer.vue";
+import MyButton from "./Button.vue";
 
-/**
- * @component
- */
 const OFFSET = 60;
 export default {
   name: "StickyNav",
   components: {
     GridContainer,
+    MyButton,
   },
   props: {
     title: {
@@ -77,26 +61,41 @@ export default {
   },
   data() {
     return {
+      menuOpen: false,
+
       showNavbar: true,
       lastScrollPosition: 0,
       scrollValue: 0,
+      isMobileScreen: false, // Change to regular data property
+      isDesktopScreen: false, // Change to regular data property
     };
   },
 
   mounted() {
     this.lastScrollPosition = window.pageYOffset;
     window.addEventListener("scroll", this.onScroll);
+    window.addEventListener("resize", this.onWindowResize);
     const viewportMeta = document.createElement("meta");
     viewportMeta.name = "viewport";
     viewportMeta.content = "width=device-width, initial-scale=1";
     document.head.appendChild(viewportMeta);
+
+    // Call the resize method on initial mount to set the initial visibility
+    this.onWindowResize();
   },
 
   beforeUnmount() {
     window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener("resize", this.onWindowResize);
   },
 
   methods: {
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen;
+    },
+    closeMenu() {
+      this.menuOpen = false;
+    },
     onScroll() {
       if (window.pageYOffset < 0) {
         return;
@@ -107,113 +106,141 @@ export default {
       this.showNavbar = window.pageYOffset < this.lastScrollPosition;
       this.lastScrollPosition = window.pageYOffset;
     },
+    onWindowResize() {
+      this.showNavbar = true; // Ensure the navbar is always visible when resizing
+      this.isMobileScreen = window.innerWidth < 740;
+      this.isDesktopScreen = window.innerWidth >= 740;
+    },
   },
 };
 </script>
-<style scoped>
+<style lang="scss">
+.nav-link > a {
+  border-radius: 4px;
+  color: var(--text-reversed) !important;
+
+  &:hover {
+    background: var(--background-darker-reversed);
+    transition: all 0.25s ease;
+  }
+}
+</style>
+
+<style lang="scss" scoped>
 * {
-  color: var(--text) !important;
+  color: var(--text-reversed) !important;
   margin: 0;
   mix-blend-mode: normal;
+}
+
+.custom-btn {
+  padding: 0 !important;
 }
 :active {
   outline: transparent;
 }
+
 .navbar {
-  right: 0;
-  left: 0;
-  bottom: 0;
+  inset-inline-end:  0;
+  inset-block-end:  0;
   max-width: none;
   mix-blend-mode: normal !important;
   overflow: visible;
   padding: 0 !important;
   position: fixed;
   transform: translate3d(0, 0, 0) !important;
-  transition: 0.4s all ease-in-out !important;
-  width: auto;
+  transition: 0.4s all cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
+  inline-size: 100%;
   z-index: 1000 !important;
+
+  @media only screen and (min-width: 768px) {
+    inline-size: fit-content;
+  }
 }
+/* Adds extra background colour to account for bouncing effect */
+.navbar::after {
+  content: "";
+  position: absolute;
+  inset-block-start:  0;
+  inset-block-end:  -100%; /* Adjust the value to control the width of the additional background */
+  inset-inline-end:  0;
+  inline-size: 100%; /* Adjust the value to control the width of the additional background */
+  background-color: var(
+    --background-reversed
+  ); /* Specify the color of the additional background */
+  z-index: -1; /* Set the z-index to be behind the navbar */
+  @media only screen and (min-width: 768px) {
+    inset-inline-end:  -100%; /* Adjust the value to control the width of the additional background */
+    inset-block-end:  0;
+  }
+}
+
 .navbar.hidden-navbar {
   transform: translate3d(0, 150%, 0) !important;
+
+  @media only screen and (min-width: 768px) {
+    transform: translate3d(100%, 0, 0) !important;
+  }
 }
+
 .bg {
   transition: 0.5s box-shadow ease-in-out !important;
   align-items: middle;
-  background: var(--background);
-  /* border: var(--border); */
   justify-self: stretch;
-  /* margin: 0.8rem; */
   overflow: visible;
   position: relative;
   padding: var(--spacing-xxs);
-  box-shadow: var(--shadow-deep);
+
+  @media only screen and (min-width: 768px) {
+    border-radius: 8px 0 0 0;
+    justify-self: end;
+  }
 }
-/* .bg:hover {
-  box-shadow: var(--shadow-deep);
-} */
+
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-nav {
-  overflow: visible;
-  align-items: center;
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  height: 5.2rem;
-  justify-self: stretch;
-  position: relative;
-}
-.nav-link > a {
-  border-radius: 4px;
-  padding: var(--spacing-xs);
-  /* text-decoration: none !important; */
-}
-.nav-link > a:hover {
-  color: var(--link) !important;
-  background: var(--bg-darker);
-  transition: all 0.25s ease;
 
-  /*  box-shadow: var(--shadow-z1); */
-}
-.router-link-exact-active {
-  background: var(--bg-darker);
-  text-decoration: none !important;
-  /* border-bottom: 2px solid var(--link);*/
-}
-
-h1 {
-  margin: 0;
-}
 li {
+  list-style: none;
   float: left;
   font-size: 2em;
   line-height: 1;
   margin: 0;
   text-decoration: none;
-}
-li:first-child {
-  padding-right: 0;
-}
-/* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
-  .navbar {
-    transition: 0.8s all ease-in-out !important;
+
+  &:first-child {
+    padding-inline-end: 0;
   }
-  #wordmark::after {
+}
+
+nav {
+  overflow: visible;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  // block-size: 5.2rem;
+  justify-self: stretch;
+  position: relative;
+}
+
+.router-link-exact-active {
+  background: var(--background-darker-reversed);
+  text-decoration: underline dashed !important;
+}
+
+p {
+  margin: 0;
+}
+
+.wordmark::after {
+  @media only screen and (min-width: 768px) {
     content: "/";
     padding: var(--spacing-xxs);
     opacity: 0.5;
-    font-weight: var(--font-bold);
-  }
-  .bg {
-    border-radius: 8px 0 0 0;
-    justify-self: end;
-  }
-
-  .navbar.hidden-navbar {
-    transform: translate3d(100%, 0, 0) !important;
+    font-weight: var(--fontWeight-normal);
   }
 }
 </style>

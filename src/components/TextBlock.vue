@@ -1,49 +1,87 @@
 <template>
   <div id="textblock" :class="classes">
-    <h6 tabIndex="0" class="eyebrow subtle" v-if="eyebrow" v-text="eyebrow" />
-    <h3 tabIndex="0" v-if="header" v-text="header" />
-    <h4 tabIndex="0" v-if="header4" v-text="header4" />
-    <h5 tabIndex="0" v-if="header5" v-text="header5" />
-    <p id="" class="details" tabIndex="0" v-if="details" v-html="details" />
-    <TextLink v-if="route" :label="`${cta}`" :route="`${route}`" />
-    <TextLink v-if="link" :label="`${cta}`" :link="`${link}`" />
-    <!-- <blockquote v-if="blockquote" v-text="blockquote" /> -->
+    <MyIcon
+      v-if="icon"
+      style="margin-block-end: var(--spacing-sm)"
+      :name="`${icon}`"
+      :is-svg="true"
+      :size="`${iconsize}`"
+    />
+    <DynamicText
+      v-if="eyebrow"
+      :text="eyebrow"
+      :attrs="{ class: 'eyebrow subtle' }"
+    />
+    <DynamicText
+      v-if="title"
+      :as="as"
+      tabIndex="0"
+      :text="title"
+      :attrs="{ class: 'title' }"
+    />
+    <DynamicText
+      v-if="description"
+      tabIndex="0"
+      :text="description"
+      :attrs="{ class: 'description' }"
+    />
+    <TextLink
+      v-if="route && label"
+      :label="label"
+      :route="route ? `${route}` : undefined"
+      :link="link ? `${link}` : undefined"
+    />
     <MyButton
       id="btn"
-      v-if="btnroute"
-      :label="`${cta}`"
+      v-if="btnroute && label"
+      :label="label"
       :route="btnroute"
-      secondary
-      size="large"
+      type="solid"
     />
   </div>
 </template>
 
 <script>
+import MyButton from "./Button.vue";
+import TextLink from "./text/TextLink.vue";
+import DynamicText from "./text/DynamicText.vue";
+import MyIcon from "./Icon.vue";
+
 export default {
   name: "TextBlock",
-
+  components: {
+    MyButton,
+    TextLink,
+    DynamicText,
+    MyIcon,
+  },
   props: {
+    icon: {
+      type: String,
+    },
+    iconsize: {
+      type: String,
+      default: "64",
+    },
+    alt: {
+      type: String,
+    },
     eyebrow: {
       type: String,
       required: false,
     },
-    header: {
+    as: {
+      default: "h3",
+      type: String,
+      required: false,
+    },
+    title: {
       type: String,
       default: "",
       required: false,
     },
-    header4: {
-      type: String,
-      default: "",
-      required: false,
-    },
-    header5: {
-      type: String,
-      default: "",
-      required: false,
-    },
-    details: {
+
+    description: {
       type: String,
       default:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -57,29 +95,26 @@ export default {
     center: {
       type: Boolean,
       default: false,
-      required: true,
     },
     clamped: {
       type: Boolean,
       default: false,
-      required: true,
     },
-    cta: {
+    label: {
       type: String,
+      default: "",
+      required: false,
     },
     route: {
       type: String,
-      default: "",
+      required: false,
     },
     btnroute: {
       type: String,
-      default: "",
+      required: false,
     },
     link: {
       default: "",
-      type: String,
-    },
-    label: {
       type: String,
     },
   },
@@ -102,37 +137,35 @@ export default {
 * {
   color: inherit;
 }
-#textblock{
+#textblock {
   display: flex;
   flex-direction: column;
-  width: 100%;
-
+  inline-size: 100%;
 }
-.eyebrow{
+.eyebrow {
   word-spacing: 1rem;
-  font-weight: var(--font-medium);
-  margin-bottom: 1em;
-
+  margin-block-end: 1em;
 }
-.details{
-  flex: 1;
-  width: 100%;
+.title {
+  /* flex: 1; */
+  inline-size: 100%;
+  white-space: normal;
+}
+.description {
+  /* flex: 1; */
+  inline-size: 100%;
   white-space: normal;
 }
 .textblock-align {
   grid-column: 1 / 4;
 }
-h6 {
-}
-p {
+.description {
   margin: 1rem 0 0 0;
-}
-.details {
 }
 .textblock--clamped p {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 .line-clamp {
@@ -143,10 +176,10 @@ p {
 }
 #btn {
   display: inline-block;
-  margin-top: var(--spacing-sm);
+  margin-block-start: var(--spacing-sm);
 }
 #richlink {
-  margin-top: var(--spacing-sm) !important;
+  margin-block-start: var(--spacing-sm) !important;
 }
 .route {
   margin: var(--spacing-sm) 0 0 0;
@@ -159,7 +192,7 @@ p {
 }
 
 /* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
+@media only screen and (min-width: 768px) {
   .textblock-align {
     grid-column: auto;
   }

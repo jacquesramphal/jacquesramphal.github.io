@@ -12,7 +12,15 @@ export default {
       type: Boolean,
       default: false,
     },
-    full: {
+    fullvw: {
+      type: Boolean,
+      default: false,
+    },
+    fullvh: {
+      type: Boolean,
+      default: false,
+    },
+    maxvw: {
       type: Boolean,
       default: false,
     },
@@ -22,47 +30,62 @@ export default {
       return {
         "container-spacing": true,
         "container-spacing--tight": this.tight,
-        "container-spacing--normal": !this.tight,
-        "container-spacing--full": this.full,
+        "container-spacing--fullvw": this.fullvw,
+        "container-spacing--maxvw": this.maxvw,
+        "container-spacing--fullvh": this.fullvh,
       };
     },
   },
 };
 </script>
 
-<style lang="sass" scoped>
-.container-spacing
-  width: 100%
-  width: -moz-available
-  width: -webkit-fill-available
-  width: stretch
-  position: relative
-  padding: var(--spacing-sm) !important
-  display: grid
-  grid-template-columns: 1
-  height: auto
-  margin-left: auto
-  margin-right: auto
-  max-width: 1920px
-  overflow: hidden
+<style lang="scss" scoped>
 
-.container-spacing--normal
-  @media only screen and (min-width: 740px)
-    padding: var(--spacing-lg) !important
-  @media only screen and (min-width: 1201px)
-    padding: var(--spacing-lg) !important
+.container-spacing {
+  inline-size: 100%;
+  inline-size: -moz-available;
+  inline-size: -webkit-fill-available;
+  inline-size: stretch;
+  position: relative;
+  padding: var(--spacing-sm) !important;
+  display: grid;
+  grid-template-columns: 1;
+  block-size: auto;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  // max-width: 1680px;
+  overflow: hidden;
 
-.container-spacing--tight
-  @media only screen and (min-width: 740px)
-    padding: var(--spacing-md) !important
-  @media only screen and (min-width: 1201px)
-    padding: var(--spacing-md) !important
+  @media only screen and (min-width: 768px) {
+    padding: var(--spacing-lg) !important;
+  }
+  @media only screen and (min-width: 1201px) {
+    padding: var(--spacing-lg) var(--spacing-xl) !important;
+  }
 
-.container-spacing--full
-  padding: 0 !important
-  // img 
-  //   border: 1px solid red !important
-  //   border-radius: none !important
-  
+  &--tight {
+    @media only screen and (min-width: 768px) {
+      padding: var(--spacing-md) !important;
+    }
+    @media only screen and (min-width: 1201px) {
+      padding: var(--spacing-md) !important;
+    }
+  }
 
+  &--fullvw {
+    padding: 0 !important;
+  }
+
+  &--fullvh {
+    min-block-size: 468px;
+    block-size: 100vh !important;
+    align-items: center !important;
+  }
+  &--maxvw {
+    max-width: 86.4rem !important;
+    float: none;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+  }
+}
 </style>

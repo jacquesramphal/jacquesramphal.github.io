@@ -33,12 +33,12 @@ export default {
 
 <style scoped>
 #info > .container {
-  /* padding-top: 0 !important; */
+  /* padding-block-start: 0 !important; */
 }
 /* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
+@media only screen and (min-width: 768px) {
   #image-highlight {
-    height: 60vh;
+    block-size: 60vh;
   }
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {

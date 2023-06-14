@@ -1,22 +1,22 @@
 <template>
   <PageWrapper>
     <!-- <HeroBanner
-      style="background: var(--bg-darker)"
+      style="background: var(--background-darker)"
       eyebrow="🚀 Recommended Links"
       title="A collection of links and writing to help you fall back in love typography."
       subtitle=""
     /> -->
     <!-- TMP - should be a v-for list - see resume -->
-    <GridContainer style="border-bottom: var(--border)">
+    <GridContainer style="border-block-end: var(--border)">
       <div
         class=""
         style="
-          padding-bottom: var(--spacing-md);
+          padding-block-end: var(--spacing-md);
           align-items: center;
           grid-template-columns: repeat(2, 1fr);
         "
       >
-        <h3 class="" style="text-align: left">Typography</h3>
+        <h2 class="" style="text-align: left">Typography</h2>
       </div>
       <div class="grid-parent">
         <ul>
@@ -133,18 +133,18 @@
       </div>
     </GridContainer>
 
-        <!-- New Section -->
+    <!-- New Section -->
 
-    <GridContainer style="border-bottom: var(--border)">
+    <GridContainer style="border-block-end: var(--border)">
       <div
         class=""
         style="
-          padding-bottom: var(--spacing-md);
+          padding-block-end: var(--spacing-md);
           align-items: center;
           grid-template-columns: repeat(2, 1fr);
         "
       >
-        <h3 class="" style="text-align: left">Accessibility</h3>
+        <h2 class="" style="text-align: left">Accessibility</h2>
       </div>
 
       <div class="grid-parent">
@@ -260,17 +260,17 @@
           </li>
         </ul>
       </div>
-      </GridContainer>
-      <GridContainer style="border-bottom: var(--border)">
+    </GridContainer>
+    <GridContainer style="border-block-end: var(--border)">
       <div
         class=""
         style="
-          padding-bottom: var(--spacing-md);
+          padding-block-end: var(--spacing-md);
           align-items: center;
           grid-template-columns: repeat(2, 1fr);
         "
       >
-        <h3 class="" style="text-align: left">UI Dev Docs</h3>
+        <h2 class="" style="text-align: left">UI Dev Docs</h2>
       </div>
 
       <div class="grid-parent">
@@ -392,19 +392,17 @@
 </template>
 
 <script>
-
 export default {
   name: "UsefulLinks",
-  components: {
-  },
+  components: {},
 };
 </script>
 
 <style lang="sass" scoped>
 .grid-parent
   grid-gap: 0
-  // margin-bottom: var(--spacing-lg)
-  @media only screen and (min-width: 740px)
+  // margin-block-end: var(--spacing-lg)
+  @media only screen and (min-width: 768px)
     grid-gap: var(--spacing-lg)
 ul
   list-style: none
@@ -412,17 +410,17 @@ ul
   padding: 0
 
 li
-  width: 100%
+  inline-size: 100%
   font-size: 2em
-  line-height: 1.5
-  font-weight: var(--font-medium)
+  line-height: var(--lineHeight-tall)
+  // font-weight: var(--fontWeight-medium)
   padding: var(--spacing-xs) 0
-  // border-bottom: var(--border)
+  // border-block-end: var(--border)
   float: left
   list-style-type: none
   text-decoration: none
   margin: 0
 
 li:last-child
-  padding-right: 0
+  padding-inline-end: 0
 </style>

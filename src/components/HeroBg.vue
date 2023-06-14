@@ -2,9 +2,9 @@
   <div id="hero-bg" class="">
     <GridContainer>
       <div id="hero-text" class="">
-        <h2>
+        <h1>
           {{ header }}
-        </h2>
+        </h1>
       </div>
     </GridContainer>
   </div>
@@ -35,8 +35,8 @@ export default {
 }
 #hero-bg {
   display: grid;
-  min-height: 320px;
-  height: 100vh;
+  min-block-size: 320px;
+  block-size: 100vh;
   /* color: var(--color-action2) */
   background-image: url("../assets/images/splash.svg");
   background-repeat: no-repeat;
@@ -45,13 +45,13 @@ export default {
 }
 #hero-text {
   display: grid;
-  margin-top: -2.8em;
+  margin-block-start: -2.8em;
   grid-row: 1 / 8;
   justify-content: center;
   text-align: left;
   align-items: center !important;
 }
-h2 {
+h1 {
   color: white;
 }
 </style>

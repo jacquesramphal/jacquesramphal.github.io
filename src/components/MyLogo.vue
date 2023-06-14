@@ -1,7 +1,7 @@
 <template>
   <div id="MyLogo" class="">
     <svg
-      height="100%"
+      block-size="100%"
       viewBox="0 0 35 43"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +22,7 @@
             x="0"
             y="0"
             width="33"
-            height="40"
+            block-size="40"
           ></rect>
           <g
             id="monogram"
@@ -108,23 +108,32 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-*
-  color: inherit
-  
+<style lang="scss" scoped>
+* {
+  color: inherit;
+}
+
 /* Monogram styling */
-#monogram
-  transition: all .5s ease-in-out
-  z-index: 10000
+#monogram {
+  transition: all 0.5s ease-in-out;
+  z-index: 10000;
+}
 
-#monogram:hover
-  stroke-dasharray: 100
-  animation: dash infinite 10s ease-in-out
+#monogram:hover {
+  stroke-dasharray: 100;
+  animation: dash infinite 10s ease-in-out;
+}
 
-#MyLogo
-  height: 3.6rem
-  @media only screen and (min-width: 740px)
-    height: 4rem
-  @media only screen and (min-width: 1201px)
-    height: 4.8rem
+#MyLogo {
+  block-size: 3.6rem;
+
+  @media only screen and (min-width: 768px) {
+    block-size: 4rem;
+  }
+
+  @media only screen and (min-width: 1201px) {
+    block-size: 4.8rem;
+  }
+}
+
 </style>

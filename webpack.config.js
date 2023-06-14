@@ -1,23 +1,33 @@
-const path = require('path');
+const webpack = require('webpack'); // Add the webpack import
 
-// load the default config generator.
-const genDefaultConfig = require('@storybook/vue/dist/server/config/defaults/webpack.config.js');
-
-module.exports = (baseConfig, env) => {
-  const config = genDefaultConfig(baseConfig, env);
-
-  // Extend it as you need.
-  function resolve(dir) {
-    return path.join(__dirname, '..', dir);
-  }
-
-  config.resolve = {
-    extensions: ['.js', '.vue', '.json'],
-    alias: {
-      vue$: 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
+module.exports = ({ config }) => {
+  config.module.rules.push(
+    {
+      test: /\.sass$/,
+      use: [
+        require.resolve('vue-style-loader'),
+        require.resolve('css-loader'),
+        {
+          loader: require.resolve('sass-loader'),
+          options: {
+            sassOptions: {
+              indentedSyntax: true
+            }
+          }
+        }
+      ],
     },
-  };
+    {
+      test: /\.md$/,
+      use: [
+        require.resolve('html-loader'),
+        require.resolve('markdown-loader'),
+      ],
+    }
+  );
+
+  // Add the plugins to the configuration
+
 
   return config;
 };

@@ -1,23 +1,74 @@
 <template>
   <div id="richlink">
-    <router-link :class="classes" v-if="route" :to="`${route}`"
-      >{{ label }}
+    <router-link :class="classes" v-if="route" :to="`${route}`" @click="onClick">
+      <MyIcon
+        v-if="icon || unicode"
+        :style="{ 'margin-inline-end': iconsize / 2 + 'px' }"
+        :name="icon"
+        :is-svg="isSvg"
+        :size="iconsize"
+        :url="iconurl"
+        :unicode="unicode"
+      />
+      {{ label }}
     </router-link>
     <a
       :class="classes"
       class="external"
-      v-if="link"
+      v-else-if="link"
       target="blank"
       :href="`${link}`"
+      @click="onClick"
     >
+      <MyIcon
+        v-if="icon || unicode"
+        :style="{ 'margin-inline-end': iconsize / 2 + 'px' }"
+        :name="`${icon}`"
+        :is-svg="isSvg"
+        :size="iconsize"
+        :url="iconurl"
+        :unicode="unicode"
+      />
       {{ label }}
+    </a>
+    <a
+      :class="classes"
+      v-else
+      target="blank"
+      @click="onClick"
+    >
+      <MyIcon
+        v-if="icon || unicode"
+        :style="{ 'margin-inline-end': iconsize / 2 + 'px' }"
+        :name="`${icon}`"
+        :is-svg="isSvg"
+        :size="iconsize"
+        :url="iconurl"
+        :unicode="unicode"
+      />
+      {{ label }}
+      <MyIcon
+        v-if="iconRight || unicodeRight"
+        :style="{ 'margin-inline-start': iconsize / 2 + 'px' }"
+        :name="`${iconRight}`"
+        :is-svg="isSvg"
+        :size="iconsize"
+        :url="iconurl"
+        :unicode="unicodeRight"
+      />
     </a>
   </div>
 </template>
 
 <script>
+import MyIcon from "./../Icon.vue";
+import { reactive, computed } from "vue";
+
 export default {
   name: "TextLink",
+  components: {
+    MyIcon,
+  },
   props: {
     label: {
       type: String,
@@ -27,71 +78,111 @@ export default {
     route: {
       type: String,
     },
+    isSvg: {
+      type: Boolean,
+      default: true,
+    },
     link: {
       type: String,
     },
-
+    icon: {
+      type: String,
+    },
+    iconRight: {
+      type: String,
+    },
+    iconsize: {
+      type: String,
+      default: "64",
+    },
+    iconurl: {
+      type: String,
+    },
+    unicode: {
+      type: String,
+    },
+    unicodeRight: {
+      type: String,
+    },
     // Override props
     large: {
       type: Boolean,
       default: false,
-      required: true,
+      required: false,
     },
     left: {
       type: Boolean,
       default: false,
-      required: true,
+      required: false,
     },
-    right: {
+    right:  {
       type: Boolean,
       default: false,
-      required: true,
+      required: false,
     },
   },
-  computed: {
-    classes() {
-      return {
-        "link-size": true,
-        "link-size--large": this.large,
-        "link-size--normal": !this.large,
+  
+  emits: ["click"],
+setup(props, { emit }) {
+  const reactiveProps = reactive(props);
+  return {
+    classes: computed(() => ({
+      "link-size": true,
+      "link-size--large": reactiveProps.large,
 
-        "link-left": true,
-        "link-left--left": this.left,
-        "link-left--normal": !this.left,
+      "link-left": true,
+      "link-left--left": reactiveProps.left,
+      "link-left--default": !reactiveProps.left,
 
-        "link-right": true,
-        "link-right--right": this.right,
-        "link-right--normal": !this.right,
-      };
+      "link-right": true,
+      "link-right--right": reactiveProps.right,
+      "link-right--default": !reactiveProps.right,
+    })),
+    onClick() {
+      emit("click");
     },
-  },
+  };
+},
+  
 };
 </script>
 <style></style>
 
-<style lang="sass" scoped>
-*
-  color: inherit
-  font-weight: var(--font-medium)
+<style lang="scss" scoped>
+* {
+  color: inherit;
+  // font-weight: var(--fontWeight-medium);
+}
+// #richlink {
+//   color: var(--link);
+// }
+.link-size {
+  /* background: var(--color-xlight); */
+  font-size: var(--font-xs);
+  display: flex;
+  align-items: center;
+}
 
-.link-size
-  /*  background: var(--color-xlight); */
-  font-size: var(--font-xs)
-/* .link-size--normal */
-.link-size--large
-  font-size: var(--font-lg) !important
+/* .link-size--default */
+
+.link-size--large {
+  font-size: var(--font-lg) !important;
+}
 
 /* .link-left */
-.link-left--left:before
-  content: "★ "
-  color: var(--link)
+
+.link-left--left:before {
+  content: "★ ";
+  color: var(--link);
+  text-decoration: none;
+}
+
 /* .link-right */
-.link-right--right:after
-  content: " ★"
-  color: var(--link)
+
+.link-right--right:after {
+  content: " ★";
+  color: var(--link);
+}
 
 /* ---- External Link ---- */
-.external:after
-  content: " ↗"
-  color: var(--link)
 </style>

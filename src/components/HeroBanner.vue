@@ -1,49 +1,63 @@
 <template>
   <AnimatedComponent>
-    <!-- Background url as prop but not working -->
-    <!-- <GridWrapper id="hero-banner" :class="classes" style="background: url('require(`@/assets/images/${filename}`)')">-->
-
     <GridWrapper id="hero-banner" :class="classes">
       <img
-        class="animate glow delay-2"
+        id="hero-image"
+        class="animate fade delay-1"
+        v-if="filename"
         draggable="false"
-        :src="require(`@/assets/images/${filename}`)"
+        :src="require(`../assets/images/${filename}`)"
         :alt="`${alt}`"
       />
-      <GridContainer v-if="eyebrow">
-        <div v-if="eyebrow" class="animate fade delay-3">
-          <p id="eyebrow" class="subtle" v-if="eyebrow" v-text="eyebrow" />
+      <GridContainer id="eyebrow" v-if="eyebrow" style="z-index: 10000">
+        <div class="animate fade delay-3">
+          <component
+            :is="breadcrumb ? 'TextLink' : 'p'"
+            class="subtle"
+            v-if="eyebrow"
+            v-text="eyebrow"
+            :label="breadcrumb ? eyebrow : undefined"
+            :route="breadcrumb ? breadcrumb : undefined"
+            style="scroll-snap-align: start"
+          />
         </div>
       </GridContainer>
-      <GridContainer>
-        <div id="hero-text" class="animate glow delay-1">
+      <GridContainer class="banner-container" v-if="title">
+        <div id="hero-text" class="animate fade delay-1">
           <span
-            ><h2 id="title" v-html="title" />
-            <h6 id="tags" v-if="tag" v-text="tag" class="subtle" />
+            ><h1 id="title" v-html="title" />
+            <p id="tags" v-if="tag" v-text="tag" class="subtle" />
 
-            <p
-              v-if="subtitle"
-              v-text="subtitle"
-              id="subtitle"
-              style="font-weight: var(--font-medium)"
-            />
+            <p v-if="subtitle" v-text="subtitle" id="subtitle" />
 
-            <div id="hero-cta" v-show="label">
-              <!-- refactor button and props -->
-              <span style="gap: 2rem; display: flex"
-                ><MyButton
-                  :label="`${label}`"
-                  size="large"
-                  :route="`${route}`"
-                />
-                <MyButton
-                  secondary
-                  :label="`${label}`"
-                  size="large"
-                  :route="`${route}`"
-                />
-              </span>
+            <div
+              id="hero-cta"
+              v-if="label"
+              :class="{ 'with-gap': label && labeltwo }"
+            >
+              <MyButton
+                v-if="label"
+                size="large"
+                :label="`${label}`"
+                :route="`${route}`"
+              />
+              <MyButton
+                v-if="labeltwo"
+                type="outline"
+                size="large"
+                :label="`${labeltwo}`"
+                :route="`${routetwo}`"
+              />
             </div>
+            <!-- <ButtonRow v-if="buttonsData" :buttons="`${buttonsData}`" /> -->
+
+            <!-- This works but need to make second button conditional and type=secondary -->
+            <!-- <ButtonRow v-if="label"
+              :buttons="[
+                { label: label, route: route },
+                { label: labeltwo, route: routetwo },
+              ]"
+            /> -->
           </span>
         </div>
       </GridContainer>
@@ -52,8 +66,21 @@
 </template>
 
 <script>
+import GridContainer from "./grid/GridContainer.vue";
+import GridWrapper from "./grid/GridWrapper.vue";
+import TextLink from "./text/TextLink.vue";
+// import MyButton from "./Button.vue";
+import AnimatedComponent from "./AnimatedComponent.vue";
+
 export default {
   name: "HeroBanner",
+  components: {
+    GridContainer,
+    GridWrapper,
+    // MyButton,
+    AnimatedComponent,
+    TextLink,
+  },
   props: {
     contentful: {
       type: Array,
@@ -63,7 +90,11 @@ export default {
 
     eyebrow: {
       type: String,
-      default: "Breadcrumb / Current Page",
+      // default: "Breadcrumb / Current Page",
+    },
+    breadcrumb: {
+      type: String, // Change type to String
+      required: true, // Make it required or provide a default value
     },
     title: {
       type: String,
@@ -77,15 +108,21 @@ export default {
     subtitle: {
       type: String,
     },
+
     route: {
       type: String,
     },
     label: {
       type: String,
     },
+    routetwo: {
+      type: String,
+    },
+    labeltwo: {
+      type: String,
+    },
     filename: {
       type: String,
-      default: "jacques.jpeg",
     },
 
     // Override props
@@ -117,111 +154,187 @@ export default {
         "herobanner--center": this.center,
         "herobanner--overlap": this.overlap,
         "herobanner--fullvh": this.fullvh,
-        "herobanner--red": this.red,
-
-        // "herobanner--left": !this.center,
       };
     },
   },
 };
 </script>
 
-<style lang="sass" scoped>
-*
-  color: inherit
-  mix-blend-mode: normal
+<style lang="scss" scoped>
+* {
+  color: inherit;
+  mix-blend-mode: normal;
+}
 
-img
-  display: none
+img {
+  display: none;
+}
 
-#hero-text
-  align-items: end !important
-  display: grid
-  justify-content: left
-  text-align: left
-  z-index: 1000
-  @media only screen and (min-width: 1201px)
-    max-width: 75vw
-  #eyebrow
-    margin-bottom: 4rem
-  #tags
-    margin-top: 2rem
-    word-spacing: 2rem
-    @media only screen and (min-width: 740px)
-      margin-top: 3.2rem
-  #subtitle
-    margin-top: 2rem
-    max-width: 86.4rem
-    width: 100%
-    @media only screen and (min-width: 740px)
-      margin-top: 3.2rem
-    @media only screen and (min-width: 1201px)
-.herobanner
-  background-position: 50% 0%
-  background-repeat: no-repeat
-  background-size: cover
-  display: grid
-  overflow: hidden !important
-  position: relative
-  min-height: 60vh
-  @media only screen and (min-width: 740px)
-    background-position: 100% 100%
-    background-repeat: no-repeat
-    background-size: cover
+#hero-text {
+  margin-block-start: var(--spacing-xl);
+  align-items: end !important;
+  display: grid;
+  justify-content: left;
+  text-align: left;
+  z-index: 1000;
+  @media only screen and (min-width: 1201px) {
+    max-width: 75vw;
+    margin-block-start: none;
+  }
 
+  // #eyebrow
+  //   margin-block-end: 4rem;
+  #tags {
+    margin-block-start: 2rem;
+    word-spacing: 2rem;
+    @media only screen and (min-width: 768px) {
+      margin-block-start: 3.2rem;
+    }
+  }
 
-.herobanner--background, .herobanner--overlap
-  overflow: hidden !important
-  img
-    border-radius: 0px !important
-    display: block
-    height: auto
-    min-height: 100%
-    mix-blend-mode: normal
-    object-fit: cover !important
-    object-position: 0% 100%
-    overflow: hidden !important
-    position: absolute
-    width: 100%
-    z-index: 0
-  #hero-text
-    h2
-      background-color: var(--background-reversed)
-      border-radius: var(--spacing-xxs)
-      color: var(--background)
-      font-weight: var(--font-reversed-bold)
-      letter-spacing: var(--spacing-reversed-tight)
-      padding: var(--spacing-xxs) var(--spacing-sm) var(--spacing-xs) var(--spacing-sm)
-.herobanner--overlap
-  img
-    background-color: var(--bg-darker)
-    height: 100% !important
-  @media only screen and (min-width: 1201px)
-    margin-bottom: 20vh
-    min-height: 80vh
-    img
-      aspect-ratio: 16 / 9
-      border-radius: 0 0 0 var(--spacing-xxs) !important
-      display: block
-      right: 0
-      width: auto
-    #hero-text
-      h2
-        font-size: var(--font-display)
-.herobanner--center
-  #hero-text
-    @media only screen and (min-width: 740px)
-      justify-self: center
-      text-align: center !important
-  .subtitle
-    float: none
-    margin-left: auto
-    margin-right: auto
-    max-width: 86.4rem !important
+  #subtitle {
+    margin-block-start: 2rem;
+    max-width: 86.4rem;
+    inline-size: 100%;
+    @media only screen and (min-width: 768px) {
+      margin-block-start: 3.2rem;
+    }
+    @media only screen and (min-width: 1201px) {
+      // TODO: Add media query styling
+    }
+  }
+}
 
-.herobanner--fullvh
-  height: 100vh !important
-  #hero-text
-    align-items: center !important
+#hero-cta {
+  padding-block-start: var(--spacing-md);
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: start;
+  @media only screen and (min-width: 768px) {
+    grid-template-columns: auto auto;
+  }
+}
 
+#hero-cta.with-gap {
+  gap: 2rem; /* Add gap only when both buttons are present */
+}
+
+#eyebrow {
+  margin-block-end: 4rem;
+  position: absolute;
+}
+
+.herobanner {
+  background-position: 50% 0%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  overflow: hidden !important;
+  position: relative;
+  block-size: auto;
+  @media only screen and (min-width: 768px) {
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 60vh;
+  }
+}
+
+.herobanner--background,
+.herobanner--overlap {
+  overflow: hidden !important;
+  img {
+    border-radius: 0px !important;
+    display: block;
+    block-size: auto;
+    min-height: 100%;
+    mix-blend-mode: normal;
+    object-fit: cover !important;
+    object-position: 0% 100%;
+    overflow: hidden !important;
+    position: absolute;
+    inline-size: 100%;
+    z-index: 0;
+  }
+  #hero-image {
+    z-index: 0;
+  }
+  #hero-text {
+    h1 {
+      /* background-color: var(--background-reversed);
+      color: var(--background); 
+            padding: var(--spacing-xxs) var(--spacing-sm) var(--spacing-xs)
+        var(--spacing-sm);
+
+      */
+      color: black;
+      mix-blend-mode: difference !important;
+
+      border-radius: var(--spacing-xxs);
+      font-weight: var(--font-reversed-medium);
+      letter-spacing: var(--letterSpacing-reversed-tight);
+    }
+  }
+}
+
+.herobanner--overlap {
+  img {
+    background-color: var(--background-darker);
+    block-size: 100% !important;
+  }
+  @media only screen and (min-width: 1201px) {
+    margin-block-end: 20vh;
+    min-height: 80vh;
+    img {
+      aspect-ratio: 16 / 9;
+      display: block;
+      inset-inline-end: var(--spacing-md);
+      border-radius: var(--spacing-xxs) !important;
+
+      /*       border-radius: 0 0 0 var(--spacing-xxs) !important;
+    
+       inset-inline-end: 0;*/
+      inline-size: auto;
+    }
+    #hero-text {
+      h1 {
+        font-size: var(--font-display);
+      }
+    }
+  }
+}
+
+.herobanner--center {
+  #hero-text {
+    @media only screen and (min-width: 768px) {
+      justify-self: center;
+      text-align: center !important;
+    }
+  }
+  #hero-text > span {
+    justify-content: center;
+    text-align: center;
+  }
+  #hero-cta {
+    justify-content: center;
+  }
+
+  #subtitle {
+    float: none;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    max-width: 86.4rem !important;
+    justify-self: center;
+  }
+}
+
+.herobanner--fullvh {
+  min-height: 468px;
+  block-size: 100vh !important;
+  z-index: 1;
+  #hero-text {
+    align-items: center !important;
+    margin-block-start: 0 !important;
+  }
+}
 </style>

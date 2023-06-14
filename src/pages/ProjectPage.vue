@@ -1,94 +1,149 @@
 <template>
   <PageWrapper id="work" class="">
+
     <HeroBanner
-      overlap
-      eyebrow=""
-      :filename="`${entry.thumbnail}`"
+      style="scroll-snap-align: start"
       :key="entry.id"
       :title="`${entry.title}`"
+      :subtitle="`${entry.description}`"
     />
 
-    <DetailCard2
-      id="detail1"
-      class=""
-      label1="Role"
-      :value1="`${entry.role}`"
-      label2="Type"
-      :value2="`${entry.type}`"
-      label3="Year"
-      :value3="`${entry.year}`"
-      :subtitle="`${entry.subtitle}`"
-      :description="`${entry.description}`"
-    />
-    <TextImage class="fadeInLeft" />
-    <div v-html="htmlContent"></div>
+    <GridContainer style="padding-block-start: var(--spacing-sm) !important">
+      <TextStats
+        label1="Role"
+        :value1="`${entry.role}`"
+        label2="Type"
+        :value2="`${entry.tag}`"
+        label3="Status"
+        :value3="`${entry.status}`"
+    /></GridContainer>
 
-    <!-- <StatsBar
-      label1="Role"
-      :value1="`${entry.role}`"
-      label2="Type"
-      :value2="`${entry.type}`"
-      label3="Year"
-      :value3="`${entry.year}`"
-    /> -->
-    <!-- <ProjectPreview
-      screenshotUrl="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/091abd59-87bb-46c8-92d2-14d6faf629d1/d2hr6ab-356b2e45-5725-4994-9851-a754ea9fd5bc.jpg/v1/fill/w_1600,h_1000,q_75,strp/desktop_screenshot_by_juggleboy711.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl0sIm9iaiI6W1t7InBhdGgiOiIvZi8wOTFhYmQ1OS04N2JiLTQ2YzgtOTJkMi0xNGQ2ZmFmNjI5ZDEvZDJocjZhYi0zNTZiMmU0NS01NzI1LTQ5OTQtOTg1MS1hNzU0ZWE5ZmQ1YmMuanBnIiwid2lkdGgiOiI8PTE2MDAiLCJoZWlnaHQiOiI8PTEwMDAifV1dfQ.6FQZz6R88KV-NlQ73JUgAEXGSOEMK6oDdhQbXB0pxaw"
-    /> -->
-    <GridContainer class="fadeInLeft">
+    <GridContainer style="scroll-snap-align: start" tight class="animate glow delay-1">
       <ImageCard
-        large
+        size="large"
         title=""
-        :filename="`${entry.images.filename1}`"
+        :filename1="`${entry.images.filename1}`"
         :alt="`${entry.alt}`"
         route=""
-        caption="This is a caption."
-      />
-    </GridContainer>
-    <GridContainer class="fadeInRight">
-      <ImageCard
-        large
-        title=""
-        :filename="`${entry.images.filename1}`"
-        :alt="`${entry.alt}`"
-        route=""
-        caption="This is a caption."
-      />
-    </GridContainer>
-    <GridContainer class="fadeInDown">
-      <ImageCard
-        large
-        title=""
-        :filename="`${entry.images.filename1}`"
-        :alt="`${entry.alt}`"
-        route=""
-        caption="This is a caption."
-      />
-    </GridContainer>
-    <TextImage class="" flipped />
-    <TextImage class="" />
-    <TextImage class="" flipped />
-    <TextImage class="" />
-    <TextImage class="fadeInLeft" flipped />
-    <TextImage class="fadeInRight" />
-    <TextImage class="fadeInLeft" flipped />
-    <TextImage class="fadeInRight" />
+        :style="`${entry.bgcolor}`"
+    /></GridContainer>
+    <TextImage
+      tabindex="0"
+      v-for="(section, j) in entry.entries"
+      :key="j"
+      @click="openImage(section.images.filename1)"
+      :flipped="j % 2 !== 0"
+      :eyebrow="section.eyebrow"
+      :title="section.title"
+      :description="section.body"
+      :filename="section.images.filename1"
+      :alt="section.images.alt"
+      style="scroll-snap-align: start"
+      class="fadeInUp"
+    />
+    <!-- class="fullvh fadeInUp" -->
+
+    <!-- <TextImage
+        v-for="(section, j) in entry.entries"
+        :key="j"
+        @click="openImage(section.images.filename1)"
+        :flipped="j % 2 !== 0"
+        class="fadeInUp"
+        :eyebrow="section.eyebrow"
+        :title="section.title"
+        :description="section.body"
+        :filename="section.images.filename1"
+        :alt="section.images.alt"
+      /> -->
+    <FullscreenImage
+      :isOpen="isImageOpen"
+      :imageSrc="selectedImage"
+      @close="closeImage"
+    />
+
   </PageWrapper>
 </template>
 
 <script>
-import workData from "@/assets/data/work.json";
-// import content from "@/assets/content/content.md";
-// import marked from 'marked';
+// External js for gsap not working
+// import "@/assets/js/gsap.js";
+import FullscreenImage from "../components/FullscreenImage.vue";
 
-// Import GSAP and ScrollTrigger
+import workData from "@/assets/data/work.json";
+
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ImageCard from "@/components/card/ImageCard.vue";
+import GridContainer from "@/components/grid/GridContainer.vue";
+import TextImage from "@/components/card/TextImage.vue";
+
 gsap.registerPlugin(ScrollTrigger);
+document.addEventListener("DOMContentLoaded", () => {
+  // Get all focusable divs
+  const divs = document.querySelectorAll('div[tabindex="0"]');
+
+  // Function to change focus
+  function changeFocus(currentIndex, direction) {
+    let nextIndex = currentIndex + direction;
+
+    // Ensure nextIndex wraps around properly
+    if (nextIndex >= divs.length) {
+      nextIndex = 0; // Loop back to the first
+    } else if (nextIndex < 0) {
+      nextIndex = divs.length - 1; // Loop back to the last
+    }
+
+    // Check if the element exists before focusing
+    if (divs[nextIndex]) {
+      divs[nextIndex].focus();
+    } else {
+      console.error("Element not found for index:", nextIndex);
+    }
+  }
+
+  // Keydown event listener
+  document.addEventListener("keydown", (e) => {
+    // Ensure there are divs to focus
+    if (divs.length > 0) {
+      const currentIndex = Array.from(divs).indexOf(document.activeElement);
+      if (e.key === "ArrowDown") {
+        changeFocus(currentIndex, 1); // Move down
+        e.preventDefault(); // Prevent scrolling
+      } else if (e.key === "ArrowUp") {
+        changeFocus(currentIndex, -1); // Move up
+        e.preventDefault(); // Prevent scrolling
+      }
+    }
+  });
+});
 
 export default {
   name: "ProjectPage",
-  components: {},
+  components: {
+    ImageCard,
+    GridContainer,
+    // CardRow2,
+    TextImage,
+    FullscreenImage,
+    // BreadCrumb,
+    // HeaderNav,
+  },
 
+  data() {
+    return {
+      isImageOpen: false,
+      selectedImage: null,
+    };
+  },
+  methods: {
+    openImage(image) {
+      this.selectedImage = image;
+      this.isImageOpen = true;
+    },
+    closeImage() {
+      this.isImageOpen = false;
+    },
+  },
   // data() {
   //   return {
   //     htmlContent: "",
@@ -112,14 +167,12 @@ export default {
     const parallaxBack = gsap.utils.toArray(".parallaxBack");
     const parallaxFront = gsap.utils.toArray(".parallaxFront");
 
-    // Not working for multiple instances when duplicating textImage on projectPage, lags and hides component
-
     fadeInUp.forEach((fadeInUp) => {
       gsap.from(fadeInUp, {
         scrollTrigger: {
           trigger: fadeInUp,
           start: "top bottom",
-          end: "bottom bottom",
+          end: "top 50%",
           scrub: 1,
           toggleActions: "restart pause reverse pause",
         },
@@ -134,7 +187,7 @@ export default {
         scrollTrigger: {
           trigger: fadeInDown,
           start: "top bottom",
-          end: "bottom bottom",
+          end: "top 50%",
           scrub: 1,
           toggleActions: "restart pause reverse pause",
         },
@@ -149,7 +202,7 @@ export default {
         scrollTrigger: {
           trigger: fadeInRight,
           start: "top bottom",
-          end: "bottom bottom",
+          end: "top 50%",
           scrub: 1,
           toggleActions: "restart pause reverse pause",
         },
@@ -164,7 +217,7 @@ export default {
         scrollTrigger: {
           trigger: fadeInLeft,
           start: "top bottom",
-          end: "bottom bottom",
+          end: "top 50%",
           scrub: 1,
           toggleActions: "restart pause reverse pause",
         },
@@ -200,4 +253,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+html,
+body {
+  overflow: hidden;
+}
+</style>

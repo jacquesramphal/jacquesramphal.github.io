@@ -20,7 +20,7 @@
       @submit.prevent="sendEmail"
       onsubmit="alert('submit!');return false"
     >
-      <TextDefault header="Contact Me" />
+      <TextBlock header="Contact Me" />
 
       <MyInput
         label="Name"
@@ -90,14 +90,12 @@
 import MyInput from "@/components/form/MyInput.vue";
 import TextArea from "@/components/form/TextArea.vue";
 import emailjs from "emailjs-com";
-import TextDefault from "@/components/text/TextDefault.vue";
 
 export default {
   name: "MyForm",
   components: {
     MyInput,
     TextArea,
-    TextDefault,
   },
   props: {
     header: {
@@ -137,13 +135,13 @@ export default {
 }
 
 .container {
-  /*  padding-top: 4rem !important;
-  padding-bottom: 9.6rem !important; */
+  /*  padding-block-start: 4rem !important;
+  padding-block-end: 9.6rem !important; */
 }
 #form {
-  /* height: 100vh; */
+  /* block-size: 100vh; */
 }
-#textdefault {
+#textblock {
   grid-column: 1 / 4;
 }
 #form {
@@ -152,8 +150,8 @@ export default {
 }
 
 /* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
-  #textdefault {
+@media only screen and (min-width: 768px) {
+  #textblock {
     grid-column: 1 / 3;
   }
   #form {
@@ -161,7 +159,7 @@ export default {
     padding: 0 2.8em 2.8em 0;
   }
   h4 {
-    margin-top: -1rem;
+    margin-block-start: -1rem;
   }
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
@@ -169,7 +167,7 @@ export default {
       display: none;
       grid-column: 1 / 4 !important;
     }
-    #textdefault {
+    #textblock {
       grid-column: 1 / 1;
       grid-row: 1 / 4 !important;
     }
