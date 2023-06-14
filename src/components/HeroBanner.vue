@@ -137,6 +137,7 @@ img
   display: none
 
 #hero-text
+  margin-top: var(--spacing-lg)
   align-items: end !important
   display: grid
   justify-content: left
@@ -174,12 +175,14 @@ img
   display: grid
   overflow: hidden !important
   position: relative
-  height: 60vh
-  min-height: 50rem
+  height: auto
+  min-height: 500px
   @media only screen and (min-width: 740px)
     background-position: 100% 100%
     background-repeat: no-repeat
     background-size: cover
+    min-height: 560px
+
 
 
 .herobanner--background, .herobanner--overlap
@@ -238,6 +241,7 @@ img
     margin-left: auto
     margin-right: auto
     max-width: 86.4rem !important
+    justify-self: center
 
 .herobanner--fullvh
   height: 100vh !important

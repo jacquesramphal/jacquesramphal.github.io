@@ -56,7 +56,7 @@
     },
     {
       "id": 2,
-      "title": "Doc Name 2",
+      "title": "Doc Name 2 Doc Name 2",
       "tag": "Tag1  Tag2",
       "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
       "btnroute": "doc/2",
