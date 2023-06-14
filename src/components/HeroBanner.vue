@@ -30,19 +30,15 @@
 
             <div id="hero-cta" v-show="label">
               <!-- refactor button and props -->
-              <span style="gap: 2rem; display: flex"
-                ><MyButton
-                  :label="`${label}`"
-                  size="large"
-                  :route="`${route}`"
-                />
+                <MyButton v-if="label" size="large" :label="`${label}`" :route="`${route}`"
+              />
                 <MyButton
+                v-if="labeltwo"
                   secondary
-                  :label="`${label}`"
                   size="large"
-                  :route="`${route}`"
-                />
-              </span>
+                  :label="`${labeltwo}`"
+                  :route="`${routetwo}`"
+              />
             </div>
           </span>
         </div>
@@ -81,6 +77,12 @@ export default {
       type: String,
     },
     label: {
+      type: String,
+    },
+    routetwo: {
+      type: String,
+    },
+    labeltwo: {
       type: String,
     },
     filename: {
@@ -156,6 +158,15 @@ img
     @media only screen and (min-width: 740px)
       margin-top: 3.2rem
     @media only screen and (min-width: 1201px)
+#hero-cta
+  padding-top: var(--spacing-md)
+  display: grid
+  gap: 2rem
+  grid-template-columns: 1fr
+  justify-content: start
+  @media only screen and (min-width: 740px)
+    grid-template-columns: auto auto
+
 .herobanner
   background-position: 50% 0%
   background-repeat: no-repeat
@@ -163,7 +174,8 @@ img
   display: grid
   overflow: hidden !important
   position: relative
-  min-height: 60vh
+  height: 60vh
+  min-height: 50rem
   @media only screen and (min-width: 740px)
     background-position: 100% 100%
     background-repeat: no-repeat
@@ -213,6 +225,14 @@ img
     @media only screen and (min-width: 740px)
       justify-self: center
       text-align: center !important
+  #hero-text > span
+    justify-content: center
+    text-align: center
+    // display: flex
+    // flex-direction: column
+  #hero-cta
+    justify-content: center
+
   .subtitle
     float: none
     margin-left: auto
@@ -223,5 +243,4 @@ img
   height: 100vh !important
   #hero-text
     align-items: center !important
-
 </style>

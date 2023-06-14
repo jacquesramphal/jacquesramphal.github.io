@@ -49,6 +49,8 @@
             <TextBlock
               header="Toronto-based, tech tinkerer at Orium"
               details="If you have questions about design, development, or anything in between, let’s connect!"
+              btnroute="/"
+              cta="Get in touch"
             />
           </div>
 

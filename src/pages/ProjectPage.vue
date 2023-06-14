@@ -76,11 +76,13 @@
 </template>
 
 <script>
+// External js for gsap not working 
+import "@/assets/js/gsap.js";
+
 import workData from "@/assets/data/work.json";
 // import content from "@/assets/content/content.md";
 // import marked from 'marked';
 
-// Import GSAP and ScrollTrigger
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -111,8 +113,6 @@ export default {
     const fadeInLeft = gsap.utils.toArray(".fadeInLeft");
     const parallaxBack = gsap.utils.toArray(".parallaxBack");
     const parallaxFront = gsap.utils.toArray(".parallaxFront");
-
-    // Not working for multiple instances when duplicating textImage on projectPage, lags and hides component
 
     fadeInUp.forEach((fadeInUp) => {
       gsap.from(fadeInUp, {

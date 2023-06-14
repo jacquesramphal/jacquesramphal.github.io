@@ -7,14 +7,14 @@
       class="switch-checkbox"
     />
     <label for="checkbox" class="switch-label">
-      <!--<span><a><p>Theme</p></a></span>-->
+      <MyLogo />
 
-      <TextLink
+      <!--<span><a><p>Theme</p></a></span>-->
+      <!-- <TextLink
         cta="test"
         class="switch-toggle"
         :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
-      />
-      <MyLogo/>
+      /> -->
       <!-- <h6
         class="switch-toggle"
         :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
@@ -26,50 +26,49 @@
           alt="theme-toggle"
           style="width: var(--spacing-big); border-radius: 0 !important;"
         /> -->
-
     </label>
   </div>
 </template>
 
 <script>
-import MyLogo from './MyLogo.vue';
+import MyLogo from "./MyLogo.vue";
 
 export default {
-    mounted() {
-        const initUserTheme = this.getMediaPreference();
-        this.setTheme(initUserTheme);
+  mounted() {
+    const initUserTheme = this.getMediaPreference();
+    this.setTheme(initUserTheme);
+  },
+  data() {
+    return {
+      userTheme: "light-theme",
+    };
+  },
+  methods: {
+    toggleTheme() {
+      const activeTheme = localStorage.getItem("user-theme");
+      if (activeTheme === "light-theme") {
+        this.setTheme("dark-theme");
+      } else {
+        this.setTheme("light-theme");
+      }
     },
-    data() {
-        return {
-            userTheme: "light-theme",
-        };
+    setTheme(theme) {
+      localStorage.setItem("user-theme", theme);
+      this.userTheme = theme;
+      document.documentElement.className = theme;
     },
-    methods: {
-        toggleTheme() {
-            const activeTheme = localStorage.getItem("user-theme");
-            if (activeTheme === "light-theme") {
-                this.setTheme("dark-theme");
-            }
-            else {
-                this.setTheme("light-theme");
-            }
-        },
-        setTheme(theme) {
-            localStorage.setItem("user-theme", theme);
-            this.userTheme = theme;
-            document.documentElement.className = theme;
-        },
-        getMediaPreference() {
-            const hasDarkPreference = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            if (hasDarkPreference) {
-                return "dark-theme";
-            }
-            else {
-                return "light-theme";
-            }
-        },
+    getMediaPreference() {
+      const hasDarkPreference = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      if (hasDarkPreference) {
+        return "dark-theme";
+      } else {
+        return "light-theme";
+      }
     },
-    components: { MyLogo }
+  },
+  components: { MyLogo },
 };
 </script>
 
@@ -81,35 +80,36 @@ export default {
   display: none
 
 .switch-label
-  // border: calc(var(--element-size) * 0.025) solid var(--accent-color)
-  // border-radius: var(--spacing-xxs)
   border-radius: 0
   cursor: pointer
   color: var(--link) !important
-  font-size: var(--font-xs)
-  // height: var(--font-sm)
   display: flex
   position: absolute
   right: 0
   top: 0
-  // box-shadow: var(--shadow-deep)
   padding: var(--spacing-sm)
+  justify-items: center
+  align-items: center
+  z-index: 1000
+  text-align: center
+  // box-shadow: var(--shadow-deep)
+  // height: var(--font-sm)
+  // border: calc(var(--element-size) * 0.025) solid var(--accent-color)
+  // border-radius: var(--spacing-xxs)
   // padding: var(--spacing-sm) var(--spacing-xs)
   // transition: all 0.5s ease
-  justify-items: center
-  align-items: center
-  z-index: 1
-  text-align: center
   @media only screen and (min-width: 740px)
     padding: var(--spacing-lg)
+  @media only screen and (min-width: 1201px)
+    padding: var(--spacing-lg)
 
-.switch-toggle
-  display: grid
-  justify-items: center
-  align-items: center
-  text-align: center
-  font-size: var(--font-xs)
-
+// .switch-toggle
+//   display: grid
+//   justify-items: center
+//   align-items: center
+//   text-align: center
+//   font-size: var(--font-xs)
+//   background: blue
 
 // .switch-label:hover
   // box-shadow: var(--shadow-hover)

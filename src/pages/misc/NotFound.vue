@@ -1,6 +1,6 @@
 <template>
   <GridWrapper>
-    <HeroBanner center fullvh eyebrow="" title="404 Page not found." />
+    <HeroBanner center fullvh eyebrow="" title="404. Page not found."/>
   </GridWrapper>
 </template>
 

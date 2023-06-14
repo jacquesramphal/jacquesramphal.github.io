@@ -92,15 +92,25 @@
         />
       </div>
     </GridContainer>
+    <!-- <GridContainer tight>
+      <HeroBanner
+        center
+        fullvh
+        eyebrow=""
+        route="/"
+        label="Get in touch"
+        style="background-color: var(--bg-darker)"
+    /></GridContainer> -->
   </PageWrapper>
 </template>
 
 <script>
 import works from "@/assets/data/work.json";
+import GridContainer from "@/components/grid/GridContainer.vue";
 
 export default {
   name: "HomePage",
-  components: {},
+  components: { GridContainer },
   props: {
     // work: {
     //   type: Object,
