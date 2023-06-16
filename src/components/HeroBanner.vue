@@ -10,9 +10,9 @@
         :src="require(`@/assets/images/${filename}`)"
         :alt="`${alt}`"
       />
-      <GridContainer v-if="eyebrow">
+      <GridContainer id="eyebrow" v-if="eyebrow">
         <div v-if="eyebrow" class="animate fade delay-3">
-          <p id="eyebrow" class="subtle" v-if="eyebrow" v-text="eyebrow" />
+          <p class="subtle" v-if="eyebrow" v-text="eyebrow" />
         </div>
       </GridContainer>
       <GridContainer>
@@ -145,8 +145,8 @@ img
   z-index: 1000
   @media only screen and (min-width: 1201px)
     max-width: 75vw
-  #eyebrow
-    margin-bottom: 4rem
+  // #eyebrow
+  //   margin-bottom: 4rem
   #tags
     margin-top: 2rem
     word-spacing: 2rem
@@ -167,7 +167,9 @@ img
   justify-content: start
   @media only screen and (min-width: 740px)
     grid-template-columns: auto auto
-
+#eyebrow
+  margin-bottom: 4rem
+  position: absolute
 .herobanner
   background-position: 50% 0%
   background-repeat: no-repeat
