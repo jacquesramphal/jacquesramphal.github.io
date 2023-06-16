@@ -30,14 +30,18 @@
 
             <div id="hero-cta" v-show="label">
               <!-- refactor button and props -->
-                <MyButton v-if="label" size="large" :label="`${label}`" :route="`${route}`"
+              <MyButton
+                v-if="label"
+                size="large"
+                :label="`${label}`"
+                :route="`${route}`"
               />
-                <MyButton
+              <MyButton
                 v-if="labeltwo"
-                  secondary
-                  size="large"
-                  :label="`${labeltwo}`"
-                  :route="`${routetwo}`"
+                secondary
+                size="large"
+                :label="`${labeltwo}`"
+                :route="`${routetwo}`"
               />
             </div>
           </span>
@@ -145,6 +149,8 @@ img
   z-index: 1000
   @media only screen and (min-width: 1201px)
     max-width: 75vw
+    margin-top: none
+
   // #eyebrow
   //   margin-bottom: 4rem
   #tags
@@ -183,8 +189,6 @@ img
     background-repeat: no-repeat
     background-size: cover
     min-height: 60vh
-
-
 
 .herobanner--background, .herobanner--overlap
   overflow: hidden !important
@@ -245,7 +249,9 @@ img
     justify-self: center
 
 .herobanner--fullvh
+  min-height: 468px
   height: 100vh !important
   #hero-text
     align-items: center !important
+    margin-top: 0 !important
 </style>

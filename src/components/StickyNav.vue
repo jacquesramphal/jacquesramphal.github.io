@@ -208,7 +208,6 @@ li {
   text-decoration: none;
   /* Reversed Version */
   font-weight: var(--font-reversed-medium);
-
 }
 li:first-child {
   padding-right: 0;
