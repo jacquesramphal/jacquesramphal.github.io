@@ -112,7 +112,10 @@ export default {
 </script>
 <style scoped>
 * {
-  color: var(--text) !important;
+  /* Reversed Version */
+  color: var(--text-reversed) !important;
+  /* Default Version */
+  /* color: var(--text) !important; */
   margin: 0;
   mix-blend-mode: normal;
 }
@@ -139,14 +142,17 @@ export default {
 .bg {
   transition: 0.5s box-shadow ease-in-out !important;
   align-items: middle;
-  background: var(--background);
-  /* border: var(--border); */
+  /* Reversed Version */
+  background: var(--background-reversed);
+  /* Default Version
+  background: var(--background); */
   justify-self: stretch;
-  /* margin: 0.8rem; */
   overflow: visible;
   position: relative;
   padding: var(--spacing-xxs);
-  box-shadow: var(--shadow-deep);
+  /* box-shadow: var(--shadow-deep); */
+  /* margin: 0.8rem; */
+  /* border: var(--border); */
 }
 /* .bg:hover {
   box-shadow: var(--shadow-deep);
@@ -171,14 +177,22 @@ nav {
   /* text-decoration: none !important; */
 }
 .nav-link > a:hover {
-  color: var(--link) !important;
-  background: var(--bg-darker);
+  /* Reversed Version */
+  color: var(--link-reversed) !important;
+  background: var(--bg-darker-reversed);
+  /* Default Version */
+  /* color: var(--link) !important;
+  background: var(--bg-darker); */
   transition: all 0.25s ease;
 
   /*  box-shadow: var(--shadow-z1); */
 }
 .router-link-exact-active {
-  background: var(--bg-darker);
+  /* Reversed Version */
+  background: var(--bg-darker-reversed);
+  /* Default Version */
+  /* background: var(--bg-darker); */
+
   text-decoration: none !important;
   /* border-bottom: 2px solid var(--link);*/
 }
@@ -192,6 +206,9 @@ li {
   line-height: 1;
   margin: 0;
   text-decoration: none;
+  /* Reversed Version */
+  font-weight: var(--font-reversed-medium);
+
 }
 li:first-child {
   padding-right: 0;
