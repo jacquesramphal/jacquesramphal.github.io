@@ -137,7 +137,7 @@ img
   display: none
 
 #hero-text
-  margin-top: var(--spacing-lg)
+  margin-top: var(--spacing-xl)
   align-items: end !important
   display: grid
   justify-content: left
@@ -176,12 +176,11 @@ img
   overflow: hidden !important
   position: relative
   height: auto
-  min-height: 500px
   @media only screen and (min-width: 740px)
     background-position: 100% 100%
     background-repeat: no-repeat
     background-size: cover
-    min-height: 560px
+    min-height: 60vh
 
 
 
