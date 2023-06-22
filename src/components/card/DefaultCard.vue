@@ -1,8 +1,8 @@
 <template>
   <div id="defaultCard" class="defaultCard card" :data-category="`${tag}`">
-    <div class="image">
+    <div v-if="alt" class="image">
       <router-link :to="`${route}`">
-        <img v-if="imgurl" :src="imgurl" alt="Blog Image" />
+        <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" />
         <img
           draggable="false"
           v-if="filename"
@@ -13,6 +13,9 @@
     </div>
 
     <div class="info">
+     
+     
+
       <TextBlock
         clamped
         class="textblock"
@@ -36,6 +39,9 @@ export default {
       type: String,
     },
     filename: {
+      type: String,
+    },
+    alt: {
       type: String,
     },
     eyebrow: {
@@ -99,6 +105,7 @@ export default {
 .info
   // grid-row: span
   display: flex
+  flex-direction: column
   flex: 1
   padding: var(--spacing-md)
   // justify-content: space-between
