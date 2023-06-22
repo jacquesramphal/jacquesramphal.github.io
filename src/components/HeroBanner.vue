@@ -1,8 +1,5 @@
 <template>
   <AnimatedComponent>
-    <!-- Background url as prop but not working -->
-    <!-- <GridWrapper id="hero-banner" :class="classes" style="background: url('require(`@/assets/images/${filename}`)')">-->
-
     <GridWrapper id="hero-banner" :class="classes">
       <img
         class="animate glow delay-2"
@@ -15,7 +12,7 @@
           <p class="subtle" v-if="eyebrow" v-text="eyebrow" />
         </div>
       </GridContainer>
-      <GridContainer>
+      <GridContainer v-if="title">
         <div id="hero-text" class="animate glow delay-1">
           <span
             ><h2 id="title" v-html="title" />
@@ -28,7 +25,7 @@
               style="font-weight: var(--font-medium)"
             />
 
-            <div id="hero-cta" v-show="label">
+            <div id="hero-cta" v-if="label" v-show="label">
               <!-- refactor button and props -->
               <MyButton
                 v-if="label"
