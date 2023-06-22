@@ -4,9 +4,9 @@ import App from "./App.vue";
 
 
 // Global Components
-import BlogFeed from "@/components/blog/BlogFeed.vue";
 import AnimatedComponent from "@/components/AnimatedComponent.vue";
 import BlogCard from "@/components/card/BlogCard.vue";
+import BlogFeed from "@/components/blog/BlogFeed.vue";
 import CardRow from "@/components/CardRow.vue";
 import CardRow2 from "@/components/CardRow2.vue";
 import DefaultCard from "@/components/card/DefaultCard.vue";
@@ -16,17 +16,18 @@ import FilterBar from "@/components/FilterBar.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
 import GridWrapper from "@/components/grid/GridWrapper.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
+import ImageCard from "@/components/ImageCard.vue";
+import ImageCard2 from "@/components/ImageCard2.vue";
 import MyButton from "@/components/Button.vue";
+import MyLogo from "@/components/MyLogo.vue";
 import PageWrapper from "@/components/grid/PageWrapper.vue";
+import ProjectPreview from "@/components/ProjectPreview.vue";
 import StatsBar from "@/components/card/StatsBar.vue";
 import TextBlock from "@/components/TextBlock.vue";
 import TextHeader from "@/components/text/TextHeader.vue";
 import TextImage from "@/components/card/TextImage.vue";
 import TextLink from "@/components/text/TextLink.vue";
-import ImageCard from "@/components/ImageCard.vue";
-import ImageCard2 from "@/components/ImageCard2.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
-import ProjectPreview from "@/components/ProjectPreview.vue";
 
 
 import router from "./router";
@@ -62,27 +63,27 @@ app
 
 // Global Components
 app
-  .component("GridContainer", GridContainer)
-  .component("HeroBanner", HeroBanner)
-  .component("PageWrapper", PageWrapper)
-  .component("GridWrapper", GridWrapper)
-  .component("TextLink", TextLink)
-  .component("ImageCard2", ImageCard2)
-  .component("ImageCard", ImageCard)
-  .component("ThumbDetail", ThumbDetail)
+  .component("AnimatedComponent", AnimatedComponent)
+  .component("BlogCard", BlogCard)
+  .component("BlogFeed", BlogFeed)
   .component("CardRow", CardRow)
   .component("CardRow2", CardRow2)
-  .component("BlogCard", BlogCard)
-  .component("AnimatedComponent", AnimatedComponent)
-  .component("TextBlock", TextBlock)
-  .component("MyButton", MyButton)
-  .component("TextImage", TextImage)
+  .component("DefaultCard", DefaultCard)
   .component("DetailCard", DetailCard)
   .component("DetailCard2", DetailCard2)
-  .component("TextHeader", TextHeader)
   .component("FilterBar", FilterBar)
-  .component("StatsBar", StatsBar)
-  .component("DefaultCard", DefaultCard)
-  .component("BlogFeed", BlogFeed)
+  .component("GridContainer", GridContainer)
+  .component("GridWrapper", GridWrapper)
+  .component("HeroBanner", HeroBanner)
+  .component("ImageCard", ImageCard)
+  .component("ImageCard2", ImageCard2)
+  .component("MyButton", MyButton)
+  .component("MyLogo", MyLogo)
+  .component("PageWrapper", PageWrapper)
   .component("ProjectPreview", ProjectPreview)
-  
+  .component("StatsBar", StatsBar)
+  .component("TextBlock", TextBlock)
+  .component("TextHeader", TextHeader)
+  .component("TextImage", TextImage)
+  .component("TextLink", TextLink)
+  .component("ThumbDetail", ThumbDetail)
