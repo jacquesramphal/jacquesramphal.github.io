@@ -33,6 +33,7 @@
           :image="entry.image"
           :tag="entry.tag"
           :filename="entry.thumbnail"
+          :alt="entry.alt"
           :title="entry.title"
           :description="entry.description"
           :route="entry.btnroute"
