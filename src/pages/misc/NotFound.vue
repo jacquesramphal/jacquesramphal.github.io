@@ -1,18 +1,22 @@
 <template>
-  <GridWrapper>
-    <HeroBanner center fullvh eyebrow="" title="404. Page not found."/>
-  </GridWrapper>
+
+  <PageWrapper>
+    <!-- <HeroBanner background center fullvh eyebrow="" title="Oops! Page not be found." route="/" label="Back to home" /> -->
+    <GridContainer fullvh fullvw>
+      <TextImage
+        filename="luna.jpg"
+        header="Oops! The page you are looking for could not be found."
+        details=" "
+        cta="Back to Home"
+        route="/"
+    /></GridContainer>
+  </PageWrapper>
 </template>
 
 <script>
 export default {
-  name: "NotFound",
+    name: "NotFound",
 };
 </script>
 
-<style scoped>
-* {
-  color: inherit;
-  mix-blend-mode: normal;
-}
-</style>
+<style scoped></style>
