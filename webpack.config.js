@@ -1,6 +1,4 @@
 const path = require('path');
-
-// load the default config generator.
 const genDefaultConfig = require('@storybook/vue/dist/server/config/defaults/webpack.config.js');
 
 module.exports = (baseConfig, env) => {
@@ -12,6 +10,7 @@ module.exports = (baseConfig, env) => {
   }
 
   config.resolve = {
+    ...config.resolve,
     extensions: ['.js', '.vue', '.json'],
     alias: {
       vue$: 'vue/dist/vue.esm.js',

@@ -39,7 +39,7 @@ const routes = [
     component: TheLogin,
   },
   {
-    redirect: { name: 'MaintenancePage' },
+    // redirect: { name: 'MaintenancePage' },
     path: "/",
     name: "Home",
     component: HomePage,
