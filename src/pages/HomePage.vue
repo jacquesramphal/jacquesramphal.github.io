@@ -1,11 +1,22 @@
 <template>
   <PageWrapper>
-    <HeroBanner
+    <!-- <HeroBanner
       id="hero"
       class="display"
       eyebrow=""
       title="Multi-disciplinary Designer."
-    />
+    /> -->
+    <!-- <HeroBanner
+      id="hero"
+      eyebrow=""
+      title="Design journeys fueled by mindfulness."
+      fullvh
+    /> -->
+   <!-- <HeroBanner
+      id="hero"
+      eyebrow=""
+      title="Ramphal Design"
+    /> -->
     <!-- <HeroBanner
       id="hero"
       class="display"
@@ -20,7 +31,6 @@
       :title="homePage.heroText"
       eyebrow=""
     /> -->
-    <ThemeButton v-if="!$route.meta.hideNav" />
     <!-- <GridContainer id="work" class="">
       <div
         class="grid-parent"
@@ -43,7 +53,7 @@
         </p>
       </div>
     </GridContainer> -->
-    <GridContainer id="work" class="animate delay-2" tight>
+    <GridContainer id="work" class="animate delay-2">
       <div id="recentwork" class="grid-parent">
         <ImageCard alt="J Monogram" filename="work/j.svg" id="top" />
         <ImageCard2
@@ -170,5 +180,5 @@ export default {
 <style lang="sass" scoped>
 @media only screen and (min-width: 1201px)
     #work
-      padding-top: 0 !important
+      // padding-top: 0 !important
 </style>

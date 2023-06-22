@@ -1,8 +1,13 @@
 <template>
   <router-link id="btn" :to="`${route}`">
-    <button type="button" :class="classes" @click="onClick" :style="style" v-if="label" v-text="label" />
-   </router-link
-  >
+    <button
+      type="button"
+      :class="classes"
+      @click="onClick"
+      :style="style"
+      v-text="label"
+    />
+  </router-link>
 </template>
 
 <script>
@@ -67,24 +72,23 @@ export default {
   padding: 0.5rem 1rem 0.5rem 1rem;
   text-decoration: none;
   transition: all 0.1s ease-in-out;
-  -webkit-transition: all 0.1s ease-in-out;
 }
 .storybook-button:hover {
-  animation: animate-shake 1s; 
+  animation: animate-shake 1s;
   animation-delay: 1s;
-
 }
 .storybook-button:active {
   /* animation: animate-glow 1s;  */
   transform: scale(0.98);
   /* box-shadow: var(--shadow-text); */
-
 }
 .storybook-button--primary {
-  color: var(--text-reversed) !important;
-  background: -webkit-linear-gradient(var(--link-reversed), var(--link)) !important;
+  color: var(--color-offwhite) !important;
+  background: -webkit-linear-gradient(
+    var(--color-lightpurple),
+    var(--color-purple)
+  ) !important;
   border: 2px solid var(--link) !important;
-
 }
 .storybook-button--primary:hover {
   background: -webkit-linear-gradient(var(--link), var(--link)) !important;

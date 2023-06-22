@@ -7,14 +7,14 @@
       class="switch-checkbox"
     />
     <label for="checkbox" class="switch-label">
-      <MyLogo />
+      <!-- <MyLogo /> -->
 
       <!--<span><a><p>Theme</p></a></span>-->
-      <!-- <TextLink
+      <TextLink
         cta="test"
         class="switch-toggle"
         :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
-      /> -->
+      />
       <!-- <h6
         class="switch-toggle"
         :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import MyLogo from "./MyLogo.vue";
+// import MyLogo from "./MyLogo.vue";
 
 export default {
   mounted() {
@@ -68,7 +68,7 @@ export default {
       }
     },
   },
-  components: { MyLogo },
+  // components: { MyLogo },
 };
 </script>
 
@@ -98,22 +98,21 @@ export default {
   // border-radius: var(--spacing-xxs)
   // padding: var(--spacing-sm) var(--spacing-xs)
   // transition: all 0.5s ease
-  @media only screen and (min-width: 740px)
-    padding: var(--spacing-lg)
-  @media only screen and (min-width: 1201px)
-    padding: var(--spacing-lg)
+  // @media only screen and (min-width: 740px)
+  //   padding: var(--spacing-lg)
+  // @media only screen and (min-width: 1201px)
+  //   padding: var(--spacing-lg)
 
-// .switch-toggle
-//   display: grid
-//   justify-items: center
-//   align-items: center
-//   text-align: center
-//   font-size: var(--font-xs)
-//   background: blue
+.switch-toggle
+  display: grid
+  justify-items: center
+  align-items: center
+  text-align: center
+  font-size: var(--font-xs)
 
 // .switch-label:hover
-  // box-shadow: var(--shadow-hover)
-  // background: var(--bg-darker)
+//   box-shadow: var(--shadow-hover)
+//   background: var(--bg-darker)
 
 
 // EMOJI SWITCH
@@ -147,12 +146,12 @@ export default {
 
 
 // TEXT SWITCH
-// .switch-toggle::before
-//   content: "Light"
-//   padding-left: 1rem
+.switch-toggle::before
+  content: "Light"
+  // padding-left: 1rem
 
-// .switch-toggle-checked::before
-//   content: "Dark"
+.switch-toggle-checked::before
+  content: "Dark"
 
 
   // Moving toggle

@@ -12,7 +12,11 @@ export default {
       type: Boolean,
       default: false,
     },
-    full: {
+    fullvw: {
+      type: Boolean,
+      default: false,
+    },
+    fullvh: {
       type: Boolean,
       default: false,
     },
@@ -23,7 +27,8 @@ export default {
         "container-spacing": true,
         "container-spacing--tight": this.tight,
         "container-spacing--normal": !this.tight,
-        "container-spacing--full": this.full,
+        "container-spacing--fullvw": this.fullvw,
+        "container-spacing--fullvh": this.fullvh,
       };
     },
   },
@@ -58,11 +63,11 @@ export default {
   @media only screen and (min-width: 1201px)
     padding: var(--spacing-md) !important
 
-.container-spacing--full
+.container-spacing--fullvw
   padding: 0 !important
-  // img 
-  //   border: 1px solid red !important
-  //   border-radius: none !important
-  
 
+.container-spacing--fullvh
+  min-height: 468px
+  height: 100vh !important
+  align-items: center !important
 </style>

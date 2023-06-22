@@ -1,12 +1,18 @@
 <template>
   <PageWrapper>
     <HeroBanner
-    style="background: var(--bg-darker)"
-
       id="hero"
-      title="About me, but mostly my site"
-      eyebrow="Information"
+      style="background: var(--bg-darker)"
+      eyebrow=""
+      title="Multi-disciplinary Designer."
     />
+    <GridContainer class="animate delay-2">
+      <div class="grid-parent">
+        <TextBlock header5="TextBlock" icon="j-logo.svg" alt="Image alt" />
+        <TextBlock header5="TextBlock" icon="about.jpg" alt="Image alt" />
+        <TextBlock header5="TextBlock" icon="j-logo.svg" alt="Image alt" />
+      </div>
+    </GridContainer>
 
     <DetailCard
       v-for="about in contentful"
