@@ -1,5 +1,20 @@
 <template>
   <div id="textblock" :class="classes">
+    <img
+      id="avatar"
+      class="justify-end"
+      v-if="alt"
+      :src="require(`@/assets/images/${icon}`)"
+      draggable="false"
+      alt="logo.svg"
+      style="
+        width: 6.4rem;
+        object-fit: contain !important;
+        aspect-ratio: 1 / 1;
+        border-radius: 0 !important;
+        margin-bottom: var(--spacing-sm);
+      "
+    />
     <h6 tabIndex="0" class="eyebrow subtle" v-if="eyebrow" v-text="eyebrow" />
     <h3 tabIndex="0" v-if="header" v-text="header" />
     <h4 tabIndex="0" v-if="header4" v-text="header4" />
@@ -24,6 +39,12 @@ export default {
   name: "TextBlock",
 
   props: {
+    icon: {
+      type: String,
+    },
+    alt: {
+      type: String,
+    },
     eyebrow: {
       type: String,
       required: false,
@@ -102,19 +123,17 @@ export default {
 * {
   color: inherit;
 }
-#textblock{
+#textblock {
   display: flex;
   flex-direction: column;
   width: 100%;
-
 }
-.eyebrow{
+.eyebrow {
   word-spacing: 1rem;
   font-weight: var(--font-medium);
   margin-bottom: 1em;
-
 }
-.details{
+.details {
   flex: 1;
   width: 100%;
   white-space: normal;
