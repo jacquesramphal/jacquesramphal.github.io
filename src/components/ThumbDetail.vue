@@ -26,17 +26,9 @@
 </template>
 
 <script>
-
-
-
-
 export default {
   name: "ThumbDetail",
-  components: {
-    
-    
-    
-  },
+  components: {},
   props: {
     title: {
       type: String,
