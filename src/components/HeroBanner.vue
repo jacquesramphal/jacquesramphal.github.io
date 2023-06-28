@@ -1,12 +1,13 @@
 <template>
   <AnimatedComponent>
     <GridWrapper id="hero-banner" :class="classes">
-      <img
-        class="animate glow delay-2"
-        draggable="false"
-        :src="require(`@/assets/images/${filename}`)"
-        :alt="`${alt}`"
-      />
+      <div id="hero-image" class="animate fade delay-1" v-if="filename">
+        <img
+          draggable="false"
+          :src="require(`../assets/images/${filename}`)"
+          :alt="`${alt}`"
+        />
+      </div>
       <GridContainer id="eyebrow" v-if="eyebrow">
         <div v-if="eyebrow" class="animate fade delay-3">
           <p class="subtle" v-if="eyebrow" v-text="eyebrow" />
@@ -35,7 +36,7 @@
               />
               <MyButton
                 v-if="labeltwo"
-                secondary
+                type="secondary"
                 size="large"
                 :label="`${labeltwo}`"
                 :route="`${routetwo}`"
@@ -47,6 +48,7 @@
     </GridWrapper>
   </AnimatedComponent>
 </template>
+
 
 <script>
 export default {
@@ -129,126 +131,165 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-*
-  color: inherit
-  mix-blend-mode: normal
+<style lang="scss" scoped>
+* {
+  color: inherit;
+  mix-blend-mode: normal;
+}
 
-img
-  display: none
+img {
+  display: none;
+}
 
-#hero-text
-  margin-top: var(--spacing-xl)
-  align-items: end !important
-  display: grid
-  justify-content: left
-  text-align: left
-  z-index: 1000
-  @media only screen and (min-width: 1201px)
-    max-width: 75vw
-    margin-top: none
+#hero-text {
+  margin-top: var(--spacing-xl);
+  align-items: end !important;
+  display: grid;
+  justify-content: left;
+  text-align: left;
+  z-index: 1000;
+  @media only screen and (min-width: 1201px) {
+    max-width: 75vw;
+    margin-top: none;
+  }
 
   // #eyebrow
-  //   margin-bottom: 4rem
-  #tags
-    margin-top: 2rem
-    word-spacing: 2rem
-    @media only screen and (min-width: 740px)
-      margin-top: 3.2rem
-  #subtitle
-    margin-top: 2rem
-    max-width: 86.4rem
-    width: 100%
-    @media only screen and (min-width: 740px)
-      margin-top: 3.2rem
-    @media only screen and (min-width: 1201px)
-#hero-cta
-  padding-top: var(--spacing-md)
-  display: grid
-  gap: 2rem
-  grid-template-columns: 1fr
-  justify-content: start
-  @media only screen and (min-width: 740px)
-    grid-template-columns: auto auto
-#eyebrow
-  margin-bottom: 4rem
-  position: absolute
-.herobanner
-  background-position: 50% 0%
-  background-repeat: no-repeat
-  background-size: cover
-  display: grid
-  overflow: hidden !important
-  position: relative
-  height: auto
-  @media only screen and (min-width: 740px)
-    background-position: 100% 100%
-    background-repeat: no-repeat
-    background-size: cover
-    min-height: 60vh
+  //   margin-bottom: 4rem;
+  #tags {
+    margin-top: 2rem;
+    word-spacing: 2rem;
+    @media only screen and (min-width: 740px) {
+      margin-top: 3.2rem;
+    }
+  }
 
-.herobanner--background, .herobanner--overlap
-  overflow: hidden !important
-  img
-    border-radius: 0px !important
-    display: block
-    height: auto
-    min-height: 100%
-    mix-blend-mode: normal
-    object-fit: cover !important
-    object-position: 0% 100%
-    overflow: hidden !important
-    position: absolute
-    width: 100%
-    z-index: 0
-  #hero-text
-    h2
-      background-color: var(--background-reversed)
-      border-radius: var(--spacing-xxs)
-      color: var(--background)
-      font-weight: var(--font-reversed-bold)
-      letter-spacing: var(--spacing-reversed-tight)
-      padding: var(--spacing-xxs) var(--spacing-sm) var(--spacing-xs) var(--spacing-sm)
-.herobanner--overlap
-  img
-    background-color: var(--bg-darker)
-    height: 100% !important
-  @media only screen and (min-width: 1201px)
-    margin-bottom: 20vh
-    min-height: 80vh
-    img
-      aspect-ratio: 16 / 9
-      border-radius: 0 0 0 var(--spacing-xxs) !important
-      display: block
-      right: 0
-      width: auto
-    #hero-text
-      h2
-        font-size: var(--font-display)
-.herobanner--center
-  #hero-text
-    @media only screen and (min-width: 740px)
-      justify-self: center
-      text-align: center !important
-  #hero-text > span
-    justify-content: center
-    text-align: center
-    // display: flex
-    // flex-direction: column
-  #hero-cta
-    justify-content: center
+  #subtitle {
+    margin-top: 2rem;
+    max-width: 86.4rem;
+    width: 100%;
+    @media only screen and (min-width: 740px) {
+      margin-top: 3.2rem;
+    }
+    @media only screen and (min-width: 1201px) {
+      // TODO: Add media query styling
+    }
+  }
+}
 
-  .subtitle
-    float: none
-    margin-left: auto
-    margin-right: auto
-    max-width: 86.4rem !important
-    justify-self: center
+#hero-cta {
+  padding-top: var(--spacing-md);
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  justify-content: start;
+  @media only screen and (min-width: 740px) {
+    grid-template-columns: auto auto;
+  }
+}
 
-.herobanner--fullvh
-  min-height: 468px
-  height: 100vh !important
-  #hero-text
-    align-items: center !important
-    margin-top: 0 !important
+#eyebrow {
+  margin-bottom: 4rem;
+  position: absolute;
+}
+
+.herobanner {
+  background-position: 50% 0%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  overflow: hidden !important;
+  position: relative;
+  height: auto;
+  @media only screen and (min-width: 740px) {
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 60vh;
+  }
+}
+
+.herobanner--background,
+.herobanner--overlap {
+  overflow: hidden !important;
+  img {
+    border-radius: 0px !important;
+    display: block;
+    height: auto;
+    min-height: 100%;
+    mix-blend-mode: normal;
+    object-fit: cover !important;
+    object-position: 0% 100%;
+    overflow: hidden !important;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+  }
+  #hero-text {
+    h2 {
+      background-color: var(--background-reversed);
+      border-radius: var(--spacing-xxs);
+      color: var(--background);
+      font-weight: var(--font-reversed-bold);
+      letter-spacing: var(--spacing-reversed-tight);
+      padding: var(--spacing-xxs) var(--spacing-sm) var(--spacing-xs)
+        var(--spacing-sm);
+    }
+  }
+}
+
+.herobanner--overlap {
+  img {
+    background-color: var(--bg-darker);
+    height: 100% !important;
+  }
+  @media only screen and (min-width: 1201px) {
+    margin-bottom: 20vh;
+    min-height: 80vh;
+    img {
+      aspect-ratio: 16 / 9;
+      border-radius: 0 0 0 var(--spacing-xxs) !important;
+      display: block;
+      right: 0;
+      width: auto;
+    }
+    #hero-text {
+      h2 {
+        font-size: var(--font-display);
+      }
+    }
+  }
+}
+
+.herobanner--center {
+  #hero-text {
+    @media only screen and (min-width: 740px) {
+      justify-self: center;
+      text-align: center !important;
+    }
+  }
+  #hero-text > span {
+    justify-content: center;
+    text-align: center;
+  }
+  #hero-cta {
+    justify-content: center;
+  }
+
+  #subtitle {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 86.4rem !important;
+    justify-self: center;
+  }
+}
+
+.herobanner--fullvh {
+  min-height: 468px;
+  height: 100vh !important;
+  #hero-text {
+    align-items: center !important;
+    margin-top: 0 !important;
+  }
+}
 </style>

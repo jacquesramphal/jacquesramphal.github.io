@@ -314,7 +314,7 @@ li {
   text-decoration: none;
 }
 
-a {
+a, router-link {
   position: relative;
   color: var(--link) !important;
   cursor: pointer;

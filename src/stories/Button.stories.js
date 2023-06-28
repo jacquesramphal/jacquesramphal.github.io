@@ -1,29 +1,28 @@
-import MyButton from './Button.vue';
+import MyButton from "../components/Button.vue";
+import { withDesign } from 'storybook-addon-designs';
 
-// More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
+  title: "Components/Button",
   component: MyButton,
-  // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
+  decorators: [withDesign],
   argTypes: {
-    backgroundColor: { control: 'color' },
     onClick: {},
+    type: {
+      control: { type: "select" },
+      options: ["primary", "secondary"],
+    },
     size: {
-      control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
+      control: { type: "select" },
+      options: ["small", "large"],
     },
   },
 };
 
-// More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
 const Template = (args) => ({
-  // Components used in your story `template` are defined in the `components` object
   components: { MyButton },
-  // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
     return { args };
   },
-  // And then the `args` are bound to your component with `v-bind="args"`
   template: '<my-button v-bind="args" />',
 });
 
@@ -31,22 +30,36 @@ export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
 Primary.args = {
   primary: true,
-  label: 'Button',
+  label: "Button",
+  type: "primary",
+};
+Primary.parameters = {
+  design: {
+    type: "figma",
+    url: "https://www.figma.com/file/c2JuJnN4XUPnBd44IZn3xg/Ramphal-Design-Library?type=design&node-id=0-180&mode=design&t=M4PTdiwkrAK9Pn4A-4",
+  },
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: 'Button',
+  label: "Button Secondary",
+  type: "secondary",
+};
+Secondary.parameters = {
+  design: {
+    type: "figma",
+    url: "https://www.figma.com/file/c2JuJnN4XUPnBd44IZn3xg/Ramphal-Design-Library?type=design&node-id=0-176&mode=design&t=M4PTdiwkrAK9Pn4A-4",
+  },
 };
 
 export const Large = Template.bind({});
 Large.args = {
-  size: 'large',
-  label: 'Button',
+  size: "large",
+  label: "Button",
 };
 
 export const Small = Template.bind({});
 Small.args = {
-  size: 'small',
-  label: 'Button',
+  size: "small",
+  label: "Button",
 };

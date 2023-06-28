@@ -53,15 +53,15 @@ export default {
       return {
         "link-size": true,
         "link-size--large": this.large,
-        "link-size--normal": !this.large,
+        "link-size--default": !this.large,
 
         "link-left": true,
         "link-left--left": this.left,
-        "link-left--normal": !this.left,
+        "link-left--default": !this.left,
 
         "link-right": true,
         "link-right--right": this.right,
-        "link-right--normal": !this.right,
+        "link-right--default": !this.right,
       };
     },
   },
@@ -69,29 +69,41 @@ export default {
 </script>
 <style></style>
 
-<style lang="sass" scoped>
-*
-  color: inherit
-  font-weight: var(--font-medium)
+<style lang="scss" scoped>
+* {
+  color: inherit;
+  font-weight: var(--font-medium);
+}
 
-.link-size
-  /*  background: var(--color-xlight); */
-  font-size: var(--font-xs)
-/* .link-size--normal */
-.link-size--large
-  font-size: var(--font-lg) !important
+.link-size {
+  /* background: var(--color-xlight); */
+  font-size: var(--font-xs);
+}
+
+/* .link-size--default */
+
+.link-size--large {
+  font-size: var(--font-lg) !important;
+}
 
 /* .link-left */
-.link-left--left:before
-  content: "★ "
-  color: var(--link)
+
+.link-left--left:before {
+  content: "★ ";
+  color: var(--link);
+}
+
 /* .link-right */
-.link-right--right:after
-  content: " ★"
-  color: var(--link)
+
+.link-right--right:after {
+  content: " ★";
+  color: var(--link);
+}
 
 /* ---- External Link ---- */
-.external:after
-  content: " ↗"
-  color: var(--link)
+
+.external:after {
+  content: " ↗";
+  color: var(--link);
+}
 </style>

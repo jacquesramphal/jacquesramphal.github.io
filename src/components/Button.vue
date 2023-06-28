@@ -25,9 +25,15 @@ export default {
       type: String,
       required: false,
     },
-    secondary: {
-      type: Boolean,
-      default: false,
+    // secondary: {
+    //   type: Boolean,
+    //   default: false,
+    // },
+    type: {
+      type: String,
+      validator: function (value) {
+        return ["primary", "secondary"].indexOf(value) !== -1;
+      },
     },
     size: {
       type: String,
@@ -35,9 +41,7 @@ export default {
         return ["small", "large"].indexOf(value) !== -1;
       },
     },
-    backgroundColor: {
-      type: String,
-    },
+
   },
 
   emits: ["click"],
@@ -47,12 +51,10 @@ export default {
     return {
       classes: computed(() => ({
         "storybook-button": true,
-        "storybook-button--secondary": props.secondary,
-        "storybook-button--primary": !props.secondary,
+        // "storybook-button--secondary": props.secondary,
+        // "storybook-button--primary": !props.secondary,
+        [`storybook-button--${props.type || "primary"}`]: true,
         [`storybook-button--${props.size || "large"}`]: true,
-      })),
-      style: computed(() => ({
-        backgroundColor: props.backgroundColor,
       })),
       onClick() {
         emit("click");

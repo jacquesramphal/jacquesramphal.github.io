@@ -8,7 +8,7 @@
             ><img
               id="avatar"
               class="justify-end"
-              src="@/assets/images/portrait.jpg"
+              src="../assets/images/portrait.jpg"
               draggable="false"
               alt="logo.svg"
               style="width: 120px; aspect-ratio: 1 / 1"
@@ -159,7 +159,7 @@ import GridWrapper from "@/components/grid/GridWrapper.vue";
 import TextBlock from "@/components/TextBlock.vue";
 import AnimatedComponent from "./AnimatedComponent.vue";
 // import TextArea from "@/components/form/TextArea.vue";
-// import MyButton from "@/stories/Button.vue";
+// import MyButton from "@/components/Button.vue";
 
 export default {
   name: "MainFooter",
@@ -177,117 +177,173 @@ export default {
   },
 };
 </script>
-<style lang="sass" scoped>
-#wrapper
-  // border-top: var(--border)
-  // box-shadow: var(--shadow-inner)
-  // background: var(--bg-darker)
-  // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, var(--bg-darker)), color-stop(100%, transparent))
-  // background-image: -moz-linear-gradient(bottom, var(--bg-darker) 0%, transparent 100%)
-  padding-bottom: var(--spacing-lg)
-  @media only screen and (min-width: 1201px)
-    padding-bottom: inherit
+<style lang="scss" scoped>
+$border: var(--border);
+$shadow-inner: var(--shadow-inner);
+$bg-darker: var(--bg-darker);
+$spacing-lg: var(--spacing-lg);
+$spacing-sm: var(--spacing-sm);
 
-.grid-parent
-  grid-template-columns: repeat(2, 1fr)
-  margin-top: var(--spacing-sm)
-  @media only screen and (min-width: 740px)
-    grid-template-columns: repeat(3, 1fr)
-  @media only screen and (min-width: 1201px)
-    grid-template-columns: repeat(6, 1fr)
-    grid-gap: 0
+#wrapper {
+  // border-top: var(--border);
+  // box-shadow: var(--shadow-inner);
+  // background: var(--bg-darker);
+  // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, var(--bg-darker)), color-stop(100%, transparent));
+  // background-image: -moz-linear-gradient(bottom, var(--bg-darker) 0%, transparent 100%);
+  padding-bottom: $spacing-lg;
 
+  @media only screen and (min-width: 1201px) {
+    padding-bottom: inherit;
+  }
+}
 
-#maindetails
-  grid-column: 1 / 4
-  @media only screen and (min-width: 740px)
-    grid-column: 1 / 4
-  @media only screen and (min-width: 1201px)
-    grid-column: 1 / 4
-    margin-right: 120px
+.grid-parent {
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: $spacing-sm;
 
-#links1
-  grid-column: 1
-  @media only screen and (min-width: 740px)
-    grid-column: auto
-  @media only screen and (min-width: 1201px)
+  @media only screen and (min-width: 740px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-#links2
-  grid-column: 2
-  @media only screen and (min-width: 740px)
-    grid-column: auto
-  @media only screen and (min-width: 1201px)
+  @media only screen and (min-width: 1201px) {
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 0;
+  }
+}
 
-#links3
-  grid-column: 1
-  @media only screen and (min-width: 740px)
-    grid-column: auto
-  @media only screen and (min-width: 1201px)
+#maindetails {
+  grid-column: 1 / 4;
 
-h3
-  @media only screen and (min-width: 740px)
-    // text-align: center
-#copyright
-  font-weight: var(--font-medium)
-ul
-  list-style: none
-  margin: 0
-  padding: 0
+  @media only screen and (min-width: 740px) {
+    grid-column: 1 / 4;
+  }
 
-#footer
-  display: grid
-  grid-template-columns: repeat(1, 1fr)
-  @media only screen and (min-width: 740px)
-    grid-template-columns: repeat(2, 1fr)
+  @media only screen and (min-width: 1201px) {
+    grid-column: 1 / 4;
+    margin-right: 120px;
+  }
+}
 
-.footer
-  // padding-top: var(--spacing-sm) !important
-#links
-  grid-column: 1 / 1
-  @media only screen and (min-width: 740px)
-    grid-column: auto
-    justify-self: end
+#links1 {
+  grid-column: 1;
 
-li
-  width: 100%
-  font-size: 2em
-  line-height: 1.5
-  font-weight: var(--font-medium)
-  margin-top: var(--spacing-xxs)
-  float: left
-  list-style-type: none
-  text-decoration: none
-  padding-right: 1em
-li:last-child
-  padding-right: 0
-li.external::after
-  content: " ↗"
-  color: var(--link)
+  @media only screen and (min-width: 740px) {
+    grid-column: auto;
+  }
 
-// #avatar
-//   width: 120px
-//   height: 120px
-//   aspect-ratio: 1 / 1
-//   background: url(@/assets/images/portrait.jpg)
-//   background-size: 100%
+  @media only screen and (min-width: 1201px) {
+  }
+}
 
-#avatar:hover
-  animation: animate-shake 1s
-  background-image: url(@/assets/images/luna1.jpg)
-  animation-delay: 1s
+#links2 {
+  grid-column: 2;
 
+  @media only screen and (min-width: 740px) {
+    grid-column: auto;
+  }
+
+  @media only screen and (min-width: 1201px) {
+  }
+}
+
+#links3 {
+  grid-column: 1;
+
+  @media only screen and (min-width: 740px) {
+    grid-column: auto;
+  }
+
+  @media only screen and (min-width: 1201px) {
+  }
+}
+
+h3 {
+  @media only screen and (min-width: 740px) {
+    // text-align: center;
+  }
+}
+
+#copyright {
+  font-weight: var(--font-medium);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#footer {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+
+  @media only screen and (min-width: 740px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.footer {
+  // padding-top: var(--spacing-sm) !important;
+}
+
+#links {
+  grid-column: 1 / 1;
+
+  @media only screen and (min-width: 740px) {
+    grid-column: auto;
+    justify-self: end;
+  }
+}
+
+li {
+  width: 100%;
+  font-size: 2em;
+  line-height: 1.5;
+  font-weight: var(--font-medium);
+  margin-top: var(--spacing-xxs);
+  float: left;
+  list-style-type: none;
+  text-decoration: none;
+  padding-right: 1em;
+}
+
+li:last-child {
+  padding-right: 0;
+}
+
+li.external::after {
+  content: " ↗";
+  color: var(--link);
+}
+
+// #avatar {
+//   width: 120px;
+//   height: 120px;
+//   aspect-ratio: 1 / 1;
+//   background: url(@/assets/images/portrait.jpg);
+//   background-size: 100%;
+// }
+
+#avatar:hover {
+  animation: animate-shake 1s;
+  background-image: url(../assets/images/luna1.jpg);
+  animation-delay: 1s;
+}
 
 /* Monogram styling */
-#monogram
-    transition: all .5s ease-in-out
+#monogram {
+  transition: all .5s ease-in-out;
+}
 
-#monogram:hover
-  // stroke-width: 3px
-  stroke-dasharray: 100
-  animation: dash infinite 10s ease-in-out
+#monogram:hover {
+  // stroke-width: 3px;
+  stroke-dasharray: 100;
+  animation: dash infinite 10s ease-in-out;
+}
 
-
-@keyframes dash
-  to
-    stroke-dashoffset: 1000
+@keyframes dash {
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
 </style>

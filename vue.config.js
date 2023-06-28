@@ -1,9 +1,9 @@
 module.exports = {
-	chainWebpack: config => {
-		config.module
-			.rule("vue")
-			.use("vue-svg-inline-loader")
-				.loader("vue-svg-inline-loader")
-				.options({});
-	}
+  chainWebpack: (config) => {
+    config.module
+      .rule("vue")
+      .use("vue-svg-inline-loader", "style-loader", "css-loader")
+      .loader("vue-svg-inline-loader")
+      .options({});
+  },
 };

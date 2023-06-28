@@ -1,18 +1,19 @@
 <template>
   <PageWrapper>
-    <!-- <HeroBanner
+    <HeroBanner
       id="hero"
       class="display"
       eyebrow=""
       title="Multi-disciplinary Designer."
-    /> -->
+
+    />
     <!-- <HeroBanner
       id="hero"
       eyebrow=""
       title="Design journeys fueled by mindfulness."
       fullvh
     /> -->
-   <!-- <HeroBanner
+    <!-- <HeroBanner
       id="hero"
       eyebrow=""
       title="Ramphal Design"
@@ -42,7 +43,8 @@
       >
         <h4 class="subtle" style="text-align: left">Selected Work</h4>
         <MyButton
-          secondary
+                          type="secondary"
+
           style="margin-top: var(--spacing-sm)"
           class="justify-end"
           label="View More"

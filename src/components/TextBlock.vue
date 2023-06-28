@@ -4,7 +4,7 @@
       id="avatar"
       class="justify-end"
       v-if="alt"
-      :src="require(`@/assets/images/${icon}`)"
+      :src="require(`../assets/images/${icon}`)"
       draggable="false"
       alt="logo.svg"
       style="
@@ -28,7 +28,7 @@
       v-if="btnroute"
       :label="`${cta}`"
       :route="btnroute"
-      secondary
+      type="secondary"
       size="large"
     />
   </div>
@@ -41,6 +41,7 @@ export default {
   props: {
     icon: {
       type: String,
+      default: "j-logo.svg"
     },
     alt: {
       type: String,

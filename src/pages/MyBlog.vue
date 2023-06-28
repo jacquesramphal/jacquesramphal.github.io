@@ -1,27 +1,11 @@
 <template>
   <PageWrapper>
-
-<!-- This works! BG as a prop  -->
-<!-- <HeroBanner
+    <HeroBanner
       background
       filename="bg.jpg"
-      title="🗂️ Documents"
-      eyebrow=""
-    /> -->
-
-    <HeroBanner
       title="Docs & Resources"
       eyebrow=""
     />
- 
-
-    <!-- <ul class="container">
-      <li v-for="blogPost in posts" v-bind:key="blogPost.sys.id">
-        <p>{{ blogPost.tag }}</p>
-        <h4>{{ blogPost.title }}</h4>
-        <p>{{ blogPost.description }}</p>
-      </li>
-    </ul> -->
     <CardRow2 />
 
     <!-- <BlogFeed :contentful="contentful" /> -->
@@ -104,4 +88,4 @@ export default {
 };
 </script>
 
-<style scoped lang="sass"></style>
+<style scoped lang="scss"></style>
