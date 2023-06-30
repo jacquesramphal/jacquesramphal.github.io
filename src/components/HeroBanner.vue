@@ -90,7 +90,6 @@ export default {
     },
     filename: {
       type: String,
-      default: "jacques.jpeg",
     },
 
     // Override props
@@ -287,6 +286,10 @@ img {
 .herobanner--fullvh {
   min-height: 468px;
   height: 100vh !important;
+  #hero-image {
+    align-items: center !important;
+    margin-top: 0 !important;
+  }
   #hero-text {
     align-items: center !important;
     margin-top: 0 !important;
