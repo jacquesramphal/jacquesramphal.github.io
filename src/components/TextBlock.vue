@@ -35,9 +35,15 @@
 </template>
 
 <script>
+import MyButton from "./Button.vue";
+import TextLink from "./text/TextLink.vue";
+
 export default {
   name: "TextBlock",
-
+  components: {
+    MyButton,
+    TextLink,
+  },
   props: {
     icon: {
       type: String,
@@ -142,12 +148,8 @@ export default {
 .textblock-align {
   grid-column: 1 / 4;
 }
-h6 {
-}
 p {
   margin: 1rem 0 0 0;
-}
-.details {
 }
 .textblock--clamped p {
   overflow: hidden;

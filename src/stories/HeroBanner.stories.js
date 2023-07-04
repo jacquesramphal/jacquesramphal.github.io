@@ -1,108 +1,107 @@
-import HeroBanner from '../components/HeroBanner.vue';
-import { withDesign } from 'storybook-addon-designs';
-
+import HeroBanner from "../components/HeroBanner.vue";
+import { withDesign } from "storybook-addon-designs";
 
 export default {
-  title: 'Components/HeroBanner',
+  title: "Components/HeroBanner",
   component: HeroBanner,
   decorators: [withDesign],
   argTypes: {
     contentful: {
-      type: 'Array',
-      description: 'Array of content for the HeroBanner',
+      type: "Array",
+      description: "Array of content for the HeroBanner",
       control: {
-        type: 'object',
+        type: "object",
       },
     },
     eyebrow: {
-      type: 'string',
-      description: 'Eyebrow text for the HeroBanner',
+      type: "string",
+      description: "Eyebrow text for the HeroBanner",
       control: {
-        type: 'text',
+        type: "text",
       },
     },
     title: {
-      type: 'string',
-      description: 'Title text for the HeroBanner',
+      type: "string",
+      description: "Title text for the HeroBanner",
       control: {
-        type: 'text',
+        type: "text",
       },
     },
     tag: {
-      type: 'string',
-      description: 'Tag text for the HeroBanner',
+      type: "string",
+      description: "Tag text for the HeroBanner",
       control: {
-        type: 'text',
+        type: "text",
       },
     },
     subtitle: {
-      type: 'string',
-      description: 'Subtitle text for the HeroBanner',
+      type: "string",
+      description: "Subtitle text for the HeroBanner",
       control: {
-        type: 'text',
+        type: "text",
       },
     },
     route: {
-      type: 'string',
-      description: 'Route for the primary CTA button',
+      type: "string",
+      description: "Route for the primary CTA button",
       control: {
-        type: 'text',
+        type: "text",
       },
     },
     label: {
-      type: 'string',
-      description: 'Label text for the primary CTA button',
+      type: "string",
+      description: "Label text for the primary CTA button",
       control: {
-        type: 'text',
+        type: "text",
       },
     },
     routetwo: {
-      type: 'string',
-      description: 'Route for the secondary CTA button',
+      type: "string",
+      description: "Route for the secondary CTA button",
       control: {
-        type: 'text',
+        type: "text",
       },
     },
     labeltwo: {
-      type: 'string',
-      description: 'Label text for the secondary CTA button',
+      type: "string",
+      description: "Label text for the secondary CTA button",
       control: {
-        type: 'text',
+        type: "text",
       },
     },
     filename: {
-      type: 'string',
-      description: 'Filename of the HeroBanner image',
+      type: "string",
+      description: "Filename of the HeroBanner image",
       control: {
-        type: 'text',
+        type: "text",
       },
     },
     background: {
-      type: 'boolean',
-      description: 'Specify if HeroBanner has a background image',
+      type: "boolean",
+      description: "Specify if HeroBanner has a background image",
       control: {
-        type: 'boolean',
+        type: "boolean",
       },
     },
     center: {
-      type: 'boolean',
-      description: 'Specify if HeroBanner content is centered',
+      type: "boolean",
+      description: "Specify if HeroBanner content is centered",
       control: {
-        type: 'boolean',
+        type: "boolean",
       },
     },
     overlap: {
-      type: 'boolean',
-      description: 'Specify if HeroBanner overlaps the content below',
+      type: "boolean",
+      description: "Specify if HeroBanner overlaps the content below",
       control: {
-        type: 'boolean',
+        type: "boolean",
       },
     },
     fullvh: {
-      type: 'boolean',
-      description: 'Specify if HeroBanner takes full viewport height',
+      type: "boolean",
+      description: "Specify if HeroBanner takes full viewport height",
       control: {
-        type: 'boolean',
+        type: "boolean",
       },
     },
   },
@@ -118,19 +117,24 @@ const Template = (args) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-  route: 'work',
-  label: 'Primary CTA',
+  label: "Primary CTA",
+  labeltwo: "Secondary CTA",
+  route: "work",
+  title: "Default",
+  tag: "Tag1 Tag2",
+  routetwo: "/example-secondary-route",
+  subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 };
 export const Center = Template.bind({});
 Center.args = {
-  eyebrow: 'Example Eyebrow',
-  title: 'Default',
-  tag: 'Example Tag',
-  subtitle: 'Example Subtitle',
-  route: 'example-route',
-  label: 'Primary CTA',
-  routetwo: '/example-secondary-route',
-  labeltwo: 'Secondary CTA',
+  eyebrow: "Example Eyebrow",
+  title: "Centered",
+  tag: "Tag1 Tag2",
+  subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  route: "example-route",
+  label: "Primary CTA",
+  routetwo: "/example-secondary-route",
+  labeltwo: "Secondary CTA",
   background: false,
   center: true,
   overlap: false,
@@ -142,15 +146,15 @@ Background.args = {
   contentful: [
     // Add content here
   ],
-  eyebrow: 'Example Eyebrow',
-  title: 'Example Title',
-  tag: 'Example Tag',
-  subtitle: 'Example Subtitle',
-  route: 'example-route',
-  label: 'Primary CTA',
-  routetwo: '/example-secondary-route',
-  labeltwo: 'Secondary CTA',
-  filename: 'about.jpg',
+  eyebrow: "Example Eyebrow",
+  title: "Background",
+  tag: "Tag1 Tag2",
+  subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  route: "example-route",
+  label: "Primary CTA",
+  routetwo: "/example-secondary-route",
+  labeltwo: "Secondary CTA",
+  filename: "jacques.jpg",
   background: true,
   center: false,
   overlap: false,
@@ -161,15 +165,9 @@ Overlap.args = {
   contentful: [
     // Add content here
   ],
-  eyebrow: 'Example Eyebrow',
-  title: 'Example Title',
-  tag: 'Example Tag',
-  subtitle: 'Example Subtitle',
-  route: '/example-route',
-  label: 'Primary CTA',
-  routetwo: '/example-secondary-route',
-  labeltwo: 'Secondary CTA',
-  filename: 'about.jpg',
+  filename: "jacques.jpg",
+  eyebrow: "Example Eyebrow",
+  title: "Overlapped",
   background: true,
   center: false,
   overlap: true,

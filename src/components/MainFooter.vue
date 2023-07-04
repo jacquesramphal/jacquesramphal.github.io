@@ -123,9 +123,7 @@
             Deployed on
             <a target="blank" href="https://www.netlify.com/">Netlify</a>.
           </p>
-
         </div>
-
       </GridContainer>
     </GridWrapper>
   </AnimatedComponent>
@@ -154,9 +152,9 @@
           </form> -->
 
 <script>
-import GridContainer from "@/components/grid/GridContainer.vue";
-import GridWrapper from "@/components/grid/GridWrapper.vue";
-import TextBlock from "@/components/TextBlock.vue";
+import GridContainer from "./grid/GridContainer.vue";
+import GridWrapper from "./grid/GridWrapper.vue";
+import TextBlock from "./TextBlock.vue";
 import AnimatedComponent from "./AnimatedComponent.vue";
 // import TextArea from "@/components/form/TextArea.vue";
 // import MyButton from "@/components/Button.vue";
@@ -332,7 +330,7 @@ li.external::after {
 
 /* Monogram styling */
 #monogram {
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 #monogram:hover {

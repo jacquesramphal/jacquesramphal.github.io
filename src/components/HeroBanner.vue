@@ -1,13 +1,14 @@
 <template>
   <AnimatedComponent>
     <GridWrapper id="hero-banner" :class="classes">
-      <div id="hero-image" class="animate fade delay-1" v-if="filename">
         <img
+          id="hero-image"
+          class="animate fade delay-1"
+          v-if="filename"
           draggable="false"
           :src="require(`../assets/images/${filename}`)"
           :alt="`${alt}`"
         />
-      </div>
       <GridContainer id="eyebrow" v-if="eyebrow">
         <div v-if="eyebrow" class="animate fade delay-3">
           <p class="subtle" v-if="eyebrow" v-text="eyebrow" />
@@ -51,8 +52,19 @@
 
 
 <script>
+import GridContainer from "./grid/GridContainer.vue";
+import GridWrapper from "./grid/GridWrapper.vue";
+import MyButton from "./Button.vue";
+import AnimatedComponent from "./AnimatedComponent.vue";
+
 export default {
   name: "HeroBanner",
+  components: {
+    GridContainer,
+    GridWrapper,
+    MyButton,
+    AnimatedComponent,
+  },
   props: {
     contentful: {
       type: Array,
@@ -223,6 +235,9 @@ img {
     width: 100%;
     z-index: 0;
   }
+  #hero-image {
+    z-index: 0;
+  }
   #hero-text {
     h2 {
       background-color: var(--background-reversed);
@@ -286,10 +301,6 @@ img {
 .herobanner--fullvh {
   min-height: 468px;
   height: 100vh !important;
-  #hero-image {
-    align-items: center !important;
-    margin-top: 0 !important;
-  }
   #hero-text {
     align-items: center !important;
     margin-top: 0 !important;

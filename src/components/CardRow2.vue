@@ -78,7 +78,7 @@
 </template>
 
 <script>
-import docs from "@/assets/data/docs.json";
+import docs from "../assets/data/docs.json";
 
 export default {
   name: "CardRow2",

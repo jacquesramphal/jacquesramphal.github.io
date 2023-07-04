@@ -6,16 +6,13 @@
         <img
           draggable="false"
           v-if="filename"
-          :src="require(`@/assets/images/${filename}`)"
+          :src="require(`../../assets/images/${filename}`)"
           :alt="`${alt}`"
         />
       </router-link>
     </div>
 
     <div class="info">
-     
-     
-
       <TextBlock
         clamped
         class="textblock"
@@ -31,9 +28,13 @@
 </template>
 
 <script>
+import TextBlock from "../TextBlock.vue";
+
 export default {
   name: "DefaultCard",
-  components: {},
+  components: {
+    TextBlock,
+  },
   props: {
     imgurl: {
       type: String,
@@ -75,64 +76,73 @@ export default {
 };
 </script>
 
-<style scoped lang="sass">
+<style scoped lang="scss">
+* {
+  border-radius: 0;
+}
 
-*
-  border-radius: 0
-.card
-  position: relative
-  display: flex
-  flex-direction: column
-  border-radius: var(--spacing-xxs) !important
-  background: var(--background)
-  overflow: hidden
-  -moz-transition: all 0.25s ease-in-out
-  -o-transition: all 0.25s ease-in-out
-  -webkit-transition: all 0.25s ease-in-out
-  // box-shadow: var(--shadow-light)
-  // border: var(--border)
-  &:hover
-    background: var(--background)
-    box-shadow: var(--shadow-heavy)
-    transform: scale(1.01)
-    img
-      transform: scale(1.1)
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--spacing-xxs) !important;
+  background: var(--background);
+  overflow: hidden;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
 
-  &:active
-    // box-shadow: var(--shadow-hover  )
-    // transform: rotate(1deg)
+  &:hover {
+    background: var(--background);
+    box-shadow: var(--shadow-heavy);
+    transform: scale(1.01);
 
-.info
-  // grid-row: span
-  display: flex
-  flex-direction: column
-  flex: 1
-  padding: var(--spacing-md)
-  // justify-content: space-between
-.textblock-description
-  background: blue !important
-.card-description
-  margin-bottom: var(--spacing-md) !important
-  overflow: hidden
+    img {
+      transform: scale(1.1);
+    }
+  }
 
+  &:active {
+    // box-shadow: var(--shadow-hover);
+    // transform: rotate(1deg);
+  }
+}
 
+.info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--spacing-md);
+}
 
+.textblock-description {
+  background: blue !important;
+}
 
-img
-  width: 100%
-  height: 101% !important
-  object-fit: cover !important
-  max-width: 100%
-  border-radius: 0 !important
-  -moz-transition: transform 0.25s ease-in-out
-  -o-transition: transform 0.25s ease-in-out
-  -webkit-transition: transform 0.25s ease-in-out
-.image
-  overflow: hidden
-  aspect-ratio: 16/9
+.card-description {
+  margin-bottom: var(--spacing-md) !important;
+  overflow: hidden;
+}
 
-  border-radius: 0 !important
-.card-title
-  line-height: 1.5
-  margin-bottom: var(--spacing-xxs)
+img {
+  width: 100%;
+  height: 101% !important;
+  object-fit: cover !important;
+  max-width: 100%;
+  border-radius: 0 !important;
+  -moz-transition: transform 0.25s ease-in-out;
+  -o-transition: transform 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out;
+}
+
+.image {
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  border-radius: 0 !important;
+}
+
+.card-title {
+  line-height: 1.5;
+  margin-bottom: var(--spacing-xxs);
+}
 </style>

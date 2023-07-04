@@ -55,7 +55,7 @@
         />
       </div>
     </GridContainer>
-    <TextImage
+    <SplitImage
       flipped
       style="background: var(--bg-darker)"
       filename="work/glo.svg"

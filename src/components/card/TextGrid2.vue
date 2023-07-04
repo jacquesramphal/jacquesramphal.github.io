@@ -28,9 +28,15 @@
 </template>
 
 <script>
-export default {
-  name: "DetailCard2",
+import GridContainer from "../grid/GridContainer.vue";
+import TextBlock from "../TextBlock.vue";
 
+export default {
+  name: "TextGrid2",
+  components: {
+    GridContainer,
+    TextBlock,
+  },
   props: {
     label1: {
       type: String,

@@ -8,7 +8,7 @@
       :title="`${entry.title}`"
     />
 
-    <DetailCard2
+    <TextGrid2
       id="detail1"
       class=""
       label1="Role"
@@ -20,10 +20,10 @@
       :subtitle="`${entry.subtitle}`"
       :description="`${entry.description}`"
     />
-    <TextImage class="fadeInLeft" />
+    <SplitImage class="fadeInLeft" />
     <div v-html="htmlContent"></div>
 
-    <!-- <StatsBar
+    <!-- <TextStats
       label1="Role"
       :value1="`${entry.role}`"
       label2="Type"
@@ -64,14 +64,14 @@
         caption="This is a caption."
       />
     </GridContainer>
-    <TextImage class="" flipped />
-    <TextImage class="" />
-    <TextImage class="" flipped />
-    <TextImage class="" />
-    <TextImage class="fadeInLeft" flipped />
-    <TextImage class="fadeInRight" />
-    <TextImage class="fadeInLeft" flipped />
-    <TextImage class="fadeInRight" />
+    <SplitImage class="" flipped />
+    <SplitImage class="" />
+    <SplitImage class="" flipped />
+    <SplitImage class="" />
+    <SplitImage class="fadeInLeft" flipped />
+    <SplitImage class="fadeInRight" />
+    <SplitImage class="fadeInLeft" flipped />
+    <SplitImage class="fadeInRight" />
   </PageWrapper>
 </template>
 

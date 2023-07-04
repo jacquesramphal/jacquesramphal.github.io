@@ -73,10 +73,20 @@
         <ImageCard alt="Giftbook" filename="work/gob.svg" title="Giftbook" />
 
         <ImageCard
+          large
           style="background-color: var(--bg-darker)"
           alt="Template Project"
-          filename="templates/template-desktop-blank.svg"
-          title="Small Template"
+          filename="work/glo.svg"
+          title="Large Template"
+          route="work"
+          details="This is a work description that would give a preview into the work..."
+        />
+        <ImageCard
+          large
+          style="background-color: var(--bg-darker)"
+          alt="Template Project"
+          filename="work/dod.svg"
+          title="Large Template"
           route="work"
           details="This is a work description that would give a preview into the work..."
         />

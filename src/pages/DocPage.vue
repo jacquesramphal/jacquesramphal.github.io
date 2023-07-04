@@ -52,13 +52,29 @@
 </template>
 
 <script>
-import docData from "@/assets/data/docs.json";
+import docData from "../assets/data/docs.json";
+import PageWrapper from "../components/grid/PageWrapper.vue";
+import GridContainer from "../components/grid/GridContainer.vue";
+import GridWrapper from "../components/grid/GridWrapper.vue";
+import TextBlock from "../components/TextBlock.vue";
+import AnimatedComponent from "../components/AnimatedComponent.vue";
+import ImageCard from "../components/ImageCard.vue";
+import CardRow2 from "../components/CardRow2.vue";
+
 
 export default {
   name: "DocPage",
-  components: {},
+  components: {
+    GridContainer,
+    GridWrapper,
+    TextBlock,
+    AnimatedComponent,
+    ImageCard,
+    CardRow2,
+    PageWrapper,
+  },
   props: {
-    testsections: {
+    sections: {
       type: Array,
       required: true,
     },
@@ -71,10 +87,21 @@ export default {
       return docData.entries.find((entry) => entry.id == this.docId);
     },
   },
+  mounted() {
+    // Check if this.$route.params is defined
+    if (!this.$route.params) {
+      // Handle the case when $route.params is undefined
+      // You can redirect to an error page or display an error message
+      console.error("Invalid route parameters");
+      // Example: Redirect to the homepage
+      this.$router.push("/brb");
+    }
+  },
 };
 </script>
 
-<style lang="sass" scoped>
-.section
-  padding-bottom: var(--spacing-lg)
+<style lang="scss" scoped>
+.section {
+  padding-bottom: var(--spacing-lg);
+}
 </style>

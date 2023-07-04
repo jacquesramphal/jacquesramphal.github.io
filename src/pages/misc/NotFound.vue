@@ -3,7 +3,7 @@
   <PageWrapper>
     <!-- <HeroBanner background center fullvh eyebrow="" title="Oops! Page not be found." route="/" label="Back to home" /> -->
     <GridContainer fullvh fullvw>
-      <TextImage
+      <SplitImage
         filename="luna.jpg"
         header="Oops! The page you are looking for could not be found."
         details=" "

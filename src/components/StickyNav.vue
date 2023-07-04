@@ -31,9 +31,9 @@
             <router-link :to="{ name: 'Resume' }">info</router-link>
           </li>
 
-          <!-- <li class="nav-link" tabindex="0">
+          <li class="nav-link" tabindex="0">
             <router-link class="isDisabled" to="blog">writing</router-link>
-          </li> -->
+          </li>
 
           <!-- <li
             class="nav-link"
@@ -57,8 +57,7 @@
 </template>
 
 <script>
-// Must import here and on footer since they are global router components?
-import GridContainer from "@/components/grid/GridContainer.vue";
+import GridContainer from "./grid/GridContainer.vue";
 
 /**
  * @component

@@ -14,7 +14,7 @@
       </div>
     </GridContainer>
 
-    <DetailCard
+    <TextGrid
       v-for="about in contentful"
       v-bind:key="about.sys.id"
       :header="about.detailHeader"

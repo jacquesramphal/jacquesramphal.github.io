@@ -24,16 +24,16 @@
   </GridWrapper>
 </template>
 <script>
-import TextValue from "@/components/text/TextValue.vue";
-
-
+import TextValue from "../text/TextValue.vue";
+import GridContainer from "../grid/GridContainer.vue";
+import GridWrapper from "../grid/GridWrapper.vue";
 
 export default {
-  name: "StatsBar",
+  name: "TextStats",
   components: {
     TextValue,
-    
-    
+    GridContainer,
+    GridWrapper,
   },
   props: {
     contentful: {

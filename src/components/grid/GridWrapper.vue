@@ -11,7 +11,8 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-div
-  overflow: hidden
+<style lang="scss" scoped>
+div {
+  overflow: hidden;
+}
 </style>

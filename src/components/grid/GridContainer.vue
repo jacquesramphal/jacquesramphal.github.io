@@ -35,39 +35,48 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-.container-spacing
-  width: 100%
-  width: -moz-available
-  width: -webkit-fill-available
-  width: stretch
-  position: relative
-  padding: var(--spacing-sm) !important
-  display: grid
-  grid-template-columns: 1
-  height: auto
-  margin-left: auto
-  margin-right: auto
-  max-width: 1920px
-  overflow: hidden
+<style lang="scss" scoped>
+.container-spacing {
+  width: 100%;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  width: stretch;
+  position: relative;
+  padding: var(--spacing-sm) !important;
+  display: grid;
+  grid-template-columns: 1;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1920px;
+  overflow: hidden;
 
-.container-spacing--normal
-  @media only screen and (min-width: 740px)
-    padding: var(--spacing-lg) !important
-  @media only screen and (min-width: 1201px)
-    padding: var(--spacing-lg) !important
+  &--normal {
+    @media only screen and (min-width: 740px) {
+      padding: var(--spacing-lg) !important;
+    }
+    @media only screen and (min-width: 1201px) {
+      padding: var(--spacing-lg) !important;
+    }
+  }
 
-.container-spacing--tight
-  @media only screen and (min-width: 740px)
-    padding: var(--spacing-md) !important
-  @media only screen and (min-width: 1201px)
-    padding: var(--spacing-md) !important
+  &--tight {
+    @media only screen and (min-width: 740px) {
+      padding: var(--spacing-md) !important;
+    }
+    @media only screen and (min-width: 1201px) {
+      padding: var(--spacing-md) !important;
+    }
+  }
 
-.container-spacing--fullvw
-  padding: 0 !important
+  &--fullvw {
+    padding: 0 !important;
+  }
 
-.container-spacing--fullvh
-  min-height: 468px
-  height: 100vh !important
-  align-items: center !important
+  &--fullvh {
+    min-height: 468px;
+    height: 100vh !important;
+    align-items: center !important;
+  }
+}
 </style>

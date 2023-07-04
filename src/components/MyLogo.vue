@@ -108,23 +108,32 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-*
-  color: inherit
-  
+<style lang="scss" scoped>
+* {
+  color: inherit;
+}
+
 /* Monogram styling */
-#monogram
-  transition: all .5s ease-in-out
-  z-index: 10000
+#monogram {
+  transition: all 0.5s ease-in-out;
+  z-index: 10000;
+}
 
-#monogram:hover
-  stroke-dasharray: 100
-  animation: dash infinite 10s ease-in-out
+#monogram:hover {
+  stroke-dasharray: 100;
+  animation: dash infinite 10s ease-in-out;
+}
 
-#MyLogo
-  height: 3.6rem
-  @media only screen and (min-width: 740px)
-    height: 4rem
-  @media only screen and (min-width: 1201px)
-    height: 4.8rem
+#MyLogo {
+  height: 3.6rem;
+
+  @media only screen and (min-width: 740px) {
+    height: 4rem;
+  }
+
+  @media only screen and (min-width: 1201px) {
+    height: 4.8rem;
+  }
+}
+
 </style>

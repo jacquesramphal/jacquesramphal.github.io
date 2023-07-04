@@ -17,7 +17,7 @@
         <img
           class="zoom"
           draggable="false"
-          :src="require(`@/assets/images/${filename}`)"
+          :src="require(`../assets/images/${filename}`)"
           :alt="`${alt}`"
         />
       </router-link>
@@ -26,9 +26,17 @@
 </template>
 
 <script>
+import TextBlock from "./TextBlock.vue";
+import GridContainer from "./grid/GridContainer.vue";
+import GridWrapper from "./grid/GridWrapper.vue";
+
 export default {
   name: "ThumbDetail",
-  components: {},
+  components: {
+    TextBlock,
+    GridContainer,
+    GridWrapper,
+  },
   props: {
     title: {
       type: String,
@@ -41,7 +49,7 @@ export default {
     },
     filename: {
       type: String,
-      default: "templates/template-sm.svg",
+      default: "templates/template-v2.svg",
     },
     alt: {
       type: String,
@@ -63,50 +71,72 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-*
-  outline: none
-  text-decoration: none !important
+<style lang="scss" scoped>
+* {
+  outline: none;
+  text-decoration: none !important;
+}
 
-#screen
-  background-image: url("../assets/images/avatar/avatar.svg")
+#screen {
+  background-image: url("../assets/images/avatar/avatar.svg");
+}
 
-img
-  mix-blend-mode: normal
-  aspect-ratio: 1 / 1
-  height: 101%
-  object-fit: cover
+img {
+  mix-blend-mode: normal;
+  aspect-ratio: 1 / 1;
+  height: 101%;
+  object-fit: cover;
+}
 
-.thumbdetail
-  background-color: var(--bg-darker) !important
-  // background-color: #35363a !important
-  grid-column: 1 / 4
-  grid-template-rows: 2, 1fr
-  text-decoration: none !important
-  @media only screen and (min-width: 740px)
-    grid-gap: var(--spacing-md)
-    grid-column: 1 / 3
-    grid-template-columns: repeat(2, 1fr)
-    grid-template-rows: none
-  @media only screen and (min-width: 1201px)
-    grid-column: span 2
-.text-container
-  padding: var(--spacing-md) var(--spacing-md) 0 var(--spacing-md) !important
-  @media only screen and (min-width: 740px)
-    padding: var(--spacing-md) 0 var(--spacing-md) var(--spacing-md)!important
-  @media only screen and (min-width: 1201px)
-    padding: var(--spacing-lg) 0 var(--spacing-lg) var(--spacing-lg)!important
-.textblock
-  text-decoration: none !important
-  // color: var(--color-offwhite) !important
-  text-decoration: none !important
-.textblock:hover
-  text-decoration: none !important
+.thumbdetail {
+  background-color: var(--bg-darker) !important;
+  /* background-color: #35363a !important; */
+  grid-column: 1 / 4;
+  grid-template-rows: 2, 1fr;
+  text-decoration: none !important;
 
-.title
-  margin-bottom: 1.6rem
+  @media only screen and (min-width: 740px) {
+    grid-gap: var(--spacing-md);
+    grid-column: 1 / 3;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: none;
+  }
 
-.text
-  @media only screen and (min-width: 740px)
-      grid-column: 1 / 2
+  @media only screen and (min-width: 1201px) {
+    grid-column: span 2;
+  }
+}
+
+.text-container {
+  padding: var(--spacing-md) var(--spacing-md) 0 var(--spacing-md) !important;
+
+  @media only screen and (min-width: 740px) {
+    padding: var(--spacing-md) 0 var(--spacing-md) var(--spacing-md) !important;
+  }
+
+  @media only screen and (min-width: 1201px) {
+    padding: var(--spacing-lg) 0 var(--spacing-lg) var(--spacing-lg) !important;
+  }
+}
+
+.textblock {
+  text-decoration: none !important;
+  /* color: var(--color-offwhite) !important; */
+  text-decoration: none !important;
+}
+
+.textblock:hover {
+  text-decoration: none !important;
+}
+
+.title {
+  margin-bottom: 1.6rem;
+}
+
+.text {
+  @media only screen and (min-width: 740px) {
+    grid-column: 1 / 2;
+  }
+}
+
 </style>

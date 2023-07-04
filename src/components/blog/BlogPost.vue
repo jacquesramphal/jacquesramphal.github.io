@@ -36,7 +36,7 @@
           large
           class=""
           title=""
-          filename="jacques.jpeg"
+          filename="jacques.jpg"
           alt="Jacques working at Orium"
         />
       </GridContainer>
@@ -87,7 +87,7 @@
           </GridContainer>
         </AnimatedComponent>
         <AnimatedComponent>
-          <TextImage
+          <SplitImage
             flipped
             class=""
             style="background: var(--bg-darker)"
@@ -157,7 +157,7 @@
           </AnimatedComponent>
         </GridWrapper>
         <AnimatedComponent>
-          <TextImage class="" style="background: var(--bg-darker)" />
+          <SplitImage class="" style="background: var(--bg-darker)" />
         </AnimatedComponent>
       </GridWrapper>
     </GridWrapper>
@@ -173,13 +173,13 @@
 
 <script>
 import CardRow from "@/components/CardRow.vue";
-import TextImage from "@/components/card/TextImage.vue";
+import SplitImage from "@/components/card/SplitImage.vue";
 
 export default {
   name: "BlogPost",
   components: {
     CardRow,
-    TextImage,
+    SplitImage,
   },
   props: {
     title: {

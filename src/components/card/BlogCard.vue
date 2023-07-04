@@ -21,12 +21,12 @@
 </template>
 
 <script>
-
+import GridContainer from "../grid/GridContainer.vue";
 
 export default {
   name: "BlogCard",
   components: {
-    
+    GridContainer,
   },
   props: {
     tag: {

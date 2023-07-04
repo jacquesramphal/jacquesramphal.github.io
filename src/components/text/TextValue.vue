@@ -31,22 +31,25 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 * {
   color: inherit;
 }
+
 #TextValue {
-  /*  background: var(--color-xlight); */
+  /* background: var(--color-xlight); */
   grid-column: 1 / 4;
   text-align: left;
   padding: 0;
-}
-h6 {
-  margin-bottom: 1em;
-}
-h4 {
-  margin: 0;
-  /* color: var(--link); */
+
+  h6 {
+    margin-bottom: 1em;
+  }
+
+  h4 {
+    margin: 0;
+    /* color: var(--link); */
+  }
 }
 
 /* ------------ BREAKPOINT MD ------------ */
@@ -54,6 +57,7 @@ h4 {
   #TextValue {
     grid-column: auto;
   }
+
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
     #TextValue {

@@ -33,35 +33,34 @@ export default {
     },
     label: {
       type: String,
-      default: "This is label",
+      default: "This is a label",
     },
     placeholder: {
       type: String,
-      default: "This is an placeholder",
+      default: "This is a placeholder",
     },
   },
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 * {
   color: inherit !important;
 }
-#input {
-  /*  background: var(--color-xlight); */
-  grid-column: 1 / 4;
-}
 
-/* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
-  #input {
+#input {
+  /* background: var(--color-xlight); */
+  grid-column: 1 / 4;
+
+  /* ------------ BREAKPOINT MD ------------ */
+  @media only screen and (min-width: 740px) {
     grid-column: auto;
-  }
-  /* ------------ BREAKPOINT LG ------------ */
-  @media only screen and (min-width: 1201px) {
-    #input {
+
+    /* ------------ BREAKPOINT LG ------------ */
+    @media only screen and (min-width: 1201px) {
       grid-column: auto;
     }
   }
 }
+
 </style>

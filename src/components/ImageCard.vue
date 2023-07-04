@@ -17,7 +17,7 @@
         </span>
         <img
           draggable="false"
-          :src="require(`@/assets/images/${filename}`)"
+          :src="require(`../assets/images/${filename}`)"
           :alt="`${alt}`"
         />
       </figure>
@@ -27,9 +27,13 @@
 </template>
 
 <script>
+import TextBlock from "./TextBlock.vue";
+
 export default {
   name: "ImageCard",
-  components: {},
+  components: {
+    TextBlock,
+  },
   props: {
     eyebrow: {
       type: String,
@@ -95,64 +99,94 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-
-
-
+<style lang="scss" scoped>
 // Thumbs Small
-.thumb
-  img
-    mix-blend-mode: normal
-    aspect-ratio: 1 / 1
-    height: 101%
-    object-fit: cover
-    object-position: 0% 100%
+.thumb {
+  img {
+    mix-blend-mode: normal;
+    aspect-ratio: 1 / 1;
+    height: 101%;
+    object-fit: cover;
+    object-position: 0% 100%;
+  }
+}
 
 // Thumbs Medium
 // Thumbs Large
-.thumb--large
-  @media only screen and (min-width: 740px)
-    grid-column: 1 / 3
-    img
-      aspect-ratio: 16 / 8
-  @media only screen and (min-width: 1201px)
-    grid-column: 1 / 4
+.thumb--large {
+  @media only screen and (min-width: 740px) {
+    grid-column: 1 / 3;
+    img {
+      aspect-ratio: 16 / 8;
+    }
+    .caption {
+      padding: var(--spacing-md);
+    }
+  }
 
-.card-route
-  width: 100%
-  height: 100%
-  z-index: 99
-  position: absolute
-figcaption
-  padding: var(--spacing-xxs) 0 var(--spacing-xs) 0 
-.caption
-  -moz-transition: all 0.1s ease-in-out
-  -o-transition: all 0.1s ease-in-out
-  -webkit-transition: all 0.1s ease-in-out
-  transition: all 0.1s ease-in-out
-  opacity: 0
-  display: block !important
-  float: left
-  padding: var(--spacing-sm) var(--spacing-md)
-  position: absolute
-  text-rendering: optimizeLegibility
-  z-index: 100
-  width: 100%
-  width: -moz-available
-  width: -webkit-fill-available
-  height: 100%
-  background: linear-gradient(135deg, var(--background-reversed) 0%, rgba(255,255,255,0) 200%)
-  #textblock
-    background: transparent
-    color: var(--text-reversed) !important
-    letter-spacing: var(--spacing-reversed-normal)
-  h3, h4, h5
-    font-weight: var(--font-reversed-bold) !important
-  p
-    font-weight: var(--font-reversed-medium) !important
-.grid-card:hover
-  .caption
-    opacity: 1
-    color: var(--color-offwhite) !important
-    display: block !important
+  @media only screen and (min-width: 1201px) {
+    grid-column: 1 / 4;
+    .caption {
+      padding: var(--spacing-lg);
+    }
+  }
+}
+
+.card-route {
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  position: absolute;
+
+  figcaption {
+    padding: var(--spacing-xxs) 0 var(--spacing-xs) 0;
+  }
+}
+
+.caption {
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  opacity: 0;
+  display: block !important;
+  float: left;
+  padding: var(--spacing-sm) var(--spacing-md);
+  position: absolute;
+  text-rendering: optimizeLegibility;
+  z-index: 100;
+  width: 100%;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--background-reversed) 0%,
+    rgba(255, 255, 255, 0) 200%
+  );
+
+  #textblock {
+    background: transparent;
+    color: var(--text-reversed) !important;
+    letter-spacing: var(--spacing-reversed-normal);
+  }
+
+  h3,
+  h4,
+  h5 {
+    font-weight: var(--font-reversed-bold) !important;
+  }
+
+  p {
+    font-weight: var(--font-reversed-medium) !important;
+  }
+}
+
+.grid-card:hover {
+  .caption {
+    opacity: 1;
+    color: var(--color-offwhite) !important;
+    display: block !important;
+  }
+}
 </style>

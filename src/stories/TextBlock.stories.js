@@ -35,7 +35,7 @@ const Template = (args) => ({
 export const Default = Template.bind({});
 Default.args = {
   alt: 'Logo',
-  eyebrow: 'Eyebrow Text',
+  eyebrow: 'Eyebrow',
   header: 'Header Text',
   header4: '',
   header5: '',
@@ -45,7 +45,7 @@ Default.args = {
   clamped: false,
   cta: 'Call to Action',
   route: 'home',
-  btnroute: '',
+  btnroute: 'your-route-here', // Provide a valid route value
   link: '',
   label: 'Home',
 };

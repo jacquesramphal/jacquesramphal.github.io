@@ -13,14 +13,14 @@
 </template>
 
 <script>
-
-
+import GridContainer from "../grid/GridContainer.vue";
+import TextBlock from "../TextBlock.vue";
 
 export default {
-  name: "DetailCard",
+  name: "TextGrid",
   components: {
-    
-    
+    GridContainer,
+    TextBlock,
   },
   props: {
     contentful: {
@@ -49,19 +49,23 @@ export default {
     },
     detail1: {
       type: String,
-      default: "Detail 1. Lorem ipsum doler optima sit amet doler optima sit amet doler optima sit amet optima sit amet amet doler optima sit amet optima sit amet.",
+      default:
+        "Detail 1. Lorem ipsum doler optima sit amet doler optima sit amet doler optima sit amet optima sit amet amet doler optima sit amet optima sit amet.",
     },
     detail2: {
       type: String,
-      default: "Detail 2. Lorem ipsum doler optima sit amet doler optima sit amet doler optima sit amet optima sit amet amet doler optima sit amet optima sit amet.",
+      default:
+        "Detail 2. Lorem ipsum doler optima sit amet doler optima sit amet doler optima sit amet optima sit amet amet doler optima sit amet optima sit amet.",
     },
     detail3: {
       type: String,
-      default: "Detail 3. Lorem ipsum doler optima sit amet doler optima sit amet doler optima sit amet optima sit amet amet doler optima sit amet optima sit amet.",
+      default:
+        "Detail 3. Lorem ipsum doler optima sit amet doler optima sit amet doler optima sit amet optima sit amet amet doler optima sit amet optima sit amet.",
     },
     detail4: {
       type: String,
-      default: "Detail 4. Lorem ipsum doler optima sit amet doler optima sit amet doler optima sit amet optima sit amet amet doler optima sit amet optima sit amet.",
+      default:
+        "Detail 4. Lorem ipsum doler optima sit amet doler optima sit amet doler optima sit amet optima sit amet amet doler optima sit amet optima sit amet.",
     },
   },
 };

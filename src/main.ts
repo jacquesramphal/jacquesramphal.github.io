@@ -10,8 +10,8 @@ import BlogFeed from "@/components/blog/BlogFeed.vue";
 import CardRow from "@/components/CardRow.vue";
 import CardRow2 from "@/components/CardRow2.vue";
 import DefaultCard from "@/components/card/DefaultCard.vue";
-import DetailCard from "@/components/card/DetailCard.vue";
-import DetailCard2 from "@/components/card/DetailCard2.vue";
+import TextGrid from "@/components/card/TextGrid.vue";
+import TextGrid2 from "@/components/card/TextGrid2.vue";
 import FilterBar from "@/components/FilterBar.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
 import GridWrapper from "@/components/grid/GridWrapper.vue";
@@ -22,10 +22,10 @@ import MyButton from "@/components/Button.vue";
 import MyLogo from "@/components/MyLogo.vue";
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import ProjectPreview from "@/components/ProjectPreview.vue";
-import StatsBar from "@/components/card/StatsBar.vue";
+import TextStats from "@/components/card/TextStats.vue";
 import TextBlock from "@/components/TextBlock.vue";
 import TextHeader from "@/components/text/TextHeader.vue";
-import TextImage from "@/components/card/TextImage.vue";
+import SplitImage from "@/components/card/SplitImage.vue";
 import TextLink from "@/components/text/TextLink.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
 
@@ -69,8 +69,8 @@ app
   .component("CardRow", CardRow)
   .component("CardRow2", CardRow2)
   .component("DefaultCard", DefaultCard)
-  .component("DetailCard", DetailCard)
-  .component("DetailCard2", DetailCard2)
+  .component("TextGrid", TextGrid)
+  .component("TextGrid2", TextGrid2)
   .component("FilterBar", FilterBar)
   .component("GridContainer", GridContainer)
   .component("GridWrapper", GridWrapper)
@@ -81,9 +81,9 @@ app
   .component("MyLogo", MyLogo)
   .component("PageWrapper", PageWrapper)
   .component("ProjectPreview", ProjectPreview)
-  .component("StatsBar", StatsBar)
+  .component("TextStats", TextStats)
   .component("TextBlock", TextBlock)
   .component("TextHeader", TextHeader)
-  .component("TextImage", TextImage)
+  .component("SplitImage", SplitImage)
   .component("TextLink", TextLink)
   .component("ThumbDetail", ThumbDetail)

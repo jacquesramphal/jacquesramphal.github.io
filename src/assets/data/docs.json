@@ -7,7 +7,7 @@
       "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
       "btnroute": "doc/1",
       "cta": "Read More",
-      "thumbnail": "article/jacques.jpeg",
+      "thumbnail": "article/jacques.jpg",
       "alt": "Alt Test",
       "bgcolor": "background-color: var(--bg-darker)",
       "role": "Designer/Developer",

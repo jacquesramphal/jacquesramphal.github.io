@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "yarn build && yarn serve",
     "serve": "vue-cli-service serve",
-    "start": "vue-cli-service build && vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "sb": "storybook build && storybook dev",

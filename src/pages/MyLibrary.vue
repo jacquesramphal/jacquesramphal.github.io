@@ -51,13 +51,12 @@
 
     <HeroBg />
     <HeroAnimated />
-    <HeroProject class="eightyvh" header="Lorem Ipsum Doler Optima Sit Amet" />
 
-    <DetailCard header="Reversed" class="reversed" />
+    <TextGrid header="Reversed" class="reversed" />
 
     <MyForm />
     <FormCentered />
-    <TextImage header="Default" />
+    <SplitImage header="Default" />
 
     <GridContainer class="grid-parent">
       <TextDefault />
@@ -71,10 +70,9 @@ import PageWrapper from "@/components/grid/PageWrapper.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
 import HeroBg from "@/components/HeroBg.vue";
 import HeroAnimated from "@/components/HeroAnimated.vue";
-import HeroProject from "@/components/HeroProject.vue";
 import TextDefault from "@/components/text/TextDefault.vue";
-import DetailCard from "@/components/card/DetailCard.vue";
-import TextImage from "@/components/card/TextImage.vue";
+import TextGrid from "@/components/card/TextGrid.vue";
+import SplitImage from "@/components/card/SplitImage.vue";
 import MyForm from "@/components/card/MyForm.vue";
 import FormCentered from "@/components/card/FormCentered.vue";
 
@@ -85,10 +83,9 @@ export default {
     HeroBanner,
     HeroBg,
     HeroAnimated,
-    HeroProject,
     TextDefault,
-    DetailCard,
-    TextImage,
+    TextGrid,
+    SplitImage,
     MyForm,
     FormCentered,
   },
