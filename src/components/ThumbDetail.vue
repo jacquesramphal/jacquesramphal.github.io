@@ -49,7 +49,7 @@ export default {
     },
     filename: {
       type: String,
-      default: "templates/template-v2.svg",
+      default: "templates/template-desktop-device.svg",
     },
     alt: {
       type: String,
@@ -111,7 +111,7 @@ img {
   padding: var(--spacing-md) var(--spacing-md) 0 var(--spacing-md) !important;
 
   @media only screen and (min-width: 740px) {
-    padding: var(--spacing-md) 0 var(--spacing-md) var(--spacing-md) !important;
+    padding: var(--spacing-sm) 0 var(--spacing-md) var(--spacing-md) !important;
   }
 
   @media only screen and (min-width: 1201px) {

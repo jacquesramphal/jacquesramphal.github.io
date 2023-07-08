@@ -36,7 +36,7 @@
     /> -->
     <GridContainer class="fadeInLeft">
       <ImageCard
-        large
+        size="large"
         title=""
         :filename="`${entry.images.filename1}`"
         :alt="`${entry.alt}`"
@@ -46,7 +46,7 @@
     </GridContainer>
     <GridContainer class="fadeInRight">
       <ImageCard
-        large
+        size="large"
         title=""
         :filename="`${entry.images.filename1}`"
         :alt="`${entry.alt}`"
@@ -56,7 +56,7 @@
     </GridContainer>
     <GridContainer class="fadeInDown">
       <ImageCard
-        large
+        size="large"
         title=""
         :filename="`${entry.images.filename1}`"
         :alt="`${entry.alt}`"
@@ -76,7 +76,7 @@
 </template>
 
 <script>
-// External js for gsap not working 
+// External js for gsap not working
 import "@/assets/js/gsap.js";
 
 import workData from "@/assets/data/work.json";

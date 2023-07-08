@@ -12,7 +12,7 @@
       "description": "This is a description",
       "btnroute": "work/:title",
       "cta": "Request Access",
-      "filename": "templates/template-v2.svg",
+      "filename": "templates/template-desktop-device.svg",
       "bgcolor": "background-color: var(--bg-darker)"
     },
     {
@@ -68,7 +68,7 @@
       "to": "2014",
       "description": "This is a description",
       "link": "https://google.com",
-      "filename": "templates/template-v2.svg",
+      "filename": "templates/template-desktop-device.svg",
       "bgcolor": "background-color: var(--bg-darker)"
     }
 

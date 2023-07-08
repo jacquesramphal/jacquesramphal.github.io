@@ -5,7 +5,6 @@
       class="display"
       eyebrow=""
       title="Multi-disciplinary Designer."
-
     />
     <!-- <HeroBanner
       id="hero"
@@ -55,7 +54,7 @@
         </p>
       </div>
     </GridContainer> -->
-    <GridContainer id="work" class="animate delay-2">
+    <GridContainer tight id="work" class="animate delay-2">
       <div id="recentwork" class="grid-parent">
         <ImageCard alt="J Monogram" filename="work/j.svg" id="top" />
         <ImageCard2
@@ -73,31 +72,22 @@
         <ImageCard alt="Giftbook" filename="work/gob.svg" title="Giftbook" />
 
         <ImageCard
-          large
           style="background-color: var(--bg-darker)"
           alt="Template Project"
-          filename="work/glo.svg"
+          filename="templates/template-desktop-blank.svg"
           title="Large Template"
           route="work"
           details="This is a work description that would give a preview into the work..."
         />
-        <ImageCard
-          large
+        <!-- <ImageCard
           style="background-color: var(--bg-darker)"
           alt="Template Project"
           filename="work/dod.svg"
           title="Large Template"
           route="work"
           details="This is a work description that would give a preview into the work..."
-        />
-        <ThumbDetail
-          alt="Project Template"
-          filename="templates/template-v2.svg"
-          style="background-color: #35363a"
-          title="Project Title"
-          route="work/1"
-          details="This is a work description that would give a preview into the work..."
-        />
+        /> -->
+
         <ImageCard
           v-for="entry in works.entries"
           :key="entry.id"
@@ -111,6 +101,7 @@
           :link="entry.link"
           :filename="entry.thumbnail"
           :style="entry.bgcolor"
+          :size="entry.size"
         />
       </div>
     </GridContainer>

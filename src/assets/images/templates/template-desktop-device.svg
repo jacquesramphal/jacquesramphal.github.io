@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="1905px" height="1905px" viewBox="0 0 1905 1905" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>template-v2</title>
+    <title>template-desktop-device</title>
     <defs>
         <rect id="path-1" x="0" y="0" width="1905" height="1905"></rect>
         <path d="M176.619262,0 L2268.89509,0 C2303.46489,0 2331.48923,28.0263308 2331.48923,62.5914349 L2331.48923,1527.7512 L114.16617,1527.7512 L114.02512,62.5914349 C114.02512,28.0263308 142.043693,0 176.613483,0 C176.615409,0 176.617335,0 176.619262,0 L176.619262,0 Z" id="path-3"></path>
     </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         
-        <g id="template-v2">
+        <g id="template-desktop-device">
             <mask id="mask-2" fill="white">
                 <use xlink:href="#path-1"></use>
             </mask>

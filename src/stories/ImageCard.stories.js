@@ -9,7 +9,10 @@ export default {
     title: { control: "text" },
     details: { control: "text" },
     caption: { control: "text" },
-
+    size: {
+      control: { type: "select" },
+      options: ["small", "large"],
+    },
   },
 };
 
@@ -25,8 +28,8 @@ const Template = (args) => ({
   `,
 });
 
-export const Default = Template.bind({});
-Default.args = {
+export const Small = Template.bind({});
+Small.args = {
   title: "Title",
   details: "Details",
   caption: "Caption",
@@ -36,12 +39,12 @@ Large.args = {
   title: "Title",
   details: "Details",
   caption: "Caption",
-  large: true,
+  size: "large",
 };
-export const Detail = Template.bind({});
-Detail.args = {
+export const Split = Template.bind({});
+Split.args = {
   title: "Title",
   details: "Details",
   caption: "Caption",
-  detail: true,
+  size: "split",
 };
