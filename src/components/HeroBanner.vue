@@ -43,6 +43,14 @@
                 :route="`${routetwo}`"
               />
             </div>
+                    <!-- <ButtonRow v-if="buttonsData" :buttons="`${buttonsData}`" />
+
+            <ButtonRow
+          :buttons="[
+            { label: 'Custom Label', route: '/custom-route' },
+            { label: 'Custom Label2', route: '/custom-route2' },
+          ]"
+        /> -->
           </span>
         </div>
       </GridContainer>
