@@ -31,11 +31,5 @@ body {
   position: relative;
   width: 100%;
 }
-.reversed {
-   color: var(--text-reversed) !important;
- /* color: var(--background) !important; */
-  mix-blend-mode: normal !important;
-  background: var(--background-reversed);
-}
 
 

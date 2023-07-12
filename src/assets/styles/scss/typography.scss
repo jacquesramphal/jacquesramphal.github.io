@@ -27,6 +27,10 @@
   -webkit-box-orient: vertical;
 }
 
+.line-length {
+  max-width: 64rem !important;
+}
+
 /* Header AAA */
 
 h1,
@@ -314,7 +318,8 @@ li {
   text-decoration: none;
 }
 
-a, router-link {
+a,
+router-link {
   position: relative;
   color: var(--link) !important;
   cursor: pointer;
@@ -390,11 +395,42 @@ transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s)); */
 
 /* ---- Reversed States ---- */
 
+.reversed {
+  color: var(--text-reversed) !important;
+  mix-blend-mode: normal !important;
+  background: var(--background-reversed);
+  letter-spacing: var(--spacing-reversed-normal);
+}
+
+
 .reversed a,
 .reversed a::after {
   color: var(--link-reversed) !important;
   font-weight: var(--font-reversed-medium) !important;
 }
+
+.reversed p {
+  font-weight: var(--font-reversed-medium) !important;
+  letter-spacing: var(--spacing-reversed-normal);
+}
+
+.reversed h2 {
+  font-weight: var(--font-reversed-bold) !important;
+  letter-spacing: var(--spacing-reversed-tight) !important;
+}
+
+.reversed h1,
+.reversed h3,
+.reversed h4,
+.reversed h5,
+.reversed h6 {
+  font-weight: var(--font-reversed-bold) !important;
+  letter-spacing: var(--spacing-reversed-normal);
+}
+
+
+
+
 
 /* ---- Hover States ---- */
 /*
