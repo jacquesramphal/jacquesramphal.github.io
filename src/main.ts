@@ -13,13 +13,17 @@ import DefaultCard from "@/components/card/DefaultCard.vue";
 import TextGrid from "@/components/card/TextGrid.vue";
 import TextGrid2 from "@/components/card/TextGrid2.vue";
 import FilterBar from "@/components/FilterBar.vue";
+import GridParent from "@/components/grid/GridParent.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
 import GridWrapper from "@/components/grid/GridWrapper.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
 import ImageCard from "@/components/ImageCard.vue";
 import ImageCard2 from "@/components/ImageCard2.vue";
 import MyButton from "@/components/Button.vue";
+import ButtonRow from "@/components/ButtonRow.vue";
+// import ButtonRow2 from "@/components/ButtonRow2.vue";
 import MyLogo from "@/components/MyLogo.vue";
+import Icon from "@/components/Icon.vue";
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import ProjectPreview from "@/components/ProjectPreview.vue";
 import TextStats from "@/components/card/TextStats.vue";
@@ -73,12 +77,15 @@ app
   .component("TextGrid2", TextGrid2)
   .component("FilterBar", FilterBar)
   .component("GridContainer", GridContainer)
+  .component("GridParent", GridParent)
   .component("GridWrapper", GridWrapper)
   .component("HeroBanner", HeroBanner)
   .component("ImageCard", ImageCard)
   .component("ImageCard2", ImageCard2)
   .component("MyButton", MyButton)
+  .component("ButtonRow", ButtonRow)
   .component("MyLogo", MyLogo)
+  .component("Icon", Icon)
   .component("PageWrapper", PageWrapper)
   .component("ProjectPreview", ProjectPreview)
   .component("TextStats", TextStats)
