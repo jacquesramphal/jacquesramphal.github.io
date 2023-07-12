@@ -4,25 +4,11 @@
       id="hero"
       class="display"
       eyebrow=""
-      title="Multi-disciplinary Designer."
+      title="Multi-disciplinary Designer"
     />
-    <!-- <HeroBanner
-      id="hero"
-      eyebrow=""
-      title="Design journeys fueled by mindfulness."
-      fullvh
-    /> -->
-    <!-- <HeroBanner
-      id="hero"
-      eyebrow=""
-      title="Ramphal Design"
-    /> -->
-    <!-- <HeroBanner
-      id="hero"
-      class="display"
-      eyebrow=""
-      title="<strong>Front-end Designer</strong> of things."
-    /> -->
+
+
+    <!-- CONTENTFUL HEADER EXAMPLE -->
     <!-- <HeroBanner
       id="hero"
       class="display"
@@ -31,6 +17,7 @@
       :title="homePage.heroText"
       eyebrow=""
     /> -->
+
     <!-- <GridContainer id="work" class="">
       <div
         class="grid-parent"
@@ -42,20 +29,16 @@
       >
         <h4 class="subtle" style="text-align: left">Selected Work</h4>
         <MyButton
-                          type="secondary"
-
+          type="secondary"
           style="margin-top: var(--spacing-sm)"
           class="justify-end"
           label="View More"
           route="work2"
         />
-        <p class="external justify-end">
-          <router-link :to="{ name: 'MoreWork' }">See More</router-link>
-        </p>
       </div>
     </GridContainer> -->
     <GridContainer tight id="work" class="animate delay-2">
-      <div id="recentwork" class="grid-parent">
+      <GridParent id="recentwork">
         <ImageCard alt="J Monogram" filename="work/j.svg" id="top" />
         <ImageCard2
           alt="Avatar"
@@ -69,24 +52,6 @@
           filename="avatar/avatar.svg"
           title="Avatar"
         />
-        <ImageCard alt="Giftbook" filename="work/gob.svg" title="Giftbook" />
-
-        <ImageCard
-          style="background-color: var(--bg-darker)"
-          alt="Template Project"
-          filename="templates/template-desktop-blank.svg"
-          title="Large Template"
-          route="work"
-          details="This is a work description that would give a preview into the work..."
-        />
-        <!-- <ImageCard
-          style="background-color: var(--bg-darker)"
-          alt="Template Project"
-          filename="work/dod.svg"
-          title="Large Template"
-          route="work"
-          details="This is a work description that would give a preview into the work..."
-        /> -->
 
         <ImageCard
           v-for="entry in works.entries"
@@ -100,10 +65,12 @@
           :btnroute="entry.btnroute"
           :link="entry.link"
           :filename="entry.thumbnail"
+          :filename2="entry.screenshot"
           :style="entry.bgcolor"
           :size="entry.size"
+          :buttons="entry.buttonsData"
         />
-      </div>
+      </GridParent>
     </GridContainer>
     <!-- <GridContainer tight>
       <HeroBanner

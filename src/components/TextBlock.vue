@@ -1,6 +1,6 @@
 <template>
   <div id="textblock" :class="classes">
-    <img
+    <!-- <img
       id="avatar"
       class="justify-end"
       v-if="alt"
@@ -14,7 +14,15 @@
         border-radius: 0 !important;
         margin-bottom: var(--spacing-sm);
       "
+    /> -->
+    <MyIcon
+    v-if="icon"
+      style="margin-bottom: var(--spacing-sm)"
+      :name="`${icon}`"
+      :is-svg="true"
+      :size="`${iconsize}`"
     />
+
     <h6 tabIndex="0" class="eyebrow subtle" v-if="eyebrow" v-text="eyebrow" />
     <h3 tabIndex="0" v-if="header" v-text="header" />
     <h4 tabIndex="0" v-if="header4" v-text="header4" />
@@ -37,17 +45,22 @@
 <script>
 import MyButton from "./Button.vue";
 import TextLink from "./text/TextLink.vue";
+import MyIcon from "./Icon.vue";
 
 export default {
   name: "TextBlock",
   components: {
     MyButton,
     TextLink,
+    MyIcon,
   },
   props: {
     icon: {
       type: String,
-      default: "j-logo.svg"
+    },
+    iconsize: {
+      type: String,
+      default: "64",
     },
     alt: {
       type: String,
@@ -110,6 +123,7 @@ export default {
     label: {
       type: String,
     },
+
   },
 
   computed: {

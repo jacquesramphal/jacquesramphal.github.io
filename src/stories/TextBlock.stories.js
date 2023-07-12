@@ -17,6 +17,7 @@ export default {
     btnroute: { control: 'text' },
     link: { control: 'text' },
     label: { control: 'text' },
+    icon: { control: 'text' },
   },
 };
 
@@ -34,6 +35,7 @@ const Template = (args) => ({
 
 export const Default = Template.bind({});
 Default.args = {
+  icon: 'j-logo',
   alt: 'Logo',
   eyebrow: 'Eyebrow',
   header: 'Header Text',
@@ -44,7 +46,6 @@ Default.args = {
   center: false,
   clamped: false,
   cta: 'Call to Action',
-  route: 'home',
   btnroute: 'your-route-here', // Provide a valid route value
   link: '',
   label: 'Home',

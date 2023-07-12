@@ -48,7 +48,7 @@
           <div id="maindetails">
             <TextBlock
               header="Toronto-based, tech tinkerer at Orium"
-              details="If you have questions about design, development, or anything in between, let’s connect!"
+              details="If you have questions about design, development, or anything in between, <a href='mailto:jacques@ramphal.design'>email me</a>."
             />
           </div>
 
@@ -113,7 +113,7 @@
       <GridContainer>
         <div class="">
           <p style="font-size: var(--font-xxs)">
-            © 2022 Jacques Ramphal — Built with
+            © 2023 Jacques Ramphal — Built with
             <a target="blank" href="https://v3.vuejs.org/">Vue3</a>.
             <!-- <a target="blank" href="https://www.typescriptlang.org/"
             >Typescript</a

@@ -1,19 +1,5 @@
 <template>
   <PageWrapper>
-    <HeroBanner
-      id="hero"
-      style="background: var(--bg-darker)"
-      eyebrow=""
-      title="Multi-disciplinary Designer."
-    />
-    <GridContainer class="animate delay-2">
-      <div class="grid-parent">
-        <TextBlock header5="TextBlock" icon="j-logo.svg" alt="Image alt" />
-        <TextBlock header5="TextBlock" icon="about.jpg" alt="Image alt" />
-        <TextBlock header5="TextBlock" icon="j-logo.svg" alt="Image alt" />
-      </div>
-    </GridContainer>
-
     <TextGrid
       v-for="about in contentful"
       v-bind:key="about.sys.id"
@@ -27,6 +13,24 @@
       eyebrow4="Future-Proof Ramstack"
       detail4="Clean design, Javascript, API, Headless CMS. Carefully selected tools and frameworks keep this site alive and flexible to grow as I do."
     />
+    <!-- <HeroBanner
+      id="hero"
+      style="background: var(--bg-darker)"
+      eyebrow=""
+      title="Multi-disciplinary Designer."
+    /> -->
+    <GridContainer class="animate delay-2">
+      <GridParent>
+        <TextBlock
+          header5="TextBlock"
+          icon="j-logo"
+          iconsize="128"
+          alt="Image alt"
+        />
+        <TextBlock header5="TextBlock" icon="j-logo" alt="Image alt" />
+        <TextBlock header5="TextBlock" icon="j-logo" alt="Image alt" />
+      </GridParent>
+    </GridContainer>
 
     <!--   <Stats
       v-for="about in contentful"
@@ -44,7 +48,6 @@
 <script>
 export default {
   name: "InfoPage",
-  components: {},
   data() {
     return {
       contentful: [],

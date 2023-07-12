@@ -4,25 +4,28 @@
     class="navbar"
     :class="{ 'hidden-navbar': !showNavbar }"
   >
-    <div class="bg">
+    <div class="bg reversed">
       <nav class="">
         <h1
-          class="hidemobile nav-link"
-          id="wordmark"
-          style="font-weight: var(--font-reversed-bold) !important"
+          class="hidemobile nav-link wordmark"
+          id="wordmark-jacques"
+          style="font-weight: var(--font-reversed-bold)"
           tabindex="0"
+          v-show="isJacquesVisible"
         >
           <router-link :to="{ name: 'Home' }">Jacques Ramphal</router-link>
         </h1>
 
         <h1
           class="showmobile nav-link"
-          id="wordmark"
+          id="wordmark-jake"
           style="font-weight: var(--font-reversed-bold)"
           tabindex="0"
+          v-show="isJakeVisible"
         >
           <router-link :to="{ name: 'Home' }">Jake Ramphal</router-link>
         </h1>
+
         <ul class="justify-end">
           <li class="nav-link" tabindex="0">
             <router-link :to="{ name: 'Blog' }">docs</router-link>
@@ -34,22 +37,6 @@
           <li class="nav-link" tabindex="0">
             <router-link class="isDisabled" to="blog">writing</router-link>
           </li>
-
-          <!-- <li
-            class="nav-link"
-            data-aos="fade-left"
-            data-aos-duration="1000"
-            data-aos-delay="250"
-            data-aos-once="true"
-            data-aos-anchor-placement="top"
-          >
-            <router-link to="Work">Work</router-link>
-            <router-link class="isDisabled" to="/">Work</router-link> 
-
-            <router-link :to="{ 'info/'+'#info'}">Info</router-link> 
-            <a href="mailto:jacques@ramphal.design">Email</a>
-           <router-link to="Info">Info</router-link> 
-          </li> -->
         </ul>
       </nav>
     </div>
@@ -72,6 +59,16 @@ export default {
     title: {
       type: String,
       default: "Jacques Ramphal",
+    },
+  },
+  computed: {
+    isJacquesVisible() {
+      // Determine whether Jacques version should be visible
+      return window.innerWidth >= 740;
+    },
+    isJakeVisible() {
+      // Determine whether Jake version should be visible
+      return window.innerWidth < 740;
     },
   },
   data() {
@@ -109,21 +106,20 @@ export default {
   },
 };
 </script>
-<style scoped>
+
+<style lang="scss" scoped>
 * {
-  /* Reversed Version */
   color: var(--text-reversed) !important;
-  /* Default Version */
-  /* color: var(--text) !important; */
   margin: 0;
   mix-blend-mode: normal;
 }
+
 :active {
   outline: transparent;
 }
+
 .navbar {
   right: 0;
-  left: 0;
   bottom: 0;
   max-width: none;
   mix-blend-mode: normal !important;
@@ -131,36 +127,60 @@ export default {
   padding: 0 !important;
   position: fixed;
   transform: translate3d(0, 0, 0) !important;
-  transition: 0.4s all ease-in-out !important;
-  width: auto;
+  transition: 0.4s all cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
+  width: 100%;
   z-index: 1000 !important;
+
+  @media only screen and (min-width: 740px) {
+    width: fit-content;
+  }
 }
+/* Adds extra background colour to account for bouncing effect */
+.navbar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: -100%; /* Adjust the value to control the width of the additional background */
+  right: 0;
+  width: 100%; /* Adjust the value to control the width of the additional background */
+  background-color: var(
+    --background-reversed
+  ); /* Specify the color of the additional background */
+  z-index: -1; /* Set the z-index to be behind the navbar */
+  @media only screen and (min-width: 740px) {
+    right: -100%; /* Adjust the value to control the width of the additional background */
+    bottom: 0;
+  }
+}
+
 .navbar.hidden-navbar {
   transform: translate3d(0, 150%, 0) !important;
+
+  @media only screen and (min-width: 740px) {
+    transform: translate3d(100%, 0, 0) !important;
+  }
 }
+
 .bg {
   transition: 0.5s box-shadow ease-in-out !important;
   align-items: middle;
-  /* Reversed Version */
-  background: var(--background-reversed);
-  /* Default Version
-  background: var(--background); */
   justify-self: stretch;
   overflow: visible;
   position: relative;
   padding: var(--spacing-xxs);
-  /* box-shadow: var(--shadow-deep); */
-  /* margin: 0.8rem; */
-  /* border: var(--border); */
+
+  @media only screen and (min-width: 740px) {
+    border-radius: 8px 0 0 0;
+    justify-self: end;
+  }
 }
-/* .bg:hover {
-  box-shadow: var(--shadow-deep);
-} */
+
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
 nav {
   overflow: visible;
   align-items: center;
@@ -170,65 +190,46 @@ nav {
   justify-self: stretch;
   position: relative;
 }
+
 .nav-link > a {
   border-radius: 4px;
   padding: var(--spacing-xs);
-  /* text-decoration: none !important; */
-}
-.nav-link > a:hover {
-  /* Reversed Version */
-  color: var(--link-reversed) !important;
-  background: var(--bg-darker-reversed);
-  /* Default Version */
-  /* color: var(--link) !important;
-  background: var(--bg-darker); */
-  transition: all 0.25s ease;
+  color: var(--text-reversed) !important;
 
-  /*  box-shadow: var(--shadow-z1); */
+  &:hover {
+    background: var(--bg-darker-reversed);
+    transition: all 0.25s ease;
+  }
 }
+
 .router-link-exact-active {
-  /* Reversed Version */
   background: var(--bg-darker-reversed);
-  /* Default Version */
-  /* background: var(--bg-darker); */
-
   text-decoration: none !important;
-  /* border-bottom: 2px solid var(--link);*/
 }
 
 h1 {
   margin: 0;
 }
+
 li {
   float: left;
   font-size: 2em;
   line-height: 1;
   margin: 0;
   text-decoration: none;
-  /* Reversed Version */
   font-weight: var(--font-reversed-medium);
-}
-li:first-child {
-  padding-right: 0;
-}
-/* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
-  .navbar {
-    transition: 0.8s all ease-in-out !important;
+
+  &:first-child {
+    padding-right: 0;
   }
-  #wordmark::after {
+}
+
+.wordmark::after {
+  @media only screen and (min-width: 740px) {
     content: "/";
     padding: var(--spacing-xxs);
     opacity: 0.5;
     font-weight: var(--font-bold);
-  }
-  .bg {
-    border-radius: 8px 0 0 0;
-    justify-self: end;
-  }
-
-  .navbar.hidden-navbar {
-    transform: translate3d(100%, 0, 0) !important;
   }
 }
 </style>

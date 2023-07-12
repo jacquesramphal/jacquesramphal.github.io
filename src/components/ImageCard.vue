@@ -21,7 +21,7 @@
     <GridWrapper class="">
       <router-link :to="`${route}`" draggable="false">
         <img
-          class="zoom"
+          class="zoom bg"
           draggable="false"
           :src="require(`../assets/images/${filename}`)"
           :alt="`${alt}`"
@@ -37,7 +37,7 @@
           <span class="text"
             ><TextBlock
               clamped
-              class="reversed"
+              class="reversed line-length"
               :eyebrow="`${eyebrow}`"
               :header4="`${title}`"
               :details="`${details}`"
@@ -48,6 +48,15 @@
           /></span>
         </span>
         <img
+          v-if="filename2"
+          class="fg"
+          style="position: absolute"
+          draggable="false"
+          :src="filename2 ? require(`../assets/images/${filename2}`) : null"
+          :alt="`${alt}`"
+        />
+        <img
+          class="bg"
           draggable="false"
           :src="require(`../assets/images/${filename}`)"
           :alt="`${alt}`"
@@ -59,14 +68,18 @@
 </template>
 
 <script>
-
+import GridContainer from "./grid/GridContainer.vue";
+import GridWrapper from "./grid/GridWrapper.vue";
 import TextBlock from "./TextBlock.vue";
 import { reactive, computed } from "vue";
 
 export default {
   name: "ImageCard",
+
   components: {
     TextBlock,
+    GridContainer,
+    GridWrapper,
   },
   props: {
     eyebrow: {
@@ -81,6 +94,10 @@ export default {
       default: "",
     },
     caption: {
+      type: String,
+      required: false,
+    },
+    filename2: {
       type: String,
       required: false,
     },
@@ -136,12 +153,21 @@ export default {
 <style lang="scss" scoped>
 // image-cards Small
 .image-card {
-  img {
+  .bg {
     mix-blend-mode: normal;
     aspect-ratio: 1 / 1;
     height: 101%;
     object-fit: cover;
     object-position: 0% 100%;
+  }
+  .fg {
+    z-index: 1;
+    right: -18.05%;
+    top: 14.75%;
+    height: 68%;
+    border-radius: 0 !important;
+    object-fit: cover !important;
+    object-position: 0% 0% !important;
   }
 }
 
@@ -149,7 +175,7 @@ export default {
 .image-card--large {
   @media only screen and (min-width: 740px) {
     grid-column: 1 / 3;
-    img {
+    .bg {
       aspect-ratio: 16 / 8;
     }
     .caption {
@@ -165,10 +191,8 @@ export default {
   }
 }
 
-// image-cards Split - WIP - Not working as expected
 .image-card--split {
   background-color: var(--bg-darker) !important;
-  /* background-color: #35363a !important; */
   grid-column: 1 / 4;
   grid-template-rows: 2, 1fr;
   text-decoration: none !important;
@@ -262,7 +286,7 @@ export default {
 }
 
 // SPLIT STYLES
-img {
+.bg {
   mix-blend-mode: normal;
   aspect-ratio: 1 / 1;
   height: 101%;
@@ -270,7 +294,6 @@ img {
 }
 .thumbdetail {
   background-color: var(--bg-darker) !important;
-  /* background-color: #35363a !important; */
   grid-column: 1 / 4;
   grid-template-rows: 2, 1fr;
   text-decoration: none !important;
@@ -301,7 +324,6 @@ img {
 
 .textblock {
   text-decoration: none !important;
-  /* color: var(--color-offwhite) !important; */
   text-decoration: none !important;
 }
 
@@ -314,8 +336,11 @@ img {
 }
 
 .text {
+  // max-width: 60px;
   @media only screen and (min-width: 740px) {
     grid-column: 1 / 2;
   }
+}
+.wrap {
 }
 </style>
