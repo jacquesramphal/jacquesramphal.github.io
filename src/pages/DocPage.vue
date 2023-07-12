@@ -11,7 +11,7 @@
     />
     <GridContainer class="animate glow delay-2">
       <ImageCard
-        large
+        size="large"
         title=""
         :filename="`${entry.thumbnail}`"
         :alt="`${entry.alt}`"
@@ -19,32 +19,45 @@
       />
     </GridContainer>
     <div class="section">
-      <GridWrapper v-for="(entry, j) in entry.entries" :key="j">
+      <GridWrapper v-for="(section, j) in entry.entries" :key="j">
         <AnimatedComponent>
           <GridContainer class="width">
             <GridWrapper>
               <TextBlock
                 left
                 eyebrow=""
-                :header="entry.title"
-                :details="entry.body"
-                :blockquote="entry.blockquote"
+                :header="section.title"
+                :details="section.body"
+                :blockquote="section.blockquote"
               />
             </GridWrapper>
           </GridContainer>
-          <GridContainer v-if="entry.images.filename" id="" style="padding-top: 0 !important">
+          <GridContainer
+            v-if="section.images.filename"
+            id=""
+            style="padding-top: 0 !important"
+          >
             <ImageCard
-              large
-              v-if="entry.images.filename"
+              size="large"
+              v-if="section.images.filename"
               class="width2"
               title=""
-              :filename="entry.images.filename"
-              :alt="entry.images.alt"
-              :caption="entry.images.caption"
+              :filename="section.images.filename"
+              :alt="section.images.alt"
+              :caption="section.images.caption"
             />
           </GridContainer>
         </AnimatedComponent>
       </GridWrapper>
+      <GridContainer>
+        <!-- <ButtonRow :buttons="entry.buttonsData" /> -->
+        <ButtonRow
+          :buttons="[
+            { label: 'Custom Label', route: '/custom-route' },
+            { label: 'Custom Label2', route: '/custom-route2' },
+          ]"
+        />
+      </GridContainer>
     </div>
     <!-- Make this list constrained and limit to 3 -->
     <CardRow2 header="Related" />
@@ -60,7 +73,7 @@ import TextBlock from "../components/TextBlock.vue";
 import AnimatedComponent from "../components/AnimatedComponent.vue";
 import ImageCard from "../components/ImageCard.vue";
 import CardRow2 from "../components/CardRow2.vue";
-
+import ButtonRow from "../components/ButtonRow.vue";
 
 export default {
   name: "DocPage",
@@ -72,19 +85,14 @@ export default {
     ImageCard,
     CardRow2,
     PageWrapper,
-  },
-  props: {
-    sections: {
-      type: Array,
-      required: true,
-    },
+    ButtonRow,
   },
   computed: {
     docId() {
       return parseInt(this.$route.params.id);
     },
     entry() {
-      return docData.entries.find((entry) => entry.id == this.docId);
+      return docData.entries.find((entry) => entry.id === this.docId);
     },
   },
   mounted() {
