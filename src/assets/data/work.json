@@ -2,11 +2,37 @@
   "entries": [
     {
       "id": 1,
+      "size": "small",
+      "title": "Giftbook",
+      "thumbnail": "work/gob.svg"
+    },
+    {
+      "id": 2,
+      "size": "small",
+      "title": "Work Name 2",
+      "tag": "UX/UI  Product Design  tag4",
+      "description": "This is a description",
+      "btnroute": "work/2",
+      "cta": "Read More",
+      "thumbnail": "templates/template-desktop-blank.svg",
+      "bgcolor": "background-color: var(--bg-darker)",
+      "role": "Designer/Developer",
+      "type": "Work Type",
+      "year": "XXXX-XXXX",
+      "images": {
+        "filename1": "work/glo.svg",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "filename3": "work/dod.svg"
+      }
+    },
+    {
+      "id": 3,
       "size": "split",
-      "title": "Work Name 1",
+      "title": "Work Name 3",
       "tag": "Tag1",
       "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
-      "btnroute": "work/1",
+      "btnroute": "work/3",
       "cta": "Read More",
       "thumbnail": "templates/template-desktop-device.svg",
       "bgcolor": "background-color: var(--bg-darker)",
@@ -21,13 +47,13 @@
       }
     },
     {
-      "id": 2,
+      "id": 4,
       "size": "large",
-      "title": "Work Name 2",
+      "title": "Work Name 4",
       "tag": "AAA  Typography Front-end",
       "subtitle": "This is a subtitle 1",
       "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
-      "btnroute": "work/1",
+      "btnroute": "work/4",
       "cta": "Read More",
       "thumbnail": "work/glo.svg",
       "alt": "Alt Test",
@@ -48,13 +74,13 @@
       }
     },
     {
-      "id": 3,
+      "id": 5,
       "size": "small",
-      "title": "Work Name 3",
+      "title": "Work Name 5",
       "tag": "tag1  tag2",
       "subtitle": "This is a subtitle 2",
       "description": "This is a description TWO",
-      "btnroute": "work/2",
+      "btnroute": "work/5",
       "cta": "Read More",
       "thumbnail": "templates/template-mobile-blank.svg",
       "bgcolor": "background-color: var(--bg-darker)",
@@ -69,12 +95,12 @@
       }
     },
     {
-      "id": 4,
+      "id": 6,
       "size": "small",
-      "title": "Work Name 4",
+      "title": "Work Name 6",
       "tag": "UX/UI  Product Design  tag4",
       "description": "This is a description",
-      "btnroute": "work/3",
+      "btnroute": "work/6",
       "cta": "Read More",
       "thumbnail": "templates/template-desktop-blank.svg",
       "bgcolor": "background-color: var(--bg-darker)",
@@ -89,14 +115,15 @@
       }
     },
     {
-      "id": 5,
+      "id": 7,
       "size": "small",
-      "title": "Work Name 5",
+      "title": "Work Name 7",
       "tag": "UX/UI  Product Design  tag4",
       "description": "This is a description",
-      "btnroute": "work/4",
+      "btnroute": "work/7",
       "cta": "Read More",
       "thumbnail": "templates/template-desktop-device.svg",
+      "screenshot": "work/glo/planner.png",
       "bgcolor": "background-color: var(--bg-darker)",
       "role": "Designer/Developer",
       "type": "Work Type",
