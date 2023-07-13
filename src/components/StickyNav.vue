@@ -34,9 +34,9 @@
             <router-link :to="{ name: 'Resume' }">info</router-link>
           </li>
 
-          <li class="nav-link" tabindex="0">
+          <!-- <li class="nav-link" tabindex="0">
             <router-link class="isDisabled" to="blog">writing</router-link>
-          </li>
+          </li> -->
         </ul>
       </nav>
     </div>
