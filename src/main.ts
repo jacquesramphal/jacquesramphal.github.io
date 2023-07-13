@@ -18,6 +18,7 @@ import GridContainer from "@/components/grid/GridContainer.vue";
 import GridWrapper from "@/components/grid/GridWrapper.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
 import ImageCard from "@/components/ImageCard.vue";
+import BreadCrumb from "@/components/BreadCrumb.vue";
 import ImageCard2 from "@/components/ImageCard2.vue";
 import MyButton from "@/components/Button.vue";
 import ButtonRow from "@/components/ButtonRow.vue";
@@ -82,6 +83,7 @@ app
   .component("HeroBanner", HeroBanner)
   .component("ImageCard", ImageCard)
   .component("ImageCard2", ImageCard2)
+  .component("BreadCrumb", BreadCrumb)
   .component("MyButton", MyButton)
   .component("ButtonRow", ButtonRow)
   .component("MyLogo", MyLogo)
