@@ -49,14 +49,14 @@
         </span>
         <img
           v-if="filename2"
-          class="fg"
+          class="fg blur"
           style="position: absolute"
           draggable="false"
           :src="filename2 ? require(`../assets/images/${filename2}`) : null"
           :alt="`${alt}`"
         />
         <img
-          class="bg"
+          class="bg blur"
           draggable="false"
           :src="require(`../assets/images/${filename}`)"
           :alt="`${alt}`"
@@ -282,6 +282,9 @@ export default {
     opacity: 1;
     color: var(--color-offwhite) !important;
     display: block !important;
+  }
+  .blur {
+    filter: blur(2px); /* Blur amount on hover, can be adjusted */
   }
 }
 
