@@ -25,6 +25,7 @@ import ButtonRow from "@/components/ButtonRow.vue";
 // import ButtonRow2 from "@/components/ButtonRow2.vue";
 import MyLogo from "@/components/MyLogo.vue";
 import Icon from "@/components/Icon.vue";
+import MarkdownRenderer from "@/components/text/MarkdownRenderer.vue";
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import ProjectPreview from "@/components/ProjectPreview.vue";
 import TextStats from "@/components/card/TextStats.vue";
@@ -96,3 +97,4 @@ app
   .component("SplitImage", SplitImage)
   .component("TextLink", TextLink)
   .component("ThumbDetail", ThumbDetail)
+  .component("MarkdownRenderer", MarkdownRenderer)

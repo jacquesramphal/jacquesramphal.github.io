@@ -1,6 +1,6 @@
 <template>
   <div id="textheader" style="display: grid; grid-gap: var(--spacing-md)">
-    <h2 class="" style="text-align: center" v-if="title" v-text="title" />
+    <h1 class="" style="text-align: center" v-if="title" v-text="title" />
     <div
       class="grid-parent"
       style="text-align: center; grid-template-columns: repeat(2, 1fr)"

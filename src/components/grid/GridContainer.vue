@@ -20,6 +20,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    maxvw: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     classes() {
@@ -28,6 +32,7 @@ export default {
         "container-spacing--tight": this.tight,
         "container-spacing--normal": !this.tight,
         "container-spacing--fullvw": this.fullvw,
+        "container-spacing--maxvw": this.maxvw,
         "container-spacing--fullvh": this.fullvh,
       };
     },
@@ -77,6 +82,12 @@ export default {
     min-height: 468px;
     height: 100vh !important;
     align-items: center !important;
+  }
+  &--maxvw {
+    max-width: 86.4rem !important;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 </style>

@@ -121,7 +121,7 @@
         </AnimatedComponent>
 
         <AnimatedComponent>
-          <GridContainer id="" class="width2">
+          <GridContainer id="" class="width1">
             <ImageCard
               large
               class=""

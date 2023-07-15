@@ -6,7 +6,7 @@
   >
     <div class="bg reversed">
       <nav class="">
-        <h1
+        <p
           class="hidemobile nav-link wordmark"
           id="wordmark-jacques"
           style="font-weight: var(--font-reversed-bold)"
@@ -14,9 +14,9 @@
           v-show="isJacquesVisible"
         >
           <router-link :to="{ name: 'Home' }">Jacques Ramphal</router-link>
-        </h1>
+        </p>
 
-        <h1
+        <p
           class="showmobile nav-link"
           id="wordmark-jake"
           style="font-weight: var(--font-reversed-bold)"
@@ -24,7 +24,7 @@
           v-show="isJakeVisible"
         >
           <router-link :to="{ name: 'Home' }">Jake Ramphal</router-link>
-        </h1>
+        </p>
 
         <ul class="justify-end">
           <li class="nav-link" tabindex="0">
@@ -207,7 +207,7 @@ nav {
   text-decoration: none !important;
 }
 
-h1 {
+p {
   margin: 0;
 }
 

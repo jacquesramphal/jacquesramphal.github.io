@@ -17,7 +17,7 @@
       <GridContainer v-if="title">
         <div id="hero-text" class="animate glow delay-1">
           <span
-            ><h2 id="title" v-html="title" />
+            ><h1 id="title" v-html="title" />
             <h6 id="tags" v-if="tag" v-text="tag" class="subtle" />
 
             <p
@@ -247,7 +247,7 @@ img {
     z-index: 0;
   }
   #hero-text {
-    h2 {
+    h1 {
       background-color: var(--background-reversed);
       border-radius: var(--spacing-xxs);
       color: var(--background);
@@ -275,7 +275,7 @@ img {
       width: auto;
     }
     #hero-text {
-      h2 {
+      h1 {
         font-size: var(--font-display);
       }
     }

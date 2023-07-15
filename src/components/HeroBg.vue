@@ -2,9 +2,9 @@
   <div id="hero-bg" class="">
     <GridContainer>
       <div id="hero-text" class="">
-        <h2>
+        <h1>
           {{ header }}
-        </h2>
+        </h1>
       </div>
     </GridContainer>
   </div>
@@ -51,7 +51,7 @@ export default {
   text-align: left;
   align-items: center !important;
 }
-h2 {
+h1 {
   color: white;
 }
 </style>

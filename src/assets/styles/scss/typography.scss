@@ -50,13 +50,8 @@ p {
 }
 */
 
-h1 {
-  font-size: var(--font-xs);
-  font-weight: var(--font-bold);
-  line-height: 1.2;
-}
 
-h2 {
+h1 {
   font-size: var(--font-lg);
   font-weight: var(--font-bold);
   letter-spacing: var(--spacing-tight);
@@ -98,16 +93,34 @@ h2 {
 }
 
 /*
-h2:hover {
+h1:hover {
   font-variation-settings: 'wdth' 200;
 }*/
 
-/* .display h2 {
+/* .display h1 {
   background: -webkit-linear-gradient(var(--color-action), var(--color-action-dark)) !important;
   background: -webkit-linear-gradient(left, var(--color-action), var(--color-action-dark));
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 } */
+
+
+/* NEED TO STYLE h2 */
+h2 {
+  color: red;
+  font-size: var(--font-md);
+  font-weight: var(--font-bold);
+  line-height: 1.4;
+  font-variation-settings:
+
+    'GRAD' 500,
+
+    'YAXS' 400,
+
+    'wdth' 110,
+
+    'opsz' 20;
+}
 
 h3 {
   font-size: var(--font-md);
@@ -300,6 +313,8 @@ li {
   color: var(--text-reversed);
 }
 
+
+
 /* ---- LINKS/BUTTONS ---- */
 @keyframes strike {
   0% {
@@ -414,12 +429,9 @@ transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s)); */
   letter-spacing: var(--spacing-reversed-normal);
 }
 
-.reversed h2 {
-  font-weight: var(--font-reversed-bold) !important;
-  letter-spacing: var(--spacing-reversed-tight) !important;
-}
 
 .reversed h1,
+.reversed h2,
 .reversed h3,
 .reversed h4,
 .reversed h5,
@@ -486,13 +498,12 @@ h1 a:hover {
   text-decoration: none !important;
 }
 
-h2 a:active {
-  position: relative;
-}
-
+h1 a:active,
+h2 a:active,
 h3 a:active {
   position: relative;
 }
+
 
 /* ---- Heading link overrides ---- */
 
@@ -501,7 +512,7 @@ h1 a {
   text-decoration: none !important;
 }
 
-h2>a {
+h1>a {
   /* background: -webkit-linear-gradient(top left, var(--color-action), var(--color-action-dark));
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important; */
@@ -509,7 +520,7 @@ h2>a {
   /* background: var(--bg-darker); */
 }
 
-/*h2>a:hover {
+/*h1>a:hover {
  background: -webkit-linear-gradient(bottom right, var(--color-action), var(--color-action-dark));
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
@@ -520,9 +531,13 @@ h2>a {
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
-  h2 {
+  h1 {
     font-size: var(--font-xl);
     padding-bottom: 4px;
+  }
+
+  h2 {
+    font-size: var(--font-lg);
   }
 
   h3 {
@@ -543,7 +558,7 @@ h2>a {
 
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
-    h2 {
+    h1 {
       font-size: var(--font-xxl);
     }
 
@@ -553,11 +568,11 @@ h2>a {
 
     /* ------------ BREAKPOINT XL ------------ */
     @media only screen and (min-width: 1441px) {
-      h2 {
+      h1 {
         font-size: var(--font-xxxl);
       }
 
-      .display h2 {
+      .display h1 {
         font-size: var(--font-display);
       }
 

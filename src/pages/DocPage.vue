@@ -1,6 +1,6 @@
 <template>
   <PageWrapper id="doc" class="">
-    <!-- <h2>{{ $route.params.id }}</h2> -->
+    <!-- <h1>{{ $route.params.id }}</h1> -->
     <HeroBanner
       center
       eyebrow=""
@@ -19,6 +19,7 @@
       />
     </GridContainer>
     <div class="section">
+      <MarkdownRenderer :markdown="pageContent" />
       <GridWrapper v-for="(section, j) in entry.entries" :key="j">
         <AnimatedComponent>
           <GridContainer class="width">
@@ -40,7 +41,7 @@
             <ImageCard
               size="large"
               v-if="section.images.filename"
-              class="width2"
+              class="width1"
               title=""
               :filename="section.images.filename"
               :alt="section.images.alt"
@@ -66,6 +67,7 @@
 
 <script>
 import docData from "../assets/data/docs.json";
+import pageContent from "../assets/content/content.md";
 import PageWrapper from "../components/grid/PageWrapper.vue";
 import GridContainer from "../components/grid/GridContainer.vue";
 import GridWrapper from "../components/grid/GridWrapper.vue";
@@ -86,6 +88,11 @@ export default {
     CardRow2,
     PageWrapper,
     ButtonRow,
+  },
+  data() {
+    return {
+      pageContent: pageContent, // Store the Markdown content here
+    };
   },
   computed: {
     docId() {

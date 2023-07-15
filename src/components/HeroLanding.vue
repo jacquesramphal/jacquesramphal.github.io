@@ -3,11 +3,11 @@
     ><GridWrapper id="hero-landing">
       <GridContainer>
         <div id="hero-text" class="">
-          <h2 class="display animate glow">
+          <h1 class="display animate glow">
             {{ heroText }}
             <!-- Hello World 👋🏽 I’m a
           <router-link to="post">Front-End Designer</router-link> deep in a rabbit hole. -->
-          </h2>
+          </h1>
         </div>
       </GridContainer>
     </GridWrapper></AnimatedComponent
@@ -66,7 +66,7 @@ export default {
     background-size: cover
     background-position: 100% 50%
 
-h2
+h1
   // text-shadow: var(--shadow-z1)
 #hero-text
   display: grid
