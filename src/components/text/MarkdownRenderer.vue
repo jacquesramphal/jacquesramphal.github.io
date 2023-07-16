@@ -57,9 +57,9 @@ export default {
 
 .markdown {
   h1 {
-    padding: 2rem 0;
+    padding-bottom: 2.4rem;
     @media only screen and (min-width: 740px) {
-      padding: 3.6rem 0 4.8rem 0;
+      padding-bottom: 3.6rem;
     }
     @media only screen and (min-width: 1201px) {
     }
@@ -70,15 +70,12 @@ export default {
   h5,
   h6,
   p {
-    padding: 2rem 0;
+    padding-bottom: 1.6rem;
     @media only screen and (min-width: 740px) {
-      padding: 2rem 0;
+      padding-bottom: 2.4rem;
     }
     @media only screen and (min-width: 1201px) {
     }
-  }
-  p {
-    padding-top: 0;
   }
   li {
     list-style: disc;
@@ -89,10 +86,10 @@ export default {
     margin-left: 1.8rem;
     padding-bottom: 1rem;
   }
-  hr 
-  {
-    margin: 2.8rem 0;
+  hr {
+    margin: 1.6rem 0 2.4rem 0;
     @media only screen and (min-width: 740px) {
+      margin: 1.6rem 0 3.6rem 0;
     }
     @media only screen and (min-width: 1201px) {
     }

@@ -9,6 +9,7 @@ import MyResume from "@/pages/MyResume.vue";
 import NotFound from "@/pages/misc/NotFound.vue";
 import ProjectPage from "@/pages/ProjectPage.vue";
 import DocPage from "@/pages/DocPage.vue";
+import MarkdownPage from "@/pages/MarkdownPage.vue";
 import HomePage from "@/pages/HomePage.vue";
 import MoreWork from "@/pages/MoreWork.vue";
 import UsefulLinks from "@/pages/UsefulLinks.vue";
@@ -39,7 +40,6 @@ const routes = [
     component: TheLogin,
   },
   {
-    redirect: { name: 'MaintenancePage' },
     path: "/",
     name: "Home",
     component: HomePage,
@@ -90,6 +90,11 @@ const routes = [
     name: "Doc",
     path: "/doc/:id",
     component: DocPage,
+  },
+  {
+    name: "Mdoc",
+    path: "/mdoc/:id",
+    component: MarkdownPage,
   },
 ];
 

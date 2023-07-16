@@ -1,6 +1,6 @@
-![Photo by Headway](https://miro.medium.com/max/1400/0*XjGZLGgqlXv7vyUf)
 
-# Design Quality Assured
+
+# Enabling Human-AI Collaboration
 Prioritize design and make your Product better
 
 
