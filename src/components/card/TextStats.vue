@@ -1,7 +1,7 @@
 <template>
   <GridWrapper id="stats" class="">
     <GridContainer class="grid-parent">
-      <!--      <h3>Stats</h3> -->
+      <!--      <h2>Stats</h2> -->
       <TextValue
         class="grid-card"
         :label="`${label1}`"

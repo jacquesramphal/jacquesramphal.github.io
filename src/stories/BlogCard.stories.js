@@ -1,21 +1,21 @@
-import BlogCard from "../components/card/BlogCard.vue";
+import CourseCard from "../components/card/CourseCard.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {
-  title: "Components/Card/BlogCard",
-  component: BlogCard,
+  title: "Components/Card/CourseCard",
+  component: CourseCard,
   decorators: [withDesign],
   argTypes: {},
 };
 
 const Template = (args) => ({
-  components: { BlogCard },
+  components: { CourseCard },
   setup() {
     return { args };
   },
   template: `
     <div>
-      <BlogCard v-bind="args" />
+      <CourseCard v-bind="args" />
     </div>
   `,
 });

@@ -1,9 +1,9 @@
 <template>
   <div class="">
     <GridContainer class="grid-parent">
-      <h3 id="section-header" tabIndex="0">
+      <h2 id="section-header" tabIndex="0">
         {{ header }}
-      </h3>
+      </h2>
       <TextBlock :header5="`${eyebrow1}`" eyebrow="" :details="`${detail1}`" />
       <TextBlock :header5="`${eyebrow2}`" eyebrow="" :details="`${detail2}`" />
       <TextBlock :header5="`${eyebrow3}`" eyebrow="" :details="`${detail3}`" />

@@ -16,7 +16,7 @@
           grid-template-columns: repeat(2, 1fr);
         "
       >
-        <h3 class="" style="text-align: left">Typography</h3>
+        <h2 class="" style="text-align: left">Typography</h2>
       </div>
       <div class="grid-parent">
         <ul>
@@ -133,7 +133,7 @@
       </div>
     </GridContainer>
 
-        <!-- New Section -->
+    <!-- New Section -->
 
     <GridContainer style="border-bottom: var(--border)">
       <div
@@ -144,7 +144,7 @@
           grid-template-columns: repeat(2, 1fr);
         "
       >
-        <h3 class="" style="text-align: left">Accessibility</h3>
+        <h2 class="" style="text-align: left">Accessibility</h2>
       </div>
 
       <div class="grid-parent">
@@ -260,8 +260,8 @@
           </li>
         </ul>
       </div>
-      </GridContainer>
-      <GridContainer style="border-bottom: var(--border)">
+    </GridContainer>
+    <GridContainer style="border-bottom: var(--border)">
       <div
         class=""
         style="
@@ -270,7 +270,7 @@
           grid-template-columns: repeat(2, 1fr);
         "
       >
-        <h3 class="" style="text-align: left">UI Dev Docs</h3>
+        <h2 class="" style="text-align: left">UI Dev Docs</h2>
       </div>
 
       <div class="grid-parent">
@@ -392,11 +392,9 @@
 </template>
 
 <script>
-
 export default {
   name: "UsefulLinks",
-  components: {
-  },
+  components: {},
 };
 </script>
 

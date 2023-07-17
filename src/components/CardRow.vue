@@ -16,7 +16,7 @@
           grid-template-columns: repeat(2, 1fr);
         "
       >
-        <h3 class="" style="text-align: left">{{ header }}</h3>
+        <h2 class="" style="text-align: left">{{ header }}</h2>
         <p class="external justify-end">
           <router-link :to="{ name: 'Blog' }">View All</router-link>
         </p>
@@ -48,7 +48,7 @@
           grid-template-columns: repeat(2, 1fr);
         "
       >
-        <h3 class="" style="text-align: left">{{ header }}</h3>
+        <h2 class="" style="text-align: left">{{ header }}</h2>
         <p class="external justify-end">
           <router-link :to="{ name: 'Blog' }">View All</router-link>
         </p>

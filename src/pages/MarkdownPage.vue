@@ -21,7 +21,7 @@ export default {
         pageContent.value = markdown;
       } catch (error) {
         console.error("Error loading Markdown content:", error);
-        // You can handle the error here, such as displaying an error message or redirecting to an error page
+        router.push({ name: 'NotFound' }); // Redirect to the 404 page
       }
     });
 
@@ -31,6 +31,7 @@ export default {
   },
 };
 </script>
+
 
 <style lang="scss" scoped>
 .section {

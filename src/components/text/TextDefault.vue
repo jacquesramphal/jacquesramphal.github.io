@@ -2,7 +2,7 @@
   <div id="textdefault">
   <!-- add "label for" references? -->
     <h6 tabIndex="0" class="subtle" v-if="eyebrow" v-text="eyebrow" />
-    <h3 tabIndex="0" v-if="header" v-text="header" />
+    <h2 tabIndex="0" v-if="header" v-text="header" />
     <p tabIndex="0" v-if="details" v-text="details" />
 
     <!-- <MyButton 

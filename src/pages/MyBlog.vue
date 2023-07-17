@@ -9,16 +9,16 @@
     <CardRow2 />
 
     <!-- <BlogFeed :contentful="contentful" /> -->
-    <!-- <BlogCard />
-    <BlogCard />
-    <BlogCard /> -->
+    <!-- <CourseCard />
+    <CourseCard />
+    <CourseCard /> -->
     <!--          <BlogPost :contentful="contentful"  />  -->
   </PageWrapper>
 </template>
 
 <script>
 import PageWrapper from "@/components/grid/PageWrapper.vue";
-// import BlogCard from "@/components/card/BlogCard.vue";
+// import CourseCard from "@/components/card/CourseCard.vue";
 // import BlogPost from "@/components/blog/BlogPost.vue";
 
 // Mock data
@@ -28,7 +28,7 @@ export default {
   name: "MyBlog",
   components: {
     PageWrapper,
-    // BlogCard,
+    // CourseCard,
   },
   data() {
     return {

@@ -13,6 +13,7 @@ import MarkdownPage from "@/pages/MarkdownPage.vue";
 import HomePage from "@/pages/HomePage.vue";
 import MoreWork from "@/pages/MoreWork.vue";
 import UsefulLinks from "@/pages/UsefulLinks.vue";
+import CoursePage from "@/pages/CoursePage.vue";
 
 const routes = [
   {
@@ -40,7 +41,7 @@ const routes = [
     component: TheLogin,
   },
   {
-    redirect: { name: 'MaintenancePage' },
+    // redirect: { name: 'MaintenancePage' },
     path: "/",
     name: "Home",
     component: HomePage,
@@ -96,6 +97,11 @@ const routes = [
     name: "Mdoc",
     path: "/mdoc/:id",
     component: MarkdownPage,
+  },
+  {
+    name: "Course",
+    path: "/Course",
+    component: CoursePage,
   },
 ];
 

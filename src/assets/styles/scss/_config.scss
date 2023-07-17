@@ -85,8 +85,19 @@
   --font-sm: 2.8rem;
   --font-xs: 2rem;
   --font-xxs: 1.6rem;
-  --font-xxxs: 1.2rem;
-
+  --font-xxxs: 1.2rem; 
+/* 
+  --font-display: clamp(4rem, 9vw, 12rem);
+  --font-xxxl: clamp(3rem, 7vw, 8rem);
+  --font-xxl: clamp(2.8rem, 6vw, 7.2rem);
+  --font-xl: clamp(2.5rem, 5vw, 6.4rem);
+  --font-lg: clamp(2rem, 4vw, 4.8rem);
+  --font-md: clamp(1.6rem, 3vw, 3.6rem);
+  --font-sm: clamp(1.4rem, 2.8vw, 2.8rem);
+  --font-xs: clamp(1.2rem, 2vw, 2rem);
+  --font-xxs: clamp(1rem, 1.6vw, 1.6rem);
+  --font-xxxs: clamp(0.8rem, 1.2vw, 1.2rem);
+*/
   /* FONT WEIGHT */
   --font-light: 300;
   --font-normal: 400;

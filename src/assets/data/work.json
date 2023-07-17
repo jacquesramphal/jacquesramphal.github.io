@@ -29,22 +29,13 @@
     {
       "id": 3,
       "size": "split",
-      "title": "Work Name 3",
-      "tag": "Tag1",
-      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
-      "btnroute": "work/3",
-      "cta": "Read More",
+      "title": "Designing Quality",
+      "tag": "Course EBook",
+      "description": "Enhance your design process and deliver exceptional user experiences with this comprehensive resource.",
+      "btnroute": "course",
+      "cta": "View Ebook",
       "thumbnail": "templates/template-desktop-device.svg",
-      "bgcolor": "background-color: var(--bg-darker)",
-      "role": "Designer/Developer",
-      "type": "Work Type",
-      "year": "XXXX-XXXX",
-      "images": {
-        "filename1": "work/glo.svg",
-        "caption1": "This is a Caption1",
-        "filename2": "work/glo.svg",
-        "filename3": "work/dod.svg"
-      }
+      "bgcolor": "background-color: var(--bg-darker)"
     },
     {
       "id": 4,

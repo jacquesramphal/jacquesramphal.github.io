@@ -4,7 +4,7 @@
     <!-- <HeroBanner background center fullvh eyebrow="" title="Oops! Page not be found." route="/" label="Back to home" /> -->
     <GridContainer fullvh fullvw>
       <SplitImage
-        filename="luna.jpg"
+        filename="romy.jpeg"
         header="Oops! The page you are looking for could not be found."
         details=" "
         cta="Back to Home"

@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     renderMarkdown(markdown) {
-      this.renderedMarkdown = marked(markdown);
+      this.renderedMarkdown = marked(markdown, { mangle: false, headerIds: false });
     },
   },
   components: { GridContainer },
@@ -77,7 +77,17 @@ export default {
     @media only screen and (min-width: 1201px) {
     }
   }
-  li {
+  
+  ol > li {
+    list-style: inherit;
+    font-size: var(--font-xs);
+    font-weight: var(--font-medium);
+    line-height: 1.8;
+    font-variation-settings: "wdth" 102, "opsz" 19;
+    margin-left: 3.6rem;
+    padding-bottom: 1rem;
+  }
+  ul > li {
     list-style: disc;
     font-size: var(--font-xs);
     font-weight: var(--font-medium);

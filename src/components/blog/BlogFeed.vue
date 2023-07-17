@@ -90,10 +90,10 @@
             :label="blogPost.label"
           />
         </div>
-        <!-- <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard /> -->
+        <!-- <CourseCard />
+        <CourseCard />
+        <CourseCard />
+        <CourseCard /> -->
       </GridContainer>
     </div>
   </GridWrapper>

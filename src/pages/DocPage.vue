@@ -19,7 +19,7 @@
       />
     </GridContainer>
     <div class="section">
-      <MarkdownRenderer :markdown="pageContent" />
+      <!-- <MarkdownRenderer :markdown="pageContent" /> -->
       <GridWrapper v-for="(section, j) in entry.entries" :key="j">
         <AnimatedComponent>
           <GridContainer class="width">
@@ -67,7 +67,7 @@
 
 <script>
 import docData from "../assets/data/docs.json";
-import pageContent from "../assets/content/content.md";
+// import pageContent from "../assets/content/content.md";
 import PageWrapper from "../components/grid/PageWrapper.vue";
 import GridContainer from "../components/grid/GridContainer.vue";
 import GridWrapper from "../components/grid/GridWrapper.vue";
@@ -89,11 +89,11 @@ export default {
     PageWrapper,
     ButtonRow,
   },
-  data() {
-    return {
-      pageContent: pageContent, // Store the Markdown content here
-    };
-  },
+  // data() {
+  //   return {
+  //     pageContent: pageContent, // Store the Markdown content here
+  //   };
+  // },
   computed: {
     docId() {
       return parseInt(this.$route.params.id);

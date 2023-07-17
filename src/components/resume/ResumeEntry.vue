@@ -19,10 +19,10 @@
         v-text="location"
       />
     </div>
-    <h3 class="resume-segment-entry-title">
+    <h2 class="resume-segment-entry-title">
       <span v-if="title" v-text="title" />
       <span v-if="position" v-text="positionInBrackets" />
-    </h3>
+    </h2>
     <p
       v-if="description"
       class="resume-segment-entry-description"

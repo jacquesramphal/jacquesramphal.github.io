@@ -102,8 +102,4 @@ export default {
 
 /* ---- External Link ---- */
 
-.external:after {
-  content: " ↗";
-  color: var(--link);
-}
 </style>

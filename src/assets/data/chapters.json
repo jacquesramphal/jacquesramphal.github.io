@@ -1,0 +1,110 @@
+{
+  "title": "Designing Quality",
+  "subtitle": "A Comprehensive Guide to QA for Designers",
+  "entries": [
+    {
+      "id": 1,
+      "tag": "00",
+      "title": "Introduction",
+      "description": "Introduction to the course",
+      "route": "/mdoc/1",
+      "read": false
+    },
+    {
+      "id": 2,
+      "tag": "01",
+      "title": "Fundamentals of Quality Assurance",
+      "description": "Understanding the basics of Quality Assurance",
+      "route": "/mdoc/2",
+      "read": false
+    },
+    {
+      "id": 3,
+      "tag": "02",
+      "title": "Preparing for Quality Assurance",
+      "description": "Essential steps for preparing for Quality Assurance",
+      "route": "/mdoc/3",
+      "read": false
+    },
+    {
+      "id": 4,
+      "tag": "03",
+      "title": "Usability and User Experience Testing",
+      "description": "Testing and evaluating usability and user experience design",
+      "route": "/mdoc/4",
+      "read": false
+    },
+    {
+      "id": 5,
+      "tag": "04",
+      "title": "Visual Design and Branding QA",
+      "description": "Ensuring quality in visual design and branding elements",
+      "route": "/mdoc/5",
+      "read": false
+    },
+    {
+      "id": 6,
+      "tag": "05",
+      "title": "Interaction and Interface Design QA",
+      "description": "Evaluating interaction design and interface usability",
+      "route": "/mdoc/6",
+      "read": false
+    },
+    {
+      "id": 7,
+      "tag": "06",
+      "title": "Content and Copy QA",
+      "description": "Quality assurance for content structure and copy",
+      "route": "/mdoc/7",
+      "read": false
+    },
+    {
+      "id": 8,
+      "tag": "07",
+      "title": "Prototyping and Design Review QA",
+      "description": "Ensuring quality in prototyping and design review processes",
+      "route": "/mdoc/8",
+      "read": false
+    },
+    {
+      "id": 9,
+      "tag": "08",
+      "title": "Collaboration and Communication in QA",
+      "description": "Effective collaboration and communication practices in QA",
+      "route": "/mdoc/9",
+      "read": false
+    },
+    {
+      "id": 10,
+      "tag": "09",
+      "title": "Automation and Tools for QA",
+      "description": "Exploring automation and tools for efficient QA processes",
+      "route": "/mdoc/10",
+      "read": false
+    },
+    {
+      "id": 11,
+      "tag": "10",
+      "title": "Future Trends and Evolving QA Practices",
+      "description": "Trends and advancements in QA for designers",
+      "route": "/mdoc/11",
+      "read": false
+    },
+    {
+      "id": 12,
+      "tag": "11",
+      "title": "Conclusion",
+      "description": "Summarizing key concepts and concluding the course",
+      "route": "/mdoc/12",
+      "read": false
+    },
+    {
+      "id": 13,
+      "tag": "12",
+      "title": "Appendix",
+      "description": "Additional resources, glossary, and templates",
+      "route": "/mdoc/13",
+      "read": false
+    }
+  ]
+}

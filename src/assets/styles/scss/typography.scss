@@ -107,7 +107,6 @@ h1:hover {
 
 /* NEED TO STYLE h2 */
 h2 {
-  color: red;
   font-size: var(--font-md);
   font-weight: var(--font-bold);
   line-height: 1.4;
@@ -338,7 +337,7 @@ router-link {
   position: relative;
   color: var(--link) !important;
   cursor: pointer;
-  text-decoration: underline !important;
+  text-decoration: underline;
   text-underline-offset: 0.75rem;
   text-decoration-thickness: .1rem !important;
   font-variation-settings: 'opsz' 19;
@@ -423,6 +422,17 @@ transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s)); */
   color: var(--link-reversed) !important;
   font-weight: var(--font-reversed-medium) !important;
 }
+.external:after {
+  content: " ↗";
+  color: var(--link) !important;
+  font-weight: var(--font-reversed-medium) !important;
+}
+
+.reversed .external:after {
+  content: " ↗";
+  color: var(--link-reversed) !important;
+  font-weight: var(--font-reversed-medium) !important;
+}
 
 .reversed p {
   font-weight: var(--font-reversed-medium) !important;
@@ -465,7 +475,7 @@ a:hover::before {
 */
 
 a:hover {
-  text-decoration: underline !important;
+  text-decoration: underline;
   text-underline-offset: 0.75rem;
   text-decoration-thickness: .2rem !important;
 }
