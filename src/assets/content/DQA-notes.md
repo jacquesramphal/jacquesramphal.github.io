@@ -157,3 +157,19 @@ The appendix provides additional resources and references for further exploratio
 ---
 
 *Note: This documentation structure template provides a suggested outline for the chapters in a simple, direct, and informative style. You can adapt and modify it as per your specific needs and preferences.*
+
+## References
+
+https://duckduckgo.com/?t=ffab&q=A+Comprehensive+Guide+to+QA+for+Designers&ia=web
+
+https://www.eleken.co/blog-posts/design-qa-checklist-to-test-ui-and-prepare-for-design-handoff
+
+Prioritize design and make your Product better
+
+accelerator doc
+
+https://www.manypixels.co/blog/post/how-to-include-designers-in-your-qa-process
+
+https://phase.com/magazine/design-qa/
+
+https://www.qad.com/blog/2021/01/building-a-quality-culture-design-quality-from-the-start

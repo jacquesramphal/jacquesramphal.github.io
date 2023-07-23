@@ -4,64 +4,65 @@
     "entries": [
       {
         "title": "Sr. Product Designer Developer",
-        "position": "",
+        "position": "Sr. Product Designer Developer",
         "location": "Orium",
         "from": "2013",
         "to": "Present",
-        "description": "[See new language around MP on WR] I work with high-performing teams to make interfaces that empower the workplace and engage users. I'm a Designer/Developer at Orium where process and values are grounded in the principle of empathy-for-all and emphasize collaboration, flexibility, and humanity. As an early hire, I've seen the culture adapt and grow in an ever-changing tech landscape of the unknown. Self-awareness and empathy are at the core of both my journey, and Orium's.",
+        "description": "Multi-disciplinary Designer with a strong track record of collaborating with high-performing teams to create interfaces that empower the workplace and engage users. As a tenured member of Orium, a company deeply rooted in the principles of empathy-for-all, collaboration, flexibility, and humanity, I have witnessed firsthand the evolution of our culture amidst the ever-changing tech landscape. Throughout my 10 years with Orium (previously Myplanet), I have continuously refined my expertise in UI Development and front-end polish, driving innovation and shaping new approaches to learning. Self-awareness and empathy lie at the heart of my personal and professional journey, mirroring the values that drive Orium's success.[See new language around MP on WR]",
         "callout": "For the past 9 years, I've been growing alongside Orium, defining new ways of learning through UI Development and front-end polish."
       },
       {
-        "title": "Mindfulness Fascilitator",
-        "position": "",
+        "title": "Mindfulness Facilitator",
+        "position": "Mindfulness Facilitator",
         "location": "Orium",
         "from": "2016",
         "to": "Present",
-        "description": "Mindfulness has been a supporting pillar in my growth and in the evolution of Orium; we create a space for individuals to learn and grow.",
-        "callout": "I'm one of many day-to-day mindfulness ambassador promoting good-vibes and fostering emotional intelligence on multi-disciplinary teams."
+        "description": "At Orium, I have played a pivotal role in championing mindfulness as a driving force for personal growth and the overall evolution of the company. For the past 5 years, I have been an instrumental Mindfulness Facilitator, creating a nurturing environment where individuals can learn, develop, and thrive.<br> As a passionate advocate for mindfulness, I am one of the key day-to-day ambassadors promoting a positive and harmonious atmosphere within our multi-disciplinary teams. Through fostering emotional intelligence and encouraging a sense of well-being, I have contributed to a culture that values good vibes and nurtures a deeper connection among team members. <br> By continuously supporting and encouraging mindful breaks, I have helped empower individuals to achieve their best selves, both personally and professionally. My dedication to mindfulness aligns seamlessly with Orium's vision, enhancing productivity, well-being, and overall success within the organization.",
+        "callout": "I'm one of many day-to-day mindfulness ambassadors promoting good-vibes and fostering emotional intelligence on multi-disciplinary teams."
       },
       {
         "title": "UX Designer",
-        "position": "",
+        "position": "UX Designer",
         "location": "University Health Network",
         "from": "",
         "to": "Summer 2013",
-        "description": ""
+        "description": "This section will contain a concise description of my responsibilities and achievements during my tenure as a UX Designer at University Health Network."
       },
       {
         "title": "UI Designer",
-        "position": "Fellow",
+        "position": "UI Designer Fellow",
         "location": "Orium",
         "from": "Jan 2013",
         "to": "April 2013",
-        "description": "A unique learning opportunity for students, recent graduates and those looking to re-train."
+        "description": "<p>During my tenure as a UI Designer (Fellow) at Orium, I embarked on a transformative learning experience for students, recent graduates, and career changers. Collaborated with aspiring student designers to craft product pitches and interfaces, gaining real-world expertise in UI design. Honed user-centric design skills and embraced team collaboration, setting a solid foundation for future growth.</p><ul><li>Unique learning opportunity for students, recent graduates, and career changers.</li><li>Collaborated with aspiring student designers on product pitches and interfaces.</li><li>Real-world experience in UI design and team collaboration.</li><li>Emphasized user-centric design principles.</li><li>Fostered creativity and collaboration.</li><li>Honed skills in ideation, iteration, and UI design.</li><li>Contributed to nurturing the next generation of design talent.</li></ul>"
       },
       {
         "title": "Print Shop Rep",
-        "position": "",
+        "position": "Print Shop Rep",
         "location": "Staples",
         "from": "Nov 2010",
         "to": "Dec 2012",
-        "description": ""
+        "description": "This section will contain a concise description of my responsibilities and achievements during my tenure as a Print Shop Rep at Staples."
       },
       {
         "title": "Graphic Designer",
-        "position": "",
+        "position": "Graphic Designer",
         "location": "Bethel Group",
         "from": "Sep 2008",
         "to": "Jul 2010",
-        "description": ""
+        "description": "This section will contain a concise description of my responsibilities and achievements during my tenure as a Graphic Designer at Bethel Group."
       },
       {
         "title": "Design Intern",
-        "position": "",
+        "position": "Design Intern",
         "location": "Media Enterprises Ltd.",
         "from": "Mar 2008",
         "to": "Aug 2008",
-        "description": "This is where I learned the magic of photoshop"
+        "description": "This is where I learned the magic of Photoshop. This section will contain a concise description of my responsibilities and achievements during my internship at Media Enterprises Ltd."
       }
     ]
   },
+
   {
     "title": "Education",
     "entries": [
@@ -70,8 +71,44 @@
         "location": "OCADU",
         "from": "2010",
         "to": "2014",
-        "description": "Graphic Design. Print Production"
+        "description": "This section will contain a concise description of my education at OCADU, including the Graphic Design program and any relevant courses or achievements."
       }
+    ]
+  },
+
+  {
+    "title": "Skills",
+    "entries": [
+      "Placeholder for listing your key skills and competencies relevant to the job you are applying for.",
+      "Example: UI/UX Design, Front-end Development, Mindfulness Facilitation, Adobe Creative Suite, Collaboration, Emotional Intelligence"
+    ]
+  },
+
+  {
+    "title": "Certifications",
+    "entries": [
+      "Placeholder for listing any relevant certifications or licenses that enhance your qualifications."
+    ]
+  },
+
+  {
+    "title": "Projects",
+    "entries": [
+      "Placeholder for highlighting any relevant projects you've worked on, showcasing your abilities and accomplishments."
+    ]
+  },
+
+  {
+    "title": "Volunteer Experience",
+    "entries": [
+      "Placeholder for mentioning any volunteer experience that demonstrates valuable skills or aligns with the job."
+    ]
+  },
+
+  {
+    "title": "Interests/Hobbies",
+    "entries": [
+      "Placeholder for mentioning your interests or hobbies that complement your professional skills or show a well-rounded personality."
     ]
   }
 ]

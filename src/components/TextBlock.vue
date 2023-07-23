@@ -25,8 +25,8 @@
 
     <h6 tabIndex="0" class="eyebrow subtle" v-if="eyebrow" v-text="eyebrow" />
     <h2 tabIndex="0" v-if="header" v-text="header" />
+    <h3 tabIndex="0" v-if="header3" v-text="header3" />
     <h4 tabIndex="0" v-if="header4" v-text="header4" />
-    <h5 tabIndex="0" v-if="header5" v-text="header5" />
     <p id="" class="details" tabIndex="0" v-if="details" v-html="details" />
     <TextLink v-if="route" :label="`${cta}`" :route="`${route}`" />
     <TextLink v-if="link" :label="`${cta}`" :link="`${link}`" />
@@ -74,12 +74,12 @@ export default {
       default: "",
       required: false,
     },
-    header4: {
+    header3: {
       type: String,
       default: "",
       required: false,
     },
-    header5: {
+    header4: {
       type: String,
       default: "",
       required: false,
@@ -149,7 +149,6 @@ export default {
 }
 .eyebrow {
   word-spacing: 1rem;
-  font-weight: var(--font-medium);
   margin-bottom: 1em;
 }
 .details {

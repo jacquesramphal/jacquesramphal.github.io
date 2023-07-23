@@ -9,7 +9,7 @@
         <p
           class="hidemobile nav-link wordmark"
           id="wordmark-jacques"
-          style="font-weight: var(--font-reversed-bold)"
+          style="font-weight: var(--font-reversed-medium)"
           tabindex="0"
           v-show="isJacquesVisible"
         >
@@ -19,7 +19,6 @@
         <p
           class="showmobile nav-link"
           id="wordmark-jake"
-          style="font-weight: var(--font-reversed-bold)"
           tabindex="0"
           v-show="isJakeVisible"
         >
@@ -181,6 +180,20 @@ ul {
   padding: 0;
 }
 
+li {
+  list-style: none;
+  float: left;
+  font-size: 2em;
+  line-height: 1;
+  margin: 0;
+  text-decoration: none;
+  font-weight: var(--font-reversed-medium);
+
+  &:first-child {
+    padding-right: 0;
+  }
+}
+
 nav {
   overflow: visible;
   align-items: center;
@@ -211,25 +224,12 @@ p {
   margin: 0;
 }
 
-li {
-  float: left;
-  font-size: 2em;
-  line-height: 1;
-  margin: 0;
-  text-decoration: none;
-  font-weight: var(--font-reversed-medium);
-
-  &:first-child {
-    padding-right: 0;
-  }
-}
-
 .wordmark::after {
   @media only screen and (min-width: 740px) {
     content: "/";
     padding: var(--spacing-xxs);
     opacity: 0.5;
-    font-weight: var(--font-bold);
+    font-weight: var(--font-medium);
   }
 }
 </style>

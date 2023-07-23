@@ -17,7 +17,7 @@
         clamped
         class="textblock"
         :eyebrow="`${tag}`"
-        :header5="`${title}`"
+        :header4="`${title}`"
         :details="`${description}`"
         :btnroute="`${route}`"
         :cta="`${label}`"

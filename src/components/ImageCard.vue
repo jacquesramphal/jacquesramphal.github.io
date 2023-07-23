@@ -9,7 +9,7 @@
         <TextBlock
           clamped
           :eyebrow="`${eyebrow}`"
-          :header4="`${title}`"
+          :header3="`${title}`"
           :details="`${details}`"
           :route="`${route}`"
           :link="`${link}`"
@@ -33,13 +33,14 @@
   <span v-else :class="classes" class="grid-card">
     <span class="grid-card">
       <figure :data-category="`${eyebrow}`">
+        <!-- Caption -->
         <span tabindex="0" class="caption" v-if="title">
           <span class="text"
             ><TextBlock
               clamped
               class="reversed line-length"
               :eyebrow="`${eyebrow}`"
-              :header4="`${title}`"
+              :header3="`${title}`"
               :details="`${details}`"
               :route="`${route}`"
               :link="`${link}`"
@@ -47,16 +48,20 @@
               :cta="`${cta}`"
           /></span>
         </span>
+        <!-- Foreground Image (if filename2 exists), using conditional class BLUR when TITLE is true -->
         <img
           v-if="filename2"
-          class="fg blur"
+          class="fg"
+          :class="{ blur: title }"
           style="position: absolute"
           draggable="false"
           :src="filename2 ? require(`../assets/images/${filename2}`) : null"
           :alt="`${alt}`"
         />
+        <!-- Background Image -->
         <img
-          class="bg blur"
+          class="bg"
+          :class="{ blur: title }"
           draggable="false"
           :src="require(`../assets/images/${filename}`)"
           :alt="`${alt}`"
@@ -269,11 +274,11 @@ export default {
   h3,
   h4,
   h5 {
-    font-weight: var(--font-reversed-bold) !important;
+    font-weight: var(--font-reversed-medium) !important;
   }
 
   p {
-    font-weight: var(--font-reversed-medium) !important;
+    font-weight: var(--font-reversed-normal) !important;
   }
 }
 
@@ -283,9 +288,10 @@ export default {
     color: var(--color-offwhite) !important;
     display: block !important;
   }
-  .blur {
-    filter: blur(2px); /* Blur amount on hover, can be adjusted */
-  }
+}
+.grid-card:hover .fg.blur,
+.grid-card:hover .bg.blur {
+  filter: blur(2px); /* Blur amount on hover, can be adjusted */
 }
 
 // SPLIT STYLES

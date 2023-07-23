@@ -32,4 +32,11 @@ export default {
 };
 </script>
 
-<style scoped lang="sass"></style>
+<style scoped lang="scss">
+ul {
+  list-style: none;
+}
+li {
+  list-style: none;
+ }
+</style>

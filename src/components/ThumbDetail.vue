@@ -4,7 +4,7 @@
       <GridWrapper class="text">
         <TextBlock
           :details="`${details}`"
-          :header4="`${title}`"
+          :header3="`${title}`"
           :link="`${link}`"
           :route="`${route}`"
           class="textblock"

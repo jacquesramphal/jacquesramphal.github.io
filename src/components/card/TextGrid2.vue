@@ -16,7 +16,7 @@
         </ul>
       </span>
       <span id="info">
-        <TextBlock left eyebrow="" :header4="`${subtitle}`" :details="`${description}`" />
+        <TextBlock left eyebrow="" :header3="`${subtitle}`" :details="`${description}`" />
         <!-- <p
           style="font-size: var(--font-md)"
           tabIndex="0"

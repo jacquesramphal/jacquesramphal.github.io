@@ -9,6 +9,10 @@ You can create headers using hash symbols (#). The number of hash symbols determ
 # Heading 1
 ## Heading 2
 ### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+
 
 ## Emphasis
 
@@ -52,4 +56,11 @@ You can create blockquotes using the greater than symbol (>). For example:
 You can display inline code using backticks (`) and code blocks using triple backticks (```). For example:
 
 Inline code: `print("Hello, World!")`
+
+## Table
+
+ | Column 1 | Column 2 | Column 3 |
+          |---------|---------|---------|
+          |  Cell 1 |  Cell 2 |  Cell 3 |
+          |  Cell 4 |  Cell 5 |  Cell 6 |
 

@@ -4,10 +4,10 @@
       <h2 id="section-header" tabIndex="0">
         {{ header }}
       </h2>
-      <TextBlock :header5="`${eyebrow1}`" eyebrow="" :details="`${detail1}`" />
-      <TextBlock :header5="`${eyebrow2}`" eyebrow="" :details="`${detail2}`" />
-      <TextBlock :header5="`${eyebrow3}`" eyebrow="" :details="`${detail3}`" />
-      <TextBlock :header5="`${eyebrow4}`" eyebrow="" :details="`${detail4}`" />
+      <TextBlock :header4="`${eyebrow1}`" eyebrow="" :details="`${detail1}`" />
+      <TextBlock :header4="`${eyebrow2}`" eyebrow="" :details="`${detail2}`" />
+      <TextBlock :header4="`${eyebrow3}`" eyebrow="" :details="`${detail3}`" />
+      <TextBlock :header4="`${eyebrow4}`" eyebrow="" :details="`${detail4}`" />
     </GridContainer>
   </div>
 </template>

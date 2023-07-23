@@ -44,16 +44,12 @@ p {
   opacity: 1 !important;
 }
 
-/*
-p {
-  letter-spacing: var(--spacing-normal);
-}
-*/
+
 
 
 h1 {
   font-size: var(--font-lg);
-  font-weight: var(--font-bold);
+  font-weight: var(--font-medium);
   letter-spacing: var(--spacing-tight);
   line-height: 1.1;
   overflow-wrap: break-word;
@@ -83,7 +79,7 @@ h1 {
     'YAXS' 400,
 
     /* values expressed as a percentage above or below 'normal' (100%) */
-    'wdth' 120,
+    'wdth' 105,
 
     /* 19 or 20 
     Optical sizing is similar to kerning or letter-spacing, but the spacing is done by a human eye instead of math. A value of 19 or below is intended for text and body copy spacing, while 20 or above is for spacing display headers and titles.*/
@@ -108,7 +104,7 @@ h1:hover {
 /* NEED TO STYLE h2 */
 h2 {
   font-size: var(--font-md);
-  font-weight: var(--font-bold);
+  font-weight: var(--font-medium);
   line-height: 1.4;
   font-variation-settings:
 
@@ -116,14 +112,14 @@ h2 {
 
     'YAXS' 400,
 
-    'wdth' 110,
+    'wdth' 105,
 
     'opsz' 20;
 }
 
 h3 {
-  font-size: var(--font-md);
-  font-weight: var(--font-bold);
+  font-size: var(--font-sm);
+  font-weight: var(--font-medium);
   line-height: 1.4;
   font-variation-settings:
 
@@ -131,7 +127,7 @@ h3 {
 
     'YAXS' 400,
 
-    'wdth' 110,
+    'wdth' 105,
 
     'opsz' 20;
 
@@ -139,7 +135,7 @@ h3 {
 
 h4 {
   font-size: var(--font-sm);
-  font-weight: var(--font-bold);
+  font-weight: var(--font-medium);
   line-height: 1.5;
   font-variation-settings:
 
@@ -147,7 +143,7 @@ h4 {
 
     'YAXS' 400,
 
-    'wdth' 110,
+    'wdth' 105,
 
     'opsz' 20;
 
@@ -155,7 +151,7 @@ h4 {
 
 h5 {
   font-size: var(--font-sm);
-  font-weight: var(--font-bold);
+  font-weight: var(--font-medium);
   line-height: 1.5;
   font-variation-settings:
 
@@ -163,7 +159,7 @@ h5 {
 
     'YAXS' 400,
 
-    'wdth' 110,
+    'wdth' 105,
 
     'opsz' 20;
 
@@ -173,15 +169,17 @@ h5 {
 /* eyebrow text */
 h6 {
   font-size: var(--font-xs);
-  font-weight: var(--font-bold);
+  font-weight: var(--font-medium);
   line-height: 1.5;
+  letter-spacing: var(--spacing-loose);
+  text-transform: uppercase !important;
   font-variation-settings:
 
     'GRAD' 500,
 
     'YAXS' 400,
 
-    'wdth' 110,
+    'wdth' 105,
 
     'opsz' 20;
 
@@ -190,10 +188,12 @@ h6 {
 p,
 blockquote {
   font-size: var(--font-xs);
-  font-weight: var(--font-medium);
+  font-weight: var(--font-normal) !important;
   line-height: 1.8;
   font-variation-settings: 'wdth' 102, 'opsz' 19;
 }
+
+
 
 /* code {
   color: var(--text-reversed);
@@ -277,10 +277,7 @@ blockquote {
  blockquote p::after {
   content: "\201D";
 } */
-li {
-  font-weight: var(--font-medium);
-  list-style: none;
-}
+
 
 .subtle {
   opacity: 0.7 !important;
@@ -446,7 +443,7 @@ transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s)); */
 .reversed h4,
 .reversed h5,
 .reversed h6 {
-  font-weight: var(--font-reversed-bold) !important;
+  font-weight: var(--font-reversed-medium) !important;
   letter-spacing: var(--spacing-reversed-normal);
 }
 
@@ -551,20 +548,17 @@ h1>a {
   }
 
   h3 {
-    font-size: var(--font-lg);
-  }
-
-  h4 {
     font-size: var(--font-md);
   }
 
-  h5 {
+  h4 {
     font-size: var(--font-sm);
   }
 
-  p {
+  h5 {
     font-size: var(--font-xs);
   }
+
 
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {

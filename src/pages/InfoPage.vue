@@ -22,13 +22,13 @@
     <GridContainer class="animate delay-2">
       <GridParent>
         <TextBlock
-          header5="TextBlock"
+          header4="TextBlock"
           icon="j-logo"
           iconsize="128"
           alt="Image alt"
         />
-        <TextBlock header5="TextBlock" icon="j-logo" alt="Image alt" />
-        <TextBlock header5="TextBlock" icon="j-logo" alt="Image alt" />
+        <TextBlock header4="TextBlock" icon="j-logo" alt="Image alt" />
+        <TextBlock header4="TextBlock" icon="j-logo" alt="Image alt" />
       </GridParent>
     </GridContainer>
 

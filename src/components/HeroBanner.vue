@@ -11,7 +11,7 @@
         />
       <GridContainer id="eyebrow" v-if="eyebrow">
         <div v-if="eyebrow" class="animate fade delay-3">
-          <p class="subtle" v-if="eyebrow" v-text="eyebrow" />
+          <h6 class="subtle" v-if="eyebrow" v-text="eyebrow" />
         </div>
       </GridContainer>
       <GridContainer v-if="title">
@@ -251,7 +251,7 @@ img {
       background-color: var(--background-reversed);
       border-radius: var(--spacing-xxs);
       color: var(--background);
-      font-weight: var(--font-reversed-bold);
+      font-weight: var(--font-reversed-medium);
       letter-spacing: var(--spacing-reversed-tight);
       padding: var(--spacing-xxs) var(--spacing-sm) var(--spacing-xs)
         var(--spacing-sm);

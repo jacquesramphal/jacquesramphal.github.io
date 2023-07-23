@@ -3,12 +3,8 @@
     <HeroBanner
       :title="chapters.title"
       eyebrow=""
-      background
-      filename="dqa.png"
+
     />
-    <!-- <GridContainer>
-      <TextBlock eyebrow="" :details="chapters.subtitle" />
-    </GridContainer> -->
     <GridContainer>
       <CourseCard
         v-for="entry in chapters.entries"

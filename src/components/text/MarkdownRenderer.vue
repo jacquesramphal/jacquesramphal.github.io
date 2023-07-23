@@ -45,7 +45,10 @@ export default {
   },
   methods: {
     renderMarkdown(markdown) {
-      this.renderedMarkdown = marked(markdown, { mangle: false, headerIds: false });
+      this.renderedMarkdown = marked(markdown, {
+        mangle: false,
+        headerIds: false,
+      });
     },
   },
   components: { GridContainer },
@@ -77,15 +80,25 @@ export default {
     @media only screen and (min-width: 1201px) {
     }
   }
-  
+  ul,
+  ol {
+    padding-bottom: 1.6rem;
+    @media only screen and (min-width: 740px) {
+      padding-bottom: 2.4rem;
+    }
+    @media only screen and (min-width: 1201px) {
+    }
+  }
+
   ol > li {
     list-style: inherit;
     font-size: var(--font-xs);
     font-weight: var(--font-medium);
     line-height: 1.8;
     font-variation-settings: "wdth" 102, "opsz" 19;
-    margin-left: 3.6rem;
-    padding-bottom: 1rem;
+    margin-left: 4rem;
+    padding-bottom: 0.8rem;
+    list-style-position: outside;
   }
   ul > li {
     list-style: disc;
@@ -93,8 +106,8 @@ export default {
     font-weight: var(--font-medium);
     line-height: 1.8;
     font-variation-settings: "wdth" 102, "opsz" 19;
-    margin-left: 1.8rem;
-    padding-bottom: 1rem;
+    margin-left: 4rem;
+    padding-bottom: 0.8rem;
   }
   hr {
     margin: 1.6rem 0 2.4rem 0;

@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "b555ba4a1f424354",
+        "id": "9eb433d258e04aa7",
         "type": "tabs",
         "children": [
           {
-            "id": "1d03c122755c0c10",
+            "id": "a539471b97acac20",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "mdoc_0.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "mdoc_0.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "mdoc_0.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "mdoc_0.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -146,17 +138,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4c2d09cd303479c3",
+  "active": "a539471b97acac20",
   "lastOpenFiles": [
-    "content.md",
-    "mdoc_1.md",
     "mdoc_0.md",
+    "mdoc_1.md",
     "mdoc_2.md",
     "mdoc_3.md",
+    "mdoc_5.md",
     "mdoc_6.md",
+    "mdoc_7.md",
+    "DQA-notes.md",
+    "content.md",
     "Aspose.Words.df59ef89-7f47-4bae-a0c4-c9043b0219ea.006.png.md",
     "Aspose.Words.df59ef89-7f47-4bae-a0c4-c9043b0219ea.002.png.md",
-    "mdoc_5.md",
     "mdoc_4.md",
     "mdoc_3 copy.md",
     "mdoc_primitives.md",
