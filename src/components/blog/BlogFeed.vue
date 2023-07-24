@@ -82,6 +82,7 @@
             v-for="blogPost in contentful"
             v-bind:key="blogPost.sys.id"
             :image="blogPost.image"
+            :alt="blogPost.alt"
             :tag="blogPost.tag"
             :imgurl="blogPost.imgurl"
             :title="blogPost.title"
@@ -90,10 +91,7 @@
             :label="blogPost.label"
           />
         </div>
-        <!-- <CourseCard />
-        <CourseCard />
-        <CourseCard />
-        <CourseCard /> -->
+   
       </GridContainer>
     </div>
   </GridWrapper>

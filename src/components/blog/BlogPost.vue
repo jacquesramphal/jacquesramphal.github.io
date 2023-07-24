@@ -18,7 +18,7 @@
         v-bind:key="blogPost.sys.id"
         :title="blogPost.title"
         :subtitle="blogPost.description"
-        :tag2="blogPost.tag"
+        :typography="blogPost.tag"
       />
        -->
       <GridContainer class="animate glow width">
@@ -27,7 +27,7 @@
           v-bind:key="blogPost.sys.id"
           :title="blogPost.title"
           :description="blogPost.description"
-          :tag2="blogPost.tag"
+          :typography="blogPost.tag"
         />
       </GridContainer>
 
@@ -187,7 +187,7 @@ export default {
       required: true,
       type: String,
     },
-    tag2: {
+    typography: {
       default: "tag",
       required: true,
       type: String,

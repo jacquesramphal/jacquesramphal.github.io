@@ -7,7 +7,7 @@ import App from "./App.vue";
 import AnimatedComponent from "@/components/AnimatedComponent.vue";
 import CourseCard from "@/components/card/CourseCard.vue";
 import BlogFeed from "@/components/blog/BlogFeed.vue";
-import CardRow from "@/components/CardRow.vue";
+// import CardRow from "@/components/CardRow.vue";
 import CardRow2 from "@/components/CardRow2.vue";
 import DefaultCard from "@/components/card/DefaultCard.vue";
 import TextGrid from "@/components/card/TextGrid.vue";
@@ -72,7 +72,7 @@ app
   .component("AnimatedComponent", AnimatedComponent)
   .component("CourseCard", CourseCard)
   .component("BlogFeed", BlogFeed)
-  .component("CardRow", CardRow)
+  // .component("CardRow", CardRow)
   .component("CardRow2", CardRow2)
   .component("DefaultCard", DefaultCard)
   .component("TextGrid", TextGrid)

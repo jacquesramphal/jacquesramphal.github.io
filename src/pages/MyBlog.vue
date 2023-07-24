@@ -1,18 +1,12 @@
 <template>
   <PageWrapper>
     <HeroBanner
-      background
-      filename="bg.jpg"
       title="Docs & Resources"
       eyebrow=""
     />
-    <CardRow2 />
 
     <!-- <BlogFeed :contentful="contentful" /> -->
-    <!-- <CourseCard />
-    <CourseCard />
-    <CourseCard /> -->
-    <!--          <BlogPost :contentful="contentful"  />  -->
+    <CardRow2 />
   </PageWrapper>
 </template>
 
@@ -49,6 +43,8 @@ export default {
            tag
            title
            description
+           imgurl
+           alt
            imgurl
            route
            label

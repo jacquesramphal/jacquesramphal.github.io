@@ -207,11 +207,7 @@ export default {
     display: block !important;
     padding: var(--spacing-md) var(--spacing-md) 0 var(--spacing-md) !important;
   }
-  #textblock {
-    background: transparent;
-    color: var(--text) !important;
-    letter-spacing: var(--spacing-reversed-normal);
-  }
+
   @media only screen and (min-width: 740px) {
     grid-gap: var(--spacing-md);
     grid-column: 1 / 3;
@@ -267,8 +263,6 @@ export default {
 
   #textblock {
     background: transparent;
-    color: var(--text-reversed) !important;
-    letter-spacing: var(--spacing-reversed-normal);
   }
 
   h3,

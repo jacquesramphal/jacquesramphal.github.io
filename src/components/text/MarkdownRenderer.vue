@@ -6,11 +6,13 @@
   ></GridContainer>
 </template>
 
+
 <script>
 import GridContainer from "@/components/grid/GridContainer.vue";
 import { marked } from "marked";
 import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js";
+
 
 marked.use(
   markedHighlight({

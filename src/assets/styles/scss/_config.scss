@@ -56,6 +56,11 @@
   --color-brown: #e8a192;
   --color-darkbrown: #814b50;
 
+  /* GRADIENTS */
+  --gradient-sunrise-start: #387ffb;
+  --gradient-sunrise-mid: #34c4ff;
+  --gradient-sunrise-end: #ffc6d0;
+
   /* HIGHLIGHT */
 
   /* SHADOW */
@@ -108,10 +113,11 @@
   /* SPACING */
   --spacing-tight: -0.2rem;
   --spacing-normal: 0;
-  /* NEED TO APPLY DARK VERSIONS TO LOOSE */
-  --spacing-loose: 0.02rem;
+  --spacing-loose: 0.03rem;
   --spacing-reversed-tight: calc(var(--spacing-normal) - 0.12rem);
   --spacing-reversed-normal: 0.01rem;
+  --spacing-reversed-loose: 0.04rem;
+
 
   --spacing-xxxs: 0.4rem;
   --spacing-xxs: 0.8rem;
@@ -170,8 +176,11 @@
   /* SPACING - testing calc */
   --spacing-tight: calc(var(--spacing-normal) - 0.12rem);
   --spacing-normal: 0.01rem;
+  --spacing-loose: 0.04rem;
   --spacing-reversed-tight: -0.2rem;
   --spacing-reversed-normal: 0;
+  --spacing-reversed-loose: 0.03rem;
+
 }
 
 /* Styles for users who prefer dark mode at the OS level */
@@ -209,8 +218,11 @@
     /* SPACING */
     --spacing-tight: calc(var(--spacing-normal) - 0.12rem);
     --spacing-normal: 0.01rem;
+    --spacing-loose: 0.04rem;
     --spacing-reversed-tight: -0.2rem;
     --spacing-reversed-normal: 0;
+    --spacing-reversed-loose: 0.03rem;
+
   }
 }
 
@@ -248,21 +260,26 @@
   /* SPACING */
   --spacing-tight: -0.2rem;
   --spacing-normal: 0;
+  --spacing-loose: 0.03rem;
   --spacing-reversed-tight: calc(var(--spacing-normal) - 0.12rem);
   --spacing-reversed-normal: 0.01rem;
+  --spacing-reversed-loose: 0.04rem;
 }
 
 /* needs cleanup and consolidation */
 
 
+
 /* Filters & Gradients */
 .gradient-sunrise {
-  background: linear-gradient(#387ffb 0%,
-      #34c4ff 40%,
-      #ffc6d0 75%,
-      #ffceaa 95%);
+  background: linear-gradient(
+    to bottom right,
+    var(--gradient-sunrise-start) 0%,
+    var(--gradient-sunrise-mid) 40%,
+    var(--gradient-sunrise-end) 75%,
+    var(--link-reversed) 95%
+  );
 }
-
 .gradient2 {
   background: -webkit-linear-gradient(top left,
       var(--link-reversed),

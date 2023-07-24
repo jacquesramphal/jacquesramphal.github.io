@@ -7,20 +7,20 @@
     <div class="bg reversed">
       <nav class="">
         <p
-          class="hidemobile nav-link wordmark"
+          class="nav-link wordmark"
           id="wordmark-jacques"
           style="font-weight: var(--font-reversed-medium)"
           tabindex="0"
-          v-show="isJacquesVisible"
+          v-show="isDesktopScreen"
         >
           <router-link :to="{ name: 'Home' }">Jacques Ramphal</router-link>
         </p>
 
         <p
-          class="showmobile nav-link"
+          class="nav-link"
           id="wordmark-jake"
           tabindex="0"
-          v-show="isJakeVisible"
+          v-show="isMobileScreen"
         >
           <router-link :to="{ name: 'Home' }">Jake Ramphal</router-link>
         </p>
@@ -33,9 +33,6 @@
             <router-link :to="{ name: 'Resume' }">info</router-link>
           </li>
 
-          <!-- <li class="nav-link" tabindex="0">
-            <router-link class="isDisabled" to="blog">writing</router-link>
-          </li> -->
         </ul>
       </nav>
     </div>
@@ -45,9 +42,6 @@
 <script>
 import GridContainer from "./grid/GridContainer.vue";
 
-/**
- * @component
- */
 const OFFSET = 60;
 export default {
   name: "StickyNav",
@@ -60,35 +54,32 @@ export default {
       default: "Jacques Ramphal",
     },
   },
-  computed: {
-    isJacquesVisible() {
-      // Determine whether Jacques version should be visible
-      return window.innerWidth >= 740;
-    },
-    isJakeVisible() {
-      // Determine whether Jake version should be visible
-      return window.innerWidth < 740;
-    },
-  },
   data() {
     return {
       showNavbar: true,
       lastScrollPosition: 0,
       scrollValue: 0,
+      isMobileScreen: false,     // Change to regular data property
+      isDesktopScreen: false,  // Change to regular data property
     };
   },
 
   mounted() {
     this.lastScrollPosition = window.pageYOffset;
     window.addEventListener("scroll", this.onScroll);
+    window.addEventListener("resize", this.onWindowResize); 
     const viewportMeta = document.createElement("meta");
     viewportMeta.name = "viewport";
     viewportMeta.content = "width=device-width, initial-scale=1";
     document.head.appendChild(viewportMeta);
+    
+    // Call the resize method on initial mount to set the initial visibility
+    this.onWindowResize();
   },
 
   beforeUnmount() {
     window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener("resize", this.onWindowResize);
   },
 
   methods: {
@@ -101,6 +92,11 @@ export default {
       }
       this.showNavbar = window.pageYOffset < this.lastScrollPosition;
       this.lastScrollPosition = window.pageYOffset;
+    },
+    onWindowResize() {
+      this.showNavbar = true; // Ensure the navbar is always visible when resizing
+      this.isMobileScreen = window.innerWidth < 740;
+      this.isDesktopScreen = window.innerWidth >= 740;
     },
   },
 };

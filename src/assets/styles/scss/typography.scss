@@ -50,7 +50,7 @@ p {
 h1 {
   font-size: var(--font-lg);
   font-weight: var(--font-medium);
-  letter-spacing: var(--spacing-tight);
+  letter-spacing: var(--spacing-tight) !important;
   line-height: 1.1;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -150,7 +150,7 @@ h4 {
 }
 
 h5 {
-  font-size: var(--font-sm);
+  font-size: var(--font-xs);
   font-weight: var(--font-medium);
   line-height: 1.5;
   font-variation-settings:
@@ -168,7 +168,7 @@ h5 {
 
 /* eyebrow text */
 h6 {
-  font-size: var(--font-xs);
+  font-size: var(--font-xxs);
   font-weight: var(--font-medium);
   line-height: 1.5;
   letter-spacing: var(--spacing-loose);
@@ -179,7 +179,7 @@ h6 {
 
     'YAXS' 400,
 
-    'wdth' 105,
+    'wdth' 115,
 
     'opsz' 20;
 
@@ -248,13 +248,13 @@ var(--color-darkbrown));
   -webkit-text-fill-color: transparent !important;
 }*/
 
-strong:hover {
+/* strong{
   background: -webkit-linear-gradient(bottom left,
       var(--link),
       var(--link-reversed));
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
-}
+} */
 
 
 blockquote {
@@ -441,10 +441,14 @@ transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s)); */
 .reversed h2,
 .reversed h3,
 .reversed h4,
-.reversed h5,
-.reversed h6 {
+.reversed h5
+{
   font-weight: var(--font-reversed-medium) !important;
   letter-spacing: var(--spacing-reversed-normal);
+}
+.reversed h6 {
+  font-weight: var(--font-reversed-medium) !important;
+  letter-spacing: var(--spacing-reversed-loose);
 }
 
 

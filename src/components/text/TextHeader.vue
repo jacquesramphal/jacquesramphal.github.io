@@ -6,7 +6,7 @@
       style="text-align: center; grid-template-columns: repeat(2, 1fr)"
     >
       <p id="tag1" class="subtle justify-end">{{ tag1 }}</p>
-      <p id="tag2" class="subtle justify-start">{{ tag2 }}</p>
+      <p id="typography" class="subtle justify-start">{{ typography }}</p>
     </div>
     <p style="text-align: center">
       {{ description }}
@@ -27,7 +27,7 @@ export default {
       type: String,
       default: "3 min read",
     },
-    tag2: {
+    typography: {
       type: String,
       default: "tag",
     },

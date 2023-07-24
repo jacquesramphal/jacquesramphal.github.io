@@ -9,7 +9,7 @@
     <GridContainer>
       <input type="radio" id="All" name="categories" value="All" checked />
       <input type="radio" id="Tag1" name="categories" value="Tag1" />
-      <input type="radio" id="Tag2" name="categories" value="Tag2" />
+      <input type="radio" id="typography" name="categories" value="typography" />
       <input type="radio" id="Tag3" name="categories" value="Tag3" />
       <input type="radio" id="Tag4" name="categories" value="Tag4" />
       <input type="radio" id="Tag5" name="categories" value="Tag5" />
@@ -23,7 +23,7 @@
           <label for="Tag1">Tag1</label>
         </li>
         <li>
-          <label for="Tag2">Tag2</label>
+          <label for="typography">typography</label>
         </li>
         <li>
           <label for="Tag3">Tag3</label>
@@ -135,7 +135,7 @@ input[type="radio"] {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 [value="All"]:checked ~ .filters [for="All"],
 [value="Tag1"]:checked ~ .filters [for="Tag1"],
-[value="Tag2"]:checked ~ .filters [for="Tag2"],
+[value="typography"]:checked ~ .filters [for="typography"],
 [value="Tag3"]:checked ~ .filters [for="Tag3"],
 [value="Tag4"]:checked ~ .filters [for="Tag4"],
 [value="Tag5"]:checked ~ .filters [for="Tag5"],
@@ -149,7 +149,7 @@ input[type="radio"] {
 }
 
 [value="Tag1"]:checked ~ .posts .post:not([data-category~="Tag1"]),
-[value="Tag2"]:checked ~ .posts .post:not([data-category~="Tag2"]),
+[value="typography"]:checked ~ .posts .post:not([data-category~="typography"]),
 [value="Tag3"]:checked ~ .posts .post:not([data-category~="Tag3"]),
 [value="Tag4"]:checked ~ .posts .post:not([data-category~="Tag4"]),
 [value="Tag5"]:checked ~ .posts .post:not([data-category~="Tag5"]),

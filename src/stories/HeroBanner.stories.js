@@ -121,7 +121,7 @@ Default.args = {
   labeltwo: "Secondary CTA",
   route: "work",
   title: "Default",
-  tag: "Tag1 Tag2",
+  tag: "Tag1 typography",
   routetwo: "/example-secondary-route",
   subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 };
@@ -129,7 +129,7 @@ export const Center = Template.bind({});
 Center.args = {
   eyebrow: "Example Eyebrow",
   title: "Centered",
-  tag: "Tag1 Tag2",
+  tag: "Tag1 typography",
   subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   route: "example-route",
   label: "Primary CTA",
@@ -148,7 +148,7 @@ Background.args = {
   ],
   eyebrow: "Example Eyebrow",
   title: "Background",
-  tag: "Tag1 Tag2",
+  tag: "Tag1 typography",
   subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   route: "example-route",
   label: "Primary CTA",

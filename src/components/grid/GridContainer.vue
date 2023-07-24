@@ -30,7 +30,6 @@ export default {
       return {
         "container-spacing": true,
         "container-spacing--tight": this.tight,
-        "container-spacing--normal": !this.tight,
         "container-spacing--fullvw": this.fullvw,
         "container-spacing--maxvw": this.maxvw,
         "container-spacing--fullvh": this.fullvh,
@@ -56,13 +55,11 @@ export default {
   max-width: 1920px;
   overflow: hidden;
 
-  &--normal {
-    @media only screen and (min-width: 740px) {
-      padding: var(--spacing-lg) !important;
-    }
-    @media only screen and (min-width: 1201px) {
-      padding: var(--spacing-lg) !important;
-    }
+  @media only screen and (min-width: 740px) {
+    padding: var(--spacing-lg) !important;
+  }
+  @media only screen and (min-width: 1201px) {
+    padding: var(--spacing-lg) !important;
   }
 
   &--tight {
