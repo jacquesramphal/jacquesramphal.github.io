@@ -1,7 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
+import hljs from "highlight.js";
 // import { init, track, parameters } from "insights-js";
-
 
 // Global Components
 import AnimatedComponent from "@/components/AnimatedComponent.vue";
@@ -35,9 +35,36 @@ import SplitImage from "@/components/card/SplitImage.vue";
 import TextLink from "@/components/text/TextLink.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
 
-
 import router from "./router";
 import { Directive, DirectiveBinding, VNode } from "vue";
+
+// Define the custom directive
+const highlightjsDirective = {
+  deep: true,
+  beforeMount: function (el, binding) {
+    // on first bind, highlight all targets
+    const targets = el.querySelectorAll("code");
+    targets.forEach((target) => {
+      // if a value is directly assigned to the directive, use this
+      // instead of the element content.
+      if (binding.value) {
+        target.textContent = binding.value;
+      }
+      hljs.highlightBlock(target);
+    });
+  },
+  updated: function (el, binding) {
+    // after an update, re-fill the content and then highlight
+    const targets = el.querySelectorAll("code");
+    targets.forEach((target) => {
+      if (binding.value) {
+        target.textContent = binding.value;
+        hljs.highlightBlock(target);
+      }
+    });
+  },
+};
+
 export const appear: Directive = {
   beforeMount(element: HTMLElement) {
     element.style.visibility = "hidden";
@@ -61,11 +88,15 @@ export const appear: Directive = {
     node.transition.enter(element);
   },
 };
+
+// Create the Vue app instance
 const app = createApp(App);
-app
-  .use(router)
-  .directive("appear", appear)
-  .mount("#app");
+// Use the custom directives
+app.directive("appear", appear);
+app.directive("highlightjs", highlightjsDirective);
+
+// Use plugins, components, and mount the app as before
+app.use(router).directive("appear", appear).mount("#app");
 
 // Global Components
 app
@@ -97,4 +128,4 @@ app
   .component("SplitImage", SplitImage)
   .component("TextLink", TextLink)
   .component("ThumbDetail", ThumbDetail)
-  .component("MarkdownRenderer", MarkdownRenderer)
+  .component("MarkdownRenderer", MarkdownRenderer);
