@@ -18,12 +18,10 @@
       <FilterBar
         :categories="filterCategories"
         :selectedCategory.sync="selectedCategory"
-        :name="groupName"
+        :groupName="groupName"
       /> 
-      <!-- <FilterBar
-      :categories="filterCategories"
-      :selectedCategory.sync="selectedCategory"
-    /> -->
+
+
       <div id="recentwork" class="posts grid-parent">
         <ImageCard
           v-for="entry in works.entries"

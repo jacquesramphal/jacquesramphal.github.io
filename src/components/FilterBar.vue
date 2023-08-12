@@ -5,7 +5,7 @@
       :key="category.value"
       type="radio"
       :id="category.value"
-      :name="name"
+      :name="groupName"
       :value="category.value"
       :checked="selectedCategory === category.value"
       @change="$emit('update:selectedCategory', category.value)"
@@ -22,7 +22,7 @@
 export default {
   props: {
     categories: Array,
-    name: String,
+    groupName: String,
     selectedCategory: String,
   },
 };
@@ -104,4 +104,3 @@ input[type="radio"] {
   display: none;
 }
 </style>
-
