@@ -2,7 +2,7 @@ import SplitImage from "../components/card/SplitImage.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {
-  title: "Components/SplitImage",
+  title: "Components/Card/SplitImage",
   component: SplitImage,
   decorators: [withDesign],
   argTypes: {

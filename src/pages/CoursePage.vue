@@ -1,8 +1,10 @@
 <template>
   <PageWrapper>
     <HeroBanner
-      :title="chapters.title"
+    :title="chapters.title"
+    :subtitle="chapters.subtitle"
       eyebrow=""
+      style="background-color: var(--background-darker);"
 
     />
     <GridContainer>

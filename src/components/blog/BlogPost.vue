@@ -90,7 +90,7 @@
           <SplitImage
             flipped
             class=""
-            style="background: var(--bg-darker)"
+            style="background: var(--background-darker)"
             route="post"
             cta="Learn More"
           />
@@ -157,7 +157,7 @@
           </AnimatedComponent>
         </GridWrapper>
         <AnimatedComponent>
-          <SplitImage class="" style="background: var(--bg-darker)" />
+          <SplitImage class="" style="background: var(--background-darker)" />
         </AnimatedComponent>
       </GridWrapper>
     </GridWrapper>

@@ -188,7 +188,7 @@ h6 {
 p,
 blockquote {
   font-size: var(--font-xs);
-  font-weight: var(--font-normal) !important;
+  font-weight: var(--font-normal);
   line-height: 1.8;
   font-variation-settings: 'wdth' 102, 'opsz' 19;
 }
@@ -236,7 +236,7 @@ figcaption {
 var(--color-darkbrown));
 -webkit-background-clip: text !important;
 -webkit-text-fill-color: transparent !important;*/
-/* background-color: var(--bg-darker);
+/* background-color: var(--background-darker);
   border-radius: var(--spacing-xxs);
   font-weight: var(--font-reversed-bold);
   letter-spacing: var(--spacing-reversed-tight);*/
@@ -259,7 +259,7 @@ var(--color-darkbrown));
 
 blockquote {
   /* background: hsl(var(--link),calc(var(--l) + 10%)); */
-  background: var(--bg-darker);
+  background: var(--background-darker);
   border-left: var(--spacing-xxxs) solid var(--link);
   border-radius: var(--spacing-xxxs);
   color: var(--text);
@@ -431,10 +431,12 @@ transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s)); */
   font-weight: var(--font-reversed-medium) !important;
 }
 
-.reversed p {
-  font-weight: var(--font-reversed-medium) !important;
+.reversed p,
+.reversed blockquote {
+  font-weight: var(--font-reversed-normal) !important;
   letter-spacing: var(--spacing-reversed-normal);
 }
+
 
 
 .reversed h1,
@@ -528,7 +530,7 @@ h1>a {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important; */
   /* text-shadow: var(--shadow-deep); */
-  /* background: var(--bg-darker); */
+  /* background: var(--background-darker); */
 }
 
 /*h1>a:hover {

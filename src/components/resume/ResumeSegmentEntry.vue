@@ -97,7 +97,7 @@ export default {
   // border-top: var(--border)
   // border: var(--border)
   // box-shadow: var(--shadow-light)
-  // background-color: var(--bg-darker)
+  // background-color: var(--background-darker)
   // &:before
   //   content: ''
   //   position: absolute

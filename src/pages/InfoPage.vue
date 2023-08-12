@@ -1,5 +1,11 @@
 <template>
   <PageWrapper>
+     <HeroBanner
+      id="hero"
+      title="About"
+    />
+    <ImageCard size="split" title="Title" details="UI Regression Testing with Storybook and Chromatic ensures my components are throughly tested and documented" />
+    <SplitImage/>
     <TextGrid
       v-for="about in contentful"
       v-bind:key="about.sys.id"
@@ -15,7 +21,7 @@
     />
     <!-- <HeroBanner
       id="hero"
-      style="background: var(--bg-darker)"
+      style="background: var(--background-darker)"
       eyebrow=""
       title="Multi-disciplinary Designer."
     /> -->
@@ -46,19 +52,22 @@
 </template>
 
 <script>
+import ImageCard from '@/components/ImageCard.vue';
+import SplitImage from '@/components/card/SplitImage.vue';
+
 export default {
-  name: "InfoPage",
-  data() {
-    return {
-      contentful: [],
-    };
-  },
-  async created() {
-    this.contentful = await this.getContentful();
-  },
-  methods: {
-    getContentful: async () => {
-      const query = `{
+    name: "InfoPage",
+    data() {
+        return {
+            contentful: [],
+        };
+    },
+    async created() {
+        this.contentful = await this.getContentful();
+    },
+    methods: {
+        getContentful: async () => {
+            const query = `{
        aboutCollection {
          items {
            sys {
@@ -78,26 +87,25 @@ export default {
          }
        }
      }`;
-      const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
-      const fetchOptions = {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
-          "Content-Type": "application/json",
+            const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
+            const fetchOptions = {
+                method: "POST",
+                headers: {
+                    Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ query }),
+            };
+            try {
+                const response = await fetch(fetchUrl, fetchOptions).then((response) => response.json());
+                return response.data.aboutCollection.items;
+            }
+            catch (error) {
+                throw new Error("Could not receive the data from Contentful!");
+            }
         },
-        body: JSON.stringify({ query }),
-      };
-
-      try {
-        const response = await fetch(fetchUrl, fetchOptions).then((response) =>
-          response.json()
-        );
-        return response.data.aboutCollection.items;
-      } catch (error) {
-        throw new Error("Could not receive the data from Contentful!");
-      }
     },
-  },
+    components: { SplitImage, ImageCard }
 };
 </script>
 

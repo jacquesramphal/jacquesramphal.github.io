@@ -10,9 +10,9 @@
           </ul>
         </span>
         <span id="info">
-          <h5 tabIndex="0">
+          <h4 tabIndex="0">
             {{ title }}
-          </h5>
+          </h4>
           <p class="subtle" v-html="description" />
         </span>
         <span v-if="read" class="checkmark">✓</span>
@@ -105,7 +105,7 @@ export default {
 }
 
 .wrapper:hover {
-  // background: var(--bg-darker);
+  // background: var(--background-darker);
 
   #info {
     h5 {

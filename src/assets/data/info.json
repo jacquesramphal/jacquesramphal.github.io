@@ -13,7 +13,7 @@
       "btnroute": "work/:title",
       "cta": "Request Access",
       "filename": "templates/template-desktop-device.svg",
-      "bgcolor": "background-color: var(--bg-darker)"
+      "bgcolor": "background-color: var(--background-darker)"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "description": "This is a description",
       "route": "work",
       "filename": "templates/template-mobile-blank.svg",
-      "bgcolor": "background-color: var(--bg-darker)"
+      "bgcolor": "background-color: var(--background-darker)"
     },
     {
       "id": 3,
@@ -35,7 +35,7 @@
       "description": "This is a description",
       "link": "https://google.com",
       "filename": "templates/template-desktop-blank.svg",
-      "bgcolor": "background-color: var(--bg-darker)"
+      "bgcolor": "background-color: var(--background-darker)"
     },
     {
       "id": 4,
@@ -47,7 +47,7 @@
       "btnroute": "work",
       "cta": "Request Access",
       "filename": "templates/template-desktop-blank.svg",
-      "bgcolor": "background-color: var(--bg-darker)"
+      "bgcolor": "background-color: var(--background-darker)"
     },
     {
       "id": 5,
@@ -58,7 +58,7 @@
       "description": "This is a description",
       "route": "work",
       "filename": "templates/template-mobile-blank.svg",
-      "bgcolor": "background-color: var(--bg-darker)"
+      "bgcolor": "background-color: var(--background-darker)"
     },
     {
       "id": 6,
@@ -69,7 +69,7 @@
       "description": "This is a description",
       "link": "https://google.com",
       "filename": "templates/template-desktop-device.svg",
-      "bgcolor": "background-color: var(--bg-darker)"
+      "bgcolor": "background-color: var(--background-darker)"
     }
 
   ]

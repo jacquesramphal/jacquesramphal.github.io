@@ -178,16 +178,16 @@ export default {
 <style lang="scss" scoped>
 $border: var(--border);
 $shadow-inner: var(--shadow-inner);
-$bg-darker: var(--bg-darker);
+$background-darker: var(--background-darker);
 $spacing-lg: var(--spacing-lg);
 $spacing-sm: var(--spacing-sm);
 
 #wrapper {
   // border-top: var(--border);
   // box-shadow: var(--shadow-inner);
-  // background: var(--bg-darker);
-  // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, var(--bg-darker)), color-stop(100%, transparent));
-  // background-image: -moz-linear-gradient(bottom, var(--bg-darker) 0%, transparent 100%);
+  // background: var(--background-darker);
+  // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, var(--background-darker)), color-stop(100%, transparent));
+  // background-image: -moz-linear-gradient(bottom, var(--background-darker) 0%, transparent 100%);
   padding-bottom: $spacing-lg;
 
   @media only screen and (min-width: 1201px) {

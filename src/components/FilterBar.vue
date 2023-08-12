@@ -1,57 +1,107 @@
 <template>
-  <GridContainer>
-    <input type="radio" id="All" name="categories" value="All" checked />
-      <input type="radio" id="Tag1" name="categories" :value="`${tag1}`" />
-      <input type="radio" id="typography" name="categories" :value="`${typography}`" />
-      <input type="radio" id="Tag3" name="categories" value="Tag3" />
-      <input type="radio" id="Tag4" name="categories" value="Tag4" />
-      <input type="radio" id="Tag5" name="categories" value="Tag5" />
-      <input type="radio" id="Tag6" name="categories" value="Tag6" />
-
-      <ol class="filters">
-        <li>
-          <label for="All">All</label>
-        </li>
-        <li>
-          <label for="Tag1">{{ tag1 }}</label>
-        </li>
-        <li>
-          <label for="typography">{{ typography }}</label>
-        </li>
-        <li>
-          <label for="Tag3">Tag3</label>
-        </li>
-        <li>
-          <label for="Tag4">Tag4</label>
-        </li>
-        <li>
-          <label for="Tag5">Tag5</label>
-        </li>
-        <li>
-          <label for="Tag6">Tag6</label>
-        </li>
-      </ol>
-  </GridContainer>
+  <div>
+    <input
+      v-for="category in categories"
+      :key="category.value"
+      type="radio"
+      :id="category.value"
+      :name="name"
+      :value="category.value"
+      :checked="selectedCategory === category.value"
+      @change="$emit('update:selectedCategory', category.value)"
+    />
+    <ol class="filters">
+      <li v-for="category in categories" :key="category.value">
+        <label :for="category.value">{{ category.label }}</label>
+      </li>
+    </ol>
+  </div>
 </template>
 
 <script>
-
 export default {
-  name: "FilterBar",
-  components: {
-  },
   props: {
-    tag1: {
-      type: String,
-      default: "TAG 1 DEFAULT",
-    },
-    typography: {
-      type: String,
-      default: "TAG 2 DEFAULT",
-    },
+    categories: Array,
+    name: String,
+    selectedCategory: String,
   },
 };
 </script>
-<style scoped>
 
+<style lang="scss">
+input[type="radio"] {
+  position: absolute;
+  left: -9999px;
+}
+li {
+  list-style: none !important;
+}
+.filters {
+  text-align: right;
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.filters * {
+  display: inline-block;
+}
+
+.filters label {
+  padding: 0.25rem 1rem 0.5rem;
+  border-radius: 0.25rem;
+  line-height: normal;
+  cursor: pointer;
+  transition: all 0.1s;
+  background: var(--background-darker);
+  color: var(--link);
+}
+
+/* Style for active filter */
+.filters label[for]:checked {
+  background: red !important; /* Change to your desired active filter background color */
+  color: white; /* Change to your desired active filter text color */
+}
+
+/* Apply dynamic filter styles using classes -- doesnt work */
+.filters .active-filter-label {
+  background: var(--green);
+  color: var(--white);
+}
+
+.filters label:hover {
+  background: var(--link);
+  color: var(--text-reversed);
+}
+
+/* Hide the radio buttons */
+input[type="radio"] {
+  display: none;
+}
+[value="All"]:checked ~ .filters [for="All"],
+[value="Tag1"]:checked ~ .filters [for="Tag1"],
+[value="Tag2"]:checked ~ .filters [for="Tag2"],
+[value="Tag3"]:checked ~ .filters [for="Tag3"],
+[value="Tag4"]:checked ~ .filters [for="Tag4"],
+[value="Tag5"]:checked ~ .filters [for="Tag5"],
+[value="Tag6"]:checked ~ .filters [for="Tag6"] {
+  background: var(--green);
+  color: var(--white);
+}
+
+[value="All"]:checked ~ .posts [data-category] {
+  display: block;
+}
+
+[value="Tag1"]:checked ~ .posts .post:not([data-category~="Tag1"]),
+[value="Tag2"]:checked ~ .posts .post:not([data-category~="Tag2"]),
+[value="Tag3"]:checked ~ .posts .post:not([data-category~="Tag3"]),
+[value="Tag4"]:checked ~ .posts .post:not([data-category~="Tag4"]),
+[value="Tag5"]:checked ~ .posts .post:not([data-category~="Tag5"]),
+[value="Tag6"]:checked ~ .posts .post:not([data-category~="Tag6"]) {
+  display: none;
+}
 </style>
+

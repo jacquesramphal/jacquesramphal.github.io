@@ -112,7 +112,7 @@ export default {
 
 // .switch-label:hover
 //   box-shadow: var(--shadow-hover)
-//   background: var(--bg-darker)
+//   background: var(--background-darker)
 
 
 // EMOJI SWITCH

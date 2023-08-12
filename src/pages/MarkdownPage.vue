@@ -1,11 +1,11 @@
 <template>
   <PageWrapper id="mdoc" class="">
     <MarkdownRenderer :markdown="pageContent" />
-      </PageWrapper>
+  </PageWrapper>
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from "vue";
 import router from "@/router";
 
 export default {
@@ -21,17 +21,16 @@ export default {
         pageContent.value = markdown;
       } catch (error) {
         console.error("Error loading Markdown content:", error);
-        router.push({ name: 'NotFound' }); // Redirect to the 404 page
+        router.push({ name: "NotFound" }); // Redirect to the 404 page
       }
     });
 
     return {
-      pageContent
+      pageContent,
     };
   },
 };
 </script>
-
 
 <style lang="scss" scoped>
 .section {

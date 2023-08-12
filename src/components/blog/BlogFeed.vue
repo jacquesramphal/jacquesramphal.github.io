@@ -152,7 +152,7 @@ export default {
   color: red
   font-size: var(--font-xl)
 #blog
-  background: var(--bg-darker)
+  background: var(--background-darker)
 
 .blog
   display: grid

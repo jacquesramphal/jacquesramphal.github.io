@@ -73,7 +73,7 @@ export default {
   color: inherit;
 }
 #stats {
-  /* background: var(--bg-darker); */
+  /* background: var(--background-darker); */
   /* border-top: var(--border);
   border-bottom: var(--border); */
 }

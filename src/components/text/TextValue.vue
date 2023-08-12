@@ -1,23 +1,13 @@
 <template>
-  <div id="TextValue" class="">
-  <!-- add "label for" references? -->
+  <div id="TextValue">
     <h6 tabIndex="0" class="subtle">{{ label }}</h6>
     <h4 tabIndex="0">{{ value }}</h4>
-
-    <!-- <MyButton 
-      text="This is Button Text" 
-      class="btn-primary"
-      /> -->
   </div>
 </template>
 
 <script>
-
 export default {
   name: "TextValue",
-  components: {
-    /* MyButton, */
-  },
   props: {
     label: {
       type: String,
@@ -37,10 +27,13 @@ export default {
 }
 
 #TextValue {
-  /* background: var(--color-xlight); */
+  border-radius: 0 !important;
   grid-column: 1 / 4;
   text-align: left;
   padding: 0;
+  @media only screen and (min-width: 740px) {
+    grid-column: auto;
+  }
 
   h6 {
     margin-bottom: 1em;
@@ -48,21 +41,6 @@ export default {
 
   h4 {
     margin: 0;
-    /* color: var(--link); */
-  }
-}
-
-/* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
-  #TextValue {
-    grid-column: auto;
-  }
-
-  /* ------------ BREAKPOINT LG ------------ */
-  @media only screen and (min-width: 1201px) {
-    #TextValue {
-      grid-column: auto;
-    }
   }
 }
 </style>

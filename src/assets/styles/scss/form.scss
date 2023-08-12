@@ -8,7 +8,7 @@
   background: rgba(185, 141, 226, 0.4);
 }
 /* :focus {
-  outline: 4px dashed var(--bg-darker);
+  outline: 4px dashed var(--background-darker);
 } */
 /*:active {
  outline: 1px dashed var(--link);
@@ -54,7 +54,7 @@ select {
   box-sizing: border-box;
   border: transparent;
   border-radius: 4px;
-  background-color: var(--bg-darker);
+  background-color: var(--background-darker);
   /* box-shadow: var(--shadow-z1); */
 }
 textarea {
@@ -80,7 +80,7 @@ textarea:required:valid,
 select:required:valid {
   /* background:  url(../images/emoji/emoji-smile.png)  no-repeat 97% 12px; */
   background-size: 28px;
-  background-color: var(--bg-darker);
+  background-color: var(--background-darker);
 }
 input:required:invalid,
 textarea:required:invalid,
@@ -117,7 +117,7 @@ option:first {
   select {
     /* border: 1px solid var(--color-white); */
     /* border: 2px solid black; */
-    background-color: var(--bg-darker);
+    background-color: var(--background-darker);
     box-shadow: none;
   }
   input:focus,
@@ -129,7 +129,7 @@ option:first {
   input:required:valid,
   textarea:required:valid,
   select:required:valid {
-    background-color: var(--bg-darker);
+    background-color: var(--background-darker);
   }
 }
 /* ------- END Dark Form UI ------- */

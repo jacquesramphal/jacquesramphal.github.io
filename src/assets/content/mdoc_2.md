@@ -1,5 +1,3 @@
-![Photo by Headway](https://miro.medium.com/max/1400/0*XjGZLGgqlXv7vyUf)
-
 # Design Quality Assured 2
 Prioritize design and make your Product better
 

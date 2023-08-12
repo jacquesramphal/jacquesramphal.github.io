@@ -80,7 +80,7 @@
         eyebrow=""
         route="/"
         label="Get in touch"
-        style="background-color: var(--bg-darker)"
+        style="background-color: var(--background-darker)"
     /></GridContainer> -->
   </PageWrapper>
 </template>

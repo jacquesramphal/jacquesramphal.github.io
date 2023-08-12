@@ -1,7 +1,7 @@
 <template>
   <PageWrapper>
     <!-- <HeroBanner
-      style="background: var(--bg-darker)"
+      style="background: var(--background-darker)"
       eyebrow="🚀 Recommended Links"
       title="A collection of links and writing to help you fall back in love typography."
       subtitle=""

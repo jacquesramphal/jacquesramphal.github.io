@@ -30,7 +30,7 @@
             <router-link :to="{ name: 'Blog' }">docs</router-link>
           </li>
           <li class="nav-link" tabindex="0">
-            <router-link :to="{ name: 'Resume' }">info</router-link>
+            <router-link :to="{ name: 'Info' }">about</router-link>
           </li>
 
         </ul>
@@ -206,13 +206,13 @@ nav {
   color: var(--text-reversed) !important;
 
   &:hover {
-    background: var(--bg-darker-reversed);
+    background: var(--background-darker-reversed);
     transition: all 0.25s ease;
   }
 }
 
 .router-link-exact-active {
-  background: var(--bg-darker-reversed);
+  background: var(--background-darker-reversed);
   text-decoration: none !important;
 }
 

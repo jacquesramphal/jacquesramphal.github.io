@@ -82,7 +82,7 @@ export default {
 
     eyebrow: {
       type: String,
-      default: "Breadcrumb / Current Page",
+      // default: "Breadcrumb / Current Page",
     },
     title: {
       type: String,
@@ -261,7 +261,7 @@ img {
 
 .herobanner--overlap {
   img {
-    background-color: var(--bg-darker);
+    background-color: var(--background-darker);
     height: 100% !important;
   }
   @media only screen and (min-width: 1201px) {

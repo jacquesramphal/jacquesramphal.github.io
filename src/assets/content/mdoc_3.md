@@ -1,146 +1,92 @@
-Data Types
+# Markdown Basics
 
-Number
+Markdown is a lightweight markup language that allows you to format plain text easily. It is widely used for creating documentation, README files, forum posts, and more.
 
-Numbers start at 0 in JS and do not require quotes
+## Code
 
-0
-1
-2
-...
+You can display `inline code` using backticks (`) and code blocks using triple backticks (```). For example:
 
-String
 
-A sequence of text know as a string. To signify that the value is a string, you must enclose it in quote marks (double or single)
+### Python
 
-'this is a string'
+```python
+print("Hello, World!")
+```
+### Javascript
 
-Boolean
+```javascript
+function greet(name) {
+  console.log(`Hello, ${name}!`);
+}
+```
+### HTML
 
-A True/False value. The words TRUE or FALSE are special keywords. They don't need quotes.
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hello World</title>
+</head>
+<body>
+  <h1>Hello, World!</h1>
+</body>
+</html>
+```
 
-true
-false
+## Headers
 
-JS Comparisons
+You can create headers using hash symbols (#). The number of hash symbols determines the header level. For example:
 
-===
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
 
-Equal value and equal type
 
-Example: Is 3 equal to 3?
+## Emphasis
 
-3=3
-VM43:1 Uncaught SyntaxError: Invalid left-hand side in assignment
+You can make text *italic* or **bold** using asterisks (*) or double asterisks (**). For example:
 
-// Invalid. Must have 3 equal signs in js.
+This is *italic* text.
+This is **bold** text.
 
-Example: Is 3 equal to 3?
+## Lists
 
-3===3
-true
+You can create ordered and unordered lists using hyphens (-) or numbers (1.). For example:
 
-!==
+- Item 1
+- Item 2
+- Item 3
 
-Not equal value or not equal type
+1. First item
+2. Second item
+3. Third item
 
-Example: Is 4 NOT equal to 3?
+## Links
 
-4!==3
-true
+You can create links using square brackets [] for the link text and parentheses () for the URL. For example:
 
-Example: Is 3 NOT equal to 3?
+[OpenAI](https://www.openai.com)
 
-3!==3
-false
+## Images
 
->=
+You can display images using an exclamation mark (!), followed by square brackets [] for the alt text, and parentheses () for the image URL. For example:
 
-Greater than or equal to
+![Markdown Logo](https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg)
 
-<=
+## Blockquotes
 
-Less than or equal to
+You can create blockquotes using the greater than symbol (>). For example:
 
->
+> This is a blockquote.
 
-Greater than
 
-<
+## Table
 
-Less than
+ | Column 1 | Column 2 | Column 3 |
+          |---------|---------|---------|
+          |  Cell 1 |  Cell 2 |  Cell 3 |
+          |  Cell 4 |  Cell 5 |  Cell 6 |
 
-String Examples
-
-Input:
-
-'A string of text'
-
-Console Output:
-
-"A string of text"
-
-Input:
-
-20 + 'Jacques'
-
-Console Output:
-
-"20Jacques"
-
-Input:
-
-20 - '10'
-
-Console Output:
-
-10
-
-Combining Strings
-
-Strings can be combined to form lines of text. Spaces and special characters can be included for formatting.
-
-'FirstName ' + 'LastName ' + '(' + 'Age' + ')' + ' Height'
-"FirstName LastName (Age) Height"
-
-Accessing individual Characters
-
-In JS everything starts with 0
-
-'Jacques' [0]
-"J"
-
-The length property
-
-The .length property returns to number of elements in an array
-
-Is this word greater than 8?
-
-'Jacques'.length>8
-false
-
-Is this word greater than 7?
-
-'Jacques'.length>7
-false
-
-Is this word greater than or equal to 7?
-
-'Jacques'.length>=7
-true
-
-Modules
-
-Read the Beginner's guide
-
-Example using .length and % to calculate the difference of 2 strings
-
-Scissors does not go into Rock and leaves 4 extra characters
-
-'Rock'.length % 'Scissors'.length
-4
-
-Rock goes into Scissors 2 time with 0 extra characters
-
-'Scissors'.length % 'Rock'.length
-0

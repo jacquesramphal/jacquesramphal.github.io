@@ -89,7 +89,7 @@ img {
 }
 
 .thumbdetail {
-  background-color: var(--bg-darker) !important;
+  background-color: var(--background-darker) !important;
   /* background-color: #35363a !important; */
   grid-column: 1 / 4;
   grid-template-rows: 2, 1fr;
