@@ -11,18 +11,26 @@
       <input type="radio" id="Tag1" name="categories" value="Tag1" />
       <input type="radio" id="Tag2" name="categories" value="Tag2" />
       <input type="radio" id="Tag3" name="categories" value="Tag3" />
-      <input type="radio" id="Tag4" name="categories" value="Tag4" />
+      <input
+        type="radio"
+        id="Product-Design"
+        name="categories"
+        value="Product-Design"
+      />
       <input type="radio" id="Tag5" name="categories" value="Tag5" />
       <input type="radio" id="Tag6" name="categories" value="Tag6" />
-     
+
       <FilterBar
         :categories="filterCategories"
         :selectedCategory.sync="selectedCategory"
         :groupName="groupName"
-      /> 
+      />
 
-
-      <div id="recentwork" class="posts grid-parent">
+      <div
+        v-if="filteredEntries.length > 0"
+        id="recentwork"
+        class="posts grid-parent"
+      >
         <ImageCard
           v-for="entry in works.entries"
           :key="entry.id"
@@ -38,6 +46,10 @@
           :filename="entry.thumbnail"
           :style="entry.bgcolor"
         />
+      </div>
+      <div v-else>
+        <!-- Not working -->
+        <p>No results found.</p>
       </div>
     </GridContainer>
     <SplitImage
@@ -74,7 +86,7 @@ export default {
         { value: "Tag1", label: "Tag1" },
         { value: "Tag2", label: "Tag2" },
         { value: "Tag3", label: "Tag3" },
-        { value: "Tag4", label: "Tag4" },
+        { value: "Product-Design", label: "Product-Design" },
         { value: "Tag5", label: "Tag5" },
         { value: "Tag6", label: "Tag6" },
         // Add other categories here
@@ -84,19 +96,23 @@ export default {
     };
   },
   computed: {
-    filteredEntries() {
-      if (this.selectedCategory === "All") {
-        return this.works.entries;
-      } else {
-        return this.works.entries.filter(entry =>
-          entry.tag.includes(this.selectedCategory)
-        );
-      }
-    },
+  filteredEntries() {
+    if (this.selectedCategory === "All") {
+      return this.works.entries;
+    } else {
+      const filtered = this.works.entries.filter(entry =>
+        entry.tag.split(' ').includes(this.selectedCategory)
+      );
+      console.log('Filtered Entries:', filtered);
+      return filtered;
+    }
   },
+},
   methods: {
     isCategoryVisible(tag) {
-      return this.selectedCategory === "All" || tag.includes(this.selectedCategory);
+      return (
+        this.selectedCategory === "All" || tag.includes(this.selectedCategory)
+      );
     },
   },
 };
@@ -110,5 +126,4 @@ export default {
 .container {
   padding-top: 0 !important;
 }
-
 </style>

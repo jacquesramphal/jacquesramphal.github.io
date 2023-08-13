@@ -1,22 +1,31 @@
 <template>
   <PageWrapper>
-    <HeroBanner
-      title="Docs & Resources"
-      subtitle="A place to learn and share thoughts"
-      eyebrow=""
-    />
-    <GridContainer tight id="docs" class="animate delay-2">
+    <HeroBanner title="Docs & Resources" eyebrow="" />
+    <GridContainer
+      style="background-color: var(--background-darker)"
+      tight
+      id="work"
+      class="animate delay-2"
+    >
+    <input type="radio" id="All" name="categories" value="All" checked />
+      <input type="radio" id="Tag1" name="categories" value="Tag1" />
+      <input type="radio" id="Tag2" name="categories" value="Tag2" />
+      <input type="radio" id="Tag3" name="categories" value="Tag3" />
+      <input
+        type="radio"
+        id="Product-Design"
+        name="categories"
+        value="Product-Design"
+      />
+      <input type="radio" id="Tag5" name="categories" value="Tag5" />
+      <input type="radio" id="Tag6" name="categories" value="Tag6" />
+
+      <FilterBar
+        :categories="filterCategories"
+        :selectedCategory.sync="selectedCategory"
+        :groupName="groupName"
+      />
       <GridParent>
-        <CoverCard
-          v-for="entry in docs.entries.slice(0, 1)"
-          :key="entry.id"
-          :filename="entry.thumbnail"
-          title="CoverCard"
-
-          :image="entry.image"
-          :alt="entry.alt"
-
-        />
         <DefaultCard
           v-for="entry in docs.entries"
           :key="entry.id"
@@ -38,10 +47,20 @@
 <script>
 import works from "@/assets/data/work.json";
 import docs from "../assets/data/docs.json";
-import CoverCard from "@/components/card/CoverCard.vue";
+
+import PageWrapper from "@/components/grid/PageWrapper.vue";
+// import CourseCard from "@/components/card/CourseCard.vue";
+// import BlogPost from "@/components/blog/BlogPost.vue";
+
+// Mock data
+// import fakeposts from "@/components/blog/data/posts.json";
 
 export default {
   name: "MyBlog",
+  components: {
+    PageWrapper,
+    // CourseCard,
+  },
   data() {
     return {
       works,
@@ -90,6 +109,7 @@ export default {
         },
         body: JSON.stringify({ query }),
       };
+
       try {
         const response = await fetch(fetchUrl, fetchOptions).then((response) =>
           response.json()
@@ -100,7 +120,6 @@ export default {
       }
     },
   },
-  components: { CoverCard },
 };
 </script>
 

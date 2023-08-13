@@ -1,5 +1,5 @@
 <template>
-  <div id="defaultCard" class="defaultCard card" :data-category="`${tag}`">
+  <div id="coverCard" class="coverCard card" :data-category="`${tag}`">
     <div v-if="alt" class="image">
       <router-link :to="`${route}`">
         <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" />
@@ -12,7 +12,7 @@
       </router-link>
     </div>
 
-    <div class="info">
+    <div class="info reversed">
       <TextBlock
         clamped
         class="textblock"
@@ -31,7 +31,7 @@
 import TextBlock from "../TextBlock.vue";
 
 export default {
-  name: "DefaultCard",
+  name: "CoverCard",
   components: {
     TextBlock,
   },
@@ -87,7 +87,6 @@ export default {
   flex-direction: column;
   border-radius: var(--spacing-xxs) !important;
   // border: var(--border);
-  background: var(--background-darker);
   overflow: hidden;
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -96,7 +95,6 @@ export default {
 
 
   &:hover {
-    background: var(--background);
     box-shadow: var(--shadow-z5);
     transform: scale(1.01);
 
@@ -112,14 +110,22 @@ export default {
 }
 
 .info {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   flex: 1;
   padding: var(--spacing-md);
+  z-index: 100;
+  align-content: end; //alignment
+  // background-color: blue;
+  background: linear-gradient(
+    45deg,
+    var(--background-reversed) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
-.textblock-description {
-  background: blue !important;
+.textblock {
+  // background: pink !important;
+
 }
 
 .card-description {
@@ -136,12 +142,18 @@ img {
   -moz-transition: transform 0.25s ease-in-out;
   -o-transition: transform 0.25s ease-in-out;
   -webkit-transition: transform 0.25s ease-in-out;
+
 }
 
 .image {
   overflow: hidden;
-  aspect-ratio: 16/9;
+height: 100%;
+width: 100%;
+
+ // aspect-ratio: 16/9;
   border-radius: 0 !important;
+  position: absolute;
+
 }
 
 .card-title {

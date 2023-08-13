@@ -1,7 +1,7 @@
 <template>
   <div
     class=""
-    style="overflow: visible !important; background-color: var(--background-darker)"
+    style="overflow: visible !important; "
   >
     <GridContainer
       v-show="isDesktopScreen"

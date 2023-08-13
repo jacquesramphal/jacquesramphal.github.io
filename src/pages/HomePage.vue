@@ -3,7 +3,6 @@
     <HeroBanner
       id="hero"
       class="display"
-      eyebrow=""
       title="Multi-disciplinary Designer"
     />
 
@@ -52,6 +51,7 @@
           filename="avatar/avatar.svg"
           title="Avatar"
         />
+        <CoverCard/>
 
         <ImageCard
           v-for="entry in works.entries"

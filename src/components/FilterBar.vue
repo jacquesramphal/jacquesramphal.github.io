@@ -84,7 +84,7 @@ input[type="radio"] {
 [value="Tag1"]:checked ~ .filters [for="Tag1"],
 [value="Tag2"]:checked ~ .filters [for="Tag2"],
 [value="Tag3"]:checked ~ .filters [for="Tag3"],
-[value="Tag4"]:checked ~ .filters [for="Tag4"],
+[value="Product-Design"]:checked ~ .filters [for="Product-Design"],
 [value="Tag5"]:checked ~ .filters [for="Tag5"],
 [value="Tag6"]:checked ~ .filters [for="Tag6"] {
   background: var(--green);
@@ -98,7 +98,7 @@ input[type="radio"] {
 [value="Tag1"]:checked ~ .posts .post:not([data-category~="Tag1"]),
 [value="Tag2"]:checked ~ .posts .post:not([data-category~="Tag2"]),
 [value="Tag3"]:checked ~ .posts .post:not([data-category~="Tag3"]),
-[value="Tag4"]:checked ~ .posts .post:not([data-category~="Tag4"]),
+[value="Product-Design"]:checked ~ .posts .post:not([data-category~="Product-Design"]),
 [value="Tag5"]:checked ~ .posts .post:not([data-category~="Tag5"]),
 [value="Tag6"]:checked ~ .posts .post:not([data-category~="Tag6"]) {
   display: none;

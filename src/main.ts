@@ -10,6 +10,7 @@ import BlogFeed from "@/components/blog/BlogFeed.vue";
 // import CardRow from "@/components/CardRow.vue";
 import CardRow2 from "@/components/CardRow2.vue";
 import DefaultCard from "@/components/card/DefaultCard.vue";
+import CoverCard from "@/components/card/CoverCard.vue";
 import TextGrid from "@/components/card/TextGrid.vue";
 import TextGrid2 from "@/components/card/TextGrid2.vue";
 import FilterBar from "@/components/FilterBar.vue";
@@ -106,6 +107,7 @@ app
   // .component("CardRow", CardRow)
   .component("CardRow2", CardRow2)
   .component("DefaultCard", DefaultCard)
+  .component("CoverCard", CoverCard)
   .component("TextGrid", TextGrid)
   .component("TextGrid2", TextGrid2)
   .component("FilterBar", FilterBar)

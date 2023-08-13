@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "Doc Name 1",
-      "tag": "Tag1  typography",
+      "tag": "Tag1  Tag2 typography",
       "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
       "btnroute": "doc/1",
       "cta": "Read More",
