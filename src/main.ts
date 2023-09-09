@@ -10,7 +10,6 @@ import BlogFeed from "@/components/blog/BlogFeed.vue";
 // import CardRow from "@/components/CardRow.vue";
 import CardRow2 from "@/components/CardRow2.vue";
 import DefaultCard from "@/components/card/DefaultCard.vue";
-import CoverCard from "@/components/card/CoverCard.vue";
 import TextGrid from "@/components/card/TextGrid.vue";
 import TextGrid2 from "@/components/card/TextGrid2.vue";
 import FilterBar from "@/components/FilterBar.vue";
@@ -26,6 +25,7 @@ import ButtonRow from "@/components/ButtonRow.vue";
 // import ButtonRow2 from "@/components/ButtonRow2.vue";
 import MyLogo from "@/components/MyLogo.vue";
 import Icon from "@/components/Icon.vue";
+import TestimonialCarousel from "@/components/TestimonialCarousel.vue";
 import MarkdownRenderer from "@/components/text/MarkdownRenderer.vue";
 import PageWrapper from "@/components/grid/PageWrapper.vue";
 import ProjectPreview from "@/components/ProjectPreview.vue";
@@ -101,13 +101,13 @@ app.use(router).directive("appear", appear).mount("#app");
 
 // Global Components
 app
-  .component("AnimatedComponent", AnimatedComponent)
-  .component("CourseCard", CourseCard)
+.component("AnimatedComponent", AnimatedComponent)
+.component("TestimonialCarousel", TestimonialCarousel)
+.component("CourseCard", CourseCard)
   .component("BlogFeed", BlogFeed)
   // .component("CardRow", CardRow)
   .component("CardRow2", CardRow2)
   .component("DefaultCard", DefaultCard)
-  .component("CoverCard", CoverCard)
   .component("TextGrid", TextGrid)
   .component("TextGrid2", TextGrid2)
   .component("FilterBar", FilterBar)
