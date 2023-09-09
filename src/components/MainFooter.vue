@@ -262,7 +262,7 @@ h3 {
 }
 
 #copyright {
-  font-weight: var(--font-medium);
+  // font-weight: var(--font-medium);
 }
 
 ul {
@@ -297,7 +297,7 @@ li {
   width: 100%;
   font-size: 2em;
   line-height: 1.5;
-  font-weight: var(--font-medium);
+  // font-weight: var(--font-medium);
   margin-top: var(--spacing-xxs);
   float: left;
   list-style-type: none;
