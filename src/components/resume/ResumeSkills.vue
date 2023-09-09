@@ -1,7 +1,7 @@
 <template>
   <div class="resume-skills">
     <div v-for="(skill, i) in skills" :key="i" class="resume-skills-tag">
-      <h6 class="resume-skills-tag-title" v-text="skill.title" />
+      <p class="subtle resume-skills-tag-title" v-text="skill.title" />
       <ul class="resume-skills-tag-entries">
         <resume-skill-entry
           v-for="(entry, j) in skill.entries"

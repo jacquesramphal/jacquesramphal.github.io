@@ -4,20 +4,14 @@
       <div
         class="grid-parent"
         style="
-          padding-bottom: var(--spacing-md);
+          padding-bottom: var(--spacing-xxs);
           align-items: center;
           grid-template-columns: repeat(2, 1fr);
         "
       >
-        <h5
-          class="subtle resume-segment-title"
-          v-text="segment.title"
-          style="text-align: left"
-        />
-        <!-- <p class="external justify-end">
-          <router-link :to="{ name: 'Work' }">View All</router-link>
-        </p> -->
+        <p class="subtle resume-segment-title" v-text="segment.title" />
       </div>
+      <hr />
 
       <ul class="resume-segment-list">
         <resume-segment-entry
@@ -65,4 +59,6 @@ export default {
   margin-top: var(--spacing-md)
   @media only screen and (min-width: 740px)
     margin-top: 0
+
+.resume-segment-title
 </style>

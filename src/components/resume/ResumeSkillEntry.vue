@@ -25,6 +25,7 @@ export default {
 
 <style scoped lang="sass">
 .resume-skill-entry
+  font-weight: var(--font-normal)
   margin: 0
   display: inline
   line-height: 1.4

@@ -1,45 +1,44 @@
 <template>
   <AnimatedComponent>
-
-  <li class="resume-segment-entry">
-    <h2 class="resume-segment-entry-title">
-      <span v-if="title" v-text="title" />
-      <span v-if="position" v-text="positionInBrackets" />
-    </h2>
-    <div v-if="from || to || location" class="resume-segment-entry-information">
+    <li class="resume-segment-entry">
+      <h3 class="resume-segment-entry-title">
+        <span v-if="title" v-text="title" />
+        <span v-if="position" v-text="positionInBrackets" />
+      </h3>
       <div
-        v-if="from || to"
-        class="subtle resume-segment-entry-information-date"
+        v-if="from || to || location"
+        class="resume-segment-entry-information"
       >
-        <span
-          v-if="from"
-          class="resume-segment-entry-information-from"
-          v-text="from"
-        />
-        <span
-          v-if="to"
-          class="resume-segment-entry-information-to"
-          v-text="to"
+        <div
+          v-if="from || to"
+          class="subtle resume-segment-entry-information-date"
+        >
+          <span
+            v-if="from"
+            class="resume-segment-entry-information-from"
+            v-text="from"
+          />
+          <span
+            v-if="to"
+            class="resume-segment-entry-information-to"
+            v-text="to"
+          />
+        </div>
+        <div
+          v-if="location"
+          class="subtle resume-segment-entry-information-location"
+          v-text="location"
         />
       </div>
-      <div
-        v-if="location"
-        class="subtle resume-segment-entry-information-location"
-        v-text="location"
-      />
-    </div>
-    <p
-      v-if="description"
-      class="resume-segment-entry-description"
-      v-html="description"
-    />
-    <blockquote v-if="callout">
       <p
+        v-if="description"
         class="resume-segment-entry-description"
-        v-html="callout"
+        v-html="description"
       />
-    </blockquote>
-  </li>
+      <blockquote v-if="callout">
+        <p class="resume-segment-entry-description" v-html="callout" />
+      </blockquote>
+    </li>
   </AnimatedComponent>
 </template>
 
@@ -55,7 +54,7 @@ export default {
       default: "",
       type: String,
     },
-     callout: {
+    callout: {
       default: "",
       type: String,
     },
@@ -125,6 +124,8 @@ export default {
     flex-direction: row
     flex-wrap: nowrap
     font-size: var(--font-xs)
+    font-weight: var(--font-normal)
+
     .resume-segment-entry-information-date
       display: flex
       flex-direction: row

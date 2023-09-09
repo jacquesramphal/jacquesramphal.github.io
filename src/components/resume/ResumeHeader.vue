@@ -1,12 +1,12 @@
 <template>
   <div class="resume-header">
-    <h6
+    <p
         v-text="name"
         class="resume-header-name"
     />
     <p
         v-text="label"
-        class="resume-header-label"
+        class="subtle resume-header-label"
     />
   </div>
 </template>
