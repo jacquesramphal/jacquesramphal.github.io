@@ -1,6 +1,6 @@
 # Personal Portfolio
 
-This repository contains my personal portfolio website hosted on GitHub Pages. It showcases my projects, skills, and experiences. Feel free to explore and get to know more about me.
+This repository contains my personal portfolio website hosted on Netlify. It showcases my projects, skills, and experiences. Feel free to explore and get to know more about me.
 
 ## Technologies Used
 
