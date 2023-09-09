@@ -1,5 +1,5 @@
-<template>
-  <div id="defaultCard" class="defaultCard card" :data-category="`${tag}`">
+<template :class="classes">
+  <div id="default-card" :class="classes" :data-category="`${tag}`">
     <div v-if="alt" class="image">
       <router-link :to="`${route}`">
         <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" />
@@ -14,6 +14,17 @@
 
     <div class="info">
       <TextBlock
+        v-if="cover"
+        clamped
+        class="textblock"
+        :eyebrow="`${tag}`"
+        :header4="`${title}`"
+        :details="`${description}`"
+        :btnroute="`${route}`"
+        :cta="`${label}`"
+      />
+      <TextBlock
+        v-else
         clamped
         class="textblock"
         :eyebrow="`${tag}`"
@@ -72,6 +83,18 @@ export default {
       type: String,
       required: true,
     },
+    cover: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    classes() {
+      return {
+        defaultcard: true,
+        "defaultcard--cover": this.cover,
+      };
+    },
   },
 };
 </script>
@@ -81,50 +104,71 @@ export default {
   border-radius: 0;
 }
 
-.card {
+#default-card {
   position: relative;
   display: flex;
   flex-direction: column;
   border-radius: var(--spacing-xxs) !important;
-  // border: var(--border);
-  background: var(--background-darker);
+  border: var(--border);
+  // background: var(--background-darker);
   overflow: hidden;
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
-  // box-shadow: var(--shadow-z1);
-
+  box-shadow: var(--shadow-z1);
 
   &:hover {
     background: var(--background);
     box-shadow: var(--shadow-z5);
-    transform: scale(1.01);
+    // transform: scale(1.01);
 
     img {
       transform: scale(1.1);
     }
   }
+  // &:active {
+  //   box-shadow: var(--shadow-hover);
+  //   transform: rotate(1deg);
+  // }
+}
+.defaultcard--cover {
+  background-color: transparent;
+  &:hover {
+    background: transparent;
+  }
+  aspect-ratio: 3/4;
 
-  &:active {
-    // box-shadow: var(--shadow-hover);
-    // transform: rotate(1deg);
+  // @media only screen and (min-width: 740px) {
+  //   aspect-ratio: auto;
+  // }
+  .info {
+    display: grid;
+    flex: 1;
+    padding: var(--spacing-md);
+    z-index: 100;
+    align-content: end; //alignment
+    background: linear-gradient(
+      15deg,
+      var(--background) 25%,
+      rgba(0, 0, 0, 0) 120%
+    );
+  }
+  .textblock {
+    background: transparent !important;
+  }
+  .image {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    border-radius: 0 !important;
+    position: absolute;
   }
 }
-
 .info {
   display: flex;
   flex-direction: column;
   flex: 1;
   padding: var(--spacing-md);
-}
-
-.textblock-description {
-  background: blue !important;
-}
-
-.card-description {
-  margin-bottom: var(--spacing-md) !important;
-  overflow: hidden;
 }
 
 img {
@@ -142,10 +186,5 @@ img {
   overflow: hidden;
   aspect-ratio: 16/9;
   border-radius: 0 !important;
-}
-
-.card-title {
-  line-height: 1.5;
-  margin-bottom: var(--spacing-xxs);
 }
 </style>

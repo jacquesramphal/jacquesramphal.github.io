@@ -1,32 +1,36 @@
 <template>
-  <div
-    class=""
-    style="overflow: visible !important; "
-  >
+  <div class="" style="overflow: visible !important">
+    <!-- DESKTOP VIEW START -->
     <GridContainer
-      v-show="isDesktopScreen"
+      v-if="isDesktopScreen"
       id="cards"
       style="overflow: visible !important"
     >
+      <!-- HEADER COMPONENT START -->
       <div
         class="grid-parent"
         style="
           padding-bottom: var(--spacing-md);
           align-items: center;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(3, 1fr);
         "
       >
-        <h2 class="" style="text-align: left">{{ header }}</h2>
-        <p class="external justify-end">
+        <TextBlock
+          eyebrow="Eyebrow"
+          style="grid-column: 1 / 3"
+          :header="header"
+        />
+        <p class="external justify-end" style="align-self: flex-end">
           <router-link :to="{ name: 'Blog' }">View All</router-link>
         </p>
       </div>
+      <!-- HEADER COMPONENT END -->
 
       <GridParent>
         <DefaultCard
+          cover
           v-for="entry in docs.entries.slice(0, 3)"
           :key="entry.id"
-          :image="entry.image"
           :tag="entry.tag"
           :filename="entry.thumbnail"
           :alt="entry.alt"
@@ -38,43 +42,54 @@
       </GridParent>
     </GridContainer>
 
-    <GridContainer
-      v-show="showMobile"
-      style="padding-bottom: 0 !important; overflow: visible !important"
-    >
-      <div
-        class="grid-parent"
-        style="
-          padding-bottom: var(--spacing-md);
-          align-items: center;
-          grid-template-columns: repeat(2, 1fr);
-        "
-      >
-        <h2 class="" style="text-align: left">{{ header }}</h2>
-        <p class="external justify-end">
-          <router-link :to="{ name: 'Blog' }">View All</router-link>
-        </p>
-      </div>
-    </GridContainer>
+    <!-- DESKTOP VIEW END -->
 
-    <div class="showmobile scrolling-wrapper">
-      <GridParent
-        class="cardmobile"
-        v-for="entry in docs.entries.slice(0, 3)"
-        :key="entry.id"
+    <!-- MOBILE VIEW START -->
+    <span v-else
+      ><GridContainer
+        style="padding-bottom: 0 !important; overflow: visible !important"
       >
-        <DefaultCard
-          :image="entry.image"
-          :tag="entry.tag"
-          :filename="entry.thumbnail"
-          :alt="entry.alt"
-          :title="entry.title"
-          :description="entry.description"
-          :route="entry.btnroute"
-          :label="entry.label"
-        />
-      </GridParent>
-    </div>
+        <!-- HEADER COMPONENT START -->
+        <div
+          class="grid-parent"
+          style="
+            padding-bottom: var(--spacing-md);
+            align-items: center;
+            grid-template-columns: repeat(1fr);
+          "
+        >
+          <TextBlock
+            eyebrow="Eyebrow"
+            style="grid-column: 1 / 3"
+            :header="header"
+          />
+          <p class="external justify-start" style="align-self: flex-end">
+            <router-link :to="{ name: 'Blog' }">View All</router-link>
+          </p>
+        </div>
+        <!-- HEADER COMPONENT END -->
+      </GridContainer>
+
+      <div class="scrolling-wrapper">
+        <GridParent
+          class="cardmobile"
+          v-for="entry in docs.entries.slice(0, 3)"
+          :key="entry.id"
+        >
+          <DefaultCard
+            cover
+            :image="entry.image"
+            :tag="entry.tag"
+            :filename="entry.thumbnail"
+            :alt="entry.alt"
+            :title="entry.title"
+            :description="entry.description"
+            :route="entry.btnroute"
+            :label="entry.label"
+          />
+        </GridParent></div
+    ></span>
+    <!-- MOBILE VIEW END -->
   </div>
 </template>
 
