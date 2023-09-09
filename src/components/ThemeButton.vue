@@ -109,6 +109,7 @@ export default {
   align-items: center
   text-align: center
   font-size: var(--font-xs)
+  font-weight: var(--font-normal)
 
 // .switch-label:hover
 //   box-shadow: var(--shadow-hover)

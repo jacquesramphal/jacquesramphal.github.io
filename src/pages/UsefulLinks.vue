@@ -413,7 +413,7 @@ li
   width: 100%
   font-size: 2em
   line-height: 1.5
-  font-weight: var(--font-medium)
+  // font-weight: var(--font-medium)
   padding: var(--spacing-xs) 0
   // border-bottom: var(--border)
   float: left

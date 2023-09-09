@@ -9,7 +9,6 @@
         <p
           class="nav-link wordmark"
           id="wordmark-jacques"
-          style="font-weight: var(--font-reversed-medium)"
           tabindex="0"
           v-show="isDesktopScreen"
         >
@@ -183,7 +182,7 @@ li {
   line-height: 1;
   margin: 0;
   text-decoration: none;
-  font-weight: var(--font-reversed-medium);
+  // font-weight: var(--font-reversed-medium);
 
   &:first-child {
     padding-right: 0;
@@ -225,7 +224,7 @@ p {
     content: "/";
     padding: var(--spacing-xxs);
     opacity: 0.5;
-    font-weight: var(--font-medium);
+    font-weight: var(--font-normal);
   }
 }
 </style>

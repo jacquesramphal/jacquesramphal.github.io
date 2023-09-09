@@ -268,11 +268,11 @@ export default {
   h3,
   h4,
   h5 {
-    font-weight: var(--font-reversed-medium) !important;
+    // font-weight: var(--font-reversed-medium) !important;
   }
 
   p {
-    font-weight: var(--font-reversed-normal) !important;
+    // font-weight: var(--font-reversed-normal) !important;
   }
 }
 

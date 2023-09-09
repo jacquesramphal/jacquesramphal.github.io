@@ -23,7 +23,7 @@
       :size="`${iconsize}`"
     />
 
-    <h6 tabIndex="0" class="eyebrow subtle" v-if="eyebrow" v-text="eyebrow" />
+    <p tabIndex="0" class="eyebrow subtle" v-if="eyebrow" v-text="eyebrow" />
     <h2 tabIndex="0" v-if="header" v-text="header" />
     <h3 tabIndex="0" v-if="header3" v-text="header3" />
     <h4 tabIndex="0" v-if="header4" v-text="header4" />
@@ -152,7 +152,7 @@ export default {
   margin-bottom: 1em;
 }
 .details {
-  flex: 1;
+  /* flex: 1; */
   width: 100%;
   white-space: normal;
 }
@@ -165,7 +165,7 @@ p {
 .textblock--clamped p {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 .line-clamp {

@@ -72,7 +72,7 @@ export default {
 <style lang="scss" scoped>
 * {
   color: inherit;
-  font-weight: var(--font-medium);
+  // font-weight: var(--font-medium);
 }
 
 .link-size {
