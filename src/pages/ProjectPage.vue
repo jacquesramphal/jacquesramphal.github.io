@@ -1,14 +1,39 @@
 <template>
   <PageWrapper id="work" class="">
     <HeroBanner
+      :filename="`${entry.thumbnail}`"
+      :key="entry.id"
+      :title="`${entry.title}`"
+
+    />
+    <!-- <HeroBanner
       overlap
       eyebrow=""
       :filename="`${entry.thumbnail}`"
       :key="entry.id"
       :title="`${entry.title}`"
-    />
+    /> -->
+    <GridContainer style="padding-top: var(--spacing-sm) !important">
+      <TextStats
+        label1="Role"
+        :value1="`${entry.role}`"
+        label2="Type"
+        :value2="`${entry.tag}`"
+        label3="When"
+        :value3="`${entry.year}`"
+    /></GridContainer>
+    <GridContainer tight class="">
+      <ImageCard
+        size="large"
+        title=""
+        :filename="`${entry.thumbnail}`"
+        :filename2="entry.screenshot"
+        :alt="`${entry.alt}`"
+        route=""
+        :style="`${entry.bgcolor}`"
+    /></GridContainer>
 
-    <TextGrid2
+    <!-- <TextGrid2
       id="detail1"
       class=""
       label1="Role"
@@ -19,22 +44,15 @@
       :value3="`${entry.year}`"
       :subtitle="`${entry.subtitle}`"
       :description="`${entry.description}`"
-    />
-    <SplitImage class="fadeInLeft" />
+    /> -->
+    <SplitImage class="fadeInUp" />
     <div v-html="htmlContent"></div>
 
-    <!-- <TextStats
-      label1="Role"
-      :value1="`${entry.role}`"
-      label2="Type"
-      :value2="`${entry.type}`"
-      label3="Year"
-      :value3="`${entry.year}`"
-    /> -->
-    <!-- <ProjectPreview
+<!-- 
+    <ProjectPreview
       screenshotUrl="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/091abd59-87bb-46c8-92d2-14d6faf629d1/d2hr6ab-356b2e45-5725-4994-9851-a754ea9fd5bc.jpg/v1/fill/w_1600,h_1000,q_75,strp/desktop_screenshot_by_juggleboy711.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl0sIm9iaiI6W1t7InBhdGgiOiIvZi8wOTFhYmQ1OS04N2JiLTQ2YzgtOTJkMi0xNGQ2ZmFmNjI5ZDEvZDJocjZhYi0zNTZiMmU0NS01NzI1LTQ5OTQtOTg1MS1hNzU0ZWE5ZmQ1YmMuanBnIiwid2lkdGgiOiI8PTE2MDAiLCJoZWlnaHQiOiI8PTEwMDAifV1dfQ.6FQZz6R88KV-NlQ73JUgAEXGSOEMK6oDdhQbXB0pxaw"
     /> -->
-    <GridContainer class="fadeInLeft">
+    <GridContainer class="fadeInUp">
       <ImageCard
         size="large"
         title=""
@@ -44,7 +62,7 @@
         caption="This is a caption."
       />
     </GridContainer>
-    <GridContainer class="fadeInRight">
+    <GridContainer class="fadeInUp">
       <ImageCard
         size="large"
         title=""
@@ -54,7 +72,7 @@
         caption="This is a caption."
       />
     </GridContainer>
-    <GridContainer class="fadeInDown">
+    <GridContainer class="fadeInUp">
       <ImageCard
         size="large"
         title=""
@@ -77,7 +95,7 @@
 
 <script>
 // External js for gsap not working
-import "@/assets/js/gsap.js";
+// import "@/assets/js/gsap.js";
 
 import workData from "@/assets/data/work.json";
 // import content from "@/assets/content/content.md";
@@ -85,11 +103,13 @@ import workData from "@/assets/data/work.json";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ImageCard from "@/components/ImageCard.vue";
+import GridContainer from "@/components/grid/GridContainer.vue";
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: "ProjectPage",
-  components: {},
+  components: { ImageCard, GridContainer },
 
   // data() {
   //   return {
@@ -119,7 +139,7 @@ export default {
         scrollTrigger: {
           trigger: fadeInUp,
           start: "top bottom",
-          end: "bottom bottom",
+          end: "top 50%",
           scrub: 1,
           toggleActions: "restart pause reverse pause",
         },
@@ -134,7 +154,7 @@ export default {
         scrollTrigger: {
           trigger: fadeInDown,
           start: "top bottom",
-          end: "bottom bottom",
+          end: "top 50%",
           scrub: 1,
           toggleActions: "restart pause reverse pause",
         },
@@ -149,7 +169,7 @@ export default {
         scrollTrigger: {
           trigger: fadeInRight,
           start: "top bottom",
-          end: "bottom bottom",
+          end: "top 50%",
           scrub: 1,
           toggleActions: "restart pause reverse pause",
         },
@@ -164,7 +184,7 @@ export default {
         scrollTrigger: {
           trigger: fadeInLeft,
           start: "top bottom",
-          end: "bottom bottom",
+          end: "top 50%",
           scrub: 1,
           toggleActions: "restart pause reverse pause",
         },

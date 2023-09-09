@@ -59,7 +59,7 @@ export default {
     padding: var(--spacing-lg) !important;
   }
   @media only screen and (min-width: 1201px) {
-    padding: var(--spacing-lg) !important;
+    padding: var(--spacing-lg) var(--spacing-xl) !important;
   }
 
   &--tight {

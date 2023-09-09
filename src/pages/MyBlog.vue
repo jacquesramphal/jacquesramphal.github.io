@@ -7,20 +7,9 @@
     />
     <GridContainer tight id="docs" class="animate delay-2">
       <GridParent>
-        <CoverCard
-          v-for="entry in docs.entries.slice(0, 1)"
-          :key="entry.id"
-          :filename="entry.thumbnail"
-          title="CoverCard"
-
-          :image="entry.image"
-          :alt="entry.alt"
-
-        />
         <DefaultCard
           v-for="entry in docs.entries"
           :key="entry.id"
-          :image="entry.image"
           :tag="entry.tag"
           :filename="entry.thumbnail"
           :alt="entry.alt"
@@ -38,7 +27,6 @@
 <script>
 import works from "@/assets/data/work.json";
 import docs from "../assets/data/docs.json";
-import CoverCard from "@/components/card/CoverCard.vue";
 
 export default {
   name: "MyBlog",
@@ -100,7 +88,6 @@ export default {
       }
     },
   },
-  components: { CoverCard },
 };
 </script>
 

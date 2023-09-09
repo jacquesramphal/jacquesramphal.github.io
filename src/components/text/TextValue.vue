@@ -1,7 +1,7 @@
 <template>
   <div id="TextValue">
-    <h6 tabIndex="0" class="subtle">{{ label }}</h6>
-    <h4 tabIndex="0">{{ value }}</h4>
+    <p tabIndex="0" class="subtle">{{ label }}</p>
+    <p tabIndex="0">{{ value }}</p>
   </div>
 </template>
 
@@ -39,7 +39,7 @@ export default {
     margin-bottom: 1em;
   }
 
-  h4 {
+  h5 {
     margin: 0;
   }
 }

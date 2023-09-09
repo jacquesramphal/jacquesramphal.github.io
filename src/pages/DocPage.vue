@@ -50,17 +50,18 @@
           </GridContainer>
         </AnimatedComponent>
       </GridWrapper>
-      <GridContainer>
-        <!-- <ButtonRow :buttons="entry.buttonsData" /> -->
+      
+    </div>
+    <!-- <GridContainer>
+        <ButtonRow :buttons="entry.buttonsData" />
         <ButtonRow
           :buttons="[
             { label: 'Custom Label', route: '/custom-route' },
             { label: 'Custom Label2', route: '/custom-route2' },
           ]"
         />
-      </GridContainer>
-    </div>
-    <!-- Make this list constrained and limit to 3 -->
+      </GridContainer> -->
+
     <CardRow2 header="Related" />
   </PageWrapper>
 </template>
@@ -75,7 +76,7 @@ import TextBlock from "../components/TextBlock.vue";
 import AnimatedComponent from "../components/AnimatedComponent.vue";
 import ImageCard from "../components/ImageCard.vue";
 import CardRow2 from "../components/CardRow2.vue";
-import ButtonRow from "../components/ButtonRow.vue";
+// import ButtonRow from "../components/ButtonRow.vue";
 
 export default {
   name: "DocPage",
@@ -87,7 +88,7 @@ export default {
     ImageCard,
     CardRow2,
     PageWrapper,
-    ButtonRow,
+    // ButtonRow,
   },
   // data() {
   //   return {

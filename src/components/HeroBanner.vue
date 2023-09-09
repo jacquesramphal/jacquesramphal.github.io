@@ -1,34 +1,36 @@
 <template>
   <AnimatedComponent>
     <GridWrapper id="hero-banner" :class="classes">
-        <img
-          id="hero-image"
-          class="animate fade delay-1"
-          v-if="filename"
-          draggable="false"
-          :src="require(`../assets/images/${filename}`)"
-          :alt="`${alt}`"
-        />
+      <img
+        id="hero-image"
+        class="animate fade delay-1"
+        v-if="filename"
+        draggable="false"
+        :src="require(`../assets/images/${filename}`)"
+        :alt="`${alt}`"
+      />
       <GridContainer id="eyebrow" v-if="eyebrow">
         <div v-if="eyebrow" class="animate fade delay-3">
           <h6 class="subtle" v-if="eyebrow" v-text="eyebrow" />
         </div>
       </GridContainer>
-      <GridContainer v-if="title">
-        <div id="hero-text" class="animate glow delay-1">
+      <GridContainer class="banner-container" v-if="title">
+        <div id="hero-text" class="animate fade delay-1">
           <span
             ><h1 id="title" v-html="title" />
-            <h6 id="tags" v-if="tag" v-text="tag" class="subtle" />
+            <p id="tags" v-if="tag" v-text="tag" class="subtle" />
 
             <p
               v-if="subtitle"
               v-text="subtitle"
               id="subtitle"
-              style="font-weight: var(--font-medium)"
             />
 
-            <div id="hero-cta" v-if="label" v-show="label">
-              <!-- refactor button and props -->
+            <div
+              id="hero-cta"
+              v-if="label"
+              :class="{ 'with-gap': label && labeltwo }"
+            >
               <MyButton
                 v-if="label"
                 size="large"
@@ -43,14 +45,15 @@
                 :route="`${routetwo}`"
               />
             </div>
-                    <!-- <ButtonRow v-if="buttonsData" :buttons="`${buttonsData}`" />
+            <!-- <ButtonRow v-if="buttonsData" :buttons="`${buttonsData}`" /> -->
 
-            <ButtonRow
-          :buttons="[
-            { label: 'Custom Label', route: '/custom-route' },
-            { label: 'Custom Label2', route: '/custom-route2' },
-          ]"
-        /> -->
+            <!-- This works but need to make second button conditional and type=secondary -->
+            <!-- <ButtonRow v-if="label"
+              :buttons="[
+                { label: label, route: route },
+                { label: labeltwo, route: routetwo },
+              ]"
+            /> -->
           </span>
         </div>
       </GridContainer>
@@ -58,11 +61,10 @@
   </AnimatedComponent>
 </template>
 
-
 <script>
 import GridContainer from "./grid/GridContainer.vue";
 import GridWrapper from "./grid/GridWrapper.vue";
-import MyButton from "./Button.vue";
+// import MyButton from "./Button.vue";
 import AnimatedComponent from "./AnimatedComponent.vue";
 
 export default {
@@ -70,7 +72,7 @@ export default {
   components: {
     GridContainer,
     GridWrapper,
-    MyButton,
+    // MyButton,
     AnimatedComponent,
   },
   props: {
@@ -141,9 +143,7 @@ export default {
         "herobanner--center": this.center,
         "herobanner--overlap": this.overlap,
         "herobanner--fullvh": this.fullvh,
-        "herobanner--red": this.red,
 
-        // "herobanner--left": !this.center,
       };
     },
   },
@@ -198,12 +198,15 @@ img {
 #hero-cta {
   padding-top: var(--spacing-md);
   display: grid;
-  gap: 2rem;
   grid-template-columns: 1fr;
   justify-content: start;
   @media only screen and (min-width: 740px) {
     grid-template-columns: auto auto;
   }
+}
+
+#hero-cta.with-gap {
+  gap: 2rem; /* Add gap only when both buttons are present */
 }
 
 #eyebrow {
@@ -314,4 +317,5 @@ img {
     margin-top: 0 !important;
   }
 }
+
 </style>

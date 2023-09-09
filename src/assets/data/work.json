@@ -2,10 +2,25 @@
 {
   "entries": [
     {
-      "id": 1,
+     "id": 1,
       "size": "small",
-      "title": "Giftbook",
-      "thumbnail": "work/gob.svg"
+      "title": "Work Name 1",
+      "tag": "UX/UI Product-Design Tag4",
+      "description": "This is a description",
+      "btnroute": "work/1",
+      "cta": "Read More",
+      "thumbnail": "templates/template-mobile-group.svg",
+      "bgcolor": "background-color: var(--link)",
+      "role": "Designer/Developer",
+      "type": "Work Type",
+      "year": "May, 2022 — December, 2022",
+      "alt": "Alt Test",
+      "images": {
+        "filename1": "work/glo.svg",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "filename3": "work/dod.svg"
+      }
     },
     {
       "id": 2,
@@ -19,7 +34,8 @@
       "bgcolor": "background-color: var(--background-darker)",
       "role": "Designer/Developer",
       "type": "Work Type",
-      "year": "XXXX-XXXX",
+      "year": "May, 2022 — December, 2022",
+      "alt": "Alt Test",
       "images": {
         "filename1": "work/glo.svg",
         "caption1": "This is a Caption1",
@@ -36,7 +52,9 @@
       "btnroute": "course",
       "cta": "View Ebook",
       "thumbnail": "templates/template-desktop-device.svg",
+      "alt": "Alt Test",
       "bgcolor": "background-color: var(--background-darker)"
+      
     },
     {
       "id": 4,
@@ -75,6 +93,7 @@
       "btnroute": "work/5",
       "cta": "Read More",
       "thumbnail": "templates/template-mobile-blank.svg",
+      "alt": "Alt Test",
       "bgcolor": "background-color: var(--background-darker)",
       "role": "Designer/Developer",
       "type": "Work Type",
@@ -95,6 +114,7 @@
       "btnroute": "work/6",
       "cta": "Read More",
       "thumbnail": "templates/template-desktop-blank.svg",
+      "alt": "Alt Test",
       "bgcolor": "background-color: var(--background-darker)",
       "role": "Designer/Developer",
       "type": "Work Type",
@@ -115,6 +135,7 @@
       "btnroute": "work/7",
       "cta": "Read More",
       "thumbnail": "templates/template-desktop-device.svg",
+      "alt": "Alt Test",
       "screenshot": "work/glo/planner.png",
       "bgcolor": "background-color: var(--background-darker)",
       "role": "Designer/Developer",

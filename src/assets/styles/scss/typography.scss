@@ -333,6 +333,7 @@ a,
 router-link {
   position: relative;
   color: var(--link) !important;
+  font-weight: var(--font-normal);
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 0.75rem;
@@ -417,18 +418,18 @@ transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s)); */
 .reversed a,
 .reversed a::after {
   color: var(--link-reversed) !important;
-  font-weight: var(--font-reversed-medium) !important;
+  font-weight: var(--font-reversed-normal) !important;
 }
 .external:after {
   content: " ↗";
   color: var(--link) !important;
-  font-weight: var(--font-reversed-medium) !important;
+  font-weight: var(--font-reversed-normal) !important;
 }
 
 .reversed .external:after {
   content: " ↗";
   color: var(--link-reversed) !important;
-  font-weight: var(--font-reversed-medium) !important;
+  font-weight: var(--font-reversed-normal) !important;
 }
 
 .reversed p,

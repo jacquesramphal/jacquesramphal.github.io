@@ -1,38 +1,36 @@
 <template>
   <GridWrapper id="stats" class="">
-    <GridContainer class="grid-parent">
+    <div class="grid-parent">
       <!--      <h2>Stats</h2> -->
       <TextValue
-        class="grid-card"
+        class="grid-card animate glow delay-1"
         :label="`${label1}`"
         :value="`${value1}`"
         details=""
       />
       <TextValue
-        class="grid-card"
+        class="grid-card animate glow delay-2"
         :label="`${label2}`"
         :value="`${value2}`"
         details=""
       />
       <TextValue
-        class="grid-card"
+        class="grid-card animate glow delay-3"
         :label="`${label3}`"
         :value="`${value3}`"
         details=""
       />
-    </GridContainer>
+    </div>
   </GridWrapper>
 </template>
 <script>
 import TextValue from "../text/TextValue.vue";
-import GridContainer from "../grid/GridContainer.vue";
 import GridWrapper from "../grid/GridWrapper.vue";
 
 export default {
   name: "TextStats",
   components: {
     TextValue,
-    GridContainer,
     GridWrapper,
   },
   props: {
@@ -83,7 +81,7 @@ export default {
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
     .grid-parent {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 }

@@ -1,11 +1,14 @@
 <template>
   <PageWrapper>
-    <HeroBanner
-      id="hero"
-      class="display"
-      title="Multi-disciplinary Designer"
-    />
-
+    <GridWrapper motif1>
+      <HeroBanner
+      red
+        id="hero"
+        class="display"
+        title="Multi-disciplinary Designer"
+        :style="{ paddingBottom: '0' }" 
+      />
+    </GridWrapper>
 
     <!-- CONTENTFUL HEADER EXAMPLE -->
     <!-- <HeroBanner
@@ -51,7 +54,6 @@
           filename="avatar/avatar.svg"
           title="Avatar"
         />
-        <CoverCard/>
 
         <ImageCard
           v-for="entry in works.entries"
@@ -70,28 +72,44 @@
           :size="entry.size"
           :buttons="entry.buttonsData"
         />
+        <!-- <DefaultCard
+          cover
+          v-for="entry in works.entries"
+          :key="entry.id"
+          :tag="entry.tag"
+          :filename="entry.thumbnail"
+          :alt="entry.alt"
+          :title="entry.title"
+          :description="entry.description"
+          :route="entry.btnroute"
+          :label="entry.label"
+        /> -->
       </GridParent>
     </GridContainer>
-    <CardRow2/>
-    <!-- <GridContainer tight>
-      <HeroBanner
+
+    <!-- <TestimonialCarousel/> -->
+
+    <!-- <CardRow2/> -->
+    <!-- 
+    Get in touch banner -->
+    <!-- <HeroBanner
         center
         fullvh
         eyebrow=""
         route="/"
+        title="Have a question? Get in touch."
         label="Get in touch"
-        style="background-color: var(--background-darker)"
-    /></GridContainer> -->
+        labeltwo="Get in touch"
+    /> -->
   </PageWrapper>
 </template>
 
 <script>
 import works from "@/assets/data/work.json";
-import GridContainer from "@/components/grid/GridContainer.vue";
+// import TestimonialCarousel from "@/components/TestimonialCarousel.vue";
 
 export default {
   name: "HomePage",
-  components: { GridContainer },
   props: {
     // work: {
     //   type: Object,
@@ -148,8 +166,11 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-@media only screen and (min-width: 1201px)
-    #work
-      // padding-top: 0 !important
+<style lang="scss">
+@media only screen and (min-width: 1201px) {
+  .banner-container{
+    // background-color: red !important;
+    padding: 0 !important;
+  }
+}
 </style>

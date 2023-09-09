@@ -1,7 +1,9 @@
 /* Styles for users who prefer light mode at the OS level */
 :root {
-
+  --text-opacity: 0.7;
   --text: var(--color-darktext);
+  --text-muted: rgba(var(--color-darktext), var(--text-opacity));
+  --text-subtle: rgba(43, 61, 79, var(--text-opacity)); /* Use the RGB values for --color-darktext */
   --background: var(--color-offwhite);
   --background-darker: var(--color-highlight2);
   --link: var(--color-action);
@@ -96,8 +98,8 @@
   --font-sm: 2.8rem;
   --font-xs: 2rem;
   --font-xxs: 1.6rem;
-  --font-xxxs: 1.2rem; 
-/* 
+  --font-xxxs: 1.2rem;
+  /* 
   --font-display: clamp(4rem, 9vw, 12rem);
   --font-xxxl: clamp(3rem, 7vw, 8rem);
   --font-xxl: clamp(2.8rem, 6vw, 7.2rem);
@@ -130,7 +132,7 @@
   --spacing-xs: 1.6rem;
   --spacing-sm: 2.4rem;
   --spacing-md: 3.2rem;
-  
+
   /* New, needed? */
   --spacing-big: 4.8rem;
 
@@ -149,6 +151,8 @@
 /* Override light mode with dark mode styles if the user decides to swap */
 :root.dark-theme {
   --text: var(--color-offwhite);
+  --text-muted: rgba(var(--text), 0.7);
+  --text-subtle: rgba(250, 250, 250, 0.5); /* Use the RGB values for #fafafa */
   --background: var(--color-offblack);
   --background-darker: var(--color-highlight);
   --link: var(--color-action-dark);
@@ -193,6 +197,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --text: var(--color-offwhite);
+    --text-muted: rgba(var(--text), 0.7);
+    --text-subtle: rgba(250, 250, 250, 0.5); /* Use the RGB values for #fafafa */
     --background: var(--color-offblack);
     --background-darker: var(--color-highlight);
     --link: var(--color-action-dark);
@@ -235,6 +241,9 @@
 /* Override dark mode with light mode styles if the user decides to swap */
 :root.light-theme {
   --text: var(--color-darktext);
+  --text-muted: rgba(var(--text), 0.7);
+  --text-subtle: rgba(43, 61, 79, var(--text-opacity)); /* Use the RGB values for --color-darktext */
+
   --background: var(--color-offwhite);
   --background-darker: var(--color-highlight2);
   --link: var(--color-action);
@@ -278,14 +287,13 @@
 
 /* Filters & Gradients */
 .gradient-sunrise {
-  background: linear-gradient(
-    to bottom right,
-    var(--gradient-sunrise-start) 0%,
-    var(--gradient-sunrise-mid) 40%,
-    var(--gradient-sunrise-end) 75%,
-    var(--link-reversed) 95%
-  );
+  background: linear-gradient(to bottom right,
+      var(--gradient-sunrise-start) 0%,
+      var(--gradient-sunrise-mid) 40%,
+      var(--gradient-sunrise-end) 75%,
+      var(--link-reversed) 95%);
 }
+
 .gradient2 {
   background: -webkit-linear-gradient(top left,
       var(--link-reversed),

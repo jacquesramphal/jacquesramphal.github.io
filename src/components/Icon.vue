@@ -6,10 +6,17 @@
       :style="{ width: size + 'px', height: size + 'px' }"
     >
       <img
+      v-if="name"
         draggable="false"
         :src="require(`../assets/images/${name}.svg`)"
         :alt="name"
       />
+      <img
+      v-if="url"
+      draggable="false"
+      :src="url"
+      :alt="name"
+    />
     </span>
     <span
       v-else
@@ -40,7 +47,9 @@ export default {
   props: {
     name: {
       type: String,
-      required: true,
+    },
+    url: {
+      type: String,
     },
     // alt: {
     //   type: String,
