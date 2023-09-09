@@ -45,10 +45,14 @@ export default {
   },
   methods: {
     renderMarkdown(markdown) {
-      this.renderedMarkdown = marked(markdown, {
+      // Configure marked to render tables
+      const options = {
         mangle: false,
         headerIds: false,
-      });
+        tables: true, // Enable table rendering
+      };
+
+      this.renderedMarkdown = marked(markdown, options);
     },
   },
   components: { GridContainer },
@@ -91,7 +95,7 @@ export default {
   }
 
   ol > li {
-    list-style: inherit;
+    list-style: inherit !important;
     font-size: var(--font-xs);
     font-weight: var(--font-medium);
     line-height: 1.8;
@@ -101,7 +105,7 @@ export default {
     list-style-position: outside;
   }
   ul > li {
-    list-style: disc;
+    list-style: disc !important;
     font-size: var(--font-xs);
     font-weight: var(--font-medium);
     line-height: 1.8;
@@ -156,7 +160,7 @@ export default {
   // }
 
   // code.language-javascript {
-  //   color: var(--color-text); 
+  //   color: var(--color-text);
   // }
 
   // code.language-html {
@@ -189,13 +193,12 @@ export default {
   li > code,
   dd > code,
   td > code {
-    background:var(--background-darker);
+    background: var(--background-darker);
     word-wrap: break-word;
     box-decoration-break: clone;
     padding: 0.1rem 0.3rem 0.2rem;
     border-radius: 0.2rem;
   }
- 
 }
 /* Custom syntax highlighting styles for specific languages */
 
@@ -245,4 +248,122 @@ code.language-javascript .hljs-function {
   color: #61aeee; /* JavaScript functions */
 }
 
+/* -------- TABLES -------- */
+/* Basic Container Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 3rem; /* Adjust the spacing between tables */
+  font-size: var(--font-xs);
+  border: var(--border); /* Add a border to all table rows */
+  @media only screen and (max-width: 740px) {
+    display: block; /* Display as a block element to allow for horizontal scrolling */
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent table cells from wrapping */
+    width: 100%; /* Ensure the table spans the full width of the viewport */
+  }
+}
+
+/* Table Header */
+th {
+  color: var(--text-subtle) !important;
+  // opacity: var(--text-subtle) !important;
+  font-weight: var(--font-normal);
+  background-color: var(
+    --background-darker
+  ); /* Background color for table headers */
+}
+
+/* Table Padding */
+th,
+td {
+  padding: var(--spacing-xs);
+  text-align: left;
+}
+
+/* Horizontal Borders */
+th,
+tr {
+  border-bottom: var(--border); /* Add a border to all table rows */
+}
+/* RM border on last row */
+tr:last-of-type {
+  border-bottom: none !important;
+}
+
+/* Vertical Borders */
+th,
+td {
+  border-right: var(--border); /* Add a border to all table rows */
+}
+th:last-of-type,
+td:last-of-type {
+  border-right: none; /* Add a border to all table rows */
+}
+
+/* Optional: Add hover effect on rows */
+// tr:hover {
+//   background-color: #ddd;
+// }
+
+/* Zebra Striping (Commented Out) */
+
+// tr:nth-of-type(even) td {
+//   background-color: var(--background-darker);
+// }
+
+/* Responsive Table Styles */
+// @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+//   /* Force table into rows */
+//   table, thead, tbody, th, td, tr {
+//     display: block;
+//   }
+
+//   /* Hide table headers (but not display: none;, for accessibility) */
+//   thead tr {
+//     position: absolute;
+//     top: -9999px;
+//     left: -9999px;
+//   }
+
+//   tr {
+//     margin: 0 0 1rem 0;
+//   }
+
+//   td {
+//     /* Behave like a "row" */
+//     border: none;
+//     border-bottom: var(--border); /* Border color for table cells */
+//     position: relative;
+//     padding-left: 50%;
+//   }
+
+//   td:before {
+//     /* Now like a table header */
+//     position: absolute;
+//     /* Top/left values mimic padding */
+//     top: 0;
+//     left: 0;
+//     width: 45%;
+//     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+//     white-space: nowrap;
+//   }
+
+//   /* Define header content for each column */
+//   td:nth-of-type(1):before {
+//     content: "First Name";
+//   }
+//   td:nth-of-type(2):before {
+//     content: "Last Name";
+//   }
+//   td:nth-of-type(3):before {
+//     content: "Job Title";
+//   }
+//   td:nth-of-type(4):before {
+//     content: "Favorite Color";
+//   }
+//   td:nth-of-type(5):before {
+//     content: "Date of Birth";
+//   }
+// }
 </style>
