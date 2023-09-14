@@ -13,7 +13,7 @@
       <ImageCard
         size="large"
         title=""
-        :filename="`${entry.thumbnail}`"
+        :filename1="`${entry.thumbnail}`"
         :alt="`${entry.alt}`"
         route=""
       />
@@ -22,7 +22,7 @@
       <!-- <MarkdownRenderer :markdown="pageContent" /> -->
       <GridWrapper v-for="(section, j) in entry.entries" :key="j">
         <AnimatedComponent>
-          <GridContainer class="width">
+          <GridContainer class="width fadeInUp">
             <GridWrapper>
               <TextBlock
                 left
@@ -34,6 +34,7 @@
             </GridWrapper>
           </GridContainer>
           <GridContainer
+            class="fadeInUp"
             v-if="section.images.filename"
             id=""
             style="padding-top: 0 !important"
@@ -43,14 +44,13 @@
               v-if="section.images.filename"
               class="width1"
               title=""
-              :filename="section.images.filename"
+              :filename1="section.images.filename"
               :alt="section.images.alt"
               :caption="section.images.caption"
             />
           </GridContainer>
         </AnimatedComponent>
       </GridWrapper>
-      
     </div>
     <!-- <GridContainer>
         <ButtonRow :buttons="entry.buttonsData" />

@@ -23,7 +23,7 @@
         <img
           class="zoom bg"
           draggable="false"
-          :src="require(`../assets/images/${filename}`)"
+          :src="require(`../assets/images/${filename1}`)"
           :alt="`${alt}`"
         />
       </router-link>
@@ -51,11 +51,20 @@
         <!-- Foreground Image (if filename2 exists), using conditional class BLUR when TITLE is true -->
         <img
           v-if="filename2"
-          class="fg"
+          class="filename2"
           :class="{ blur: title }"
           style="position: absolute"
           draggable="false"
           :src="filename2 ? require(`../assets/images/${filename2}`) : null"
+          :alt="`${alt}`"
+        />
+        <img
+          v-if="filename3"
+          class="filename3"
+          :class="{ blur: title }"
+          style="position: absolute"
+          draggable="false"
+          :src="filename3 ? require(`../assets/images/${filename3}`) : null"
           :alt="`${alt}`"
         />
         <!-- Background Image -->
@@ -63,7 +72,7 @@
           class="bg"
           :class="{ blur: title }"
           draggable="false"
-          :src="require(`../assets/images/${filename}`)"
+          :src="require(`../assets/images/${filename1}`)"
           :alt="`${alt}`"
         />
       </figure>
@@ -102,13 +111,17 @@ export default {
       type: String,
       required: false,
     },
+    filename3: {
+      type: String,
+      required: false,
+    },
     filename2: {
       type: String,
       required: false,
     },
-    filename: {
+    filename1: {
       type: String,
-      default: "templates/template-desktop-device.svg",
+      default: "empty.png",
     },
     alt: {
       type: String,
@@ -165,12 +178,23 @@ export default {
     object-fit: cover;
     object-position: 0% 100%;
   }
-  .fg {
+  .filename2 {
     z-index: 1;
-    right: -18.05%;
+    right: -18%;
     top: 14.75%;
     height: 68%;
     border-radius: 0 !important;
+    object-fit: cover !important;
+    object-position: 0% 0% !important;
+  }
+  .filename3 {
+    z-index: 1;
+    left: 20%;
+    top: 15%;
+    height:100%;
+    rotate: -7deg;
+    box-shadow: var(--shadow-z5);
+    border-radius: var(--spacing-xxs) 0 0 0 !important;
     object-fit: cover !important;
     object-position: 0% 0% !important;
   }
@@ -181,8 +205,21 @@ export default {
   @media only screen and (min-width: 740px) {
     grid-column: 1 / 3;
     .bg {
-      aspect-ratio: 16 / 8;
+      aspect-ratio: 16 / 9;
+      object-position: 0% 0%;
     }
+    .filename2 {
+      top: 29.25%;
+      right: -17.75%;
+      object-position: 0% 100%;
+      height: 100%;
+    }
+    // .fg2 {
+    //   top: 29.25%;
+    //   right: -17.75%;
+    //   object-position: 0% 100%;
+    //   height: 100%;
+    // }
     .caption {
       padding: var(--spacing-md);
     }

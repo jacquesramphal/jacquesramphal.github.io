@@ -1,18 +1,10 @@
 <template>
   <PageWrapper id="work" class="">
     <HeroBanner
-      :filename="`${entry.thumbnail}`"
       :key="entry.id"
       :title="`${entry.title}`"
-
+      :subtitle="`${entry.description}`"
     />
-    <!-- <HeroBanner
-      overlap
-      eyebrow=""
-      :filename="`${entry.thumbnail}`"
-      :key="entry.id"
-      :title="`${entry.title}`"
-    /> -->
     <GridContainer style="padding-top: var(--spacing-sm) !important">
       <TextStats
         label1="Role"
@@ -22,37 +14,60 @@
         label3="When"
         :value3="`${entry.year}`"
     /></GridContainer>
+    
     <GridContainer tight class="">
       <ImageCard
         size="large"
         title=""
-        :filename="`${entry.thumbnail}`"
-        :filename2="entry.screenshot"
+        :filename1="`${entry.images.filename1}`"
         :alt="`${entry.alt}`"
         route=""
         :style="`${entry.bgcolor}`"
     /></GridContainer>
 
-    <!-- <TextGrid2
-      id="detail1"
-      class=""
-      label1="Role"
-      :value1="`${entry.role}`"
-      label2="Type"
-      :value2="`${entry.type}`"
-      label3="Year"
-      :value3="`${entry.year}`"
-      :subtitle="`${entry.subtitle}`"
-      :description="`${entry.description}`"
-    /> -->
-    <SplitImage class="fadeInUp" />
-    <div v-html="htmlContent"></div>
+    <div class="section">
+      <GridWrapper v-for="(section, j) in entry.entries" :key="j">
+        <AnimatedComponent>
+          <GridContainer class="width fadeInUp">
+            <GridWrapper>
+              <TextBlock
+                left
+                eyebrow=""
+                :header="section.title"
+                :details="section.body"
+                :blockquote="section.blockquote"
+              />
+            </GridWrapper>
+          </GridContainer>
+          <GridContainer
+            v-if="section.images.filename1"
+            id=""
+            class="fadeInUp"
+            style="padding-top: 0 !important"
+          >
+            <ImageCard
+              size="large"
+              v-if="section.images.filename1"
+              class="width1"
+              title=""
+              :filename1="section.images.filename1"
+              :alt="section.images.alt"
+              :caption="section.images.caption"
+            />
+          </GridContainer>
+        </AnimatedComponent>
+      </GridWrapper>
+    </div>
+    <!-- <SplitImage class="fadeInUp" flipped/>
+    <SplitImage class="fadeInUp"/> -->
 
-<!-- 
+    <!-- <div v-html="htmlContent"></div> -->
+
+    <!-- 
     <ProjectPreview
       screenshotUrl="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/091abd59-87bb-46c8-92d2-14d6faf629d1/d2hr6ab-356b2e45-5725-4994-9851-a754ea9fd5bc.jpg/v1/fill/w_1600,h_1000,q_75,strp/desktop_screenshot_by_juggleboy711.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl0sIm9iaiI6W1t7InBhdGgiOiIvZi8wOTFhYmQ1OS04N2JiLTQ2YzgtOTJkMi0xNGQ2ZmFmNjI5ZDEvZDJocjZhYi0zNTZiMmU0NS01NzI1LTQ5OTQtOTg1MS1hNzU0ZWE5ZmQ1YmMuanBnIiwid2lkdGgiOiI8PTE2MDAiLCJoZWlnaHQiOiI8PTEwMDAifV1dfQ.6FQZz6R88KV-NlQ73JUgAEXGSOEMK6oDdhQbXB0pxaw"
     /> -->
-    <GridContainer class="fadeInUp">
+    <!-- <GridContainer tight class="fadeInUp">
       <ImageCard
         size="large"
         title=""
@@ -61,35 +76,8 @@
         route=""
         caption="This is a caption."
       />
-    </GridContainer>
-    <GridContainer class="fadeInUp">
-      <ImageCard
-        size="large"
-        title=""
-        :filename="`${entry.images.filename1}`"
-        :alt="`${entry.alt}`"
-        route=""
-        caption="This is a caption."
-      />
-    </GridContainer>
-    <GridContainer class="fadeInUp">
-      <ImageCard
-        size="large"
-        title=""
-        :filename="`${entry.images.filename1}`"
-        :alt="`${entry.alt}`"
-        route=""
-        caption="This is a caption."
-      />
-    </GridContainer>
-    <SplitImage class="" flipped />
-    <SplitImage class="" />
-    <SplitImage class="" flipped />
-    <SplitImage class="" />
-    <SplitImage class="fadeInLeft" flipped />
-    <SplitImage class="fadeInRight" />
-    <SplitImage class="fadeInLeft" flipped />
-    <SplitImage class="fadeInRight" />
+    </GridContainer> -->
+    <CardRow2 header="Related" />
   </PageWrapper>
 </template>
 
@@ -105,11 +93,12 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ImageCard from "@/components/ImageCard.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
+import CardRow2 from "@/components/CardRow2.vue";
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: "ProjectPage",
-  components: { ImageCard, GridContainer },
+  components: { ImageCard, GridContainer, CardRow2 },
 
   // data() {
   //   return {

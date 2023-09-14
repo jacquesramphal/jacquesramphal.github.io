@@ -12,7 +12,7 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   text-rendering: optimizeLegibility;
   unicode-range: U+000-5FF;
-  letter-spacing: var(--spacing-normal);
+  /* letter-spacing: var(--spacing-normal); */
 }
 
 /* TEST AND EXPAND MIXINS */
@@ -52,12 +52,13 @@ h1 {
   font-weight: var(--font-medium);
   letter-spacing: var(--spacing-tight) !important;
   line-height: 1.1;
-  overflow-wrap: break-word;
+/*  overflow-wrap: break-word;
   word-wrap: break-word;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
-  hyphens: auto;
+  hyphens: auto; */
+  
   /*
   -moz-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
@@ -106,6 +107,8 @@ h2 {
   font-size: var(--font-md);
   font-weight: var(--font-medium);
   line-height: 1.4;
+  letter-spacing: var(--spacing-tight) !important;
+
   font-variation-settings:
 
     'GRAD' 500,
@@ -121,6 +124,8 @@ h3 {
   font-size: var(--font-sm);
   font-weight: var(--font-medium);
   line-height: 1.4;
+  letter-spacing: var(--spacing-tight) !important;
+
   font-variation-settings:
 
     'GRAD' 500,
@@ -411,7 +416,7 @@ transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s)); */
   color: var(--text-reversed) !important;
   mix-blend-mode: normal !important;
   background: var(--background-reversed);
-  letter-spacing: var(--spacing-reversed-normal);
+  /* letter-spacing: var(--spacing-reversed-normal); */
 }
 
 
@@ -435,7 +440,7 @@ transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s)); */
 .reversed p,
 .reversed blockquote {
   font-weight: var(--font-reversed-normal) !important;
-  letter-spacing: var(--spacing-reversed-normal);
+  /* letter-spacing: var(--spacing-reversed-normal); */
 }
 
 
@@ -447,7 +452,7 @@ transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s)); */
 .reversed h5
 {
   font-weight: var(--font-reversed-medium) !important;
-  letter-spacing: var(--spacing-reversed-normal);
+  /* letter-spacing: var(--spacing-reversed-normal); */
 }
 .reversed h6 {
   font-weight: var(--font-reversed-medium) !important;

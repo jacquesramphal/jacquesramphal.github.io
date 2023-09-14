@@ -182,7 +182,6 @@ li {
   line-height: 1;
   margin: 0;
   text-decoration: none;
-  // font-weight: var(--font-reversed-medium);
 
   &:first-child {
     padding-right: 0;

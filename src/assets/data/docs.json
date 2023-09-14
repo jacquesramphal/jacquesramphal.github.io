@@ -2,71 +2,13 @@
   "entries": [
     {
       "id": 1,
-      "title": "Doc Name 1",
-      "tag": "Tag1  Tag2 typography",
-      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
-      "btnroute": "doc/1",
+      "title": "The Importance of Baselines",
+      "tag": "Tag1 Tag2 typography",
+      "description": "Baselines provide a stable and known starting point for comparison during software development and testing. By comparing changes or new versions against the baseline, discrepancies, bugs, or regressions can be easily identified, ensuring software quality and reliability throughout its development life cycle.",
+      "btnroute": "mdoc/10",
       "cta": "Read More",
-      "thumbnail": "work/glo.svg",
-      "alt": "Alt Test",
-      "bgcolor": "background-color: var(--background-darker)",
-      "role": "Designer/Developer",
-      "type": "Work Type",
-      "year": "XXXX-XXXX",
-      "images": {
-        "filename1": "work/glo.svg",
-        "alt1": "This is Alt1",
-        "caption1": "This is a Caption1",
-        "filename2": "work/glo.svg",
-        "caption2": "This is a Caption2",
-        "alt2": "This is Alt2",
-        "filename3": "work/dod.svg",
-        "caption3": "This is a Caption3",
-        "alt3": "This is Alt3"
-      },
-      "entries": [
-        {
-          "title": "Sub Section 1",
-          "body": "Body 1 - This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer.",
-          "images": {
-            "filename": "work/glo.svg",
-            "alt": "This is Alt!",
-            "caption": "This is a Caption!"
-          }
-        },
-        {
-          "title": "Sub Section 2",
-          "body": "<h5>Subheading h5</h5><strong>Rich Text</strong> - This is a <i>short</i> description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. <blockquote>Inline Blockquote</blockquote> The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text.<br><br><h5>Subheading h5</h5>The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text.",
-          "images": {
-            "filename": "work/dod.svg",
-            "alt": "This is Alt!",
-            "caption": "This is a Caption!"
-          }
-        },
-        {
-          "title": "Sub Section 3",
-          "body": "Body 1 - This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer.",
-          "images": {
-            "filename": "",
-            "alt": "",
-            "caption": ""
-          }
-        }
-      ],
-      "buttonsData": [
-        {
-          "label": "< Previous Doc",
-          "route": "doc/0",
-          "type": "secondary",
-          "size": "large"
-        },
-        {
-          "label": "Next Doc >",
-          "route": "doc/2",
-          "type": "secondary",
-          "size": "large"
-        }
-      ]
+      "thumbnail": "article/baseline.png",
+      "alt": "Design components"
     },
     {
       "id": 2,

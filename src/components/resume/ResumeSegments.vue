@@ -59,6 +59,4 @@ export default {
   margin-top: var(--spacing-md)
   @media only screen and (min-width: 740px)
     margin-top: 0
-
-.resume-segment-title
 </style>

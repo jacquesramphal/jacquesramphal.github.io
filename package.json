@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "yarn build && yarn serve",
+    "start": "pnpm build && pnpm serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "sb": "storybook build && storybook dev",
-    "bsb": "storybook build"
+    "bsb": "storybook build",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "@emailjs/browser": "^3.2.0",
@@ -84,9 +85,8 @@
     "vue-loader": "^17.2.2",
     "vue-svg-inline-loader": "^2.1.2",
     "vue-template-compiler": "^2.7.14",
-    "webpack-cli": "^4.10.0",
-    "yarn-audit-fix": "^9.3.5"
-  },
+    "webpack-cli": "^4.10.0"
+    },
   "eslintConfig": {
     "root": true,
     "env": {

@@ -29,7 +29,7 @@ git clone https://github.com/jacquesramphal/jacquesramphal.github.io.git
 
 ```bash
 cd jacquesramphal.github.io
-yarn install
+pnpm i
 ```
 
 ## Development

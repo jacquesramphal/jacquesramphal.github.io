@@ -61,8 +61,8 @@ export default {
 
 <style lang="scss">
 /* ---- MARKDOWN STYLING ---- */
-
 .markdown {
+  margin: var(--spacing-xl) 0;
   h1 {
     padding-bottom: 2.4rem;
     @media only screen and (min-width: 740px) {
@@ -75,7 +75,14 @@ export default {
   h3,
   h4,
   h5,
-  h6,
+  h6 {
+    padding: 1.6rem 0;
+    @media only screen and (min-width: 740px) {
+      padding: 2.4rem 0;
+    }
+    @media only screen and (min-width: 1201px) {
+    }
+  }
   p {
     padding-bottom: 1.6rem;
     @media only screen and (min-width: 740px) {
@@ -84,6 +91,11 @@ export default {
     @media only screen and (min-width: 1201px) {
     }
   }
+  blockquote {
+  margin-top: 0 ;
+    p {
+   padding-bottom: 0; 
+  }}
   ul,
   ol {
     padding-bottom: 1.6rem;
@@ -114,9 +126,9 @@ export default {
     padding-bottom: 0.8rem;
   }
   hr {
-    margin: 1.6rem 0 2.4rem 0;
+    margin: 2.4rem 0 1.6rem;
     @media only screen and (min-width: 740px) {
-      margin: 1.6rem 0 3.6rem 0;
+      margin: 3.6rem 0 2.4rem;
     }
     @media only screen and (min-width: 1201px) {
     }
@@ -268,7 +280,7 @@ table {
 th {
   color: var(--text-subtle) !important;
   // opacity: var(--text-subtle) !important;
-  font-weight: var(--font-normal);
+  font-weight: var(--font-bold);
   background-color: var(
     --background-darker
   ); /* Background color for table headers */
@@ -279,6 +291,7 @@ th,
 td {
   padding: var(--spacing-xs);
   text-align: left;
+  vertical-align: text-top;
 }
 
 /* Horizontal Borders */

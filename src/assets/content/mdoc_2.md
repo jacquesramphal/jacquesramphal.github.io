@@ -1,106 +1,167 @@
-# Design Quality Assured 2
-Prioritize design and make your Product better
+# 2. Quality Assurance Activities Overview
 
-
-Author: John Doe  
-Date: July 15, 2023
+This guide is designed to enhance the integration of Design Quality Assurance (DQA) into the Agile project lifecycle. By following the activities outlined below and promoting effective collaboration, our aim is to deliver high-quality design outcomes that meet client expectations and reduce the risk of errors. This guide provides clarity, responsibilities, and methods for measuring success.
 
 ---
 
+## Team Roles for Successful DQA wip
 
-As designers, we are responsible for defining and championing the visual language and user experience for a given product. Collaboration tools like Invision and Zeplin help to reduce the delta between design and development by finding common ground in cross-disciplinary workflows, but there will always be changes and adjustments to make as a project nears the finish line. _Visual Quality Control (vQC)_ is a crucial step in every project’s lifecycle.
+Designers have a crucial role in ensuring the product's visual quality matches the design, similar to how a QA Developer manages QA approval. To ensure successful DQA integration, effective collaboration among Designers, Developers, and Product Managers is vital. Here's how each role contributes:
 
-Although vQC is relatively straightforward, there are many factors — both human and external — to consider when forming a strategy with your team. Picking a process that works for everyone is half the battle, so don’t be discouraged at the outset.
+|**Role**|**Responsibilities**|
+|---|---|
+|**Designers**|- **Align and Advocate:** Actively guide the team to align on design implementation, fostering clear communication.<br>    <br>- **Collaborate for Balance:** Work with Product Management to balance stakeholder, business, and user goals, documenting Acceptance Criteria.<br>    <br>- **Streamline Development:** Provide clear communication through annotations and Figma onboarding to enhance design-development efficiency.<br>    <br>- **Ensure QA:** Conduct thorough Design QA to meet standards and user expectations and verify adherence to acceptance criteria.|
+|**Developers**|- **Communicate challenges and complexities** that may lead to deviations from the original design. Early communication ensures that the design can be adjusted as needed without compromising user experience.|
+|**Product & Delivery Managers**|- **Design Insights:** Collaborate with Designers to understand design constraints and possibilities, enabling informed decisions balancing business goals and user experience.<br>    <br><br>- **Timeline Management:** Set project timelines for thorough DQA without compromising quality, considering iterative design improvement.|
+|**All Team**|- **Timely Feedback:** Team members provide timely feedback, contributing to design improvement and project alignment.<br>    <br>- **Adaptability Culture:** Foster adaptability and continuous enhancement, embracing adjustments based on design feedback to keep the process dynamic and responsive.|
 
-To help ease the discussions around your project’s vQC plan, here are some tips and takeaways from the teams at Myplanet to ensure proper fit and finish at the end of a project.
+By fostering a collaborative environment and understanding each other's roles and expectations, we can optimize the Design QA process and collectively contribute to the successful delivery of high-quality design outcomes.
 
-![Primary Screens](https://miro.medium.com/max/1400/1*PKijigFGLw1dt2LUMxxwiQ.jpeg)
+---
 
-### Primary Screens
+## Design QA Touchpoints and Activities wip
 
-Sections of a product that represent primary user goals and key features are often referred to as _Primary Screens._
+Here's a concise summary of the Design QA touchpoints and activities for each Agile phase:
 
-The number of unique screens with unique components must be considered when estimating effort. Some pages may be templates, others may include detailed custom elements, but accounting for them all is an important step in creating your vQC plan.
+|**Phase**|**Design QA Activities**|
+|---|---|
+|**Define**<br><br>Refines project requirements and formulates design concepts.|- Introduce Design QA concepts and processes and communicate the importance of Design QA within the project.<br>    <br>- Align the team on Design QA objectives.<br>    <br>- Evaluate visual design for accessibility compliance.|
+|**Deploy**<br><br>Development and design activities come together.|- Test the UI for functionality, usability, accessibility and visual consistency.<br>    <br>- Verify design compatibility across browsers and devices.<br>    <br>- Document and monitor design bugs in development|
+|**UAT & Launch**<br><br>Ensures final design outputs align with project objectives and requirements.|- Create reports, document issues, and track quality assurance process.|
 
-#### Takeaway
+---
 
-- Identify and review key screens first. This will make it a lot easier when working through subpages.
+## Common Pitfalls in Design QA
 
-![Number of Components](https://miro.medium.com/max/1400/1*ktgyixrDmtW_NjbdpKhHww.png)
+In our quest for impeccable design quality, it's essential to be aware of and steer clear of these common pitfalls that can hamper our efforts and project success.
 
-### Number of Components
+1. **Lack of Stakeholder Alignment:** Ensure everyone understands the importance of design QA.
+2. **Inadequate Documentation:** Keep clear records of processes and findings.
+3. **Scope Creep:** Define and stick to the scope of design QA.
+4. **Expecting Perfection:** Don't assume designs will be flawless.
+5. **Isolation:** Collaborate with the entire team, including developers and product managers.
+6. **Neglecting Usability:** Consider user perspectives and usability.
+7. **Ignoring Feedback:** Take design issues seriously.
+8. **Inconsistent Standards:** Maintain design consistency.
+9. **Rigid Processes:** Be flexible to adapt to project needs.
+10. **Underestimating Resources:** Allocate sufficient time and resources.
+11. **Issue Prioritization:** Prioritize critical issues.
+12. **Losing Focus:** Keep sight of project goals.
 
-Just like the number of primary screens, the number of individual unique components can greatly impact the extent of vQC. A Component refers to multiple interface elements that are visually grouped, working together to solve a user goal.
+---
 
-When developers work, they often think in terms of components and reusability. _A component focused approach_ refers to the creation of a system of reusable objects for the purpose of maintaining consistency during deployment. When starting your next project, think in
+## Measuring Improvement
 
-#### Takeaways
+As part of our ongoing efforts to enhance workflow effectiveness, we are dedicated to elevating the quality of design deliverables and reducing visual discrepancies. To validate these changes, we should employ the following methods to track progress:
 
-- Discuss developing a Component Library with your team; document components and variants/states and keep this updated so the developers have a source of truth.
-- Review global styles & components first — then focus on one-offs
-- Use a component focused approach when documenting notes; group your feedback and reference components whenever possible.
-- Use a shared naming convention when referring to components. This way devs will know where to look.
+- **Defect Density:** We gauge the number of design-related defects per completed unit of work, aiming to see a consistent decrease over time. This metric provides insights into our ability to consistently adhere to design specifications.
+- **Percentage of Reopened Tickets:** Our focus is on monitoring the percentage of reopened tickets attributed to design-related issues, striving for a continuous downward trend. A decrease indicates improved accuracy and alignment with the original design intent.
+- **User Satisfaction:** Gathering feedback from both users and stakeholders regarding design quality is essential. This feedback loop helps us iteratively enhance our processes and adapt to evolving user needs.
+- **Design Dev Alignment Index:** Introducing a metric that quantifies the alignment between the developed product and the original design. This index reflects our success in translating design concepts into functional products accurately.
+- **Visual Delta Report:** Regularly reviewing and disseminating a comprehensive report that highlights discrepancies and improvements observed between design and development phases. This report reinforces transparency and ensures that all stakeholders are aware of the evolution of the design throughout the project lifecycle.
 
-![Responsive Breakpoints](https://miro.medium.com/max/1400/0*QuR2HZPsD6O5fyjb)
+By employing these measurement methods, we continuously validate the effectiveness of our improvements, reinforcing our commitment to delivering high-quality design outcomes and seamless user experiences.
 
-### Responsive Breakpoints
+---
 
-To provide the user with the best layout for consuming content, designers and developers will define dimensions at which the site will respond and reorder/reduce content. Some teams will create mobile-only component variants — we need to check all breakpoints when doing vQC for design and content inconsistencies.
+## Team Maturity
 
-#### Takeaways
+Design QA needs are determined by the team's maturity and how closely they adhere to design specifications. Here's a breakdown based on team maturity levels:
 
-- Confirm if your engagement is mobile first vs. desktop only
-- Determine the breakpoints that have been accommodated for
-- Look closely for changes to component layout/content at each major breakpoint
+**Level 1 (Highly Mature):**
 
-![Interaction Patterns & Development Strategy](https://miro.medium.com/max/1400/0*roCCZ0FCusSex5_6)
+- Deviations are rare due to a strong track record of successful projects.
+- Less Design QA is required, as the team accurately follows guidelines.
 
-### Interaction Patterns & Development Strategy
+**Level 2 (Moderately Mature):**
 
-How a product behaves and responds to user input can’t always be captured with static assets. It is important to note examples where behaviour might not be apparent in the flat designs provided. Affordance considerations such as hover and input transitions can be more difficult to callout without a working prototype.
+- Some deviations occur, often due to unforeseen challenges or complexity.
+- Moderate Design QA is needed to manage deviations based on project complexity.
 
-#### Takeaways
+**Level 3 (Less Mature):**
 
-- Screenshot or record any interactions and animations. Include reference to these to provide more context
-- Run the build locally — having the product dev environment running on your local machine means you can dig into the interactions, and transitions
-- Confirm the intended interaction of the site with the designer/developer to ensure things behave as intended
-- Confirm that xQC is part of the overall vQC review for your engagement
-- Create a clickable prototype to help the dev team understand the flow and IA of the app. This will save development and vQC time.
+- More deviations occur, possibly due to inexperience or skill gaps.
+- Substantial Design QA is essential for oversight and early deviation detection.
 
-![Documentation Requirements](https://miro.medium.com/max/1400/1*bPazcnL0ZsP8BfTKCL9Hzg.png)
+In summary, team maturity inversely affects the need for Design QA. More mature teams require less, while less mature teams need more to manage deviations.
 
-### Documentation Requirements
+---
 
-Different teams or clients have different expectations for deliverables. If you aren’t able to set expectations at the outset, it’s important to at least confirm the expected workflow and decide as a team the best way to deliver the vQC findings.
+## Design Support Scenarios
 
-#### Takeaways
+Different levels of design support align with project requirements:
 
-- Provide visual cross references. More visual deliverables work with visual learners, while some clients will always prefer a spreadsheet. Provide both if needed or discuss a strategy with your team
-- Group vQC stories around components.
-- Work with your Project Manager to establish a workflow for approving vQC fixes in the browser
+|**Level of Design Support**|**Description**|
+|---|---|
+|No Design Support|The project does not involve any design work, and design decisions are not a consideration.|
+|Limited Design Support|The project includes some design work, but it is limited in scope or importance. Design decisions may be made by non-designers, or the project may not have a dedicated designer.|
+|Moderate Design Support|The project includes a significant amount of design work, and design decisions are an important consideration. The project may have a dedicated designer or design team, and design decisions are made collaboratively with other stakeholders.|
+|High Design Support|The project is heavily focused on design, and design decisions have a significant impact on the project's success. The project has a dedicated design team, and design decisions are made collaboratively with other stakeholders. Design is seen as a key differentiator for the project.|
 
-![Other Considerations](https://miro.medium.com/max/1400/1*uNuj95vQBXxDPG438QlHaw.png)
+It's important to note that the level of design support needed for a project will depend on various factors such as the complexity of the project, budget, timeline, and the overall importance of design in achieving project goals.
 
-### Other Considerations
+---
 
-#### Cross-Browser Requirements
+## Conclusion and Key Takeaways
 
-Checking for cross-browser compatibility is becoming increasingly important as developers and designers are forced to contend with an ever-expanding sea of options. The most important aspect of this for a designer is ensuring visual regressions don’t occur as a result of browser incompatibility.
+This guide aims to provide clarity and guidance for integrating Design QA into the Agile project lifecycle. By following these activities and collaborating effectively, we aim to deliver high-quality design outputs that meet client expectations and reduce the risk of errors.
 
-It may be in fashion to apply that texture, or that shadow, but consider the implications once it’s rendered on an outdated browser. While we can’t always control how our work is viewed and on what device, we can ensure our work is considerate of the audience and landscape for which it is designed.
+- Designers play a crucial role in shaping product visuals and user experiences.
+- Design Quality Assurance (DQA) ensures design meets standards and user expectations.
+- Collaboration among Designers, Developers, and Product Managers is vital.
+- DQA activities like design audits contribute to high-quality design.
+- Methods like Defect Density track design quality improvements.
 
-- Confirm the required browsers and test on as many devices as possible in your given timeframe.
-- Know your audience — design with the end user in mind (that includes both where and how they use your product).
+Remember, fostering a culture of collaboration, adaptability, and continuous enhancement is key to achieving high-quality design deliverables and meeting project goals.
 
-#### Timeframe
+For any questions or clarifications, please reach out to the Design QA team.
 
-Time should be a retainer for how much effort we place on individual items. In some cases, we must limit our scope of review to ensure breadth.
+**Disclaimer:** This guide is for informational purposes only and is subject to change based on evolving project needs and best practices.
 
-- Consider limiting your review to primary screens and global elements. These will have the most impact.
-- Define done. Have a shared understanding of the design requirements and user goals.
+---
 
-> “The best QC process is one that doesn’t have to happen”.
+Next Section:
 
-There will always be vQC requirements on a project. The amount, including details around what kinds of vQC will need to be prioritized, will differ across engagements. As product people, we can’t ensure _every_ detail is perfect based on constraints (time, money, people, etc.). What we _can_ do is ensure we take the necessary steps to determine and capture the most valuable feedback so we can maximize the impact of our effort. By thinking clearly about the project needs upfront, we’ll be in a better position to perform the required checks throughout the project, ensuring a better end result for all involved.
+[https://myplanet.jira.com/wiki/spaces/DQA/pages/407175175](https://myplanet.jira.com/wiki/spaces/DQA/pages/407175175)
 
-_Have any vQC tips of your own? Share them in the comments below and be sure to 👏 and share the piece if you found it useful!_
+**Team Size and Project Impact:**
+
+- Larger teams can efficiently handle Discovery/Research and may complete it more quickly, leading to a reduced time percentage.
+    
+- Smaller teams may require more time for Component Estimation in the Design/Planning phase due to limited resources
+    
+- Larger teams can allocate dedicated designers, allowing for more comprehensive design reviews in the Design/Planning phase
+    
+- Larger teams may have the capacity for parallel UI testing and simultaneous Cross-Browser/Device Testing in the Development/Deployment phase
+    
+- Larger teams with dedicated accessibility experts can efficiently conduct Accessibility Testing and address any issues promptly during the Testing/Quality Assurance phase
+    
+- Larger teams can dedicate resources to streamline documentation and reporting in the Review/Retrospective phase, reducing the time required
+    
+
+*Note: The time percentages represent the estimated allocation of time for each phase. The total percentage
+
+**2.2 Overview of Quality Assurance Activities**
+
+Here's a summary of the activities, their time requirements as a percentage, and how they may change based on team size and project type:
+
+|**Phase: Discovery/Research**|**Time: 10-15%**|**Team Size/Project Impact**|**Level of Design Support**|**Description**|**Team Member**|
+|---|---|---|---|---|---|
+|User Research and Requirements Gathering|10%|Larger teams: Efficient data collection and defining project scope|Limited Design Support|Conduct user research, gather requirements, and define the project scope and objectives.|Designer, User Researcher|
+
+|**Phase: Design/Planning**|**Time: 15-20%**|**Team Size/Project Impact**|**Level of Design Support**|**Description**|**Team Member**|
+|---|---|---|---|---|---|
+|Current Asset Design Audit|15%|Larger teams: More efficient audit of existing design assets|Moderate Design Support|Conduct an audit of existing design assets to assess their relevance, quality, and usability for the project.|Designer|
+|Initial Sales SOW Component Estimation|15%|Smaller teams: More time for estimation|Moderate Design Support|Analyze the Sales Statement of Work (SOW) to estimate the number of design components needed.|Designer|
+|Design Review and Feedback|20%|Allocation of designer is critical for thorough design reviews|High Design Support|Review design elements, gather feedback, and iterate on concepts before development begins.|Designer|
+
+|**Phase: Development/Deployment**|**Time: 25-40%**|**Team Size/Project Impact**|**Level of Design Support**|**Description**|**Team Member**|
+|---|---|---|---|---|---|
+|User Interface (UI) Testing|25%|Larger teams: Parallel UI testing for reduced time|High Design Support|Test UI functionality, usability, and visual consistency during development.|Design and QA Analyst|
+|Documentation and Reporting|5%|Larger teams: Dedicated resources streamline documentation|Limited Design Support|Create reports, document issues, and track overall quality assurance process at the end of each sprint.|Designer|
+|Cross-Browser/Device Testing|30%|Larger teams: Simultaneous testing for cross-platform consistency|High Design Support|Test visual elements and design compatibility across browsers and devices.|QA Analyst|
+
+|**Phase: Testing/Quality Assurance**|**Time: 20-25%**|**Team Size/Project Impact**|**Level of Design Support**|**Description**|**Team Member**|
+|---|---|---|---|---|---|
+|Accessibility Testing|20%|Larger teams: Efficient testing and issue resolution|Moderate Design Support|Evaluate design for accessibility compliance and ensure usability by individuals with disabilities.|Designer, Accessibility Specialist|
+|Visual Regression Testing|25%|Larger teams: Automated testing for efficient results|Moderate Design Support|Compare visual output of current version with previous ones to identify unintended changes during testing.|QA Analyst and Designer|

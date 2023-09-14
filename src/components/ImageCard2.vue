@@ -9,7 +9,7 @@
 export default {
   name: "ImageCard2",
   props: {
-    filename: String,
+    filename1: String,
     alt: {
       type: String,
       default: "This is an image",

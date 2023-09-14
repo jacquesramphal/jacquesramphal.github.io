@@ -1,4 +1,3 @@
-const path = require('path');
 const webpack = require('webpack'); // Add the webpack import
 
 module.exports = ({ config }) => {

@@ -7,19 +7,19 @@ Markdown is a lightweight markup language that allows you to format plain text e
 You can display `inline code` using backticks (`) and code blocks using triple backticks (```). For example:
 
 
-### Python
+#### Python
 
 ```python
 print("Hello, World!")
 ```
-### Javascript
+#### Javascript
 
 ```javascript
 function greet(name) {
   console.log(`Hello, ${name}!`);
 }
 ```
-### HTML
+#### HTML
 
 ```html
 <!DOCTYPE html>
@@ -32,10 +32,13 @@ function greet(name) {
 </body>
 </html>
 ```
+<hr>
 
 ## Headers
 
 You can create headers using hash symbols (#). The number of hash symbols determines the header level. For example:
+<br>
+<br>
 
 # Heading 1
 ## Heading 2
@@ -45,12 +48,15 @@ You can create headers using hash symbols (#). The number of hash symbols determ
 ###### Heading 6
 
 
+<hr>
+
 ## Emphasis
 
 You can make text *italic* or **bold** using asterisks (*) or double asterisks (**). For example:
-
 This is *italic* text.
 This is **bold** text.
+
+<hr>
 
 ## Lists
 
@@ -64,26 +70,34 @@ You can create ordered and unordered lists using hyphens (-) or numbers (1.). Fo
 2. Second item
 3. Third item
 
+<hr>
+
 ## Links
 
 You can create links using square brackets [] for the link text and parentheses () for the URL. For example:
 
 [OpenAI](https://www.openai.com)
+<hr>
 
 ## Images
 
 You can display images using an exclamation mark (!), followed by square brackets [] for the alt text, and parentheses () for the image URL. For example:
 
 ![Markdown Logo](https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg)
+<hr>
 
 ## Blockquotes
 
 You can create blockquotes using the greater than symbol (>). For example:
 
 > This is a blockquote.
+<hr>
 
 
 ## Table
+
+A responsive table with horizontal scrolling.
+<br><br>
 
 | Column 1 | Column 2 | Column 3 | Column 1 | Column 2 | Column 3 |
 |---------|---------|---------|---------|---------|---------|

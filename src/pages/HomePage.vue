@@ -41,17 +41,17 @@
     </GridContainer> -->
     <GridContainer tight id="work" class="animate delay-2">
       <GridParent id="recentwork">
-        <ImageCard alt="J Monogram" filename="work/j.svg" id="top" />
+        <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />
         <ImageCard2
           alt="Avatar"
           class="hidemobile"
-          filename="avatar/avatar.svg"
+          filename1="avatar/avatar.svg"
           title="Avatar"
         />
         <ImageCard
           alt="Avatar"
           class="showmobile"
-          filename="avatar/avatar.svg"
+          filename1="avatar/avatar.svg"
           title="Avatar"
         />
 
@@ -66,8 +66,10 @@
           :route="entry.route"
           :btnroute="entry.btnroute"
           :link="entry.link"
-          :filename="entry.thumbnail"
-          :filename2="entry.screenshot"
+          :filename1="entry.filename1"
+          :filename2="entry.filename2"
+          :filename3="entry.filename3"
+          :alt="entry.alt"
           :style="entry.bgcolor"
           :size="entry.size"
           :buttons="entry.buttonsData"

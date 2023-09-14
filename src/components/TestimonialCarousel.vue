@@ -155,7 +155,7 @@ export default {
   font-weight: 400 !important;
   font-size: var(--font-lg);
   // font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  letter-spacing: var(--spacing-normal);
+  // letter-spacing: var(--spacing-normal);
 
   &::before {
     content: "“";
