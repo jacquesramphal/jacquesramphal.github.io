@@ -153,6 +153,16 @@
                 "file": "mdoc_10.md"
               }
             }
+          },
+          {
+            "id": "12e059e04c87f9fd",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency"
+              }
+            }
           }
         ]
       }

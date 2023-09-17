@@ -14,6 +14,7 @@ import HomePage from "@/pages/HomePage.vue";
 import MoreWork from "@/pages/MoreWork.vue";
 import UsefulLinks from "@/pages/UsefulLinks.vue";
 import CoursePage from "@/pages/CoursePage.vue";
+import FullscreenMenu from '../components/FullscreenMenu.vue';
 
 const routes = [
   {
@@ -33,6 +34,16 @@ const routes = [
       hideNav: true,
       hideFooter: true,
       hidePageWrapper: true,
+    },
+  },
+  {
+    path: '/menu',
+    component: FullscreenMenu,
+    beforeEnter: (to, from, next) => {
+      // Delay the rendering of the component for a brief moment
+      setTimeout(() => {
+        next();
+      }, 10);
     },
   },
   {

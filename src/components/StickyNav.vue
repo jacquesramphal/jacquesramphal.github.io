@@ -29,7 +29,7 @@
             <router-link :to="{ name: 'Blog' }">docs</router-link>
           </li>
           <li class="nav-link" tabindex="0">
-            <router-link :to="{ name: 'Info' }">about</router-link>
+            <router-link :to="{ name: 'Info' }">info</router-link>
           </li>
 
         </ul>

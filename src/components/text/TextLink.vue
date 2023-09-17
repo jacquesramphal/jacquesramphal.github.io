@@ -35,17 +35,17 @@ export default {
     large: {
       type: Boolean,
       default: false,
-      required: true,
+      required: false,
     },
     left: {
       type: Boolean,
       default: false,
-      required: true,
+      required: false,
     },
     right: {
       type: Boolean,
       default: false,
-      required: true,
+      required: false,
     },
   },
   computed: {
