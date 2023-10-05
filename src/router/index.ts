@@ -121,13 +121,23 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const maintenanceMode = /* Check if maintenance mode is enabled, e.g., from a global state or a variable */ true;
+  // Determine if maintenance mode is enabled by default
+  const maintenanceMode = true; // Set this to true by default
 
-  if (maintenanceMode && to.name !== "MaintenancePage") {
+  // Check if the application is running on localhost
+  const isLocalhost = window.location.hostname === "localhost";
+
+  if (isLocalhost) {
+    // If it's localhost, disable maintenance mode
+    next();
+  } else if (maintenanceMode && to.name !== "MaintenancePage") {
+    // If maintenance mode is enabled and not on the maintenance page, redirect to maintenance page
     next({ name: "MaintenancePage" });
   } else {
+    // Allow navigation
     next();
   }
 });
+
 
 export default router;
