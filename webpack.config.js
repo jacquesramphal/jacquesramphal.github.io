@@ -27,14 +27,7 @@ module.exports = ({ config }) => {
   );
 
   // Add the plugins to the configuration
-  config.plugins.push(
-    new webpack.ProvidePlugin({
-      Buffer: ['buffer', 'Buffer'],
-    }),
-    new webpack.ProvidePlugin({
-      process: 'process/browser',
-    }),
-  );
+
 
   return config;
 };

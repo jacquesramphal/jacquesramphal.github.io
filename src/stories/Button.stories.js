@@ -31,7 +31,7 @@ export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
   label: "Button",
-  type: "primary",
+  type: "solid",
 };
 Primary.parameters = {
   design: {
@@ -43,7 +43,7 @@ Primary.parameters = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: "Button Secondary",
-  type: "secondary",
+  type: "outline",
 };
 Secondary.parameters = {
   design: {

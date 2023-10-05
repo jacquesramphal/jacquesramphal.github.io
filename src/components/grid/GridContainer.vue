@@ -52,7 +52,7 @@ export default {
   height: auto;
   margin-left: auto;
   margin-right: auto;
-  max-width: 1920px;
+  // max-width: 1680px;
   overflow: hidden;
 
   @media only screen and (min-width: 740px) {

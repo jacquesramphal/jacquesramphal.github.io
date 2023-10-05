@@ -20,7 +20,7 @@
       @submit.prevent="sendEmail"
       onsubmit="alert('submit!');return false"
     >
-      <TextDefault header="Contact Me" />
+      <TextBlock header="Contact Me" />
 
       <MyInput
         label="Name"
@@ -90,14 +90,12 @@
 import MyInput from "@/components/form/MyInput.vue";
 import TextArea from "@/components/form/TextArea.vue";
 import emailjs from "emailjs-com";
-import TextDefault from "@/components/text/TextDefault.vue";
 
 export default {
   name: "MyForm",
   components: {
     MyInput,
     TextArea,
-    TextDefault,
   },
   props: {
     header: {
@@ -143,7 +141,7 @@ export default {
 #form {
   /* height: 100vh; */
 }
-#textdefault {
+#textblock {
   grid-column: 1 / 4;
 }
 #form {
@@ -153,7 +151,7 @@ export default {
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
-  #textdefault {
+  #textblock {
     grid-column: 1 / 3;
   }
   #form {
@@ -169,7 +167,7 @@ export default {
       display: none;
       grid-column: 1 / 4 !important;
     }
-    #textdefault {
+    #textblock {
       grid-column: 1 / 1;
       grid-row: 1 / 4 !important;
     }

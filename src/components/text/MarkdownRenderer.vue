@@ -11,10 +11,11 @@ import GridContainer from "@/components/grid/GridContainer.vue";
 import { marked } from "marked";
 import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js";
+import frontMatter from "front-matter";
 
 marked.use(
   markedHighlight({
-    langPrefix: "hljs language-", // Add this line to specify the langPrefix
+    langPrefix: "hljs language-",
     highlight(code, lang) {
       const language = hljs.getLanguage(lang) ? lang : "plaintext";
       return hljs.highlight(code, { language }).value;
@@ -32,6 +33,7 @@ export default {
   },
   data() {
     return {
+      pageData: {},
       renderedMarkdown: "",
     };
   },
@@ -39,20 +41,32 @@ export default {
     markdown: {
       immediate: true,
       handler(newMarkdown) {
-        this.renderMarkdown(newMarkdown);
+        console.log("Markdown prop:", newMarkdown); // Add this line
+        this.parseMarkdown(newMarkdown);
       },
     },
   },
   methods: {
-    renderMarkdown(markdown) {
-      // Configure marked to render tables
-      const options = {
-        mangle: false,
-        headerIds: false,
-        tables: true, // Enable table rendering
-      };
+    parseMarkdown(markdown) {
+      const { attributes, body } = frontMatter(markdown);
 
-      this.renderedMarkdown = marked(markdown, options);
+      // Use 'attributes' as your metadata
+      this.pageData = attributes;
+
+      // Ensure 'body' is a string before passing it to 'marked'
+      if (typeof body === "string") {
+        const options = {
+          mangle: false,
+          headerIds: false,
+          tables: true,
+        };
+
+        this.renderedMarkdown = marked(body, options);
+      } else {
+        // Handle the case where 'body' is not a string (e.g., it's an object)
+        console.error("Invalid 'body' content:", body);
+        this.renderedMarkdown = ""; // Set an empty string or handle it appropriately
+      }
     },
   },
   components: { GridContainer },
@@ -68,8 +82,6 @@ export default {
     @media only screen and (min-width: 740px) {
       padding-bottom: 3.6rem;
     }
-    @media only screen and (min-width: 1201px) {
-    }
   }
   h2,
   h3,
@@ -80,29 +92,24 @@ export default {
     @media only screen and (min-width: 740px) {
       padding: 2.4rem 0;
     }
-    @media only screen and (min-width: 1201px) {
-    }
   }
   p {
     padding-bottom: 1.6rem;
     @media only screen and (min-width: 740px) {
       padding-bottom: 2.4rem;
     }
-    @media only screen and (min-width: 1201px) {
-    }
   }
   blockquote {
-  margin-top: 0 ;
+    margin-top: 0;
     p {
-   padding-bottom: 0; 
-  }}
+      padding-bottom: 0;
+    }
+  }
   ul,
   ol {
     padding-bottom: 1.6rem;
     @media only screen and (min-width: 740px) {
       padding-bottom: 2.4rem;
-    }
-    @media only screen and (min-width: 1201px) {
     }
   }
 
@@ -129,8 +136,6 @@ export default {
     margin: 2.4rem 0 1.6rem;
     @media only screen and (min-width: 740px) {
       margin: 3.6rem 0 2.4rem;
-    }
-    @media only screen and (min-width: 1201px) {
     }
   }
   img {
@@ -266,7 +271,9 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 3rem; /* Adjust the spacing between tables */
-  font-size: var(--font-xs);
+  font-size: var(--font-xxs);
+  line-height: 1.5;
+font-weight: var(--font-normal);
   border: var(--border); /* Add a border to all table rows */
   @media only screen and (max-width: 740px) {
     display: block; /* Display as a block element to allow for horizontal scrolling */
@@ -292,6 +299,7 @@ td {
   padding: var(--spacing-xs);
   text-align: left;
   vertical-align: text-top;
+
 }
 
 /* Horizontal Borders */

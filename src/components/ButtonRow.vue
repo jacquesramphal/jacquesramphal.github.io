@@ -31,13 +31,13 @@ export default {
   //       {
   //         label: "Button 1",
   //         route: "/button1",
-  //         type: "primary",
+  //         type: "solid",
   //         size: "large",
   //       },
   //       {
   //         label: "Button 2",
   //         route: "/button2",
-  //         type: "secondary",
+  //         type: "outline",
   //         size: "small",
   //       },
   //       // Add more buttons as needed

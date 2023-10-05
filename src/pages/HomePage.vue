@@ -31,7 +31,7 @@
       >
         <h4 class="subtle" style="text-align: left">Selected Work</h4>
         <MyButton
-          type="secondary"
+          type="outline"
           style="margin-top: var(--spacing-sm)"
           class="justify-end"
           label="View More"
@@ -39,6 +39,7 @@
         />
       </div>
     </GridContainer> -->
+    
     <GridContainer tight id="work" class="animate delay-2">
       <GridParent id="recentwork">
         <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />

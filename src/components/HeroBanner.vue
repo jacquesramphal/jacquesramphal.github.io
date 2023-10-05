@@ -39,7 +39,7 @@
               />
               <MyButton
                 v-if="labeltwo"
-                type="secondary"
+                type="outline"
                 size="large"
                 :label="`${labeltwo}`"
                 :route="`${routetwo}`"
@@ -312,6 +312,7 @@ img {
 .herobanner--fullvh {
   min-height: 468px;
   height: 100vh !important;
+  z-index: 1;
   #hero-text {
     align-items: center !important;
     margin-top: 0 !important;

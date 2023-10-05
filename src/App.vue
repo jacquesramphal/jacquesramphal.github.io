@@ -1,24 +1,33 @@
 <template id="app">
   <!-- <router-view v-if="isLoggedIn" v-slot="{ Component }"> -->
   <router-view v-slot="{ Component }">
-
-    <p v-on:click="toggleMenu" style="position: fixed; z-index: 10000;">Menu Link</p>
-
-
     <!-- <BreadCrumb v-if="!$route.meta.hideBreadCrumb" /> -->
     <ThemeButton v-if="!$route.meta.hideThemeButton" />
     <transition name="fade" mode="out-in">
       <component :is="Component" />
     </transition>
 
-    <fullscreen-menu :is-open="menuOpen" @close="menuOpen = false"></fullscreen-menu>
-    <StickyNav v-if="!$route.meta.hideNav" />
+    <fullscreen-menu
+      :is-open="menuOpen"
+      @close="menuOpen = false"
+    ></fullscreen-menu>
+    <StickyNav v-if="!$route.meta.hideNav" :menu-open="menuOpen">
+      <template v-slot:menu-button>
+        <!-- <a v-on:click="toggleMenu"> more </a> -->
+        <MyButton
+          type="ghost"
+          :label="menuOpen ? 'close' : 'menu'"
+          @click="toggleMenu"
+        />
+      </template>
+    </StickyNav>
     <MainFooter v-if="!$route.meta.hideFooter" />
   </router-view>
   <!-- <TheLogin v-else @TheLogin::loginResult="handleLoginResult" /> -->
 </template>
 
 <script lang="js">
+import MyButton from "./components/Button.vue";
 
 import FullscreenMenu from "./components/FullscreenMenu.vue";
 import StickyNav from "./components/StickyNav.vue";
@@ -36,6 +45,7 @@ export default {
     ThemeButton,
     TheLogin,
     FullscreenMenu,
+    MyButton,
     // BreadCrumb,
 },
 data() {
@@ -80,6 +90,4 @@ data() {
 
 <style lang="sass">
 @import "./assets/styles/css/all.css"
-
-
 </style>

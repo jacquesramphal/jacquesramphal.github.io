@@ -6,33 +6,51 @@
   >
     <div class="bg reversed">
       <nav class="">
-        <p
-          class="nav-link wordmark"
-          id="wordmark-jacques"
-          tabindex="0"
-          v-show="isDesktopScreen"
-        >
-          <router-link :to="{ name: 'Home' }">Jacques Ramphal</router-link>
-        </p>
+        <li class="wordmark">
+          <MyButton
+            label="Jacques Ramphal"
+            route="/"
+            type="ghost"
+            v-show="isDesktopScreen && !menuOpen"
+          />
+          <MyButton
+            label="Jake Ramphal"
+            route="/"
+            type="ghost"
+            v-show="isMobileScreen && !menuOpen"
+          />
+        </li>
 
-        <p
-          class="nav-link"
-          id="wordmark-jake"
-          tabindex="0"
-          v-show="isMobileScreen"
-        >
-          <router-link :to="{ name: 'Home' }">Jake Ramphal</router-link>
-        </p>
-
-        <ul class="justify-end">
-          <li class="nav-link" tabindex="0">
-            <router-link :to="{ name: 'Blog' }">docs</router-link>
+        <div class="justify-end">
+          <!-- <li>
+            <MyButton
+              v-show="isDesktopScreen && !menuOpen"
+              type="ghost"
+              route="docs"
+              label="docs"
+            />
+          </li> -->
+          <li>
+            <MyButton
+              v-show="isDesktopScreen && !menuOpen"
+              type="ghost"
+              route="info"
+              label="info"
+            />
+          </li>
+          <!-- <li class="nav-link" tabindex="0">
+            <router-link class="nav-link" :to="{ name: 'Blog' }"
+              >docs</router-link
+            >
           </li>
           <li class="nav-link" tabindex="0">
             <router-link :to="{ name: 'Info' }">info</router-link>
+          </li> -->
+          <!-- Slot for the menu button -->
+          <li class="nav-link" tabindex="0">
+            <slot name="menu-button"></slot>
           </li>
-
-        </ul>
+        </div>
       </nav>
     </div>
   </GridContainer>
@@ -40,12 +58,16 @@
 
 <script>
 import GridContainer from "./grid/GridContainer.vue";
+import MyButton from "./Button.vue";
+
+// import FullscreenMenu from "./FullscreenMenu.vue";
 
 const OFFSET = 60;
 export default {
   name: "StickyNav",
   components: {
     GridContainer,
+    MyButton,
   },
   props: {
     title: {
@@ -55,23 +77,25 @@ export default {
   },
   data() {
     return {
+      menuOpen: false,
+
       showNavbar: true,
       lastScrollPosition: 0,
       scrollValue: 0,
-      isMobileScreen: false,     // Change to regular data property
-      isDesktopScreen: false,  // Change to regular data property
+      isMobileScreen: false, // Change to regular data property
+      isDesktopScreen: false, // Change to regular data property
     };
   },
 
   mounted() {
     this.lastScrollPosition = window.pageYOffset;
     window.addEventListener("scroll", this.onScroll);
-    window.addEventListener("resize", this.onWindowResize); 
+    window.addEventListener("resize", this.onWindowResize);
     const viewportMeta = document.createElement("meta");
     viewportMeta.name = "viewport";
     viewportMeta.content = "width=device-width, initial-scale=1";
     document.head.appendChild(viewportMeta);
-    
+
     // Call the resize method on initial mount to set the initial visibility
     this.onWindowResize();
   },
@@ -82,6 +106,12 @@ export default {
   },
 
   methods: {
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen;
+    },
+    closeMenu() {
+      this.menuOpen = false;
+    },
     onScroll() {
       if (window.pageYOffset < 0) {
         return;
@@ -100,6 +130,17 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.nav-link > a {
+  border-radius: 4px;
+  color: var(--text-reversed) !important;
+
+  &:hover {
+    background: var(--background-darker-reversed);
+    transition: all 0.25s ease;
+  }
+}
+</style>
 
 <style lang="scss" scoped>
 * {
@@ -108,6 +149,9 @@ export default {
   mix-blend-mode: normal;
 }
 
+.custom-btn {
+  padding: 0 !important;
+}
 :active {
   outline: transparent;
 }
@@ -193,25 +237,14 @@ nav {
   align-items: center;
   display: grid;
   grid-template-columns: repeat(2, auto);
-  height: 5.2rem;
+  // height: 5.2rem;
   justify-self: stretch;
   position: relative;
 }
 
-.nav-link > a {
-  border-radius: 4px;
-  padding: var(--spacing-xs);
-  color: var(--text-reversed) !important;
-
-  &:hover {
-    background: var(--background-darker-reversed);
-    transition: all 0.25s ease;
-  }
-}
-
 .router-link-exact-active {
   background: var(--background-darker-reversed);
-  text-decoration: none !important;
+  text-decoration: underline dashed !important;
 }
 
 p {

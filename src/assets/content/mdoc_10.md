@@ -1,3 +1,9 @@
+<!-- ---
+title: My Page
+date: 2023-09-17
+--- -->
+
+
 # The Importance of Baselines
 
 
@@ -26,7 +32,7 @@ Designers and developers can collaborate effectively by using Figma and Storyboo
 
 ## Conclusion and Key Takeaways
 
-Automating DQA (Detecting Quality Assurance) through baselines in software testing is a strategic approach to ensure the integrity and reliability of your software products. Baselines, whether in code or design, establish stable reference points against which changes are compared. This section has explored the significance of baselines in software testing and how they are used in both code and design.
+Automating DQA (Design Quality Assurance) through baselines in software testing is a strategic approach to ensure the integrity and reliability of your software products. Baselines, whether in code or design, establish stable reference points against which changes are compared. This section has explored the significance of baselines in software testing and how they are used in both code and design.
 
 - Baselines are essential for identifying discrepancies in code and design.
 - Leverage plugins to integrate your design references and coded libraries for collaboration.

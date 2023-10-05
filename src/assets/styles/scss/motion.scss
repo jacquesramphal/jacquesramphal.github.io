@@ -1,3 +1,4 @@
+/* .imgzoom:hover styles */
 .imgzoom:hover {
   z-index: 20 !important;
   transform: scale(1.05);
@@ -31,8 +32,6 @@
   transform: scale(0.9);
 }
 
-
-
 /* CSS Animations */
 .animate {
   animation-duration: 0.25s;
@@ -41,11 +40,7 @@
   animation-fill-mode: backwards;
 }
 
-.animate.fade {
-  animation-name: animate-fade;
-  animation-timing-function: ease-out;
-}
-
+/* Keyframes for Fade animation */
 @keyframes animate-fade {
   0% {
     opacity: 0;
@@ -56,7 +51,7 @@
   }
 }
 
-/* Glow In */
+/* Glow In animation */
 .animate.glow {
   animation-name: animate-glow;
   animation-timing-function: ease-out;
@@ -65,17 +60,16 @@
 @keyframes animate-glow {
   0% {
     opacity: 0;
-    /* filter: brightness(3) saturate(3); */
     transform: scale(0.9, 0.9);
   }
 
   100% {
     opacity: 1;
-    /* filter: brightness(1) saturate(1); */
     transform: scale(1, 1);
   }
 }
 
+/* Shake animation */
 .animate.shake {
   animation-name: animate-shake;
   animation-timing-function: ease-out;
@@ -127,18 +121,110 @@
   }
 }
 
+/* Slide In Right animation */
+.animate.slideInRight {
+  animation-name: animate-slideInRight;
+  animation-timing-function: ease-out;
+}
+
+@keyframes animate-slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Bounce animation */
+.animate.bounce {
+  animation-name: animate-bounce;
+  animation-timing-function: ease-out;
+}
+
+@keyframes animate-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.animate.bounceDown {
+  animation-name: animate-bounceDown;
+  animation-timing-function: ease-out;
+}
+
+@keyframes animate-bounceDown {
+  0%, 100% {
+    transform: translateY(-20px);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+}
+
+/* Rotate animation */
+.animate.rotate {
+  animation-name: animate-rotate;
+  animation-timing-function: ease-out;
+}
+
+@keyframes animate-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pulse animation */
+.animate.pulse {
+  animation-name: animate-pulse;
+  animation-timing-function: ease-out;
+}
+
+@keyframes animate-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
 
 /* Timing */
 .delay-1 {
   animation-delay: 0.25s;
 }
 
+.delay-1-5 {
+  animation-delay: 0.375s;
+}
+
 .delay-2 {
   animation-delay: 0.5s;
 }
 
+.delay-2-5 {
+  animation-delay: 0.625s;
+}
+
 .delay-3 {
   animation-delay: 0.75s;
+}
+
+.delay-3-5 {
+  animation-delay: 0.875s;
 }
 
 .delay-4 {

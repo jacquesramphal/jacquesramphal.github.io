@@ -4,35 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "9eb433d258e04aa7",
+        "id": "eb7930317839cd86",
         "type": "tabs",
         "children": [
           {
-            "id": "a539471b97acac20",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "mdoc_9.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "0f03bb1af3e2ea5d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "mdoc_9.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c58b57e00bd5f11b",
+            "id": "43c8a00c84d70de5",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -42,9 +18,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "0a4405950f844de2",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.4.14"
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -181,18 +167,18 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c58b57e00bd5f11b",
+  "active": "0a4405950f844de2",
   "lastOpenFiles": [
     "mdoc_9.md",
-    "mdoc_10.md",
-    "mdoc_2.md",
-    "Untitled",
     "mdoc_8.md",
-    "mdoc_1.md",
     "mdoc_7.md",
     "mdoc_6.md",
     "mdoc_3.md",
+    "mdoc_2.md",
     "mdoc_0.md",
+    "mdoc_1.md",
+    "mdoc_10.md",
+    "Untitled",
     "DQA-notes.md",
     "content.md",
     "mdoc_5.md",

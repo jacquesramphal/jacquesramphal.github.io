@@ -21,13 +21,13 @@
         </p> -->
         <div class="controls justify-end" style="align-self: flex-end">
           <MyButton
-            type="secondary"
+            type="outline"
             label="←"
             @click="prevQuote"
             route=""
           ></MyButton>
           <MyButton
-            type="secondary"
+            type="outline"
             label="→"
             @click="nextQuote"
             route=""

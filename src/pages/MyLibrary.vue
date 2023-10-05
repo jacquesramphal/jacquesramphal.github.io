@@ -58,9 +58,7 @@
     <FormCentered />
     <SplitImage header="Default" />
 
-    <GridContainer class="grid-parent">
-      <TextDefault />
-    </GridContainer>
+
   </PageWrapper>
 </template>
 
@@ -70,7 +68,6 @@ import PageWrapper from "@/components/grid/PageWrapper.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
 import HeroBg from "@/components/HeroBg.vue";
 import HeroAnimated from "@/components/HeroAnimated.vue";
-import TextDefault from "@/components/text/TextDefault.vue";
 import TextGrid from "@/components/card/TextGrid.vue";
 import SplitImage from "@/components/card/SplitImage.vue";
 import MyForm from "@/components/card/MyForm.vue";
@@ -83,7 +80,6 @@ export default {
     HeroBanner,
     HeroBg,
     HeroAnimated,
-    TextDefault,
     TextGrid,
     SplitImage,
     MyForm,

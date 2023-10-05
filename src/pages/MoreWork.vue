@@ -43,7 +43,9 @@
           :route="entry.route"
           :btnroute="entry.btnroute"
           :link="entry.link"
-          :filename="entry.thumbnail"
+          :filename1="entry.filename1"
+          :filename2="entry.filename2"
+          :filename3="entry.filename3"
           :style="entry.bgcolor"
         />
       </div>

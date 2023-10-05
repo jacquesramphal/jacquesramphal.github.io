@@ -5,7 +5,7 @@
     style="padding: 0"
   >
     <GridContainer class="text-container">
-      <GridWrapper class="text">
+      <GridWrapper class="text" style="oveflow: visible !important;">
         <TextBlock
           clamped
           :eyebrow="`${eyebrow}`"
@@ -377,6 +377,8 @@ export default {
 
 .text {
   // max-width: 60px;
+
+  overflow: visible !important;
   @media only screen and (min-width: 740px) {
     grid-column: 1 / 2;
   }

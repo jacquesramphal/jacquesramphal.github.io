@@ -32,7 +32,7 @@
             <GridWrapper>
               <TextBlock
                 left
-                eyebrow=""
+                :eyebrow="section.eyebrow"
                 :header="section.title"
                 :details="section.body"
                 :blockquote="section.blockquote"

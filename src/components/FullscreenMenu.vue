@@ -7,28 +7,35 @@
       aria-modal="true"
       aria-labelledby="menu-heading"
     >
-    <p @click="closeMenu" class="close-button">Close Menu</p>
+    <!-- <ThemeButton /> -->
+      <!-- <p @click="closeMenu" class="close-button">Close Menu</p> -->
       <!-- <TextLink
         label="Handling Ligatures"
         link="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-ligatures"
       /> -->
       <!-- <MyButton
         size="small"
-        type="secondary"
+        type="ghost"
         route=""
-        label="Close Menu"
+        label="Close Menu / ESC"
         @click="closeMenu"
         class="reversed close-button"
       >
-        <span class="sr-only">Close Menu</span>
+        <span class="sr-only">Close Menu / ESC</span>
       </MyButton> -->
       <GridContainer>
-        <nav>
-          <ul class="">
-            <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="/info">Info</router-link></li>
-            <li><router-link to="/docs">Docs</router-link></li>
-            <li><router-link to="/resume">CV</router-link></li>
+        <nav class="reversed">
+          <ul class="animate">
+            <h1 class="animate fade"><router-link to="/">Home</router-link></h1>
+            <h1 class="animate fade delay-1">
+              <router-link to="/info">Info</router-link>
+            </h1>
+            <h1 class="animate fade delay-2">
+              <router-link to="/docs">Docs</router-link>
+            </h1>
+            <h1 class="animate fade delay-2-5">
+              <router-link to="/cv">CV</router-link>
+            </h1>
           </ul>
         </nav>
       </GridContainer>
@@ -38,6 +45,9 @@
 
 <script>
 import GridContainer from "./grid/GridContainer.vue";
+// import ThemeButton from "./ThemeButton.vue";
+
+// import MyButton from "./Button.vue";
 
 export default {
   props: {
@@ -108,7 +118,7 @@ export default {
           color: var(--text-reversed) !important;
           text-decoration: none;
           font-size: var(--font-xxl);
-          font-weight: var(--font-weight-bold);
+          // font-weight: var(--font-bold);
           &:hover {
             color: var(--color-white);
             text-decoration: underline;

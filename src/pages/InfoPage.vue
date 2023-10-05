@@ -4,7 +4,7 @@
       id="hero"
       title="About"
     />
-    <ImageCard size="split" title="Title" details="UI Regression Testing with Storybook and Chromatic ensures my components are throughly tested and documented" />
+    <!-- <ImageCard size="split" title="Title" details="UI Regression Testing with Storybook and Chromatic ensures my components are throughly tested and documented" /> -->
     <SplitImage/>
     <TextGrid
       v-for="about in contentful"
@@ -52,8 +52,6 @@
 </template>
 
 <script>
-import ImageCard from '@/components/ImageCard.vue';
-import SplitImage from '@/components/card/SplitImage.vue';
 
 export default {
     name: "InfoPage",
@@ -105,7 +103,6 @@ export default {
             }
         },
     },
-    components: { SplitImage, ImageCard }
 };
 </script>
 

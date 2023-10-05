@@ -1,22 +1,17 @@
 <template>
-  <div>
+  <span>
     <span
       v-if="isSvg"
       :class="['icon', `icon-${size}`]"
       :style="{ width: size + 'px', height: size + 'px' }"
     >
       <img
-      v-if="name"
+        v-if="name"
         draggable="false"
         :src="require(`../assets/images/${name}.svg`)"
         :alt="name"
       />
-      <img
-      v-if="url"
-      draggable="false"
-      :src="url"
-      :alt="name"
-    />
+      <img v-if="url" draggable="false" :src="url" :alt="name" />
     </span>
     <span
       v-else
@@ -25,7 +20,7 @@
     >
       {{ unicode }}
     </span>
-  </div>
+  </span>
 </template>
 
 <!-- Usage -->
@@ -72,10 +67,14 @@ export default {
 </script>
 
 <style scoped>
+img {
+  border-radius: 0 !important;
+}
 .icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  overflow: visible;
 }
 .icon-16 {
   /* 16px styles */

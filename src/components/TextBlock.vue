@@ -16,7 +16,7 @@
       "
     /> -->
     <MyIcon
-    v-if="icon"
+      v-if="icon"
       style="margin-bottom: var(--spacing-sm)"
       :name="`${icon}`"
       :is-svg="true"
@@ -36,8 +36,7 @@
       v-if="btnroute"
       :label="`${cta}`"
       :route="btnroute"
-      type="secondary"
-      size="large"
+      type="solid"
     />
   </div>
 </template>
@@ -121,7 +120,6 @@ export default {
     label: {
       type: String,
     },
-
   },
 
   computed: {
@@ -148,7 +146,7 @@ export default {
   width: 100%;
 }
 .eyebrow {
-  word-spacing: 1rem;
+  /* word-spacing: 1rem; */
   margin-bottom: 1em;
 }
 .details {

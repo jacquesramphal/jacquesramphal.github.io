@@ -7,12 +7,14 @@
 }
 
 * {
+  font-kerning: auto;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  /*   font-family: "Epilogue", sans-serif;*/
   text-rendering: optimizeLegibility;
   unicode-range: U+000-5FF;
-  /* letter-spacing: var(--spacing-normal); */
+  letter-spacing: var(--spacing-normal);
 }
 
 /* TEST AND EXPAND MIXINS */
@@ -44,21 +46,19 @@ p {
   opacity: 1 !important;
 }
 
-
-
-
 h1 {
   font-size: var(--font-lg);
-  font-weight: var(--font-medium);
-  letter-spacing: var(--spacing-tight) !important;
+  font-weight: var(--font-bold);
+
+  /* letter-spacing: var(--spacing-tight) !important; */
   line-height: 1.1;
-/*  overflow-wrap: break-word;
+  /*  overflow-wrap: break-word;
   word-wrap: break-word;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
   hyphens: auto; */
-  
+
   /*
   -moz-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
@@ -73,20 +73,17 @@ h1 {
     /* 400-1000 
     Similar to weight, but without touching horizontal spacing. 
     It accepts values between 400 and 1000.*/
-    'GRAD' 500,
-
+    "GRAD"
+    500,
     /* 400-1000 
     Stretches the glyph vertically. It accepts values between 400 and 1000.*/
-    'YAXS' 400,
-
+    "YAXS" 400,
     /* values expressed as a percentage above or below 'normal' (100%) */
-    'wdth' 105,
-
+    "wdth"
+    105,
     /* 19 or 20 
     Optical sizing is similar to kerning or letter-spacing, but the spacing is done by a human eye instead of math. A value of 19 or below is intended for text and body copy spacing, while 20 or above is for spacing display headers and titles.*/
-    'opsz' 20;
-
-
+    "opsz" 20;
 }
 
 /*
@@ -101,72 +98,35 @@ h1:hover {
   -webkit-text-fill-color: transparent !important;
 } */
 
-
 /* NEED TO STYLE h2 */
 h2 {
   font-size: var(--font-md);
-  font-weight: var(--font-medium);
+  font-weight: var(--font-bold);
   line-height: 1.4;
-  letter-spacing: var(--spacing-tight) !important;
+  /* letter-spacing: var(--spacing-tight) !important; */
 
-  font-variation-settings:
-
-    'GRAD' 500,
-
-    'YAXS' 400,
-
-    'wdth' 105,
-
-    'opsz' 20;
+  font-variation-settings: "GRAD" 500, "YAXS" 400, "wdth" 105, "opsz" 20;
 }
 
 h3 {
   font-size: var(--font-sm);
-  font-weight: var(--font-medium);
+  font-weight: var(--font-bold);
   line-height: 1.4;
-  letter-spacing: var(--spacing-tight) !important;
-
-  font-variation-settings:
-
-    'GRAD' 500,
-
-    'YAXS' 400,
-
-    'wdth' 105,
-
-    'opsz' 20;
-
+  font-variation-settings: "GRAD" 500, "YAXS" 400, "wdth" 105, "opsz" 20;
 }
 
 h4 {
   font-size: var(--font-sm);
-  font-weight: var(--font-medium);
+  font-weight: var(--font-bold);
   line-height: 1.5;
-  font-variation-settings:
-
-    'GRAD' 500,
-
-    'YAXS' 400,
-
-    'wdth' 105,
-
-    'opsz' 20;
-
+  font-variation-settings: "GRAD" 500, "YAXS" 400, "wdth" 105, "opsz" 20;
 }
 
 h5 {
   font-size: var(--font-xs);
-  font-weight: var(--font-medium);
+  font-weight: var(--font-bold);
   line-height: 1.5;
-  font-variation-settings:
-
-    'GRAD' 500,
-
-    'YAXS' 400,
-
-    'wdth' 105,
-
-    'opsz' 20;
+  font-variation-settings: "GRAD" 500, "YAXS" 400, "wdth" 105, "opsz" 20;
 
   margin: 0;
 }
@@ -174,31 +134,20 @@ h5 {
 /* eyebrow text */
 h6 {
   font-size: var(--font-xxs);
-  font-weight: var(--font-medium);
+  font-weight: var(--font-bold);
   line-height: 1.5;
   letter-spacing: var(--spacing-loose);
   text-transform: uppercase !important;
-  font-variation-settings:
-
-    'GRAD' 500,
-
-    'YAXS' 400,
-
-    'wdth' 115,
-
-    'opsz' 20;
-
+  font-variation-settings: "GRAD" 500, "YAXS" 400, "wdth" 115, "opsz" 20;
 }
 
 p,
 blockquote {
   font-size: var(--font-xs);
   font-weight: var(--font-normal);
-  line-height: 1.8;
-  font-variation-settings: 'wdth' 102, 'opsz' 19;
+  line-height: 1.75;
+  font-variation-settings: "wdth" 102, "opsz" 19;
 }
-
-
 
 /* code {
   color: var(--text-reversed);
@@ -261,7 +210,6 @@ var(--color-darkbrown));
   -webkit-text-fill-color: transparent !important;
 } */
 
-
 blockquote {
   /* background: hsl(var(--link),calc(var(--l) + 10%)); */
   background: var(--background-darker);
@@ -283,12 +231,9 @@ blockquote {
   content: "\201D";
 } */
 
-
 .subtle {
   opacity: 0.7 !important;
 }
-
-
 
 /* .caption-project {
   mix-blend-mode: multiply;
@@ -313,8 +258,6 @@ blockquote {
   background: var(--background-reversed);
   color: var(--text-reversed);
 }
-
-
 
 /* ---- LINKS/BUTTONS ---- */
 @keyframes strike {
@@ -342,8 +285,8 @@ router-link {
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 0.75rem;
-  text-decoration-thickness: .1rem !important;
-  font-variation-settings: 'opsz' 19;
+  text-decoration-thickness: 0.1rem !important;
+  font-variation-settings: "opsz" 19;
   /* background: 
   linear-gradient(#1095c1 0 0) no-repeat
    calc(200% - var(--p,0%)) 100% / 200% var(--p,.08em);
@@ -404,7 +347,6 @@ transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s)); */
 }
 */
 
-
 /* ---- ROUTER LINKS ---- */
 .router-link-exact {
   text-decoration: none !important;
@@ -419,12 +361,12 @@ transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s)); */
   /* letter-spacing: var(--spacing-reversed-normal); */
 }
 
-
 .reversed a,
 .reversed a::after {
   color: var(--link-reversed) !important;
   font-weight: var(--font-reversed-normal) !important;
 }
+
 .external:after {
   content: " ↗";
   color: var(--link) !important;
@@ -443,25 +385,19 @@ transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s)); */
   /* letter-spacing: var(--spacing-reversed-normal); */
 }
 
-
-
 .reversed h1,
 .reversed h2,
 .reversed h3,
 .reversed h4,
-.reversed h5
-{
-  font-weight: var(--font-reversed-medium) !important;
+.reversed h5 {
+  font-weight: var(--font-reversed-bold) !important;
   /* letter-spacing: var(--spacing-reversed-normal); */
 }
+
 .reversed h6 {
-  font-weight: var(--font-reversed-medium) !important;
+  font-weight: var(--font-reversed-bold) !important;
   letter-spacing: var(--spacing-reversed-loose);
 }
-
-
-
-
 
 /* ---- Hover States ---- */
 /*
@@ -486,7 +422,7 @@ a:hover::before {
 a:hover {
   text-decoration: underline;
   text-underline-offset: 0.75rem;
-  text-decoration-thickness: .2rem !important;
+  text-decoration-thickness: 0.2rem !important;
 }
 
 /* ---- Active States ---- */
@@ -495,10 +431,8 @@ a:active,
 .router-link-exact-active {
   text-decoration: underline dashed !important;
   text-underline-offset: 0.75rem;
-  text-decoration-thickness: .1rem !important;
+  text-decoration-thickness: 0.1rem !important;
 }
-
-
 
 /* ---- Link click + adjust position ---- */
 
@@ -523,9 +457,7 @@ h3 a:active {
   position: relative;
 }
 
-
 /* ---- Heading link overrides ---- */
-
 
 h1 a {
   text-decoration: none !important;
@@ -546,7 +478,6 @@ h1>a {
   text-shadow: var(--shadow-hover); 
 }
 */
-
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 740px) {
@@ -570,7 +501,6 @@ h1>a {
   h5 {
     font-size: var(--font-xs);
   }
-
 
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {

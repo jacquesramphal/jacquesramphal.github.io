@@ -52,7 +52,6 @@ const routes = [
     component: TheLogin,
   },
   {
-    // redirect: { name: 'MaintenancePage' },
     path: "/",
     name: "Home",
     component: HomePage,
@@ -119,6 +118,16 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const maintenanceMode = /* Check if maintenance mode is enabled, e.g., from a global state or a variable */ true;
+
+  if (maintenanceMode && to.name !== "MaintenancePage") {
+    next({ name: "MaintenancePage" });
+  } else {
+    next();
+  }
 });
 
 export default router;
