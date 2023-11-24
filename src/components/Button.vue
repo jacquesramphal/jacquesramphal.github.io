@@ -129,7 +129,7 @@ export default {
   cursor: pointer;
   display: inline-block;
   font-size: inherit;
-  font-weight: 500;
+  font-weight: 600;
   // padding: 0.5rem 1rem 0.5rem 1rem;
   text-decoration: none;
   transition: all 0.1s ease-in-out;
@@ -189,10 +189,10 @@ export default {
   &:hover {
     border: 2px solid var(--link) !important;
   }
-  &:active,
-  .router-link-exact-active {
-    border: dashed !important;
-  }
+  // &:active,
+  // .router-link-exact-active {
+  //   border: dashed !important;
+  // }
 }
 .reversed  .button--ghost{
   color: var(--link-reversed) !important;
@@ -204,7 +204,9 @@ export default {
     color: var(--link-reversed) !important;
   }
   &:active {
-    border: dashed !important;
+    // border: dashed !important;
+  opacity: 0.5;     
+
   }
 }
 
@@ -240,13 +242,13 @@ export default {
 .button--small {
   font-size: var(--font-xxs);
   // padding: var(--spacing-xxs);
-  padding: 1rem 1.25rem 0.95rem 1.25rem;
+  padding: 0.95rem 1.25rem 1rem 1.25rem;
 
   /* border-radius: 100px; */
 }
 .button--large {
   font-size: var(--font-xs);
-  padding: 1.65rem 2rem 1.5rem 2rem;
+  padding: 1.5rem 2rem 1.65rem 2rem;
   // padding: var(--spacing-xs);
 }
 

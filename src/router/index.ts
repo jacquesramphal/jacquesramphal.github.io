@@ -135,7 +135,7 @@ router.beforeEach((to, from, next) => {
     next({ name: "MaintenancePage" });
   } else {
     // Allow navigation
-    next();
+    next(); // This line allows the navigation to proceed
   }
 });
 
