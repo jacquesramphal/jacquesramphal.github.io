@@ -1,14 +1,37 @@
 <template>
   <!-- <div class="animate fade delay-2"> -->
-    <!-- <input
+  <!-- <input
       @change="toggleTheme"
       id="checkbox"
       type="checkbox"
       class="switch-checkbox"
     /> -->
-    <!-- <label for="checkbox" class="switch-label"> -->
-    <!-- <MyLogo /> -->
-    <!-- 
+  <!-- <label for="checkbox" class="switch-label"> -->
+  <!-- <MyLogo
+    @click="toggleTheme"
+
+    style="
+        position: absolute;
+        right: var(--spacing-sm);
+        top: var(--spacing-sm);
+        cursor: pointer;
+        z-index: 1000;
+      " /> -->
+  <MyButton
+    type="ghost"
+    label="Toggle Theme"
+    @click="toggleTheme"
+    class="animate glow delay-2"
+    size="small"
+    style="
+      position: absolute;
+      right: var(--spacing-xxs);
+      top: var(--spacing-xxs);
+      z-index: 1000;
+    "
+  />
+
+  <!--     
       <MyButton
         size="large"
         type="ghost"
@@ -16,41 +39,27 @@
         class="switch-toggle"
         :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
         @click="toggleTheme"
-      />
--->
-    <MyButton
-      type="ghost"
-      label="Toggle Theme"
-      @click="toggleTheme"
-      class="animate glow delay-2"
-      size="small"
-      style="
-        position: absolute;
-        right: var(--spacing-xxs);
-        top: var(--spacing-xxs);
-        z-index: 1000;
-      "
-    />
+      /> -->
 
-    <!-- <TextLink
+  <!-- <TextLink
         cta="test"
         class="switch-toggle"
         :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
       /> -->
-    <!-- <a v-on:click="toggleMenu" style="position: fixed; z-index: 10000; cursor: pointer; margin: var(--spacing-xs) var(--spacing-sm)"><p>Menu</p></a> -->
+  <!-- <a v-on:click="toggleMenu" style="position: fixed; z-index: 10000; cursor: pointer; margin: var(--spacing-xs) var(--spacing-sm)"><p>Menu</p></a> -->
 
-    <!-- <h6
+  <!-- <h6
         class="switch-toggle"
         :class="{ 'switch-toggle-checked': userTheme === 'dark-theme' }"
       ></h6> -->
-    <!-- <img
+  <!-- <img
           class="justify-end"
           draggable="false"
           src="favicon2.svg"
           alt="theme-toggle"
           style="width: var(--spacing-big); border-radius: 0 !important;"
         /> -->
-    <!-- </label> -->
+  <!-- </label> -->
   <!-- </div> -->
 </template>
 

@@ -8,6 +8,7 @@
     <GridContainer tight id="docs" class="animate delay-2">
       <GridParent>
         <DefaultCard
+        cover
           v-for="entry in docs.entries"
           :key="entry.id"
           :tag="entry.tag"

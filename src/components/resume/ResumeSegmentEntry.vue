@@ -2,8 +2,8 @@
   <AnimatedComponent>
     <li class="resume-segment-entry">
       <h3 class="resume-segment-entry-title">
-        <span v-if="title" v-text="title" />
-        <span v-if="position" v-text="positionInBrackets" />
+        <h3 v-if="title" v-text="title" />
+        <h3 v-if="position" v-text="positionInBrackets" />
       </h3>
       <div
         v-if="from || to || location"

@@ -22,14 +22,7 @@
         </li>
 
         <div class="justify-end">
-          <!-- <li>
-            <MyButton
-              v-show="isDesktopScreen && !menuOpen"
-              type="ghost"
-              route="docs"
-              label="docs"
-            />
-          </li> -->
+        
           <li>
             <MyButton
               v-show="isDesktopScreen && !menuOpen"
@@ -38,16 +31,9 @@
               label="info"
             />
           </li>
-          <!-- <li class="nav-link" tabindex="0">
-            <router-link class="nav-link" :to="{ name: 'Blog' }"
-              >docs</router-link
-            >
-          </li>
-          <li class="nav-link" tabindex="0">
-            <router-link :to="{ name: 'Info' }">info</router-link>
-          </li> -->
+        
           <!-- Slot for the menu button -->
-          <li class="nav-link" tabindex="0">
+          <li class="nav-link" tabindex="0" style="width: 98px;">
             <slot name="menu-button"></slot>
           </li>
         </div>
@@ -59,8 +45,6 @@
 <script>
 import GridContainer from "./grid/GridContainer.vue";
 import MyButton from "./Button.vue";
-
-// import FullscreenMenu from "./FullscreenMenu.vue";
 
 const OFFSET = 60;
 export default {

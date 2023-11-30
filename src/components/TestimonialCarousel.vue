@@ -42,7 +42,7 @@
       <transition name="fade" mode="out-in">
         <div :key="currentQuoteIndex" class="quote">
           <div class="quote-text">
-            <h4>{{ quotes[currentQuoteIndex].quote }}</h4>
+            <p>{{ quotes[currentQuoteIndex].quote }}</p>
           </div>
           <!-- <MyIcon
               :url="quotes[currentQuoteIndex].image"

@@ -1,6 +1,6 @@
 {
-  "title": "Designing Quality",
-  "subtitle": "Welcome! This guide highlights Design Quality Assurance (DQA) as a vital role in Agile projects, covering Jira integration, design tokens, baselines, automated testing and emerging trends. It also addresses communication gaps, challenges, and quality standards. Start here for an overview.",
+  "title": "Design QA 101",
+  "subtitle": "This guide highlights Design Quality Assurance (DQA) as a vital role in Agile projects, covering Jira integration, design tokens, baselines, automated testing and emerging trends.",
   "entries": [
     {
       "id": 1,

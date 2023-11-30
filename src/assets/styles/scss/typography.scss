@@ -46,11 +46,21 @@ p {
   opacity: 1 !important;
 }
 
+h1,
+h2 {
+  font-family: "Epilogue", sans-serif;
+  letter-spacing: var(--spacing-tight) !important;
+}
+
+h3,
+h4 {
+  font-family: "Epilogue", sans-serif;
+}
+
 h1 {
   font-size: var(--font-lg);
   font-weight: var(--font-bold);
 
-  /* letter-spacing: var(--spacing-tight) !important; */
   line-height: 1.1;
   /*  overflow-wrap: break-word;
   word-wrap: break-word;
@@ -109,6 +119,7 @@ h2 {
 }
 
 h3 {
+
   font-size: var(--font-sm);
   font-weight: var(--font-bold);
   line-height: 1.4;
@@ -116,6 +127,7 @@ h3 {
 }
 
 h4 {
+
   font-size: var(--font-sm);
   font-weight: var(--font-bold);
   line-height: 1.5;
@@ -123,6 +135,7 @@ h4 {
 }
 
 h5 {
+
   font-size: var(--font-xs);
   font-weight: var(--font-bold);
   line-height: 1.5;
@@ -145,7 +158,7 @@ p,
 blockquote {
   font-size: var(--font-xs);
   font-weight: var(--font-normal);
-  line-height: 1.75;
+  line-height: 1.8;
   font-variation-settings: "wdth" 102, "opsz" 19;
 }
 

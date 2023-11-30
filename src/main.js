@@ -1,0 +1,122 @@
+import { createApp } from "vue";
+import App from "./App.vue";
+import hljs from "highlight.js";
+// import { init, track, parameters } from "insights-js";
+// Global Components
+import AnimatedComponent from "@/components/AnimatedComponent.vue";
+import CourseCard from "@/components/card/CourseCard.vue";
+import BlogFeed from "@/components/blog/BlogFeed.vue";
+// import CardRow from "@/components/CardRow.vue";
+import CardRow2 from "@/components/CardRow2.vue";
+import DefaultCard from "@/components/card/DefaultCard.vue";
+import TextGrid from "@/components/card/TextGrid.vue";
+import TextGrid2 from "@/components/card/TextGrid2.vue";
+import FilterBar from "@/components/FilterBar.vue";
+import GridParent from "@/components/grid/GridParent.vue";
+import GridContainer from "@/components/grid/GridContainer.vue";
+import GridWrapper from "@/components/grid/GridWrapper.vue";
+import HeroBanner from "@/components/HeroBanner.vue";
+import ImageCard from "@/components/ImageCard.vue";
+import BreadCrumb from "@/components/BreadCrumb.vue";
+import ImageCard2 from "@/components/ImageCard2.vue";
+import MyButton from "@/components/Button.vue";
+import ButtonRow from "@/components/ButtonRow.vue";
+// import ButtonRow2 from "@/components/ButtonRow2.vue";
+import MyLogo from "@/components/MyLogo.vue";
+import Icon from "@/components/Icon.vue";
+import TestimonialCarousel from "@/components/TestimonialCarousel.vue";
+import MarkdownRenderer from "@/components/text/MarkdownRenderer.vue";
+import PageWrapper from "@/components/grid/PageWrapper.vue";
+import ProjectPreview from "@/components/ProjectPreview.vue";
+import TextStats from "@/components/card/TextStats.vue";
+import TextBlock from "@/components/TextBlock.vue";
+import TextHeader from "@/components/text/TextHeader.vue";
+import SplitImage from "@/components/card/SplitImage.vue";
+import TextLink from "@/components/text/TextLink.vue";
+import ThumbDetail from "@/components/ThumbDetail.vue";
+import router from "./router";
+// Define the custom directive
+const highlightjsDirective = {
+    deep: true,
+    beforeMount: function (el, binding) {
+        // on first bind, highlight all targets
+        const targets = el.querySelectorAll("code");
+        targets.forEach((target) => {
+            // if a value is directly assigned to the directive, use this
+            // instead of the element content.
+            if (binding.value) {
+                target.textContent = binding.value;
+            }
+            hljs.highlightBlock(target);
+        });
+    },
+    updated: function (el, binding) {
+        // after an update, re-fill the content and then highlight
+        const targets = el.querySelectorAll("code");
+        targets.forEach((target) => {
+            if (binding.value) {
+                target.textContent = binding.value;
+                hljs.highlightBlock(target);
+            }
+        });
+    },
+};
+export const appear = {
+    beforeMount(element) {
+        element.style.visibility = "hidden";
+    },
+    updated(element, binding, node) {
+        if (!binding.value === !binding.oldValue || null === node.transition) {
+            return;
+        }
+        if (!binding.value) {
+            node.transition.leave(element, () => {
+                element.style.visibility = "hidden";
+            });
+            return;
+        }
+        node.transition.beforeEnter(element);
+        element.style.visibility = "";
+        node.transition.enter(element);
+    },
+};
+// Create the Vue app instance
+const app = createApp(App);
+// Use the custom directives
+app.directive("appear", appear);
+app.directive("highlightjs", highlightjsDirective);
+// Use plugins, components, and mount the app as before
+app.use(router).directive("appear", appear).mount("#app");
+// Global Components
+app
+    .component("AnimatedComponent", AnimatedComponent)
+    .component("TestimonialCarousel", TestimonialCarousel)
+    .component("CourseCard", CourseCard)
+    .component("BlogFeed", BlogFeed)
+    // .component("CardRow", CardRow)
+    .component("CardRow2", CardRow2)
+    .component("DefaultCard", DefaultCard)
+    .component("TextGrid", TextGrid)
+    .component("TextGrid2", TextGrid2)
+    .component("FilterBar", FilterBar)
+    .component("GridContainer", GridContainer)
+    .component("GridParent", GridParent)
+    .component("GridWrapper", GridWrapper)
+    .component("HeroBanner", HeroBanner)
+    .component("ImageCard", ImageCard)
+    .component("ImageCard2", ImageCard2)
+    .component("BreadCrumb", BreadCrumb)
+    .component("MyButton", MyButton)
+    .component("ButtonRow", ButtonRow)
+    .component("MyLogo", MyLogo)
+    .component("Icon", Icon)
+    .component("PageWrapper", PageWrapper)
+    .component("ProjectPreview", ProjectPreview)
+    .component("TextStats", TextStats)
+    .component("TextBlock", TextBlock)
+    .component("TextHeader", TextHeader)
+    .component("SplitImage", SplitImage)
+    .component("TextLink", TextLink)
+    .component("ThumbDetail", ThumbDetail)
+    .component("MarkdownRenderer", MarkdownRenderer);
+//# sourceMappingURL=main.js.map

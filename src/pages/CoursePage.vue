@@ -4,7 +4,6 @@
     :title="chapters.title"
     :subtitle="chapters.subtitle"
       eyebrow=""
-      style="background-color: var(--background-darker);"
 
     />
     <GridContainer>

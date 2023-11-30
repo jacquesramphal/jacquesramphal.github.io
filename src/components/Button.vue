@@ -129,7 +129,7 @@ export default {
   cursor: pointer;
   display: inline-block;
   font-size: inherit;
-  font-weight: 600;
+  font-weight: var(--font-medium);
   // padding: 0.5rem 1rem 0.5rem 1rem;
   text-decoration: none;
   transition: all 0.1s ease-in-out;

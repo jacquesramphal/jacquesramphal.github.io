@@ -80,7 +80,7 @@
           v-for="entry in works.entries"
           :key="entry.id"
           :tag="entry.tag"
-          :filename="entry.thumbnail"
+          :filename="entry.filename1"
           :alt="entry.alt"
           :title="entry.title"
           :description="entry.description"

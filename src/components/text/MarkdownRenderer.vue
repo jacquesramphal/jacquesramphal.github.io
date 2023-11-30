@@ -116,7 +116,6 @@ export default {
   ol > li {
     list-style: inherit !important;
     font-size: var(--font-xs);
-    font-weight: var(--font-medium);
     line-height: 1.8;
     font-variation-settings: "wdth" 102, "opsz" 19;
     margin-left: 4rem;
@@ -126,7 +125,6 @@ export default {
   ul > li {
     list-style: disc !important;
     font-size: var(--font-xs);
-    font-weight: var(--font-medium);
     line-height: 1.8;
     font-variation-settings: "wdth" 102, "opsz" 19;
     margin-left: 4rem;

@@ -12,17 +12,11 @@
         v-if="information.image"
       />
 
-
-
       <resume-header
         class="header"
         :name="information.name"
         :label="information.label"
       />
-
-
-
-
 
       <resume-slogan
         class="slogan"
@@ -46,8 +40,6 @@
 </template>
 
 <script>
-
-
 import ResumeHeader from "@/components/resume/ResumeHeader.vue";
 import ResumeFooter from "@/components/resume/ResumeFooter.vue";
 import ResumeSegments from "@/components/resume/ResumeSegments.vue";
@@ -58,7 +50,6 @@ import ResumeSlogan from "@/components/resume/ResumeSlogan.vue";
 export default {
   name: "TheResume",
   components: {
-    
     ResumeSlogan,
     ResumeImage,
     ResumeList,
@@ -89,7 +80,6 @@ export default {
       // TODO add validator for mandatory fields
     },
   },
-  
 };
 </script>
 
@@ -103,7 +93,6 @@ export default {
   background: var(--background)
   color: var(--text)
   font-size: var(--font-xxs)
-  font-family: inherit
   @media screen and (max-width: 240mm)
     grid-template-areas: "header" "sidebar" "segments" "footer"
     grid-template-columns: 1fr

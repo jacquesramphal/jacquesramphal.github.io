@@ -7,7 +7,7 @@
       aria-modal="true"
       aria-labelledby="menu-heading"
     >
-    <!-- <ThemeButton /> -->
+      <!-- <ThemeButton /> -->
       <!-- <p @click="closeMenu" class="close-button">Close Menu</p> -->
       <!-- <TextLink
         label="Handling Ligatures"
@@ -107,6 +107,18 @@ export default {
     right: var(--spacing-xs);
     top: var(--spacing-xs);
   }
+  &::after {
+    content: "";
+    position: absolute;
+    top: -100%;
+    bottom: 0; /* Adjust the value to control the width of the additional background */
+    right: 0;
+    width: 100%; /* Adjust the value to control the width of the additional background */
+    background-color: var(
+      --background-reversed
+    ); /* Specify the color of the additional background */
+    z-index: -1; /* Set the z-index to be behind the navbar */
+  }
   nav {
     ul {
       list-style: none;
@@ -128,9 +140,10 @@ export default {
     }
   }
 }
+
 .slide-enter-active,
 .slide-leave-active {
-  animation: slide 0.25s;
+  animation: slide 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 @keyframes slide {
@@ -143,7 +156,7 @@ export default {
 }
 
 .slide-leave-active {
-  animation: slide-out 0.25s;
+  animation: slide-out 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 @keyframes slide-out {
