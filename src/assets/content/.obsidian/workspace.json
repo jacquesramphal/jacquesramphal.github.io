@@ -8,29 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "43c8a00c84d70de5",
+            "id": "c8059010fa31ff49",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "mdoc_10.md",
+                "file": "mdoc_3.md",
                 "mode": "source",
                 "source": false
               }
             }
-          },
-          {
-            "id": "0a4405950f844de2",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.4.14"
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -96,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "mdoc_10.md",
+                "file": "mdoc_3.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "mdoc_10.md",
+                "file": "mdoc_3.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "mdoc_10.md"
+                "file": "mdoc_3.md"
               }
             }
           },
@@ -167,20 +156,33 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0a4405950f844de2",
+  "active": "c8059010fa31ff49",
   "lastOpenFiles": [
-    "mdoc_9.md",
+    "mdoc_2.md",
+    "mdoc_3.md",
     "mdoc_8.md",
     "mdoc_7.md",
     "mdoc_6.md",
-    "mdoc_3.md",
-    "mdoc_2.md",
-    "mdoc_0.md",
+    "mdoc_12.md",
     "mdoc_1.md",
+    "mdoc_0.md",
+    "mdoc_11.md",
+    "images/image7.png",
+    "Pasted image 20231201092218.png",
+    "images/image6.png",
+    "images/image5.png",
+    "Pasted image 20231201091808.png",
+    "images/image4.png",
+    "images/image2.png",
+    "images/Pasted.md",
     "mdoc_10.md",
-    "Untitled",
+    "images/image1.png",
+    "images",
+    "mdoc_9.md",
     "DQA-notes.md",
     "content.md",
+    "images/image3.png",
+    "Untitled 1.md",
     "mdoc_5.md",
     "Aspose.Words.df59ef89-7f47-4bae-a0c4-c9043b0219ea.006.png.md",
     "Aspose.Words.df59ef89-7f47-4bae-a0c4-c9043b0219ea.002.png.md",

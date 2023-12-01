@@ -9,6 +9,7 @@
         :style="{ paddingBottom: '0' }" 
       />
     </GridWrapper>
+    <CardRow2/>
 
     <!-- CONTENTFUL HEADER EXAMPLE -->
     <!-- <HeroBanner
@@ -39,6 +40,28 @@
         />
       </div>
     </GridContainer> -->
+
+    <!-- HEADER COMPONENT START -->
+    <GridContainer>
+    <div
+        class="grid-parent"
+        style="
+          padding-bottom: var(--spacing-md);
+          align-items: center;
+          grid-template-columns: repeat(3, 1fr);
+        "
+      >
+        <TextBlock
+          style="grid-column: 1 / 3"
+          header="Work"
+          details="I have worked with a variety of clients, from small startups to large corporations. I have also worked with a variety of agencies, from small boutique agencies to large global agencies."
+        />
+        <p class="external justify-end" style="align-self: flex-end">
+          <router-link :to="{ name: 'MoreWork' }">View All</router-link>
+        </p>
+      </div>
+    </GridContainer>
+      <!-- HEADER COMPONENT END -->
     
     <GridContainer tight id="work" class="animate delay-2">
       <GridParent id="recentwork">
@@ -92,7 +115,6 @@
 
     <!-- <TestimonialCarousel/> -->
 
-    <!-- <CardRow2/> -->
     <!-- 
     Get in touch banner -->
     <!-- <HeroBanner
@@ -109,63 +131,24 @@
 
 <script>
 import works from "@/assets/data/work.json";
+import GridContainer from "@/components/grid/GridContainer.vue";
 // import TestimonialCarousel from "@/components/TestimonialCarousel.vue";
 
 export default {
-  name: "HomePage",
-  props: {
+    name: "HomePage",
+    props: {
     // work: {
     //   type: Object,
     //   required: true,
     // },
-  },
-  data() {
-    return {
-      works,
-      // contentful: [],
-    };
-  },
-
-  // async created() {
-  //   this.contentful = await this.getContentful();
-  // },
-
-  // methods: {
-  //   getContentful: async () => {
-  //     const query = `{
-  //      homePageCollection {
-  //        items {
-  //          sys {
-  //            id
-  //          }
-  //          heroText
-  //          heroRichText {
-  //            json
-  //          }
-  //        }
-  //      }
-  //    }`;
-
-  //     const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
-  //     const fetchOptions = {
-  //       method: "POST",
-  //       headers: {
-  //         Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({ query }),
-  //     };
-
-  //     try {
-  //       const response = await fetch(fetchUrl, fetchOptions).then((response) =>
-  //         response.json()
-  //       );
-  //       return response.data.homePageCollection.items;
-  //     } catch (error) {
-  //       throw new Error("Could not receive the data from Contentful!");
-  //     }
-  //   },
-  // },
+    },
+    data() {
+        return {
+            works,
+            // contentful: [],
+        };
+    },
+    components: { GridContainer }
 };
 </script>
 

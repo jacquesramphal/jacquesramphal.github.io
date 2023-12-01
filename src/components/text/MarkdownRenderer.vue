@@ -320,6 +320,28 @@ td:last-of-type {
   border-right: none; /* Add a border to all table rows */
 }
 
+/* Accordians */
+
+summary {
+  // display: block;
+  cursor: pointer;
+  padding-bottom: 1rem;
+  font-size: var(--font-xs);
+  // border: var(--border);
+  // border-radius: var(--spacing-xxxs);
+  // margin-bottom: var(--spacing-xs);
+  // background-color: var(--background-darker);
+  // color: var(--text-subtle);
+  // list-style: none;
+  // list-style-position: outside;
+  // list-style-type: none;
+  // position: relative;
+  // user-select: none;
+  // -webkit-user-select: none;
+  // -moz-user-select: none;
+  // -ms-user-select: none;
+}
+
 /* Optional: Add hover effect on rows */
 // tr:hover {
 //   background-color: #ddd;

@@ -27,8 +27,8 @@
             <MyButton
               v-show="isDesktopScreen && !menuOpen"
               type="ghost"
-              route="info"
-              label="info"
+              route="docs"
+              label="docs"
             />
           </li>
         

@@ -1,6 +1,5 @@
 <template>
   <PageWrapper id="mdoc" class="">
-
     <!-- Testing front matter - not working -->
     <!-- <HeroBanner
       id="hero"
@@ -13,6 +12,14 @@
       <p>{{ pageData.date }}</p>
     </div> -->
     <MarkdownRenderer :markdown="pageContent" />
+    <div id="disqus_thread"></div>
+    <!-- Remove <script> tag from here -->
+    <noscript
+      >Please enable JavaScript to view the
+      <a href="https://disqus.com/?ref_noscript"
+        >comments powered by Disqus.</a
+      ></noscript
+    >
   </PageWrapper>
 </template>
 
@@ -23,12 +30,10 @@ import frontMatter from "front-matter";
 
 export default {
   name: "MarkdownPage",
-  components: {
-
-  },
+  components: {},
   setup() {
     const pageContentRef = ref("");
-    const pageDataRef = ref({}); // Define pageData as a ref
+    const pageDataRef = ref({});
 
     onMounted(async () => {
       try {
@@ -36,25 +41,32 @@ export default {
         const module = await import(`../assets/content/mdoc_${mdocId}.md`);
         const markdown = module.default;
 
-        // Call parseMarkdown to extract front matter data
         parseMarkdown(markdown);
 
         pageContentRef.value = markdown;
       } catch (error) {
         console.error("Error loading Markdown content:", error);
-        router.push({ name: "NotFound" }); // Redirect to the 404 page
+        router.push({ name: "NotFound" });
       }
     });
 
     const parseMarkdown = (markdown) => {
       const { attributes } = frontMatter(markdown);
-
-      // Use 'attributes' as your metadata
       pageDataRef.value = attributes;
+      configureDisqus(attributes);
     };
 
+    const configureDisqus = (attributes) => {
+      window.disqus_config = function () {
+        this.page.url = window.location.href;
+        this.page.identifier = attributes.identifier || window.location.href;
+      };
+    };
+
+    // Move <script> tag content here
+
     return {
-      pageData: pageDataRef,       // Make pageData available to the template
+      pageData: pageDataRef,
       pageContent: pageContentRef,
     };
   },
