@@ -47,7 +47,7 @@
         <div class="grid-parent">
           <div id="maindetails">
             <TextBlock
-              header="Toronto-based, tech tinkerer at Orium"
+              header="Have a question?"
               details="If you have questions about design, development, or anything in between, <a href='mailto:jacques@ramphal.design'>email me</a>."
             />
           </div>
@@ -66,7 +66,7 @@
               <li>
                 <router-link :to="{ name: 'Blog' }">Ramphal Blog</router-link>
               </li>
-              <li><router-link :to="{ name: '' }">Storybook</router-link></li>
+              <li><router-link :to="{ name: 'Blog' }">Storybook</router-link></li>
               <li>
                 <router-link :to="{ name: 'MoreWork' }"
                   >Recent Work</router-link

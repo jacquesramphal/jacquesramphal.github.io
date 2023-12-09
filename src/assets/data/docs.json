@@ -2,6 +2,16 @@
   "entries": [
     {
       "id": 1,
+      "title": "Ths Shifting Landscape of Design",
+      "tag": "Design AI Tools",
+      "description": "In the rapidly evolving landscape of design, we find ourselves at the precipice of a profound transformation. This shift prompts us to reevaluate the essence of our role, transitioning from mere designers to advocates for both users and the integrity of the design process.",
+      "btnroute": "mdoc/13",
+      "cta": "Read More",
+      "thumbnail": "article/baseline.png",
+      "alt": "Image Alt"
+    },
+    {
+      "id": 2,
       "title": "The Importance of Baselines",
       "tag": "Tag1 Tag2 typography",
       "description": "Baselines provide a stable and known starting point for comparison during software development and testing. By comparing changes or new versions against the baseline, discrepancies, bugs, or regressions can be easily identified, ensuring software quality and reliability throughout its development life cycle.",
@@ -11,7 +21,7 @@
       "alt": "Design components"
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "Doc Name 2",
       "tag": "Tag1  typography",
       "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
@@ -59,7 +69,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Doc Name 3",
       "tag": "Tag1  typography",
       "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
@@ -127,7 +137,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "Doc Name 4",
       "tag": "Tag1  typography",
       "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
