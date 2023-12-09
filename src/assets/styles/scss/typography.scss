@@ -161,6 +161,9 @@ blockquote {
   line-height: 1.8;
   font-variation-settings: "wdth" 102, "opsz" 19;
 }
+blockquote {
+  font-style: italic;
+}
 
 /* code {
   color: var(--text-reversed);
