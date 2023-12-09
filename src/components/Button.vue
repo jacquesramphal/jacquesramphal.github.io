@@ -163,7 +163,9 @@ export default {
 .button--outline {
   background-color: transparent !important;
   color: var(--link) !important;
-  border: 2px solid var(--link) !important;
+  border: 1px solid var(--link) !important;
+  font-weight: var(--font-normal);
+
   &:before,
   &:after {
     color: var(--link) !important;
@@ -181,13 +183,14 @@ export default {
 .button--ghost {
   color: var(--link) !important;
   background-color: transparent;
-  border: 2px solid transparent !important;
+  border: 1px solid transparent !important;
+  font-weight: var(--font-normal);
   &:before,
   &:after {
     color: inherit !important;
   }
   &:hover {
-    border: 2px solid var(--link) !important;
+    border: 1px solid var(--link) !important;
   }
   // &:active,
   // .router-link-exact-active {
@@ -197,7 +200,7 @@ export default {
 .reversed  .button--ghost{
   color: var(--link-reversed) !important;
   &:hover {
-    border: 2px solid var(--link-reversed) !important;
+    border: 1px solid var(--link-reversed) !important;
   }
   &:before,
   &:after {
@@ -272,7 +275,7 @@ export default {
   }
   .button--outline {
     color: var(--link-reversed) !important;
-    border: 2px solid var(--link-reversed) !important;
+    border: 1px solid var(--link-reversed) !important;
     &:before,
     &:after {
       color: var(--link-reversed) !important;
