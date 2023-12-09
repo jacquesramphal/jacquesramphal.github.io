@@ -146,9 +146,10 @@ export default {
   width: 100%;
 }
 .eyebrow {
-  /* word-spacing: 1rem; */
+  word-spacing: 1rem;
   margin-bottom: 1em;
 }
+
 .details {
   /* flex: 1; */
   width: 100%;

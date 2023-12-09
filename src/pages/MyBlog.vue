@@ -8,18 +8,26 @@
     <GridContainer tight id="docs" class="animate delay-2">
       <GridParent>
         <DefaultCard
-        cover
           v-for="entry in docs.entries"
-          :key="entry.id"
-          :tag="entry.tag"
-          :filename="entry.thumbnail"
           :alt="entry.alt"
-          :title="entry.title"
           :description="entry.description"
-          :route="entry.btnroute"
+          :filename="entry.thumbnail"
+          :key="entry.id"
           :label="entry.label"
+          :route="entry.btnroute"
+          :tag="entry.tag"
+          :title="entry.title"
         />
       </GridParent>
+      <!-- <CourseCard
+      v-for="entry in docs.entries"
+        :description="entry.description"
+        :id="entry.id"
+        :key="entry.id"
+        :route="entry.btnroute"
+        :tag="entry.tag"
+        :title="entry.title"
+      /> -->
     </GridContainer>
     <!-- <BlogFeed :contentful="contentful" /> -->
   </PageWrapper>

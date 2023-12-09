@@ -12,14 +12,11 @@
       <p>{{ pageData.date }}</p>
     </div> -->
     <MarkdownRenderer :markdown="pageContent" />
-    <div id="disqus_thread"></div>
-    <!-- Remove <script> tag from here -->
-    <noscript
-      >Please enable JavaScript to view the
-      <a href="https://disqus.com/?ref_noscript"
-        >comments powered by Disqus.</a
-      ></noscript
-    >
+    <!-- <section class="comments" aria-labelledby="comment">
+      <h2 id="comment">Comments</h2>
+      <Disqus shortname="ramphal" />
+    </section> -->
+    <CardRow2 />
   </PageWrapper>
 </template>
 
@@ -27,13 +24,17 @@
 import { ref, onMounted } from "vue";
 import router from "@/router";
 import frontMatter from "front-matter";
+import CardRow2 from "@/components/CardRow2.vue";
+// import { Disqus } from 'vue-disqus'
 
 export default {
   name: "MarkdownPage",
-  components: {},
+  components: {
+    CardRow2
+},
   setup() {
     const pageContentRef = ref("");
-    const pageDataRef = ref({});
+    const pageDataRef = ref({}); // Define pageData as a ref
 
     onMounted(async () => {
       try {
@@ -41,32 +42,25 @@ export default {
         const module = await import(`../assets/content/mdoc_${mdocId}.md`);
         const markdown = module.default;
 
+        // Call parseMarkdown to extract front matter data
         parseMarkdown(markdown);
 
         pageContentRef.value = markdown;
       } catch (error) {
         console.error("Error loading Markdown content:", error);
-        router.push({ name: "NotFound" });
+        router.push({ name: "NotFound" }); // Redirect to the 404 page
       }
     });
 
     const parseMarkdown = (markdown) => {
       const { attributes } = frontMatter(markdown);
+
+      // Use 'attributes' as your metadata
       pageDataRef.value = attributes;
-      configureDisqus(attributes);
     };
-
-    const configureDisqus = (attributes) => {
-      window.disqus_config = function () {
-        this.page.url = window.location.href;
-        this.page.identifier = attributes.identifier || window.location.href;
-      };
-    };
-
-    // Move <script> tag content here
 
     return {
-      pageData: pageDataRef,
+      pageData: pageDataRef, // Make pageData available to the template
       pageContent: pageContentRef,
     };
   },

@@ -13,14 +13,16 @@
           padding-bottom: var(--spacing-md);
           align-items: center;
           grid-template-columns: repeat(3, 1fr);
+          
         "
       >
         <TextBlock
-          eyebrow="Eyebrow"
           style="grid-column: 1 / 3"
           :header="header"
+          details=""
         />
-        <p class="external justify-end" style="align-self: flex-end">
+        
+        <p class="external justify-end" style="align-self: center">
           <router-link :to="{ name: 'Blog' }">View All</router-link>
         </p>
       </div>
@@ -59,7 +61,6 @@
           "
         >
           <TextBlock
-            eyebrow="Eyebrow"
             style="grid-column: 1 / 3"
             :header="header"
           />

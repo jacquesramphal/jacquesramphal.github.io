@@ -2,14 +2,13 @@
   <PageWrapper>
     <GridWrapper motif1>
       <HeroBanner
-      red
+        red
         id="hero"
         class="display"
-        title="Multi-disciplinary Designer"
-        :style="{ paddingBottom: '0' }" 
+        title="Jake is a Full-stack Designer"
+        :style="{ paddingBottom: '0' }"
       />
     </GridWrapper>
-    <CardRow2/>
 
     <!-- CONTENTFUL HEADER EXAMPLE -->
     <!-- <HeroBanner
@@ -42,8 +41,8 @@
     </GridContainer> -->
 
     <!-- HEADER COMPONENT START -->
-    <GridContainer>
-    <div
+    <!-- <GridContainer>
+      <div
         class="grid-parent"
         style="
           padding-bottom: var(--spacing-md);
@@ -60,9 +59,9 @@
           <router-link :to="{ name: 'MoreWork' }">View All</router-link>
         </p>
       </div>
-    </GridContainer>
-      <!-- HEADER COMPONENT END -->
-    
+    </GridContainer> -->
+    <!-- HEADER COMPONENT END -->
+
     <GridContainer tight id="work" class="animate delay-2">
       <GridParent id="recentwork">
         <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />
@@ -110,7 +109,9 @@
           :route="entry.btnroute"
           :label="entry.label"
         /> -->
+        
       </GridParent>
+      <!-- <CardRow2 /> -->
     </GridContainer>
 
     <!-- <TestimonialCarousel/> -->
@@ -118,8 +119,8 @@
     <!-- 
     Get in touch banner -->
     <!-- <HeroBanner
-        center
-        fullvh
+        
+        
         eyebrow=""
         route="/"
         title="Have a question? Get in touch."
@@ -135,26 +136,26 @@ import GridContainer from "@/components/grid/GridContainer.vue";
 // import TestimonialCarousel from "@/components/TestimonialCarousel.vue";
 
 export default {
-    name: "HomePage",
-    props: {
+  name: "HomePage",
+  props: {
     // work: {
     //   type: Object,
     //   required: true,
     // },
-    },
-    data() {
-        return {
-            works,
-            // contentful: [],
-        };
-    },
-    components: { GridContainer }
+  },
+  data() {
+    return {
+      works,
+      // contentful: [],
+    };
+  },
+  components: { GridContainer },
 };
 </script>
 
 <style lang="scss">
 @media only screen and (min-width: 1201px) {
-  .banner-container{
+  .banner-container {
     // background-color: red !important;
     padding: 0 !important;
   }
