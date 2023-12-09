@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import hljs from "highlight.js";
+import store from './store';
 // import { init, track, parameters } from "insights-js";
 
 // Global Components
@@ -92,20 +93,21 @@ export const appear: Directive = {
 
 // Create the Vue app instance
 const app = createApp(App);
+
 // Use the custom directives
 app.directive("appear", appear);
 app.directive("highlightjs", highlightjsDirective);
 
 // Use plugins, components, and mount the app as before
-app.use(router).directive("appear", appear).mount("#app");
+app.use(router); // Use Vue Router plugin
+app.use(store); // Use Vuex store plugin
 
 // Global Components
 app
-.component("AnimatedComponent", AnimatedComponent)
-.component("TestimonialCarousel", TestimonialCarousel)
-.component("CourseCard", CourseCard)
+  .component("AnimatedComponent", AnimatedComponent)
+  .component("TestimonialCarousel", TestimonialCarousel)
+  .component("CourseCard", CourseCard)
   .component("BlogFeed", BlogFeed)
-  // .component("CardRow", CardRow)
   .component("CardRow2", CardRow2)
   .component("DefaultCard", DefaultCard)
   .component("TextGrid", TextGrid)
@@ -131,3 +133,6 @@ app
   .component("TextLink", TextLink)
   .component("ThumbDetail", ThumbDetail)
   .component("MarkdownRenderer", MarkdownRenderer);
+
+// Mount the app
+app.mount("#app");

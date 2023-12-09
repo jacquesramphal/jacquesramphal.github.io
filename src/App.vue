@@ -21,6 +21,7 @@
         />
       </template>
     </StickyNav>
+    <NewsletterSubscription />
     <MainFooter v-if="!$route.meta.hideFooter" />
   </router-view>
   <!-- <TheLogin v-else @TheLogin::loginResult="handleLoginResult" /> -->
@@ -29,6 +30,7 @@
 <script lang="js">
 import MyButton from "./components/Button.vue";
 
+import NewsletterSubscription from "./components/form/NewsletterSubscription.vue";
 import FullscreenMenu from "./components/FullscreenMenu.vue";
 import StickyNav from "./components/StickyNav.vue";
 import MainFooter from "./components/MainFooter.vue";
@@ -46,6 +48,7 @@ export default {
     TheLogin,
     FullscreenMenu,
     MyButton,
+    NewsletterSubscription,
     // BreadCrumb,
 },
 data() {
