@@ -1,13 +1,13 @@
 <template>
   <PageWrapper>
-    <GridWrapper motif1>
-      <HeroBanner
+    <GridWrapper motif1 >
+      <!-- <HeroBanner
         red
         id="hero"
         class="display"
         title="Jake is a Full-stack Designer"
         :style="{ paddingBottom: '0' }"
-      />
+      /> -->
     </GridWrapper>
 
     <!-- CONTENTFUL HEADER EXAMPLE -->

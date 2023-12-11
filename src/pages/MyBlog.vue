@@ -1,13 +1,14 @@
 <template>
   <PageWrapper>
-    <HeroBanner
+    <!-- <HeroBanner
       title="Docs & Resources"
       subtitle="A place to learn and share thoughts"
       eyebrow=""
-    />
+    /> -->
     <GridContainer tight id="docs" class="animate delay-2">
       <GridParent>
         <DefaultCard
+        cover
           v-for="entry in docs.entries"
           :alt="entry.alt"
           :description="entry.description"
