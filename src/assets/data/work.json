@@ -44,7 +44,7 @@
           }
         },
         {
-          "eyebrow": "The Solution",
+          "eyebrow": "",
           "title": "The Solution",
           "body": "Body 3 - This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer.",
           "images": {
@@ -146,18 +146,7 @@
         }
       ]
     },
-    {
-      "id": 4,
-      "size": "large",
-      "title": "The Importance of Baselines",
-      "tag": "Tag1 Tag2 DQA",
-      "description": "Baselines provide a stable and known starting point for comparison during software development and testing. By comparing changes or new versions against the baseline, discrepancies, bugs, or regressions can be easily identified, ensuring software quality and reliability throughout its development life cycle.",
-      "btnroute": "mdoc/10",
-      "cta": "Read More",
-      "filename1": "article/baseline.png",
-      "alt": "Alt Test",
-      "bgcolor": "background-color: var(--background-darker)"
-    },
+    
     
     {
       "id": 5,

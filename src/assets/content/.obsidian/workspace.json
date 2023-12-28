@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "mdoc_3.md",
+                "file": "mdoc_13.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "mdoc_3.md",
+                "file": "mdoc_13.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "mdoc_3.md",
+                "file": "mdoc_13.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "mdoc_3.md"
+                "file": "mdoc_13.md"
               }
             }
           },
@@ -158,15 +158,27 @@
   },
   "active": "c8059010fa31ff49",
   "lastOpenFiles": [
-    "mdoc_2.md",
     "mdoc_3.md",
-    "mdoc_8.md",
-    "mdoc_7.md",
-    "mdoc_6.md",
-    "mdoc_12.md",
-    "mdoc_1.md",
     "mdoc_0.md",
+    "mdoc_1.md",
+    "mdoc_2.md",
+    "mdoc_13.md",
+    "mdoc_9.md",
+    "mdoc_16.md",
+    "src/assets/images/article/jacques.jpg.md",
+    "src/assets/images/article",
+    "src/assets/images",
+    "src/assets",
+    "src",
+    "mdoc_14.md",
+    "mdoc_6.md",
+    "mdoc_7.md",
+    "mdoc_8.md",
+    "mdoc_10.md",
     "mdoc_11.md",
+    "mdoc_12.md",
+    "mdoc_15.md",
+    "DQA-notes.md",
     "images/image7.png",
     "Pasted image 20231201092218.png",
     "images/image6.png",
@@ -175,11 +187,8 @@
     "images/image4.png",
     "images/image2.png",
     "images/Pasted.md",
-    "mdoc_10.md",
     "images/image1.png",
     "images",
-    "mdoc_9.md",
-    "DQA-notes.md",
     "content.md",
     "images/image3.png",
     "Untitled 1.md",
@@ -188,10 +197,6 @@
     "Aspose.Words.df59ef89-7f47-4bae-a0c4-c9043b0219ea.002.png.md",
     "mdoc_4.md",
     "mdoc_3 copy.md",
-    "mdoc_primitives.md",
-    "mdoc_2 copy.md",
-    "doc_2.md",
-    "doc_1 copy.md",
-    "doc_1.md"
+    "mdoc_primitives.md"
   ]
 }

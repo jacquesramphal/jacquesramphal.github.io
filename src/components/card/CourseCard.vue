@@ -4,7 +4,7 @@
       <div class="grid-parent blog-card">
         <span id="dates">
           <ul>
-            <li class="label subtle">
+            <li  class="label subtle">
               <p>{{ tag }}</p>
             </li>
           </ul>

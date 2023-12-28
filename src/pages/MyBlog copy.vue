@@ -56,7 +56,7 @@ import PageWrapper from "@/components/grid/PageWrapper.vue";
 // import fakeposts from "@/components/blog/data/posts.json";
 
 export default {
-  name: "MyBlog",
+  name: "MyDocs",
   components: {
     PageWrapper,
     // CourseCard,

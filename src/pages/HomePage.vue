@@ -4,10 +4,16 @@
       <!-- <HeroBanner
         red
         id="hero"
-        class="display"
+        class="serif"
+        title="Jake is a Full-stack Designer & QA advocate based in Toronto. <br> <br>His work explores the intersection between design and development and seeks to embrace emerging technologies for a more efficient and inclusive future."
+        :style="{ paddingBottom: '0'}"
+      /> -->
+      <HeroBanner
+        class="display" 
+        id="hero"
         title="Jake is a Full-stack Designer"
         :style="{ paddingBottom: '0' }"
-      /> -->
+      />
     </GridWrapper>
 
     <!-- CONTENTFUL HEADER EXAMPLE -->
@@ -114,7 +120,7 @@
       <!-- <CardRow2 /> -->
     </GridContainer>
 
-    <!-- <TestimonialCarousel/> -->
+    <TestimonialCarousel/>
 
     <!-- 
     Get in touch banner -->
@@ -132,7 +138,6 @@
 
 <script>
 import works from "@/assets/data/work.json";
-import GridContainer from "@/components/grid/GridContainer.vue";
 // import TestimonialCarousel from "@/components/TestimonialCarousel.vue";
 
 export default {
@@ -149,7 +154,7 @@ export default {
       // contentful: [],
     };
   },
-  components: { GridContainer },
+  components: {  },
 };
 </script>
 

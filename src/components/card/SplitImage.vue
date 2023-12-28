@@ -5,9 +5,10 @@
         <!-- <GridContainer class="textcontainer parallaxFront fadeInUp"> -->
         <GridContainer class="textcontainer fadeInUp">
           <TextBlock
+            :eyebrow="`${tag}`"
             :header="`${header}`"
             :cta="`${cta}`"
-            :route="`${route}`"
+            :btnroute="`${route}`"
             :details="`${details}`"
           />
         </GridContainer>
@@ -43,7 +44,7 @@ export default {
       default:
         "    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
-    eyebrow: {
+    tag: {
       type: String,
       default: "Eyebrow",
     },
@@ -130,19 +131,19 @@ Copy code * {
     position: relative;
     display: block;
     overflow: hidden;
-    aspect-ratio: 1 / 1 !important;
+    aspect-ratio: 16 / 9 !important;
     grid-column: 1;
     // Swap img postiton on mobile
     grid-row: 2;
     // grid-row: 1 / 1;
 
-    @media only screen and (min-width: 1201px) {
-      aspect-ratio: 16 / 9 !important;
+    // @media only screen and (min-width: 1201px) {
+    //   aspect-ratio: 16 / 9 !important;
       // @media screen and (-webkit-min-device-pixel-ratio:0) {
       //   height: auto;
       //   background: yellow;
       // }
-    }
+    // }
   }
 
   .imgcontainer {

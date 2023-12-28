@@ -12,6 +12,7 @@
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
+    "@babel/parser": "^7.23.6",
     "@emailjs/browser": "^3.2.0",
     "@expo/webpack-config": "^0.17.2",
     "@storybook/vue": "^7.0.23",
@@ -66,7 +67,7 @@
     "@vue/cli-plugin-router": "~5.0.8",
     "@vue/cli-plugin-typescript": "~5.0.8",
     "@vue/cli-service": "~5.0.8",
-    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/compiler-sfc": "^3.3.13",
     "@vue/eslint-config-typescript": "^9.1.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.3",
@@ -91,7 +92,7 @@
     "typescript": "~4.5.5",
     "vue-loader": "^17.2.2",
     "vue-svg-inline-loader": "^2.1.2",
-    "vue-template-compiler": "^2.7.14",
+    "vue-template-compiler": "^2.7.15",
     "webpack-cli": "^4.10.0"
   },
   "eslintConfig": {

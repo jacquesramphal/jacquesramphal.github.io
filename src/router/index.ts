@@ -4,7 +4,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import InfoPage from "@/pages/InfoPage.vue";
 import MyLibrary from "@/pages/MyLibrary.vue";
 import MaintenancePage from "@/pages/misc/MaintenancePage.vue";
-import MyBlog from "@/pages/MyBlog.vue";
+import MyDocs from "@/pages/MyDocs.vue";
 import MyResume from "@/pages/MyResume.vue";
 import NotFound from "@/pages/misc/NotFound.vue";
 import ProjectPage from "@/pages/ProjectPage.vue";
@@ -86,7 +86,7 @@ const routes = [
   {
     path: "/docs",
     name: "Blog",
-    component: MyBlog,
+    component: MyDocs,
   },
   {
     path: "/library2",

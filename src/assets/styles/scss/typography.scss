@@ -1,17 +1,9 @@
-@font-face {
-  font-display: auto;
-  font-family: "Epilogue";
-  font-style: normal;
-  font-weight: 100 900;
-  src: url("../../type/epilogue/epilogue-regular.ttf") format("truetype");
-}
 
 * {
   font-kerning: auto;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  /*   font-family: "Epilogue", sans-serif;*/
+  font-family: var(--font-primary);
   text-rendering: optimizeLegibility;
   unicode-range: U+000-5FF;
   letter-spacing: var(--spacing-normal);
@@ -48,13 +40,13 @@ p {
 
 h1,
 h2 {
-  font-family: "Epilogue", sans-serif;
+  font-family: var(--font-secondary);
   letter-spacing: var(--spacing-tight) !important;
 }
 
 h3,
 h4 {
-  font-family: "Epilogue", sans-serif;
+  font-family: var(--font-secondary);
 }
 
 h1 {
@@ -518,6 +510,7 @@ h1>a {
   h5 {
     font-size: var(--font-xs);
   }
+  
 
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {

@@ -1,17 +1,34 @@
 const fs = require('fs-extra');
+const { parseComponent } = require('@vue/compiler-sfc'); // Move this import statement to the top
+const babelParser = require('@babel/parser');
 const esprima = require('esprima');
 const escodegen = require('escodegen');
 
-// Read the component file
-const componentCode = fs.readFileSync('./path/to/your/Button.vue', 'utf-8');
+let componentCode, storiesCode;
 
-// Parse the component file
-const parsedCode = esprima.parseScript(componentCode);
+try {
+    // Read the component file
+    componentCode = fs.readFileSync('./src/components/Button.vue', 'utf-8');
+} catch (err) {
+    console.error('Error reading Button.vue:', err);
+}
+
+// Parse the Vue file
+const parsedComponent = parseComponent(componentCode);
+
+// Parse the script part with Babel
+const script = babelParser.parse(parsedComponent.script.content, {
+    sourceType: 'module',
+    plugins: ['jsx', 'dynamicImport']
+});
+
+// Remove this duplicate import statement
+// const { parseComponent } = require('@vue/compiler-sfc');
 
 // Find the new variant in the parsed code
 // This will depend on how your variants are defined in your component file
 let newVariant;
-for (let statement of parsedCode.body) {
+for (let statement of script.program.body) {
     if (statement.type === 'VariableDeclaration') {
         for (let declaration of statement.declarations) {
             if (declaration.id.name === 'variants') {
@@ -21,33 +38,15 @@ for (let statement of parsedCode.body) {
     }
 }
 
-// Read the stories file
-let storiesCode = fs.readFileSync('./path/to/your/Button.stories.js', 'utf-8');
+try {
+    // Read the stories file
+    storiesCode = fs.readFileSync('./src/stories/Button.stories.js', 'utf-8');
+} catch (err) {
+    console.error('Error reading Button.stories.js:', err);
+}
 
 // Parse the stories file
 let parsedStories = esprima.parseModule(storiesCode);
 
 // Update the stories file with the new variant
 // This will depend on how your stories file is structured
-for (let statement of parsedStories.body) {
-    if (statement.type === 'ExportNamedDeclaration') {
-        for (let declaration of statement.declaration.declarations) {
-            if (declaration.id.name === 'argTypes') {
-                for (let property of declaration.init.properties) {
-                    if (property.key.name === 'type') {
-                        property.value.properties[1].value.elements = newVariant.map(variant => ({
-                            type: 'Literal',
-                            value: variant,
-                        }));
-                    }
-                }
-            }
-        }
-    }
-}
-
-// Generate the updated stories code
-let updatedStoriesCode = escodegen.generate(parsedStories);
-
-// Write the updated stories code back to the stories file
-fs.writeFileSync('./path/to/your/Button.stories.js', updatedStoriesCode);

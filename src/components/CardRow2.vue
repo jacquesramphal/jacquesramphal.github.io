@@ -30,7 +30,7 @@
 
       <GridParent>
         <DefaultCard
-          cover
+          borderless
           v-for="entry in docs.entries.slice(0, 3)"
           :key="entry.id"
           :tag="entry.tag"

@@ -1,5 +1,5 @@
 <template :class="classes">
-  <div id="default-card" :class="classes" :data-category="`${tag}`">
+  <div class="default-card" :class="classes" :data-category="`${tag}`">
     <div v-if="alt" class="image">
       <router-link :to="`${route}`">
         <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" />
@@ -87,12 +87,22 @@ export default {
       type: Boolean,
       default: false,
     },
+    borderless: {
+      type: Boolean,
+      default: false,
+    },
+    list: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     classes() {
       return {
         defaultcard: true,
         "defaultcard--cover": this.cover,
+        "defaultcard--borderless": this.borderless,
+        "defaultcard--list": this.list,
       };
     },
   },
@@ -104,7 +114,7 @@ export default {
   border-radius: 0;
 }
 
-#default-card {
+.default-card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -130,6 +140,88 @@ export default {
   //   box-shadow: var(--shadow-hover);
   //   transform: rotate(1deg);
   // }
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--spacing-md);
+}
+
+img {
+  width: 100%;
+  height: 101% !important;
+  object-fit: cover !important;
+  max-width: 100%;
+  border-radius: 0 !important;
+  -moz-transition: transform 0.25s ease-in-out;
+  -o-transition: transform 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out;
+}
+
+.image {
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  border-radius: 0 !important;
+}
+.defaultcard--list {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none;
+  padding-bottom: var(--spacing-md);
+  display: grid !important;
+  .image {
+    overflow: hidden !important;
+    border-radius: var(--spacing-xxs) !important;
+    object-fit: cover;
+    border: red 1px solid !important;
+  }
+  .info {
+    padding: var(--spacing-xs) 0 0 0 !important;
+  }
+  @media only screen and (min-width: 1201px) {
+    border-bottom: 1px solid var(--color-xlight) !important;
+    
+  }
+  // &:last-child {
+  //   border-bottom: none !important;
+  // }
+  @media only screen and (min-width: 1201px) {
+    flex-direction: row-reverse !important;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: var(--spacing-md);
+    .image {
+      // aspect-ratio: 16/9 !important;
+      // flex: 3;
+      grid-column: 3 / 4 !important;
+      height: 100% !important;
+    }
+    .info {
+      // flex: 6;
+      grid-column: 1 / 3 !important;
+      grid-row: 1;
+      padding: 0 !important;
+      border: none !important;
+    }
+  }
+}
+
+.defaultcard--borderless {
+  border: none !important ;
+  box-shadow: none !important;
+  @media only screen and (min-width: 1201px) {
+    .info {
+    padding: var(--spacing-xs) 0 0 0 !important;
+  }
+  }
+  .info {
+    padding: var(--spacing-xs) 0 !important;
+  }
+  
+
+  .image {
+    border-radius: var(--spacing-xxs) !important;
+  }
 }
 .defaultcard--cover {
   background-color: transparent;
@@ -163,28 +255,5 @@ export default {
     border-radius: 0 !important;
     position: absolute;
   }
-}
-.info {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding: var(--spacing-md);
-}
-
-img {
-  width: 100%;
-  height: 101% !important;
-  object-fit: cover !important;
-  max-width: 100%;
-  border-radius: 0 !important;
-  -moz-transition: transform 0.25s ease-in-out;
-  -o-transition: transform 0.25s ease-in-out;
-  -webkit-transition: transform 0.25s ease-in-out;
-}
-
-.image {
-  overflow: hidden;
-  aspect-ratio: 16/9;
-  border-radius: 0 !important;
 }
 </style>

@@ -1,9 +1,19 @@
 /* Styles for users who prefer light mode at the OS level */
+@font-face {
+  font-display: auto;
+  font-family: "Epilogue";
+  font-style: normal;
+  font-weight: 100 900;
+  src: url("../../type/epilogue/epilogue-regular.ttf") format("truetype");
+}
+
+
 :root {
   --text-opacity: 0.7;
   --text: var(--color-darktext);
   --text-muted: rgba(var(--color-darktext), var(--text-opacity));
-  --text-subtle: rgba(43, 61, 79, var(--text-opacity)); /* Use the RGB values for --color-darktext */
+  --text-subtle: rgba(43, 61, 79, var(--text-opacity));
+  /* Use the RGB values for --color-darktext */
   --background: var(--color-offwhite);
   --background-darker: var(--color-highlight2);
   --link: var(--color-action);
@@ -87,6 +97,10 @@
   --shadow-deep: 0px 16px 24px rgba(0, 0, 0, 0.07),
     0px 6px 30px rgba(0, 0, 0, 0.06), 0px 8px 10px rgba(0, 0, 0, 0.1);
 
+  /* FONT-FAMILY */
+  --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+  --font-secondary: "Epilogue", sans-serif !important;
+  --font-tertiary: "Merriweather", Georgia, Cambria, "Times New Roman", Times !important;
 
   /* FONT-SIZE */
   --font-display: 12rem;
@@ -152,7 +166,8 @@
 :root.dark-theme {
   --text: var(--color-offwhite);
   --text-muted: rgba(var(--text), 0.7);
-  --text-subtle: rgba(250, 250, 250, 0.5); /* Use the RGB values for #fafafa */
+  --text-subtle: rgba(250, 250, 250, 0.5);
+  /* Use the RGB values for #fafafa */
   --background: var(--color-offblack);
   --background-darker: var(--color-highlight);
   --link: var(--color-action-dark);
@@ -198,7 +213,8 @@
   :root {
     --text: var(--color-offwhite);
     --text-muted: rgba(var(--text), 0.7);
-    --text-subtle: rgba(250, 250, 250, 0.5); /* Use the RGB values for #fafafa */
+    --text-subtle: rgba(250, 250, 250, 0.5);
+    /* Use the RGB values for #fafafa */
     --background: var(--color-offblack);
     --background-darker: var(--color-highlight);
     --link: var(--color-action-dark);
@@ -242,7 +258,8 @@
 :root.light-theme {
   --text: var(--color-darktext);
   --text-muted: rgba(var(--text), 0.7);
-  --text-subtle: rgba(43, 61, 79, var(--text-opacity)); /* Use the RGB values for --color-darktext */
+  --text-subtle: rgba(43, 61, 79, var(--text-opacity));
+  /* Use the RGB values for --color-darktext */
 
   --background: var(--color-offwhite);
   --background-darker: var(--color-highlight2);
