@@ -153,7 +153,7 @@ export default {
   width: 100%;
   z-index: 1000 !important;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     width: fit-content;
   }
 }
@@ -169,7 +169,7 @@ export default {
     --background-reversed
   ); /* Specify the color of the additional background */
   z-index: -1; /* Set the z-index to be behind the navbar */
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     right: -100%; /* Adjust the value to control the width of the additional background */
     bottom: 0;
   }
@@ -178,7 +178,7 @@ export default {
 .navbar.hidden-navbar {
   transform: translate3d(0, 150%, 0) !important;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     transform: translate3d(100%, 0, 0) !important;
   }
 }
@@ -191,7 +191,7 @@ export default {
   position: relative;
   padding: var(--spacing-xxs);
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     border-radius: 8px 0 0 0;
     justify-self: end;
   }
@@ -236,11 +236,11 @@ p {
 }
 
 .wordmark::after {
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     content: "/";
     padding: var(--spacing-xxs);
     opacity: 0.5;
-    font-weight: var(--font-normal);
+    font-weight: var(--fontWeight-normal);
   }
 }
 </style>

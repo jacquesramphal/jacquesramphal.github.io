@@ -119,7 +119,7 @@ Copy code * {
     // align-self: center !important;
     padding-top: var(--spacing-xs);
 
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       padding-top: 0;
     }
   }
@@ -149,7 +149,7 @@ Copy code * {
   .imgcontainer {
     padding-top: 0 !important;
 
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       padding-top: var(--spacing-lg) !important;
     }
   }
@@ -165,21 +165,21 @@ Copy code * {
 
 .splitimage-align--default {
   .textcontainer {
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       grid-column: 2;
       grid-row: 1;
     }
   }
 
   img {
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       grid-column: 1;
       grid-row: 1;
     }
   }
 
   .imgcontainer {
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       padding-right: 0 !important;
     }
   }
@@ -187,21 +187,21 @@ Copy code * {
 
 .splitimage-align--flipped {
   .textcontainer {
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       grid-column: 1;
       grid-row: 1;
     }
   }
 
   img {
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       grid-column: 2;
       grid-row: 1;
     }
   }
 
   .imgcontainer {
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       padding-left: 0 !important;
     }
   }

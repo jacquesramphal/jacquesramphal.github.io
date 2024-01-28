@@ -96,7 +96,7 @@ height: 100vh;
   margin-top: -10px;
 } */
 /* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
+@media only screen and (min-width: 768px) {
   #section-header {
     grid-column: 1 / 1;
   }

@@ -53,7 +53,7 @@ export default {
   grid-column: 1 / 4;
 
   /* ------------ BREAKPOINT MD ------------ */
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-column: auto;
 
     /* ------------ BREAKPOINT LG ------------ */

@@ -116,7 +116,7 @@ export default {
 <style lang="scss" scoped>
 .button-icon {
   margin-right: var(--spacing-xxs); // Adjust spacing between icon and label
-  line-height: 0;
+  line-height: var(--lineHeight-none);
   // Add any other styling as needed for the icon
 }
 
@@ -129,7 +129,7 @@ export default {
   cursor: pointer;
   display: inline-block;
   font-size: inherit;
-  font-weight: var(--font-medium);
+  font-weight: var(--fontWeight-medium);
   // padding: 0.5rem 1rem 0.5rem 1rem;
   text-decoration: none;
   transition: all 0.1s ease-in-out;
@@ -164,7 +164,7 @@ export default {
   background-color: transparent !important;
   color: var(--link) !important;
   border: 1px solid var(--link) !important;
-  font-weight: var(--font-normal);
+  font-weight: var(--fontWeight-normal);
 
   &:before,
   &:after {
@@ -184,7 +184,7 @@ export default {
   color: var(--link) !important;
   background-color: transparent;
   border: 1px solid transparent !important;
-  font-weight: var(--font-normal);
+  font-weight: var(--fontWeight-normal);
   &:before,
   &:after {
     color: inherit !important;
@@ -243,7 +243,7 @@ export default {
 }
 
 .button--small {
-  font-size: var(--font-xxs);
+  font-size: var(--font-2xs);
   // padding: var(--spacing-xxs);
   padding: 0.95rem 1.25rem 1rem 1.25rem;
 

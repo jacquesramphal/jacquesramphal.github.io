@@ -132,7 +132,7 @@ export default {
   // border-radius: var(--spacing-xxs)
   // padding: var(--spacing-sm) var(--spacing-xs)
   // transition: all 0.5s ease
-  // @media only screen and (min-width: 740px)
+  // @media only screen and (min-width: 768px)
   //   padding: var(--spacing-lg)
   // @media only screen and (min-width: 1201px)
   //   padding: var(--spacing-lg)
@@ -143,7 +143,7 @@ export default {
   align-items: center
   text-align: center
   // font-size: var(--font-xs)
-  // font-weight: var(--font-normal)
+  // font-weight: var(--fontWeight-normal)
 
 // .switch-label:hover
 //   box-shadow: var(--shadow-hover)

@@ -95,7 +95,7 @@ img {
   grid-template-rows: 2, 1fr;
   text-decoration: none !important;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-gap: var(--spacing-md);
     grid-column: 1 / 3;
     grid-template-columns: repeat(2, 1fr);
@@ -110,7 +110,7 @@ img {
 .text-container {
   padding: var(--spacing-md) var(--spacing-md) 0 var(--spacing-md) !important;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     padding: var(--spacing-sm) 0 var(--spacing-md) var(--spacing-md) !important;
   }
 
@@ -134,7 +134,7 @@ img {
 }
 
 .text {
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-column: 1 / 2;
   }
 }

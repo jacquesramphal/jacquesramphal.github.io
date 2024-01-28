@@ -92,7 +92,7 @@ export default {
   grid-gap: var(--spacing-lg)
   background: var(--background)
   color: var(--text)
-  font-size: var(--font-xxs)
+  font-size: var(--font-2xs)
   @media screen and (max-width: 240mm)
     grid-template-areas: "header" "sidebar" "segments" "footer"
     grid-template-columns: 1fr

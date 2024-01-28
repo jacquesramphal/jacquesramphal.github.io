@@ -13,13 +13,24 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "mdoc_13.md",
+                "file": "mdoc_16.md",
                 "mode": "source",
                 "source": false
               }
             }
+          },
+          {
+            "id": "f75cf63d1a7e3b11",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.5.3"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +96,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "mdoc_13.md",
+                "file": "mdoc_16.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "mdoc_13.md",
+                "file": "mdoc_16.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +136,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "mdoc_13.md"
+                "file": "mdoc_16.md"
               }
             }
           },
@@ -135,7 +146,9 @@
             "state": {
               "type": "all-properties",
               "state": {
-                "sortOrder": "frequency"
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
               }
             }
           }
@@ -156,28 +169,28 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c8059010fa31ff49",
+  "active": "f75cf63d1a7e3b11",
   "lastOpenFiles": [
-    "mdoc_3.md",
-    "mdoc_0.md",
-    "mdoc_1.md",
-    "mdoc_2.md",
+    "mdoc_15.md",
+    "mdoc_14.md",
     "mdoc_13.md",
+    "mdoc_12.md",
+    "mdoc_11.md",
+    "mdoc_10.md",
     "mdoc_9.md",
+    "mdoc_8.md",
+    "mdoc_7.md",
+    "mdoc_6.md",
+    "mdoc_3.md",
+    "mdoc_2.md",
+    "mdoc_1.md",
+    "mdoc_0.md",
     "mdoc_16.md",
     "src/assets/images/article/jacques.jpg.md",
     "src/assets/images/article",
     "src/assets/images",
     "src/assets",
     "src",
-    "mdoc_14.md",
-    "mdoc_6.md",
-    "mdoc_7.md",
-    "mdoc_8.md",
-    "mdoc_10.md",
-    "mdoc_11.md",
-    "mdoc_12.md",
-    "mdoc_15.md",
     "DQA-notes.md",
     "images/image7.png",
     "Pasted image 20231201092218.png",

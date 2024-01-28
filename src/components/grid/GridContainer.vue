@@ -55,7 +55,7 @@ export default {
   // max-width: 1680px;
   overflow: hidden;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     padding: var(--spacing-lg) !important;
   }
   @media only screen and (min-width: 1201px) {
@@ -63,7 +63,7 @@ export default {
   }
 
   &--tight {
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       padding: var(--spacing-md) !important;
     }
     @media only screen and (min-width: 1201px) {

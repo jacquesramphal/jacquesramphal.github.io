@@ -36,7 +36,7 @@ export default {
   /* padding-top: 0 !important; */
 }
 /* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
+@media only screen and (min-width: 768px) {
   #image-highlight {
     height: 60vh;
   }

@@ -202,7 +202,7 @@ export default {
 
 // image-cards Large
 .image-card--large {
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-column: 1 / 3;
     .bg {
       aspect-ratio: 16 / 9;
@@ -245,7 +245,7 @@ export default {
     padding: var(--spacing-md) var(--spacing-md) 0 var(--spacing-md) !important;
   }
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-gap: var(--spacing-md);
     grid-column: 1 / 3;
     grid-template-columns: repeat(2, 1fr);
@@ -338,7 +338,7 @@ export default {
   grid-template-rows: 2, 1fr;
   text-decoration: none !important;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-gap: var(--spacing-md);
     grid-column: 1 / 3;
     grid-template-columns: repeat(2, 1fr);
@@ -353,7 +353,7 @@ export default {
 .text-container {
   padding: var(--spacing-md) var(--spacing-md) 0 var(--spacing-md) !important;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     padding: var(--spacing-sm) 0 var(--spacing-md) var(--spacing-md) !important;
   }
 
@@ -379,7 +379,7 @@ export default {
   // max-width: 60px;
 
   overflow: visible !important;
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-column: 1 / 2;
   }
 }

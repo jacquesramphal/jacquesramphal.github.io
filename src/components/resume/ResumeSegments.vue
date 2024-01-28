@@ -53,10 +53,10 @@ export default {
 <style scoped lang="sass">
 .resume-segment
   margin-bottom: var(--spacing-md)
-  @media only screen and (min-width: 740px)
+  @media only screen and (min-width: 768px)
     margin-bottom: var(--spacing-lg)
 .resume-segment:first-child
   margin-top: var(--spacing-md)
-  @media only screen and (min-width: 740px)
+  @media only screen and (min-width: 768px)
     margin-top: 0
 </style>

@@ -112,7 +112,7 @@
       </GridContainer>
       <GridContainer>
         <div class="">
-          <p style="font-size: var(--font-xxs)">
+          <p style="font-size: var(--font-2xs)">
             © 2023 Jacques Ramphal — Built with
             <a target="blank" href="https://v3.vuejs.org/">Vue3</a>.
             <!-- <a target="blank" href="https://www.typescriptlang.org/"
@@ -199,7 +199,7 @@ $spacing-sm: var(--spacing-sm);
   grid-template-columns: repeat(2, 1fr);
   margin-top: $spacing-sm;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -212,7 +212,7 @@ $spacing-sm: var(--spacing-sm);
 #maindetails {
   grid-column: 1 / 4;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-column: 1 / 4;
   }
 
@@ -225,7 +225,7 @@ $spacing-sm: var(--spacing-sm);
 #links1 {
   grid-column: 1;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-column: auto;
   }
 
@@ -236,7 +236,7 @@ $spacing-sm: var(--spacing-sm);
 #links2 {
   grid-column: 2;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-column: auto;
   }
 
@@ -247,7 +247,7 @@ $spacing-sm: var(--spacing-sm);
 #links3 {
   grid-column: 1;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-column: auto;
   }
 
@@ -256,13 +256,13 @@ $spacing-sm: var(--spacing-sm);
 }
 
 h3 {
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     // text-align: center;
   }
 }
 
 #copyright {
-  // font-weight: var(--font-medium);
+  // font-weight: var(--fontWeight-medium);
 }
 
 ul {
@@ -275,7 +275,7 @@ ul {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -287,7 +287,7 @@ ul {
 #links {
   grid-column: 1 / 1;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-column: auto;
     justify-self: end;
   }
@@ -296,8 +296,8 @@ ul {
 li {
   width: 100%;
   font-size: 2em;
-  line-height: 1.5;
-  // font-weight: var(--font-medium);
+  line-height: var(--lineHeight-tall);
+  // font-weight: var(--fontWeight-medium);
   margin-top: var(--spacing-xxs);
   float: left;
   list-style-type: none;

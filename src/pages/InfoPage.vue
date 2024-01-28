@@ -6,6 +6,7 @@
     />
     <!-- <ImageCard size="split" title="Title" details="UI Regression Testing with Storybook and Chromatic ensures my components are throughly tested and documented" /> -->
     <SplitImage/>
+    <SplitImage flipped/>
     <TextGrid
       v-for="about in contentful"
       v-bind:key="about.sys.id"
@@ -108,7 +109,7 @@ export default {
 
 <style scoped>
 /* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
+@media only screen and (min-width: 768px) {
   #image-highlight {
     height: 60vh;
   }

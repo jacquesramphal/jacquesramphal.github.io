@@ -269,9 +269,9 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 3rem; /* Adjust the spacing between tables */
-  font-size: var(--font-xxs);
+  font-size: var(--font-xs);
   line-height: 1.5;
-font-weight: var(--font-normal);
+  font-weight: var(--font-normal);
   border: var(--border); /* Add a border to all table rows */
   @media only screen and (max-width: 740px) {
     display: block; /* Display as a block element to allow for horizontal scrolling */
@@ -297,7 +297,6 @@ td {
   padding: var(--spacing-xs);
   text-align: left;
   vertical-align: text-top;
-
 }
 
 /* Horizontal Borders */

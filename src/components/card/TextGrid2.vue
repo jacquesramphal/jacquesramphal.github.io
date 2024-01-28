@@ -108,7 +108,7 @@ ul {
   margin-bottom: 2rem;
 }
 /* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
+@media only screen and (min-width: 768px) {
   #values {
     grid-column: 1 / 1;
   }

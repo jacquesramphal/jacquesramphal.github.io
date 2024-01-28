@@ -244,16 +244,16 @@ export default {
 }
 .quote-text {
   h2 {
-    // font-family: var(--font-secondary) !important;
+    // font-family: var(--fontFamily-secondary) !important;
     font-weight: var(--font-reversed-normal) !important;
     // font-size: var(--font-lg) !important;
-    // letter-spacing: var(--spacing-reversed-tight);
-    // line-height: 1.4;
+    // letter-spacing: var(--letterSpacing-reversed-tight);
+    // line-height: var(--lineHeight-base);
     z-index: 1;
   }
   &::before {
     content: "“";
-    font-family: var(--font-secondary);
+    font-family: var(--fontFamily-secondary);
     font-weight: bold;
     font-size: 96rem;
     position: absolute;
@@ -262,7 +262,7 @@ export default {
     z-index: 0;
     left: -100px;
     top: -150px;
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       font-size: 120rem;
       top: -150px;
     }
@@ -283,7 +283,7 @@ export default {
   border-radius: var(--spacing-lg) !important;
   margin-bottom: var(--spacing-xs);
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     margin-bottom: none;
     margin-right: var(--spacing-sm);
   }
@@ -314,7 +314,7 @@ export default {
 
   right: var(--spacing-sm);
   height: 6rem;
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     top: var(--spacing-md);
 
     right: var(--spacing-md);

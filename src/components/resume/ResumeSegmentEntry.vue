@@ -124,7 +124,7 @@ export default {
     flex-direction: row
     flex-wrap: nowrap
     font-size: var(--font-xs)
-    font-weight: var(--font-normal)
+    font-weight: var(--fontWeight-normal)
 
     .resume-segment-entry-information-date
       display: flex
@@ -142,6 +142,6 @@ export default {
           content: '•'
           margin: 0 .5rem 0 .5rem
   >.resume-segment-entry-title
-    line-height: 1.5
+    line-height: var(--lineHeight-tall)
     margin-bottom: var(--spacing-xxs)
 </style>

@@ -19,7 +19,7 @@ div {
   overflow: hidden;
   // padding-bottom: var(--spacing-lg) !important
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     padding-bottom: 0 !important;
   }
 

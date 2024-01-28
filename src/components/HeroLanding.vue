@@ -72,7 +72,7 @@ h1
   display: grid
   grid-row: 1 / 8
   text-align: left
-  @media only screen and (min-width: 740px)
+  @media only screen and (min-width: 768px)
     max-width: 85vw
     justify-self: center !important
 </style>

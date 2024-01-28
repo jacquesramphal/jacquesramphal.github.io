@@ -1,11 +1,9 @@
-<!-- ---
+---
 title: My Page
 date: 2023-09-17
---- -->
-
+---
 
 # The Importance of Baselines
-
 
 Author: Jacques Ramphal  
 Date: July 15, 2023
@@ -38,4 +36,3 @@ Automating DQA (Design Quality Assurance) through baselines in software testing 
 - Leverage plugins to integrate your design references and coded libraries for collaboration.
 
 By embracing baselines and integrating design and development environments effectively, you can ensure the high quality and reliability of your software products throughout the development life cycle.
-

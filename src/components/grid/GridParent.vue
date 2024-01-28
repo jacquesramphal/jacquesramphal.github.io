@@ -31,7 +31,7 @@ export default {
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(1, 1fr);
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
     margin-top: 0;
     grid-gap: var(--spacing-md);

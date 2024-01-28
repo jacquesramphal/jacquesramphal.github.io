@@ -177,7 +177,7 @@ img {
   #tags {
     margin-top: 2rem;
     word-spacing: 2rem;
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       margin-top: 3.2rem;
     }
   }
@@ -186,7 +186,7 @@ img {
     margin-top: 2rem;
     max-width: 86.4rem;
     width: 100%;
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       margin-top: 3.2rem;
     }
     @media only screen and (min-width: 1201px) {
@@ -200,7 +200,7 @@ img {
   display: grid;
   grid-template-columns: 1fr;
   justify-content: start;
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-template-columns: auto auto;
   }
 }
@@ -222,7 +222,7 @@ img {
   overflow: hidden !important;
   position: relative;
   height: auto;
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     background-position: 100% 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -255,7 +255,7 @@ img {
       border-radius: var(--spacing-xxs);
       color: var(--background);
       font-weight: var(--font-reversed-medium);
-      letter-spacing: var(--spacing-reversed-tight);
+      letter-spacing: var(--letterSpacing-reversed-tight);
       padding: var(--spacing-xxs) var(--spacing-sm) var(--spacing-xs)
         var(--spacing-sm);
     }
@@ -287,7 +287,7 @@ img {
 
 .herobanner--center {
   #hero-text {
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       justify-self: center;
       text-align: center !important;
     }

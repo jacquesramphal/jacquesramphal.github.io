@@ -230,7 +230,7 @@ img {
   }
   aspect-ratio: 3/4;
 
-  // @media only screen and (min-width: 740px) {
+  // @media only screen and (min-width: 768px) {
   //   aspect-ratio: auto;
   // }
   .info {

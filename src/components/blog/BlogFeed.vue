@@ -162,16 +162,16 @@ export default {
   font-size: var(--font-xs)
   font-family: inherit
 .blog-post
-  // font-size: var(--font-xxs)
+  // font-size: var(--font-2xs)
   // margin-bottom: var(--spacing-md)
-  @media only screen and (min-width: 740px)
+  @media only screen and (min-width: 768px)
     margin-bottom: var(--spacing-lg)
 .blog-post-entry:first-child
   padding-top: 0
 .blog-post-entry:last-child
-  @media only screen and (min-width: 740px)
+  @media only screen and (min-width: 768px)
     padding-bottom: 0
-  @media only screen and (min-width: 740px)
+  @media only screen and (min-width: 768px)
 </style>
 
 <style lang="sass" scoped>

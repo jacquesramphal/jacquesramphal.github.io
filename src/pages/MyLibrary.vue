@@ -103,7 +103,7 @@ export default {
 }
 
 /* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
+@media only screen and (min-width: 768px) {
   #buttons {
   }
 }

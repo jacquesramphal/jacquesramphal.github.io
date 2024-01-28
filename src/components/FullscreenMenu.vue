@@ -129,8 +129,8 @@ export default {
         a {
           color: var(--text-reversed) !important;
           text-decoration: none;
-          font-size: var(--font-xxl);
-          // font-weight: var(--font-bold);
+          font-size: var(--font-2xl);
+          // font-weight: var(--fontWeight-bold);
           &:hover {
             color: var(--color-white);
             text-decoration: underline;

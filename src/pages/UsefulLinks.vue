@@ -402,7 +402,7 @@ export default {
 .grid-parent
   grid-gap: 0
   // margin-bottom: var(--spacing-lg)
-  @media only screen and (min-width: 740px)
+  @media only screen and (min-width: 768px)
     grid-gap: var(--spacing-lg)
 ul
   list-style: none
@@ -412,8 +412,8 @@ ul
 li
   width: 100%
   font-size: 2em
-  line-height: 1.5
-  // font-weight: var(--font-medium)
+  line-height: var(--lineHeight-tall)
+  // font-weight: var(--fontWeight-medium)
   padding: var(--spacing-xs) 0
   // border-bottom: var(--border)
   float: left

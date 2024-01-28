@@ -127,7 +127,7 @@ export default {
 #MyLogo {
   height: 3.6rem;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     height: 4rem;
   }
 

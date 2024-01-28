@@ -31,7 +31,7 @@ export default {
   grid-column: 1 / 4;
   text-align: left;
   padding: 0;
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-column: auto;
   }
 
