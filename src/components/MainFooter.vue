@@ -113,15 +113,12 @@
       <GridContainer>
         <div class="">
           <p style="font-size: var(--font-2xs)">
-            © 2023 Jacques Ramphal — Built with
+            All rights reserved © Jacques Ramphal 2024
+            <!-- © 2023 Jacques Ramphal — Built with
             <a target="blank" href="https://v3.vuejs.org/">Vue3</a>.
-            <!-- <a target="blank" href="https://www.typescriptlang.org/"
-            >Typescript</a
-          >
-          & <a target="blank" href="https://sass-lang.com/">Sass</a>.  -->
-
+        
             Deployed on
-            <a target="blank" href="https://www.netlify.com/">Netlify</a>.
+            <a target="blank" href="https://www.netlify.com/">Netlify</a>. -->
           </p>
         </div>
       </GridContainer>

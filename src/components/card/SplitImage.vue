@@ -3,7 +3,19 @@
     <GridContainer tight style="padding: 0 !important">
       <div id="grid-parent" class="grid-parent">
         <!-- <GridContainer class="textcontainer parallaxFront fadeInUp"> -->
-        <GridContainer class="textcontainer fadeInUp">
+
+        <!-- <GridContainer class="imgcontainer parallaxBack fadeInUp"> -->
+      
+        <GridContainer class="imgcontainer fadeInUp">
+          <img
+            class="splitimg"
+            draggable="false"
+            :src="require(`../../assets/images/${filename}`)"
+            :alt="`${alt}`"
+        />
+      </GridContainer>
+       
+      <GridContainer class="textcontainer fadeInUp">
           <TextBlock
             :eyebrow="`${tag}`"
             :header="`${header}`"
@@ -12,14 +24,9 @@
             :details="`${details}`"
           />
         </GridContainer>
-        <!-- <GridContainer class="imgcontainer parallaxBack fadeInUp"> -->
-        <GridContainer class="imgcontainer fadeInUp">
-          <img
-            class="splitimg"
-            draggable="false"
-            :src="require(`../../assets/images/${filename}`)"
-            :alt="`${alt}`"
-        /></GridContainer></div></GridContainer
+      </div>
+        
+        </GridContainer
   ></GridWrapper>
 </template>
 <script>
@@ -117,8 +124,7 @@ Copy code * {
 
   #textblock {
     // align-self: center !important;
-    padding-top: var(--spacing-xs);
-
+    padding-top: 0;
     @media only screen and (min-width: 768px) {
       padding-top: 0;
     }
@@ -139,18 +145,21 @@ Copy code * {
 
     // @media only screen and (min-width: 1201px) {
     //   aspect-ratio: 16 / 9 !important;
-      // @media screen and (-webkit-min-device-pixel-ratio:0) {
-      //   height: auto;
-      //   background: yellow;
-      // }
+    // @media screen and (-webkit-min-device-pixel-ratio:0) {
+    //   height: auto;
+    //   background: yellow;
+    // }
     // }
   }
 
   .imgcontainer {
-    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+
 
     @media only screen and (min-width: 768px) {
       padding-top: var(--spacing-lg) !important;
+      padding-bottom: var(--spacing-lg) !important;
+
     }
   }
 

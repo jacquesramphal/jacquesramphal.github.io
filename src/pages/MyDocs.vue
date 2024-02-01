@@ -5,6 +5,13 @@
       eyebrow=""
       :style="{ paddingBottom: '0' }"
     />
+    <SplitImage
+      style="background: var(--background-darker)"
+      :header="docs.featTitle"
+      :details="docs.featDescription"
+      route="mdoc/12"
+      cta="Read More"
+    />
     <GridContainer id="docs" class="animate delay-2">
       <!-- <DefaultCard
         
@@ -19,6 +26,7 @@
           :tag="entry.tag"
           :title="entry.title"
         /> -->
+    
       <GridParent>
         <DefaultCard
           borderless
@@ -34,17 +42,8 @@
         />
       </GridParent>
     </GridContainer>
-    <SplitImage
-      
-      style="background: var(--background-darker)"
-      filename="article/baseline.png"
-      tag="Article"
-      header="The Future-Proof Designer"
-      details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. "
-      route="mdoc/12"
-      cta="Read More"
-    />
-<!-- 
+    
+    <!-- 
     <SplitImage
       
       style="background: var(--background-darker)"
@@ -72,6 +71,7 @@ export default {
       contentful: [],
     };
   },
+  
   async created() {
     this.contentful = await this.getContentful();
   },
@@ -123,7 +123,7 @@ export default {
       }
     },
   },
-  components: {  },
+  components: {},
 };
 </script>
 

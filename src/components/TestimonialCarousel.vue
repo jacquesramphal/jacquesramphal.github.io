@@ -1,5 +1,5 @@
 <template>
-  <GridWrapper class="reversed testimonial-carousel">
+  <GridWrapper class="testimonial-carousel">
     <div class="controls justify-end" style="align-self: flex-end">
       <MyButton type="outline" label="←" @click="prevQuote" route=""></MyButton>
       <MyButton type="outline" label="→" @click="nextQuote" route=""></MyButton>
@@ -215,7 +215,7 @@ export default {
   flex-direction: column;
   align-items: left;
   /* padding: 20px; */
-  // background-color: var(--background-darker);
+  background-color: var(--background-darker);
   // height: 100vh;
   padding-top: var(--spacing-lg);
   justify-content: center;
@@ -245,7 +245,8 @@ export default {
 .quote-text {
   h2 {
     // font-family: var(--fontFamily-secondary) !important;
-    font-weight: var(--font-reversed-normal) !important;
+    font-weight: var(--font-normal) !important;
+    // font-weight: var(--font-reversed-normal) !important;
     // font-size: var(--font-lg) !important;
     // letter-spacing: var(--letterSpacing-reversed-tight);
     // line-height: var(--lineHeight-base);
@@ -257,7 +258,7 @@ export default {
     font-weight: bold;
     font-size: 96rem;
     position: absolute;
-    color: var(--background);
+    color: var(--background-reversed-darker);
     opacity: 0.05;
     z-index: 0;
     left: -100px;

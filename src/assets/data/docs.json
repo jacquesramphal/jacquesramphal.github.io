@@ -1,4 +1,6 @@
 {
+  "featTitle": "This is a feature title",
+  "featDescription": "This is a feature description",
   "entries": [
     {
       "id": 1,
@@ -15,7 +17,7 @@
       "title": "The Importance of Baselines",
       "tag": "Tag1 Tag2 typography",
       "description": "Baselines provide a stable and known starting point for comparison during software development and testing. By comparing changes or new versions against the baseline, discrepancies, bugs, or regressions can be easily identified, ensuring software quality and reliability throughout its development life cycle.",
-      "btnroute": "mdoc/10",
+      "btnroute": "mdoc/1",
       "cta": "Read More",
       "thumbnail": "article/baseline.png",
       "alt": "Design components"

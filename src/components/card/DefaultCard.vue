@@ -215,7 +215,7 @@ img {
   }
   }
   .info {
-    padding: var(--spacing-xs) 0 !important;
+    padding: var(--spacing-sm) 0 !important;
   }
   
 

@@ -1,18 +1,13 @@
 <template>
   <PageWrapper>
-    <GridWrapper motif1 >
-      <!-- <HeroBanner
+    <GridWrapper motif1>
+      <HeroBanner
         red
         id="hero"
-        class="serif"
-        title="Jake is a Full-stack Designer & QA advocate based in Toronto. <br> <br>His work explores the intersection between design and development and seeks to embrace emerging technologies for a more efficient and inclusive future."
-        :style="{ paddingBottom: '0'}"
-      /> -->
-      <HeroBanner
-        class="display" 
-        id="hero"
-        title="Jake is a Full-stack Designer"
+        class="display"
+        title="Full-stack Product Designer"
         :style="{ paddingBottom: '0' }"
+        subtitle="My work explores the intersection between design and development and seeks to embrace emerging technologies for a more efficient and inclusive future."
       />
     </GridWrapper>
 
@@ -47,28 +42,33 @@
     </GridContainer> -->
 
     <!-- HEADER COMPONENT START -->
-    <!-- <GridContainer>
+    <GridContainer>
       <div
         class="grid-parent"
         style="
-          padding-bottom: var(--spacing-md);
+          padding-bottom: 0;
           align-items: center;
           grid-template-columns: repeat(3, 1fr);
         "
       >
         <TextBlock
           style="grid-column: 1 / 3"
-          header="Work"
-          details="I have worked with a variety of clients, from small startups to large corporations. I have also worked with a variety of agencies, from small boutique agencies to large global agencies."
+          header="Selected Work"
+          details=""
         />
-        <p class="external justify-end" style="align-self: flex-end">
+        <p class="external justify-end" style="align-self: middle">
           <router-link :to="{ name: 'MoreWork' }">View All</router-link>
         </p>
       </div>
-    </GridContainer> -->
+    </GridContainer>
     <!-- HEADER COMPONENT END -->
 
-    <GridContainer tight id="work" class="animate delay-2">
+    <GridContainer
+      style="padding-top: 0"
+      tight
+      id="work"
+      class="animate delay-2"
+    >
       <GridParent id="recentwork">
         <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />
         <ImageCard2
@@ -115,12 +115,11 @@
           :route="entry.btnroute"
           :label="entry.label"
         /> -->
-        
       </GridParent>
-      <!-- <CardRow2 /> -->
     </GridContainer>
+    <TestimonialCarousel />
+    <CardRow2 />
 
-    <TestimonialCarousel/>
 
     <!-- 
     Get in touch banner -->
@@ -154,7 +153,7 @@ export default {
       // contentful: [],
     };
   },
-  components: {  },
+  components: {},
 };
 </script>
 

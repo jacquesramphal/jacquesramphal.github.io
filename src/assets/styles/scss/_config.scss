@@ -209,11 +209,11 @@
   --fontWeight-heavy: 800;
 
   /* LETTER SPACING */
-  --letterSpacing-tight: -0.2rem;
-  --letterSpacing-normal: 0;
+  --letterSpacing-tight: -0.16rem;
+  --letterSpacing-base: 0;
   --letterSpacing-loose: 0.03rem;
-  --letterSpacing-reversed-tight: calc(var(--letterSpacing-normal) - 0.12rem);
-  --letterSpacing-reversed-normal: 0.01rem;
+  --letterSpacing-reversed-tight: -0.12rem;
+  --letterSpacing-reversed-base: 0.01rem;
   --letterSpacing-reversed-loose: 0.04rem;
 
 
@@ -258,7 +258,7 @@
 
   /* FONT WEIGHT */
   --fontWeight-light: 250;
-  --fontWeight-normal: 400;
+  --fontWeight-normal: 350;
   --fontWeight-medium: 450;
   --fontWeight-bold: 550;
   --fontWeight-heavy: 700;
@@ -271,11 +271,11 @@
   --filter: brightness(0.8) saturate(1.25);
 
   /* SPACING - testing calc */
-  --letterSpacing-tight: calc(var(--letterSpacing-normal) - 0.12rem);
-  --letterSpacing-normal: 0.01rem;
+  --letterSpacing-tight: -0.12rem;
+  --letterSpacing-base: 0.01rem;
   --letterSpacing-loose: 0.04rem;
-  --letterSpacing-reversed-tight: -0.2rem;
-  --letterSpacing-reversed-normal: 0;
+  --letterSpacing-reversed-tight: -0.16rem;
+  --letterSpacing-reversed-base: 0;
   --letterSpacing-reversed-loose: 0.03rem;
 
 }
@@ -316,11 +316,11 @@
     --filter: brightness(0.8) saturate(1.25);
 
     /* SPACING */
-    --letterSpacing-tight: calc(var(--letterSpacing-normal) - 0.12rem);
-    --letterSpacing-normal: 0.01rem;
+    --letterSpacing-tight: -0.12rem;
+    --letterSpacing-base: 0.01rem;
     --letterSpacing-loose: 0.04rem;
-    --letterSpacing-reversed-tight: -0.2rem;
-    --letterSpacing-reversed-normal: 0;
+    --letterSpacing-reversed-tight: -0.16rem;
+    --letterSpacing-reversed-base: 0;
     --letterSpacing-reversed-loose: 0.03rem;
 
   }
@@ -362,11 +362,11 @@
   --filter: brightness(1) saturate(1);
 
   /* SPACING */
-  --letterSpacing-tight: -0.2rem;
-  --letterSpacing-normal: 0;
+  --letterSpacing-tight: -0.16rem;
+  --letterSpacing-base: 0;
   --letterSpacing-loose: 0.03rem;
-  --letterSpacing-reversed-tight: calc(var(--letterSpacing-normal) - 0.12rem);
-  --letterSpacing-reversed-normal: 0.01rem;
+  --letterSpacing-reversed-tight: -0.12rem;
+  --letterSpacing-reversed-base: 0.01rem;
   --letterSpacing-reversed-loose: 0.04rem;
 }
 

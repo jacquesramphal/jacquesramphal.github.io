@@ -1,6 +1,6 @@
 <template>
   <PageWrapper id="mdoc" class="">
-    <HeroBanner :eyebrow="pageData.date" :title="pageData.title" />
+    <!-- <HeroBanner :eyebrow="pageData.date" :title="pageData.title" /> -->
     <MarkdownRenderer :markdown="markdownContent" />
     <CardRow2 />
   </PageWrapper>
