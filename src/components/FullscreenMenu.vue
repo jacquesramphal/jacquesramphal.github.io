@@ -95,7 +95,7 @@ export default {
   position: fixed;
   inset-block-start:  0;
   inset-inline-start:  0;
-  width: 100%;
+  inline-size: 100%;
   block-size: 100%;
   background-color: var(--background);
   z-index: 1000;
@@ -114,7 +114,7 @@ export default {
     inset-block-start:  -100%;
     inset-block-end:  0; /* Adjust the value to control the width of the additional background */
     inset-inline-end:  0;
-    width: 100%; /* Adjust the value to control the width of the additional background */
+    inline-size: 100%; /* Adjust the value to control the width of the additional background */
     background-color: var(
       --background
     ); /* Specify the color of the additional background */

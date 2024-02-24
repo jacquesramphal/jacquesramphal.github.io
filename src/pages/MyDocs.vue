@@ -1,7 +1,6 @@
 <template>
   <PageWrapper>
     <HeroBanner
-    
       title="Docs & Resources"
       eyebrow=""
       :style="{ paddingBottom: '0' }"
@@ -76,7 +75,7 @@ export default {
             size
             url
             width
-            block-size
+            height
           }
          }
        }

@@ -96,7 +96,7 @@ export default {
   mix-blend-mode: normal;
 }
 #bg {
-  width: 100vw;
+  inline-size: 100vw;
   min-height: 320px;
 }
 

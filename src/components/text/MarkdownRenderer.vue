@@ -266,7 +266,7 @@ code.language-javascript .hljs-function {
 /* -------- TABLES -------- */
 /* Basic Container Styles */
 table {
-  width: 100%;
+  inline-size: 100%;
   border-collapse: collapse;
   margin-block-end: 3rem; /* Adjust the spacing between tables */
   font-size: var(--font-xs);
@@ -277,7 +277,7 @@ table {
     display: block; /* Display as a block element to allow for horizontal scrolling */
     overflow-x: scroll; /* Enable horizontal scrolling */
     white-space: nowrap; /* Prevent table cells from wrapping */
-    width: 100%; /* Ensure the table spans the full width of the viewport */
+    inline-size: 100%; /* Ensure the table spans the full width of the viewport */
   }
 }
 
@@ -384,7 +384,7 @@ summary {
 //     /* Top/left values mimic padding */
 //     inset-block-start:  0;
 //     inset-inline-start:  0;
-//     width: 45%;
+//     inline-size: 45%;
 //     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
 //     white-space: nowrap;
 //   }

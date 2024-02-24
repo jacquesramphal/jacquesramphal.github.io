@@ -41,10 +41,10 @@ export default {
 
 <style lang="scss" scoped>
 .container-spacing {
-  width: 100%;
-  width: -moz-available;
-  width: -webkit-fill-available;
-  width: stretch;
+  inline-size: 100%;
+  inline-size: -moz-available;
+  inline-size: -webkit-fill-available;
+  inline-size: stretch;
   position: relative;
   padding: var(--spacing-sm) !important;
   display: grid;

@@ -410,7 +410,7 @@ ul
   padding: 0
 
 li
-  width: 100%
+  inline-size: 100%
   font-size: 2em
   line-height: var(--lineHeight-tall)
   // font-weight: var(--fontWeight-medium)

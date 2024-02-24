@@ -22,7 +22,7 @@ export default {
 #avatar {
   cursor: help;
   block-size: 100%;
-  width: 100%;
+  inline-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

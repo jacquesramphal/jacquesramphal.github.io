@@ -53,21 +53,21 @@ export default {
 
 .laptop-container {
   position: relative;
-  width: 500px;
+  inline-size: 500px;
   block-size: 300px;
 }
 
 .screenshot-container {
   position: absolute;
   inset-block-start:  60px;
-  width: 400px;
+  inline-size: 400px;
   block-size: 230px;
   overflow: hidden;
 }
 
 .screenshot-container img {
   display: block;
-  width: 100%;
+  inline-size: 100%;
   block-size: auto;
 }
 </style>

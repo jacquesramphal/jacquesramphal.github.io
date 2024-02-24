@@ -32,7 +32,7 @@ export default {
   position: absolute;
   inset-block-start:  0;
   inset-inline-start:  0;
-  width: 100%;
+  inline-size: 100%;
   block-size: 100%;
   background-size: cover;
   opacity: 0.2;
@@ -42,7 +42,7 @@ export default {
   content: "";
   display: block;
   position: absolute;
-  width: 100%;
+  inline-size: 100%;
   block-size: 100%;
   background-repeat: no-repeat;
   background-position: center;

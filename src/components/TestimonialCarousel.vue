@@ -226,7 +226,7 @@ export default {
   // background: red;
   align-items: center;
   // block-size: 100%;
-  /* width: 80%;
+  /* inline-size: 80%;
   max-width: 400px; */
   align-self: center;
   overflow: visible;
@@ -279,7 +279,7 @@ export default {
 }
 
 .author-info img {
-  width: 64px;
+  inline-size: 64px;
   block-size: 64px;
   border-radius: var(--spacing-lg) !important;
   margin-block-end: var(--spacing-xs);
@@ -323,7 +323,7 @@ export default {
   // background-color: blue;
 }
 .arrow {
-  width: 6rem;
+  inline-size: 6rem;
   // background-color: red;
   text-align: center;
   align-self: center;

@@ -92,7 +92,7 @@ export default {
   mix-blend-mode: normal;
 }
 #bg {
-  width: 100vw;
+  inline-size: 100vw;
   min-height: 320px;
    /* text-align: center; */
   /* color: var(--color-action2) 
@@ -106,7 +106,7 @@ export default {
 
 svg {
   overflow: hidden;
-  width: 100%;
+  inline-size: 100%;
   block-size: 100%;
 }
 #moon {
@@ -144,7 +144,7 @@ svg {
 #test {
   border-radius: 100px;
   position: fixed;
-  width: 100px;
+  inline-size: 100px;
   block-size: 100px;
   background-color: red;
   animation: example 4s ease-in-out 2s infinite alternate;

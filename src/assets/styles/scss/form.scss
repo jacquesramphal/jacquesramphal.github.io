@@ -47,7 +47,7 @@ textarea,
 select {
   font-size: 1.6rem;
   color: var(--text) !important;
-  width: 100%;
+  inline-size: 100%;
   inset-block-start: 0;
   padding: 1.6rem;
   margin-block-end: 1rem;
@@ -137,7 +137,7 @@ option:first {
 /* CUSTOM RADIOS */
 input[type="radio"],
 [type="checkbox"] {
-  width: 1rem;
+  inline-size: 1rem;
   cursor: pointer;
 }
 .form-radio {

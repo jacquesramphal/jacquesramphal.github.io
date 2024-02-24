@@ -268,7 +268,7 @@ export default {
   }
 }
 .card-route {
-  width: 100%;
+  inline-size: 100%;
   block-size: 100%;
   z-index: 99;
   position: absolute;
@@ -290,9 +290,9 @@ export default {
   position: absolute;
   text-rendering: optimizeLegibility;
   z-index: 100;
-  width: 100%;
-  width: -moz-available;
-  width: -webkit-fill-available;
+  inline-size: 100%;
+  inline-size: -moz-available;
+  inline-size: -webkit-fill-available;
   block-size: 100%;
   background: linear-gradient(
     135deg,

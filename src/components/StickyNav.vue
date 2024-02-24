@@ -150,11 +150,11 @@ export default {
   position: fixed;
   transform: translate3d(0, 0, 0) !important;
   transition: 0.4s all cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
-  width: 100%;
+  inline-size: 100%;
   z-index: 1000 !important;
 
   @media only screen and (min-width: 768px) {
-    width: fit-content;
+    inline-size: fit-content;
   }
 }
 /* Adds extra background colour to account for bouncing effect */
@@ -164,7 +164,7 @@ export default {
   inset-block-start:  0;
   inset-block-end:  -100%; /* Adjust the value to control the width of the additional background */
   inset-inline-end:  0;
-  width: 100%; /* Adjust the value to control the width of the additional background */
+  inline-size: 100%; /* Adjust the value to control the width of the additional background */
   background-color: var(
     --background-reversed
   ); /* Specify the color of the additional background */

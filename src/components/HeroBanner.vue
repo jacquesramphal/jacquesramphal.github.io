@@ -185,7 +185,7 @@ img {
   #subtitle {
     margin-block-start: 2rem;
     max-width: 86.4rem;
-    width: 100%;
+    inline-size: 100%;
     @media only screen and (min-width: 768px) {
       margin-block-start: 3.2rem;
     }
@@ -243,7 +243,7 @@ img {
     object-position: 0% 100%;
     overflow: hidden !important;
     position: absolute;
-    width: 100%;
+    inline-size: 100%;
     z-index: 0;
   }
   #hero-image {

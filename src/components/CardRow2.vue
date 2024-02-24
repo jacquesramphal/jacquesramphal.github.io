@@ -165,13 +165,13 @@ export default {
   .cardmobile {
     margin: 0 0 var(--spacing-sm) var(--spacing-sm);
     display: inline-flex;
-    width: 25vw;
+    inline-size: 25vw;
   }
   /* ------------ BREAKPOINT MD ------------ */
   @media only screen and (max-width: 740px) {
     .cardmobile {
       margin: 0 0 var(--spacing-sm) var(--spacing-sm);
-      width: 85vw;
+      inline-size: 85vw;
     }
   }
   .cardmobile:last-child {

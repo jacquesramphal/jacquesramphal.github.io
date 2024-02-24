@@ -233,7 +233,7 @@ ul {
   gap: var(--spacing-xxs);
 }
 li {
-  width: 100%;
+  inline-size: 100%;
   font-size: var(--font-xs);
   line-height: var(--lineHeight-tall);
   float: left;
@@ -261,7 +261,7 @@ li.external::after {
 
 
 // #avatar {
-//   width: 120px;
+//   inline-size: 120px;
 //   block-size: 120px;
 //   aspect-ratio: 1 / 1;
 //   background: url(@/assets/images/portrait.jpg);

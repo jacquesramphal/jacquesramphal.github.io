@@ -202,7 +202,7 @@ export default {
 //   inset-block-start:  0
 //   inset-inline-start:  0
 //   block-size: 100%
-//   width: 50%
+//   inline-size: 50%
 //   transform: translateX(0)
 //   transition: transform 0.3s ease, background-color 0.5s ease
 

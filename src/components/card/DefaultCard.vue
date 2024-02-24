@@ -154,7 +154,7 @@ export default {
 }
 
 img {
-  width: 100%;
+  inline-size: 100%;
   block-size: 101% !important;
   object-fit: cover !important;
   max-width: 100%;
@@ -254,7 +254,7 @@ img {
   .image {
     overflow: hidden;
     block-size: 100%;
-    width: 100%;
+    inline-size: 100%;
     border-radius: 0 !important;
     position: absolute;
   }

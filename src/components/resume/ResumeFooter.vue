@@ -48,7 +48,7 @@ export default {
     justify-content: left
     align-content: left
     align-items: left
-    width: auto
+    inline-size: auto
     grid-gap: var(--spacing-xs)
     @media screen and (max-width: 240mm)
       flex-direction: column
@@ -77,7 +77,7 @@ export default {
     position: absolute
     inset-inline-end:  1.5rem
     inset-block-start:  -1.5rem
-    width: 3rem
+    inline-size: 3rem
     block-size: 3rem
     box-shadow: var(--box-shadow)
     border-radius: 50%

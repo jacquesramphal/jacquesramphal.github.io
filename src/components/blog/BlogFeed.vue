@@ -138,7 +138,7 @@ export default {
   .card {
     margin: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-sm);
     display: inline-block;
-    width: 85vw;
+    inline-size: 85vw;
   }
   .card:last-child{
     margin-inline-end: var(--spacing-sm);

@@ -1,8 +1,8 @@
 .container {
-  width: 100%;
-  width: -moz-available; /* WebKit-based browsers will ignore this. */
-  width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
-  width: stretch;
+  inline-size: 100%;
+  inline-size: -moz-available; /* WebKit-based browsers will ignore this. */
+  inline-size: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+  inline-size: stretch;
   position: relative;
   padding: var(--spacing-md) !important;
   display: grid;

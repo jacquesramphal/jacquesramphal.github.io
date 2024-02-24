@@ -132,19 +132,19 @@ export default {
   .resume-image {
     margin-block-end: var(--spacing-xs);
     img {
-      width: 100%;
+      inline-size: 100%;
       max-width: 100%;
       border-radius: 0.8rem;
       aspect-ratio: 16 / 9 !important;
 
       @media print {
         aspect-ratio: 1 / 1 !important;
-        width: 6.4rem;
+        inline-size: 6.4rem;
       }
 
       @media only screen and (min-width: 768px) {
         aspect-ratio: 1 / 1 !important;
-        width: 12rem;
+        inline-size: 12rem;
       }
     }
   }
@@ -163,7 +163,7 @@ export default {
     z-index: 1;
     overflow-x: hidden;
     position: relative;
-    width: auto;
+    inline-size: auto;
     justify-content: start;
     flex-direction: column;
     display: flex;
@@ -171,7 +171,7 @@ export default {
     flex: 1;
 
     @media only screen and (min-width: 768px) {
-      width: 25vw;
+      inline-size: 25vw;
       padding-block-start: var(--spacing-xl);
       inset-block-start:  0;
       inset-block-end:  0;

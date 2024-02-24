@@ -136,7 +136,7 @@ Copy code * {
   }
 
   img {
-    width: 100%;
+    inline-size: 100%;
     block-size: 100%;
     object-fit: cover !important;
     position: relative;

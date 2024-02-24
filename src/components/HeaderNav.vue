@@ -9,7 +9,6 @@
             route="/"
             v-show="isDesktopScreen && !menuOpen"
           />
-  
 
           <TextLink
             class="wordmark"
@@ -189,7 +188,7 @@ export default {
 }
 // .blur {
 //   block-size: 100% ;
-//   width: 100vw;
+//   inline-size: 100vw;
 //   position: absolute;
 //   z-index: -1;
 //   filter: blur(20px); /* Blur amount on hover, can be adjusted */
@@ -203,7 +202,7 @@ export default {
 
 .navbar {
   display: flex;
-  inset-block-end:  0;
+  inset-block-end: 0;
 
   align-items: center;
   mix-blend-mode: normal !important;
@@ -211,25 +210,25 @@ export default {
   position: fixed !important;
   transform: translate3d(0, 0, 0) !important;
   transition: 0.4s transform cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
-  width: 100vw !important;
+  inline-size: 100vw !important;
   z-index: 100000 !important;
   // opacity: 0.95;
 
   // background-color: red;
   @media only screen and (min-width: 768px) {
-    inset-block-end:  auto;
+    inset-block-end: auto;
 
-    inset-block-start:  0;
+    inset-block-start: 0;
   }
 }
 /* Adds extra background colour to account for bouncing effect */
 .navbar::after {
   content: "";
   position: absolute;
-  inset-block-start:  0;
-  inset-block-end:  -100%; /* Adjust the value to control the width of the additional background */
-  inset-inline-end:  0;
-  width: 100%; /* Adjust the value to control the width of the additional background */
+  inset-block-start: 0;
+  inset-block-end: -100%; /* Adjust the value to control the width of the additional background */
+  inset-inline-end: 0;
+  inline-size: 100%; /* Adjust the value to control the width of the additional background */
   background: var(
     --background
   ); /* Specify the color of the additional background */
@@ -237,8 +236,8 @@ export default {
   z-index: -1; /* Set the z-index to be behind the navbar */
 
   @media only screen and (min-width: 768px) {
-    inset-block-end:  0;
-    inset-block-start:  -100%;
+    inset-block-end: 0;
+    inset-block-start: -100%;
   }
 }
 
@@ -253,28 +252,18 @@ export default {
 .bg {
   transition: 0.5s box-shadow ease-in-out !important;
   justify-self: flex-end;
-  // background-color: red;
   overflow: visible;
   position: relative;
-  padding-block-start: var(--spacing-xs) !important;
-  padding-block-end: var(--spacing-sm) !important;
+  padding-block: var(--spacing-xs) var(--spacing-sm) !important;
   padding-inline-end: var(--spacing-sm) !important;
-
-  width: 100%;
+  inline-size: 100%;
   border-block-start: var(--border);
 
-  // filter: blur(2px);
-
   @media only screen and (min-width: 768px) {
-    padding-block-start: var(--spacing-xs) !important;
-    padding-block-end: var(--spacing-sm) !important;
+    padding-block: var(--spacing-xs) var(--spacing-sm) !important;
     padding-inline-end: var(--spacing-md) !important;
-
-    // border-radius: 8px 0 0 0;
-    // padding: var(--spacing-sm) inherit !important;
-    // border-inset-block-end:  var(--border);
+    border-block-end: var(--border);
     border-block-start: none;
-
     justify-self: end;
   }
 }

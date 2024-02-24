@@ -140,7 +140,7 @@ export default {
 #textblock {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  inline-size: 100%;
 }
 .eyebrow {
   word-spacing: 1rem;
@@ -148,12 +148,12 @@ export default {
 }
 .title {
   /* flex: 1; */
-  width: 100%;
+  inline-size: 100%;
   white-space: normal;
 }
 .description {
   /* flex: 1; */
-  width: 100%;
+  inline-size: 100%;
   white-space: normal;
 }
 .textblock-align {
