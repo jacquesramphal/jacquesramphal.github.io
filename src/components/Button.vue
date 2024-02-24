@@ -116,7 +116,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .button-icon {
-  margin-right: var(--spacing-xxs); // Adjust spacing between icon and label
+  margin-inline-end: var(--spacing-xxs); // Adjust spacing between icon and label
   line-height: var(--lineHeight-none);
   // Add any other styling as needed for the icon
 }

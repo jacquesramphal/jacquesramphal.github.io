@@ -49,9 +49,9 @@ export default {
   padding: var(--spacing-sm) !important;
   display: grid;
   grid-template-columns: 1;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
+  block-size: auto;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
   // max-width: 1680px;
   overflow: hidden;
 
@@ -76,15 +76,15 @@ export default {
   }
 
   &--fullvh {
-    min-height: 468px;
-    height: 100vh !important;
+    min-block-size: 468px;
+    block-size: 100vh !important;
     align-items: center !important;
   }
   &--maxvw {
     max-width: 86.4rem !important;
     float: none;
-    margin-left: auto;
-    margin-right: auto;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
   }
 }
 </style>

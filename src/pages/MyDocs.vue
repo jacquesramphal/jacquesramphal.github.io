@@ -76,7 +76,7 @@ export default {
             size
             url
             width
-            height
+            block-size
           }
          }
        }

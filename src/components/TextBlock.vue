@@ -2,7 +2,7 @@
   <div id="textblock" :class="classes">
     <MyIcon
       v-if="icon"
-      style="margin-bottom: var(--spacing-sm)"
+      style="margin-block-end: var(--spacing-sm)"
       :name="`${icon}`"
       :is-svg="true"
       :size="`${iconsize}`"
@@ -144,7 +144,7 @@ export default {
 }
 .eyebrow {
   word-spacing: 1rem;
-  margin-bottom: 1em;
+  margin-block-end: 1em;
 }
 .title {
   /* flex: 1; */
@@ -176,10 +176,10 @@ export default {
 }
 #btn {
   display: inline-block;
-  margin-top: var(--spacing-sm);
+  margin-block-start: var(--spacing-sm);
 }
 #richlink {
-  margin-top: var(--spacing-sm) !important;
+  margin-block-start: var(--spacing-sm) !important;
 }
 .route {
   margin: var(--spacing-sm) 0 0 0;

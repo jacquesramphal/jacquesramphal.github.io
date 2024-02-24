@@ -96,12 +96,12 @@ export default {
   justify-content: flex-start
   align-items: flex-start
   list-style-type: disc
-  margin-bottom: var(--spacing-sm)
+  margin-block-end: var(--spacing-sm)
   -moz-transition: all 0.25s ease-in-out
   -o-transition: all 0.25s ease-in-out
   -webkit-transition: all 0.25s ease-in-out
   &:last-child
-    margin-bottom: 0
+    margin-block-end: 0
   &:hover
     // box-shadow: var(--shadow-deep)
   >.resume-segment-entry-information
@@ -111,13 +111,13 @@ export default {
     font-size: var(--font-xs)
     font-weight: var(--fontWeight-normal)
     .resume-segment-entry-information-location
-      margin-bottom: var(--spacing-xs)
+      margin-block-end: var(--spacing-xs)
 
     .resume-segment-entry-information-date
       display: flex
       flex-direction: row
       flex-wrap: nowrap
-      margin-bottom: var(--spacing-xs)
+      margin-block-end: var(--spacing-xs)
       .resume-segment-entry-information-from
         margin: 0 .15rem 0 0
         &::after
@@ -130,5 +130,5 @@ export default {
           margin: 0 .5rem 0 .5rem
   >.resume-segment-entry-title
     line-height: var(--lineHeight-tall)
-    margin-bottom: var(--spacing-xxs)
+    margin-block-end: var(--spacing-xxs)
 </style>

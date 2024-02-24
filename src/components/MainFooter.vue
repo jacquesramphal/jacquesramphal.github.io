@@ -210,10 +210,10 @@ $spacing-lg: var(--spacing-lg);
 $spacing-sm: var(--spacing-sm);
 
 #wrapper {
-  border-top: var(--border);
-  padding-bottom: $spacing-lg;
+  border-block-start: var(--border);
+  padding-block-end: $spacing-lg;
   @media only screen and (min-width: 1201px) {
-    padding-bottom: inherit;
+    padding-block-end: inherit;
   }
 }
 
@@ -248,21 +248,21 @@ li.external::after {
 
 #maindetails {
   @media only screen and (min-width: 768px) {
-    padding-right: var(--spacing-lg);
+    padding-inline-end: var(--spacing-lg);
 }}
 .footer
 {
-  margin-top: var(--spacing-md);
+  margin-block-start: var(--spacing-md);
 
   @media only screen and (min-width: 768px) {
-    margin-top: var(--spacing-lg);
+    margin-block-start: var(--spacing-lg);
 }}
 
 
 
 // #avatar {
 //   width: 120px;
-//   height: 120px;
+//   block-size: 120px;
 //   aspect-ratio: 1 / 1;
 //   background: url(@/assets/images/portrait.jpg);
 //   background-size: 100%;

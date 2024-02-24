@@ -21,7 +21,7 @@ export default {
 <style scoped>
 #avatar {
   cursor: help;
-  height: 100%;
+  block-size: 100%;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;

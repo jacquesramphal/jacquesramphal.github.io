@@ -10,7 +10,7 @@
       <div
         class="grid-parent"
         style="
-          padding-bottom: var(--spacing-md);
+          padding-block-end: var(--spacing-md);
           align-items: center;
           grid-template-columns: repeat(3, 1fr);
           
@@ -49,13 +49,13 @@
     <!-- MOBILE VIEW START -->
     <span v-else
       ><GridContainer
-        style="padding-bottom: 0 !important; overflow: visible !important"
+        style="padding-block-end: 0 !important; overflow: visible !important"
       >
         <!-- HEADER COMPONENT START -->
         <div
           class="grid-parent"
           style="
-            padding-bottom: var(--spacing-md);
+            padding-block-end: var(--spacing-md);
             align-items: center;
             grid-template-columns: repeat(1fr);
           "
@@ -175,7 +175,7 @@ export default {
     }
   }
   .cardmobile:last-child {
-    margin-right: var(--spacing-sm);
+    margin-inline-end: var(--spacing-sm);
   }
 }
 
@@ -183,7 +183,7 @@ export default {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .filters {
   text-align: left;
-  margin-bottom: 2rem;
+  margin-block-end: 2rem;
 }
 
 .filters * {
@@ -192,7 +192,7 @@ export default {
 
 .filters label {
   padding: 0.5rem 1rem;
-  margin-bottom: 0.25rem;
+  margin-block-end: 0.25rem;
   border-radius: 2rem;
   min-width: 50px;
   line-height: normal;

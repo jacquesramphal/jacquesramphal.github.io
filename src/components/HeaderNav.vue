@@ -188,7 +188,7 @@ export default {
   }
 }
 // .blur {
-//   height: 100% ;
+//   block-size: 100% ;
 //   width: 100vw;
 //   position: absolute;
 //   z-index: -1;
@@ -203,7 +203,7 @@ export default {
 
 .navbar {
   display: flex;
-  bottom: 0;
+  inset-block-end:  0;
 
   align-items: center;
   mix-blend-mode: normal !important;
@@ -217,18 +217,18 @@ export default {
 
   // background-color: red;
   @media only screen and (min-width: 768px) {
-    bottom: auto;
+    inset-block-end:  auto;
 
-    top: 0;
+    inset-block-start:  0;
   }
 }
 /* Adds extra background colour to account for bouncing effect */
 .navbar::after {
   content: "";
   position: absolute;
-  top: 0;
-  bottom: -100%; /* Adjust the value to control the width of the additional background */
-  right: 0;
+  inset-block-start:  0;
+  inset-block-end:  -100%; /* Adjust the value to control the width of the additional background */
+  inset-inline-end:  0;
   width: 100%; /* Adjust the value to control the width of the additional background */
   background: var(
     --background
@@ -237,8 +237,8 @@ export default {
   z-index: -1; /* Set the z-index to be behind the navbar */
 
   @media only screen and (min-width: 768px) {
-    bottom: 0;
-    top: -100%;
+    inset-block-end:  0;
+    inset-block-start:  -100%;
   }
 }
 
@@ -258,22 +258,22 @@ export default {
   position: relative;
   padding-block-start: var(--spacing-xs) !important;
   padding-block-end: var(--spacing-sm) !important;
-  padding-right: var(--spacing-sm) !important;
+  padding-inline-end: var(--spacing-sm) !important;
 
   width: 100%;
-  border-top: var(--border);
+  border-block-start: var(--border);
 
   // filter: blur(2px);
 
   @media only screen and (min-width: 768px) {
     padding-block-start: var(--spacing-xs) !important;
-    padding-bottom: var(--spacing-sm) !important;
-    padding-right: var(--spacing-md) !important;
+    padding-block-end: var(--spacing-sm) !important;
+    padding-inline-end: var(--spacing-md) !important;
 
     // border-radius: 8px 0 0 0;
     // padding: var(--spacing-sm) inherit !important;
-    // border-bottom: var(--border);
-    border-top: none;
+    // border-inset-block-end:  var(--border);
+    border-block-start: none;
 
     justify-self: end;
   }
@@ -302,7 +302,7 @@ li {
   text-decoration: none;
 
   &:first-child {
-    padding-right: 0;
+    padding-inline-end: 0;
   }
 }
 
@@ -311,7 +311,7 @@ nav {
   align-items: center;
   display: grid;
   grid-template-columns: repeat(2, auto);
-  // height: 5.2rem;
+  // block-size: 5.2rem;
   justify-self: stretch;
   position: relative;
 }

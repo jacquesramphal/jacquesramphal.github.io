@@ -121,10 +121,10 @@ export default {
 }
 
 .wrapper {
-  border-bottom: var(--border);
+  border-block-end: var(--border);
 
   &:last-child {
-    border-bottom: none;
+    border-block-end: none;
   }
 }
 

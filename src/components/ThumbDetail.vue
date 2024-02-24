@@ -84,7 +84,7 @@ export default {
 img {
   mix-blend-mode: normal;
   aspect-ratio: 1 / 1;
-  height: 101%;
+  block-size: 101%;
   object-fit: cover;
 }
 
@@ -130,7 +130,7 @@ img {
 }
 
 .title {
-  margin-bottom: 1.6rem;
+  margin-block-end: 1.6rem;
 }
 
 .text {

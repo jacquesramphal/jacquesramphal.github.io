@@ -33,13 +33,13 @@
 label {
   font-size: 1.6rem;
   display: inline-block;
-  margin-bottom: 2rem !important;
+  margin-block-end: 2rem !important;
 }
 /* label::after {
   content: ":";
   display: inline-block;
-  margin-right: 3px;
-  margin-bottom: 2rem !important;
+  margin-inline-end: 3px;
+  margin-block-end: 2rem !important;
 } */
 
 input,
@@ -48,9 +48,9 @@ select {
   font-size: 1.6rem;
   color: var(--text) !important;
   width: 100%;
-  top: 0;
+  inset-block-start: 0;
   padding: 1.6rem;
-  margin-bottom: 1rem;
+  margin-block-end: 1rem;
   box-sizing: border-box;
   border: transparent;
   border-radius: 4px;
@@ -181,11 +181,11 @@ ul {
 }
 /* 
 li {
-  padding-left: 16px;
+  padding-inline-start: 16px;
 }
 
 li::before {
   content: "•";
-  padding-right: 8px;
+  padding-inline-end: 8px;
   color: blue;
 } */

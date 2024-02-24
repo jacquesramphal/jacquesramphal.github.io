@@ -117,7 +117,7 @@ export default {
 }
 .container {
   /*  padding-block-start: 4rem !important;
-  padding-bottom: 9.6rem !important; */
+  padding-block-end: 9.6rem !important; */
   background-color: inherit;
 }
 
@@ -153,7 +153,7 @@ export default {
     padding: 0 2.8em 2.8em 0;
   }
   h4 {
-    margin-top: -1rem;
+    margin-block-start: -1rem;
   }
 
   /* ------------ BREAKPOINT LG ------------ */

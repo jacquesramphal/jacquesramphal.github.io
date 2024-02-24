@@ -33,7 +33,7 @@
       <div
         class="grid-parent"
         style="
-          padding-bottom: var(--spacing-md);
+          padding-block-end: var(--spacing-md);
           align-items: center;
           grid-template-columns: repeat(2, 1fr);
         "
@@ -41,7 +41,7 @@
         <h4 class="subtle" style="text-align: left">Selected Work</h4>
         <MyButton
           type="outline"
-          style="margin-top: var(--spacing-sm)"
+          style="margin-block-start: var(--spacing-sm)"
           class="justify-end"
           label="View More"
           route="work2"
@@ -54,7 +54,7 @@
       <div
         class="grid-parent"
         style="
-          padding-bottom: 0;
+          padding-block-end: 0;
           align-items: center;
           grid-template-columns: repeat(3, 1fr);
         "

@@ -36,7 +36,7 @@ export default {
   }
 
   h6 {
-    margin-bottom: 1em;
+    margin-block-end: 1em;
   }
 
   h5 {

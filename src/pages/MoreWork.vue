@@ -143,7 +143,7 @@ export default {
 
 <style lang="scss" scoped>
 #hero {
-  border-bottom: none !important;
+  border-block-end: none !important;
 }
 
 .container {

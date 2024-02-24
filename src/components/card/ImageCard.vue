@@ -176,24 +176,24 @@ export default {
   .bg {
     mix-blend-mode: normal;
     aspect-ratio: 1 / 1;
-    height: 101%;
+    block-size: 101%;
     object-fit: cover;
     object-position: 0% 100%;
   }
   .filename2 {
     z-index: 1;
-    right: -18%;
-    top: 14.75%;
-    height: 68%;
+    inset-inline-end:  -18%;
+    inset-block-start:  14.75%;
+    block-size: 68%;
     border-radius: 0 !important;
     object-fit: cover !important;
     object-position: 0% 0% !important;
   }
   .filename3 {
     z-index: 1;
-    left: 20%;
-    top: 15%;
-    height: 100%;
+    inset-inline-start:  20%;
+    inset-block-start:  15%;
+    block-size: 100%;
     rotate: -7deg;
     box-shadow: var(--shadow-z5);
     border-radius: var(--spacing-xxs) 0 0 0 !important;
@@ -211,16 +211,16 @@ export default {
       object-position: 0% 0%;
     }
     .filename2 {
-      top: 29.25%;
-      right: -17.75%;
+      inset-block-start:  29.25%;
+      inset-inline-end:  -17.75%;
       object-position: 0% 100%;
-      height: 100%;
+      block-size: 100%;
     }
     // .fg2 {
-    //   top: 29.25%;
-    //   right: -17.75%;
+    //   inset-block-start:  29.25%;
+    //   inset-inline-end:  -17.75%;
     //   object-position: 0% 100%;
-    //   height: 100%;
+    //   block-size: 100%;
     // }
     .caption {
       padding: var(--spacing-md);
@@ -269,7 +269,7 @@ export default {
 }
 .card-route {
   width: 100%;
-  height: 100%;
+  block-size: 100%;
   z-index: 99;
   position: absolute;
 
@@ -293,7 +293,7 @@ export default {
   width: 100%;
   width: -moz-available;
   width: -webkit-fill-available;
-  height: 100%;
+  block-size: 100%;
   background: linear-gradient(
     135deg,
     var(--background-reversed) 0%,
@@ -331,7 +331,7 @@ export default {
 .bg {
   mix-blend-mode: normal;
   aspect-ratio: 1 / 1;
-  height: 101%;
+  block-size: 101%;
   object-fit: cover;
 }
 .thumbdetail {
@@ -374,7 +374,7 @@ export default {
 }
 
 .title {
-  margin-bottom: 1.6rem;
+  margin-block-end: 1.6rem;
 }
 
 .text {

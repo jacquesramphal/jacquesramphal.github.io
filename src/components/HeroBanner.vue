@@ -161,7 +161,7 @@ img {
 }
 
 #hero-text {
-  margin-top: var(--spacing-xl);
+  margin-block-start: var(--spacing-xl);
   align-items: end !important;
   display: grid;
   justify-content: left;
@@ -169,25 +169,25 @@ img {
   z-index: 1000;
   @media only screen and (min-width: 1201px) {
     max-width: 75vw;
-    margin-top: none;
+    margin-block-start: none;
   }
 
   // #eyebrow
-  //   margin-bottom: 4rem;
+  //   margin-block-end: 4rem;
   #tags {
-    margin-top: 2rem;
+    margin-block-start: 2rem;
     word-spacing: 2rem;
     @media only screen and (min-width: 768px) {
-      margin-top: 3.2rem;
+      margin-block-start: 3.2rem;
     }
   }
 
   #subtitle {
-    margin-top: 2rem;
+    margin-block-start: 2rem;
     max-width: 86.4rem;
     width: 100%;
     @media only screen and (min-width: 768px) {
-      margin-top: 3.2rem;
+      margin-block-start: 3.2rem;
     }
     @media only screen and (min-width: 1201px) {
       // TODO: Add media query styling
@@ -210,7 +210,7 @@ img {
 }
 
 #eyebrow {
-  margin-bottom: 4rem;
+  margin-block-end: 4rem;
   position: absolute;
 }
 
@@ -221,7 +221,7 @@ img {
   display: grid;
   overflow: hidden !important;
   position: relative;
-  height: auto;
+  block-size: auto;
   @media only screen and (min-width: 768px) {
     background-position: 100% 100%;
     background-repeat: no-repeat;
@@ -236,7 +236,7 @@ img {
   img {
     border-radius: 0px !important;
     display: block;
-    height: auto;
+    block-size: auto;
     min-height: 100%;
     mix-blend-mode: normal;
     object-fit: cover !important;
@@ -265,17 +265,17 @@ img {
 .herobanner--overlap {
   img {
     background-color: var(--background-darker);
-    height: 100% !important;
+    block-size: 100% !important;
   }
   @media only screen and (min-width: 1201px) {
-    margin-bottom: 20vh;
+    margin-block-end: 20vh;
     min-height: 80vh;
     img {
       aspect-ratio: 16 / 9;
       border-radius: 0 0 0 var(--spacing-xxs) !important;
       display: block;
-      right: 0;
-      width: auto;
+      inset-inline-end:  0;
+      inline-size: auto;
     }
     #hero-text {
       h1 {
@@ -302,8 +302,8 @@ img {
 
   #subtitle {
     float: none;
-    margin-left: auto;
-    margin-right: auto;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
     max-width: 86.4rem !important;
     justify-self: center;
   }
@@ -311,11 +311,11 @@ img {
 
 .herobanner--fullvh {
   min-height: 468px;
-  height: 100vh !important;
+  block-size: 100vh !important;
   z-index: 1;
   #hero-text {
     align-items: center !important;
-    margin-top: 0 !important;
+    margin-block-start: 0 !important;
   }
 }
 

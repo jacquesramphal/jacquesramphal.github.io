@@ -113,7 +113,7 @@ export default {
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 768px) {
   #image-highlight {
-    height: 60vh;
+    block-size: 60vh;
   }
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {

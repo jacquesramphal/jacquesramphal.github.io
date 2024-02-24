@@ -141,7 +141,7 @@ export default {
     width: 85vw;
   }
   .card:last-child{
-    margin-right: var(--spacing-sm);
+    margin-inline-end: var(--spacing-sm);
   }
 }
 </style>
@@ -163,20 +163,20 @@ export default {
   font-family: inherit
 .blog-post
   // font-size: var(--font-2xs)
-  // margin-bottom: var(--spacing-md)
+  // margin-block-end: var(--spacing-md)
   @media only screen and (min-width: 768px)
-    margin-bottom: var(--spacing-lg)
+    margin-block-end: var(--spacing-lg)
 .blog-post-entry:first-child
   padding-block-start: 0
 .blog-post-entry:last-child
   @media only screen and (min-width: 768px)
-    padding-bottom: 0
+    padding-block-end: 0
   @media only screen and (min-width: 768px)
 </style>
 
 <style lang="sass" scoped>
 #hero
-  border-bottom: none !important
+  border-block-end: none !important
 #work
   // padding-block-start: var(--spacing-sm) !important
 .container
@@ -187,14 +187,14 @@ export default {
 <style scoped>
 input[type="radio"] {
   position: absolute;
-  left: -9999px;
+  inset-inline-start:  -9999px;
 }
 
 /* FILTERS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .filters {
   text-align: left;
-  margin-bottom: 2rem;
+  margin-block-end: 2rem;
 }
 
 .filters * {
@@ -203,7 +203,7 @@ input[type="radio"] {
 
 .filters label {
   padding: 0.5rem 1rem;
-  margin-bottom: 0.25rem;
+  margin-block-end: 0.25rem;
   border-radius: 2rem;
   min-width: 50px;
   line-height: normal;

@@ -3,7 +3,7 @@
     <span
       v-if="isSvg"
       :class="['icon', `icon-${size}`]"
-      :style="{ width: size + 'px', height: size + 'px' }"
+      :style="{ inlineSize: size + 'px', blockSize: size + 'px' }"
     >
       <img
         v-if="name"

@@ -137,7 +137,7 @@ Copy code * {
 
   img {
     width: 100%;
-    height: 100%;
+    block-size: 100%;
     object-fit: cover !important;
     position: relative;
     display: block;
@@ -151,18 +151,18 @@ Copy code * {
     // @media only screen and (min-width: 1201px) {
     //   aspect-ratio: 16 / 9 !important;
     // @media screen and (-webkit-min-device-pixel-ratio:0) {
-    //   height: auto;
+    //   block-size: auto;
     //   background: yellow;
     // }
     // }
   }
 
   .imgcontainer {
-    padding-bottom: 0 !important;
+    padding-block-end: 0 !important;
 
     @media only screen and (min-width: 768px) {
       padding-block-start: var(--spacing-lg) !important;
-      padding-bottom: var(--spacing-lg) !important;
+      padding-block-end: var(--spacing-lg) !important;
     }
   }
 
@@ -192,7 +192,7 @@ Copy code * {
 
   .imgcontainer {
     @media only screen and (min-width: 768px) {
-      padding-right: 0 !important;
+      padding-inline-end: 0 !important;
     }
   }
 }
@@ -214,7 +214,7 @@ Copy code * {
 
   .imgcontainer {
     @media only screen and (min-width: 768px) {
-      padding-left: 0 !important;
+      padding-inline-start: 0 !important;
     }
   }
 }

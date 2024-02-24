@@ -61,7 +61,7 @@ export default {
 
   @media only screen and (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 0;
+    margin-block-start: 0;
     grid-gap: var(--spacing-md);
   }
   @media only screen and (min-width: 1201px) {

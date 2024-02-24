@@ -93,10 +93,10 @@ export default {
 }
 /* .container {
    padding-block-start: 4rem !important;
-  padding-bottom: 9.6rem !important; 
+  padding-block-end: 9.6rem !important; 
 }*/
 /* #description {
-  height: 100vh;
+  block-size: 100vh;
 } */
 #values {
   grid-column: 1 / 4;
@@ -107,10 +107,10 @@ export default {
 }
 
 #info > h4 {
-  margin-bottom: 0.8em !important;
+  margin-block-end: 0.8em !important;
 }
 ul {
-  margin-bottom: 2rem;
+  margin-block-end: 2rem;
 }
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 768px) {
@@ -121,7 +121,7 @@ ul {
     grid-column: 1 / 4;
   }
   h4 {
-    margin-top: -1rem;
+    margin-block-start: -1rem;
   }
 
   /* ------------ BREAKPOINT LG ------------ */

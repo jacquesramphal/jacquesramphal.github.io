@@ -13,7 +13,7 @@
       <div
         class="grid-parent"
         style="
-          padding-bottom: var(--spacing-md);
+          padding-block-end: var(--spacing-md);
           align-items: center;
           grid-template-columns: repeat(3, 1fr);
         "
@@ -216,7 +216,7 @@ export default {
   align-items: left;
   /* padding: 20px; */
   background-color: var(--background-darker);
-  // height: 100vh;
+  // block-size: 100vh;
   padding-block-start: var(--spacing-lg);
   justify-content: center;
   // background: yellow;
@@ -225,7 +225,7 @@ export default {
 .quote-container {
   // background: red;
   align-items: center;
-  // height: 100%;
+  // block-size: 100%;
   /* width: 80%;
   max-width: 400px; */
   align-self: center;
@@ -261,18 +261,18 @@ export default {
     color: var(--background-reversed-darker);
     opacity: 0.05;
     z-index: 0;
-    left: -100px;
-    top: -150px;
+    inset-inline-start:  -100px;
+    inset-block-start:  -150px;
     @media only screen and (min-width: 768px) {
       font-size: 120rem;
-      top: -150px;
+      inset-block-start:  -150px;
     }
   }
 }
 
 .author-info {
   display: flex;
-  margin-top: var(--spacing-md);
+  margin-block-start: var(--spacing-md);
   @media only screen and (max-width: 740px) {
     flex-direction: column;
   }
@@ -280,13 +280,13 @@ export default {
 
 .author-info img {
   width: 64px;
-  height: 64px;
+  block-size: 64px;
   border-radius: var(--spacing-lg) !important;
-  margin-bottom: var(--spacing-xs);
+  margin-block-end: var(--spacing-xs);
 
   @media only screen and (min-width: 768px) {
-    margin-bottom: none;
-    margin-right: var(--spacing-sm);
+    margin-block-end: none;
+    margin-inline-end: var(--spacing-sm);
   }
 }
 
@@ -311,14 +311,14 @@ export default {
   display: flex;
   gap: 10px;
   position: absolute;
-  top: var(--spacing-sm);
+  inset-block-start:  var(--spacing-sm);
 
-  right: var(--spacing-sm);
-  height: 6rem;
+  inset-inline-end:  var(--spacing-sm);
+  block-size: 6rem;
   @media only screen and (min-width: 768px) {
-    top: var(--spacing-md);
+    inset-block-start:  var(--spacing-md);
 
-    right: var(--spacing-md);
+    inset-inline-end:  var(--spacing-md);
   }
   // background-color: blue;
 }

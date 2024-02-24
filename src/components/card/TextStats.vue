@@ -72,8 +72,8 @@ export default {
 }
 #stats {
   /* background: var(--background-darker); */
-  /* border-top: var(--border);
-  border-bottom: var(--border); */
+  /* border-block-start: var(--border);
+  border-block-end: var(--border); */
 }
 
 /* ------------ BREAKPOINT MD ------------ */

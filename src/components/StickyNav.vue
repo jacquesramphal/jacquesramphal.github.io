@@ -141,8 +141,8 @@ export default {
 }
 
 .navbar {
-  right: 0;
-  bottom: 0;
+  inset-inline-end:  0;
+  inset-block-end:  0;
   max-width: none;
   mix-blend-mode: normal !important;
   overflow: visible;
@@ -161,17 +161,17 @@ export default {
 .navbar::after {
   content: "";
   position: absolute;
-  top: 0;
-  bottom: -100%; /* Adjust the value to control the width of the additional background */
-  right: 0;
+  inset-block-start:  0;
+  inset-block-end:  -100%; /* Adjust the value to control the width of the additional background */
+  inset-inline-end:  0;
   width: 100%; /* Adjust the value to control the width of the additional background */
   background-color: var(
     --background-reversed
   ); /* Specify the color of the additional background */
   z-index: -1; /* Set the z-index to be behind the navbar */
   @media only screen and (min-width: 768px) {
-    right: -100%; /* Adjust the value to control the width of the additional background */
-    bottom: 0;
+    inset-inline-end:  -100%; /* Adjust the value to control the width of the additional background */
+    inset-block-end:  0;
   }
 }
 
@@ -212,7 +212,7 @@ li {
   text-decoration: none;
 
   &:first-child {
-    padding-right: 0;
+    padding-inline-end: 0;
   }
 }
 
@@ -221,7 +221,7 @@ nav {
   align-items: center;
   display: grid;
   grid-template-columns: repeat(2, auto);
-  // height: 5.2rem;
+  // block-size: 5.2rem;
   justify-self: stretch;
   position: relative;
 }

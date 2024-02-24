@@ -246,10 +246,10 @@ export default {
 }
 
 blog-card {
-  margin-bottom: var(--spacing-md) !important;
+  margin-block-end: var(--spacing-md) !important;
 }
 h3 {
-  margin-bottom: var(--spacing-md) !important;
+  margin-block-end: var(--spacing-md) !important;
 }
 #posts {
   justify-self: center;

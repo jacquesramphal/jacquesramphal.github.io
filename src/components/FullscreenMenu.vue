@@ -93,27 +93,27 @@ export default {
 }
 .fullscreen-menu {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset-block-start:  0;
+  inset-inline-start:  0;
   width: 100%;
-  height: 100%;
+  block-size: 100%;
   background-color: var(--background);
   z-index: 1000;
   display: flex;
   justify-content: left;
   align-items: center;
-  border-bottom: var(--border);
+  border-block-end: var(--border);
   .close-button {
     position: absolute;
-    right: var(--spacing-xs);
-    top: var(--spacing-xs);
+    inset-inline-end:  var(--spacing-xs);
+    inset-block-start:  var(--spacing-xs);
   }
   &::after {
     content: "";
     position: absolute;
-    top: -100%;
-    bottom: 0; /* Adjust the value to control the width of the additional background */
-    right: 0;
+    inset-block-start:  -100%;
+    inset-block-end:  0; /* Adjust the value to control the width of the additional background */
+    inset-inline-end:  0;
     width: 100%; /* Adjust the value to control the width of the additional background */
     background-color: var(
       --background
@@ -126,7 +126,7 @@ export default {
       padding: 0;
       margin: 0;
       li {
-        // margin-bottom: var(--spacing-lg);
+        // margin-block-end: var(--spacing-lg);
         a {
           color: var(--text) !important;
           text-decoration: none;

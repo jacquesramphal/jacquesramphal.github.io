@@ -118,6 +118,6 @@ export default {
 
 <style lang="scss" scoped>
 .section {
-  padding-bottom: var(--spacing-lg);
+  padding-block-end: var(--spacing-lg);
 }
 </style>

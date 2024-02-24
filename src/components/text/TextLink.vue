@@ -3,7 +3,7 @@
     <router-link :class="classes" v-if="route" :to="`${route}`">
       <MyIcon
         v-if="icon"
-        :style="{ 'margin-right': iconsize / 2 + 'px' }"
+        :style="{ 'margin-inline-end': iconsize / 2 + 'px' }"
         :name="icon"
         :is-svg="isSvg"
         :size="iconsize"
@@ -23,7 +23,7 @@
     >
       <MyIcon
         v-if="icon"
-        :style="{ 'margin-right': iconsize / 2 + 'px' }"
+        :style="{ 'margin-inline-end': iconsize / 2 + 'px' }"
         :name="`${icon}`"
         :is-svg="isSvg"
         :size="`${iconsize}`"
@@ -84,7 +84,7 @@ export default {
       default: false,
       required: false,
     },
-    right: {
+    right:  {
       type: Boolean,
       default: false,
       required: false,

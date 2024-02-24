@@ -99,7 +99,7 @@ export default {
     },
     fullvh: {
       type: "boolean",
-      description: "Specify if HeroBanner takes full viewport height",
+      description: "Specify if HeroBanner takes full viewport block-size",
       control: {
         type: "boolean",
       },

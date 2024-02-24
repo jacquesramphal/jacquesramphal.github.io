@@ -24,7 +24,7 @@
         <DynamicText
           :text="information.label"
           :attrs="{ class: 'subtle resume-header-label' }"
-          style="margin-bottom: var(--spacing-xs)"
+          style="margin-block-end: var(--spacing-xs)"
         />
         <DynamicText
           text="My work explores the intersection between design and development and seeks to embrace emerging technologies for a more efficient and inclusive future.
@@ -119,7 +119,7 @@ export default {
   grid-template-areas: "sidebar" "segments";
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto auto;
-  min-height: auto;
+  min-block-size: auto;
 
   @media only screen and (min-width: 768px) {
     grid-template-areas: "sidebar segments";
@@ -130,7 +130,7 @@ export default {
 
   // ALIGNMENT
   .resume-image {
-    margin-bottom: var(--spacing-xs);
+    margin-block-end: var(--spacing-xs);
     img {
       width: 100%;
       max-width: 100%;
@@ -152,7 +152,7 @@ export default {
     grid-area: header;
   }
   .resume-header {
-    margin-bottom: var(--spacing-md);
+    margin-block-end: var(--spacing-md);
   }
   .segments {
     grid-area: segments;
@@ -173,11 +173,11 @@ export default {
     @media only screen and (min-width: 768px) {
       width: 25vw;
       padding-block-start: var(--spacing-xl);
-      top: 0;
-      bottom: 0;
+      inset-block-start:  0;
+      inset-block-end:  0;
       position: fixed;
       // background-color: red;
-      padding-bottom: var(--spacing-md) !important;
+      padding-block-end: var(--spacing-md) !important;
     }
 
     /* override styles when printing */

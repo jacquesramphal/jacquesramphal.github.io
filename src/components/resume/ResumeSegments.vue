@@ -50,13 +50,13 @@ export default {
 <style scoped lang="scss">
 .resume-segment {
   &:first-child {
-    margin-top: 0;
+    margin-block-start: 0;
   }
   // background-color: lightblue;
   margin: var(--spacing-md) 0;
   
   @media only screen and (min-width: 768px) {
-    margin-bottom: var(--spacing-lg);
+    margin-block-end: var(--spacing-lg);
   }
 }
 .resume-segment-list {

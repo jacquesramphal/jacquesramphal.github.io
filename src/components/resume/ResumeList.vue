@@ -23,13 +23,13 @@ export default {
 
 <style scoped lang="scss">
 * {
-  // margin-top: var(--spacing-sm);
+  // margin-block-start: var(--spacing-sm);
 }
 ul {
   list-style: none;
 }
 li {
   list-style: none;
-  margin-bottom: var(--spacing-xs);
+  margin-block-end: var(--spacing-xs);
 }
 </style>

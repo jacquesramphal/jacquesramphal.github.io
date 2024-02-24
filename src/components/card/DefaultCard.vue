@@ -155,7 +155,7 @@ export default {
 
 img {
   width: 100%;
-  height: 101% !important;
+  block-size: 101% !important;
   object-fit: cover !important;
   max-width: 100%;
   border-radius: 0 !important;
@@ -185,10 +185,10 @@ img {
     padding: var(--spacing-xs) 0 0 0 !important;
   }
   @media only screen and (min-width: 1201px) {
-    border-bottom: 1px solid var(--color-xlight) !important;
+    border-block-end: 1px solid var(--color-xlight) !important;
   }
   // &:last-child {
-  //   border-bottom: none !important;
+  //   border-block-end: none !important;
   // }
   @media only screen and (min-width: 1201px) {
     flex-direction: row-reverse !important;
@@ -198,7 +198,7 @@ img {
       // aspect-ratio: 16/9 !important;
       // flex: 3;
       grid-column: 3 / 4 !important;
-      height: 100% !important;
+      block-size: 100% !important;
     }
     .info {
       // flex: 6;
@@ -253,7 +253,7 @@ img {
   }
   .image {
     overflow: hidden;
-    height: 100%;
+    block-size: 100%;
     width: 100%;
     border-radius: 0 !important;
     position: absolute;
