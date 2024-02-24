@@ -5,15 +5,13 @@
   "featEyebrow": "Design AI Tools",
   "featTitle": "This is a feature title",
   "featDescription": "This is a feature description",
-  "btnroute": "work/1",
+  "btnroute": "mdoc/13",
   "label": "Feature Label",
-  "filename1": "work/glo.svg",
-  "alt": "Alt Test",
   "entries": [
 
     {
       "id": 1,
-      "size": "small",
+      "size": "large",
       "title": "Work Name 1",
       "tag": "Tag2 Tag3",
       "description": "This is a description 1",

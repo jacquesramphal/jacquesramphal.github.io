@@ -167,7 +167,7 @@ export default {
   @media only screen and (min-width: 768px)
     margin-bottom: var(--spacing-lg)
 .blog-post-entry:first-child
-  padding-top: 0
+  padding-block-start: 0
 .blog-post-entry:last-child
   @media only screen and (min-width: 768px)
     padding-bottom: 0
@@ -178,10 +178,10 @@ export default {
 #hero
   border-bottom: none !important
 #work
-  // padding-top: var(--spacing-sm) !important
+  // padding-block-start: var(--spacing-sm) !important
 .container
   // background-color: var(--color-white)
-  padding-top: 0 !important
+  padding-block-start: 0 !important
 </style>
 
 <style scoped>

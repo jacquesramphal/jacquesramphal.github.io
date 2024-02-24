@@ -5,7 +5,7 @@
       :title="`${entry.title}`"
       :subtitle="`${entry.description}`"
     />
-    <GridContainer style="padding-top: var(--spacing-sm) !important">
+    <GridContainer style="padding-block-start: var(--spacing-sm) !important">
       <TextStats
         label1="Role"
         :value1="`${entry.role}`"
@@ -27,14 +27,13 @@
 
     <div class="section">
       <GridWrapper v-for="(section, j) in entry.entries" :key="j">
-        <AnimatedComponent>
           <GridContainer class="width fadeInUp">
             <GridWrapper>
               <TextBlock
                 left
                 :eyebrow="section.eyebrow"
-                :header="section.title"
-                :details="section.body"
+                :title="section.title"
+                :description="section.body"
                 :blockquote="section.blockquote"
               />
             </GridWrapper>
@@ -43,7 +42,7 @@
             v-if="section.images.filename1"
             id=""
             class="fadeInUp"
-            style="padding-top: 0 !important"
+            style="padding-block-start: 0 !important"
           >
             <ImageCard
               size="large"
@@ -55,7 +54,6 @@
               :caption="section.images.caption"
             />
           </GridContainer>
-        </AnimatedComponent>
       </GridWrapper>
     </div>
     <!-- <SplitImage class="fadeInUp" flipped/>
@@ -91,7 +89,7 @@ import workData from "@/assets/data/work.json";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ImageCard from "@/components/ImageCard.vue";
+import ImageCard from "@/components/card/ImageCard.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
 import CardRow2 from "@/components/CardRow2.vue";
 gsap.registerPlugin(ScrollTrigger);

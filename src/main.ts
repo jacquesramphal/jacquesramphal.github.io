@@ -1,8 +1,9 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import hljs from "highlight.js";
-import store from './store';
+import store from "./store";
 // import { init, track, parameters } from "insights-js";
+import "./assets/js/gsap.js"; // Import your GSAP file
 
 // Global Components
 import AnimatedComponent from "@/components/AnimatedComponent.vue";
@@ -18,9 +19,9 @@ import GridParent from "@/components/grid/GridParent.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
 import GridWrapper from "@/components/grid/GridWrapper.vue";
 import HeroBanner from "@/components/HeroBanner.vue";
-import ImageCard from "@/components/ImageCard.vue";
+import ImageCard from "@/components/card/ImageCard.vue";
 import BreadCrumb from "@/components/BreadCrumb.vue";
-import ImageCard2 from "@/components/ImageCard2.vue";
+import ImageCard2 from "@/components/card/ImageCard2.vue";
 import MyButton from "@/components/Button.vue";
 import ButtonRow from "@/components/ButtonRow.vue";
 // import ButtonRow2 from "@/components/ButtonRow2.vue";
@@ -33,6 +34,7 @@ import ProjectPreview from "@/components/ProjectPreview.vue";
 import TextStats from "@/components/card/TextStats.vue";
 import TextBlock from "@/components/TextBlock.vue";
 import TextHeader from "@/components/text/TextHeader.vue";
+import DynamicText from "@/components/text/DynamicText.vue";
 import SplitImage from "@/components/card/SplitImage.vue";
 import TextLink from "@/components/text/TextLink.vue";
 import ThumbDetail from "@/components/ThumbDetail.vue";
@@ -132,7 +134,8 @@ app
   .component("SplitImage", SplitImage)
   .component("TextLink", TextLink)
   .component("ThumbDetail", ThumbDetail)
-  .component("MarkdownRenderer", MarkdownRenderer);
+  .component("MarkdownRenderer", MarkdownRenderer)
+  .component("DynamicText", DynamicText);
 
 // Mount the app
 app.mount("#app");

@@ -5,8 +5,8 @@
     <GridContainer fullvh fullvw>
       <SplitImage
         filename="romy.jpeg"
-        header="404 - Page Not Found"
-        details="The page you are looking for does not exist. Please check the URL or go back to the homepage."
+        title="404 - Page Not Found"
+        description="The page you are looking for does not exist. Please check the URL or go back to the homepage."
         cta="Back to Home"
         route="/"
     /></GridContainer>

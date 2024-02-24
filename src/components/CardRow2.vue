@@ -18,8 +18,8 @@
       >
         <TextBlock
           style="grid-column: 1 / 3"
-          :header="header"
-          details=""
+          :title="title"
+          description=""
         />
         
         <p class="external justify-end" style="align-self: center">
@@ -33,7 +33,7 @@
           borderless
           v-for="entry in docs.entries.slice(0, 3)"
           :key="entry.id"
-          :tag="entry.tag"
+          :eyebrow="entry.eyebrow"
           :filename="entry.thumbnail"
           :alt="entry.alt"
           :title="entry.title"
@@ -62,7 +62,8 @@
         >
           <TextBlock
             style="grid-column: 1 / 3"
-            :header="header"
+            :title="title"
+            description= ""
           />
           <p class="external justify-start" style="align-self: flex-end">
             <router-link :to="{ name: 'Blog' }">View All</router-link>
@@ -78,9 +79,9 @@
           :key="entry.id"
         >
           <DefaultCard
-            cover
+          borderless
             :image="entry.image"
-            :tag="entry.tag"
+            :eyebrow="entry.eyebrow"
             :filename="entry.thumbnail"
             :alt="entry.alt"
             :title="entry.title"
@@ -102,7 +103,7 @@ export default {
   name: "CardRow2",
   components: {},
   props: {
-    header: {
+    title: {
       type: String,
       default: "Docs",
     },

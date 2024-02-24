@@ -4,17 +4,18 @@
     class="thumbdetail grid-card"
     style="padding: 0"
   >
-    <GridContainer class="text-container">
-      <GridWrapper class="text" style="oveflow: visible !important;">
+      <GridContainer class="text-container">
+      <GridWrapper class="text" style="oveflow: visible !important">
         <TextBlock
           clamped
           :eyebrow="`${eyebrow}`"
-          :header3="`${title}`"
-          :details="`${details}`"
+          as="h3"
+          :title="`${title}`"
+          :description="`${description}`"
           :route="`${route}`"
           :link="`${link}`"
           :btnroute="`${btnroute}`"
-          :cta="`${cta}`"
+          :label="`${label}`"
         />
       </GridWrapper>
     </GridContainer>
@@ -23,7 +24,7 @@
         <img
           class="zoom bg"
           draggable="false"
-          :src="require(`../assets/images/${filename1}`)"
+          :src="require(`../../assets/images/${filename1}`)"
           :alt="`${alt}`"
         />
       </router-link>
@@ -40,12 +41,13 @@
               clamped
               class="reversed line-length"
               :eyebrow="`${eyebrow}`"
-              :header3="`${title}`"
-              :details="`${details}`"
+              as="h3"
+              :title="`${title}`"
+              :description="`${description}`"
               :route="`${route}`"
               :link="`${link}`"
               :btnroute="`${btnroute}`"
-              :cta="`${cta}`"
+              :label="`${label}`"
           /></span>
         </span>
         <!-- Foreground Image (if filename2 exists), using conditional class BLUR when TITLE is true -->
@@ -55,7 +57,7 @@
           :class="{ blur: title }"
           style="position: absolute"
           draggable="false"
-          :src="filename2 ? require(`../assets/images/${filename2}`) : null"
+          :src="filename2 ? require(`../../assets/images/${filename2}`) : null"
           :alt="`${alt}`"
         />
         <img
@@ -64,7 +66,7 @@
           :class="{ blur: title }"
           style="position: absolute"
           draggable="false"
-          :src="filename3 ? require(`../assets/images/${filename3}`) : null"
+          :src="filename3 ? require(`../../assets/images/${filename3}`) : null"
           :alt="`${alt}`"
         />
         <!-- Background Image -->
@@ -72,7 +74,7 @@
           class="bg"
           :class="{ blur: title }"
           draggable="false"
-          :src="require(`../assets/images/${filename1}`)"
+          :src="require(`../../assets/images/${filename1}`)"
           :alt="`${alt}`"
         />
       </figure>
@@ -82,9 +84,9 @@
 </template>
 
 <script>
-import GridContainer from "./grid/GridContainer.vue";
-import GridWrapper from "./grid/GridWrapper.vue";
-import TextBlock from "./TextBlock.vue";
+import GridContainer from "../grid/GridContainer.vue";
+import GridWrapper from "../grid/GridWrapper.vue";
+import TextBlock from "../TextBlock.vue";
 import { reactive, computed } from "vue";
 
 export default {
@@ -103,7 +105,7 @@ export default {
     title: {
       type: String,
     },
-    details: {
+    description: {
       type: String,
       default: "",
     },
@@ -139,7 +141,7 @@ export default {
       type: String,
       default: "",
     },
-    cta: {
+    label: {
       type: String,
       default: "Read More",
     },
@@ -191,7 +193,7 @@ export default {
     z-index: 1;
     left: 20%;
     top: 15%;
-    height:100%;
+    height: 100%;
     rotate: -7deg;
     box-shadow: var(--shadow-z5);
     border-radius: var(--spacing-xxs) 0 0 0 !important;

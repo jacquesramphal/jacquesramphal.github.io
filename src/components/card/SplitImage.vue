@@ -5,28 +5,28 @@
         <!-- <GridContainer class="textcontainer parallaxFront fadeInUp"> -->
 
         <!-- <GridContainer class="imgcontainer parallaxBack fadeInUp"> -->
-      
+
         <GridContainer class="imgcontainer fadeInUp">
           <img
             class="splitimg"
             draggable="false"
             :src="require(`../../assets/images/${filename}`)"
             :alt="`${alt}`"
-        />
-      </GridContainer>
-       
-      <GridContainer class="textcontainer fadeInUp">
-          <TextBlock
-            :eyebrow="`${tag}`"
-            :header="`${header}`"
-            :cta="`${cta}`"
-            :btnroute="`${route}`"
-            :details="`${details}`"
           />
         </GridContainer>
-      </div>
-        
-        </GridContainer
+
+        <GridContainer class="textcontainer fadeInUp">
+          <TextBlock
+            :eyebrow="`${eyebrow}`"
+            is="h2"
+            :title="`${title}`"
+            :label="`${label}`"
+            :route="route ? `${route}` : undefined"
+            :btnroute="btnroute ? `${btnroute}` : undefined"
+            :description="`${description}`"
+          />
+        </GridContainer>
+      </div> </GridContainer
   ></GridWrapper>
 </template>
 <script>
@@ -42,16 +42,16 @@ export default {
     TextBlock,
   },
   props: {
-    header: {
+    title: {
       type: String,
       default: "Detail Card",
     },
-    details: {
+    description: {
       type: String,
       default:
         "    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
-    tag: {
+    eyebrow: {
       type: String,
       default: "Eyebrow",
     },
@@ -59,9 +59,14 @@ export default {
       type: String,
       default: "jacques.jpg",
     },
-    cta: {
+    label: {
       type: String,
       default: "Read More",
+    },
+    btnroute: {
+      type: String,
+      default: "",
+      required: false,
     },
     route: {
       type: String,
@@ -124,9 +129,9 @@ Copy code * {
 
   #textblock {
     // align-self: center !important;
-    padding-top: 0;
+    padding-block-start: 0;
     @media only screen and (min-width: 768px) {
-      padding-top: 0;
+      padding-block-start: 0;
     }
   }
 
@@ -155,11 +160,9 @@ Copy code * {
   .imgcontainer {
     padding-bottom: 0 !important;
 
-
     @media only screen and (min-width: 768px) {
-      padding-top: var(--spacing-lg) !important;
+      padding-block-start: var(--spacing-lg) !important;
       padding-bottom: var(--spacing-lg) !important;
-
     }
   }
 

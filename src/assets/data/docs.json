@@ -1,34 +1,35 @@
 {
+  "featEyebrow": "Design AI Tools",
   "featTitle": "This is a feature title",
   "featDescription": "This is a feature description",
+  "btnroute": "mdoc/13",
+  "label": "Feature Label",
   "entries": [
     {
       "id": 1,
       "title": "Ths Shifting Landscape of Design",
-      "tag": "Design AI Tools",
-      "description": "In the rapidly evolving landscape of design, we find ourselves at the precipice of a profound transformation. This shift prompts us to reevaluate the essence of our role, transitioning from mere designers to advocates for both users and the integrity of the design process.",
-      "btnroute": "mdoc/13",
-      "cta": "Read More",
+      "description": "The design industry is in a state of flux. The landscape is shifting, and the role of the designer is evolving. The days of the designer as a pixel pusher are long gone. The designer of today is a strategic thinker, a problem solver, and a storyteller. The designer of today is a leader, a collaborator, and a change agent. The designer of today is a business person, a technologist, and a futurist.",
+      "eyebrow": "Design AI Tools",
+      "route": "mdoc/13",
       "thumbnail": "article/jacques.jpg",
       "alt": "Image Alt"
     },
     {
       "id": 2,
       "title": "The Importance of Baselines",
-      "tag": "Tag1 Tag2 typography",
+      "eyebrow": "Tag1 Tag2 typography",
       "description": "Baselines provide a stable and known starting point for comparison during software development and testing. By comparing changes or new versions against the baseline, discrepancies, bugs, or regressions can be easily identified, ensuring software quality and reliability throughout its development life cycle.",
-      "btnroute": "mdoc/1",
-      "cta": "Read More",
+      "route": "mdoc/13",
       "thumbnail": "article/baseline.png",
       "alt": "Design components"
     },
     {
       "id": 3,
       "title": "The Future-Proof Toolkit for Front-end Design",
-      "tag": "Tag1 Tag2 typography",
+      "eyebrow": "Tag1 Tag2 typography",
       "description": "Currently knee-deep in the sea of design tools, much like we've always been, we realize that the current industry standard file format is just a pitstop on the journey – a tool bound to be succeeded by something else down the line. It's a matter of time before we navigate a new terrain, and design tools become a stepping stone in the ongoing design evolution.",
-      "btnroute": "mdoc/12",
-      "cta": "Read More",
+      "route": "mdoc/12",
+
       "thumbnail": "article/baseline.png",
       "alt": "Design components"
     }

@@ -1,7 +1,16 @@
 <template>
   <div id="richlink">
-    <router-link :class="classes" v-if="route" :to="`${route}`"
-      >{{ label }}
+    <router-link :class="classes" v-if="route" :to="`${route}`">
+      <MyIcon
+        v-if="icon"
+        :style="{ 'margin-right': iconsize / 2 + 'px' }"
+        :name="icon"
+        :is-svg="isSvg"
+        :size="iconsize"
+        :url="iconurl"
+        :unicode="unicode"
+      />
+      {{ label }}
     </router-link>
     <a
       :class="classes"
@@ -9,15 +18,32 @@
       v-if="link"
       target="blank"
       :href="`${link}`"
+      @click="onClick"
+
     >
+      <MyIcon
+        v-if="icon"
+        :style="{ 'margin-right': iconsize / 2 + 'px' }"
+        :name="`${icon}`"
+        :is-svg="isSvg"
+        :size="`${iconsize}`"
+        :url="`${iconurl}`"
+        :unicode="`${unicode}`"
+      />
       {{ label }}
     </a>
   </div>
 </template>
 
 <script>
+import MyIcon from "./../Icon.vue";
+import { reactive, computed } from "vue";
+
 export default {
   name: "TextLink",
+  components: {
+    MyIcon,
+  },
   props: {
     label: {
       type: String,
@@ -27,10 +53,26 @@ export default {
     route: {
       type: String,
     },
+    isSvg: {
+      type: Boolean,
+      default: true,
+    },
     link: {
       type: String,
     },
-
+    icon: {
+      type: String,
+    },
+    iconsize: {
+      type: String,
+      default: "64",
+    },
+    iconurl: {
+      type: String,
+    },
+    unicode: {
+      type: String,
+    },
     // Override props
     large: {
       type: Boolean,
@@ -48,23 +90,28 @@ export default {
       required: false,
     },
   },
-  computed: {
-    classes() {
-      return {
-        "link-size": true,
-        "link-size--large": this.large,
-        "link-size--default": !this.large,
+  emits: ["click"],
+setup(props, { emit }) {
+  const reactiveProps = reactive(props);
+  return {
+    classes: computed(() => ({
+      "link-size": true,
+      "link-size--large": reactiveProps.large,
 
-        "link-left": true,
-        "link-left--left": this.left,
-        "link-left--default": !this.left,
+      "link-left": true,
+      "link-left--left": reactiveProps.left,
+      "link-left--default": !reactiveProps.left,
 
-        "link-right": true,
-        "link-right--right": this.right,
-        "link-right--default": !this.right,
-      };
+      "link-right": true,
+      "link-right--right": reactiveProps.right,
+      "link-right--default": !reactiveProps.right,
+    })),
+    onClick() {
+      emit("click");
     },
-  },
+  };
+},
+  
 };
 </script>
 <style></style>
@@ -74,10 +121,14 @@ export default {
   color: inherit;
   // font-weight: var(--fontWeight-medium);
 }
-
+// #richlink {
+//   color: var(--link);
+// }
 .link-size {
   /* background: var(--color-xlight); */
   font-size: var(--font-xs);
+  display: flex;
+  align-items: center;
 }
 
 /* .link-size--default */
@@ -91,6 +142,7 @@ export default {
 .link-left--left:before {
   content: "★ ";
   color: var(--link);
+  text-decoration: none;
 }
 
 /* .link-right */
@@ -101,5 +153,4 @@ export default {
 }
 
 /* ---- External Link ---- */
-
 </style>

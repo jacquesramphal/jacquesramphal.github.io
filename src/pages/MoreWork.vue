@@ -1,11 +1,18 @@
 <template>
   <PageWrapper>
     <HeroBanner
+    
       id="hero"
-      :eyebrow="works.eyebrow"
-      :title="works.title"
-      :subtitle="works.subtitle"
+      :title="work.title"
+      :subtitle="work.description"
     />
+    <!-- <SplitImage
+      :eyebrow="work.featEyebrow"
+      :title="work.featTitle"
+      :description="work.featDescription"
+      :btnroute="work.btnroute"
+      :label="work.label"
+    /> -->
     <GridContainer>
       <input type="radio" id="All" name="categories" value="All" checked />
       <input type="radio" id="Tag1" name="categories" value="Tag1" />
@@ -31,14 +38,27 @@
         id="recentwork"
         class="posts grid-parent"
       >
+      <ImageCard   alt="J Monogram" filename1="work/j.svg" id="top" />
+        <ImageCard2 
+          alt="Avatar"
+          class="hidemobile"
+          filename1="avatar/avatar.svg"
+          title="Avatar"
+        />
+        <ImageCard 
+          alt="Avatar"
+          class="showmobile"
+          filename1="avatar/avatar.svg"
+          title="Avatar"
+        />
         <ImageCard
-          v-for="entry in works.entries"
+          v-for="entry in work.entries"
           :key="entry.id"
           class="post"
           :data-category="entry.tag"
           :eyebrow="entry.tag"
           :title="entry.title"
-          :details="entry.description"
+          :description="entry.description"
           :cta="entry.cta"
           :route="entry.route"
           :btnroute="entry.btnroute"
@@ -47,6 +67,7 @@
           :filename2="entry.filename2"
           :filename3="entry.filename3"
           :style="entry.bgcolor"
+
         />
       </div>
       <div v-else>
@@ -59,7 +80,7 @@
       style="background: var(--background-darker)"
       filename="work/glo.svg"
       header="Featured Project"
-      details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. "
+      description="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. "
       route="work"
       cta="Read More"
     />
@@ -69,7 +90,7 @@
 </template>
 
 <script>
-import works from "@/assets/data/work.json";
+import work from "@/assets/data/work.json";
 import info from "@/assets/data/info.json";
 import FilterBar from "@/components/FilterBar.vue";
 
@@ -81,7 +102,7 @@ export default {
   props: {},
   data() {
     return {
-      works,
+      work,
       info,
       filterCategories: [
         { value: "All", label: "All" },
@@ -100,9 +121,9 @@ export default {
   computed: {
   filteredEntries() {
     if (this.selectedCategory === "All") {
-      return this.works.entries;
+      return this.work.entries;
     } else {
-      const filtered = this.works.entries.filter(entry =>
+      const filtered = this.work.entries.filter(entry =>
         entry.tag.split(' ').includes(this.selectedCategory)
       );
       console.log('Filtered Entries:', filtered);
@@ -126,6 +147,6 @@ export default {
 }
 
 .container {
-  padding-top: 0 !important;
+  padding-block-start: 0 !important;
 }
 </style>

@@ -11,7 +11,7 @@
     >
 
 
-      <TextBlock center eyebrow="" header="Contact Me" details="" />
+      <TextBlock center eyebrow="" description="Contact Me" details="" />
 
 
       <div id="form-row">
@@ -116,7 +116,7 @@ export default {
   color: inherit;
 }
 .container {
-  /*  padding-top: 4rem !important;
+  /*  padding-block-start: 4rem !important;
   padding-bottom: 9.6rem !important; */
   background-color: inherit;
 }

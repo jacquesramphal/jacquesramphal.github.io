@@ -4,12 +4,9 @@ AI, Design Futures, Automation, Cross-skilling
 
 ---
 
-In the rapidly evolving landscape of design, we find ourselves at the precipice of a profound transformation. This shift prompts us to reevaluate the essence of our role, transitioning from mere designers to advocates for both users and the integrity of the design process. 
+The design industry is in a state of flux. The landscape is shifting, and the role of the designer is evolving. The days of the designer as a pixel pusher are long gone. The designer of today is a strategic thinker, a problem solver, and a storyteller. The designer of today is a leader, a collaborator, and a change agent. The designer of today is a business person, a technologist, and a futurist.
 
-<figure>
-    <img src="./../images/article/jacques.jpg"
-         alt="Placeholder Image">
-</figure>
+<!-- In the rapidly evolving landscape of design, we find ourselves at the precipice of a profound transformation. This shift prompts us to reevaluate the essence of our role, transitioning from mere designers to advocates for both users and the integrity of the design process.  -->
 
 ### Bridging the gap(s)
 
@@ -17,7 +14,7 @@ Design systems have already changed the game, making us more efficient. No longe
 
 ### “Relevance” and the Shift Towards Front-End Design
 
-The evolution towards Front-End (FE) Design marks a significant paradigm shift, where designers are becoming Full Stack Experience Engineers, navigating the changing landscape with proficiency in both visuals and code. The call for cross-skilling in design teams echoes loudly, signaling a shift towards a more streamlined and versatile approach. The quest for relevance takes center stage, prompting a nuanced exploration of its meaning in the context of our evolving roles. The ongoing struggle to prove our value raises questions about whether this pursuit truly guides us in the right direction.
+The evolution towards Front-End (FE) Design marks a significant paradigm shift, where designers are navigating the changing landscape with proficiency in both visuals and code. The call for cross-skilling in design teams echoes loudly, signaling a shift towards a more streamlined and versatile approach. The quest for relevance takes center stage, prompting a nuanced exploration of its meaning in the context of our evolving roles. The ongoing struggle to prove our value raises questions about whether this pursuit truly guides us in the right direction.
 
 The concept of designers acquiring coding skills aligns seamlessly with the evolving terrain of automated static design. Proficiency in coding, particularly in HTML, CSS, and JavaScript, not only minimizes Design Quality Assurance (DQA) efforts but also empowers designers to actively engage in the development process. As the design process integrates AI for pivotal decision-making, staying "relevant" in this swiftly evolving landscape becomes imperative.
 

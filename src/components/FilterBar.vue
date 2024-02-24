@@ -28,7 +28,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" >
 input[type="radio"] {
   position: absolute;
   left: -9999px;

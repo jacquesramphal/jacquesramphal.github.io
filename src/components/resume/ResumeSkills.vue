@@ -39,11 +39,11 @@ export default {
 
 <style scoped lang="sass">
 .resume-skills
-  margin-top: var(--spacing-sm)
+  margin-bottom: var(--spacing-sm)
   >.resume-skills-tag
-    margin-top: var(--spacing-sm)
+    margin-bottom : var(--spacing-sm)
     .resume-skills-tag-entries
-      margin-top: var(--spacing-xxs)
+      // margin-top: var(--spacing-xxs)
       list-style: none
       display: flex
       flex-direction: row

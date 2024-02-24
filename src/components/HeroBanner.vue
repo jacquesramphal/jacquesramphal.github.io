@@ -196,7 +196,7 @@ img {
 }
 
 #hero-cta {
-  padding-top: var(--spacing-md);
+  padding-block-start: var(--spacing-md);
   display: grid;
   grid-template-columns: 1fr;
   justify-content: start;

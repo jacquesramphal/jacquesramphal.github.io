@@ -1,20 +1,5 @@
 <template>
   <div id="textblock" :class="classes">
-    <!-- <img
-      id="avatar"
-      class="justify-end"
-      v-if="alt"
-      :src="require(`../assets/images/${icon}`)"
-      draggable="false"
-      alt="logo.svg"
-      style="
-        width: 6.4rem;
-        object-fit: contain !important;
-        aspect-ratio: 1 / 1;
-        border-radius: 0 !important;
-        margin-bottom: var(--spacing-sm);
-      "
-    /> -->
     <MyIcon
       v-if="icon"
       style="margin-bottom: var(--spacing-sm)"
@@ -22,19 +7,34 @@
       :is-svg="true"
       :size="`${iconsize}`"
     />
-
-    <p tabIndex="0" class="eyebrow subtle" v-if="eyebrow" v-text="eyebrow" />
-    <h2 tabIndex="0" v-if="header" v-text="header" />
-    <h3 tabIndex="0" v-if="header3" v-text="header3" />
-    <h4 tabIndex="0" v-if="header4" v-text="header4" />
-    <p id="" class="details" tabIndex="0" v-if="details" v-html="details" />
-    <TextLink v-if="route" :label="`${cta}`" :route="`${route}`" />
-    <TextLink v-if="link" :label="`${cta}`" :link="`${link}`" />
-    <!-- <blockquote v-if="blockquote" v-text="blockquote" /> -->
+    <DynamicText
+      v-if="eyebrow"
+      :text="eyebrow"
+      :attrs="{ class: 'eyebrow subtle' }"
+    />
+    <DynamicText
+      v-if="title"
+      :as="as"
+      tabIndex="0"
+      :text="title"
+      :attrs="{ class: 'title' }"
+    />
+    <DynamicText
+      v-if="description"
+      tabIndex="0"
+      :text="description"
+      :attrs="{ class: 'description' }"
+    />
+    <TextLink
+      v-if="route && label"
+      :label="label"
+      :route="route ? `${route}` : undefined"
+      :link="link ? `${link}` : undefined"
+    />
     <MyButton
       id="btn"
-      v-if="btnroute"
-      :label="`${cta}`"
+      v-if="btnroute && label"
+      :label="label"
       :route="btnroute"
       type="solid"
     />
@@ -44,6 +44,7 @@
 <script>
 import MyButton from "./Button.vue";
 import TextLink from "./text/TextLink.vue";
+import DynamicText from "./text/DynamicText.vue";
 import MyIcon from "./Icon.vue";
 
 export default {
@@ -51,6 +52,7 @@ export default {
   components: {
     MyButton,
     TextLink,
+    DynamicText,
     MyIcon,
   },
   props: {
@@ -68,22 +70,18 @@ export default {
       type: String,
       required: false,
     },
-    header: {
+    as: {
+      default: "h3",
+      type: String,
+      required: false,
+    },
+    title: {
       type: String,
       default: "",
       required: false,
     },
-    header3: {
-      type: String,
-      default: "",
-      required: false,
-    },
-    header4: {
-      type: String,
-      default: "",
-      required: false,
-    },
-    details: {
+
+    description: {
       type: String,
       default:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -102,22 +100,21 @@ export default {
       type: Boolean,
       default: false,
     },
-    cta: {
+    label: {
       type: String,
+      default: "",
+      required: false,
     },
     route: {
       type: String,
-      default: "",
+      required: false,
     },
     btnroute: {
       type: String,
-      default: "",
+      required: false,
     },
     link: {
       default: "",
-      type: String,
-    },
-    label: {
       type: String,
     },
   },
@@ -149,8 +146,12 @@ export default {
   word-spacing: 1rem;
   margin-bottom: 1em;
 }
-
-.details {
+.title {
+  /* flex: 1; */
+  width: 100%;
+  white-space: normal;
+}
+.description {
   /* flex: 1; */
   width: 100%;
   white-space: normal;
@@ -158,7 +159,7 @@ export default {
 .textblock-align {
   grid-column: 1 / 4;
 }
-p {
+.description {
   margin: 1rem 0 0 0;
 }
 .textblock--clamped p {

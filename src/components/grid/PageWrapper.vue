@@ -20,6 +20,7 @@ div {
   // padding-bottom: var(--spacing-lg) !important
 
   @media only screen and (min-width: 768px) {
+    // padding-block-start: var(--spacing-lg) !important;
     padding-bottom: 0 !important;
   }
 

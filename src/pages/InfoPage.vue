@@ -1,16 +1,39 @@
 <template>
   <PageWrapper>
-     <HeroBanner
-      id="hero"
-      title="About"
-    />
-    <!-- <ImageCard size="split" title="Title" details="UI Regression Testing with Storybook and Chromatic ensures my components are throughly tested and documented" /> -->
-    <SplitImage/>
-    <SplitImage flipped/>
+    <HeroBanner id="hero" title="About" />
+    <!-- <Stats
+      v-for="about in contentful"
+      v-bind:key="about.sys.id"
+      :value1="about.statValue1"
+      :label1="about.statLabel1"
+      :value2="about.statValue2"
+      :label2="about.statLabel2"
+      :value3="about.statValue3"
+      :label3="about.statLabel3"
+    />  -->
+    <GridContainer class="animate delay-2">
+      <TextStats/>
+
+      <GridParent>
+        <TextBlock
+          as="h4"
+          title="TextBlock"
+          icon="j-logo"
+          iconsize="128"
+          alt="Image alt"
+        />
+        <TextBlock as="h4" title="TextBlock" icon="j-logo" alt="Image alt" />
+        <TextBlock as="h4" title="TextBlock" icon="j-logo" alt="Image alt" />
+      </GridParent>
+    </GridContainer>
+  
+    <TestimonialCarousel />
+    <SplitImage />
+    <SplitImage flipped />
     <TextGrid
       v-for="about in contentful"
       v-bind:key="about.sys.id"
-      :header="about.detailHeader"
+      :title="about.detailHeader"
       :eyebrow1="about.detailEyebrow1"
       :detail1="about.detailDetails1"
       eyebrow2="Component Library"
@@ -26,47 +49,25 @@
       eyebrow=""
       title="Multi-disciplinary Designer."
     /> -->
-    <GridContainer class="animate delay-2">
-      <GridParent>
-        <TextBlock
-          header4="TextBlock"
-          icon="j-logo"
-          iconsize="128"
-          alt="Image alt"
-        />
-        <TextBlock header4="TextBlock" icon="j-logo" alt="Image alt" />
-        <TextBlock header4="TextBlock" icon="j-logo" alt="Image alt" />
-      </GridParent>
-    </GridContainer>
+    
 
-    <!--   <Stats
-      v-for="about in contentful"
-      v-bind:key="about.sys.id"
-      :value1="about.statValue1"
-      :label1="about.statLabel1"
-      :value2="about.statValue2"
-      :label2="about.statLabel2"
-      :value3="about.statValue3"
-      :label3="about.statLabel3"
-    /> -->
   </PageWrapper>
 </template>
 
 <script>
-
 export default {
-    name: "InfoPage",
-    data() {
-        return {
-            contentful: [],
-        };
-    },
-    async created() {
-        this.contentful = await this.getContentful();
-    },
-    methods: {
-        getContentful: async () => {
-            const query = `{
+  name: "InfoPage",
+  data() {
+    return {
+      contentful: [],
+    };
+  },
+  async created() {
+    this.contentful = await this.getContentful();
+  },
+  methods: {
+    getContentful: async () => {
+      const query = `{
        aboutCollection {
          items {
            sys {
@@ -86,24 +87,25 @@ export default {
          }
        }
      }`;
-            const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
-            const fetchOptions = {
-                method: "POST",
-                headers: {
-                    Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ query }),
-            };
-            try {
-                const response = await fetch(fetchUrl, fetchOptions).then((response) => response.json());
-                return response.data.aboutCollection.items;
-            }
-            catch (error) {
-                throw new Error("Could not receive the data from Contentful!");
-            }
+      const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
+      const fetchOptions = {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
+          "Content-Type": "application/json",
         },
+        body: JSON.stringify({ query }),
+      };
+      try {
+        const response = await fetch(fetchUrl, fetchOptions).then((response) =>
+          response.json()
+        );
+        return response.data.aboutCollection.items;
+      } catch (error) {
+        throw new Error("Could not receive the data from Contentful!");
+      }
     },
+  },
 };
 </script>
 

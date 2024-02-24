@@ -23,9 +23,11 @@
             "id": "f75cf63d1a7e3b11",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.5.3"
+                "file": "mdoc_13.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -96,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "mdoc_16.md",
+                "file": "mdoc_13.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "mdoc_16.md",
+                "file": "mdoc_13.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "mdoc_16.md"
+                "file": "mdoc_13.md"
               }
             }
           },
@@ -171,10 +173,9 @@
   },
   "active": "f75cf63d1a7e3b11",
   "lastOpenFiles": [
-    "mdoc_15.md",
-    "mdoc_14.md",
-    "mdoc_13.md",
     "mdoc_12.md",
+    "mdoc_1.md",
+    "mdoc_13.md",
     "mdoc_11.md",
     "mdoc_10.md",
     "mdoc_9.md",
@@ -183,8 +184,9 @@
     "mdoc_6.md",
     "mdoc_3.md",
     "mdoc_2.md",
-    "mdoc_1.md",
     "mdoc_0.md",
+    "mdoc_15.md",
+    "mdoc_14.md",
     "mdoc_16.md",
     "src/assets/images/article/jacques.jpg.md",
     "src/assets/images/article",

@@ -177,6 +177,7 @@
   --font-100: clamp(var(--font-lg), 7vw, var(--font-3xl));
 
 
+
   /* testing fluid type, applied to h1 */
 
   /* Make these part of the SIZE scale */
@@ -189,6 +190,21 @@
   --font-xs: var(--size-5);
   --font-2xs: var(--size-4);
   --font-3xs: var(--size-3);
+
+  @media print {
+    * {
+      --font-3xl: var(--size-16);
+      --font-2xl: var(--size-15);
+      --font-xl: var(--size-14);
+      --font-lg: var(--size-10);
+      --font-md: var(--size-5);
+      --font-sm: var(--size-4);
+      --font-xs: var(--size-3);
+      --font-2xs: var(--size-2);
+      --font-3xs: var(--size-1);
+    
+    }
+  }
   /* 
   --font-display: clamp(4rem, 9vw, 12rem);
   --font-3xl: clamp(3rem, 7vw, 8rem);

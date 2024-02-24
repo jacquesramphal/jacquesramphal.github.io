@@ -62,8 +62,8 @@
               <TextBlock
                 left
                 eyebrow=""
-                header="Section 1"
-                details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                title="Section 1"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -77,8 +77,8 @@
               <TextBlock
                 left
                 eyebrow=""
-                header=""
-                details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                title=""
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat."
@@ -105,8 +105,8 @@
             <TextBlock
               left
               eyebrow=""
-              header="Section 2"
-              details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              title="Section 2"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -141,8 +141,8 @@
               <TextBlock
                 left
                 eyebrow=""
-                header="Section 3"
-                details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                title="Section 3"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -167,7 +167,7 @@
       eyebrow="Blog / Blog Post"
       subtitle="Post Description"
     /> -->
-    <CardRow header="Related" />
+    <CardRow title="Related" />
   </PageWrapper>
 </template>
 
@@ -221,7 +221,7 @@ export default {
       const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
       const fetchOptions = {
         method: "POST",
-        headers: {
+        titles: {
           Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
           "Content-Type": "application/json",
         },

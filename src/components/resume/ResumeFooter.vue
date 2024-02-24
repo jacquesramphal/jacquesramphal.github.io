@@ -2,14 +2,17 @@
   <div class="resume-footer">
     <ul class="resume-footer-links">
       <li
-          class="resume-footer-link"
-          v-for="(link, i) in information.links"
-          :key="i"
+        class="resume-footer-link"
+        v-for="(link, i) in information.links"
+        :key="i"
       >
-      <TextLink
-      :link="link.url"
-      :label="link.title"
-      />
+        <TextLink
+          icon="j-logo"
+          iconsize="16"
+          :link="link.url"
+          :label="link.title"
+        />
+
         <!-- <a
             :href="link.url"
             v-text="link.title"
@@ -20,18 +23,18 @@
 </template>
 
 <script>
-import TextLink from '../text/TextLink.vue';
+import TextLink from "../text/TextLink.vue";
 export default {
-    name: "ResumeFooter",
-    props: {
-        information: {
-            type: Object,
-            required: true
-            // TODO: add validation
-        }
+  name: "ResumeFooter",
+  props: {
+    information: {
+      type: Object,
+      required: true,
+      // TODO: add validation
     },
-    components: { TextLink }
-}
+  },
+  components: { TextLink },
+};
 </script>
 
 <style scoped lang="sass">

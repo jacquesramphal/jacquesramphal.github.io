@@ -1,5 +1,5 @@
 <template :class="classes">
-  <div class="default-card" :class="classes" :data-category="`${tag}`">
+  <div class="default-card" :class="classes" :data-category="`${eyebrow}`">
     <div v-if="alt" class="image">
       <router-link :to="`${route}`">
         <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" />
@@ -14,25 +14,28 @@
 
     <div class="info">
       <TextBlock
-        v-if="cover"
         clamped
         class="textblock"
-        :eyebrow="`${tag}`"
-        :header4="`${title}`"
-        :details="`${description}`"
-        :btnroute="`${route}`"
-        :cta="`${label}`"
+        :eyebrow="eyebrow"
+        as="h4"
+        :title="title"
+        :description="description"
+        :label="label"
+        :route="route ? `${route}` : undefined"
+        :btnroute="btnroute ? `${btnroute}` : undefined"
       />
-      <TextBlock
+
+      <!-- <TextBlock
         v-else
         clamped
         class="textblock"
-        :eyebrow="`${tag}`"
-        :header4="`${title}`"
-        :details="`${description}`"
-        :btnroute="`${route}`"
-        :cta="`${label}`"
-      />
+        :eyebrow="tag"
+        :header4="title"
+        :description="description"
+        :btnroute="route"
+        :route="route"
+        :cta="label"
+      /> -->
     </div>
     <!-- <MyButton style="" secondary :label="`${label}`" size="large" :route="`${route}`" /> -->
   </div>
@@ -67,21 +70,23 @@ export default {
       type: String,
     },
     description: {
-      default:
-        "This is a short description taken from the article. Maybe a little longer ...",
+      default: "",
+      required: false,
       type: String,
     },
-    tag: {
+
+    route: {
       default: "",
       type: String,
+      required: false,
     },
-    route: {
+    btnroute: {
+      default: "",
       type: String,
+      required: false,
     },
     label: {
-      default: "Read More",
       type: String,
-      required: true,
     },
     cover: {
       type: Boolean,
@@ -168,7 +173,7 @@ img {
   border-radius: 0 !important;
   box-shadow: none !important;
   border: none;
-  padding-bottom: var(--spacing-md);
+  padding: var(--spacing-md) 0;
   display: grid !important;
   .image {
     overflow: hidden !important;
@@ -181,7 +186,6 @@ img {
   }
   @media only screen and (min-width: 1201px) {
     border-bottom: 1px solid var(--color-xlight) !important;
-    
   }
   // &:last-child {
   //   border-bottom: none !important;
@@ -211,13 +215,12 @@ img {
   box-shadow: none !important;
   @media only screen and (min-width: 1201px) {
     .info {
-    padding: var(--spacing-xs) 0 0 0 !important;
-  }
+      padding: var(--spacing-xs) 0 0 0 !important;
+    }
   }
   .info {
     padding: var(--spacing-sm) 0 !important;
   }
-  
 
   .image {
     border-radius: var(--spacing-xxs) !important;

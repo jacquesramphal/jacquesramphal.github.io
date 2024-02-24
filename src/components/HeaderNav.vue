@@ -1,0 +1,338 @@
+<template>
+  <div id="headernav" class="navbar" :class="{ 'hidden-navbar': !showNavbar }">
+    <GridContainer class="bg">
+      <nav class="">
+        <li class="wordmark">
+          <TextLink
+            class="wordmark"
+            label="Jacques Ramphal"
+            route="/"
+            v-show="isDesktopScreen && !menuOpen"
+          />
+  
+
+          <TextLink
+            class="wordmark"
+            label="Jake Ramphal"
+            route="/"
+            v-show="isMobileScreen && !menuOpen"
+          />
+        </li>
+
+        <ul class="links justify-end">
+          <li v-show="isDesktopScreen && !menuOpen">
+            <TextLink label="Docs" route="docs" />
+          </li>
+          <li v-show="isDesktopScreen && !menuOpen">
+            <TextLink label="Work" route="work2" />
+          </li>
+          <li v-show="isDesktopScreen && !menuOpen">
+            <TextLink label="CV" route="cv" />
+          </li>
+
+          <li>
+            <MyButton type="textlink" label="Theme" @click="toggleTheme" />
+          </li>
+
+          <li
+            class="nav-link"
+            tabindex="0"
+            v-show="isMobileScreen && !menuOpen"
+          >
+            <slot name="menu-button"></slot>
+          </li>
+        </ul>
+      </nav>
+    </GridContainer>
+  </div>
+</template>
+
+<script>
+// import ThemeButton from "./ThemeButton.vue";
+
+import GridContainer from "./grid/GridContainer.vue";
+
+const OFFSET = 60;
+export default {
+  name: "HeaderNav",
+  components: { GridContainer },
+  props: {
+    title: {
+      type: String,
+      default: "Jacques Ramphal",
+    },
+  },
+  data() {
+    return {
+      menuOpen: false,
+      userTheme: "light-theme",
+      backgroundColor: "#ffffff", // Not in use - Replace with your hex color
+      showNavbar: true,
+      lastScrollPosition: 0,
+      scrollValue: 0,
+      isMobileScreen: false,
+      isDesktopScreen: false,
+    };
+  },
+  computed: {
+    // not in use - start
+    backgroundStyle() {
+      const rgb = this.hexToRgb(this.backgroundColor);
+      return {
+        background: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.95)`,
+      };
+    },
+  },
+  // not in use - end
+  mounted() {
+    const initUserTheme = this.getMediaPreference();
+    this.setTheme(initUserTheme);
+
+    this.lastScrollPosition = window.pageYOffset;
+    window.addEventListener("scroll", this.onScroll);
+    window.addEventListener("resize", this.onWindowResize);
+    const viewportMeta = document.createElement("meta");
+    viewportMeta.name = "viewport";
+    viewportMeta.content = "width=device-width, initial-scale=1";
+    document.head.appendChild(viewportMeta);
+
+    this.onWindowResize();
+  },
+
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener("resize", this.onWindowResize);
+  },
+
+  methods: {
+    // not in use - start
+
+    hexToRgb(hex) {
+      const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result
+        ? {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16),
+          }
+        : null;
+    },
+    // not in use - end
+
+    toggleTheme() {
+      const activeTheme = localStorage.getItem("user-theme");
+      if (activeTheme === "light-theme") {
+        this.setTheme("dark-theme");
+      } else {
+        this.setTheme("light-theme");
+      }
+    },
+    setTheme(theme) {
+      localStorage.setItem("user-theme", theme);
+      this.userTheme = theme;
+      document.documentElement.className = theme;
+    },
+    getMediaPreference() {
+      const hasDarkPreference = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      if (hasDarkPreference) {
+        return "dark-theme";
+      } else {
+        return "light-theme";
+      }
+    },
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen;
+    },
+    closeMenu() {
+      this.menuOpen = false;
+    },
+    onScroll() {
+      if (window.pageYOffset < 0) {
+        return;
+      }
+      if (Math.abs(window.pageYOffset - this.lastScrollPosition) < OFFSET) {
+        return;
+      }
+      this.showNavbar = window.pageYOffset < this.lastScrollPosition;
+      this.lastScrollPosition = window.pageYOffset;
+    },
+    onWindowResize() {
+      this.showNavbar = true; // Ensure the navbar is always visible when resizing
+      this.isMobileScreen = window.innerWidth < 768;
+      this.isDesktopScreen = window.innerWidth >= 768;
+    },
+  },
+};
+</script>
+<style lang="scss">
+.nav-link > a {
+  // border-radius: 4px;
+
+  &:hover {
+    background: var(--background-darker-reversed);
+    transition: all 0.25s ease;
+  }
+}
+</style>
+
+<style lang="scss" scoped>
+* {
+  margin: 0;
+  mix-blend-mode: normal;
+}
+@media print {
+  * {
+    display: none;
+  }
+}
+// .blur {
+//   height: 100% ;
+//   width: 100vw;
+//   position: absolute;
+//   z-index: -1;
+//   filter: blur(20px); /* Blur amount on hover, can be adjusted */
+// }
+.custom-btn {
+  padding: 0 !important;
+}
+:active {
+  outline: transparent;
+}
+
+.navbar {
+  display: flex;
+  bottom: 0;
+
+  align-items: center;
+  mix-blend-mode: normal !important;
+  overflow: visible;
+  position: fixed !important;
+  transform: translate3d(0, 0, 0) !important;
+  transition: 0.4s transform cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
+  width: 100vw !important;
+  z-index: 100000 !important;
+  // opacity: 0.95;
+
+  // background-color: red;
+  @media only screen and (min-width: 768px) {
+    bottom: auto;
+
+    top: 0;
+  }
+}
+/* Adds extra background colour to account for bouncing effect */
+.navbar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: -100%; /* Adjust the value to control the width of the additional background */
+  right: 0;
+  width: 100%; /* Adjust the value to control the width of the additional background */
+  background: var(
+    --background
+  ); /* Specify the color of the additional background */
+  opacity: 0.95;
+  z-index: -1; /* Set the z-index to be behind the navbar */
+
+  @media only screen and (min-width: 768px) {
+    bottom: 0;
+    top: -100%;
+  }
+}
+
+.navbar.hidden-navbar {
+  transform: translate3d(0, 150%, 0) !important;
+
+  @media only screen and (min-width: 768px) {
+    transform: translate3d(0, -150%, 0) !important;
+  }
+}
+
+.bg {
+  transition: 0.5s box-shadow ease-in-out !important;
+  justify-self: flex-end;
+  // background-color: red;
+  overflow: visible;
+  position: relative;
+  padding-block-start: var(--spacing-xs) !important;
+  padding-block-end: var(--spacing-sm) !important;
+  padding-right: var(--spacing-sm) !important;
+
+  width: 100%;
+  border-top: var(--border);
+
+  // filter: blur(2px);
+
+  @media only screen and (min-width: 768px) {
+    padding-block-start: var(--spacing-xs) !important;
+    padding-bottom: var(--spacing-sm) !important;
+    padding-right: var(--spacing-md) !important;
+
+    // border-radius: 8px 0 0 0;
+    // padding: var(--spacing-sm) inherit !important;
+    // border-bottom: var(--border);
+    border-top: none;
+
+    justify-self: end;
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-self: flex-end;
+  gap: var(--spacing-sm);
+
+  @media only screen and (min-width: 768px) {
+    gap: var(--spacing-md);
+  }
+}
+
+li {
+  list-style: none;
+  float: left;
+  font-size: 2em;
+  line-height: 1;
+  margin: 0;
+  text-decoration: none;
+
+  &:first-child {
+    padding-right: 0;
+  }
+}
+
+nav {
+  overflow: visible;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  // height: 5.2rem;
+  justify-self: stretch;
+  position: relative;
+}
+#richlink {
+  text-decoration: none !important;
+}
+.router-link-exact-active {
+  // background: var(--background);
+  text-decoration: underline dashed !important;
+}
+
+p {
+  margin: 0;
+}
+
+// .wordmark::after {
+//   @media only screen and (min-width: 768px) {
+//     content: "/";
+//     padding: var(--spacing-xxs);
+//     opacity: 0.5;
+//     font-weight: var(--fontWeight-normal);
+//   }
+// }
+</style>

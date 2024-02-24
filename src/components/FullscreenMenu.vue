@@ -24,7 +24,7 @@
         <span class="sr-only">Close Menu / ESC</span>
       </MyButton> -->
       <GridContainer>
-        <nav class="reversed">
+        <nav class="">
           <ul class="animate">
             <h1 class="animate fade"><router-link to="/">Home</router-link></h1>
             <h1 class="animate fade delay-1">
@@ -97,11 +97,12 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--background-reversed);
+  background-color: var(--background);
   z-index: 1000;
   display: flex;
   justify-content: left;
   align-items: center;
+  border-bottom: var(--border);
   .close-button {
     position: absolute;
     right: var(--spacing-xs);
@@ -115,7 +116,7 @@ export default {
     right: 0;
     width: 100%; /* Adjust the value to control the width of the additional background */
     background-color: var(
-      --background-reversed
+      --background
     ); /* Specify the color of the additional background */
     z-index: -1; /* Set the z-index to be behind the navbar */
   }
@@ -127,7 +128,7 @@ export default {
       li {
         // margin-bottom: var(--spacing-lg);
         a {
-          color: var(--text-reversed) !important;
+          color: var(--text) !important;
           text-decoration: none;
           font-size: var(--font-2xl);
           // font-weight: var(--fontWeight-bold);

@@ -22,7 +22,7 @@
           eyebrow="Eyebrow"
           style="grid-column: 1 / 3"
           header="Testimonials"
-          details=""
+          description=""
         /> -->
         <!-- <p class="external justify-end" style="align-self: flex-end">
           <router-link :to="{ name: 'Blog' }">View All</router-link>
@@ -217,7 +217,7 @@ export default {
   /* padding: 20px; */
   background-color: var(--background-darker);
   // height: 100vh;
-  padding-top: var(--spacing-lg);
+  padding-block-start: var(--spacing-lg);
   justify-content: center;
   // background: yellow;
 }

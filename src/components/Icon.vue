@@ -11,7 +11,7 @@
         :src="require(`../assets/images/${name}.svg`)"
         :alt="name"
       />
-      <img v-if="url" draggable="false" :src="url" :alt="name" />
+      <!-- <img v-else="url" draggable="false" :src="url" :alt="name" /> -->
     </span>
     <span
       v-else
@@ -60,7 +60,7 @@ export default {
     },
     isSvg: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
 };

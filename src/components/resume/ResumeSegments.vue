@@ -1,15 +1,12 @@
 <template>
   <div class="resume-segments">
     <div v-for="(segment, i) in segments" :key="i" class="resume-segment">
-      <div
-        class="grid-parent"
-        style="
-          padding-bottom: var(--spacing-xxs);
-          align-items: center;
-          grid-template-columns: repeat(2, 1fr);
-        "
-      >
-        <p class="subtle resume-segment-title" v-text="segment.title" />
+      <div>
+        <DynamicText
+          v-if="segment.title"
+          :text="segment.title"
+          :attrs="{ class: 'subtle resume-segment-title' }"
+        />
       </div>
       <hr />
 
@@ -50,13 +47,21 @@ export default {
 };
 </script>
 
-<style scoped lang="sass">
-.resume-segment
-  margin-bottom: var(--spacing-md)
-  @media only screen and (min-width: 768px)
-    margin-bottom: var(--spacing-lg)
-.resume-segment:first-child
-  margin-top: var(--spacing-md)
-  @media only screen and (min-width: 768px)
-    margin-top: 0
+<style scoped lang="scss">
+.resume-segment {
+  &:first-child {
+    margin-top: 0;
+  }
+  // background-color: lightblue;
+  margin: var(--spacing-md) 0;
+  
+  @media only screen and (min-width: 768px) {
+    margin-bottom: var(--spacing-lg);
+  }
+}
+.resume-segment-list {
+  display: grid;
+  padding-block-start: var(--spacing-md);
+  grid-gap: var(--spacing-md);
+}
 </style>

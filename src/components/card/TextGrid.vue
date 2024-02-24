@@ -1,13 +1,13 @@
 <template>
   <div class="">
     <GridContainer class="grid-parent">
-      <h2 id="section-header" tabIndex="0">
-        {{ header }}
+      <h2 id="section-title" tabIndex="0">
+        {{ title }}
       </h2>
-      <TextBlock :header4="`${eyebrow1}`" eyebrow="" :details="`${detail1}`" />
-      <TextBlock :header4="`${eyebrow2}`" eyebrow="" :details="`${detail2}`" />
-      <TextBlock :header4="`${eyebrow3}`" eyebrow="" :details="`${detail3}`" />
-      <TextBlock :header4="`${eyebrow4}`" eyebrow="" :details="`${detail4}`" />
+      <TextBlock as="h4" :title="`${eyebrow1}`" eyebrow="" :description="`${detail1}`" />
+      <TextBlock as="h4" :title="`${eyebrow2}`" eyebrow="" :description="`${detail2}`" />
+      <TextBlock as="h4" :title="`${eyebrow3}`" eyebrow="" :description="`${detail3}`" />
+      <TextBlock as="h4" :title="`${eyebrow4}`" eyebrow="" :description="`${detail4}`" />
     </GridContainer>
   </div>
 </template>
@@ -27,7 +27,7 @@ export default {
       type: Array,
       required: true,
     },
-    header: {
+    title: {
       type: String,
       default: "Detail Card",
     },
@@ -76,13 +76,13 @@ export default {
   color: inherit;
 }
 /* .container {
- padding-top: 4rem !important;
+ padding-block-start: 4rem !important;
   padding-bottom: 9.6rem !important; 
 } */
-/* #details {
+/* #description {
 height: 100vh;
 } */
-#section-header {
+#section-title {
   grid-column: 1 / 4;
 }
 #textblock {
@@ -97,7 +97,7 @@ height: 100vh;
 } */
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 768px) {
-  #section-header {
+  #section-title {
     grid-column: 1 / 1;
   }
   #textblock {
@@ -110,7 +110,7 @@ height: 100vh;
 
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
-    #section-header {
+    #section-title {
       grid-row: 1 / 3;
     }
   }

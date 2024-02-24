@@ -16,13 +16,19 @@
         </ul>
       </span>
       <span id="info">
-        <TextBlock left eyebrow="" :header3="`${subtitle}`" :details="`${description}`" />
+        <TextBlock
+          left
+          eyebrow=""
+          as="h3"
+          :title="`${subtitle}`"
+          :description="`${description}`"
+        />
         <!-- <p
           style="font-size: var(--font-md)"
           tabIndex="0"
           v-html="description"
       /> -->
-    </span>
+      </span>
     </GridContainer>
   </div>
 </template>
@@ -70,8 +76,7 @@ export default {
     },
     subtitle: {
       type: String,
-      default:
-        "Placeholder Subtitle",
+      default: "Placeholder Subtitle",
     },
     description: {
       type: String,
@@ -87,10 +92,10 @@ export default {
   color: inherit;
 }
 /* .container {
-   padding-top: 4rem !important;
+   padding-block-start: 4rem !important;
   padding-bottom: 9.6rem !important; 
 }*/
-/* #details {
+/* #description {
   height: 100vh;
 } */
 #values {

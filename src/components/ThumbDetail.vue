@@ -3,8 +3,8 @@
     <GridContainer class="text-container">
       <GridWrapper class="text">
         <TextBlock
-          :details="`${details}`"
-          :header3="`${title}`"
+          :description="`${description}`"
+          :title="`${title}`"
           :link="`${link}`"
           :route="`${route}`"
           class="textblock"
@@ -42,7 +42,7 @@ export default {
       type: String,
       default: "Default Title",
     },
-    details: {
+    description: {
       type: String,
       default:
         "Lorem ipsum doler optima sit amet doler optima sit amet doler optima sit amet optima sit amet amet doler optima sit amet optima sit amet ",

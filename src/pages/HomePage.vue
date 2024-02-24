@@ -1,14 +1,22 @@
-<template>
+<template >
   <PageWrapper>
     <GridWrapper motif1>
+      <!-- ^ motif not working -->
       <HeroBanner
+        id="hero"
+        class="display"
+        title="Full-stack Product Designer"
+        :style="{ paddingBottom: '0' }"
+
+      />
+      <!-- <HeroBanner
         red
         id="hero"
         class="display"
         title="Full-stack Product Designer"
         :style="{ paddingBottom: '0' }"
         subtitle="My work explores the intersection between design and development and seeks to embrace emerging technologies for a more efficient and inclusive future."
-      />
+      /> -->
     </GridWrapper>
 
     <!-- CONTENTFUL HEADER EXAMPLE -->
@@ -42,7 +50,7 @@
     </GridContainer> -->
 
     <!-- HEADER COMPONENT START -->
-    <GridContainer>
+    <!-- <GridContainer>
       <div
         class="grid-parent"
         style="
@@ -54,43 +62,49 @@
         <TextBlock
           style="grid-column: 1 / 3"
           header="Selected Work"
-          details=""
+          description=""
         />
         <p class="external justify-end" style="align-self: middle">
           <router-link :to="{ name: 'MoreWork' }">View All</router-link>
         </p>
       </div>
-    </GridContainer>
+    </GridContainer> -->
     <!-- HEADER COMPONENT END -->
 
-    <GridContainer
-      style="padding-top: 0"
-      tight
-      id="work"
-      class="animate delay-2"
-    >
-      <GridParent id="recentwork">
-        <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />
-        <ImageCard2
+    <GridContainer style="padding-block-start: 0"  id="work" class="animate glow delay-2">
+      <GridParent id="recentwork ">
+        <ImageCard
+          class="post "
+          :eyebrow="work.featEyebrow"
+          :title="work.featTitle"
+          :description="work.featDescription"
+          :cta="work.label"
+          :route="work.route"
+          :btnroute="work.btnroute"
+          :filename1="work.filename1"
+          size="large"
+        />
+       
+        <!-- <ImageCard   alt="J Monogram" filename1="work/j.svg" id="top" />
+        <ImageCard2 
           alt="Avatar"
           class="hidemobile"
           filename1="avatar/avatar.svg"
           title="Avatar"
         />
-        <ImageCard
+        <ImageCard 
           alt="Avatar"
           class="showmobile"
           filename1="avatar/avatar.svg"
           title="Avatar"
         />
-
         <ImageCard
-          v-for="entry in works.entries"
+          v-for="entry in work.entries"
           :key="entry.id"
           class="post"
           :eyebrow="entry.tag"
           :title="entry.title"
-          :details="entry.description"
+          :description="entry.description"
           :cta="entry.cta"
           :route="entry.route"
           :btnroute="entry.btnroute"
@@ -102,10 +116,10 @@
           :style="entry.bgcolor"
           :size="entry.size"
           :buttons="entry.buttonsData"
-        />
+        /> -->
         <!-- <DefaultCard
           cover
-          v-for="entry in works.entries"
+          v-for="entry in work.entries"
           :key="entry.id"
           :tag="entry.tag"
           :filename="entry.filename1"
@@ -117,9 +131,7 @@
         /> -->
       </GridParent>
     </GridContainer>
-    <TestimonialCarousel />
-    <CardRow2 />
-
+    <CardRow2 class="fadeInUp" />
 
     <!-- 
     Get in touch banner -->
@@ -136,8 +148,11 @@
 </template>
 
 <script>
-import works from "@/assets/data/work.json";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import work from "@/assets/data/work.json";
 // import TestimonialCarousel from "@/components/TestimonialCarousel.vue";
+gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: "HomePage",
@@ -149,11 +164,103 @@ export default {
   },
   data() {
     return {
-      works,
+      work,
       // contentful: [],
     };
   },
   components: {},
+  mounted() {
+    // this.htmlContent = marked(content);
+    const fadeInUp = gsap.utils.toArray(".fadeInUp");
+    const fadeInDown = gsap.utils.toArray(".fadeInDown");
+    const fadeInRight = gsap.utils.toArray(".fadeInRight");
+    const fadeInLeft = gsap.utils.toArray(".fadeInLeft");
+    const parallaxBack = gsap.utils.toArray(".parallaxBack");
+    const parallaxFront = gsap.utils.toArray(".parallaxFront");
+
+    fadeInUp.forEach((fadeInUp) => {
+      gsap.from(fadeInUp, {
+        scrollTrigger: {
+          trigger: fadeInUp,
+          start: "top bottom",
+          end: "top 50%",
+          scrub: 1,
+          toggleActions: "restart pause reverse pause",
+        },
+        autoAlpha: 0,
+        y: 100,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    fadeInDown.forEach((fadeInDown) => {
+      gsap.from(fadeInDown, {
+        scrollTrigger: {
+          trigger: fadeInDown,
+          start: "top bottom",
+          end: "top 50%",
+          scrub: 1,
+          toggleActions: "restart pause reverse pause",
+        },
+        autoAlpha: 0,
+        y: -100,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    fadeInRight.forEach((fadeInRight) => {
+      gsap.from(fadeInRight, {
+        scrollTrigger: {
+          trigger: fadeInRight,
+          start: "top bottom",
+          end: "top 50%",
+          scrub: 1,
+          toggleActions: "restart pause reverse pause",
+        },
+        autoAlpha: 0,
+        x: 100,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    fadeInLeft.forEach((fadeInLeft) => {
+      gsap.from(fadeInLeft, {
+        scrollTrigger: {
+          trigger: fadeInLeft,
+          start: "top bottom",
+          end: "top 50%",
+          scrub: 1,
+          toggleActions: "restart pause reverse pause",
+        },
+        autoAlpha: 0,
+        x: -100,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    parallaxBack.forEach((parallaxBack) => {
+      gsap.to(parallaxBack, {
+        scrollTrigger: {
+          trigger: parallaxBack,
+          scrub: true,
+        },
+        yPercent: 10,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    parallaxFront.forEach((parallaxFront) => {
+      gsap.to(parallaxFront, {
+        scrollTrigger: {
+          trigger: parallaxFront,
+          scrub: true,
+        },
+        yPercent: -10,
+        duration: 3,
+        ease: "none",
+      });
+    });
+  },
 };
 </script>
 
