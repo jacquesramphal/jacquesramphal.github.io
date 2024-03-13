@@ -1,32 +1,51 @@
 <template>
   <PageWrapper id="work" class="">
-    <HeroBanner
-      :key="entry.id"
-      :title="`${entry.title}`"
-      :subtitle="`${entry.description}`"
-    />
-    <GridContainer style="padding-block-start: var(--spacing-sm) !important">
-      <TextStats
-        label1="Role"
-        :value1="`${entry.role}`"
-        label2="Type"
-        :value2="`${entry.tag}`"
-        label3="When"
-        :value3="`${entry.year}`"
-    /></GridContainer>
-    
-    <GridContainer tight class="">
-      <ImageCard
-        size="large"
-        title=""
-        :filename1="`${entry.images.filename1}`"
-        :alt="`${entry.alt}`"
-        route=""
-        :style="`${entry.bgcolor}`"
-    /></GridContainer>
+    <!-- <div
+      style="
+        overflow: scroll;
+        height: 100vh;
+        scroll-snap-type: y mandatory;
+        scroll-snap-points-y: repeat(100vh);
+      "
+    > -->
+      <HeroBanner
+        style="scroll-snap-align: start"
+        :key="entry.id"
+        :title="`${entry.title}`"
+        :subtitle="`${entry.description}`"
+      />
+      <GridContainer style="padding-block-start: var(--spacing-sm) !important">
+        <TextStats
+          label1="Role"
+          :value1="`${entry.role}`"
+          label2="Type"
+          :value2="`${entry.tag}`"
+          label3="When"
+          :value3="`${entry.year}`"
+      /></GridContainer>
 
-    <div class="section">
-      <GridWrapper v-for="(section, j) in entry.entries" :key="j">
+      <GridContainer style="scroll-snap-align: start" tight class="">
+        <ImageCard
+          size="large"
+          title=""
+          :filename1="`${entry.images.filename1}`"
+          :alt="`${entry.alt}`"
+          route=""
+          :style="`${entry.bgcolor}`"
+      /></GridContainer>
+
+
+        <SplitImage style="
+          scroll-snap-align: start;
+          align-items: center;
+        " />
+        <SplitImage style="
+          scroll-snap-align: start;
+          align-items: center;
+        " flipped />
+
+      <div class="section" style="scroll-snap-align: start">
+        <GridWrapper v-for="(section, j) in entry.entries" :key="j">
           <GridContainer class="width fadeInUp">
             <GridWrapper>
               <TextBlock
@@ -54,18 +73,18 @@
               :caption="section.images.caption"
             />
           </GridContainer>
-      </GridWrapper>
-    </div>
-    <!-- <SplitImage class="fadeInUp" flipped/>
+        </GridWrapper>
+      </div>
+      <!-- <SplitImage class="fadeInUp" flipped/>
     <SplitImage class="fadeInUp"/> -->
 
-    <!-- <div v-html="htmlContent"></div> -->
+      <!-- <div v-html="htmlContent"></div> -->
 
-    <!-- 
+      <!-- 
     <ProjectPreview
       screenshotUrl="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/091abd59-87bb-46c8-92d2-14d6faf629d1/d2hr6ab-356b2e45-5725-4994-9851-a754ea9fd5bc.jpg/v1/fill/w_1600,h_1000,q_75,strp/desktop_screenshot_by_juggleboy711.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl0sIm9iaiI6W1t7InBhdGgiOiIvZi8wOTFhYmQ1OS04N2JiLTQ2YzgtOTJkMi0xNGQ2ZmFmNjI5ZDEvZDJocjZhYi0zNTZiMmU0NS01NzI1LTQ5OTQtOTg1MS1hNzU0ZWE5ZmQ1YmMuanBnIiwid2lkdGgiOiI8PTE2MDAiLCJoZWlnaHQiOiI8PTEwMDAifV1dfQ.6FQZz6R88KV-NlQ73JUgAEXGSOEMK6oDdhQbXB0pxaw"
     /> -->
-    <!-- <GridContainer tight class="fadeInUp">
+      <!-- <GridContainer tight class="fadeInUp">
       <ImageCard
         size="large"
         title=""
@@ -75,7 +94,8 @@
         caption="This is a caption."
       />
     </GridContainer> -->
-    <CardRow2 header="Related" />
+      <CardRow2 style="scroll-snap-align: start" header="Related" />
+    <!-- </div> -->
   </PageWrapper>
 </template>
 
@@ -92,11 +112,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ImageCard from "@/components/card/ImageCard.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
 import CardRow2 from "@/components/CardRow2.vue";
+import SplitImage from "@/components/card/SplitImage.vue";
+import GridWrapper from "@/components/grid/GridWrapper.vue";
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: "ProjectPage",
-  components: { ImageCard, GridContainer, CardRow2 },
+  components: { ImageCard, GridContainer, CardRow2, SplitImage, GridWrapper },
 
   // data() {
   //   return {
@@ -207,4 +229,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+html,
+body {
+  overflow: hidden;
+}
+</style>

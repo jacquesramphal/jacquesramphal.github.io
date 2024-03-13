@@ -97,7 +97,7 @@
                 <ul>
                   <li>
                     <TextLink
-                      icon="icon/linkedin"
+                      icon="icon/linkedin.svg"
                       iconsize="16"
                       label="LinkedIn"
                       link="https://www.linkedin.com/in/jake-ramphal"
@@ -106,7 +106,7 @@
 
                   <li>
                     <TextLink
-                      icon="icon/github-mark"
+                      icon="icon/github-mark.svg"
                       iconsize="16"
                       label="Github"
                       link="https://github.com/jacquesramphal"
@@ -114,7 +114,7 @@
                   </li>
                   <li>
                     <TextLink
-                      icon="j-logo"
+                      icon="j-logo.svg"
                       iconsize="16"
                       label="Email"
                       link="mailto:jacques@ramphal.design"

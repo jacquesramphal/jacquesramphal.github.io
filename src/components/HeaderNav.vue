@@ -9,6 +9,8 @@
             route="/"
             v-show="isDesktopScreen && !menuOpen"
           />
+          <!-- icon="me.jpg"
+            iconsize="48" -->
 
           <TextLink
             class="wordmark"

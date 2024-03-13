@@ -31,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "mdoc_13.md",
+                "file": "mdoc_16.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "mdoc_13.md",
+                "file": "mdoc_16.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "mdoc_13.md"
+                "file": "mdoc_16.md"
               }
             }
           },
@@ -171,11 +170,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f75cf63d1a7e3b11",
+  "active": "c8059010fa31ff49",
   "lastOpenFiles": [
+    "mdoc_13.md",
     "mdoc_12.md",
     "mdoc_1.md",
-    "mdoc_13.md",
     "mdoc_11.md",
     "mdoc_10.md",
     "mdoc_9.md",

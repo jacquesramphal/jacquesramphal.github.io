@@ -2,7 +2,7 @@
   <!-- <router-view v-if="isLoggedIn" v-slot="{ Component }"> -->
   <router-view v-slot="{ Component }">
     <!-- <BreadCrumb v-if="!$route.meta.hideBreadCrumb" /> -->
-    <HeaderNav  :menu-open="menuOpen">
+    <HeaderNav v-if="!$route.meta.hideNav" :menu-open="menuOpen">
       <template v-slot:menu-button>
         <MyButton
           type="textlink"

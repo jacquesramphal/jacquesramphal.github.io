@@ -8,7 +8,7 @@
       <img
         v-if="name"
         draggable="false"
-        :src="require(`../assets/images/${name}.svg`)"
+        :src="require(`../assets/images/${name}`)"
         :alt="name"
       />
       <!-- <img v-else="url" draggable="false" :src="url" :alt="name" /> -->

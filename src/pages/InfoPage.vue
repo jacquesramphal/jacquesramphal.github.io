@@ -18,12 +18,12 @@
         <TextBlock
           as="h4"
           title="TextBlock"
-          icon="j-logo"
+          icon="j-logo.svg"
           iconsize="128"
           alt="Image alt"
         />
-        <TextBlock as="h4" title="TextBlock" icon="j-logo" alt="Image alt" />
-        <TextBlock as="h4" title="TextBlock" icon="j-logo" alt="Image alt" />
+        <TextBlock as="h4" title="TextBlock" icon="j-logo.svg" alt="Image alt" />
+        <TextBlock as="h4" title="TextBlock" icon="j-logo.svg" alt="Image alt" />
       </GridParent>
     </GridContainer>
   

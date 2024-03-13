@@ -1,14 +1,14 @@
 <template>
   <div class="resume-segments">
     <div v-for="(segment, i) in segments" :key="i" class="resume-segment">
-      <div>
+      <div class=" resume-segment-title">
         <DynamicText
           v-if="segment.title"
           :text="segment.title"
-          :attrs="{ class: 'subtle resume-segment-title' }"
+          :attrs="{ class: 'subtle' }"
         />
       </div>
-      <hr />
+      <!-- <hr /> -->
 
       <ul class="resume-segment-list">
         <resume-segment-entry
@@ -58,6 +58,10 @@ export default {
   @media only screen and (min-width: 768px) {
     margin-block-end: var(--spacing-lg);
   }
+}
+.resume-segment-title {
+  padding-block-end: var(--spacing-xxs);
+  border-block-end: var(--border);
 }
 .resume-segment-list {
   display: grid;

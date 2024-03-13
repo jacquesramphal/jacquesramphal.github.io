@@ -40,6 +40,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .container-spacing {
   inline-size: 100%;
   inline-size: -moz-available;

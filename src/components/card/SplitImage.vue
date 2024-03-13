@@ -6,7 +6,7 @@
 
         <!-- <GridContainer class="imgcontainer parallaxBack fadeInUp"> -->
 
-        <GridContainer class="imgcontainer fadeInUp">
+        <GridContainer class="imgcontainer ">
           <img
             class="splitimg"
             draggable="false"
@@ -15,7 +15,7 @@
           />
         </GridContainer>
 
-        <GridContainer class="textcontainer fadeInUp">
+        <GridContainer class="textcontainer ">
           <TextBlock
             :eyebrow="`${eyebrow}`"
             is="h2"
