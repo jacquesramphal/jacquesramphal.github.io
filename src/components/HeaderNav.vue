@@ -22,14 +22,14 @@
 
         <ul class="links justify-end">
           <li v-show="isDesktopScreen && !menuOpen">
-            <TextLink label="Docs" route="docs" />
+            <TextLink label="Docs" route="/docs" />
           </li>
           <li v-show="isDesktopScreen && !menuOpen">
-            <TextLink label="Work" route="work2" />
+            <TextLink label="Work" route="/work2" />
           </li>
-          <li v-show="isDesktopScreen && !menuOpen">
-            <TextLink label="CV" route="cv" />
-          </li>
+          <!-- <li v-show="isDesktopScreen && !menuOpen">
+            <TextLink label="CV" route="/cv" />
+          </li> -->
 
           <li>
             <MyButton type="textlink" label="Theme" @click="toggleTheme" />

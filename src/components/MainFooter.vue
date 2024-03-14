@@ -10,7 +10,7 @@
         >
           <div class="">
             <!-- Profile Picture -->
-            <router-link to="cv"
+            <router-link to="/cv"
               ><img
                 id="avatar"
                 class="justify-end"
@@ -51,7 +51,7 @@
               </svg> -->
           </div>
           <GridParent class="outer" style="">
-            <div id="maindetails" >
+            <div id="maindetails">
               <TextBlock
                 title="Jake Ramphal"
                 description="My work explores the intersection between design and development and seeks to embrace emerging technologies for a more efficient and inclusive future.
@@ -64,31 +64,31 @@
                 <p class="subtle">Useful Links</p>
                 <ul>
                   <li>
-                    <router-link :to="{ name: 'Info' }" class="hover-2"
+                    <router-link to="/info" class="hover-2"
                       >About this site</router-link
                     >
                   </li>
                   <li>
-                    <router-link :to="{ name: 'Resume' }">Resume</router-link>
+                    <router-link to="/cv">Resume</router-link>
                   </li>
                   <li>
-                    <router-link :to="{ name: 'Blog' }"
+                    <router-link to="/docs"
                       >Ramphal Blog</router-link
                     >
                   </li>
+                  <!-- <li>
+                    <router-link to="/">Storybook</router-link>
+                  </li> -->
                   <li>
-                    <router-link :to="{ name: 'Blog' }">Storybook</router-link>
-                  </li>
-                  <li>
-                    <router-link :to="{ name: 'MoreWork' }"
+                    <router-link to="/work2"
                       >Recent Work</router-link
                     >
                   </li>
-                  <li>
-                    <router-link :to="{ name: 'Links' }"
+                  <!-- <li>
+                    <router-link to="/links"
                       >Useful Links</router-link
                     >
-                  </li>
+                  </li> -->
                 </ul>
               </div>
 
@@ -249,16 +249,15 @@ li.external::after {
 #maindetails {
   @media only screen and (min-width: 768px) {
     padding-inline-end: var(--spacing-lg);
-}}
-.footer
-{
+  }
+}
+.footer {
   margin-block-start: var(--spacing-md);
 
   @media only screen and (min-width: 768px) {
     margin-block-start: var(--spacing-lg);
-}}
-
-
+  }
+}
 
 // #avatar {
 //   inline-size: 120px;
