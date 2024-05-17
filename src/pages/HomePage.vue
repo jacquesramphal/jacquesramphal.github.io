@@ -5,7 +5,7 @@
       <HeroBanner
         id="hero"
         class="display"
-        title="Full-stack Designer and Expert Generalist"
+        title="Jake is a Full-stack Designer"
       />
     </GridWrapper>
     <!-- CONTENTFUL HEADER EXAMPLE -->
