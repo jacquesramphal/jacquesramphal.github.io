@@ -1,5 +1,5 @@
 <template>
-  <GridWrapper class="reversed testimonial-carousel">
+  <GridWrapper class="testimonial-carousel">
     <div class="controls justify-end" style="align-self: flex-end">
       <MyButton type="outline" label="←" @click="prevQuote" route=""></MyButton>
       <MyButton type="outline" label="→" @click="nextQuote" route=""></MyButton>
@@ -13,7 +13,7 @@
       <div
         class="grid-parent"
         style="
-          padding-bottom: var(--spacing-md);
+          padding-block-end: var(--spacing-md);
           align-items: center;
           grid-template-columns: repeat(3, 1fr);
         "
@@ -22,10 +22,10 @@
           eyebrow="Eyebrow"
           style="grid-column: 1 / 3"
           header="Testimonials"
-          details=""
+          description=""
         /> -->
         <!-- <p class="external justify-end" style="align-self: flex-end">
-          <router-link :to="{ name: 'Blog' }">View All</router-link>
+          <router-link :to="{ name: 'Library' }">View All</router-link>
         </p> -->
       </div>
       <!-- HEADER COMPONENT END -->
@@ -216,17 +216,18 @@ export default {
   align-items: left;
   /* padding: 20px; */
   // background-color: var(--background-darker);
-  // height: 100vh;
-  padding-top: var(--spacing-lg);
+  // block-size: 100vh;
+  padding-block-start: var(--spacing-lg);
   justify-content: center;
   // background: yellow;
+  border-block-start: var(--border);
 }
 
 .quote-container {
   // background: red;
   align-items: center;
-  // height: 100%;
-  /* width: 80%;
+  // block-size: 100%;
+  /* inline-size: 80%;
   max-width: 400px; */
   align-self: center;
   overflow: visible;
@@ -244,48 +245,49 @@ export default {
 }
 .quote-text {
   h2 {
-    // font-family: var(--font-secondary) !important;
-    font-weight: var(--font-reversed-normal) !important;
+    // font-family: var(--fontFamily-secondary) !important;
+    font-weight: var(--font-normal) !important;
+    // font-weight: var(--font-reversed-normal) !important;
     // font-size: var(--font-lg) !important;
-    // letter-spacing: var(--spacing-reversed-tight);
-    // line-height: 1.4;
+    // letter-spacing: var(--letterSpacing-reversed-tight);
+    // line-height: var(--lineHeight-base);
     z-index: 1;
   }
-  &::before {
-    content: "“";
-    font-family: var(--font-secondary);
-    font-weight: bold;
-    font-size: 96rem;
-    position: absolute;
-    color: var(--background);
-    opacity: 0.05;
-    z-index: 0;
-    left: -100px;
-    top: -150px;
-    @media only screen and (min-width: 740px) {
-      font-size: 120rem;
-      top: -150px;
-    }
-  }
+  // &::before {
+  //   content: "“";
+  //   font-family: var(--fontFamily-secondary);
+  //   font-weight: bold;
+  //   font-size: 96rem;
+  //   position: absolute;
+  //   color: var(--background-reversed-darker);
+  //   opacity: 0.05;
+  //   z-index: 0;
+  //   inset-inline-start:  -100px;
+  //   inset-block-start:  -150px;
+  //   @media only screen and (min-width: 768px) {
+  //     font-size: 120rem;
+  //     inset-block-start:  -150px;
+  //   }
+  // }
 }
 
 .author-info {
   display: flex;
-  margin-top: var(--spacing-md);
+  margin-block-start: var(--spacing-md);
   @media only screen and (max-width: 740px) {
     flex-direction: column;
   }
 }
 
 .author-info img {
-  width: 64px;
-  height: 64px;
+  inline-size: 64px;
+  block-size: 64px;
   border-radius: var(--spacing-lg) !important;
-  margin-bottom: var(--spacing-xs);
+  margin-block-end: var(--spacing-xs);
 
-  @media only screen and (min-width: 740px) {
-    margin-bottom: none;
-    margin-right: var(--spacing-sm);
+  @media only screen and (min-width: 768px) {
+    margin-block-end: none;
+    margin-inline-end: var(--spacing-sm);
   }
 }
 
@@ -310,19 +312,19 @@ export default {
   display: flex;
   gap: 10px;
   position: absolute;
-  top: var(--spacing-sm);
+  inset-block-start:  var(--spacing-sm);
 
-  right: var(--spacing-sm);
-  height: 6rem;
-  @media only screen and (min-width: 740px) {
-    top: var(--spacing-md);
+  inset-inline-end:  var(--spacing-sm);
+  block-size: 6rem;
+  @media only screen and (min-width: 768px) {
+    inset-block-start:  var(--spacing-md);
 
-    right: var(--spacing-md);
+    inset-inline-end:  var(--spacing-md);
   }
   // background-color: blue;
 }
 .arrow {
-  width: 6rem;
+  inline-size: 6rem;
   // background-color: red;
   text-align: center;
   align-self: center;

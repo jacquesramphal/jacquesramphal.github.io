@@ -30,10 +30,10 @@ export default {
 
 .motif {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset-block-start:  0;
+  inset-inline-start:  0;
+  inline-size: 100%;
+  block-size: 100%;
   background-size: cover;
   opacity: 0.2;
 }
@@ -42,8 +42,8 @@ export default {
   content: "";
   display: block;
   position: absolute;
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

@@ -25,7 +25,6 @@
     "core-js": "^3.6.5",
     "emailjs-com": "^3.2.0",
     "front-matter": "^4.0.2",
-    "gray-matter": "^4.0.3",
     "gsap": "^3.11.3",
     "highlight.js": "^11.8.0",
     "insights-js": "^1.2.10",

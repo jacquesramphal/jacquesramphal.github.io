@@ -1,21 +1,24 @@
 <template>
   <PageWrapper id="work" class="">
+
     <HeroBanner
+      style="scroll-snap-align: start"
       :key="entry.id"
       :title="`${entry.title}`"
       :subtitle="`${entry.description}`"
     />
-    <GridContainer style="padding-top: var(--spacing-sm) !important">
+
+    <GridContainer style="padding-block-start: var(--spacing-sm) !important">
       <TextStats
         label1="Role"
         :value1="`${entry.role}`"
         label2="Type"
         :value2="`${entry.tag}`"
-        label3="When"
-        :value3="`${entry.year}`"
+        label3="Status"
+        :value3="`${entry.status}`"
     /></GridContainer>
-    
-    <GridContainer tight class="">
+
+    <GridContainer style="scroll-snap-align: start" tight class="animate glow delay-1">
       <ImageCard
         size="large"
         title=""
@@ -24,82 +27,123 @@
         route=""
         :style="`${entry.bgcolor}`"
     /></GridContainer>
+    <TextImage
+      tabindex="0"
+      v-for="(section, j) in entry.entries"
+      :key="j"
+      @click="openImage(section.images.filename1)"
+      :flipped="j % 2 !== 0"
+      :eyebrow="section.eyebrow"
+      :title="section.title"
+      :description="section.body"
+      :filename="section.images.filename1"
+      :alt="section.images.alt"
+      style="scroll-snap-align: start"
+      class="fadeInUp"
+    />
+    <!-- class="fullvh fadeInUp" -->
 
-    <div class="section">
-      <GridWrapper v-for="(section, j) in entry.entries" :key="j">
-        <AnimatedComponent>
-          <GridContainer class="width fadeInUp">
-            <GridWrapper>
-              <TextBlock
-                left
-                :eyebrow="section.eyebrow"
-                :header="section.title"
-                :details="section.body"
-                :blockquote="section.blockquote"
-              />
-            </GridWrapper>
-          </GridContainer>
-          <GridContainer
-            v-if="section.images.filename1"
-            id=""
-            class="fadeInUp"
-            style="padding-top: 0 !important"
-          >
-            <ImageCard
-              size="large"
-              v-if="section.images.filename1"
-              class="width1"
-              title=""
-              :filename1="section.images.filename1"
-              :alt="section.images.alt"
-              :caption="section.images.caption"
-            />
-          </GridContainer>
-        </AnimatedComponent>
-      </GridWrapper>
-    </div>
-    <!-- <SplitImage class="fadeInUp" flipped/>
-    <SplitImage class="fadeInUp"/> -->
+    <!-- <TextImage
+        v-for="(section, j) in entry.entries"
+        :key="j"
+        @click="openImage(section.images.filename1)"
+        :flipped="j % 2 !== 0"
+        class="fadeInUp"
+        :eyebrow="section.eyebrow"
+        :title="section.title"
+        :description="section.body"
+        :filename="section.images.filename1"
+        :alt="section.images.alt"
+      /> -->
+    <FullscreenImage
+      :isOpen="isImageOpen"
+      :imageSrc="selectedImage"
+      @close="closeImage"
+    />
 
-    <!-- <div v-html="htmlContent"></div> -->
-
-    <!-- 
-    <ProjectPreview
-      screenshotUrl="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/091abd59-87bb-46c8-92d2-14d6faf629d1/d2hr6ab-356b2e45-5725-4994-9851-a754ea9fd5bc.jpg/v1/fill/w_1600,h_1000,q_75,strp/desktop_screenshot_by_juggleboy711.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl0sIm9iaiI6W1t7InBhdGgiOiIvZi8wOTFhYmQ1OS04N2JiLTQ2YzgtOTJkMi0xNGQ2ZmFmNjI5ZDEvZDJocjZhYi0zNTZiMmU0NS01NzI1LTQ5OTQtOTg1MS1hNzU0ZWE5ZmQ1YmMuanBnIiwid2lkdGgiOiI8PTE2MDAiLCJoZWlnaHQiOiI8PTEwMDAifV1dfQ.6FQZz6R88KV-NlQ73JUgAEXGSOEMK6oDdhQbXB0pxaw"
-    /> -->
-    <!-- <GridContainer tight class="fadeInUp">
-      <ImageCard
-        size="large"
-        title=""
-        :filename="`${entry.images.filename1}`"
-        :alt="`${entry.alt}`"
-        route=""
-        caption="This is a caption."
-      />
-    </GridContainer> -->
-    <CardRow2 header="Related" />
   </PageWrapper>
 </template>
 
 <script>
 // External js for gsap not working
 // import "@/assets/js/gsap.js";
+import FullscreenImage from "../components/FullscreenImage.vue";
 
 import workData from "@/assets/data/work.json";
-// import content from "@/assets/content/content.md";
-// import marked from 'marked';
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ImageCard from "@/components/ImageCard.vue";
+import ImageCard from "@/components/card/ImageCard.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
-import CardRow2 from "@/components/CardRow2.vue";
+import TextImage from "@/components/card/TextImage.vue";
+
 gsap.registerPlugin(ScrollTrigger);
+document.addEventListener("DOMContentLoaded", () => {
+  // Get all focusable divs
+  const divs = document.querySelectorAll('div[tabindex="0"]');
+
+  // Function to change focus
+  function changeFocus(currentIndex, direction) {
+    let nextIndex = currentIndex + direction;
+
+    // Ensure nextIndex wraps around properly
+    if (nextIndex >= divs.length) {
+      nextIndex = 0; // Loop back to the first
+    } else if (nextIndex < 0) {
+      nextIndex = divs.length - 1; // Loop back to the last
+    }
+
+    // Check if the element exists before focusing
+    if (divs[nextIndex]) {
+      divs[nextIndex].focus();
+    } else {
+      console.error("Element not found for index:", nextIndex);
+    }
+  }
+
+  // Keydown event listener
+  document.addEventListener("keydown", (e) => {
+    // Ensure there are divs to focus
+    if (divs.length > 0) {
+      const currentIndex = Array.from(divs).indexOf(document.activeElement);
+      if (e.key === "ArrowDown") {
+        changeFocus(currentIndex, 1); // Move down
+        e.preventDefault(); // Prevent scrolling
+      } else if (e.key === "ArrowUp") {
+        changeFocus(currentIndex, -1); // Move up
+        e.preventDefault(); // Prevent scrolling
+      }
+    }
+  });
+});
 
 export default {
   name: "ProjectPage",
-  components: { ImageCard, GridContainer, CardRow2 },
+  components: {
+    ImageCard,
+    GridContainer,
+    // CardRow2,
+    TextImage,
+    FullscreenImage,
+    // BreadCrumb,
+    // HeaderNav,
+  },
 
+  data() {
+    return {
+      isImageOpen: false,
+      selectedImage: null,
+    };
+  },
+  methods: {
+    openImage(image) {
+      this.selectedImage = image;
+      this.isImageOpen = true;
+    },
+    closeImage() {
+      this.isImageOpen = false;
+    },
+  },
   // data() {
   //   return {
   //     htmlContent: "",
@@ -209,4 +253,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+html,
+body {
+  overflow: hidden;
+}
+</style>

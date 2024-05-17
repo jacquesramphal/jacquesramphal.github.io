@@ -1,10 +1,10 @@
 <template>
-  <nav class="breadcrumb">
-    <ul>
+  <nav aria-label="breadcrumb">
+    <ol>
       <li v-for="(route, index) in routes" :key="index">
         <router-link :to="route.to">{{ route.label }}</router-link>
       </li>
-    </ul>
+    </ol>
   </nav>
 </template>
 

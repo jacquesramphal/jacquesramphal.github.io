@@ -2,10 +2,10 @@
   <div id="bg" class="fullvh ">
   
    <div id="test"></div>
-<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="64px" block-size="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g id="core/image/j" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g transform="translate(-0.000000, 0.000000)" fill="#FEDCA1">
-            <rect id="Rectangle" x="0" y="0" width="64" height="64"></rect>
+            <rect id="Rectangle" x="0" y="0" width="64" block-size="64"></rect>
         </g>
         <g id="monogram" transform="translate(14.000000, 10.717642)" stroke="#FCB138" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
             <line x1="7.87671689" y1="32.4473913" x2="13.3684637" y2="26.9775856" id="stroke"></line>
@@ -25,7 +25,7 @@
 </svg>
     <svg
       width="446"
-      height="446"
+      block-size="446"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       >
@@ -41,7 +41,7 @@
           x="0"
           y="0"
           width="446"
-          height="446"
+          block-size="446"
           filterUnits="userSpaceOnUse"
           color-interpolation-filters="sRGB"
         >
@@ -92,7 +92,7 @@ export default {
   mix-blend-mode: normal;
 }
 #bg {
-  width: 100vw;
+  inline-size: 100vw;
   min-height: 320px;
    /* text-align: center; */
   /* color: var(--color-action2) 
@@ -106,8 +106,8 @@ export default {
 
 svg {
   overflow: hidden;
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
 }
 #moon {
   animation: sunset 4s ease-in-out 2s infinite alternate;
@@ -133,8 +133,8 @@ svg {
 }
 
 @keyframes move {
-  from { top: 0; left: 0; }
-  to   { top: 100px; left: 100px; }
+  from { inset-block-start:  0; inset-inline-start:  0; }
+  to   { inset-block-start:  100px; inset-inline-start:  100px; }
 }
 
 
@@ -144,8 +144,8 @@ svg {
 #test {
   border-radius: 100px;
   position: fixed;
-  width: 100px;
-  height: 100px;
+  inline-size: 100px;
+  block-size: 100px;
   background-color: red;
   animation: example 4s ease-in-out 2s infinite alternate;
 }
@@ -158,28 +158,28 @@ svg {
 @keyframes example {
   0% {
     background-color: red;
-    left: 0px;
-    top: 0px;
+    inset-inline-start:  0px;
+    inset-block-start:  0px;
   }
   25% {
     background-color: yellow;
-    left: 200px;
-    top: 0px;
+    inset-inline-start:  200px;
+    inset-block-start:  0px;
   }
   50% {
     background-color: blue;
-    left: 200px;
-    top: 200px;
+    inset-inline-start:  200px;
+    inset-block-start:  200px;
   }
   75% {
     background-color: green;
-    left: 0px;
-    top: 200px;
+    inset-inline-start:  0px;
+    inset-block-start:  200px;
   }
   100% {
     background-color: red;
-    left: 0px;
-    top: 0px;
+    inset-inline-start:  0px;
+    inset-block-start:  0px;
   }
 }
 

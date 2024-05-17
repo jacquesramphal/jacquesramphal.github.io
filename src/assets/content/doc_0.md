@@ -1,5 +1,18 @@
-# Markdown Basics
+<!-- ---
+title: My Page
+date: 2023-09-17
+--- -->
 
+# Markdown Basics
+Tags Tags Tags
+
+[Avatar] Jacques Ramphal  
+July 15, 2023  
+X min read
+
+![Responsive Breakpoints](https://miro.medium.com/max/1400/0*QuR2HZPsD6O5fyjb)
+
+Markdown Basics
 https://www.markdownguide.org/hacks/
 
 Markdown is a lightweight markup language that allows you to format plain text easily. It is widely used for creating documentation, README files, forum posts, and more.

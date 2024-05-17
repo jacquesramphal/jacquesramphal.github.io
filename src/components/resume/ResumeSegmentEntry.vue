@@ -1,45 +1,49 @@
 <template>
-  <AnimatedComponent>
-    <li class="resume-segment-entry">
-      <h3 class="resume-segment-entry-title">
-        <h3 v-if="title" v-text="title" />
-        <h3 v-if="position" v-text="positionInBrackets" />
-      </h3>
+  <li class="resume-segment-entry">
+    <div class="resume-segment-entry-title">
+      <DynamicText as="h3" v-if="title" :text="title" :attrs="{ class: '' }" />
+      <DynamicText
+        as="h3"
+        v-if="position"
+        :text="positionInBrackets"
+      />
+    </div>
+
+    <div v-if="from || to || location" class="resume-segment-entry-information">
       <div
-        v-if="from || to || location"
-        class="resume-segment-entry-information"
+        v-if="from || to"
+        class="subtle resume-segment-entry-information-date"
       >
-        <div
-          v-if="from || to"
-          class="subtle resume-segment-entry-information-date"
-        >
-          <span
-            v-if="from"
-            class="resume-segment-entry-information-from"
-            v-text="from"
-          />
-          <span
-            v-if="to"
-            class="resume-segment-entry-information-to"
-            v-text="to"
-          />
-        </div>
-        <div
-          v-if="location"
-          class="subtle resume-segment-entry-information-location"
-          v-text="location"
+        <DynamicText
+          v-if="from"
+          :text="from"
+          :attrs="{ class: 'resume-segment-entry-information-from' }"
+        />
+        <DynamicText
+          v-if="to"
+          :text="to"
+          :attrs="{ class: 'resume-segment-entry-information-to' }"
         />
       </div>
-      <p
-        v-if="description"
-        class="resume-segment-entry-description"
-        v-html="description"
+
+      <DynamicText
+        v-if="location"
+        :text="location"
+        :attrs="{ class: 'subtle resume-segment-entry-information-location' }"
       />
-      <blockquote v-if="callout">
-        <p class="resume-segment-entry-description" v-html="callout" />
-      </blockquote>
-    </li>
-  </AnimatedComponent>
+    </div>
+
+    <DynamicText
+      isHtml="true"
+      v-if="description"
+      :text="description"
+      :attrs="{ class: '' }"
+    />
+
+    <blockquote v-if="callout">
+      <DynamicText isHtml="true" :text="callout" :attrs="{ class: '' }" />
+    </blockquote>
+  </li>
 </template>
 
 <script>
@@ -84,39 +88,20 @@ export default {
 </script>
 
 <style scoped lang="sass">
+
 .resume-segment-entry
   position: relative
   display: flex
   flex-flow: column wrap
   justify-content: flex-start
   align-items: flex-start
-  // margin-top: var(--spacing-xs)
-  padding: var(--spacing-md) 0
-  // border-radius: .8rem
-  // border-top: var(--border)
-  // border: var(--border)
-  // box-shadow: var(--shadow-light)
-  // background-color: var(--background-darker)
-  // &:before
-  //   content: ''
-  //   position: absolute
-  //   left: -13px
-  //   background: var(--link)
-  //   width: 3px
-  //   height: 100%
-  // &:after
-  //   content: ''
-  //   position: absolute
-  //   left: -17px
-  //   top: 18px
-  //   width: .75rem
-  //   height: .75rem
-  //   background: var(--link)
-  //   border: 2px solid var(--link)
-  //   border-radius: 50%
+  list-style-type: disc
+  margin-block-end: var(--spacing-sm)
   -moz-transition: all 0.25s ease-in-out
   -o-transition: all 0.25s ease-in-out
   -webkit-transition: all 0.25s ease-in-out
+  &:last-child
+    margin-block-end: 0
   &:hover
     // box-shadow: var(--shadow-deep)
   >.resume-segment-entry-information
@@ -124,13 +109,15 @@ export default {
     flex-direction: row
     flex-wrap: nowrap
     font-size: var(--font-xs)
-    font-weight: var(--font-normal)
+    font-weight: var(--fontWeight-normal)
+    .resume-segment-entry-information-location
+      margin-block-end: var(--spacing-xs)
 
     .resume-segment-entry-information-date
       display: flex
       flex-direction: row
       flex-wrap: nowrap
-      margin-bottom: var(--spacing-xs)
+      margin-block-end: var(--spacing-xs)
       .resume-segment-entry-information-from
         margin: 0 .15rem 0 0
         &::after
@@ -142,6 +129,6 @@ export default {
           content: '•'
           margin: 0 .5rem 0 .5rem
   >.resume-segment-entry-title
-    line-height: 1.5
-    margin-bottom: var(--spacing-xxs)
+    line-height: var(--lineHeight-tall)
+    margin-block-end: var(--spacing-xxs)
 </style>

@@ -9,9 +9,17 @@
         :src="require(`../assets/images/${filename}`)"
         :alt="`${alt}`"
       />
-      <GridContainer id="eyebrow" v-if="eyebrow">
-        <div v-if="eyebrow" class="animate fade delay-3">
-          <h6 class="subtle" v-if="eyebrow" v-text="eyebrow" />
+      <GridContainer id="eyebrow" v-if="eyebrow" style="z-index: 10000">
+        <div class="animate fade delay-3">
+          <component
+            :is="breadcrumb ? 'TextLink' : 'p'"
+            class="subtle"
+            v-if="eyebrow"
+            v-text="eyebrow"
+            :label="breadcrumb ? eyebrow : undefined"
+            :route="breadcrumb ? breadcrumb : undefined"
+            style="scroll-snap-align: start"
+          />
         </div>
       </GridContainer>
       <GridContainer class="banner-container" v-if="title">
@@ -20,11 +28,7 @@
             ><h1 id="title" v-html="title" />
             <p id="tags" v-if="tag" v-text="tag" class="subtle" />
 
-            <p
-              v-if="subtitle"
-              v-text="subtitle"
-              id="subtitle"
-            />
+            <p v-if="subtitle" v-text="subtitle" id="subtitle" />
 
             <div
               id="hero-cta"
@@ -64,6 +68,7 @@
 <script>
 import GridContainer from "./grid/GridContainer.vue";
 import GridWrapper from "./grid/GridWrapper.vue";
+import TextLink from "./text/TextLink.vue";
 // import MyButton from "./Button.vue";
 import AnimatedComponent from "./AnimatedComponent.vue";
 
@@ -74,6 +79,7 @@ export default {
     GridWrapper,
     // MyButton,
     AnimatedComponent,
+    TextLink,
   },
   props: {
     contentful: {
@@ -85,6 +91,10 @@ export default {
     eyebrow: {
       type: String,
       // default: "Breadcrumb / Current Page",
+    },
+    breadcrumb: {
+      type: String, // Change type to String
+      required: true, // Make it required or provide a default value
     },
     title: {
       type: String,
@@ -98,6 +108,7 @@ export default {
     subtitle: {
       type: String,
     },
+
     route: {
       type: String,
     },
@@ -143,7 +154,6 @@ export default {
         "herobanner--center": this.center,
         "herobanner--overlap": this.overlap,
         "herobanner--fullvh": this.fullvh,
-
       };
     },
   },
@@ -161,7 +171,7 @@ img {
 }
 
 #hero-text {
-  margin-top: var(--spacing-xl);
+  margin-block-start: var(--spacing-xl);
   align-items: end !important;
   display: grid;
   justify-content: left;
@@ -169,25 +179,25 @@ img {
   z-index: 1000;
   @media only screen and (min-width: 1201px) {
     max-width: 75vw;
-    margin-top: none;
+    margin-block-start: none;
   }
 
   // #eyebrow
-  //   margin-bottom: 4rem;
+  //   margin-block-end: 4rem;
   #tags {
-    margin-top: 2rem;
+    margin-block-start: 2rem;
     word-spacing: 2rem;
-    @media only screen and (min-width: 740px) {
-      margin-top: 3.2rem;
+    @media only screen and (min-width: 768px) {
+      margin-block-start: 3.2rem;
     }
   }
 
   #subtitle {
-    margin-top: 2rem;
+    margin-block-start: 2rem;
     max-width: 86.4rem;
-    width: 100%;
-    @media only screen and (min-width: 740px) {
-      margin-top: 3.2rem;
+    inline-size: 100%;
+    @media only screen and (min-width: 768px) {
+      margin-block-start: 3.2rem;
     }
     @media only screen and (min-width: 1201px) {
       // TODO: Add media query styling
@@ -196,11 +206,11 @@ img {
 }
 
 #hero-cta {
-  padding-top: var(--spacing-md);
+  padding-block-start: var(--spacing-md);
   display: grid;
   grid-template-columns: 1fr;
   justify-content: start;
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-template-columns: auto auto;
   }
 }
@@ -210,7 +220,7 @@ img {
 }
 
 #eyebrow {
-  margin-bottom: 4rem;
+  margin-block-end: 4rem;
   position: absolute;
 }
 
@@ -221,8 +231,8 @@ img {
   display: grid;
   overflow: hidden !important;
   position: relative;
-  height: auto;
-  @media only screen and (min-width: 740px) {
+  block-size: auto;
+  @media only screen and (min-width: 768px) {
     background-position: 100% 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -236,14 +246,14 @@ img {
   img {
     border-radius: 0px !important;
     display: block;
-    height: auto;
+    block-size: auto;
     min-height: 100%;
     mix-blend-mode: normal;
     object-fit: cover !important;
     object-position: 0% 100%;
     overflow: hidden !important;
     position: absolute;
-    width: 100%;
+    inline-size: 100%;
     z-index: 0;
   }
   #hero-image {
@@ -251,13 +261,18 @@ img {
   }
   #hero-text {
     h1 {
-      background-color: var(--background-reversed);
-      border-radius: var(--spacing-xxs);
-      color: var(--background);
-      font-weight: var(--font-reversed-medium);
-      letter-spacing: var(--spacing-reversed-tight);
-      padding: var(--spacing-xxs) var(--spacing-sm) var(--spacing-xs)
+      /* background-color: var(--background-reversed);
+      color: var(--background); 
+            padding: var(--spacing-xxs) var(--spacing-sm) var(--spacing-xs)
         var(--spacing-sm);
+
+      */
+      color: black;
+      mix-blend-mode: difference !important;
+
+      border-radius: var(--spacing-xxs);
+      font-weight: var(--font-reversed-medium);
+      letter-spacing: var(--letterSpacing-reversed-tight);
     }
   }
 }
@@ -265,17 +280,21 @@ img {
 .herobanner--overlap {
   img {
     background-color: var(--background-darker);
-    height: 100% !important;
+    block-size: 100% !important;
   }
   @media only screen and (min-width: 1201px) {
-    margin-bottom: 20vh;
+    margin-block-end: 20vh;
     min-height: 80vh;
     img {
       aspect-ratio: 16 / 9;
-      border-radius: 0 0 0 var(--spacing-xxs) !important;
       display: block;
-      right: 0;
-      width: auto;
+      inset-inline-end: var(--spacing-md);
+      border-radius: var(--spacing-xxs) !important;
+
+      /*       border-radius: 0 0 0 var(--spacing-xxs) !important;
+    
+       inset-inline-end: 0;*/
+      inline-size: auto;
     }
     #hero-text {
       h1 {
@@ -287,7 +306,7 @@ img {
 
 .herobanner--center {
   #hero-text {
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       justify-self: center;
       text-align: center !important;
     }
@@ -302,8 +321,8 @@ img {
 
   #subtitle {
     float: none;
-    margin-left: auto;
-    margin-right: auto;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
     max-width: 86.4rem !important;
     justify-self: center;
   }
@@ -311,12 +330,11 @@ img {
 
 .herobanner--fullvh {
   min-height: 468px;
-  height: 100vh !important;
+  block-size: 100vh !important;
   z-index: 1;
   #hero-text {
     align-items: center !important;
-    margin-top: 0 !important;
+    margin-block-start: 0 !important;
   }
 }
-
 </style>

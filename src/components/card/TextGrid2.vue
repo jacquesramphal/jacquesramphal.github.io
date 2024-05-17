@@ -16,13 +16,19 @@
         </ul>
       </span>
       <span id="info">
-        <TextBlock left eyebrow="" :header3="`${subtitle}`" :details="`${description}`" />
+        <TextBlock
+          left
+          eyebrow=""
+          as="h3"
+          :title="`${subtitle}`"
+          :description="`${description}`"
+        />
         <!-- <p
           style="font-size: var(--font-md)"
           tabIndex="0"
           v-html="description"
       /> -->
-    </span>
+      </span>
     </GridContainer>
   </div>
 </template>
@@ -70,8 +76,7 @@ export default {
     },
     subtitle: {
       type: String,
-      default:
-        "Placeholder Subtitle",
+      default: "Placeholder Subtitle",
     },
     description: {
       type: String,
@@ -87,11 +92,11 @@ export default {
   color: inherit;
 }
 /* .container {
-   padding-top: 4rem !important;
-  padding-bottom: 9.6rem !important; 
+   padding-block-start: 4rem !important;
+  padding-block-end: 9.6rem !important; 
 }*/
-/* #details {
-  height: 100vh;
+/* #description {
+  block-size: 100vh;
 } */
 #values {
   grid-column: 1 / 4;
@@ -102,13 +107,13 @@ export default {
 }
 
 #info > h4 {
-  margin-bottom: 0.8em !important;
+  margin-block-end: 0.8em !important;
 }
 ul {
-  margin-bottom: 2rem;
+  margin-block-end: 2rem;
 }
 /* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
+@media only screen and (min-width: 768px) {
   #values {
     grid-column: 1 / 1;
   }
@@ -116,7 +121,7 @@ ul {
     grid-column: 1 / 4;
   }
   h4 {
-    margin-top: -1rem;
+    margin-block-start: -1rem;
   }
 
   /* ------------ BREAKPOINT LG ------------ */

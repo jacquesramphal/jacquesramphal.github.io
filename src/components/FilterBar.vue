@@ -28,17 +28,17 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" >
 input[type="radio"] {
   position: absolute;
-  left: -9999px;
+  inset-inline-start:  -9999px;
 }
 li {
   list-style: none !important;
 }
 .filters {
   text-align: right;
-  margin-bottom: 2rem;
+  margin-block-end: 2rem;
   display: flex;
   gap: 1rem;
   justify-content: flex-start;

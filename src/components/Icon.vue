@@ -3,15 +3,14 @@
     <span
       v-if="isSvg"
       :class="['icon', `icon-${size}`]"
-      :style="{ width: size + 'px', height: size + 'px' }"
-    >
+      :style="{ inlineSize: size + 'px', blockSize: size + 'px' }">
       <img
         v-if="name"
         draggable="false"
-        :src="require(`../assets/images/${name}.svg`)"
+        :src="require(`../assets/images/${name}`)"
         :alt="name"
       />
-      <img v-if="url" draggable="false" :src="url" :alt="name" />
+      <!-- <img v-else="url" draggable="false" :src="url" :alt="name" /> -->
     </span>
     <span
       v-else
@@ -52,7 +51,6 @@ export default {
     // },
     unicode: {
       type: String,
-      required: true,
     },
     size: {
       type: Number,
@@ -60,13 +58,14 @@ export default {
     },
     isSvg: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
 };
 </script>
 
 <style scoped>
+
 img {
   border-radius: 0 !important;
 }

@@ -12,7 +12,7 @@ img {
   background-position: center;
   background-repeat: no-repeat;
   object-fit: cover !important;
-  width: 100%;
+  inline-size: 100%;
   margin: 0;
   border-radius: var(--spacing-xxs) !important;
   filter: var(--filter);
@@ -29,7 +29,7 @@ img {
   /* mix-blend-mode: multiply !important; */
 }
 /* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
+@media only screen and (min-width: 768px) {
   .hidemobile {
     display: block !important;
   }

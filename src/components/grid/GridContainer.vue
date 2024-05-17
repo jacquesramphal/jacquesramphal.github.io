@@ -40,22 +40,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .container-spacing {
-  width: 100%;
-  width: -moz-available;
-  width: -webkit-fill-available;
-  width: stretch;
+  inline-size: 100%;
+  inline-size: -moz-available;
+  inline-size: -webkit-fill-available;
+  inline-size: stretch;
   position: relative;
   padding: var(--spacing-sm) !important;
   display: grid;
   grid-template-columns: 1;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
+  block-size: auto;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
   // max-width: 1680px;
   overflow: hidden;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     padding: var(--spacing-lg) !important;
   }
   @media only screen and (min-width: 1201px) {
@@ -63,7 +64,7 @@ export default {
   }
 
   &--tight {
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       padding: var(--spacing-md) !important;
     }
     @media only screen and (min-width: 1201px) {
@@ -76,15 +77,15 @@ export default {
   }
 
   &--fullvh {
-    min-height: 468px;
-    height: 100vh !important;
+    min-block-size: 468px;
+    block-size: 100vh !important;
     align-items: center !important;
   }
   &--maxvw {
     max-width: 86.4rem !important;
     float: none;
-    margin-left: auto;
-    margin-right: auto;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
   }
 }
 </style>

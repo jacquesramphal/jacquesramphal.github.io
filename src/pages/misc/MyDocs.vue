@@ -1,24 +1,20 @@
 <template>
   <PageWrapper>
     <HeroBanner
-      title="Docs & Resources"
+      title="Library"
       eyebrow=""
       :style="{ paddingBottom: '0' }"
+      subtitle="A collection of resources and documentation to help you get started with your project."
+    />
+    <TextImage
+    flipped
+      :eyebrow="docs.featEyebrow"
+      :title="docs.featTitle"
+      :description="docs.featDescription"
+      :btnroute="docs.btnroute"
+      :label="docs.label"
     />
     <GridContainer id="docs" class="animate delay-2">
-      <!-- <DefaultCard
-        
-        list
-          v-for="entry in docs.entries"
-          :alt="entry.alt"
-          :description="entry.description"
-          :filename="entry.thumbnail"
-          :key="entry.id"
-          :label="entry.label"
-          :route="entry.btnroute"
-          :tag="entry.tag"
-          :title="entry.title"
-        /> -->
       <GridParent>
         <DefaultCard
           borderless
@@ -28,50 +24,31 @@
           :filename="entry.thumbnail"
           :key="entry.id"
           :label="entry.label"
-          :route="entry.btnroute"
-          :tag="entry.tag"
+          :route="entry.route"
+          :btnroute="entry.btnroute"
+          :eyebrow="entry.eyebrow"
           :title="entry.title"
         />
       </GridParent>
     </GridContainer>
-    <SplitImage
-      
-      style="background: var(--background-darker)"
-      filename="article/baseline.png"
-      tag="Article"
-      header="The Future-Proof Designer"
-      details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. "
-      route="mdoc/12"
-      cta="Read More"
-    />
-<!-- 
-    <SplitImage
-      
-      style="background: var(--background-darker)"
-      filename="article/baseline.png"
-      tag="Article"
-      header="The Future-Proof Designer"
-      details="This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. This is a short description taken from the article. "
-      route="mdoc/12"
-      cta="Read More"
-    /> -->
     <!-- <BlogFeed :contentful="contentful" /> -->
   </PageWrapper>
 </template>
 
 <script>
-import works from "@/assets/data/work.json";
+import work from "@/assets/data/work.json";
 import docs from "../assets/data/docs.json";
 
 export default {
   name: "MyDocs",
   data() {
     return {
-      works,
+      work,
       docs,
       contentful: [],
     };
   },
+
   async created() {
     this.contentful = await this.getContentful();
   },
@@ -123,7 +100,7 @@ export default {
       }
     },
   },
-  components: {  },
+  components: {},
 };
 </script>
 

@@ -54,14 +54,14 @@ export default {
   // background: var(--color-pink)
   display: grid
   align-items: end !important
-  min-height: 50vh
+  min-block-size: 50vh
   background-repeat: no-repeat
   // background-attachment: fixed
   background-size: cover
   background-position: 100% 0%
   @media only screen and (min-width: 1201px)
-    // min-height: 100vh
-    min-height: 60vh
+    // min-block-size: 100vh
+    min-block-size: 60vh
     align-items: end !important
     background-size: cover
     background-position: 100% 50%
@@ -72,7 +72,7 @@ h1
   display: grid
   grid-row: 1 / 8
   text-align: left
-  @media only screen and (min-width: 740px)
+  @media only screen and (min-width: 768px)
     max-width: 85vw
     justify-self: center !important
 </style>

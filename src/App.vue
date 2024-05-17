@@ -2,7 +2,30 @@
   <!-- <router-view v-if="isLoggedIn" v-slot="{ Component }"> -->
   <router-view v-slot="{ Component }">
     <!-- <BreadCrumb v-if="!$route.meta.hideBreadCrumb" /> -->
-    <ThemeButton v-if="!$route.meta.hideThemeButton" />
+    <HeaderNav :toggle-menu="toggleMenu" v-if="!$route.meta.hideNav" :menu-open="menuOpen">
+      <template v-slot:menu-button>
+        <TextLink
+          style="text-decoration: none"
+          :label="menuOpen ? $route.name : $route.name"
+          @click="toggleMenu"
+          :unicodeRight="menuOpen ? '⏶' : '⏷'"
+          :isSvg="false"
+          iconsize="16"
+          
+        />
+        <!-- :class="menuOpen ? 'subtle' : ''" -->
+
+      </template>
+      <template v-slot:menu-button-mobile>
+        <MyButton
+          style="border: 0 !important; line-height: inherit"
+          type="textlink"
+          :label="menuOpen ? 'Close' : 'Menu'"
+          @click="toggleMenu"
+        />
+      </template>
+    </HeaderNav>
+    <!-- <ThemeButton v-if="!$route.meta.hideThemeButton" /> -->
     <transition name="fade" mode="out-in">
       <component :is="Component" />
     </transition>
@@ -11,16 +34,15 @@
       :is-open="menuOpen"
       @close="menuOpen = false"
     ></fullscreen-menu>
-    <StickyNav v-if="!$route.meta.hideNav" :menu-open="menuOpen">
+    <!-- <StickyNav v-if="!$route.meta.hideNav" :menu-open="menuOpen">
       <template v-slot:menu-button>
-        <!-- <a v-on:click="toggleMenu"> more </a> -->
         <MyButton
           type="ghost"
           :label="menuOpen ? 'close' : 'menu'"
           @click="toggleMenu"
         />
       </template>
-    </StickyNav>
+    </StickyNav> -->
     <!-- <NewsletterSubscription /> -->
     <MainFooter v-if="!$route.meta.hideFooter" />
   </router-view>
@@ -32,19 +54,21 @@ import MyButton from "./components/Button.vue";
 
 // import NewsletterSubscription from "./components/form/NewsletterSubscription.vue";
 import FullscreenMenu from "./components/FullscreenMenu.vue";
-import StickyNav from "./components/StickyNav.vue";
+// import StickyNav from "./components/StickyNav.vue";
+import HeaderNav from "./components/HeaderNav.vue";
 import MainFooter from "./components/MainFooter.vue";
 import TheLogin from "./components/TheLogin.vue";
-import ThemeButton from "./components/ThemeButton.vue";
+// import ThemeButton from "./components/ThemeButton.vue";
 // import BreadCrumb from "./components/BreadCrumb.vue";
 import { useRouter } from 'vue-router'; // Import Vue Router
 
 export default {
   name: "App",
   components: {
-    StickyNav,
+    // StickyNav,
+    HeaderNav,
     MainFooter,
-    ThemeButton,
+    // ThemeButton,
     TheLogin,
     FullscreenMenu,
     MyButton,

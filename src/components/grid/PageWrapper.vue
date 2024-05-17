@@ -17,14 +17,15 @@ export default {
 <style lang="scss" scoped>
 div {
   overflow: hidden;
-  // padding-bottom: var(--spacing-lg) !important
+  // padding-block-end: var(--spacing-lg) !important
 
-  @media only screen and (min-width: 740px) {
-    padding-bottom: 0 !important;
+  @media only screen and (min-width: 768px) {
+    // padding-block-start: var(--spacing-lg) !important;
+    padding-block-end: 0 !important;
   }
 
   @media only screen and (min-width: 1201px) {
-    padding-bottom: 0 !important;
+    padding-block-end: 0 !important;
   }
 }
 </style>

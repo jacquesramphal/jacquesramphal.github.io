@@ -2,27 +2,33 @@
   <AnimatedComponent>
     <GridWrapper id="wrapper" class="">
       <GridContainer>
-        <div class="">
-          <!-- Profile Picture -->
-          <router-link to="cv"
-            ><img
-              id="avatar"
-              class="justify-end"
-              src="../assets/images/portrait.jpg"
-              draggable="false"
-              alt="logo.svg"
-              style="width: 120px; aspect-ratio: 1 / 1"
-          /></router-link>
+        <GridParent
+          style="
+            grid-template-columns: none !important;
+            grid-template-rows: repeat(2, auto);
+          "
+        >
+          <div class="">
+            <!-- Profile Picture -->
+            <router-link to="/resume"
+              ><img
+                id="avatar"
+                class="justify-end"
+                src="../assets/images/portrait.jpg"
+                draggable="false"
+                alt="logo.svg"
+                style="width: 120px; aspect-ratio: 1 / 1"
+            /></router-link>
 
-          <!-- Unicorn SVG -->
-          <!-- <img
+            <!-- Unicorn SVG -->
+            <!-- <img
           class="justify-end"
           draggable="false"
           src="@/assets/images/j-logo.svg"
           alt=""
           style="width: 40px"
                       /> -->
-          <!-- <svg width="52px" viewBox="0 0 35 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <!-- <svg width="52px" viewBox="0 0 35 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                   <title>J Unicorn - UX Generalist</title>
                   <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                       <g id="Group" transform="translate(1.000000, 1.000000)">
@@ -43,88 +49,126 @@
                       </g>
                   </g>
               </svg> -->
-        </div>
-        <div class="grid-parent">
-          <div id="maindetails">
-            <TextBlock
-              header="Have a question?"
-              details="If you have questions about design, development, or anything in between, <a href='mailto:jacques@ramphal.design'>email me</a>."
-            />
           </div>
+          <GridParent class="outer" style="">
+            <div id="maindetails">
+              <TextBlock
+                title="Jake Ramphal"
+                description="My work explores the intersection between design and development and seeks to embrace emerging technologies for a more efficient and inclusive future.
 
-          <div id="links1">
-            <p class="subtle">Useful Links</p>
-            <ul>
-              <li>
-                <router-link :to="{ name: 'Info' }" class="hover-2"
-                  >About this site</router-link
-                >
-              </li>
-              <li>
-                <router-link :to="{ name: 'Resume' }">Resume</router-link>
-              </li>
-              <li>
-                <router-link :to="{ name: 'Blog' }">Ramphal Blog</router-link>
-              </li>
-              <li><router-link :to="{ name: 'Blog' }">Storybook</router-link></li>
-              <li>
-                <router-link :to="{ name: 'MoreWork' }"
-                  >Recent Work</router-link
-                >
-              </li>
-              <li>
-                <router-link :to="{ name: 'Links' }">Useful Links</router-link>
-              </li>
-            </ul>
-          </div>
+"
+              />
+            </div>
+            <GridParent class="content">
+              <div id="links1">
+                <p class="subtle">Useful Links</p>
+                <ul>
+                  <!-- <li>
+                    <router-link to="/info" class="hover-2"
+                      >About this site</router-link
+                    >
+                  </li> -->
+                  <li>
+                    <router-link to="/library">Library</router-link>
+                  </li>
+                  <li>
+                    <router-link to="/designsystem">Design System</router-link>
+                  </li>
+                  <li>
+                    <router-link to="/resume">Resume</router-link>
+                  </li>
+                  <!-- <li>
+                    <router-link to="/docs"
+                      >Ramphal Docs</router-link
+                    >
+                  </li> -->
+                  <!-- <li>
+                    <router-link to="/">Storybook</router-link>
+                  </li> -->
 
-          <div id="links2">
-            <p class="subtle">Let's Connect</p>
-            <ol>
-              <li class="external">
-                <a href="mailto:jacques@ramphal.design">Email Me</a>
-              </li>
-              <li class="external">
-                <a
-                  target="blank"
-                  href="https://www.linkedin.com/in/jacquesramphal"
-                  >Connect on LinkedIn</a
-                >
-              </li>
-              <li class="external">
-                <a
-                  target="blank"
-                  href="https://github.com/jacquesramphal/jacquesramphal.github.io/issues"
-                  >Submit an issue</a
-                >
-              </li>
-            </ol>
-          </div>
-          <div id="links3">
-            <p class="subtle">More</p>
-            <ol>
-              <li class="">
-                <a>Privacy Policy</a>
-              </li>
-            </ol>
-          </div>
-        </div>
-      </GridContainer>
-      <GridContainer>
-        <div class="">
-          <p style="font-size: var(--font-xxs)">
-            © 2023 Jacques Ramphal — Built with
+                  <!-- <li>
+                    <router-link to="/links"
+                      >Useful Links</router-link
+                    >
+                  </li> -->
+                </ul>
+              </div>
+
+              <div id="links2">
+                <p class="subtle">Let's Connect</p>
+                <ul>
+                  <li>
+                    <TextLink
+                      label="LinkedIn"
+                      link="https://www.linkedin.com/in/jake-ramphal"
+                    />
+                  </li>
+
+                  <li>
+                    <TextLink
+                      label="Github"
+                      link="https://github.com/jacquesramphal"
+                    />
+                  </li>
+                  <li>
+                    <TextLink
+                      label="Email"
+                      link="mailto:jacques@ramphal.design"
+                    />
+                  </li>
+                  <!-- <li>
+                    <TextLink
+                      icon="icon/linkedin.svg"
+                      iconsize="16"
+                      label="LinkedIn"
+                      link="https://www.linkedin.com/in/jake-ramphal"
+                    />
+                  </li>
+
+                  <li>
+                    <TextLink
+                      icon="icon/github-mark.svg"
+                      iconsize="16"
+                      label="Github"
+                      link="https://github.com/jacquesramphal"
+                    />
+                  </li>
+                  <li>
+                    <TextLink
+                      icon="j-logo.svg"
+                      iconsize="16"
+                      label="Email"
+                      link="mailto:jacques@ramphal.design"
+                    />
+                  </li> -->
+                </ul>
+              </div>
+              <div id="links3">
+                <p class="subtle">More</p>
+                <ul>
+                  <li class="">
+                    <a>Privacy Policy</a>
+                  </li>
+                </ul>
+              </div>
+            </GridParent>
+          </GridParent>
+          <p class="footer" style="font-size: var(--font-2xs)">
+            All rights reserved © Jacques Ramphal 2024
+            <!-- © 2023 Jacques Ramphal — Built with
             <a target="blank" href="https://v3.vuejs.org/">Vue3</a>.
-            <!-- <a target="blank" href="https://www.typescriptlang.org/"
-            >Typescript</a
-          >
-          & <a target="blank" href="https://sass-lang.com/">Sass</a>.  -->
-
+        
             Deployed on
-            <a target="blank" href="https://www.netlify.com/">Netlify</a>.
+            <a target="blank" href="https://www.netlify.com/">Netlify</a>. -->
           </p>
-        </div>
+        </GridParent>
       </GridContainer>
+      <!-- <GridContainer>
+          <p style="font-size: var(--font-2xs)">
+            All rights reserved © Jacques Ramphal 2024
+            
+          </p>
+      </GridContainer> -->
     </GridWrapper>
   </AnimatedComponent>
 </template>
@@ -156,6 +200,8 @@ import GridContainer from "./grid/GridContainer.vue";
 import GridWrapper from "./grid/GridWrapper.vue";
 import TextBlock from "./TextBlock.vue";
 import AnimatedComponent from "./AnimatedComponent.vue";
+import TextLink from "./text/TextLink.vue";
+import GridParent from "./grid/GridParent.vue";
 // import TextArea from "@/components/form/TextArea.vue";
 // import MyButton from "@/components/Button.vue";
 
@@ -166,6 +212,8 @@ export default {
     GridWrapper,
     TextBlock,
     AnimatedComponent,
+    TextLink,
+    GridParent,
   },
   props: {
     title: {
@@ -183,130 +231,35 @@ $spacing-lg: var(--spacing-lg);
 $spacing-sm: var(--spacing-sm);
 
 #wrapper {
-  // border-top: var(--border);
-  // box-shadow: var(--shadow-inner);
-  // background: var(--background-darker);
-  // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, var(--background-darker)), color-stop(100%, transparent));
-  // background-image: -moz-linear-gradient(bottom, var(--background-darker) 0%, transparent 100%);
-  padding-bottom: $spacing-lg;
-
+  border-block-start: var(--border);
+  padding-block-end: $spacing-lg;
   @media only screen and (min-width: 1201px) {
-    padding-bottom: inherit;
+    padding-block-end: inherit;
   }
 }
 
-.grid-parent {
-  grid-template-columns: repeat(2, 1fr);
-  margin-top: $spacing-sm;
-
-  @media only screen and (min-width: 740px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
+.outer {
+  grid-template-columns: repeat(1, 1fr);
   @media only screen and (min-width: 1201px) {
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 0;
+    grid-template-columns: repeat(2, 1fr);
   }
-}
-
-#maindetails {
-  grid-column: 1 / 4;
-
-  @media only screen and (min-width: 740px) {
-    grid-column: 1 / 4;
-  }
-
-  @media only screen and (min-width: 1201px) {
-    grid-column: 1 / 4;
-    margin-right: 120px;
-  }
-}
-
-#links1 {
-  grid-column: 1;
-
-  @media only screen and (min-width: 740px) {
-    grid-column: auto;
-  }
-
-  @media only screen and (min-width: 1201px) {
-  }
-}
-
-#links2 {
-  grid-column: 2;
-
-  @media only screen and (min-width: 740px) {
-    grid-column: auto;
-  }
-
-  @media only screen and (min-width: 1201px) {
-  }
-}
-
-#links3 {
-  grid-column: 1;
-
-  @media only screen and (min-width: 740px) {
-    grid-column: auto;
-  }
-
-  @media only screen and (min-width: 1201px) {
-  }
-}
-
-h3 {
-  @media only screen and (min-width: 740px) {
-    // text-align: center;
-  }
-}
-
-#copyright {
-  // font-weight: var(--font-medium);
 }
 
 ul {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: var(--spacing-xxs) 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
 }
-
-#footer {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-
-  @media only screen and (min-width: 740px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.footer {
-  // padding-top: var(--spacing-sm) !important;
-}
-
-#links {
-  grid-column: 1 / 1;
-
-  @media only screen and (min-width: 740px) {
-    grid-column: auto;
-    justify-self: end;
-  }
-}
-
 li {
-  width: 100%;
-  font-size: 2em;
-  line-height: 1.5;
-  // font-weight: var(--font-medium);
-  margin-top: var(--spacing-xxs);
+  inline-size: 100%;
+  font-size: var(--font-xs);
+  line-height: var(--lineHeight-tall);
   float: left;
   list-style-type: none;
   text-decoration: none;
-  padding-right: 1em;
-}
-
-li:last-child {
-  padding-right: 0;
 }
 
 li.external::after {
@@ -314,9 +267,22 @@ li.external::after {
   color: var(--link);
 }
 
+#maindetails {
+  @media only screen and (min-width: 768px) {
+    padding-inline-end: var(--spacing-lg);
+  }
+}
+.footer {
+  margin-block-start: var(--spacing-md);
+
+  @media only screen and (min-width: 768px) {
+    margin-block-start: var(--spacing-lg);
+  }
+}
+
 // #avatar {
-//   width: 120px;
-//   height: 120px;
+//   inline-size: 120px;
+//   block-size: 120px;
 //   aspect-ratio: 1 / 1;
 //   background: url(@/assets/images/portrait.jpg);
 //   background-size: 100%;

@@ -78,7 +78,7 @@ export default {
 #dates {
   grid-column: 1 / 4;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-column: 1 / 2;
   }
 
@@ -90,7 +90,7 @@ export default {
 #info {
   grid-column: 1 / 10;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-column: 2 / 8;
   }
 
@@ -121,10 +121,10 @@ export default {
 }
 
 .wrapper {
-  border-bottom: var(--border);
+  border-block-end: var(--border);
 
   &:last-child {
-    border-bottom: none;
+    border-block-end: none;
   }
 }
 

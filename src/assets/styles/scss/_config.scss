@@ -98,63 +98,151 @@
     0px 6px 30px rgba(0, 0, 0, 0.06), 0px 8px 10px rgba(0, 0, 0, 0.1);
 
   /* FONT-FAMILY */
-  --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
-  --font-secondary: "Epilogue", sans-serif !important;
-  --font-tertiary: "Merriweather", Georgia, Cambria, "Times New Roman", Times !important;
+  --fontFamily-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+  --fontFamily-secondary: "Epilogue", sans-serif !important;
+  --fontFamily-tertiary: "Merriweather", Georgia, Cambria, "Times New Roman", Times !important;
+
+  /* CORE NUMERIC SIZE SCALE TBD - see chakra UI tokens*/
+  --size-0: 0;
+  --size-1: 0.4rem;
+  --size-2: 0.8rem;
+  --size-3: 1.2rem;
+  --size-4: 1.6rem;
+  --size-5: 2rem;
+  --size-6: 2.4rem;
+  --size-7: 2.8rem;
+  --size-8: 3.2rem;
+  --size-9: 3.6rem;
+  --size-10: 4rem;
+  --size-11: 4.4rem;
+  --size-12: 4.8rem;
+  --size-13: 5.2rem;
+  --size-14: 5.6rem;
+  --size-15: 6rem;
+  --size-16: 6.4rem;
+  --size-17: 7.2rem;
+  --size-18: 8rem;
+  --size-19: 9.6rem;
+  --size-20: 12.8rem;
+  --size-21: 16rem;
+  --size-22: 19.2rem;
+  --size-23: 22.4rem;
+  --size-24: 25.6rem;
+  --size-25: 28.8rem;
+  --size-26: 32rem;
+  --size-27: 35.2rem;
+  --size-28: 38.4rem;
+  --size-29: 41.6rem;
+  --size-30: 44.8rem;
+  --size-31: 48rem;
+  --size-32: 51.2rem;
+  --size-33: 54.4rem;
+  --size-34: 57.6rem;
+  --size-35: 60.8rem;
+  --size-36: 64rem;
+
+
+  /* SPACING */
+
+  --spacing-xxxs: var(--size-1);
+  --spacing-xxs: var(--size-2);
+  --spacing-xs: var(--size-4);
+  --spacing-sm: var(--size-6);
+  --spacing-md: var(--size-8);
+  --spacing-big: var(--size-12);
+  --spacing-lg: var(--size-18);
+  --spacing-xl: var(--size-20);
+  --spacing-xxl: var(--size-24);
+  --spacing-xxxl: var(--size-32);
+
+  /* BREAKPOINTS */
+  --breakpoint-xs: 767px;
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 992px;
+  --breakpoint-lg: 1200px;
+  $breakpoint-sm: 768px;
 
   /* FONT-SIZE */
-  --font-display: 12rem;
-  --font-xxxl: 8rem;
-  --font-xxl: 7.2rem;
-  --font-xl: 6.4rem;
-  --font-lg: 4.8rem;
-  --font-md: 3.6rem;
-  --font-sm: 2.8rem;
-  --font-xs: 2rem;
-  --font-xxs: 1.6rem;
-  --font-xxxs: 1.2rem;
+  /* --font-display: 12rem; */
+  --font-display: clamp(4rem, 9vw, 12rem);
+  --font-1000: clamp(var(--size-12), 7vw, var(--size-18));
+  --font-900: clamp(var(--font-lg), 7vw, var(--font-3xl));
+  --font-800: clamp(var(--font-lg), 7vw, var(--font-3xl));
+  --font-700: clamp(var(--font-lg), 7vw, var(--font-3xl));
+  --font-600: clamp(var(--font-lg), 7vw, var(--font-3xl));
+  --font-500: clamp(var(--font-lg), 7vw, var(--font-3xl));
+  --font-400: clamp(var(--font-lg), 7vw, var(--font-3xl));
+  --font-300: clamp(var(--font-lg), 7vw, var(--font-3xl));
+  --font-200: clamp(var(--font-lg), 7vw, var(--font-3xl));
+  --font-100: clamp(var(--font-lg), 7vw, var(--font-3xl));
+
+
+
+  /* testing fluid type, applied to h1 */
+
+  /* Make these part of the SIZE scale */
+  --font-3xl: var(--size-18);
+  --font-2xl: var(--size-17);
+  --font-xl: var(--size-16);
+  --font-lg: var(--size-12);
+  --font-md: var(--size-9);
+  --font-sm: var(--size-7);
+  --font-xs: var(--size-5);
+  --font-2xs: var(--size-4);
+  --font-3xs: var(--size-3);
+
+  @media print {
+    * {
+      --font-3xl: var(--size-16);
+      --font-2xl: var(--size-15);
+      --font-xl: var(--size-14);
+      --font-lg: var(--size-10);
+      --font-md: var(--size-5);
+      --font-sm: var(--size-4);
+      --font-xs: var(--size-3);
+      --font-2xs: var(--size-2);
+      --font-3xs: var(--size-1);
+    
+    }
+  }
   /* 
   --font-display: clamp(4rem, 9vw, 12rem);
-  --font-xxxl: clamp(3rem, 7vw, 8rem);
-  --font-xxl: clamp(2.8rem, 6vw, 7.2rem);
+  --font-3xl: clamp(3rem, 7vw, 8rem);
+  --font-2xl: clamp(2.8rem, 6vw, 7.2rem);
   --font-xl: clamp(2.5rem, 5vw, 6.4rem);
   --font-lg: clamp(2rem, 4vw, 4.8rem);
   --font-md: clamp(1.6rem, 3vw, 3.6rem);
   --font-sm: clamp(1.4rem, 2.8vw, 2.8rem);
   --font-xs: clamp(1.2rem, 2vw, 2rem);
-  --font-xxs: clamp(1rem, 1.6vw, 1.6rem);
-  --font-xxxs: clamp(0.8rem, 1.2vw, 1.2rem);
+  --font-2xs: clamp(1rem, 1.6vw, 1.6rem);
+  --font-3xs: clamp(0.8rem, 1.2vw, 1.2rem);
 */
   /* FONT WEIGHT */
-  --font-light: 300;
-  --font-normal: 400;
-  --font-medium: 500;
-  --font-bold: 600;
-  --font-heavy: 800;
+  --fontWeight-light: 300;
+  --fontWeight-normal: 400;
+  --fontWeight-medium: 500;
+  --fontWeight-bold: 600;
+  --fontWeight-heavy: 800;
 
-  /* SPACING */
-  --spacing-tight: -0.2rem;
-  --spacing-normal: 0;
-  --spacing-loose: 0.03rem;
-  --spacing-reversed-tight: calc(var(--spacing-normal) - 0.12rem);
-  --spacing-reversed-normal: 0.01rem;
-  --spacing-reversed-loose: 0.04rem;
+  /* LETTER SPACING */
+  --letterSpacing-tight: -0.16rem;
+  --letterSpacing-base: 0;
+  --letterSpacing-loose: 0.03rem;
+  --letterSpacing-reversed-tight: -0.12rem;
+  --letterSpacing-reversed-base: 0.01rem;
+  --letterSpacing-reversed-loose: 0.04rem;
 
 
-  --spacing-xxxs: 0.4rem;
-  --spacing-xxs: 0.8rem;
-  --spacing-xs: 1.6rem;
-  --spacing-sm: 2.4rem;
-  --spacing-md: 3.2rem;
+  /* LINE HEIGHT */
 
-  /* New, needed? */
-  --spacing-big: 4.8rem;
+  --lineHeight-none: 0;
+  --lineHeight-shorter: 1.1;
+  --lineHeight-short: 1.2;
+  --lineHeight-base: 1.4;
+  --lineHeight-tall: 1.5;
+  --lineHeight-taller: 1.8;
 
-  /* --spacing-lg: 6.4rem; */
-  --spacing-lg: 8rem;
-  --spacing-xl: 12.8rem;
-  --spacing-xxl: 25.6rem;
-  --spacing-xxxl: 51.2rem;
+
 
   /* IMAGE FILTERS */
   --filter: brightness(1) saturate(1);
@@ -185,11 +273,11 @@
   --font-reversed-heavy: 800;
 
   /* FONT WEIGHT */
-  --font-light: 250;
-  --font-normal: 400;
-  --font-medium: 450;
-  --font-bold: 550;
-  --font-heavy: 700;
+  --fontWeight-light: 250;
+  --fontWeight-normal: 350;
+  --fontWeight-medium: 450;
+  --fontWeight-bold: 550;
+  --fontWeight-heavy: 700;
 
   --shadow-light: 0px 2px 4px rgba(0, 0, 0, 0.25);
   --shadow-deep: 0px 16px 24px rgba(0, 0, 0, 0.25),
@@ -199,12 +287,12 @@
   --filter: brightness(0.8) saturate(1.25);
 
   /* SPACING - testing calc */
-  --spacing-tight: calc(var(--spacing-normal) - 0.12rem);
-  --spacing-normal: 0.01rem;
-  --spacing-loose: 0.04rem;
-  --spacing-reversed-tight: -0.2rem;
-  --spacing-reversed-normal: 0;
-  --spacing-reversed-loose: 0.03rem;
+  --letterSpacing-tight: -0.12rem;
+  --letterSpacing-base: 0.01rem;
+  --letterSpacing-loose: 0.04rem;
+  --letterSpacing-reversed-tight: -0.16rem;
+  --letterSpacing-reversed-base: 0;
+  --letterSpacing-reversed-loose: 0.03rem;
 
 }
 
@@ -231,11 +319,11 @@
     --font-reversed-heavy: 800;
 
     /* FONT WEIGHT */
-    --font-light: 250;
-    --font-normal: 400;
-    --font-medium: 450;
-    --font-bold: 550;
-    --font-heavy: 700;
+    --fontWeight-light: 250;
+    --fontWeight-normal: 400;
+    --fontWeight-medium: 450;
+    --fontWeight-bold: 550;
+    --fontWeight-heavy: 700;
 
     --shadow-deep: 0px 16px 24px var(--color-offblack),
       0px 6px 30px var(--color-offblack), 0px 8px 10px var(--color-offblack);
@@ -244,12 +332,12 @@
     --filter: brightness(0.8) saturate(1.25);
 
     /* SPACING */
-    --spacing-tight: calc(var(--spacing-normal) - 0.12rem);
-    --spacing-normal: 0.01rem;
-    --spacing-loose: 0.04rem;
-    --spacing-reversed-tight: -0.2rem;
-    --spacing-reversed-normal: 0;
-    --spacing-reversed-loose: 0.03rem;
+    --letterSpacing-tight: -0.12rem;
+    --letterSpacing-base: 0.01rem;
+    --letterSpacing-loose: 0.04rem;
+    --letterSpacing-reversed-tight: -0.16rem;
+    --letterSpacing-reversed-base: 0;
+    --letterSpacing-reversed-loose: 0.03rem;
 
   }
 }
@@ -277,11 +365,11 @@
   --font-reversed-heavy: 700;
 
   /* FONT WEIGHT */
-  --font-light: 300;
-  --font-normal: 400;
-  --font-medium: 500;
-  --font-bold: 600;
-  --font-heavy: 800;
+  --fontWeight-light: 300;
+  --fontWeight-normal: 400;
+  --fontWeight-medium: 500;
+  --fontWeight-bold: 600;
+  --fontWeight-heavy: 800;
 
   --shadow-deep: 0px 16px 24px rgba(0, 0, 0, 0.07),
     0px 6px 30px rgba(0, 0, 0, 0.06), 0px 8px 10px rgba(0, 0, 0, 0.1);
@@ -290,12 +378,12 @@
   --filter: brightness(1) saturate(1);
 
   /* SPACING */
-  --spacing-tight: -0.2rem;
-  --spacing-normal: 0;
-  --spacing-loose: 0.03rem;
-  --spacing-reversed-tight: calc(var(--spacing-normal) - 0.12rem);
-  --spacing-reversed-normal: 0.01rem;
-  --spacing-reversed-loose: 0.04rem;
+  --letterSpacing-tight: -0.16rem;
+  --letterSpacing-base: 0;
+  --letterSpacing-loose: 0.03rem;
+  --letterSpacing-reversed-tight: -0.12rem;
+  --letterSpacing-reversed-base: 0.01rem;
+  --letterSpacing-reversed-loose: 0.04rem;
 }
 
 /* needs cleanup and consolidation */

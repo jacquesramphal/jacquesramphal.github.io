@@ -1,11 +1,11 @@
 <template>
   <div id="bg" class="fullvh" :style="bgStyle">
-    <svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg width="64px" block-size="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <!-- Your SVG content here -->
     </svg>
     <svg
       width="446"
-      height="446"
+      block-size="446"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       >
@@ -21,7 +21,7 @@
           x="0"
           y="0"
           width="446"
-          height="446"
+          block-size="446"
           filterUnits="userSpaceOnUse"
           color-interpolation-filters="sRGB"
         >
@@ -96,7 +96,7 @@ export default {
   mix-blend-mode: normal;
 }
 #bg {
-  width: 100vw;
+  inline-size: 100vw;
   min-height: 320px;
 }
 
@@ -104,8 +104,8 @@ export default {
 
 svg {
   overflow: hidden;
-  width: 100%;
-  height: 100%;
+  block-size: 100%;
+  block-size: 100%;
 }
 
 #moon {

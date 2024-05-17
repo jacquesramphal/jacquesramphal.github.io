@@ -3,17 +3,29 @@ title: My Page
 date: 2023-09-17
 --- -->
 
-
 # The Importance of Baselines
+Tags Tags Tags
 
+[Avatar] Jacques Ramphal  
+July 15, 2023  
+X min read
 
-Author: Jacques Ramphal  
-Date: July 15, 2023
+- What are baselines?
+- Why they matter?
+  - starting points
+  - repeatable and predictable usage
+  - needed for regression testing
+- Pitfalls of not setting them
+  - DQA issues repeat themselves
+- So how do we set baselines?
+- What can we do with them?
+  - automated testing
+  - repeatable process
 
 ![Responsive Breakpoints](https://miro.medium.com/max/1400/0*QuR2HZPsD6O5fyjb)
 
 
-Baselines provide a stable and known starting point for comparison during software development and testing. By comparing changes or new versions against the baseline, discrepancies, bugs, or regressions can be easily identified, ensuring software quality and reliability throughout its development life cycle.
+<blockquote>Baselines provide a stable and known starting point for comparison during software development and testing. By comparing changes or new versions against the baseline, discrepancies, bugs, or regressions can be easily identified, ensuring software quality and reliability throughout its development life cycle.</blockquote>
 
 ## Baselines in Software Testing
 
@@ -38,4 +50,3 @@ Automating DQA (Design Quality Assurance) through baselines in software testing 
 - Leverage plugins to integrate your design references and coded libraries for collaboration.
 
 By embracing baselines and integrating design and development environments effectively, you can ensure the high quality and reliability of your software products throughout the development life cycle.
-

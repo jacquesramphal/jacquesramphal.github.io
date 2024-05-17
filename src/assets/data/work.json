@@ -1,20 +1,26 @@
 {
+  "featEyebrow": "Design AI Tools",
+  "featTitle": "This is a feature title",
+  "featDescription": "This is a feature description",
+  "btnroute": "work/1",
+  "label": "Feature Label",
+  "featImage": "work/glo.svg",
+  "alt": "Alt Test",
   "entries": [
-
     {
       "id": 1,
       "size": "small",
       "title": "Work Name 1",
       "tag": "Tag2 Tag3",
-      "description": "This is a description 1",
+      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
       "btnroute": "work/1",
-      "cta": "Read More",
+      "label": "Read More",
       "alt": "Alt Test",
       "filename3": "work/glo/planner.png",
       "bgcolor": "background-color: var(--color-blue)",
       "role": "Designer/Developer",
       "type": "Work Type",
-      "year": "XXXX-XXXX",
+      "status": "In Development",
       "images": {
         "filename1": "work/glo.svg",
         "caption1": "This is a Caption1",
@@ -22,10 +28,11 @@
         "caption2": "This is a Caption2",
         "filename3": "work/glo/insights.png",
         "caption3": "This is a Caption3"
-
       },
       "entries": [
         {
+          "eyebrow": "",
+
           "title": "The Problem",
           "body": "Body 1 - This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer.",
           "images": {
@@ -35,6 +42,8 @@
           }
         },
         {
+          "eyebrow": "",
+
           "title": "Key Focus Areas",
           "body": "Body 2 - This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer.",
           "images": {
@@ -61,15 +70,15 @@
       "title": "Work Name 2",
       "tag": "Tag1 Tag4 Tag5",
       "subtitle": "This is a subtitle 2",
-      "description": "This is a description 2",
+      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
       "btnroute": "work/2",
-      "cta": "Read More",
+      "label": "Read More",
       "filename1": "templates/template-mobile-blank.svg",
       "alt": "Alt Test",
       "bgcolor": "background-color: var(--background-darker)",
       "role": "Designer/Developer",
       "type": "Work Type",
-      "year": "XXXX-XXXX",
+      "status": "In Development",
       "images": {
         "filename1": "work/glo.svg",
         "caption1": "This is a Caption1",
@@ -77,7 +86,7 @@
         "filename3": "work/dod.svg"
       }
     },
-    
+
     {
       "id": 3,
       "size": "split",
@@ -85,7 +94,7 @@
       "tag": "Course EBook",
       "description": "Enhance your design process and deliver exceptional user experiences with this comprehensive resource.",
       "btnroute": "course",
-      "cta": "View Ebook",
+      "label": "View Ebook",
       "filename1": "templates/template-desktop-device.svg",
       "alt": "Alt Test",
       "bgcolor": "background-color: var(--background-darker)"
@@ -97,13 +106,13 @@
       "tag": "Tag2",
       "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
       "btnroute": "work/1",
-      "cta": "Read More",
+      "label": "Read More",
       "filename1": "work/glo.svg",
       "alt": "Alt Test",
       "bgcolor": "background-color: var(--background-darker)",
       "role": "Designer/Developer",
       "type": "Work Type",
-      "year": "XXXX-XXXX",
+      "status": "In Development",
       "images": {
         "filename1": "work/glo.svg",
         "alt1": "This is Alt1",
@@ -145,72 +154,6 @@
           }
         }
       ]
-    },
-    
-    
-    {
-      "id": 5,
-      "size": "small",
-      "title": "Work Name 5",
-      "tag": "Tag1 Tag4 Tag5",
-      "subtitle": "This is a subtitle 2",
-      "description": "This is a description TWO",
-      "btnroute": "work/5",
-      "cta": "Read More",
-      "filename1": "templates/template-mobile-blank.svg",
-      "alt": "Alt Test",
-      "bgcolor": "background-color: var(--background-darker)",
-      "role": "Designer/Developer",
-      "type": "Work Type",
-      "year": "XXXX-XXXX",
-      "images": {
-        "filename1": "work/glo.svg",
-        "caption1": "This is a Caption1",
-        "filename2": "work/glo.svg",
-        "filename3": "work/dod.svg"
-      }
-    },
-    {
-      "id": 6,
-      "size": "small",
-      "title": "Work Name 6",
-      "tag": "Tag1 Tag4",
-      "description": "This is a description",
-      "btnroute": "work/6",
-      "cta": "Read More",
-      "filename1": "templates/template-desktop-blank.svg",
-      "alt": "Alt Test",
-      "bgcolor": "background-color: var(--background-darker)",
-      "role": "Designer/Developer",
-      "type": "Work Type",
-      "year": "XXXX-XXXX",
-      "images": {
-        "filename1": "work/glo.svg",
-        "caption1": "This is a Caption1",
-        "filename2": "work/glo.svg",
-        "filename3": "work/dod.svg"
-      }
-    },
-    {
-      "id": 7,
-      "size": "small",
-      "title": "Work Name 7",
-      "tag": "UX/UI Product-Design Tag4",
-      "description": "This is a description",
-      "btnroute": "work/7",
-      "cta": "Read More",
-      "filename1": "templates/template-desktop-blank.svg",
-      "bgcolor": "background-color: var(--background-darker)",
-      "role": "Designer/Developer",
-      "type": "Work Type",
-      "year": "May, 2022 — December, 2022",
-      "alt": "Alt Test",
-      "images": {
-        "filename1": "work/glo.svg",
-        "caption1": "This is a Caption1",
-        "filename2": "work/glo.svg",
-        "filename3": "work/dod.svg"
-      }
     }
   ]
 }

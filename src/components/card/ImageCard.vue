@@ -4,17 +4,18 @@
     class="thumbdetail grid-card"
     style="padding: 0"
   >
-    <GridContainer class="text-container">
-      <GridWrapper class="text" style="oveflow: visible !important;">
+      <GridContainer class="text-container">
+      <GridWrapper class="text" style="oveflow: visible !important">
         <TextBlock
           clamped
           :eyebrow="`${eyebrow}`"
-          :header3="`${title}`"
-          :details="`${details}`"
+          as="h3"
+          :title="`${title}`"
+          :description="`${description}`"
           :route="`${route}`"
           :link="`${link}`"
           :btnroute="`${btnroute}`"
-          :cta="`${cta}`"
+          :label="`${label}`"
         />
       </GridWrapper>
     </GridContainer>
@@ -23,7 +24,7 @@
         <img
           class="zoom bg"
           draggable="false"
-          :src="require(`../assets/images/${filename1}`)"
+          :src="require(`../../assets/images/${filename1}`)"
           :alt="`${alt}`"
         />
       </router-link>
@@ -40,12 +41,13 @@
               clamped
               class="reversed line-length"
               :eyebrow="`${eyebrow}`"
-              :header3="`${title}`"
-              :details="`${details}`"
+              as="h3"
+              :title="`${title}`"
+              :description="`${description}`"
               :route="`${route}`"
               :link="`${link}`"
               :btnroute="`${btnroute}`"
-              :cta="`${cta}`"
+              :label="`${label}`"
           /></span>
         </span>
         <!-- Foreground Image (if filename2 exists), using conditional class BLUR when TITLE is true -->
@@ -55,7 +57,7 @@
           :class="{ blur: title }"
           style="position: absolute"
           draggable="false"
-          :src="filename2 ? require(`../assets/images/${filename2}`) : null"
+          :src="filename2 ? require(`../../assets/images/${filename2}`) : null"
           :alt="`${alt}`"
         />
         <img
@@ -64,7 +66,7 @@
           :class="{ blur: title }"
           style="position: absolute"
           draggable="false"
-          :src="filename3 ? require(`../assets/images/${filename3}`) : null"
+          :src="filename3 ? require(`../../assets/images/${filename3}`) : null"
           :alt="`${alt}`"
         />
         <!-- Background Image -->
@@ -72,7 +74,7 @@
           class="bg"
           :class="{ blur: title }"
           draggable="false"
-          :src="require(`../assets/images/${filename1}`)"
+          :src="require(`../../assets/images/${filename1}`)"
           :alt="`${alt}`"
         />
       </figure>
@@ -82,9 +84,9 @@
 </template>
 
 <script>
-import GridContainer from "./grid/GridContainer.vue";
-import GridWrapper from "./grid/GridWrapper.vue";
-import TextBlock from "./TextBlock.vue";
+import GridContainer from "../grid/GridContainer.vue";
+import GridWrapper from "../grid/GridWrapper.vue";
+import TextBlock from "../TextBlock.vue";
 import { reactive, computed } from "vue";
 
 export default {
@@ -103,7 +105,7 @@ export default {
     title: {
       type: String,
     },
-    details: {
+    description: {
       type: String,
       default: "",
     },
@@ -139,7 +141,7 @@ export default {
       type: String,
       default: "",
     },
-    cta: {
+    label: {
       type: String,
       default: "Read More",
     },
@@ -174,24 +176,24 @@ export default {
   .bg {
     mix-blend-mode: normal;
     aspect-ratio: 1 / 1;
-    height: 101%;
+    block-size: 101%;
     object-fit: cover;
     object-position: 0% 100%;
   }
   .filename2 {
     z-index: 1;
-    right: -18%;
-    top: 14.75%;
-    height: 68%;
+    inset-inline-end:  -18%;
+    inset-block-start:  14.75%;
+    block-size: 68%;
     border-radius: 0 !important;
     object-fit: cover !important;
     object-position: 0% 0% !important;
   }
   .filename3 {
     z-index: 1;
-    left: 20%;
-    top: 15%;
-    height:100%;
+    inset-inline-start:  20%;
+    inset-block-start:  15%;
+    block-size: 100%;
     rotate: -7deg;
     box-shadow: var(--shadow-z5);
     border-radius: var(--spacing-xxs) 0 0 0 !important;
@@ -202,23 +204,23 @@ export default {
 
 // image-cards Large
 .image-card--large {
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-column: 1 / 3;
     .bg {
       aspect-ratio: 16 / 9;
       object-position: 0% 0%;
     }
     .filename2 {
-      top: 29.25%;
-      right: -17.75%;
+      inset-block-start:  29.25%;
+      inset-inline-end:  -17.75%;
       object-position: 0% 100%;
-      height: 100%;
+      block-size: 100%;
     }
     // .fg2 {
-    //   top: 29.25%;
-    //   right: -17.75%;
+    //   inset-block-start:  29.25%;
+    //   inset-inline-end:  -17.75%;
     //   object-position: 0% 100%;
-    //   height: 100%;
+    //   block-size: 100%;
     // }
     .caption {
       padding: var(--spacing-md);
@@ -245,7 +247,7 @@ export default {
     padding: var(--spacing-md) var(--spacing-md) 0 var(--spacing-md) !important;
   }
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-gap: var(--spacing-md);
     grid-column: 1 / 3;
     grid-template-columns: repeat(2, 1fr);
@@ -266,8 +268,8 @@ export default {
   }
 }
 .card-route {
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
   z-index: 99;
   position: absolute;
 
@@ -288,10 +290,10 @@ export default {
   position: absolute;
   text-rendering: optimizeLegibility;
   z-index: 100;
-  width: 100%;
-  width: -moz-available;
-  width: -webkit-fill-available;
-  height: 100%;
+  inline-size: 100%;
+  inline-size: -moz-available;
+  inline-size: -webkit-fill-available;
+  block-size: 100%;
   background: linear-gradient(
     135deg,
     var(--background-reversed) 0%,
@@ -329,7 +331,7 @@ export default {
 .bg {
   mix-blend-mode: normal;
   aspect-ratio: 1 / 1;
-  height: 101%;
+  block-size: 101%;
   object-fit: cover;
 }
 .thumbdetail {
@@ -338,7 +340,7 @@ export default {
   grid-template-rows: 2, 1fr;
   text-decoration: none !important;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-gap: var(--spacing-md);
     grid-column: 1 / 3;
     grid-template-columns: repeat(2, 1fr);
@@ -353,7 +355,7 @@ export default {
 .text-container {
   padding: var(--spacing-md) var(--spacing-md) 0 var(--spacing-md) !important;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     padding: var(--spacing-sm) 0 var(--spacing-md) var(--spacing-md) !important;
   }
 
@@ -372,14 +374,14 @@ export default {
 }
 
 .title {
-  margin-bottom: 1.6rem;
+  margin-block-end: 1.6rem;
 }
 
 .text {
   // max-width: 60px;
 
   overflow: visible !important;
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-column: 1 / 2;
   }
 }

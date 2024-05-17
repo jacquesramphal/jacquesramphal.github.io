@@ -55,7 +55,7 @@ export default {
   gap: 2rem;
   // background-color: red;
   flex-wrap: wrap;
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     // background-color: blue;
     // flex-direction: row;
 

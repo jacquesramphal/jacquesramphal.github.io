@@ -7,7 +7,7 @@ export default {
   component: ThumbDetail,
   argTypes: {
     title: { control: "text" },
-    details: { control: "text" },
+    description: { control: "text" },
     filename: { control: "text" },
     alt: { control: "text" }, 
     route: { control: "text" },

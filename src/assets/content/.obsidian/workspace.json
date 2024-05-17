@@ -13,7 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "mdoc_13.md",
+                "file": "doc_16.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f75cf63d1a7e3b11",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "doc_13.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "mdoc_13.md",
+                "file": "doc_16.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "mdoc_13.md",
+                "file": "doc_16.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "mdoc_13.md"
+                "file": "doc_16.md"
               }
             }
           },
@@ -135,7 +147,9 @@
             "state": {
               "type": "all-properties",
               "state": {
-                "sortOrder": "frequency"
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
               }
             }
           }
@@ -158,26 +172,26 @@
   },
   "active": "c8059010fa31ff49",
   "lastOpenFiles": [
-    "mdoc_3.md",
-    "mdoc_0.md",
-    "mdoc_1.md",
-    "mdoc_2.md",
-    "mdoc_13.md",
-    "mdoc_9.md",
-    "mdoc_16.md",
+    "doc_13.md",
+    "doc_12.md",
+    "doc_1.md",
+    "doc_11.md",
+    "doc_10.md",
+    "doc_9.md",
+    "doc_8.md",
+    "doc_7.md",
+    "doc_6.md",
+    "doc_3.md",
+    "doc_2.md",
+    "doc_0.md",
+    "doc_15.md",
+    "doc_14.md",
+    "doc_16.md",
     "src/assets/images/article/jacques.jpg.md",
     "src/assets/images/article",
     "src/assets/images",
     "src/assets",
     "src",
-    "mdoc_14.md",
-    "mdoc_6.md",
-    "mdoc_7.md",
-    "mdoc_8.md",
-    "mdoc_10.md",
-    "mdoc_11.md",
-    "mdoc_12.md",
-    "mdoc_15.md",
     "DQA-notes.md",
     "images/image7.png",
     "Pasted image 20231201092218.png",
@@ -192,11 +206,11 @@
     "content.md",
     "images/image3.png",
     "Untitled 1.md",
-    "mdoc_5.md",
+    "doc_5.md",
     "Aspose.Words.df59ef89-7f47-4bae-a0c4-c9043b0219ea.006.png.md",
     "Aspose.Words.df59ef89-7f47-4bae-a0c4-c9043b0219ea.002.png.md",
-    "mdoc_4.md",
-    "mdoc_3 copy.md",
-    "mdoc_primitives.md"
+    "doc_4.md",
+    "doc_3 copy.md",
+    "doc_primitives.md"
   ]
 }

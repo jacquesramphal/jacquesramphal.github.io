@@ -1,37 +1,37 @@
 .container {
-  width: 100%;
-  width: -moz-available; /* WebKit-based browsers will ignore this. */
-  width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
-  width: stretch;
+  inline-size: 100%;
+  inline-size: -moz-available; /* WebKit-based browsers will ignore this. */
+  inline-size: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+  inline-size: stretch;
   position: relative;
   padding: var(--spacing-md) !important;
   display: grid;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
+  block-size: auto;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
   overflow: hidden;
 }
 
 .width {
   max-width: 86.4rem !important;
   float: none;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
 }
 .width1 {
   max-width: 98rem;
   float: none;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
 }
 .sticky{
   position: -webkit-sticky; /* Safari */
   position: sticky;
-  top: 0;
+  inset-block-start:  0;
 }
 /* .tight {
-  padding-bottom: 0 !important;
-  padding-top: 0 !important;
+  padding-block-end: 0 !important;
+  padding-block-start: 0 !important;
 } */
 .grid-parent {
   display: grid;
@@ -59,26 +59,27 @@
 } */
 @media only screen and (min-width: 1441px) {
   .fullvh {
-    height: 100vh;
+    block-size: 100vh;
+    align-content: center;
   }
 }
 .eightyvh {
-  height: 80vh;
+  block-size: 80vh;
 }
 .halfvh {
-  height: 50vh;
+  block-size: 50vh;
 }
 .top {
-  top: 0 !important;
+  inset-block-start:  0 !important;
   position: absolute;
 }
 .middle {
-  bottom: auto !important;
+  inset-block-end:  auto !important;
   position: relative;
-  top: auto !important;
+  inset-block-start:  auto !important;
 }
 .bottom {
-  bottom: 0 !important;
+  inset-block-end:  0 !important;
 }
 .justify-start {
   justify-self: start;
@@ -106,13 +107,13 @@
   grid-column: 1 / 4;
 }
 /* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
+@media only screen and (min-width: 768px) {
   .container {
     padding: var(--spacing-lg) !important;
   }
   .grid-parent {
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 0;
+    margin-block-start: 0;
     grid-gap: var(--spacing-md);
 
   }

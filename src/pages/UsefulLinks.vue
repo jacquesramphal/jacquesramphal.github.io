@@ -7,11 +7,11 @@
       subtitle=""
     /> -->
     <!-- TMP - should be a v-for list - see resume -->
-    <GridContainer style="border-bottom: var(--border)">
+    <GridContainer style="border-block-end: var(--border)">
       <div
         class=""
         style="
-          padding-bottom: var(--spacing-md);
+          padding-block-end: var(--spacing-md);
           align-items: center;
           grid-template-columns: repeat(2, 1fr);
         "
@@ -135,11 +135,11 @@
 
     <!-- New Section -->
 
-    <GridContainer style="border-bottom: var(--border)">
+    <GridContainer style="border-block-end: var(--border)">
       <div
         class=""
         style="
-          padding-bottom: var(--spacing-md);
+          padding-block-end: var(--spacing-md);
           align-items: center;
           grid-template-columns: repeat(2, 1fr);
         "
@@ -261,11 +261,11 @@
         </ul>
       </div>
     </GridContainer>
-    <GridContainer style="border-bottom: var(--border)">
+    <GridContainer style="border-block-end: var(--border)">
       <div
         class=""
         style="
-          padding-bottom: var(--spacing-md);
+          padding-block-end: var(--spacing-md);
           align-items: center;
           grid-template-columns: repeat(2, 1fr);
         "
@@ -401,8 +401,8 @@ export default {
 <style lang="sass" scoped>
 .grid-parent
   grid-gap: 0
-  // margin-bottom: var(--spacing-lg)
-  @media only screen and (min-width: 740px)
+  // margin-block-end: var(--spacing-lg)
+  @media only screen and (min-width: 768px)
     grid-gap: var(--spacing-lg)
 ul
   list-style: none
@@ -410,17 +410,17 @@ ul
   padding: 0
 
 li
-  width: 100%
+  inline-size: 100%
   font-size: 2em
-  line-height: 1.5
-  // font-weight: var(--font-medium)
+  line-height: var(--lineHeight-tall)
+  // font-weight: var(--fontWeight-medium)
   padding: var(--spacing-xs) 0
-  // border-bottom: var(--border)
+  // border-block-end: var(--border)
   float: left
   list-style-type: none
   text-decoration: none
   margin: 0
 
 li:last-child
-  padding-right: 0
+  padding-inline-end: 0
 </style>

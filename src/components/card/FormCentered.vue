@@ -11,7 +11,7 @@
     >
 
 
-      <TextBlock center eyebrow="" header="Contact Me" details="" />
+      <TextBlock center eyebrow="" description="Contact Me" details="" />
 
 
       <div id="form-row">
@@ -116,8 +116,8 @@ export default {
   color: inherit;
 }
 .container {
-  /*  padding-top: 4rem !important;
-  padding-bottom: 9.6rem !important; */
+  /*  padding-block-start: 4rem !important;
+  padding-block-end: 9.6rem !important; */
   background-color: inherit;
 }
 
@@ -143,7 +143,7 @@ export default {
 }
 
 /* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
+@media only screen and (min-width: 768px) {
   #textblock {
     grid-column: 1 / 3;
   }
@@ -153,7 +153,7 @@ export default {
     padding: 0 2.8em 2.8em 0;
   }
   h4 {
-    margin-top: -1rem;
+    margin-block-start: -1rem;
   }
 
   /* ------------ BREAKPOINT LG ------------ */

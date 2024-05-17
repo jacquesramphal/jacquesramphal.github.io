@@ -10,7 +10,7 @@
       <div
         class="grid-parent"
         style="
-          padding-bottom: var(--spacing-md);
+          padding-block-end: var(--spacing-md);
           align-items: center;
           grid-template-columns: repeat(3, 1fr);
           
@@ -18,12 +18,12 @@
       >
         <TextBlock
           style="grid-column: 1 / 3"
-          :header="header"
-          details=""
+          :title="title"
+          description=""
         />
         
-        <p class="external justify-end" style="align-self: center">
-          <router-link :to="{ name: 'Blog' }">View All</router-link>
+        <p class="justify-end" style="align-self: center">
+          <router-link :to="{ name: 'Library' }">View All</router-link>
         </p>
       </div>
       <!-- HEADER COMPONENT END -->
@@ -33,12 +33,13 @@
           borderless
           v-for="entry in docs.entries.slice(0, 3)"
           :key="entry.id"
-          :tag="entry.tag"
+          :eyebrow="entry.eyebrow"
           :filename="entry.thumbnail"
           :alt="entry.alt"
           :title="entry.title"
           :description="entry.description"
-          :route="entry.btnroute"
+          :btnroute="entry.btnroute"
+          :route="entry.route"
           :label="entry.label"
         />
       </GridParent>
@@ -49,23 +50,24 @@
     <!-- MOBILE VIEW START -->
     <span v-else
       ><GridContainer
-        style="padding-bottom: 0 !important; overflow: visible !important"
+        style="padding-block-end: 0 !important; overflow: visible !important"
       >
         <!-- HEADER COMPONENT START -->
         <div
           class="grid-parent"
           style="
-            padding-bottom: var(--spacing-md);
+            padding-block-end: var(--spacing-md);
             align-items: center;
             grid-template-columns: repeat(1fr);
           "
         >
           <TextBlock
             style="grid-column: 1 / 3"
-            :header="header"
+            :title="title"
+            description= ""
           />
-          <p class="external justify-start" style="align-self: flex-end">
-            <router-link :to="{ name: 'Blog' }">View All</router-link>
+          <p class="justify-start" style="grid-column: 3 / 3; align-self: flex-start">
+            <router-link :to="{ name: 'Library' }">View All</router-link>
           </p>
         </div>
         <!-- HEADER COMPONENT END -->
@@ -78,9 +80,9 @@
           :key="entry.id"
         >
           <DefaultCard
-            cover
+          borderless
             :image="entry.image"
-            :tag="entry.tag"
+            :eyebrow="entry.eyebrow"
             :filename="entry.thumbnail"
             :alt="entry.alt"
             :title="entry.title"
@@ -102,9 +104,9 @@ export default {
   name: "CardRow2",
   components: {},
   props: {
-    header: {
+    title: {
       type: String,
-      default: "Docs",
+      default: "Writing",
     },
   },
   data() {
@@ -164,17 +166,17 @@ export default {
   .cardmobile {
     margin: 0 0 var(--spacing-sm) var(--spacing-sm);
     display: inline-flex;
-    width: 25vw;
+    inline-size: 25vw;
   }
   /* ------------ BREAKPOINT MD ------------ */
   @media only screen and (max-width: 740px) {
     .cardmobile {
       margin: 0 0 var(--spacing-sm) var(--spacing-sm);
-      width: 85vw;
+      inline-size: 85vw;
     }
   }
   .cardmobile:last-child {
-    margin-right: var(--spacing-sm);
+    margin-inline-end: var(--spacing-sm);
   }
 }
 
@@ -182,7 +184,7 @@ export default {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .filters {
   text-align: left;
-  margin-bottom: 2rem;
+  margin-block-end: 2rem;
 }
 
 .filters * {
@@ -191,7 +193,7 @@ export default {
 
 .filters label {
   padding: 0.5rem 1rem;
-  margin-bottom: 0.25rem;
+  margin-block-end: 0.25rem;
   border-radius: 2rem;
   min-width: 50px;
   line-height: normal;

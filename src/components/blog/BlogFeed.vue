@@ -1,9 +1,9 @@
 <template>
-  <GridWrapper id="blog">
+  <GridWrapper id="Docs">
     <!-- <div class="showmobile scrolling-wrapper">
       <DefaultCard
         class="post card"
-        v-for="blogPost in contentful"
+        v-for="DocsPost in contentful"
         v-bind:key="blogPost.sys.id"
         :image="blogPost.image"
         :tag="blogPost.tag"
@@ -138,10 +138,10 @@ export default {
   .card {
     margin: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-sm);
     display: inline-block;
-    width: 85vw;
+    inline-size: 85vw;
   }
   .card:last-child{
-    margin-right: var(--spacing-sm);
+    margin-inline-end: var(--spacing-sm);
   }
 }
 </style>
@@ -162,39 +162,39 @@ export default {
   font-size: var(--font-xs)
   font-family: inherit
 .blog-post
-  // font-size: var(--font-xxs)
-  // margin-bottom: var(--spacing-md)
-  @media only screen and (min-width: 740px)
-    margin-bottom: var(--spacing-lg)
+  // font-size: var(--font-2xs)
+  // margin-block-end: var(--spacing-md)
+  @media only screen and (min-width: 768px)
+    margin-block-end: var(--spacing-lg)
 .blog-post-entry:first-child
-  padding-top: 0
+  padding-block-start: 0
 .blog-post-entry:last-child
-  @media only screen and (min-width: 740px)
-    padding-bottom: 0
-  @media only screen and (min-width: 740px)
+  @media only screen and (min-width: 768px)
+    padding-block-end: 0
+  @media only screen and (min-width: 768px)
 </style>
 
 <style lang="sass" scoped>
 #hero
-  border-bottom: none !important
+  border-block-end: none !important
 #work
-  // padding-top: var(--spacing-sm) !important
+  // padding-block-start: var(--spacing-sm) !important
 .container
   // background-color: var(--color-white)
-  padding-top: 0 !important
+  padding-block-start: 0 !important
 </style>
 
 <style scoped>
 input[type="radio"] {
   position: absolute;
-  left: -9999px;
+  inset-inline-start:  -9999px;
 }
 
 /* FILTERS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .filters {
   text-align: left;
-  margin-bottom: 2rem;
+  margin-block-end: 2rem;
 }
 
 .filters * {
@@ -203,7 +203,7 @@ input[type="radio"] {
 
 .filters label {
   padding: 0.5rem 1rem;
-  margin-bottom: 0.25rem;
+  margin-block-end: 0.25rem;
   border-radius: 2rem;
   min-width: 50px;
   line-height: normal;

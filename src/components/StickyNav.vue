@@ -141,8 +141,8 @@ export default {
 }
 
 .navbar {
-  right: 0;
-  bottom: 0;
+  inset-inline-end:  0;
+  inset-block-end:  0;
   max-width: none;
   mix-blend-mode: normal !important;
   overflow: visible;
@@ -150,35 +150,35 @@ export default {
   position: fixed;
   transform: translate3d(0, 0, 0) !important;
   transition: 0.4s all cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
-  width: 100%;
+  inline-size: 100%;
   z-index: 1000 !important;
 
-  @media only screen and (min-width: 740px) {
-    width: fit-content;
+  @media only screen and (min-width: 768px) {
+    inline-size: fit-content;
   }
 }
 /* Adds extra background colour to account for bouncing effect */
 .navbar::after {
   content: "";
   position: absolute;
-  top: 0;
-  bottom: -100%; /* Adjust the value to control the width of the additional background */
-  right: 0;
-  width: 100%; /* Adjust the value to control the width of the additional background */
+  inset-block-start:  0;
+  inset-block-end:  -100%; /* Adjust the value to control the width of the additional background */
+  inset-inline-end:  0;
+  inline-size: 100%; /* Adjust the value to control the width of the additional background */
   background-color: var(
     --background-reversed
   ); /* Specify the color of the additional background */
   z-index: -1; /* Set the z-index to be behind the navbar */
-  @media only screen and (min-width: 740px) {
-    right: -100%; /* Adjust the value to control the width of the additional background */
-    bottom: 0;
+  @media only screen and (min-width: 768px) {
+    inset-inline-end:  -100%; /* Adjust the value to control the width of the additional background */
+    inset-block-end:  0;
   }
 }
 
 .navbar.hidden-navbar {
   transform: translate3d(0, 150%, 0) !important;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     transform: translate3d(100%, 0, 0) !important;
   }
 }
@@ -191,7 +191,7 @@ export default {
   position: relative;
   padding: var(--spacing-xxs);
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     border-radius: 8px 0 0 0;
     justify-self: end;
   }
@@ -212,7 +212,7 @@ li {
   text-decoration: none;
 
   &:first-child {
-    padding-right: 0;
+    padding-inline-end: 0;
   }
 }
 
@@ -221,7 +221,7 @@ nav {
   align-items: center;
   display: grid;
   grid-template-columns: repeat(2, auto);
-  // height: 5.2rem;
+  // block-size: 5.2rem;
   justify-self: stretch;
   position: relative;
 }
@@ -236,11 +236,11 @@ p {
 }
 
 .wordmark::after {
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     content: "/";
     padding: var(--spacing-xxs);
     opacity: 0.5;
-    font-weight: var(--font-normal);
+    font-weight: var(--fontWeight-normal);
   }
 }
 </style>

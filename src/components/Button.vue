@@ -60,6 +60,7 @@ export default {
     label: {
       type: String,
       required: true,
+      default: "Button Label",
     },
     route: {
       type: String,
@@ -68,7 +69,7 @@ export default {
     type: {
       type: String,
       validator: function (value) {
-        return ["solid", "outline", "ghost"].indexOf(value) !== -1;
+        return ["solid", "outline", "ghost", "textlink"].indexOf(value) !== -1;
       },
     },
     size: {
@@ -114,9 +115,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+
+
 .button-icon {
-  margin-right: var(--spacing-xxs); // Adjust spacing between icon and label
-  line-height: 0;
+  margin-inline-end: var(--spacing-xxs); // Adjust spacing between icon and label
+  line-height: var(--lineHeight-none);
   // Add any other styling as needed for the icon
 }
 
@@ -129,7 +132,7 @@ export default {
   cursor: pointer;
   display: inline-block;
   font-size: inherit;
-  font-weight: var(--font-medium);
+  // font-weight: var(--fontWeight-medium);
   // padding: 0.5rem 1rem 0.5rem 1rem;
   text-decoration: none;
   transition: all 0.1s ease-in-out;
@@ -164,7 +167,7 @@ export default {
   background-color: transparent !important;
   color: var(--link) !important;
   border: 1px solid var(--link) !important;
-  font-weight: var(--font-normal);
+  font-weight: var(--fontWeight-normal);
 
   &:before,
   &:after {
@@ -184,7 +187,7 @@ export default {
   color: var(--link) !important;
   background-color: transparent;
   border: 1px solid transparent !important;
-  font-weight: var(--font-normal);
+  font-weight: var(--fontWeight-normal);
   &:before,
   &:after {
     color: inherit !important;
@@ -197,7 +200,7 @@ export default {
   //   border: dashed !important;
   // }
 }
-.reversed  .button--ghost{
+.reversed .button--ghost {
   color: var(--link-reversed) !important;
   &:hover {
     border: 1px solid var(--link-reversed) !important;
@@ -208,42 +211,44 @@ export default {
   }
   &:active {
     // border: dashed !important;
-  opacity: 0.5;     
-
+    opacity: 0.5;
   }
 }
 
-// .button--textlink {
-//   color: var(--link) !important;
-//   padding: 0 !important;
-//   background-color: transparent;
-//   border: 2px solid transparent !important;
-//   text-decoration: underline;
-//   text-underline-offset: 0.625rem;
-//   text-decoration-thickness: 0.1rem !important;
-//   &:before,
-//   &:after {
-//     color: inherit !important;
-//   }
-//   &:hover {
-//     text-decoration: underline;
-//     text-underline-offset: 0.625rem;
-//     text-decoration-thickness: 0.2rem !important;
-//   }
-//   &:active,
-//   .router-link-exact-active {
-//     text-decoration: underline dashed !important;
-//     text-underline-offset: 0.625rem;
-//     text-decoration-thickness: 0.1rem !important;
-//   }
-// }
+.button--textlink {
+  color: var(--text) !important;
+
+  padding: 0 !important;
+  color: var(--link);
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  text-underline-offset: 0.625rem;
+  text-decoration-thickness: 0.1rem !important;
+  &:before,
+  &:after {
+    color: inherit !important;
+  }
+  &:hover {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 0.625rem;
+    text-decoration-thickness: 0.2rem !important;
+  }
+  &:active,
+  .router-link-exact-active {
+    text-decoration: underline dashed !important;
+    text-underline-offset: 0.625rem;
+    text-decoration-thickness: 0.1rem !important;
+  }
+}
 
 .actve-class {
   text-decoration: underline dashed !important;
 }
 
 .button--small {
-  font-size: var(--font-xxs);
+  font-size: var(--font-2xs);
   // padding: var(--spacing-xxs);
   padding: 0.95rem 1.25rem 1rem 1.25rem;
 

@@ -1,113 +1,200 @@
 <template>
-  <PageWrapper id="library" class="">
-    <HeroBanner eyebrow="ramphal.design" title="Library" />
-
-    <GridContainer id="headings" class="grid-parent">
-      <div class="grid-card">
-        <h1>Heading 1</h1>
-        <h1>Heading 2</h1>
-        <h2>Heading 3</h2>
-        <h4>Heading 4</h4>
-        <h5>Heading 5</h5>
-        <h6>Heading 6</h6>
+  <PageWrapper>
+    <HeroBanner
+      id="hero"
+      title="Library"
+      subtitle="Writings, ramblings, professional and personal projects. A collection of my work and thoughts.
+"
+    />
+    <TextImage
+      :eyebrow="work.featEyebrow"
+      :title="work.featTitle"
+      :description="work.featDescription"
+      :btnroute="work.btnroute"
+      :label="work.label"
+      :filename="work.featImage"
+    />
+    <GridContainer>
+      <div
+        class="grid-parent"
+        style="
+          padding-block-end: var(--spacing-md);
+          align-items: center;
+          grid-template-columns: repeat(3, 1fr);
+        "
+      >
+        <TextBlock style="grid-column: 1 / 3" title="Projects" description="" />
       </div>
-      <div class="grid-card">
-        <p style="max-width: 560px">
-          Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-          enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-          ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum
-        </p>
-        <p>
-          Additional Inline Tags: <b>Bold</b>, <strong>Strong</strong>,
-          <i>Italics</i>, <em>Emphasis</em>
-        </p>
+      <!-- 
+      <input type="radio" id="All" name="categories" value="All" checked />
+      <input type="radio" id="Tag1" name="categories" value="Tag1" />
+      <input type="radio" id="Tag2" name="categories" value="Tag2" />
+      <input type="radio" id="Tag3" name="categories" value="Tag3" />
+      <input
+        type="radio"
+        id="Product-Design"
+        name="categories"
+        value="Product-Design"
+      />
+      <input type="radio" id="Tag5" name="categories" value="Tag5" />
+      <input type="radio" id="Tag6" name="categories" value="Tag6" />
+      <FilterBar
+        :categories="filterCategories"
+        :selectedCategory.sync="selectedCategory"
+        :groupName="groupName"
+      /> -->
+
+      <!-- <TextBlock
+        as="h2"
+        title="Design Work & Play"
+        description="A collection of resources and documentation to help you get started with your project."
+        style="margin-block: var(--spacing-lg)"
+      /> -->
+      <div
+        v-if="filteredEntries.length > 0"
+        id="recentwork"
+        class="posts grid-parent"
+      >
+        <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />
+        <ImageCard2
+          alt="Avatar"
+          class="hidemobile"
+          filename1="avatar/avatar.svg"
+          title="Avatar"
+        />
+        <ImageCard
+          alt="Avatar"
+          class="showmobile"
+          filename1="avatar/avatar.svg"
+          title="Avatar"
+        />
+        <ImageCard
+          v-for="entry in work.entries"
+          :key="entry.id"
+          class="post"
+          :data-category="entry.tag"
+          :eyebrow="entry.tag"
+          :title="entry.title"
+          :description="entry.description"
+          :cta="entry.cta"
+          :route="entry.route"
+          :btnroute="entry.btnroute"
+          :link="entry.link"
+          :filename1="entry.filename1"
+          :filename2="entry.filename2"
+          :filename3="entry.filename3"
+          :style="entry.bgcolor"
+          :size="entry.size"
+
+        />
+      </div>
+      <div v-else>
+        <!-- Not working -->
+        <p>No results found.</p>
       </div>
     </GridContainer>
-    <GridContainer id="buttons" class="grid-parent reversed">
-      <h4>Buttons</h4>
-      <div class="grid-parent">
-        <div id="" class="">
-          <MyButton text="This is Button Text" class="btn-toggle btn-primary" />
-        </div>
-        <div id="" class="">
-          <MyButton
-            text="This is Button Text"
-            class="btn-toggle btn-secondary"
-          />
-        </div>
-        <div id="" class="">
-          <MyButton text="This is Button Text" class="btn-toggle btn-outline" />
-        </div>
+
+    <GridContainer id="docs" class="animate delay-2">
+      <!-- <DynamicText
+        as="h3"
+        text="Library"
+        style="margin-block-end: var(--spacing-md);"
+      /> -->
+      <!-- <TextBlock
+        as="h2"
+        title="My Ramblings"
+        description=""
+        style="margin-block: var(--spacing-lg)"
+      /> -->
+      <div
+        class="grid-parent"
+        style="
+          padding-block-end: var(--spacing-md);
+          align-items: center;
+          grid-template-columns: repeat(3, 1fr);
+        "
+      >
+        <TextBlock style="grid-column: 1 / 3" title="Writing" description="" />
       </div>
+      <GridParent>
+        <DefaultCard
+          borderless
+          v-for="entry in docs.entries"
+          :alt="entry.alt"
+          :description="entry.description"
+          :filename="entry.thumbnail"
+          :key="entry.id"
+          :label="entry.label"
+          :route="entry.route"
+          :btnroute="entry.btnroute"
+          :eyebrow="entry.eyebrow"
+          :title="entry.title"
+        />
+      </GridParent>
     </GridContainer>
-
-    <Hero header="Reversed" class="reversed" />
-
-    <Hero header="Default" />
-
-    <HeroBg />
-    <HeroAnimated />
-
-    <TextGrid header="Reversed" class="reversed" />
-
-    <MyForm />
-    <FormCentered />
-    <SplitImage header="Default" />
-
-
   </PageWrapper>
 </template>
 
 <script>
-import PageWrapper from "@/components/grid/PageWrapper.vue";
-
-import HeroBanner from "@/components/HeroBanner.vue";
-import HeroBg from "@/components/HeroBg.vue";
-import HeroAnimated from "@/components/HeroAnimated.vue";
-import TextGrid from "@/components/card/TextGrid.vue";
-import SplitImage from "@/components/card/SplitImage.vue";
-import MyForm from "@/components/card/MyForm.vue";
-import FormCentered from "@/components/card/FormCentered.vue";
+import work from "@/assets/data/work.json";
+import docs from "../assets/data/docs.json";
+import info from "@/assets/data/info.json";
+// import FilterBar from "@/components/FilterBar.vue";
 
 export default {
   name: "MyLibrary",
   components: {
-    PageWrapper,    
-    HeroBanner,
-    HeroBg,
-    HeroAnimated,
-    TextGrid,
-    SplitImage,
-    MyForm,
-    FormCentered,
+    // FilterBar,
   },
-  mounted() {
-    let uiScript = document.createElement("script");
-    uiScript.setAttribute("src", "./scripts/ui.js");
-    document.head.appendChild(uiScript);
+  props: {},
+  data() {
+    return {
+      work,
+      docs,
+      info,
+      filterCategories: [
+        { value: "All", label: "All" },
+        { value: "Tag1", label: "Tag1" },
+        { value: "Tag2", label: "Tag2" },
+        { value: "Tag3", label: "Tag3" },
+        { value: "Product-Design", label: "Product-Design" },
+        { value: "Tag5", label: "Tag5" },
+        { value: "Tag6", label: "Tag6" },
+        // Add other categories here
+      ],
+      selectedCategory: "All",
+      groupName: "categories",
+    };
+  },
+  computed: {
+    filteredEntries() {
+      if (this.selectedCategory === "All") {
+        return this.work.entries;
+      } else {
+        const filtered = this.work.entries.filter((entry) =>
+          entry.tag.split(" ").includes(this.selectedCategory)
+        );
+        console.log("Filtered Entries:", filtered);
+        return filtered;
+      }
+    },
+  },
+  methods: {
+    isCategoryVisible(tag) {
+      return (
+        this.selectedCategory === "All" || tag.includes(this.selectedCategory)
+      );
+    },
   },
 };
 </script>
 
-<style scoped>
-* {
-  color: inherit;
-  mix-blend-mode: normal;
-}
-#buttons {
-  grid-template-columns: 1fr;
+<style lang="scss" scoped>
+#hero {
+  border-block-end: none !important;
 }
 
-/* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
-  #buttons {
-  }
-}
-/* ------------ BREAKPOINT LG ------------ */
-@media only screen and (min-width: 1201px) {
+.container {
+  padding-block-start: 0 !important;
 }
 </style>

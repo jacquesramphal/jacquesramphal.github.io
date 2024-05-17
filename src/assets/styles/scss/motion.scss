@@ -54,7 +54,8 @@
 /* Glow In animation */
 .animate.glow {
   animation-name: animate-glow;
-  animation-timing-function: ease-out;
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  animation-duration: 0.75s;
 }
 
 @keyframes animate-glow {
@@ -146,7 +147,9 @@
 }
 
 @keyframes animate-bounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
 
@@ -154,13 +157,16 @@
     transform: translateY(-20px);
   }
 }
+
 .animate.bounceDown {
   animation-name: animate-bounceDown;
   animation-timing-function: ease-out;
 }
 
 @keyframes animate-bounceDown {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(-20px);
   }
 
@@ -192,7 +198,9 @@
 }
 
 @keyframes animate-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
 

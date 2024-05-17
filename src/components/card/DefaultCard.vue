@@ -1,5 +1,5 @@
 <template :class="classes">
-  <div class="default-card" :class="classes" :data-category="`${tag}`">
+  <div class="default-card" :class="classes" :data-category="`${eyebrow}`">
     <div v-if="alt" class="image">
       <router-link :to="`${route}`">
         <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" />
@@ -14,25 +14,28 @@
 
     <div class="info">
       <TextBlock
-        v-if="cover"
         clamped
         class="textblock"
-        :eyebrow="`${tag}`"
-        :header4="`${title}`"
-        :details="`${description}`"
-        :btnroute="`${route}`"
-        :cta="`${label}`"
+        :eyebrow="eyebrow"
+        as="h4"
+        :title="title"
+        :description="description"
+        :label="label"
+        :route="route ? `${route}` : undefined"
+        :btnroute="btnroute ? `${btnroute}` : undefined"
       />
-      <TextBlock
+
+      <!-- <TextBlock
         v-else
         clamped
         class="textblock"
-        :eyebrow="`${tag}`"
-        :header4="`${title}`"
-        :details="`${description}`"
-        :btnroute="`${route}`"
-        :cta="`${label}`"
-      />
+        :eyebrow="tag"
+        :header4="title"
+        :description="description"
+        :btnroute="route"
+        :route="route"
+        :cta="label"
+      /> -->
     </div>
     <!-- <MyButton style="" secondary :label="`${label}`" size="large" :route="`${route}`" /> -->
   </div>
@@ -67,21 +70,23 @@ export default {
       type: String,
     },
     description: {
-      default:
-        "This is a short description taken from the article. Maybe a little longer ...",
+      default: "",
+      required: false,
       type: String,
     },
-    tag: {
+
+    route: {
       default: "",
       type: String,
+      required: false,
     },
-    route: {
+    btnroute: {
+      default: "",
       type: String,
+      required: false,
     },
     label: {
-      default: "Read More",
       type: String,
-      required: true,
     },
     cover: {
       type: Boolean,
@@ -149,8 +154,8 @@ export default {
 }
 
 img {
-  width: 100%;
-  height: 101% !important;
+  inline-size: 100%;
+  block-size: 101% !important;
   object-fit: cover !important;
   max-width: 100%;
   border-radius: 0 !important;
@@ -168,7 +173,7 @@ img {
   border-radius: 0 !important;
   box-shadow: none !important;
   border: none;
-  padding-bottom: var(--spacing-md);
+  padding: var(--spacing-md) 0;
   display: grid !important;
   .image {
     overflow: hidden !important;
@@ -180,11 +185,10 @@ img {
     padding: var(--spacing-xs) 0 0 0 !important;
   }
   @media only screen and (min-width: 1201px) {
-    border-bottom: 1px solid var(--color-xlight) !important;
-    
+    border-block-end: 1px solid var(--color-xlight) !important;
   }
   // &:last-child {
-  //   border-bottom: none !important;
+  //   border-block-end: none !important;
   // }
   @media only screen and (min-width: 1201px) {
     flex-direction: row-reverse !important;
@@ -194,7 +198,7 @@ img {
       // aspect-ratio: 16/9 !important;
       // flex: 3;
       grid-column: 3 / 4 !important;
-      height: 100% !important;
+      block-size: 100% !important;
     }
     .info {
       // flex: 6;
@@ -211,13 +215,12 @@ img {
   box-shadow: none !important;
   @media only screen and (min-width: 1201px) {
     .info {
-    padding: var(--spacing-xs) 0 0 0 !important;
-  }
+      padding: var(--spacing-xs) 0 0 0 !important;
+    }
   }
   .info {
-    padding: var(--spacing-xs) 0 !important;
+    padding: var(--spacing-sm) 0 !important;
   }
-  
 
   .image {
     border-radius: var(--spacing-xxs) !important;
@@ -230,7 +233,7 @@ img {
   }
   aspect-ratio: 3/4;
 
-  // @media only screen and (min-width: 740px) {
+  // @media only screen and (min-width: 768px) {
   //   aspect-ratio: auto;
   // }
   .info {
@@ -250,8 +253,8 @@ img {
   }
   .image {
     overflow: hidden;
-    height: 100%;
-    width: 100%;
+    block-size: 100%;
+    inline-size: 100%;
     border-radius: 0 !important;
     position: absolute;
   }

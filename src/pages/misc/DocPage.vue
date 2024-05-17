@@ -27,8 +27,8 @@
               <TextBlock
                 left
                 eyebrow=""
-                :header="section.title"
-                :details="section.body"
+                :title="section.title"
+                :description="section.body"
                 :blockquote="section.blockquote"
               />
             </GridWrapper>
@@ -37,7 +37,7 @@
             class="fadeInUp"
             v-if="section.images.filename"
             id=""
-            style="padding-top: 0 !important"
+            style="padding-block-start: 0 !important"
           >
             <ImageCard
               size="large"
@@ -74,7 +74,7 @@ import GridContainer from "../components/grid/GridContainer.vue";
 import GridWrapper from "../components/grid/GridWrapper.vue";
 import TextBlock from "../components/TextBlock.vue";
 import AnimatedComponent from "../components/AnimatedComponent.vue";
-import ImageCard from "../components/ImageCard.vue";
+import ImageCard from "../components/card/ImageCard.vue";
 import CardRow2 from "../components/CardRow2.vue";
 // import ButtonRow from "../components/ButtonRow.vue";
 
@@ -118,6 +118,6 @@ export default {
 
 <style lang="scss" scoped>
 .section {
-  padding-bottom: var(--spacing-lg);
+  padding-block-end: var(--spacing-lg);
 }
 </style>

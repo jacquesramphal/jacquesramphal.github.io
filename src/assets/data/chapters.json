@@ -7,28 +7,28 @@
       "tag": "00",
       "title": "Introduction",
       "description": "Introduction to the course",
-      "route": "/mdoc/1",
+      "route": "/doc/1",
       "read": false
     },
     {
       "id": 2,
       "tag": "01",
       "title": "Quality Assurance Activities Overview",
-      "route": "/mdoc/2",
+      "route": "/doc/2",
       "read": false
     },
     {
       "id": 3,
       "tag": "02",
       "title": "Accelerator Tools for Streamlining DQA",
-      "route": "/mdoc/3",
+      "route": "/doc/3",
       "read": false
     },
     {
       "id": 4,
       "tag": "03",
       "title": "Usability and User Experience Testing",
-      "route": "/mdoc/4",
+      "route": "/doc/4",
       "read": false
     }
   ]

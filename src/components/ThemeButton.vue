@@ -12,8 +12,8 @@
 
     style="
         position: absolute;
-        right: var(--spacing-sm);
-        top: var(--spacing-sm);
+        inset-inline-end:  var(--spacing-sm);
+        inset-block-start:  var(--spacing-sm);
         cursor: pointer;
         z-index: 1000;
       " /> -->
@@ -25,8 +25,8 @@
     size="small"
     style="
       position: absolute;
-      right: var(--spacing-xxs);
-      top: var(--spacing-xxs);
+      inset-inline-end:  var(--spacing-xxs);
+      inset-block-start:  var(--spacing-xxs);
       z-index: 1000;
     "
   />
@@ -119,20 +119,20 @@ export default {
   color: var(--link) !important
   display: flex
   position: absolute
-  right: 0
-  top: 0
+  inset-inline-end:  0
+  inset-block-start:  0
   padding: var(--spacing-xs) var(--spacing-xs)
   justify-items: center
   align-items: center
   z-index: 1000
   text-align: center
   // box-shadow: var(--shadow-deep)
-  // height: var(--font-sm)
+  // block-size: var(--font-sm)
   // border: calc(var(--element-size) * 0.025) solid var(--accent-color)
   // border-radius: var(--spacing-xxs)
   // padding: var(--spacing-sm) var(--spacing-xs)
   // transition: all 0.5s ease
-  // @media only screen and (min-width: 740px)
+  // @media only screen and (min-width: 768px)
   //   padding: var(--spacing-lg)
   // @media only screen and (min-width: 1201px)
   //   padding: var(--spacing-lg)
@@ -143,7 +143,7 @@ export default {
   align-items: center
   text-align: center
   // font-size: var(--font-xs)
-  // font-weight: var(--font-normal)
+  // font-weight: var(--fontWeight-normal)
 
 // .switch-label:hover
 //   box-shadow: var(--shadow-hover)
@@ -183,7 +183,7 @@ export default {
 // TEXT SWITCH
 .switch-toggle::before
   content: "Light"
-  // padding-left: 1rem
+  // padding-inline-start: 1rem
 
 .switch-toggle-checked::before
   content: "Dark"
@@ -196,13 +196,13 @@ export default {
 //   background-color: transparent
 //   border: var(--border)
 //   border-width: 2px !important
-//   margin-top: -2px
+//   margin-block-start: -2px
 //   opacity: 0.5
 //   border-radius: 8px
-//   top: 0
-//   left: 0
-//   height: 100%
-//   width: 50%
+//   inset-block-start:  0
+//   inset-inline-start:  0
+//   block-size: 100%
+//   inline-size: 50%
 //   transform: translateX(0)
 //   transition: transform 0.3s ease, background-color 0.5s ease
 

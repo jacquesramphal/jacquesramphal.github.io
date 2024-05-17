@@ -1,9 +1,12 @@
 <template>
-  <GridContainer
-    maxvw
-    class="markdown"
-    v-html="renderedMarkdown"
-  ></GridContainer>
+  <!-- <GridWrapper id="doc" class=""> -->
+    <!-- <HeroBanner :title="pageData.title" /> -->
+    <GridContainer
+      maxvw
+      class="markdown"
+      v-html="renderedMarkdown"
+    ></GridContainer>
+  <!-- </GridWrapper> -->
 </template>
 
 <script>
@@ -78,9 +81,9 @@ export default {
 .markdown {
   margin: var(--spacing-xl) 0;
   h1 {
-    padding-bottom: 2.4rem;
+    padding-block-end: 2.4rem;
     @media only screen and (min-width: 740px) {
-      padding-bottom: 3.6rem;
+      padding-block-end: 3.6rem;
     }
   }
   h2,
@@ -94,22 +97,22 @@ export default {
     }
   }
   p {
-    padding-bottom: 1.6rem;
+    padding-block-end: 1.6rem;
     @media only screen and (min-width: 740px) {
-      padding-bottom: 2.4rem;
+      padding-block-end: 2.4rem;
     }
   }
   blockquote {
-    margin-top: 0;
+    margin-block-start: 0;
     p {
-      padding-bottom: 0;
+      padding-block-end: 0;
     }
   }
   ul,
   ol {
-    padding-bottom: 1.6rem;
+    padding-block-end: 1.6rem;
     @media only screen and (min-width: 740px) {
-      padding-bottom: 2.4rem;
+      padding-block-end: 2.4rem;
     }
   }
 
@@ -118,8 +121,8 @@ export default {
     font-size: var(--font-xs);
     line-height: 1.8;
     font-variation-settings: "wdth" 102, "opsz" 19;
-    margin-left: 4rem;
-    padding-bottom: 0.8rem;
+    margin-inline-start: 4rem;
+    padding-block-end: 0.8rem;
     list-style-position: outside;
   }
   ul > li {
@@ -127,8 +130,8 @@ export default {
     font-size: var(--font-xs);
     line-height: 1.8;
     font-variation-settings: "wdth" 102, "opsz" 19;
-    margin-left: 4rem;
-    padding-bottom: 0.8rem;
+    margin-inline-start: 4rem;
+    padding-block-end: 0.8rem;
   }
   hr {
     margin: 2.4rem 0 1.6rem;
@@ -140,32 +143,33 @@ export default {
     margin: 4rem 0 1rem 0;
     // max-width: 98rem !important;
     // float: none;
-    // margin-left: auto;
-    // margin-right: auto;
+    // margin-inline-start: auto;
+    // margin-inline-end: auto;
   }
 
   /* SCSS for Code Block Styling */
 
   pre {
     /* Set background color and padding for code block */
-    background-color: var(--background-darker);
+    background-color: var(--background-reversed);
     padding: var(--spacing-sm);
     border-radius: var(--spacing-xxxs);
     overflow-x: auto;
-    margin-bottom: var(--spacing-sm);
+    margin-block-end: var(--spacing-sm);
+    color: var(--text-reversed);
   }
 
   code {
     /* Set font family and size for inline code */
     font-family: monospace;
-    font-size: var(--font-xxs);
+    font-size: var(--font-xs);
   }
 
   /* Set styles for different code languages */
   code[class*="language-"] {
     /* Set font family and size for code blocks */
     font-family: monospace;
-    font-size: var(--font-xxs);
+    font-size: var(--font-xs);
   }
 
   /* Custom syntax highlighting styles for specific languages */
@@ -197,7 +201,7 @@ export default {
   code[class*="language-"].line-numbers::before {
     content: counter(linenumber);
     position: absolute;
-    left: -2.5em;
+    inset-inline-start: -2.5em;
     text-align: right;
     user-select: none;
     pointer-events: none;
@@ -266,18 +270,18 @@ code.language-javascript .hljs-function {
 /* -------- TABLES -------- */
 /* Basic Container Styles */
 table {
-  width: 100%;
+  inline-size: 100%;
   border-collapse: collapse;
-  margin-bottom: 3rem; /* Adjust the spacing between tables */
-  font-size: var(--font-xxs);
+  margin-block-end: 3rem; /* Adjust the spacing between tables */
+  font-size: var(--font-xs);
   line-height: 1.5;
-font-weight: var(--font-normal);
+  font-weight: var(--font-normal);
   border: var(--border); /* Add a border to all table rows */
   @media only screen and (max-width: 740px) {
     display: block; /* Display as a block element to allow for horizontal scrolling */
     overflow-x: scroll; /* Enable horizontal scrolling */
     white-space: nowrap; /* Prevent table cells from wrapping */
-    width: 100%; /* Ensure the table spans the full width of the viewport */
+    inline-size: 100%; /* Ensure the table spans the full width of the viewport */
   }
 }
 
@@ -297,27 +301,26 @@ td {
   padding: var(--spacing-xs);
   text-align: left;
   vertical-align: text-top;
-
 }
 
 /* Horizontal Borders */
 th,
 tr {
-  border-bottom: var(--border); /* Add a border to all table rows */
+  border-block-end: var(--border); /* Add a border to all table rows */
 }
 /* RM border on last row */
 tr:last-of-type {
-  border-bottom: none !important;
+  border-block-end: none !important;
 }
 
 /* Vertical Borders */
 th,
 td {
-  border-right: var(--border); /* Add a border to all table rows */
+  border-inline-end: var(--border); /* Add a border to all table rows */
 }
 th:last-of-type,
 td:last-of-type {
-  border-right: none; /* Add a border to all table rows */
+  border-inline-end: none; /* Add a border to all table rows */
 }
 
 /* Accordians */
@@ -325,11 +328,11 @@ td:last-of-type {
 summary {
   // display: block;
   cursor: pointer;
-  padding-bottom: 1rem;
+  padding-block-end: 1rem;
   font-size: var(--font-xs);
   // border: var(--border);
   // border-radius: var(--spacing-xxxs);
-  // margin-bottom: var(--spacing-xs);
+  // margin-block-end: var(--spacing-xs);
   // background-color: var(--background-darker);
   // color: var(--text-subtle);
   // list-style: none;
@@ -363,8 +366,8 @@ summary {
 //   /* Hide table headers (but not display: none;, for accessibility) */
 //   thead tr {
 //     position: absolute;
-//     top: -9999px;
-//     left: -9999px;
+//     inset-block-start:  -9999px;
+//     inset-inline-start:  -9999px;
 //   }
 
 //   tr {
@@ -374,18 +377,18 @@ summary {
 //   td {
 //     /* Behave like a "row" */
 //     border: none;
-//     border-bottom: var(--border); /* Border color for table cells */
+//     border-block-end: var(--border); /* Border color for table cells */
 //     position: relative;
-//     padding-left: 50%;
+//     padding-inline-start: 50%;
 //   }
 
 //   td:before {
 //     /* Now like a table header */
 //     position: absolute;
 //     /* Top/left values mimic padding */
-//     top: 0;
-//     left: 0;
-//     width: 45%;
+//     inset-block-start:  0;
+//     inset-inline-start:  0;
+//     inline-size: 45%;
 //     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
 //     white-space: nowrap;
 //   }

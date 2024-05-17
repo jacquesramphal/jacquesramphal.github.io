@@ -5,7 +5,7 @@
       "title": "Ths Shifting Landscape of Design",
       "tag": "Design AI Tools",
       "description": "In the rapidly evolving landscape of design, we find ourselves at the precipice of a profound transformation. This shift prompts us to reevaluate the essence of our role, transitioning from mere designers to advocates for both users and the integrity of the design process.",
-      "btnroute": "mdoc/13",
+      "btnroute": "doc/13",
       "cta": "Read More",
       "thumbnail": "article/jacques.jpg",
       "alt": "Image Alt"
@@ -15,9 +15,9 @@
       "title": "The Importance of Baselines",
       "tag": "Tag1 Tag2 typography",
       "description": "Baselines provide a stable and known starting point for comparison during software development and testing. By comparing changes or new versions against the baseline, discrepancies, bugs, or regressions can be easily identified, ensuring software quality and reliability throughout its development life cycle.",
-      "btnroute": "mdoc/10",
+      "btnroute": "doc/10",
       "cta": "Read More",
-      "thumbnail": "article/baseline.png",
+      "thumbnail": "article/cover3.png",
       "alt": "Design components"
     },
     {
@@ -32,7 +32,7 @@
       "bgcolor": "background-color: var(--background-darker)",
       "role": "Designer/Developer",
       "type": "Work Type",
-      "year": "XXXX-XXXX",
+      "status": "In Development",
       "images": {
         "filename1": "work/dod.svg",
         "alt1": "This is Alt1",
@@ -80,7 +80,7 @@
       "bgcolor": "background-color: var(--background-darker)",
       "role": "Designer/Developer",
       "type": "Work Type",
-      "year": "XXXX-XXXX",
+      "status": "In Development",
       "images": {
         "filename1": "work/glo.svg",
         "alt1": "This is Alt1",
@@ -148,7 +148,7 @@
       "bgcolor": "background-color: var(--background-darker)",
       "role": "Designer/Developer",
       "type": "Work Type",
-      "year": "XXXX-XXXX",
+      "status": "In Development",
       "images": {
         "filename1": "work/dod.svg",
         "alt1": "This is Alt1",

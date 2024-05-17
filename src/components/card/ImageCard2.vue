@@ -21,18 +21,18 @@ export default {
 <style scoped>
 #avatar {
   cursor: help;
-  height: 100%;
-  width: 100%;
+  block-size: 100%;
+  inline-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../assets/images/avatar/avatar.svg");
+  background-image: url("../../assets/images/avatar/avatar.svg");
   filter: var(--filter);
 }
 span:hover > #avatar {
-  background-image: url("../assets/images/avatar/avatar-h.svg");
+  background-image: url("../../assets/images/avatar/avatar-h.svg");
 }
 span:active > #avatar {
-  background-image: url("../assets/images/avatar/avatar-a.svg");
+  background-image: url("../../assets/images/avatar/avatar-a.svg");
 }
 </style>

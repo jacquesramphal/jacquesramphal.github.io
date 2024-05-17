@@ -44,6 +44,6 @@ export default {
 *
   color: inherit
 #textheader
-  @media only screen and (min-width: 740px)
+  @media only screen and (min-width: 768px)
   @media only screen and (min-width: 1201px)
 </style>

@@ -1,11 +1,11 @@
 <template>
-  <PageWrapper id="blog">
+  <PageWrapper id="Docs">
     <GridWrapper id="posts" class="">
       <!-- TMP BREADCRUMB -->
 
       <GridContainer id="section1">
         <p>
-          <router-link :to="{ name: 'Blog' }">Blog</router-link>
+          <router-link :to="{ name: 'Library' }">Blog</router-link>
           <span class="subtle" style="margin: 0 1rem">/</span>Post
         </p>
       </GridContainer>
@@ -62,8 +62,8 @@
               <TextBlock
                 left
                 eyebrow=""
-                header="Section 1"
-                details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                title="Section 1"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -77,8 +77,8 @@
               <TextBlock
                 left
                 eyebrow=""
-                header=""
-                details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                title=""
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat."
@@ -87,7 +87,7 @@
           </GridContainer>
         </AnimatedComponent>
         <AnimatedComponent>
-          <SplitImage
+          <TextImage
             flipped
             class=""
             style="background: var(--background-darker)"
@@ -105,8 +105,8 @@
             <TextBlock
               left
               eyebrow=""
-              header="Section 2"
-              details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              title="Section 2"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -141,8 +141,8 @@
               <TextBlock
                 left
                 eyebrow=""
-                header="Section 3"
-                details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                title="Section 3"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -157,7 +157,7 @@
           </AnimatedComponent>
         </GridWrapper>
         <AnimatedComponent>
-          <SplitImage class="" style="background: var(--background-darker)" />
+          <TextImage class="" style="background: var(--background-darker)" />
         </AnimatedComponent>
       </GridWrapper>
     </GridWrapper>
@@ -167,19 +167,19 @@
       eyebrow="Blog / Blog Post"
       subtitle="Post Description"
     /> -->
-    <CardRow header="Related" />
+    <CardRow title="Related" />
   </PageWrapper>
 </template>
 
 <script>
 import CardRow from "@/components/CardRow.vue";
-import SplitImage from "@/components/card/SplitImage.vue";
+import TextImage from "@/components/card/TextImage.vue";
 
 export default {
   name: "BlogPost",
   components: {
     CardRow,
-    SplitImage,
+    TextImage,
   },
   props: {
     title: {
@@ -221,7 +221,7 @@ export default {
       const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
       const fetchOptions = {
         method: "POST",
-        headers: {
+        titles: {
           Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
           "Content-Type": "application/json",
         },
@@ -246,10 +246,10 @@ export default {
 }
 
 blog-card {
-  margin-bottom: var(--spacing-md) !important;
+  margin-block-end: var(--spacing-md) !important;
 }
 h3 {
-  margin-bottom: var(--spacing-md) !important;
+  margin-block-end: var(--spacing-md) !important;
 }
 #posts {
   justify-self: center;
@@ -258,7 +258,7 @@ h3 {
 }
 
 /* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 740px) {
+@media only screen and (min-width: 768px) {
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
     .container {

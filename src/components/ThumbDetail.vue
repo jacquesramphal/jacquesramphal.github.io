@@ -3,8 +3,8 @@
     <GridContainer class="text-container">
       <GridWrapper class="text">
         <TextBlock
-          :details="`${details}`"
-          :header3="`${title}`"
+          :description="`${description}`"
+          :title="`${title}`"
           :link="`${link}`"
           :route="`${route}`"
           class="textblock"
@@ -42,7 +42,7 @@ export default {
       type: String,
       default: "Default Title",
     },
-    details: {
+    description: {
       type: String,
       default:
         "Lorem ipsum doler optima sit amet doler optima sit amet doler optima sit amet optima sit amet amet doler optima sit amet optima sit amet ",
@@ -84,7 +84,7 @@ export default {
 img {
   mix-blend-mode: normal;
   aspect-ratio: 1 / 1;
-  height: 101%;
+  block-size: 101%;
   object-fit: cover;
 }
 
@@ -95,7 +95,7 @@ img {
   grid-template-rows: 2, 1fr;
   text-decoration: none !important;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-gap: var(--spacing-md);
     grid-column: 1 / 3;
     grid-template-columns: repeat(2, 1fr);
@@ -110,7 +110,7 @@ img {
 .text-container {
   padding: var(--spacing-md) var(--spacing-md) 0 var(--spacing-md) !important;
 
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     padding: var(--spacing-sm) 0 var(--spacing-md) var(--spacing-md) !important;
   }
 
@@ -130,11 +130,11 @@ img {
 }
 
 .title {
-  margin-bottom: 1.6rem;
+  margin-block-end: 1.6rem;
 }
 
 .text {
-  @media only screen and (min-width: 740px) {
+  @media only screen and (min-width: 768px) {
     grid-column: 1 / 2;
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <PageWrapper>
-    <HeroBanner title="Docs & Resources" eyebrow="" />
+    <HeroBanner title="Library" eyebrow="" />
     <GridContainer
       style="background-color: var(--background-darker)"
       tight
@@ -95,7 +95,7 @@ export default {
             size
             url
             width
-            height
+            block-size
           }
          }
        }
