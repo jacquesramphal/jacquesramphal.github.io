@@ -53,7 +53,7 @@ const routes = [
   },
   {
     path: "/",
-    name: "Jacques Ramphal",
+    name: "Jake Ramphal",
     component: HomePage,
     children: [],
     meta: {

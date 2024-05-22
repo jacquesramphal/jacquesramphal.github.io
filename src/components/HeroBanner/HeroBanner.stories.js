@@ -1,4 +1,4 @@
-import HeroBanner from "../components/HeroBanner.vue";
+import HeroBanner from "./HeroBanner.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {

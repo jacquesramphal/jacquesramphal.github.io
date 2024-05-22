@@ -2,7 +2,7 @@
 
 AI, Design Futures, Automation, Cross-skilling
 
----
+![Image](../images/article/cover1.png)
 
 The design industry is in a state of flux. The landscape is shifting, and the role of the designer is evolving. The days of the designer as a pixel pusher are long gone. The designer of today is a strategic thinker, a problem solver, and a storyteller. The designer of today is a leader, a collaborator, and a change agent. The designer of today is a business person, a technologist, and a futurist.
 

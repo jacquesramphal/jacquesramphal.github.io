@@ -11,7 +11,7 @@
       "description": "The design industry is in a state of flux. The landscape is shifting, and the role of the designer is evolving. The days of the designer as a pixel pusher are long gone. The designer of today is a strategic thinker, a problem solver, and a storyteller. The designer of today is a leader, a collaborator, and a change agent. The designer of today is a business person, a technologist, and a futurist.",
       "eyebrow": "Design AI Tools",
       "route": "/doc/13",
-      "thumbnail": "article/cover4.png",
+      "thumbnail": "article/cover1.png",
       "alt": "Image Alt"
     },
     {
@@ -34,11 +34,11 @@
     },
     {
       "id": 4,
-      "title": "Embracing Design QA at our company",
+      "title": "Embracing Design QA",
       "eyebrow": "Tag1 Tag2 DesignQA",
       "description": "In our pursuit of perfection, we've introduced Design Quality Assurance (DQA) at our company. This isn't just a change in terminology—it's a fundamental shift in how we approach the bridge between design and development. So, why the new focus? DQA is about more than catching bugs; it's about ensuring our designs not only look good but function beautifully right from the start.",
       "route": "/doc/17",
-      "thumbnail": "article/cover1.png",
+      "thumbnail": "article/cover4.png",
       "alt": "Design components"
     },
     {

@@ -8,7 +8,7 @@
       <nav class="">
         <li class="wordmark">
           <MyButton
-            label="Jacques Ramphal"
+            label="Jake Ramphal"
             route="/"
             type="ghost"
             v-show="isDesktopScreen && !menuOpen"
@@ -44,7 +44,7 @@
 
 <script>
 import GridContainer from "./grid/GridContainer.vue";
-import MyButton from "./Button.vue";
+import MyButton from "./Button/Button.vue";
 
 const OFFSET = 60;
 export default {
@@ -56,7 +56,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Jacques Ramphal",
+      default: "Jake Ramphal",
     },
   },
   data() {

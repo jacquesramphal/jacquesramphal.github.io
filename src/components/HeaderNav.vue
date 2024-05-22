@@ -9,12 +9,13 @@
             flex-direction: row;
             gap: var(--spacing-xs);
             align-items: center;
+            text-decoration: none !important;
           "
         >
           <!-- <TextLink
             class="wordmark"
             style="text-decoration: none"
-            label="Jacques Ramphal"
+            label="Jake Ramphal"
             route="/"
             v-show="isDesktopScreen && !menuOpen"
           /> -->
@@ -22,7 +23,7 @@
           <!-- <TextLink
             class="wordmark"
             style="text-decoration: none"
-            label="Jacques Ramphal"
+            label="Jake Ramphal"
             route="/"
             :unicode="$route.path !== '/' ? '←' : false"
             :isSvg="false"
@@ -32,7 +33,7 @@
 
           <TextLink
             v-if="$route.path !== '/'"
-            label="Jacques Ramphal"
+            label="Jake Ramphal"
             route="/"
             v-show="isDesktopScreen && !menuOpen"
           />
@@ -63,7 +64,6 @@
             text="/"
             style="line-height: inherit"
           />
-
           <TextLink
             class="wordmark"
             style="text-decoration: none"
@@ -120,8 +120,6 @@
 </template>
 
 <script>
-// import ThemeButton from "./ThemeButton.vue";
-
 import GridContainer from "./grid/GridContainer.vue";
 
 const OFFSET = 60;
@@ -244,8 +242,6 @@ export default {
 </script>
 <style lang="scss">
 .nav-link > a {
-  // border-radius: 4px;
-
   &:hover {
     background: var(--background-darker-reversed);
     transition: all 0.25s ease;
@@ -289,12 +285,8 @@ button {
   transition: 0.4s transform cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
   inline-size: 100vw !important;
   z-index: 100000 !important;
-  // opacity: 0.95;
-
-  // background-color: red;
   @media only screen and (min-width: 768px) {
     inset-block-end: auto;
-
     inset-block-start: 0;
   }
 }
@@ -306,26 +298,22 @@ button {
   inset-block-end: -100%; /* Adjust the value to control the width of the additional background */
   inset-inline-end: 0;
   inline-size: 100%; /* Adjust the value to control the width of the additional background */
-  background: var(
-    --background
-  ); /* Specify the color of the additional background */
+  background: var(--background);
+  /* Specify the color of the additional background */
   opacity: 0.95;
   z-index: -1; /* Set the z-index to be behind the navbar */
-
   @media only screen and (min-width: 768px) {
+    background: transparent;
     inset-block-end: 0;
     inset-block-start: -100%;
   }
 }
-
 .navbar.hidden-navbar {
   transform: translate3d(0, 150%, 0) !important;
-
   @media only screen and (min-width: 768px) {
     transform: translate3d(0, -150%, 0) !important;
   }
 }
-
 .bg {
   transition: 0.5s box-shadow ease-in-out !important;
   justify-self: flex-end;
@@ -335,16 +323,15 @@ button {
   padding-inline-end: var(--spacing-sm) !important;
   inline-size: 100%;
   border-block-start: var(--border);
-
   @media only screen and (min-width: 768px) {
     padding-block: var(--spacing-xs) var(--spacing-sm) !important;
-    padding-inline-end: var(--spacing-md) !important;
+    padding-inline: var(--spacing-md) !important;
+    // padding-inline-end: var(--spacing-md) !important;
     // border-block-end: var(--border);
     border-block-start: none;
     justify-self: end;
   }
 }
-
 ul {
   list-style: none;
   margin: 0;
@@ -353,12 +340,10 @@ ul {
   align-items: center;
   justify-self: flex-end;
   gap: var(--spacing-sm);
-
   @media only screen and (min-width: 768px) {
     gap: var(--spacing-md);
   }
 }
-
 li {
   list-style: none;
   float: left;
@@ -366,12 +351,10 @@ li {
   line-height: 1;
   margin: 0;
   text-decoration: none;
-
   &:first-child {
     padding-inline-end: 0;
   }
 }
-
 nav {
   overflow: visible;
   align-items: center;
@@ -388,11 +371,9 @@ nav {
   // background: var(--background);
   text-decoration: underline dashed !important;
 }
-
 p {
   margin: 0;
 }
-
 // .wordmark::after {
 //   @media only screen and (min-width: 768px) {
 //     content: "/";

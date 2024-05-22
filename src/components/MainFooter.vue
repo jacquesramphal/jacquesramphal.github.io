@@ -154,8 +154,8 @@
             </GridParent>
           </GridParent>
           <p class="footer" style="font-size: var(--font-2xs)">
-            All rights reserved © Jacques Ramphal 2024
-            <!-- © 2023 Jacques Ramphal — Built with
+            All rights reserved © Jake Ramphal 2024
+            <!-- © 2023 Jake Ramphal — Built with
             <a target="blank" href="https://v3.vuejs.org/">Vue3</a>.
         
             Deployed on
@@ -165,7 +165,7 @@
       </GridContainer>
       <!-- <GridContainer>
           <p style="font-size: var(--font-2xs)">
-            All rights reserved © Jacques Ramphal 2024
+            All rights reserved © Jake Ramphal 2024
             
           </p>
       </GridContainer> -->
@@ -198,12 +198,12 @@
 <script>
 import GridContainer from "./grid/GridContainer.vue";
 import GridWrapper from "./grid/GridWrapper.vue";
-import TextBlock from "./TextBlock.vue";
+import TextBlock from "./text/TextBlock/TextBlock.vue";
 import AnimatedComponent from "./AnimatedComponent.vue";
 import TextLink from "./text/TextLink.vue";
 import GridParent from "./grid/GridParent.vue";
 // import TextArea from "@/components/form/TextArea.vue";
-// import MyButton from "@/components/Button.vue";
+// import MyButton from "@/components/Button/Button.vue";
 
 export default {
   name: "MainFooter",
@@ -218,7 +218,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Jacques Ramphal",
+      default: "Jake Ramphal",
     },
   },
 };
@@ -231,7 +231,7 @@ $spacing-lg: var(--spacing-lg);
 $spacing-sm: var(--spacing-sm);
 
 #wrapper {
-  border-block-start: var(--border);
+  // border-block-start: var(--border);
   padding-block-end: $spacing-lg;
   @media only screen and (min-width: 1201px) {
     padding-block-end: inherit;

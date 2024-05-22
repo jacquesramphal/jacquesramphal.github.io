@@ -24,7 +24,7 @@
         <img
           class="zoom bg"
           draggable="false"
-          :src="require(`../../assets/images/${filename1}`)"
+          :src="require(`../../../assets/images/${filename1}`)"
           :alt="`${alt}`"
         />
       </router-link>
@@ -57,7 +57,7 @@
           :class="{ blur: title }"
           style="position: absolute"
           draggable="false"
-          :src="filename2 ? require(`../../assets/images/${filename2}`) : null"
+          :src="filename2 ? require(`../../../assets/images/${filename2}`) : null"
           :alt="`${alt}`"
         />
         <img
@@ -66,7 +66,7 @@
           :class="{ blur: title }"
           style="position: absolute"
           draggable="false"
-          :src="filename3 ? require(`../../assets/images/${filename3}`) : null"
+          :src="filename3 ? require(`../../../assets/images/${filename3}`) : null"
           :alt="`${alt}`"
         />
         <!-- Background Image -->
@@ -74,7 +74,7 @@
           class="bg"
           :class="{ blur: title }"
           draggable="false"
-          :src="require(`../../assets/images/${filename1}`)"
+          :src="require(`../../../assets/images/${filename1}`)"
           :alt="`${alt}`"
         />
       </figure>
@@ -84,9 +84,9 @@
 </template>
 
 <script>
-import GridContainer from "../grid/GridContainer.vue";
-import GridWrapper from "../grid/GridWrapper.vue";
-import TextBlock from "../TextBlock.vue";
+import GridContainer from "../../grid/GridContainer.vue";
+import GridWrapper from "../../grid/GridWrapper.vue";
+import TextBlock from "../../text/TextBlock/TextBlock.vue";
 import { reactive, computed } from "vue";
 
 export default {

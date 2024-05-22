@@ -1,4 +1,4 @@
-import MyButton from "../components/Button.vue";
+import MyButton from "./Button.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {

@@ -11,11 +11,11 @@
         <nav class="">
           <ul class="animate delay-2">
             <li v-for="(item, index) in menuItems" :key="index">
-              <router-link :to="item.route">
+              <router-link class="display" :to="item.route">
                 <DynamicText
                   as="h1"
                   tabIndex="0"
-                  :attrs="{ class: '' }"
+                  :attrs="{ class: ''}"
                   :text="item.text"
                 />
               </router-link>
@@ -94,8 +94,7 @@ export default {
   align-items: center;
   border-block-end: var(--border);
   @media only screen and (min-width: 1201px) {
-    align-items: center;
-
+    align-items: end;
   }
   .close-button {
     position: absolute;
@@ -125,7 +124,6 @@ export default {
           color: var(--text) !important;
           &:hover {
             color: var(--link) !important;
-
           }
         }
       }

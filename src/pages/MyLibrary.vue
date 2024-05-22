@@ -6,14 +6,14 @@
       subtitle="Writings, ramblings, professional and personal projects. A collection of my work and thoughts.
 "
     />
-    <TextImage
+    <!-- <TextImage
       :eyebrow="work.featEyebrow"
       :title="work.featTitle"
       :description="work.featDescription"
       :btnroute="work.btnroute"
       :label="work.label"
       :filename="work.featImage"
-    />
+    /> -->
     <GridContainer>
       <div
         class="grid-parent"

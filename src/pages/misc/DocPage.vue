@@ -72,7 +72,7 @@ import docData from "../assets/data/docs.json";
 import PageWrapper from "../components/grid/PageWrapper.vue";
 import GridContainer from "../components/grid/GridContainer.vue";
 import GridWrapper from "../components/grid/GridWrapper.vue";
-import TextBlock from "../components/TextBlock.vue";
+import TextBlock from "../components/text/TextBlock/TextBlock.vue";
 import AnimatedComponent from "../components/AnimatedComponent.vue";
 import ImageCard from "../components/card/ImageCard.vue";
 import CardRow2 from "../components/CardRow2.vue";

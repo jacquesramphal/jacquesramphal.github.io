@@ -6,7 +6,7 @@ date: 2023-09-17
 # Markdown Basics
 Tags Tags Tags
 
-[Avatar] Jacques Ramphal  
+[Avatar] Jake Ramphal  
 July 15, 2023  
 X min read
 

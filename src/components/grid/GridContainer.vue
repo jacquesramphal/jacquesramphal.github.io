@@ -74,6 +74,9 @@ export default {
 
   &--fullvw {
     padding: 0 !important;
+    // span {
+    //   border-radius: none !important;
+    // }
   }
 
   &--fullvh {

@@ -17,7 +17,7 @@
         <img
           class="zoom"
           draggable="false"
-          :src="require(`../assets/images/${filename}`)"
+          :src="require(`../../assets/images/${filename}`)"
           :alt="`${alt}`"
         />
       </router-link>
@@ -26,9 +26,9 @@
 </template>
 
 <script>
-import TextBlock from "./TextBlock.vue";
-import GridContainer from "./grid/GridContainer.vue";
-import GridWrapper from "./grid/GridWrapper.vue";
+import TextBlock from "../text/TextBlock/TextBlock.vue";
+import GridContainer from "../grid/GridContainer.vue";
+import GridWrapper from "../grid/GridWrapper.vue";
 
 export default {
   name: "ThumbDetail",
@@ -78,7 +78,7 @@ export default {
 }
 
 #screen {
-  background-image: url("../assets/images/avatar/avatar.svg");
+  background-image: url("../../assets/images/avatar/avatar.svg");
 }
 
 img {

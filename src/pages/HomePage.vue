@@ -3,9 +3,10 @@
     <GridWrapper motif1>
       <!-- ^ motif not working -->
       <HeroBanner
+
         id="hero"
         class="display"
-        title="Jake is a Full-stack Designer"
+        title="I&#x2019;m a Full-stack Designer & Generalist"
       />
     </GridWrapper>
     <!-- CONTENTFUL HEADER EXAMPLE -->
@@ -59,70 +60,68 @@
       </div>
     </GridContainer> -->
     <!-- HEADER COMPONENT END -->
-
+    
     <GridContainer
-      tight
-      style="padding-block-start: 0"
-      id="work"
-      class="animate glow delay-1"
+    tight
+    id="work"
+    class="animate glow delay-1"
     >
-      <GridParent id="recentwork ">
-        <ImageCard
-          class="post"
-          :eyebrow="work.featEyebrow"
-          :title="work.featTitle"
-          :description="work.featDescription"
-          :cta="work.label"
-          :route="work.route"
-          :btnroute="work.btnroute"
-          :filename1="work.featImage"
-          size="large"
-        />
-
-        <!-- <ImageCard   alt="J Monogram" filename1="work/j.svg" id="top" />
+    <!-- <div
+        class="grid-parent"
+        style="
+          padding-block-end: var(--spacing-md);
+          align-items: center;
+          grid-template-columns: repeat(3, 1fr);
+        "
+      >
+        <TextBlock style="grid-column: 1 / 3" title="Featured Projects" description="" />
+      </div> -->
+    <GridParent id="recentwork ">
+      <ImageCard
+      class="post"
+      :eyebrow="work.featEyebrow"
+      :title="work.featTitle"
+      :description="work.featDescription"
+      :cta="work.label"
+      :route="work.route"
+      :btnroute="work.btnroute"
+      :filename1="work.featImage"
+      size="large"
+      />
+      <!-- 
+        <ImageCard   alt="J Monogram" filename1="work/j.svg" id="top" />
         <ImageCard2 
-          alt="Avatar"
-          class="hidemobile"
-          filename1="avatar/avatar.svg"
-          title="Avatar"
+        alt="Avatar"
+        class="hidemobile"
+        filename1="avatar/avatar.svg"
+        title="Avatar"
         />
         <ImageCard 
-          alt="Avatar"
-          class="showmobile"
-          filename1="avatar/avatar.svg"
-          title="Avatar"
+        alt="Avatar"
+        class="showmobile"
+        filename1="avatar/avatar.svg"
+        title="Avatar"
         />
         <ImageCard
-          v-for="entry in work.entries"
-          :key="entry.id"
-          class="post"
-          :eyebrow="entry.tag"
-          :title="entry.title"
-          :description="entry.description"
-          :cta="entry.cta"
-          :route="entry.route"
-          :btnroute="entry.btnroute"
-          :link="entry.link"
-          :filename1="entry.filename1"
-          :filename2="entry.filename2"
-          :filename3="entry.filename3"
-          :alt="entry.alt"
-          :style="entry.bgcolor"
-          :size="entry.size"
-          :buttons="entry.buttonsData"
+        v-for="entry in work.entries"
+        :key="entry.id"
+        class="post"
+        :eyebrow="entry.tag"
+        :title="entry.title"
+        :description="entry.description"
+        :cta="entry.cta"
+        :route="entry.route"
+        :btnroute="entry.btnroute"
+        :link="entry.link"
+        :filename1="entry.filename1"
+        :filename2="entry.filename2"
+        :filename3="entry.filename3"
+        :alt="entry.alt"
+        :style="entry.bgcolor"
+        :size="entry.size"
+        :buttons="entry.buttonsData"
         /> -->
-        <!-- <DefaultCard
-          cover
-          v-for="entry in work.entries"
-          :key="entry.id"
-          :tag="entry.tag"
-          :filename="entry.filename1"
-          :alt="entry.alt"
-          :title="entry.title"
-          :description="entry.description"
-          :route="entry.btnroute"
-          :label="entry.label"
-        /> -->
+        
       </GridParent>
     </GridContainer>
     <!-- <TextGrid
@@ -135,13 +134,14 @@
       detail3="I offer constructive design critiques aimed at enhancing design quality and effectiveness, providing valuable feedback that helps refine and perfect visual and functional elements."
       eyebrow4="Thought Leadership and Musing"
       detail4="Sharing insights and exploring trends in design and technology, I engage in thought leadership and musing to inspire and influence the next generation of designers and developers."
-    /> -->
-    <TextImage filename="work/glo.svg" />
-
-    <!-- <HeroBanner eyebrow="01" filename="work/glo.svg" background overlap/> -->
-
-    <CardRow2 />
-    <!-- <TestimonialCarousel /> -->
+      /> -->
+      
+      <!-- <HeroBanner eyebrow="01" filename="work/glo.svg" background overlap/> -->
+      
+      <!-- <TextImage filename="work/glo.svg" /> -->
+      <CardRow2 />
+      <!-- <TextImage filename="work/glo.svg" /> -->
+      <!-- <TestimonialCarousel /> -->
 
     <!-- 
     Get in touch banner -->
@@ -276,9 +276,6 @@ export default {
 
 <style lang="scss">
 @media only screen and (min-width: 1201px) {
-  .banner-container {
-    // background-color: red !important;
-    padding: 0 !important;
-  }
+
 }
 </style>

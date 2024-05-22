@@ -1,4 +1,4 @@
-import DefaultCard from "../components/card/DefaultCard.vue";
+import DefaultCard from "./DefaultCard.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {

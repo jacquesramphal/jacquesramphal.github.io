@@ -8,7 +8,7 @@ let componentCode, storiesCode;
 
 try {
     // Read the component file
-    componentCode = fs.readFileSync('./src/components/Button.vue', 'utf-8');
+    componentCode = fs.readFileSync('./src/components/Button/Button.vue', 'utf-8');
 } catch (err) {
     console.error('Error reading Button.vue:', err);
 }

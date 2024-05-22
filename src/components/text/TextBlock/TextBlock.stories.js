@@ -1,7 +1,7 @@
-import TextBlock from "../components/TextBlock";
+import TextBlock from "./TextBlock";
 
 export default {
-  title: "Components/TextBlock",
+  title: "Components/text/TextBlock",
   component: TextBlock,
   argTypes: {
     alt: { control: "text" },
@@ -40,7 +40,7 @@ const Template = (args) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-  icon: "j-logo",
+  icon: "j-logo.svg",
   alt: "Logo",
   as: "h1",
   eyebrow: "Eyebrow",

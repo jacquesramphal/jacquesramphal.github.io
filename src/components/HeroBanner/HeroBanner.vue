@@ -6,7 +6,7 @@
         class="animate fade delay-1"
         v-if="filename"
         draggable="false"
-        :src="require(`../assets/images/${filename}`)"
+        :src="require(`../../assets/images/${filename}`)"
         :alt="`${alt}`"
       />
       <GridContainer id="eyebrow" v-if="eyebrow" style="z-index: 10000">
@@ -66,11 +66,11 @@
 </template>
 
 <script>
-import GridContainer from "./grid/GridContainer.vue";
-import GridWrapper from "./grid/GridWrapper.vue";
-import TextLink from "./text/TextLink.vue";
-// import MyButton from "./Button.vue";
-import AnimatedComponent from "./AnimatedComponent.vue";
+import GridContainer from "../grid/GridContainer.vue";
+import GridWrapper from "../grid/GridWrapper.vue";
+import TextLink from "../text/TextLink.vue";
+// import MyButton from "./Button/Button.vue";
+import AnimatedComponent from "../AnimatedComponent.vue";
 
 export default {
   name: "HeroBanner",
@@ -329,12 +329,15 @@ img {
 }
 
 .herobanner--fullvh {
-  min-height: 468px;
-  block-size: 100vh !important;
-  z-index: 1;
-  #hero-text {
-    align-items: center !important;
-    margin-block-start: 0 !important;
+  @media only screen and (min-width: 768px) {
+    min-height: 468px;
+    block-size: 100vh !important;
+    z-index: 1;
+    #hero-text {
+      align-items: center !important;
+      margin-block-start: 0 !important;
+      padding-block-end: var(--spacing-lg);
+    }
   }
 }
 </style>

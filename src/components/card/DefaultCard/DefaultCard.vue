@@ -6,7 +6,7 @@
         <img
           draggable="false"
           v-if="filename"
-          :src="require(`../../assets/images/${filename}`)"
+          :src="require(`../../../assets/images/${filename}`)"
           :alt="`${alt}`"
         />
       </router-link>
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import TextBlock from "../TextBlock.vue";
+import TextBlock from "../../text/TextBlock/TextBlock.vue";
 
 export default {
   name: "DefaultCard",

@@ -4,9 +4,13 @@ date: 2023-09-17
 --- -->
 
 # The Importance of Baselines
+
 Tags Tags Tags
 
-[Avatar] Jacques Ramphal  
+![Image](../images/article/cover2.png)
+
+
+[Avatar] Jake Ramphal  
 July 15, 2023  
 X min read
 
@@ -21,8 +25,6 @@ X min read
 - What can we do with them?
   - automated testing
   - repeatable process
-
-![Responsive Breakpoints](https://miro.medium.com/max/1400/0*QuR2HZPsD6O5fyjb)
 
 
 <blockquote>Baselines provide a stable and known starting point for comparison during software development and testing. By comparing changes or new versions against the baseline, discrepancies, bugs, or regressions can be easily identified, ensuring software quality and reliability throughout its development life cycle.</blockquote>

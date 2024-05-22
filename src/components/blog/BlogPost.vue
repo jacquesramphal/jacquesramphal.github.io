@@ -37,7 +37,7 @@
           class=""
           title=""
           filename="jacques.jpg"
-          alt="Jacques working at Orium"
+          alt="Jake working at Orium"
         />
       </GridContainer>
       <!-- Section 1 -->
@@ -127,7 +127,7 @@
               class=""
               title=""
               filename="work/glo.svg"
-              alt="Jacques working at Orium"
+              alt="Jake working at Orium"
               caption="This is caption text."
             />
           </GridContainer>

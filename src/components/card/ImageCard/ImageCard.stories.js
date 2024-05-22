@@ -1,8 +1,8 @@
-import ImageCard from "../components/card/ImageCard.vue";
+import ImageCard from "./ImageCard.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {
-  title: 'Components/Card/card/ImageCard',
+  title: 'Components/Card/ImageCard',
   decorators: [withDesign],
   component: ImageCard,
   argTypes: {

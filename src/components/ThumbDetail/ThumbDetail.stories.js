@@ -1,4 +1,4 @@
-import ThumbDetail from "../components/ThumbDetail.vue";
+import ThumbDetail from "./ThumbDetail.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {

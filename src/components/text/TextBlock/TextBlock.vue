@@ -42,10 +42,10 @@
 </template>
 
 <script>
-import MyButton from "./Button.vue";
-import TextLink from "./text/TextLink.vue";
-import DynamicText from "./text/DynamicText.vue";
-import MyIcon from "./Icon.vue";
+import MyButton from "../../Button/Button.vue";
+import TextLink from "../TextLink.vue";
+import DynamicText from "../DynamicText.vue";
+import MyIcon from "../../Icon.vue";
 
 export default {
   name: "TextBlock",

@@ -50,7 +50,7 @@
 </template>
 
 <script lang="js">
-import MyButton from "./components/Button.vue";
+import MyButton from "./components/Button/Button.vue";
 
 // import NewsletterSubscription from "./components/form/NewsletterSubscription.vue";
 import FullscreenMenu from "./components/FullscreenMenu.vue";

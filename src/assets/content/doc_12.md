@@ -1,6 +1,11 @@
 # The Future-Proof Toolkit for Front-end Design
 The Ramstack. Essential tools and resources for front-end design.
 
+Tags Tags Tags
+
+![Image](../images/article/cover3.png)
+
+
 ##### Notes
 - currently need to remove the tools from the list to ensure this is actually future proof
 - instead of "use vscode" say, use an editor that supports XYZ

@@ -49,7 +49,7 @@
 
 <script>
 import { reactive, computed } from "vue";
-import MyIcon from "./Icon.vue";
+import MyIcon from "../Icon.vue";
 
 export default {
   name: "my-button",

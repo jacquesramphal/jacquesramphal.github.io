@@ -32,7 +32,7 @@
 <script>
 import GridContainer from "../grid/GridContainer.vue";
 import GridWrapper from "../grid/GridWrapper.vue";
-import TextBlock from "../TextBlock.vue";
+import TextBlock from "../text/TextBlock/TextBlock.vue";
 
 export default {
   name: "TextImage",

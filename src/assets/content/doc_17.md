@@ -1,4 +1,4 @@
-# Embracing Design QA at our company
+# Embracing Design QA
 
 NOTE: repitition i the last couple paragraphs and earlier ones around qa and qa relationship
 talk about what happens when you ont consider design QA and baselines, hinders testing, trickle down effect

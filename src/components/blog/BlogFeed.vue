@@ -99,7 +99,7 @@
 
 <script>
 // import BlogPostEntry from "@/components/blog/BlogPostEntry.vue";
-import DefaultCard from "@/components/card/DefaultCard.vue";
+import DefaultCard from "@/components/card/DefaultCard/DefaultCard.vue";
 
 export default {
   name: "BlogFeed",

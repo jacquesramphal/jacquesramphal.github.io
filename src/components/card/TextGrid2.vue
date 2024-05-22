@@ -35,7 +35,7 @@
 
 <script>
 import GridContainer from "../grid/GridContainer.vue";
-import TextBlock from "../TextBlock.vue";
+import TextBlock from "../text/TextBlock/TextBlock.vue";
 
 export default {
   name: "TextGrid2",

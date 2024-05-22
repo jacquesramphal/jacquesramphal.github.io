@@ -65,7 +65,7 @@
 
 <script>
 // import MyLogo from "./MyLogo.vue";
-import MyButton from "./Button.vue";
+import MyButton from "./Button/Button.vue";
 
 export default {
   mounted() {
