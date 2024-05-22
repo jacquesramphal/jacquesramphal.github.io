@@ -73,7 +73,7 @@ import workData from "@/assets/data/work.json";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ImageCard from "@/components/card/ImageCard.vue";
+import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
 import TextImage from "@/components/card/TextImage.vue";
 
