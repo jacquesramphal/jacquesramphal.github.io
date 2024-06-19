@@ -1,7 +1,7 @@
 <template>
   <div id="TextValue">
-    <p tabIndex="0" class="subtle">{{ label }}</p>
-    <p tabIndex="0">{{ value }}</p>
+    <p tabIndex="0" class="subtle label">{{ label }}</p>
+    <p tabIndex="0" class="value">{{ value }}</p>
   </div>
 </template>
 
@@ -27,20 +27,19 @@ export default {
 }
 
 #TextValue {
+  display: flex;
+  flex-direction: column;
   border-radius: 0 !important;
-  grid-column: 1 / 4;
   text-align: left;
   padding: 0;
   @media only screen and (min-width: 768px) {
     grid-column: auto;
   }
-
-  h6 {
-    margin-block-end: 1em;
-  }
-
-  h5 {
-    margin: 0;
-  }
+  // .label {
+  //   background-color: red;
+  // }
+  // .value {
+  //   background-color: blue;
+  // }
 }
 </style>

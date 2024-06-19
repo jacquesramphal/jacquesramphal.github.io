@@ -1,21 +1,19 @@
 <template>
-  <GridWrapper :class="classes">
-    <GridContainer tight style="padding: 0 !important">
-      <div id="grid-parent" class="grid-parent">
-
+  <GridWrapper>
+    <GridContainer>
+      <GridParent :class="classes">
         <!-- <GridContainer class="imgcontainer parallaxBack fadeInUp"> -->
-
-        <GridContainer class="imgcontainer">
+        <GridWrapper class="imgcontainer">
           <img
             class="splitimg"
             draggable="false"
             :src="require(`../../assets/images/${filename}`)"
             :alt="`${alt}`"
           />
-        </GridContainer>
-        <!-- <GridContainer class="textcontainer parallaxFront fadeInUp"> -->
+        </GridWrapper>
+        <!-- <GridWrapper class="textcontainer parallaxFront fadeInUp"> -->
 
-        <GridContainer class="textcontainer">
+        <GridWrapper class="textcontainer">
           <TextBlock
             :eyebrow="`${eyebrow}`"
             is="h2"
@@ -25,20 +23,17 @@
             :btnroute="btnroute ? `${btnroute}` : undefined"
             :description="`${description}`"
           />
-        </GridContainer>
-      </div> </GridContainer
-  ></GridWrapper>
+        </GridWrapper>
+      </GridParent>
+    </GridContainer>
+  </GridWrapper>
 </template>
 <script>
-import GridContainer from "../grid/GridContainer.vue";
-import GridWrapper from "../grid/GridWrapper.vue";
 import TextBlock from "../text/TextBlock/TextBlock.vue";
 
 export default {
   name: "TextImage",
   components: {
-    GridContainer,
-    GridWrapper,
     TextBlock,
   },
   props: {
@@ -109,15 +104,6 @@ export default {
   color: inherit;
 }
 
-.grid-parent {
-  grid-gap: 0;
-
-  @media only screen and (min-width: 1201px) {
-    grid-template-columns: repeat(2, 1fr) !important;
-    grid-template-rows: 1fr !important;
-  }
-}
-
 // COLOR
 
 .TextImage-color--red {
@@ -129,11 +115,15 @@ export default {
 .TextImage-align {
   position: relative;
   overflow: hidden;
-  grid-template-rows: repeat(2, 1fr);
-
+  // margin-block-start: var(--spacing-lg) !important;
+  // margin-block-end: var(--spacing-lg) !important;
+  padding-block-end: var(--spacing-md);
+  @media only screen and (min-width: 768px) {
+    padding-block-end: 0 !important;
+  }
   #textblock {
     // align-self: center !important;
-    padding-block-start: 0;
+    padding-block: 0;
     @media only screen and (min-width: 768px) {
       padding-block-start: 0;
     }
@@ -163,10 +153,10 @@ export default {
 
   .imgcontainer {
     padding-block-end: 0 !important;
+    grid-column: span 2;
+    // background-color: pink !important;
 
     @media only screen and (min-width: 768px) {
-      padding-block-start: var(--spacing-lg) !important;
-      padding-block-end: var(--spacing-lg) !important;
     }
   }
 
@@ -174,22 +164,29 @@ export default {
     align-self: center;
     display: block;
     grid-column: auto;
+    // background-color: blue !important;
+
     // grid-row: 2 / 2;
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 2fr !important;
   }
 }
 
 .TextImage-align--default {
   .textcontainer {
+    grid-column: 1 / 3;
+
     @media only screen and (min-width: 768px) {
-      grid-column: 2;
+    }
+    @media only screen and (min-width: 1201px) {
       grid-row: 1;
+      // padding-inline-end: var(--spacing-md);
+      grid-column: 1;
     }
   }
 
   img {
     @media only screen and (min-width: 768px) {
-      grid-column: 1;
+      grid-column: 1 / 2;
       grid-row: 1;
     }
   }
@@ -197,28 +194,37 @@ export default {
   .imgcontainer {
     @media only screen and (min-width: 768px) {
       padding-inline-end: 0 !important;
+      grid-column: span 2;
     }
   }
 }
 
 .TextImage-align--flipped {
   .textcontainer {
+    grid-column: 1 / 3;
+
     @media only screen and (min-width: 768px) {
-      grid-column: 1;
+    }
+    @media only screen and (min-width: 1201px) {
       grid-row: 1;
+      // padding-inline-start: var(--spacing-md);
+
+      grid-column: 3;
     }
   }
 
   img {
     @media only screen and (min-width: 768px) {
-      grid-column: 2;
       grid-row: 1;
     }
   }
 
   .imgcontainer {
-    @media only screen and (min-width: 768px) {
-      padding-inline-start: 0 !important;
+    // @media only screen and (min-width: 768px) {
+    //   padding-inline: 0 !important;
+    // }
+    @media only screen and (min-width: 1201px) {
+      // margin-inline-end: var(--spacing-md) !important;
     }
   }
 }

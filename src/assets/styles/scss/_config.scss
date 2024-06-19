@@ -34,7 +34,7 @@
   --l: 50%;
   /*the initial lightness*/
 
-  --color-offblack: #1d1b22;
+  --color-offblack: #12110c;
   --color-black: #030201;
   --color-darktext: #2b3d4f;
   --color-slate: #41464e;
@@ -101,6 +101,7 @@
   --fontFamily-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
   --fontFamily-secondary: "Epilogue", sans-serif !important;
   --fontFamily-tertiary: "Merriweather", Georgia, Cambria, "Times New Roman", Times !important;
+  
 
   /* CORE NUMERIC SIZE SCALE TBD - see chakra UI tokens*/
   --size-0: 0;
@@ -164,7 +165,7 @@
 
   /* FONT-SIZE */
   /* --font-display: 12rem; */
-  --font-display: clamp(4rem, 9vw, 12rem);
+  --font-display: clamp(var(--size-12), 7vw, var(--size-20));
   --font-1000: clamp(var(--size-12), 7vw, var(--size-18));
   --font-900: clamp(var(--font-lg), 7vw, var(--font-3xl));
   --font-800: clamp(var(--font-lg), 7vw, var(--font-3xl));

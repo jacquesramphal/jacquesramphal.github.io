@@ -15,16 +15,14 @@
       :filename="work.featImage"
     /> -->
     <GridContainer>
-      <div
-        class="grid-parent"
+      <GridParent
         style="
           padding-block-end: var(--spacing-md);
           align-items: center;
-          grid-template-columns: repeat(3, 1fr);
         "
       >
         <TextBlock style="grid-column: 1 / 3" title="Projects" description="" />
-      </div>
+      </GridParent>
       <!-- 
       <input type="radio" id="All" name="categories" value="All" checked />
       <input type="radio" id="Tag1" name="categories" value="Tag1" />
@@ -50,12 +48,13 @@
         description="A collection of resources and documentation to help you get started with your project."
         style="margin-block: var(--spacing-lg)"
       /> -->
-      <div
+      <GridParent
+      tight
         v-if="filteredEntries.length > 0"
         id="recentwork"
-        class="posts grid-parent"
+        class="posts"
       >
-        <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />
+        <!-- <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />
         <ImageCard2
           alt="Avatar"
           class="hidemobile"
@@ -67,7 +66,7 @@
           class="showmobile"
           filename1="avatar/avatar.svg"
           title="Avatar"
-        />
+        /> -->
         <ImageCard
           v-for="entry in work.entries"
           :key="entry.id"
@@ -87,7 +86,7 @@
           :size="entry.size"
 
         />
-      </div>
+      </GridParent>
       <div v-else>
         <!-- Not working -->
         <p>No results found.</p>
@@ -106,17 +105,15 @@
         description=""
         style="margin-block: var(--spacing-lg)"
       /> -->
-      <div
-        class="grid-parent"
+      <GridParent
         style="
           padding-block-end: var(--spacing-md);
           align-items: center;
-          grid-template-columns: repeat(3, 1fr);
         "
       >
         <TextBlock style="grid-column: 1 / 3" title="Writing" description="" />
-      </div>
-      <GridParent>
+      </GridParent>
+      <GridParent tight>
         <DefaultCard
           borderless
           v-for="entry in docs.entries"

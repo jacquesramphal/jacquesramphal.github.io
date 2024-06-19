@@ -128,6 +128,8 @@ export default {
     alt: {
       type: String,
       default: "This is an image",
+      required: true,
+
     },
     route: {
       type: String,
@@ -179,13 +181,15 @@ export default {
     block-size: 101%;
     object-fit: cover;
     object-position: 0% 100%;
+    // border-radius: var(--spacing-xxs) ;
   }
   .filename2 {
     z-index: 1;
-    inset-inline-end:  -18%;
     inset-block-start:  14.75%;
-    block-size: 68%;
-    border-radius: 0 !important;
+    inset-inline-end:  -18%;
+    block-size: 100%;
+    border-radius: var(--spacing-xxs) 0 0 var(--spacing-xxs) !important;
+    box-shadow: var(--shadow-z5);
     object-fit: cover !important;
     object-position: 0% 0% !important;
   }
@@ -210,12 +214,12 @@ export default {
       aspect-ratio: 16 / 9;
       object-position: 0% 0%;
     }
-    .filename2 {
-      inset-block-start:  29.25%;
-      inset-inline-end:  -17.75%;
-      object-position: 0% 100%;
-      block-size: 100%;
-    }
+    // .filename2 {
+    //   inset-block-start:  29.25%;
+    //   inset-inline-end:  -17.75%;
+    //   object-position: 0% 100%;
+    //   block-size: 100%;
+    // }
     // .fg2 {
     //   inset-block-start:  29.25%;
     //   inset-inline-end:  -17.75%;

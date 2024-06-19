@@ -25,6 +25,26 @@
         <span class="button-label">{{ label }}</span>
       </button>
     </router-link>
+    <a v-else-if="link" id="btn" :href="`${link}`" target="blank">
+      <button
+        class="custom-btn"
+        type="button"
+        :class="classes"
+        @click="onClick"
+        :style="style"
+      >
+        <!-- <span v-if="icon" class="button-icon">{{ icon }}</span> -->
+
+        <MyIcon
+          class="button-icon"
+          v-if="icon"
+          :name="`${icon}`"
+          :is-svg="true"
+          size="16"
+        />
+        <span class="button-label">{{ label }}</span>
+      </button>
+    </a>
     <button
       v-else
       class="custom-btn"
@@ -63,6 +83,10 @@ export default {
       default: "Button Label",
     },
     route: {
+      type: String,
+      required: false,
+    },
+    link: {
       type: String,
       required: false,
     },
@@ -115,10 +139,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-
-
 .button-icon {
-  margin-inline-end: var(--spacing-xxs); // Adjust spacing between icon and label
+  margin-inline-end: var(
+    --spacing-xxs
+  ); // Adjust spacing between icon and label
   line-height: var(--lineHeight-none);
   // Add any other styling as needed for the icon
 }

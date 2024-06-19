@@ -3,7 +3,8 @@
     <GridWrapper motif1>
       <!-- ^ motif not working -->
       <HeroBanner
-
+      fullvh
+      end
         id="hero"
         class="display"
         title="I&#x2019;m a Full-stack Designer & Generalist"
@@ -85,8 +86,10 @@
       :cta="work.label"
       :route="work.route"
       :btnroute="work.btnroute"
-      :filename1="work.featImage"
+      :filename3="work.featImage"
       size="large"
+      :style="work.bgcolor"
+
       />
       <!-- 
         <ImageCard   alt="J Monogram" filename1="work/j.svg" id="top" />

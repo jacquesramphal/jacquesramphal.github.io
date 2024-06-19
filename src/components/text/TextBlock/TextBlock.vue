@@ -21,6 +21,7 @@
     />
     <DynamicText
       v-if="description"
+      isHtml
       tabIndex="0"
       :text="description"
       :attrs="{ class: 'description' }"

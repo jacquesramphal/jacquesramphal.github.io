@@ -2,8 +2,14 @@
   <!-- <router-view v-if="isLoggedIn" v-slot="{ Component }"> -->
   <router-view v-slot="{ Component }">
     <!-- <BreadCrumb v-if="!$route.meta.hideBreadCrumb" /> -->
-    <HeaderNav :toggle-menu="toggleMenu" v-if="!$route.meta.hideNav" :menu-open="menuOpen">
-      <template v-slot:menu-button>
+    <HeaderNav
+      :toggle-menu="toggleMenu"
+      v-if="!$route.meta.hideNav"
+      :menu-open="menuOpen"
+    >
+      <!-- BREADCRUMB NAV START-->
+
+      <!-- <template v-slot:menu-button>
         <TextLink
           style="text-decoration: none"
           :label="menuOpen ? $route.name : $route.name"
@@ -13,9 +19,10 @@
           iconsize="16"
           
         />
-        <!-- :class="menuOpen ? 'subtle' : ''" -->
 
-      </template>
+      </template> -->
+            <!-- BREADCRUMB NAV END-->
+
       <template v-slot:menu-button-mobile>
         <MyButton
           style="border: 0 !important; line-height: inherit"

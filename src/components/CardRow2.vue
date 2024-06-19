@@ -28,7 +28,8 @@
       </div>
       <!-- HEADER COMPONENT END -->
 
-      <GridParent>
+      <GridParent tight>
+        
         <DefaultCard
           borderless
           v-for="entry in docs.entries.slice(0, 3)"

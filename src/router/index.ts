@@ -4,10 +4,10 @@ import { createRouter, createWebHistory } from "vue-router";
 import InfoPage from "@/pages/InfoPage.vue";
 import DesignSystem from "@/pages/DesignSystem.vue";
 import MaintenancePage from "@/pages/misc/MaintenancePage.vue";
-import MyDocs from "@/pages/MyDocs.vue";
 import MyResume from "@/pages/MyResume.vue";
 import NotFound from "@/pages/misc/NotFound.vue";
 import ProjectPage from "@/pages/ProjectPage.vue";
+import ProductPage from "@/pages/ProductPage.vue";
 // import DocPage from "@/pages/DocPage.vue";
 import MarkdownPage from "@/pages/MarkdownPage.vue";
 import HomePage from "@/pages/HomePage.vue";
@@ -89,6 +89,11 @@ const routes = [
     name: "Library",
     path: "/library",
     component: MyLibrary,
+  },
+  {
+    name: "Product",
+    path: "/product",
+    component: ProductPage,
   },
   {
     name: "Work Title",

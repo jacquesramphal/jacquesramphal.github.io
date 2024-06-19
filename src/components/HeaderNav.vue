@@ -2,6 +2,7 @@
   <div id="headernav" class="navbar" :class="{ 'hidden-navbar': !showNavbar }">
     <GridContainer class="bg">
       <nav class="">
+        <!-- <span class="blend">Test Text</span> -->
         <span
           class="wordmark"
           style="
@@ -12,13 +13,22 @@
             text-decoration: none !important;
           "
         >
-          <!-- <TextLink
+          <TextLink
+            class="wordmark"
+            style="text-decoration: none"
+            label="Jacques Ramphal"
+            route="/"
+            v-show="isDesktopScreen && !menuOpen"
+          />
+          <TextLink
             class="wordmark"
             style="text-decoration: none"
             label="Jake Ramphal"
             route="/"
-            v-show="isDesktopScreen && !menuOpen"
-          /> -->
+            v-show="isMobileScreen && !menuOpen"
+          />
+
+          <!-- BACKARROW WORDMARK NAV START-->
 
           <!-- <TextLink
             class="wordmark"
@@ -30,47 +40,38 @@
             iconsize="20"
             v-show="isDesktopScreen && !menuOpen"
           /> -->
+          <!-- BACKARROW WORDMARK NAV END-->
+
+          <!-- BREADCRUMB NAV START-->
+          <!-- <TextLink
+            v-if="$route.path !== '/'"
+            label="Jake Ramphal"
+            route="/"
+            v-show="isDesktopScreen && !menuOpen"
+          />
+          <DynamicText
+            v-if="$route.path !== '/'"
+            v-show="isDesktopScreen && !menuOpen"
+            :as="p"
+            text="/"
+            style="line-height: inherit"
+          />
 
           <TextLink
-            v-if="$route.path !== '/'"
-            label="Jake Ramphal"
-            route="/"
+            v-if="$route.name == 'Doc Title' || $route.name == 'Work Title'"
+            label="Library"
+            route="/library"
             v-show="isDesktopScreen && !menuOpen"
           />
           <DynamicText
-            v-if="$route.path !== '/'"
+            v-if="$route.name == 'Doc Title' || $route.name == 'Work Title'"
             v-show="isDesktopScreen && !menuOpen"
             :as="p"
             text="/"
             style="line-height: inherit"
-          />
-          <!-- <TextLink
-            v-if="$route.name == 'Doc Title'"
-            label="Library"
-            route="/library"
-            v-show="isDesktopScreen && !menuOpen"
-            as="h1"
           /> -->
-          <TextLink
-            v-if="$route.name == 'Doc Title' || $route.name == 'Work Title'"
-            label="Library"
-            route="/library"
-            v-show="isDesktopScreen && !menuOpen"
-          />
-          <DynamicText
-            v-if="$route.name == 'Doc Title' || $route.name == 'Work Title'"
-            v-show="isDesktopScreen && !menuOpen"
-            :as="p"
-            text="/"
-            style="line-height: inherit"
-          />
-          <TextLink
-            class="wordmark"
-            style="text-decoration: none"
-            label="Jake Ramphal"
-            route="/"
-            v-show="isMobileScreen && !menuOpen"
-          />
+          <!-- BREADCRUMB NAV END-->
+
           <!-- <TextLink
             class="wordmark"
             style="text-decoration: none"
@@ -84,18 +85,22 @@
 
         <ul class="links justify-end">
           <!-- <li v-if="!breadcrumb" v-show="isDesktopScreen && !menuOpen">
-            <TextLink label="Docs" route="/docs" />
-          </li>
-          <li v-if="!breadcrumb" v-show="isDesktopScreen && !menuOpen">
-            <TextLink label="Work" route="/work2" />
+            <TextLink label="Library" route="/library" />
           </li>
           <li v-show="isDesktopScreen && !menuOpen">
-            <TextLink label="CV" route="/cv" />
+            <TextLink label="Resume" route="/resume" />
           </li> -->
-          <li
+
+
+          <!-- SHOW INSTEAD TO HIDE MENU BUTTON ON DESKTOP -->
+          <!-- <li
             class="nav-link"
             tabindex="0"
             v-show="isMobileScreen && !menuOpen"
+          > -->
+          <li
+            class="nav-link"
+            tabindex="0"
           >
             <slot name="menu-button-mobile"></slot>
           </li>
@@ -267,6 +272,26 @@ export default {
 //   filter: blur(20px); /* Blur amount on hover, can be adjusted */
 // }
 
+
+// TESTING MIX BLEND MODE!!!!
+
+// html {
+//   background: #fff;
+// }
+
+// .blend {
+//   mix-blend-mode: exclusion;
+//   color: white;
+//   display: block;
+//   height: 100%;
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   text-align: center;
+//   font-size: 6vw;
+// }
 button {
   border: 0 !important;
 }
@@ -324,8 +349,8 @@ button {
   inline-size: 100%;
   border-block-start: var(--border);
   @media only screen and (min-width: 768px) {
-    padding-block: var(--spacing-xs) var(--spacing-sm) !important;
-    padding-inline: var(--spacing-md) !important;
+    padding-block: var(--size-12) var(--spacing-sm) !important;
+    padding-inline: var(--spacing-lg) !important;
     // padding-inline-end: var(--spacing-md) !important;
     // border-block-end: var(--border);
     border-block-start: none;

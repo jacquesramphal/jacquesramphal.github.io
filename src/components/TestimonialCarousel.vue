@@ -245,7 +245,7 @@ export default {
 }
 .quote-text {
   h2 {
-    // font-family: var(--fontFamily-secondary) !important;
+    font-family: var(--fontFamily-tertiary) !important;
     font-weight: var(--font-normal) !important;
     // font-weight: var(--font-reversed-normal) !important;
     // font-size: var(--font-lg) !important;

@@ -1,25 +1,57 @@
 <template>
-  <div class="">
-    <GridContainer class="grid-parent">
-      <h2 id="section-title" tabIndex="0">
-        {{ title }}
-      </h2>
-      <TextBlock as="h4" :title="`${eyebrow1}`" eyebrow="" :description="`${detail1}`" />
-      <TextBlock as="h4" :title="`${eyebrow2}`" eyebrow="" :description="`${detail2}`" />
-      <TextBlock as="h4" :title="`${eyebrow3}`" eyebrow="" :description="`${detail3}`" />
-      <TextBlock as="h4" :title="`${eyebrow4}`" eyebrow="" :description="`${detail4}`" />
+  <GridWrapper class="">
+    <GridContainer>
+      <GridParent>
+        <TextBlock
+          id="section-title"
+          tabIndex="0"
+          as="h2"
+          :title="`${title}`"
+          eyebrow=""
+          :description="`${description}`"
+        />
+
+        <TextBlock
+          as="h4"
+          :title="`${eyebrow1}`"
+          eyebrow=""
+          :description="`${detail1}`"
+        />
+        <TextBlock
+          as="h4"
+          :title="`${eyebrow2}`"
+          eyebrow=""
+          :description="`${detail2}`"
+        />
+        <TextBlock
+          as="h4"
+          :title="`${eyebrow3}`"
+          eyebrow=""
+          :description="`${detail3}`"
+        />
+        <TextBlock
+          as="h4"
+          :title="`${eyebrow4}`"
+          eyebrow=""
+          :description="`${detail4}`"
+        />
+      </GridParent>
     </GridContainer>
-  </div>
+  </GridWrapper>
 </template>
 
 <script>
+import GridParent from "../grid/GridParent.vue";
 import GridContainer from "../grid/GridContainer.vue";
+import GridWrapper from "../grid/GridWrapper.vue";
 import TextBlock from "../text/TextBlock/TextBlock.vue";
 
 export default {
   name: "TextGrid",
   components: {
+    GridParent,
     GridContainer,
+    GridWrapper,
     TextBlock,
   },
   props: {
@@ -30,6 +62,10 @@ export default {
     title: {
       type: String,
       default: "Detail Card",
+    },
+    description: {
+      type: String,
+      default: "This is a description",
     },
     eyebrow1: {
       type: String,

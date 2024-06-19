@@ -141,7 +141,7 @@ export default {
   }
   img {
     margin: 4rem 0 1rem 0;
-    aspect-ratio: 16 / 8;
+    // aspect-ratio: 16 / 8;
     // max-width: 98rem !important;
     // float: none;
     // margin-inline-start: auto;

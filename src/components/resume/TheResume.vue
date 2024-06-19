@@ -17,7 +17,7 @@
 
       <div class="resume-header">
         <DynamicText
-          as="h4"
+          as="h5"
           :text="information.name"
           :attrs="{ class: 'resume-header-name' }"
         />

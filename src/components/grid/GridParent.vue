@@ -14,6 +14,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    tight: {
+      type: Boolean,
+      default: false,
+    },
   },
   // mounted() {
   //   this.$nextTick(function () {
@@ -26,6 +30,7 @@ export default {
       return {
         "grid-template": true,
         "grid-template--rows": this.rows,
+        "grid-template--tight": this.tight,
       };
     },
   },
@@ -66,11 +71,19 @@ export default {
   }
   @media only screen and (min-width: 1201px) {
     grid-template-columns: repeat(3, 1fr);
+    grid-gap: var(--spacing-lg);
+
   }
 
   &--rows {
     display: flex;
     flex-direction: column;
+  }
+  &--tight {
+    @media only screen and (min-width: 1201px) {
+    grid-gap: var(--spacing-md);
+
+  }
   }
 }
 </style>

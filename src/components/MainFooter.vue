@@ -3,6 +3,7 @@
     <GridWrapper id="wrapper" class="">
       <GridContainer>
         <GridParent
+          tight
           style="
             grid-template-columns: none !important;
             grid-template-rows: repeat(2, auto);
@@ -50,8 +51,8 @@
                   </g>
               </svg> -->
           </div>
-          <GridParent class="outer" style="">
-            <div id="maindetails">
+          <GridParent class="outer" >
+            <div id="maindetails" >
               <TextBlock
                 title="Jake Ramphal"
                 description="My work explores the intersection between design and development and seeks to embrace emerging technologies for a more efficient and inclusive future.
@@ -59,7 +60,7 @@
 "
               />
             </div>
-            <GridParent class="content">
+            <GridParent tight id="content" >
               <div id="links1">
                 <p class="subtle">Useful Links</p>
                 <ul>
@@ -240,8 +241,12 @@ $spacing-sm: var(--spacing-sm);
 
 .outer {
   grid-template-columns: repeat(1, 1fr);
-  @media only screen and (min-width: 1201px) {
+  @media only screen and (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
+
+  }
+  @media only screen and (min-width: 1201px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -270,6 +275,18 @@ li.external::after {
 #maindetails {
   @media only screen and (min-width: 768px) {
     padding-inline-end: var(--spacing-lg);
+  }
+  @media only screen and (min-width: 1201px) {
+    padding-inline-end: 0;
+
+  }
+}
+#content {
+  @media only screen and (min-width: 768px) {
+    padding-inline-end: var(--spacing-lg);
+  }
+  @media only screen and (min-width: 1201px) {
+grid-column: span 2;
   }
 }
 .footer {

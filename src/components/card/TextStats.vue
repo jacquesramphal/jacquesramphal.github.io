@@ -81,7 +81,7 @@ export default {
   /* ------------ BREAKPOINT LG ------------ */
   @media only screen and (min-width: 1201px) {
     .grid-parent {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 }

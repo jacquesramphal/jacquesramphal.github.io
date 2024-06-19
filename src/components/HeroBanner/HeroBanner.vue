@@ -23,9 +23,15 @@
         </div>
       </GridContainer>
       <GridContainer class="banner-container" v-if="title">
-        <div id="hero-text" class="animate fade delay-1">
+        <GridParent id="hero-text" class="animate fade delay-1">
           <span
-            ><h1 id="title" v-html="title" />
+            >
+            <DynamicText
+              :as="as"
+              :text="title"
+              isHtml
+              :attrs="{ id: 'title' }"
+            />
             <p id="tags" v-if="tag" v-text="tag" class="subtle" />
 
             <p v-if="subtitle" v-text="subtitle" id="subtitle" />
@@ -40,6 +46,7 @@
                 size="large"
                 :label="`${label}`"
                 :route="`${route}`"
+                :link="`${link}`"
               />
               <MyButton
                 v-if="labeltwo"
@@ -47,6 +54,7 @@
                 size="large"
                 :label="`${labeltwo}`"
                 :route="`${routetwo}`"
+                :link="`${linktwo}`"
               />
             </div>
             <!-- <ButtonRow v-if="buttonsData" :buttons="`${buttonsData}`" /> -->
@@ -59,8 +67,9 @@
               ]"
             /> -->
           </span>
-        </div>
+        </GridParent>
       </GridContainer>
+      <div class="overlay" />
     </GridWrapper>
   </AnimatedComponent>
 </template>
@@ -71,6 +80,7 @@ import GridWrapper from "../grid/GridWrapper.vue";
 import TextLink from "../text/TextLink.vue";
 // import MyButton from "./Button/Button.vue";
 import AnimatedComponent from "../AnimatedComponent.vue";
+import DynamicText from "../text/DynamicText.vue";
 
 export default {
   name: "HeroBanner",
@@ -80,6 +90,7 @@ export default {
     // MyButton,
     AnimatedComponent,
     TextLink,
+    DynamicText
   },
   props: {
     contentful: {
@@ -100,6 +111,11 @@ export default {
       type: String,
       default: "Banner Title",
     },
+    as: {
+      default: "h1",
+      type: String,
+      required: false,
+    },
     tag: {
       type: String,
       required: false,
@@ -112,10 +128,16 @@ export default {
     route: {
       type: String,
     },
+    link: {
+      type: String,
+    },
     label: {
       type: String,
     },
     routetwo: {
+      type: String,
+    },
+    linktwo: {
       type: String,
     },
     labeltwo: {
@@ -144,6 +166,11 @@ export default {
       type: Boolean,
       default: false,
     },
+
+    end: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     classes() {
@@ -154,6 +181,7 @@ export default {
         "herobanner--center": this.center,
         "herobanner--overlap": this.overlap,
         "herobanner--fullvh": this.fullvh,
+        "herobanner--end": this.end,
       };
     },
   },
@@ -169,7 +197,9 @@ export default {
 img {
   display: none;
 }
-
+.overlay {
+  display: none;
+}
 #hero-text {
   margin-block-start: var(--spacing-xl);
   align-items: end !important;
@@ -180,6 +210,9 @@ img {
   @media only screen and (min-width: 1201px) {
     max-width: 75vw;
     margin-block-start: none;
+  }
+  span {
+    grid-column: span 2;
   }
 
   // #eyebrow
@@ -239,6 +272,31 @@ img {
     min-height: 60vh;
   }
 }
+.herobanner--background {
+  img {
+    //   // position: fixed !important;
+    //   background: linear-gradient(
+    //   135deg,
+    //   var(--background-reversed) 0%,
+    //   rgba(255, 255, 255, 0) 200%
+    // );
+  }
+  .overlay {
+    display: block !important;
+    float: left;
+    position: absolute;
+    z-index: 100;
+    inline-size: 100%;
+    inline-size: -moz-available;
+    inline-size: -webkit-fill-available;
+    block-size: 100%;
+    background: linear-gradient(
+      0deg,
+      var(--background) 0%,
+      rgba(255, 255, 255, 0) 200%
+    );
+  }
+}
 
 .herobanner--background,
 .herobanner--overlap {
@@ -267,11 +325,10 @@ img {
         var(--spacing-sm);
 
       */
-      color: black;
+      color: var(--text);
       mix-blend-mode: difference !important;
-
       border-radius: var(--spacing-xxs);
-      font-weight: var(--font-reversed-medium);
+      // font-weight: var(--font-reversed-medium);
       letter-spacing: var(--letterSpacing-reversed-tight);
     }
   }
@@ -310,6 +367,9 @@ img {
       justify-self: center;
       text-align: center !important;
     }
+    span {
+      grid-column: span 3;
+    }
   }
   #hero-text > span {
     justify-content: center;
@@ -338,6 +398,17 @@ img {
       margin-block-start: 0 !important;
       padding-block-end: var(--spacing-lg);
     }
+  }
+}
+.herobanner--end {
+  #hero-text {
+    align-items: end !important;
+  }
+}
+.display #hero-text {
+  align-items: end;
+  span {
+    grid-column: 1 / 4 !important;
   }
 }
 </style>

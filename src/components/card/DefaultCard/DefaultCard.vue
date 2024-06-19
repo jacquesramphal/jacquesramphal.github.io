@@ -18,6 +18,8 @@
         class="textblock"
         :eyebrow="eyebrow"
         as="h4"
+        :icon="icon"
+        :iconsize="iconsize"
         :title="title"
         :description="description"
         :label="label"
@@ -63,6 +65,14 @@ export default {
       default: "",
       required: false,
       type: String,
+    },
+    icon: {
+      type: String,
+      required: false,
+    },
+    iconsize: {
+      type: String,
+      required: false,
     },
     title: {
       default: "Hello World",
@@ -175,6 +185,11 @@ img {
   border: none;
   padding: var(--spacing-md) 0;
   display: grid !important;
+
+  &:hover {
+    background: transparent;
+    box-shadow: none;
+  }
   .image {
     overflow: hidden !important;
     border-radius: var(--spacing-xxs) !important;
@@ -213,6 +228,10 @@ img {
 .defaultcard--borderless {
   border: none !important ;
   box-shadow: none !important;
+  &:hover {
+    background: transparent;
+    box-shadow: none;
+  }
   @media only screen and (min-width: 1201px) {
     .info {
       padding: var(--spacing-xs) 0 0 0 !important;

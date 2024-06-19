@@ -8,20 +8,22 @@
       aria-labelledby="menu-heading"
     >
       <GridContainer>
-        <nav class="">
-          <ul class="animate delay-2">
-            <li v-for="(item, index) in menuItems" :key="index">
-              <router-link class="display" :to="item.route">
-                <DynamicText
-                  as="h1"
-                  tabIndex="0"
-                  :attrs="{ class: ''}"
-                  :text="item.text"
-                />
-              </router-link>
-            </li>
-          </ul>
-        </nav>
+        <GridParent>
+          <nav class="">
+            <ul class="animate delay-2">
+              <li v-for="(item, index) in menuItems" :key="index">
+                <router-link class="display" :to="item.route">
+                  <DynamicText
+                    as="h1"
+                    tabIndex="0"
+                    :attrs="{ class: '' }"
+                    :text="item.text"
+                  />
+                </router-link>
+              </li>
+            </ul>
+          </nav>
+        </GridParent>
       </GridContainer>
     </div>
   </transition>
@@ -85,16 +87,16 @@ export default {
   position: fixed;
   inset-block-start: 0;
   inset-inline-start: 0;
-  inline-size: 100%;
-  block-size: 100%;
+  inline-size: 100vw;
+  block-size: 100vh;
   background-color: var(--background);
   z-index: 1000;
   display: flex;
   justify-content: left;
-  align-items: center;
+  align-items: end;
   border-block-end: var(--border);
   @media only screen and (min-width: 1201px) {
-    align-items: end;
+    // align-items: end;
   }
   .close-button {
     position: absolute;
@@ -114,6 +116,10 @@ export default {
     z-index: -1; /* Set the z-index to be behind the navbar */
   }
   nav {
+    padding-block-end: var(--spacing-lg);
+    // background: red;
+  
+    grid-column: span 3;
     ul {
       list-style: none;
       padding: 0;

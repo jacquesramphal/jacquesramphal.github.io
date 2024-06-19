@@ -1,12 +1,13 @@
 <template>
   <PageWrapper id="work" class="">
-
     <HeroBanner
       style="scroll-snap-align: start"
       :key="entry.id"
       :title="`${entry.title}`"
       :subtitle="`${entry.description}`"
+      :filename="`${entry.images.filename1}`"
     />
+    <!-- <TestimonialCarousel /> -->
 
     <GridContainer style="padding-block-start: var(--spacing-sm) !important">
       <TextStats
@@ -18,29 +19,78 @@
         :value3="`${entry.status}`"
     /></GridContainer>
 
-    <GridContainer style="scroll-snap-align: start" tight class="animate glow delay-1">
+    <GridContainer
+      style="scroll-snap-align: start"
+      tight
+      class="animate glow delay-1"
+    >
       <ImageCard
         size="large"
         title=""
-        :filename1="`${entry.images.filename1}`"
+        :filename3="`${entry.images.filename1}`"
         :alt="`${entry.alt}`"
         route=""
         :style="`${entry.bgcolor}`"
     /></GridContainer>
-    <TextImage
-      tabindex="0"
-      v-for="(section, j) in entry.entries"
-      :key="j"
-      @click="openImage(section.images.filename1)"
-      :flipped="j % 2 !== 0"
-      :eyebrow="section.eyebrow"
-      :title="section.title"
-      :description="section.body"
-      :filename="section.images.filename1"
-      :alt="section.images.alt"
-      style="scroll-snap-align: start"
-      class="fadeInUp"
-    />
+
+    <div class="section">
+      <!-- <MarkdownRenderer :markdown="pageContent" /> -->
+      <TextGrid2 />
+
+      <TextGrid
+        title="The Solution"
+        subtitle="To achieve these goals, Kum & Go partnered with Orium to implement a flexible and scalable platform focusing on four key objectives:"
+        eyebrow1="Control Over Digital Experience"
+        detail1="Empowering Kum & Go to manage their search, merchandising, promotions, loyalty, and content independently."
+        eyebrow2="Increased Customer Engagement"
+        detail2="Launching a robust loyalty program to engage a larger segment of the consumer base."
+        eyebrow3="More In-Store Purchases"
+        detail3="Enhancing the omnichannel experience to drive more in-store purchases."
+        eyebrow4="Extensible and Maintainable Platform"
+        detail4="Moving off a costly legacy platform to a more efficient and innovative system."
+      />
+      <TextImage class="fadeInUp" />
+      <TextImage class="fadeInUp" flipped     style="
+              background: var(--background-darker)
+            "/>
+      <TextImage class="fadeInUp" />
+
+      <GridContainer>
+        <GridParent rows >
+          <GridParent
+            style="
+              margin-block-end: var(--spacing-md) !important;
+            "
+            v-for="(section, j) in entry.entries"
+            :key="j"
+          >
+            <TextBlock
+              class="offset fadeInUp"
+              left
+              eyebrow=""
+              :title="section.title"
+              :description="section.body"
+              :blockquote="section.blockquote"
+            />
+            <GridWrapper
+              tight
+              class="offset fadeInUp"
+              v-if="section.images.filename1"
+              id=""
+            >
+              <ImageCard
+                size="large"
+                class=""
+                title=""
+                :filename1="section.images.filename1"
+                :alt="section.images.alt"
+                :caption="section.images.caption"
+              />
+            </GridWrapper> </GridParent
+        ></GridParent>
+      </GridContainer>
+    </div>
+
     <!-- class="fullvh fadeInUp" -->
 
     <!-- <TextImage
@@ -60,7 +110,6 @@
       :imageSrc="selectedImage"
       @close="closeImage"
     />
-
   </PageWrapper>
 </template>
 

@@ -1,19 +1,15 @@
 <template>
   <li class="resume-segment-entry">
     <div class="resume-segment-entry-title">
-      <DynamicText as="h3" v-if="title" :text="title" :attrs="{ class: '' }" />
-      <DynamicText
-        as="h3"
-        v-if="position"
-        :text="positionInBrackets"
-      />
+      <DynamicText as="h4" v-if="title" :text="title" :attrs="{ class: '' }" />
+      <DynamicText as="p" v-if="position" :text="positionInBrackets" />
     </div>
 
-    <div v-if="from || to || location" class="resume-segment-entry-information">
-      <div
-        v-if="from || to"
-        class="subtle resume-segment-entry-information-date"
-      >
+    <div
+      v-if="from || to || location"
+      class="subtle resume-segment-entry-information"
+    >
+      <div v-if="from || to" class="resume-segment-entry-information-date">
         <DynamicText
           v-if="from"
           :text="from"
@@ -29,7 +25,7 @@
       <DynamicText
         v-if="location"
         :text="location"
-        :attrs="{ class: 'subtle resume-segment-entry-information-location' }"
+        :attrs="{ class: ' resume-segment-entry-information-location' }"
       />
     </div>
 
@@ -81,7 +77,8 @@ export default {
   },
   computed: {
     positionInBrackets() {
-      return ` (${this.position})`;
+      // return ` (${this.position})`;
+      return ` ${this.position}`;
     },
   },
 };
@@ -124,11 +121,8 @@ export default {
           content: '-'
           margin: 0 0 0 .15rem
       .resume-segment-entry-information-to
-        margin: 0 .15rem 0 0
         &::after
           content: '•'
           margin: 0 .5rem 0 .5rem
-  >.resume-segment-entry-title
-    line-height: var(--lineHeight-tall)
-    margin-block-end: var(--spacing-xxs)
+//  >.resume-segment-entry-title
 </style>
