@@ -1,9 +1,9 @@
 <template>
   <div>
-    <img :src="imageSrc" alt="Newsletter Image" />
+    <!-- <img :src="imageSrc" alt="Newsletter Image" /> -->
     <p>{{ placeholderText }}</p>
     <input v-model="email" placeholder="Enter your email" />
-    <button @click="subscribe">Subscribe</button>
+    <MyButton label="Subscribe!" size="small" @click="subscribe">Subscribe</MyButton>
     <p
       v-if="message"
       :class="{ 'success-message': isSuccess, 'error-message': !isSuccess }"
@@ -25,8 +25,8 @@ onBeforeUnmount(() => {
   store.commit("resetState");
 });
 
-const imageSrc = "/path/to/your/image/placeholder.jpg";
-const placeholderText = "Subscribe to our newsletter for updates";
+// const imageSrc = "/path/to/your/image/placeholder.jpg";
+const placeholderText = "Subscribe to my Ramblings";
 
 const subscribe = () => {
   store.dispatch("subscribe", email.value);
@@ -43,6 +43,11 @@ const { email: globalEmail, message, isSuccess } = store.state; // You can use t
 <style>
 .success-message {
   color: green;
+}
+
+button {
+  /* position: absolute;
+  margin-inline-start: -140px; */
 }
 
 .error-message {

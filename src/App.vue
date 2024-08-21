@@ -24,11 +24,12 @@
             <!-- BREADCRUMB NAV END-->
 
       <template v-slot:menu-button-mobile>
-        <MyButton
+        <TextLink
           style="border: 0 !important; line-height: inherit"
           type="textlink"
           :label="menuOpen ? 'Close' : 'Menu'"
           @click="toggleMenu"
+          
         />
       </template>
     </HeaderNav>
@@ -52,6 +53,7 @@
     </StickyNav> -->
     <!-- <NewsletterSubscription /> -->
     <MainFooter v-if="!$route.meta.hideFooter" />
+    <SimpleFooter v-if="!$route.meta.hideFooter" />
   </router-view>
   <!-- <TheLogin v-else @TheLogin::loginResult="handleLoginResult" /> -->
 </template>
@@ -64,6 +66,7 @@ import FullscreenMenu from "./components/FullscreenMenu.vue";
 // import StickyNav from "./components/StickyNav.vue";
 import HeaderNav from "./components/HeaderNav.vue";
 import MainFooter from "./components/MainFooter.vue";
+import SimpleFooter from "./components/SimpleFooter.vue";
 import TheLogin from "./components/TheLogin.vue";
 // import ThemeButton from "./components/ThemeButton.vue";
 // import BreadCrumb from "./components/BreadCrumb.vue";
@@ -75,6 +78,7 @@ export default {
     // StickyNav,
     HeaderNav,
     MainFooter,
+    SimpleFooter,
     // ThemeButton,
     TheLogin,
     FullscreenMenu,

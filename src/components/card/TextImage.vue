@@ -16,7 +16,7 @@
         <GridWrapper class="textcontainer">
           <TextBlock
             :eyebrow="`${eyebrow}`"
-            is="h2"
+            :as="`${as}`"
             :title="`${title}`"
             :label="`${label}`"
             :route="route ? `${route}` : undefined"
@@ -44,6 +44,10 @@ export default {
     title: {
       type: String,
       default: "Detail Card",
+    },
+    as:{
+      type: String,
+      default: "h3",
     },
     description: {
       type: String,

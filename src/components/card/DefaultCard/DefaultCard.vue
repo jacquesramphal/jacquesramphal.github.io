@@ -57,6 +57,7 @@ export default {
     },
     filename: {
       type: String,
+      required: false,
     },
     alt: {
       type: String,

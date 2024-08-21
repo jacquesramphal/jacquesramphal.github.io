@@ -1,12 +1,15 @@
 <template>
-  <transition name="slide" mode="out-in">
-    <div
-      class="fullscreen-menu"
-      v-if="isOpen"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="menu-heading"
+  <transition name="" mode="out-in">
+    <!-- <transition name="slide" mode="out-in"> -->
+      <div
+    class=" fullscreen-menu"
+    v-if="isOpen"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="menu-heading"
     >
+    <!-- <MainFooter /> -->
+     
       <GridContainer>
         <GridParent>
           <nav class="">
@@ -14,29 +17,37 @@
               <li v-for="(item, index) in menuItems" :key="index">
                 <router-link class="display" :to="item.route">
                   <DynamicText
-                    as="h1"
+                    as="h2"
                     tabIndex="0"
                     :attrs="{ class: '' }"
                     :text="item.text"
                   />
                 </router-link>
+                
               </li>
+
             </ul>
           </nav>
         </GridParent>
       </GridContainer>
-    </div>
+      <div v-if="isMenuActive" class="menu-overlay"></div>
+    </div> 
+
   </transition>
 </template>
 
 <script>
 import GridContainer from "./grid/GridContainer.vue";
+// import MainFooter from "./MainFooter.vue";
+
 export default {
   props: {
     isOpen: Boolean,
   },
   data() {
     return {
+      isMenuActive: false, // Initially hidden
+
       menuItems: [
         { text: "Home", route: "/" },
         { text: "Library", route: "/library" },
@@ -53,6 +64,9 @@ export default {
       if (event.key === "Escape") {
         this.closeMenu();
       }
+    },
+    toggleMenu() {
+      this.isMenuActive = !this.isMenuActive;
     },
   },
   // Register the event listener when the component is mounted
@@ -75,7 +89,10 @@ export default {
       }
     },
   },
-  components: { GridContainer },
+  components: { 
+    // MainFooter,
+    GridContainer
+   },
 };
 </script>
 
@@ -83,19 +100,33 @@ export default {
 .menu-open {
   overflow: hidden;
 }
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 999; /* Ensure it's above other content but below the menu */
+}
 .fullscreen-menu {
   position: fixed;
-  inset-block-start: 0;
-  inset-inline-start: 0;
+  inset-block-end: 0;
+  inset-inline-end: 0;
   inline-size: 100vw;
   block-size: 100vh;
   background-color: var(--background);
+  border-left: var(--border);
+  box-shadow: var(--shadow-heavy);
   z-index: 1000;
   display: flex;
   justify-content: left;
   align-items: end;
   border-block-end: var(--border);
   @media only screen and (min-width: 1201px) {
+    inline-size: fullvw;
+    // inline-size: auto;
+
     // align-items: end;
   }
   .close-button {
@@ -104,17 +135,16 @@ export default {
     inset-block-start: var(--spacing-xs);
   }
   &::after {
-    content: "";
-    position: absolute;
-    inset-block-start: -100%;
-    inset-block-end: 0; /* Adjust the value to control the width of the additional background */
-    inset-inline-end: 0;
-    inline-size: 100%; /* Adjust the value to control the width of the additional background */
-    background-color: var(
-      --background
-    ); /* Specify the color of the additional background */
-    z-index: -1; /* Set the z-index to be behind the navbar */
-  }
+  content: "";
+  position: absolute;
+  inset-block-start: 0; /* Start from the top */
+  inset-block-end: 0; /* Extend to the bottom */
+  inset-inline-start: 100%; /* Start from the right edge, making it initially invisible */
+  inline-size: 100%; /* Ensure it spans the full width of the parent when it slides in */
+  background-color: inherit; /* Maintain the background color */
+  z-index: -1; /* Keep it behind the main content */
+  transition: inset-inline-start 0.3s ease; /* Smooth transition for the slide-in effect */
+}
   nav {
     padding-block-end: var(--spacing-lg);
     // background: red;
@@ -127,7 +157,7 @@ export default {
       li {
         a {
           text-decoration: none;
-          color: var(--text) !important;
+          color: var(--foreground) !important;
           &:hover {
             color: var(--link) !important;
           }
@@ -144,10 +174,10 @@ export default {
 
 @keyframes slide {
   from {
-    transform: translateY(-100%); /* Start off-screen to the left */
+    transform: translateX(100%); /* Start off-screen to the left */
   }
   to {
-    transform: translateY(0); /* Slide to the original position */
+    transform: translateX(0); /* Slide to the original position */
   }
 }
 
@@ -157,10 +187,10 @@ export default {
 
 @keyframes slide-out {
   from {
-    transform: translateY(0); /* Start at the original position */
+    transform: translateX(0); /* Start at the original position */
   }
   to {
-    transform: translateY(-100%); /* Slide out to the right */
+    transform: translateX(100%); /* Slide out to the right */
   }
 }
 </style>

@@ -109,12 +109,12 @@ export default {
 
   #info {
     h5 {
-      color: var(--text-lighter);
+      color: var(--foreground-lighter);
       text-decoration: none;
     }
 
     p.subtle {
-      color: var(--text-lighter);
+      color: var(--foreground-lighter);
       text-decoration: none;
     }
   }

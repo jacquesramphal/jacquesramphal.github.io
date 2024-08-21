@@ -35,11 +35,31 @@
 
     <div class="section">
       <!-- <MarkdownRenderer :markdown="pageContent" /> -->
-      <TextGrid2 />
+      <!-- <TextGrid2 /> -->
+
+
 
       <TextGrid
-        title="The Solution"
-        subtitle="To achieve these goals, Kum & Go partnered with Orium to implement a flexible and scalable platform focusing on four key objectives:"
+      :key="entry.id"
+
+      title= "Key Focus Areas"
+      as="h2"
+        description=""
+        :eyebrow1="`${entry.keypoints.title}`"
+
+        detail1="Empowering Kum & Go to manage their search, merchandising, promotions, loyalty, and content independently."
+        eyebrow2="Increased Customer Engagement"
+        detail2="Launching a robust loyalty program to engage a larger segment of the consumer base."
+        eyebrow3="More In-Store Purchases"
+        detail3="Enhancing the omnichannel experience to drive more in-store purchases."
+        eyebrow4="Extensible and Maintainable Platform"
+        detail4="Moving off a costly legacy platform to a more efficient and innovative system."
+      />
+
+      <TextGrid
+      title= "Key Focus Areas"
+      as="h2"
+        description=""
         eyebrow1="Control Over Digital Experience"
         detail1="Empowering Kum & Go to manage their search, merchandising, promotions, loyalty, and content independently."
         eyebrow2="Increased Customer Engagement"
@@ -49,15 +69,25 @@
         eyebrow4="Extensible and Maintainable Platform"
         detail4="Moving off a costly legacy platform to a more efficient and innovative system."
       />
-      <TextImage class="fadeInUp" />
-      <TextImage class="fadeInUp" flipped     style="
-              background: var(--background-darker)
-            "/>
-      <TextImage class="fadeInUp" />
+
+
+      <TextImage
+        v-for="(section, j) in entry.entries"
+        :key="j"
+        @click="openImage(section.images.filename1)"
+        :flipped="j % 2 !== 0"
+        class="fadeInUp"
+        :eyebrow="section.eyebrow"
+        :title="section.title"
+        :description="section.body"
+        :filename="section.images.filename1"
+        :alt="section.images.alt"
+        as="h2"
+      />
 
       <GridContainer>
         <GridParent rows >
-          <GridParent
+          <GridParent tight
             style="
               margin-block-end: var(--spacing-md) !important;
             "
@@ -93,18 +123,7 @@
 
     <!-- class="fullvh fadeInUp" -->
 
-    <!-- <TextImage
-        v-for="(section, j) in entry.entries"
-        :key="j"
-        @click="openImage(section.images.filename1)"
-        :flipped="j % 2 !== 0"
-        class="fadeInUp"
-        :eyebrow="section.eyebrow"
-        :title="section.title"
-        :description="section.body"
-        :filename="section.images.filename1"
-        :alt="section.images.alt"
-      /> -->
+  
     <FullscreenImage
       :isOpen="isImageOpen"
       :imageSrc="selectedImage"

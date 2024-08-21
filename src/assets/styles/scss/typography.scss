@@ -6,10 +6,39 @@
   font-kerning: auto;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-family: var(--fontFamily-primary);
   text-rendering: optimizeLegibility;
   unicode-range: U+000-5FF;
+}
+
+body {
+  font-family: var(--fontFamily-primary);
   letter-spacing: var(--letterSpacing-base);
+}
+
+body:has(input[value="Serif"]:checked) {
+  font-family: var(--fontFamily-tertiary);
+}
+
+/* <uniquifier>: Use a unique and descriptive class name */
+/* <weight>: Use a value from 100 to 1000 */
+
+.roboto-flex-default {
+  font-family: "Roboto Flex", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 100,
+    "GRAD" 0,
+    "XOPQ" 96,
+    "XTRA" 468,
+    "YOPQ" 79,
+    "YTAS" 750,
+    "YTDE" -203,
+    "YTFI" 738,
+    "YTLC" 514,
+    "YTUC" 712;
 }
 
 /* TEST AND EXPAND MIXINS */
@@ -41,22 +70,22 @@ p {
   opacity: 1 !important;
 }
 
-h1,
-h2 {
-  font-family: var(--fontFamily-secondary);
-  letter-spacing: var(--letterSpacing-tight) !important;
+.display h1 {
+  font-size: var(--font-1000);
+  font-variation-settings: "YAXS" 400, "wdth" 100, "opsz" 48;
+  font-family: var(--fontFamily-displaySans);
+
 }
 
-h3,
-h4 {
-  font-family: var(--fontFamily-secondary);
+body:has(input[value="Serif"]:checked) .display h1 {
+  font-family: var(--fontFamily-displaySerif) !important;
 }
-
 
 h1 {
-  font-size: var(--font-1000);
-  font-weight: var(--fontWeight-bold);
+  font-size: var(--font-900);
+  font-weight: var(--fontWeight-medium);
   line-height: var(--lineHeight-shorter);
+  letter-spacing: var(--letterSpacing-tight) !important;
   /*  overflow-wrap: break-word;
   word-wrap: break-word;
   -webkit-hyphens: auto;
@@ -72,30 +101,27 @@ h1 {
   */
   font-variation-settings:
 
-    /* Accepts a font weight between 0 and 900 and is applied equally to all characters. */
-    /*'wght' 750,*/
+    /* 'wght': Sets the font weight between 0 and 900, applied equally to all characters. Example: 'wght' 750. */
+    /*"wght" 900,*/
 
-    /* 400-1000 
-    Similar to weight, but without touching horizontal spacing. 
-    It accepts values between 400 and 1000.*/
-    "GRAD"
-    500,
-    /* 400-1000 
-    Stretches the glyph vertically. It accepts values between 400 and 1000.*/
+    /* 'GRAD': Similar to weight but does not affect horizontal spacing. Accepts values between 400 and 1000. */
+
+
+    /* 'YAXS': Stretches the glyph vertically. Accepts values between 400 and 1000. */
     "YAXS" 400,
-    /* values expressed as a percentage above or below 'normal' (100%) */
-    "wdth"
-    105,
-    /* 19 or 20 
-    Optical sizing is similar to kerning or letter-spacing, but the spacing is done by a human eye instead of math. A value of 19 or below is intended for text and body copy spacing, while 20 or above is for spacing display headers and titles.*/
-    "opsz" 20;
+
+    /* 'wdth': Width expressed as a percentage above or below 'normal' (100%). */
+    "wdth" 110,
+
+    /* 'opsz': Optical sizing. 
+19 or below: For text and body copy spacing.
+20 or above: For display headers and titles. */
+    "opsz" 48;
 
 }
 
-.display h1 {
-  font-size: var(--font-display);
-  /* font-weight: var(--fontWeight-regular);*/
-}
+
+
 /*
 h1:hover {
   font-variation-settings: 'wdth' 200;
@@ -110,56 +136,57 @@ h1:hover {
 
 /* NEED TO STYLE h2 */
 h2 {
-  font-size: var(--font-md);
+  font-size: var(--font-800);
   font-weight: var(--fontWeight-medium);
   line-height: var(--lineHeight-base);
-  /* letter-spacing: var(--letterSpacing-tight) !important; */
-
-  font-variation-settings: "GRAD" 500, "YAXS" 400, "wdth" 105, "opsz" 20;
+  letter-spacing: var(--letterSpacing-base) !important;
+  font-variation-settings: "YAXS" 400, "wdth" 110, "opsz" 48;
 }
 
 h3 {
-
-  font-size: var(--font-sm);
+  font-size: var(--font-700);
   font-weight: var(--fontWeight-medium);
   line-height: var(--lineHeight-base);
-  font-variation-settings: "GRAD" 500, "YAXS" 400, "wdth" 105, "opsz" 20;
+  letter-spacing: var(--letterSpacing-tight) !important;
+  letter-spacing: var(--letterSpacing-base) !important;
+
+  font-variation-settings: "YAXS" 400, "wdth" 110, "opsz" 48;
 }
 
 h4 {
 
-  font-size: var(--font-sm);
+  font-size: var(--font-600);
   font-weight: var(--fontWeight-medium);
   line-height: var(--lineHeight-tall);
-  font-variation-settings: "GRAD" 500, "YAXS" 400, "wdth" 105, "opsz" 20;
+  font-variation-settings: "YAXS" 400, "wdth" 110, "opsz" 48;
 }
 
 h5 {
 
-  font-size: var(--font-xs);
+  font-size: var(--font-500);
   font-weight: var(--fontWeight-medium);
   line-height: var(--lineHeight-tall);
-  font-variation-settings: "GRAD" 500, "YAXS" 400, "wdth" 105, "opsz" 20;
+  font-variation-settings: "YAXS" 400, "wdth" 110, "opsz" 48;
 
   margin: 0;
 }
 
 /* eyebrow text */
 h6 {
-  font-size: var(--font-2xs);
+  font-size: var(--font-400);
   font-weight: var(--fontWeight-medium);
   line-height: var(--lineHeight-tall);
   letter-spacing: var(--letterSpacing-loose);
   text-transform: uppercase !important;
-  font-variation-settings: "GRAD" 500, "YAXS" 400, "wdth" 115, "opsz" 20;
+  font-variation-settings: "YAXS" 400, "wdth" 115, "opsz" 48;
 }
 
 p,
 blockquote {
-  font-size: var(--font-xs);
+  font-size: var(--font-500);
   font-weight: var(--fontWeight-normal);
   line-height: var(--lineHeight-taller);
-  font-variation-settings: "wdth" 102, "opsz" 19;
+  font-variation-settings: "wdth" 102, "opsz" 16;
 }
 
 blockquote {
@@ -167,7 +194,7 @@ blockquote {
 }
 
 /* code {
-  color: var(--text-reversed);
+  color: var(--foreground-reversed);
   background-color: var(--background-reversed);
   border-radius: 4px;
   font-family: courier, monospace;
@@ -234,7 +261,7 @@ blockquote {
   background: var(--background-darker);
   border-inline-start: var(--spacing-xxxs) solid var(--link);
   border-radius: var(--spacing-xxxs);
-  color: var(--text);
+  color: var(--foreground);
   margin: var(--spacing-md) 0;
   padding: var(--spacing-sm) var(--spacing-md);
 }
@@ -275,7 +302,7 @@ blockquote {
   margin: var(--spacing-xxs) var(--spacing-xs) 0 0;
   padding: var(--spacing-xxs);
   background: var(--background-reversed);
-  color: var(--text-reversed);
+  color: var(--foreground-reversed);
 }
 
 /* ---- LINKS/BUTTONS ---- */
@@ -299,9 +326,11 @@ blockquote {
 a,
 router-link {
   position: relative;
-  color: var(--text) !important;
+  color: var(--foreground) !important;
   font-weight: var(--fontWeight-normal);
   cursor: pointer;
+  font-size: var(--font-500);
+
   text-decoration: underline;
   text-underline-offset: 0.75rem;
   text-decoration-thickness: 0.1rem !important;
@@ -412,7 +441,7 @@ a:visited {
 /* ---- Reversed States ---- */
 
 .reversed {
-  color: var(--text-reversed) !important;
+  color: var(--foreground-reversed) !important;
   mix-blend-mode: normal !important;
   background: var(--background-reversed);
   /* letter-spacing: var(--letterSpacing-reversed-base); */
@@ -485,15 +514,15 @@ h1 a {
   text-decoration: none !important;
 }
 
-h1>a {
-  /* background: -webkit-linear-gradient(top left, var(--color-action), var(--color-action-dark));
+/* h1>a {
+  background: -webkit-linear-gradient(top left, var(--color-action), var(--color-action-dark));
   -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important; */
-  /* text-shadow: var(--shadow-deep); */
-  /* background: var(--background-darker); */
+  -webkit-text-fill-color: transparent !important; 
+   text-shadow: var(--shadow-deep); 
+   background: var(--background-darker); 
 }
 
-/*h1>a:hover {
+h1>a:hover {
  background: -webkit-linear-gradient(bottom right, var(--color-action), var(--color-action-dark));
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
@@ -506,41 +535,16 @@ h1>a {
   h1 {
     padding-block-end: 4px;
   }
-
-  h2 {
-    font-size: var(--font-lg);
-  }
-
-  h3 {
-    font-size: var(--font-md);
-  }
-
-  h4 {
-    font-size: var(--font-sm);
-  }
-
-  h5 {
-    font-size: var(--font-xs);
-  }
 }
 
 /* ------------ BREAKPOINT LG ------------ */
-@media only screen and (min-width: 1201px) {
-
-
-  /* strong {
-      padding: var(--spacing-xxs) var(--spacing-sm) var(--spacing-xs) var(--spacing-sm);
-    }*/
-}
+@media only screen and (min-width: 1201px) {}
 
 /* ------------ BREAKPOINT XL ------------ */
 @media only screen and (min-width: 1441px) {
 
-
-
-
   .display p {
-    font-size: var(--font-sm);
+    font-size: var(--font-600);
     line-height: var(--lineHeight-base);
     letter-spacing: var(--letterSpacing-tight) !important;
   }

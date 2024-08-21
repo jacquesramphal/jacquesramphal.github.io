@@ -14,11 +14,15 @@ import CardRow2 from "@/components/CardRow2.vue";
 import DefaultCard from "@/components/card/DefaultCard/DefaultCard.vue";
 import TextGrid from "@/components/card/TextGrid.vue";
 import TextGrid2 from "@/components/card/TextGrid2.vue";
+import TextGrid3 from "@/components/card/TextGrid3.vue";
 import FilterBar from "@/components/FilterBar.vue";
 import GridParent from "@/components/grid/GridParent.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
 import GridWrapper from "@/components/grid/GridWrapper.vue";
 import HeroBanner from "@/components/HeroBanner/HeroBanner.vue";
+import HeroAnimated from "./components/HeroAnimated.vue";
+import HeroAnimatedCopy from "./components/HeroAnimated copy.vue";
+import HeroAnimated2 from "./components/HeroAnimated2.vue";
 import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
 import BreadCrumb from "@/components/BreadCrumb.vue";
 import ImageCard2 from "@/components/card/ImageCard2.vue";
@@ -38,6 +42,10 @@ import DynamicText from "@/components/text/DynamicText.vue";
 import TextImage from "@/components/card/TextImage.vue";
 import TextLink from "@/components/text/TextLink.vue";
 import ThumbDetail from "@/components/ThumbDetail/ThumbDetail.vue";
+import MyInput from "./components/form/MyInput.vue";
+import FormCentered from "./components/card/FormCentered.vue";
+import MyForm from "./components/card/MyForm.vue";
+import NewsletterSubscription from "./components/form/NewsletterSubscription.vue";
 
 import router from "./router";
 import { Directive, DirectiveBinding, VNode } from "vue";
@@ -114,6 +122,7 @@ app
   .component("DefaultCard", DefaultCard)
   .component("TextGrid", TextGrid)
   .component("TextGrid2", TextGrid2)
+  .component("TextGrid3", TextGrid3)
   .component("FilterBar", FilterBar)
   .component("GridContainer", GridContainer)
   .component("GridParent", GridParent)
@@ -135,7 +144,14 @@ app
   .component("TextLink", TextLink)
   .component("ThumbDetail", ThumbDetail)
   .component("MarkdownRenderer", MarkdownRenderer)
-  .component("DynamicText", DynamicText);
+  .component("DynamicText", DynamicText)
+  .component("HeroAnimated", HeroAnimated)
+  .component("HeroAnimatedCopy", HeroAnimatedCopy)
+  .component("HeroAnimated2", HeroAnimated2)
+.component("MyInput", MyInput)
+.component("NewsletterSubscription", NewsletterSubscription)
+.component("FormCentered", FormCentered)
+.component("MyForm", MyForm);
 
 // Mount the app
 app.mount("#app");

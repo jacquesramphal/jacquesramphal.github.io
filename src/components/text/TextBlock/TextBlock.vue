@@ -26,25 +26,32 @@
       :text="description"
       :attrs="{ class: 'description' }"
     />
-    <TextLink
-      v-if="route && label"
+    <!-- <TextLink
+      v-if="route"
       :label="label"
       :route="route ? `${route}` : undefined"
       :link="link ? `${link}` : undefined"
     />
     <MyButton
       id="btn"
-      v-if="btnroute && label"
+      v-if="route"
       :label="label"
-      :route="btnroute"
-      type="solid"
+      :route="route"
+      type="textlink"
+    /> -->
+    <MyButton
+      id="btn"
+      :type="btntype"
+      v-if="(route || btnroute) && label"
+      :label="label"
+      :route="route || btnroute"
     />
   </div>
 </template>
 
 <script>
 import MyButton from "../../Button/Button.vue";
-import TextLink from "../TextLink.vue";
+// import TextLink from "../TextLink.vue";
 import DynamicText from "../DynamicText.vue";
 import MyIcon from "../../Icon.vue";
 
@@ -52,7 +59,7 @@ export default {
   name: "TextBlock",
   components: {
     MyButton,
-    TextLink,
+    // TextLink,
     DynamicText,
     MyIcon,
   },
@@ -75,6 +82,9 @@ export default {
       default: "h3",
       type: String,
       required: false,
+    },
+    btntype:{
+      type: String,
     },
     title: {
       type: String,

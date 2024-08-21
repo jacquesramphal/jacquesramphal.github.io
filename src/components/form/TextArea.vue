@@ -44,6 +44,7 @@ export default {
 <style scoped>
 * {
   color: inherit;
+  font-family: inherit;
 }
 #textarea {
   /*  background: var(--color-xlight); */

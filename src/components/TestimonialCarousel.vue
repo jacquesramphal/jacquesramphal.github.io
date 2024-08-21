@@ -214,13 +214,14 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: left;
+  min-height: 60vh;
   /* padding: 20px; */
   // background-color: var(--background-darker);
   // block-size: 100vh;
   padding-block-start: var(--spacing-lg);
-  justify-content: center;
+  justify-content: start;
   // background: yellow;
-  border-block-start: var(--border);
+  // border-block-start: var(--border);
 }
 
 .quote-container {

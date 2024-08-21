@@ -37,7 +37,7 @@ Builder.io takes a swing at this concept, allowing us to design in the browser w
 ### Headless Complexity
 - With the domination of headless architectures, there seems to be a tool for everything. The tool for X and another tool for Y. Endless integrations and microservices all playing together to form the complexity that is a modern application.
 - While this is most certainly good in many ways, it brings about a slippery slope, in which our products can be made infinitely more complex -- more tools more dependencies. 
-- What I's saying is, headless can get messy.
+- What I'm saying is, headless can get messy.
 
 ![Image](images/image1.png)
 

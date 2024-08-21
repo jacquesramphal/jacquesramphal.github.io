@@ -1,7 +1,7 @@
 <template>
   <li class="resume-segment-entry">
     <div class="resume-segment-entry-title">
-      <DynamicText as="h4" v-if="title" :text="title" :attrs="{ class: '' }" />
+      <DynamicText as="h3" v-if="title" :text="title" :attrs="{ class: '' }" />
       <DynamicText as="p" v-if="position" :text="positionInBrackets" />
     </div>
 

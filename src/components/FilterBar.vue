@@ -28,7 +28,7 @@ export default {
 };
 </script>
 
-<style lang="scss" >
+<style scoped lang="scss" >
 input[type="radio"] {
   position: absolute;
   inset-inline-start:  -9999px;
@@ -73,7 +73,7 @@ li {
 
 .filters label:hover {
   background: var(--link);
-  color: var(--text-reversed);
+  color: var(--foreground-reversed);
 }
 
 /* Hide the radio buttons */

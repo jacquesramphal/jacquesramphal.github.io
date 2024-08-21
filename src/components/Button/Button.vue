@@ -139,6 +139,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+* {
+  font-family: inherit;
+}
 .button-icon {
   margin-inline-end: var(
     --spacing-xxs
@@ -160,14 +163,17 @@ export default {
   // padding: 0.5rem 1rem 0.5rem 1rem;
   text-decoration: none;
   transition: all 0.1s ease-in-out;
-  &:hover {
-    animation: animate-shake 1s;
-    animation-delay: 1s;
-  }
+  // &:hover {
+  //   animation: animate-shake 1s;
+  //   animation-delay: 1s;
+  // }
   &:active {
     /* animation: animate-glow 1s;  */
     transform: scale(0.98);
     /* box-shadow: var(--shadow-text); */
+  }
+  @media only screen and (max-width: 768px) {
+    width: 100%;
   }
 }
 
@@ -184,6 +190,7 @@ export default {
   }
   &:hover {
     background: -webkit-linear-gradient(var(--link), var(--link)) !important;
+    
   }
 }
 
@@ -198,11 +205,11 @@ export default {
     color: var(--link) !important;
   }
   &:hover {
-    color: var(--text-reversed) !important;
+    color: var(--foreground-reversed) !important;
     background-color: var(--link) !important;
     &:before,
     &:after {
-      color: var(--text) !important;
+      color: var(--foreground) !important;
     }
   }
 }
@@ -240,7 +247,7 @@ export default {
 }
 
 .button--textlink {
-  color: var(--text) !important;
+  color: var(--foreground) !important;
 
   padding: 0 !important;
   color: var(--link);
@@ -311,11 +318,11 @@ export default {
     }
   }
   .button--outline:hover {
-    color: var(--text) !important;
+    color: var(--foreground) !important;
     background-color: var(--link-reversed) !important;
     &:before,
     &:after {
-      color: var(--text) !important;
+      color: var(--foreground) !important;
     }
   }
 }

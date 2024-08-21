@@ -3,7 +3,8 @@
     <HeroBanner
       id="hero"
       title="Library"
-      subtitle="Writings, ramblings, professional and personal projects. A collection of my work and thoughts.
+      subtitle="
+A curated collection of my professional and personal projects, alongside writings, musings, and reflective thoughts..
 "
     />
     <!-- <TextImage
@@ -16,12 +17,14 @@
     /> -->
     <GridContainer>
       <GridParent
-        style="
-          padding-block-end: var(--spacing-md);
-          align-items: center;
-        "
+        style="padding-block-end: var(--spacing-md); align-items: center"
       >
-        <TextBlock style="grid-column: 1 / 3" title="Projects" description="" />
+        <TextBlock
+          as="h2"
+          style="grid-column: 1 / 3"
+          title="Projects"
+          description=""
+        />
       </GridParent>
       <!-- 
       <input type="radio" id="All" name="categories" value="All" checked />
@@ -49,7 +52,7 @@
         style="margin-block: var(--spacing-lg)"
       /> -->
       <GridParent
-      tight
+        tight
         v-if="filteredEntries.length > 0"
         id="recentwork"
         class="posts"
@@ -84,7 +87,6 @@
           :filename3="entry.filename3"
           :style="entry.bgcolor"
           :size="entry.size"
-
         />
       </GridParent>
       <div v-else>
@@ -106,14 +108,30 @@
         style="margin-block: var(--spacing-lg)"
       /> -->
       <GridParent
-        style="
-          padding-block-end: var(--spacing-md);
-          align-items: center;
-        "
+        style="padding-block-end: var(--spacing-md); align-items: center"
       >
-        <TextBlock style="grid-column: 1 / 3" title="Writing" description="" />
+        <TextBlock
+          as="h2"
+          style="grid-column: 1 / 3"
+          title="Writing"
+          description=""
+        />
       </GridParent>
-      <GridParent tight>
+      <GridParent tight class="">
+        <!-- <DefaultCard
+        list
+          borderless
+          v-for="entry in docs.entries"
+          :alt=false
+          :description="entry.description"
+          :filename="entry.thumbnail"
+          :key="entry.id"
+          :label="entry.label"
+          :route="entry.route"
+          :btnroute="entry.btnroute"
+          :eyebrow="entry.eyebrow"
+          :title="entry.title"
+        /> -->
         <DefaultCard
           borderless
           v-for="entry in docs.entries"

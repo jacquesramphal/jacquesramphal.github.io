@@ -1,15 +1,152 @@
 <template>
   <PageWrapper>
-    <GridWrapper motif1>
-      <!-- ^ motif not working -->
-      <HeroBanner
-      fullvh
-      end
-        id="hero"
-        class="display"
-        title="I&#x2019;m a Full-stack Designer & Generalist"
+    <!-- <HeroAnimated2 /> -->
+    <!-- <GridWrapper motif1> -->
+    <!-- ^ motif not working -->
+
+    <HeroBanner fullvh end id="hero" class="display" :title="title" />
+
+    <!-- HEADER COMPONENT START -->
+    <GridContainer style="padding-block-end: var(--spacing-md) !important">
+      <div
+        class="grid-parent"
+        style="align-items: center; grid-template-columns: repeat(3, 1fr)"
+      >
+        <TextBlock
+          style="grid-column: 1 / 3"
+          flex="1"
+          title="My Work"
+          as="h2"
+          description=""
+        />
+
+        <p class="justify-end" style="align-self: center">
+          <router-link :to="{ name: 'Library' }">View All</router-link>
+        </p>
+      </div>
+    </GridContainer>
+    <!-- HEADER COMPONENT END -->
+    <GridContainer style="padding-block-start: 0 !important">
+      <GridParent tight id="recentwork ">
+
+      <ImageCard
+        class="post"
+        :eyebrow="work.featEyebrow"
+        :title="work.featTitle"
+        :description="work.featDescription"
+        :cta="work.label"
+        :route="work.route"
+        :btnroute="work.btnroute"
+        :filename3="work.featImage"
+        size="large"
+        :style="work.bgcolor"
       />
-    </GridWrapper>
+        <!-- <ImageCard
+      class="post"
+      :eyebrow="work.featEyebrow"
+      :title="work.featTitle"
+      :description="work.featDescription"
+      :cta="work.label"
+      :route="work.route"
+      :btnroute="work.btnroute"
+      :filename3="work.featImage"
+      size="large"
+      :style="work.bgcolor"
+
+      /> -->
+        
+        <!-- <ImageCard   alt="J Monogram" filename1="work/j.svg" id="top" /> -->
+        <ImageCard2 
+        alt="Avatar"
+        class="hidemobile"
+        filename1="avatar/avatar.svg"
+        title="Avatar"
+        />
+        <ImageCard 
+        alt="Avatar"
+        class="showmobile"
+        filename1="avatar/avatar.svg"
+        title="Avatar"
+        />
+        
+        <ImageCard
+        v-for="entry in work.entries.slice(0, 2)"
+
+        :key="entry.id"
+        class="post"
+        :eyebrow="entry.tag"
+        :title="entry.title"
+        :description="entry.description"
+        :cta="entry.cta"
+        :route="entry.route"
+        :btnroute="entry.btnroute"
+        :link="entry.link"
+        :filename1="entry.filename1"
+        :filename2="entry.filename2"
+        :filename3="entry.filename3"
+        :alt="entry.alt"
+        :style="entry.bgcolor"
+        :size="entry.size"
+        :buttons="entry.buttonsData"
+        />
+      </GridParent>
+    </GridContainer>
+    <AnimatedComponent>
+
+    <TextGrid3
+      title="About"
+      as="h2"
+      description=""
+      eyebrow1=""
+      detail1="I'm a Staff Product Designer & Developer based in Toronto, ON. <br/> <br/>My work explores the intersection between design and development and seeks to embrace emerging technologies for a more efficient and inclusive future.<br/> <br/> From defining comprehensive design systems to ensuring the highest quality in execution, I specialize in full stack design that brings ideas to life with precision and creativity.
+      <br/> <br/>
+      Passionate about nurturing talent, I provide coaching and professional development to help individuals cross-skill, develop competitive abilities, and support junior designers in expanding their expertise into development.
+
+"
+label="Read More"
+route="doc/28"
+    />
+    </AnimatedComponent>  
+
+    <!-- <TextGrid
+      title="About"
+      as="h2"
+      description=""
+      eyebrow1="Full-stack Product Design"
+      detail1="From defining comprehensive design systems to ensuring the highest quality in execution, I specialize in full stack design that brings ideas to life with precision and creativity."
+      eyebrow2="Coaching"
+      detail2="Passionate about nurturing talent, I provide coaching and professional development to help individuals cross-skill, develop competitive abilities, and support junior designers in expanding their expertise into development."
+      eyebrow3="Design Critiques"
+      detail3="I offer constructive design critiques aimed at enhancing design quality and effectiveness, providing valuable feedback that helps refine and perfect visual and functional elements."
+      eyebrow4="Thought Leadership and Musing"
+      detail4="Sharing insights and exploring trends in design and technology, I engage in thought leadership and musing to inspire and influence the next generation of designers and developers."
+    /> -->
+    <!-- <FormCentered/>
+      <MyForm/> -->
+      <AnimatedComponent>
+
+    <CardRow2 />
+    </AnimatedComponent>
+
+    
+
+    <!-- <HeroBanner eyebrow="01" filename="work/glo.svg" background overlap/> -->
+
+    <!-- <TextImage filename="work/glo.svg" /> -->
+    <!-- <TextImage filename="work/glo.svg" /> -->
+
+    <!-- 
+    Get in touch banner -->
+    <!-- <HeroBanner
+        
+        
+        eyebrow=""
+        route="/"
+        title="Have a question? Get in touch."
+        label="Get in touch"
+        labeltwo="Get in touch"
+    /> -->
+    <!-- </GridWrapper> -->
     <!-- CONTENTFUL HEADER EXAMPLE -->
     <!-- <HeroBanner
       id="hero"
@@ -39,124 +176,8 @@
         />
       </div>
     </GridContainer> -->
+    <TestimonialCarousel />
 
-    <!-- HEADER COMPONENT START -->
-    <!-- <GridContainer>
-      <div
-        class="grid-parent"
-        style="
-          padding-block-end: 0;
-          align-items: center;
-          grid-template-columns: repeat(3, 1fr);
-        "
-      >
-        <TextBlock
-          style="grid-column: 1 / 3"
-          title="Library"
-          description=""
-        />
-        <p class="external justify-end" style="align-self: middle">
-          <router-link :to="{ name: 'Library' }">View All</router-link>
-        </p>
-      </div>
-    </GridContainer> -->
-    <!-- HEADER COMPONENT END -->
-    
-    <GridContainer
-    tight
-    id="work"
-    class="animate glow delay-1"
-    >
-    <!-- <div
-        class="grid-parent"
-        style="
-          padding-block-end: var(--spacing-md);
-          align-items: center;
-          grid-template-columns: repeat(3, 1fr);
-        "
-      >
-        <TextBlock style="grid-column: 1 / 3" title="Featured Projects" description="" />
-      </div> -->
-    <GridParent id="recentwork ">
-      <ImageCard
-      class="post"
-      :eyebrow="work.featEyebrow"
-      :title="work.featTitle"
-      :description="work.featDescription"
-      :cta="work.label"
-      :route="work.route"
-      :btnroute="work.btnroute"
-      :filename3="work.featImage"
-      size="large"
-      :style="work.bgcolor"
-
-      />
-      <!-- 
-        <ImageCard   alt="J Monogram" filename1="work/j.svg" id="top" />
-        <ImageCard2 
-        alt="Avatar"
-        class="hidemobile"
-        filename1="avatar/avatar.svg"
-        title="Avatar"
-        />
-        <ImageCard 
-        alt="Avatar"
-        class="showmobile"
-        filename1="avatar/avatar.svg"
-        title="Avatar"
-        />
-        <ImageCard
-        v-for="entry in work.entries"
-        :key="entry.id"
-        class="post"
-        :eyebrow="entry.tag"
-        :title="entry.title"
-        :description="entry.description"
-        :cta="entry.cta"
-        :route="entry.route"
-        :btnroute="entry.btnroute"
-        :link="entry.link"
-        :filename1="entry.filename1"
-        :filename2="entry.filename2"
-        :filename3="entry.filename3"
-        :alt="entry.alt"
-        :style="entry.bgcolor"
-        :size="entry.size"
-        :buttons="entry.buttonsData"
-        /> -->
-        
-      </GridParent>
-    </GridContainer>
-    <!-- <TextGrid
-      title="What I Do"
-      eyebrow1="Full-stack Product Design"
-      detail1="From defining comprehensive design systems to ensuring the highest quality in execution, I specialize in full stack design that brings ideas to life with precision and creativity."
-      eyebrow2="Coaching"
-      detail2="Passionate about nurturing talent, I provide coaching and professional development to help individuals cross-skill, develop competitive abilities, and support junior designers in expanding their expertise into development."
-      eyebrow3="Design Critiques"
-      detail3="I offer constructive design critiques aimed at enhancing design quality and effectiveness, providing valuable feedback that helps refine and perfect visual and functional elements."
-      eyebrow4="Thought Leadership and Musing"
-      detail4="Sharing insights and exploring trends in design and technology, I engage in thought leadership and musing to inspire and influence the next generation of designers and developers."
-      /> -->
-      
-      <!-- <HeroBanner eyebrow="01" filename="work/glo.svg" background overlap/> -->
-      
-      <!-- <TextImage filename="work/glo.svg" /> -->
-      <CardRow2 />
-      <!-- <TextImage filename="work/glo.svg" /> -->
-      <!-- <TestimonialCarousel /> -->
-
-    <!-- 
-    Get in touch banner -->
-    <!-- <HeroBanner
-        
-        
-        eyebrow=""
-        route="/"
-        title="Have a question? Get in touch."
-        label="Get in touch"
-        labeltwo="Get in touch"
-    /> -->
   </PageWrapper>
 </template>
 
@@ -179,7 +200,24 @@ export default {
     return {
       work,
       // contentful: [],
+      titles: [
+        // "Full-stack Designer & Generalist",
+        // "Front-end Designer exploring the intersection between design and development",
+        "I&#x2019;m a Sr. Product Design Developer",
+        "Staff Product Design Developer",
+        // "I&#x2019;m a Sr. Design Integration Manager",
+      ],
+      title: "",
     };
+  },
+  created() {
+    this.title = this.getRandomTitle();
+  },
+  methods: {
+    getRandomTitle() {
+      const randomIndex = Math.floor(Math.random() * this.titles.length);
+      return this.titles[randomIndex];
+    },
   },
   components: {},
   mounted() {
@@ -279,6 +317,5 @@ export default {
 
 <style lang="scss">
 @media only screen and (min-width: 1201px) {
-
 }
 </style>

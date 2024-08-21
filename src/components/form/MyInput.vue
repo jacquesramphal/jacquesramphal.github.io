@@ -1,12 +1,19 @@
 <template>
   <div id="input" class="">
-    <label :for="`${name}`">{{ label }}</label
-    ><br />
+    <label :for="id">{{ label }}</label><br />
     <input
-      :id="`${id}`"
-      :type="`${type}`"
-      :name="`${name}`"
-      :placeholder="`${placeholder}`"
+      v-if="type === 'text' || type === 'password' || type === 'email'"
+      :id="id"
+      :type="type"
+      :name="name"
+      :placeholder="placeholder"
+      required
+    />
+    <input
+      v-else-if="type === 'checkbox' || type === 'radio'"
+      :id="id"
+      :type="type"
+      :name="name"
       required
     />
   </div>
@@ -15,9 +22,6 @@
 <script>
 export default {
   name: "MyInput",
-  components: {
-    /* MyButton, */
-  },
   props: {
     id: {
       type: String,
@@ -25,7 +29,7 @@ export default {
     },
     type: {
       type: String,
-      default: "type",
+      default: "text",
     },
     name: {
       type: String,
@@ -42,25 +46,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-* {
-  color: inherit !important;
-}
-
-#input {
-  /* background: var(--color-xlight); */
-  grid-column: 1 / 4;
-
-  /* ------------ BREAKPOINT MD ------------ */
-  @media only screen and (min-width: 768px) {
-    grid-column: auto;
-
-    /* ------------ BREAKPOINT LG ------------ */
-    @media only screen and (min-width: 1201px) {
-      grid-column: auto;
-    }
-  }
-}
-
-</style>

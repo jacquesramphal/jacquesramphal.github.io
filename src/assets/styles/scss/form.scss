@@ -4,9 +4,11 @@
 ::selection {
   background: rgba(185, 141, 226, 0.4);
 }
+
 ::-moz-selection {
   background: rgba(185, 141, 226, 0.4);
 }
+
 /* :focus {
   outline: 4px dashed var(--background-darker);
 } */
@@ -35,6 +37,7 @@ label {
   display: inline-block;
   margin-block-end: 2rem !important;
 }
+
 /* label::after {
   content: ":";
   display: inline-block;
@@ -46,7 +49,7 @@ input,
 textarea,
 select {
   font-size: 1.6rem;
-  color: var(--text) !important;
+  color: var(--foreground) !important;
   inline-size: 100%;
   inset-block-start: 0;
   padding: 1.6rem;
@@ -57,9 +60,11 @@ select {
   background-color: var(--background-darker);
   /* box-shadow: var(--shadow-z1); */
 }
+
 textarea {
   resize: vertical;
 }
+
 input:focus,
 textarea:focus,
 select:focus {
@@ -70,11 +75,13 @@ select:focus {
   -o-transition: outline 0.1s ease-out;
   -webkit-transition: outline 0.1s ease-out;
 }
+
 input:optional,
 textarea:optional,
 select:optional {
   /* border-color: red; */
 }
+
 input:required:valid,
 textarea:required:valid,
 select:required:valid {
@@ -82,11 +89,13 @@ select:required:valid {
   background-size: 28px;
   background-color: var(--background-darker);
 }
+
 input:required:invalid,
 textarea:required:invalid,
 select:required:invalid {
   /* border-color: red; */
 }
+
 input:required:focus:valid,
 textarea:required:focus:valid,
 select:required:focus:valid {
@@ -94,6 +103,7 @@ select:required:focus:valid {
   background-size: 28px;
   border-color: var(--color-success) !important;
 }
+
 input:required:focus:invalid,
 textarea:required:focus:invalid,
 select:required:focus:invalid {
@@ -103,15 +113,15 @@ select:required:focus:invalid {
 }
 
 /* SELECTORS */
-option:first {
-}
+option:first {}
 
 /* ------- Dark Form UI ------- */
 
 @media (prefers-color-scheme: dark) {
   label {
-    color: var(--text) !important;
+    color: var(--foreground) !important;
   }
+
   input,
   textarea,
   select {
@@ -120,34 +130,55 @@ option:first {
     background-color: var(--background-darker);
     box-shadow: none;
   }
+
   input:focus,
   textarea:focus,
   select:focus {
     /* border-color: var(--color-action) !important; */
     background-color: inherit !important;
   }
+
   input:required:valid,
   textarea:required:valid,
   select:required:valid {
     background-color: var(--background-darker);
   }
 }
+
 /* ------- END Dark Form UI ------- */
 
 /* CUSTOM RADIOS */
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
 input[type="radio"],
-[type="checkbox"] {
-  inline-size: 1rem;
+input[type="checkbox"] {
+  margin-inline-end: var(--size-2);
+  /* Adjust the spacing between the input and label */
+  inline-size: var(--size-5);
+  /* Set the inline size (width) of the radio/checkbox */
+  block-size: var(--size-5);
+  /* Set the block size (height) of the radio/checkbox */
+}
+
+input[type="radio"]+label,
+input[type="checkbox"]+label {
   cursor: pointer;
+  font-size: var(--font-500);
+  margin-block-end: 0 !important;
 }
-.form-radio {
-}
-.form-radio:checked::before {
-}
-.form-radio:hover {
-}
-.form-radio:checked {
-}
+
+.form-radio {}
+
+.form-radio:checked::before {}
+
+.form-radio:hover {}
+
+.form-radio:checked {}
+
 
 /*TOOLTIPS*/
 [data-tooltip]:hover:after {
@@ -155,6 +186,7 @@ input[type="radio"],
   transition: all 0.1s ease 0.5s;
   visibility: visible;
 }
+
 [data-tooltip]:after {
   content: attr(data-tooltip);
   background-color: var(--color-dark);
@@ -169,6 +201,7 @@ input[type="radio"],
   visibility: hidden;
   border-radius: 400px !important;
 }
+
 [data-tooltip] {
   position: relative;
 }
@@ -179,6 +212,7 @@ ul {
   padding: 0;
   margin: 0;
 }
+
 /* 
 li {
   padding-inline-start: 16px;

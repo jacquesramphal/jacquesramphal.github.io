@@ -325,7 +325,7 @@ img {
         var(--spacing-sm);
 
       */
-      color: var(--text);
+      color: var(--foreground);
       mix-blend-mode: difference !important;
       border-radius: var(--spacing-xxs);
       // font-weight: var(--font-reversed-medium);
@@ -396,7 +396,7 @@ img {
     #hero-text {
       align-items: center !important;
       margin-block-start: 0 !important;
-      padding-block-end: var(--spacing-lg);
+      padding-block-end: var(--spacing-md);
     }
   }
 }

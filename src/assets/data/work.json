@@ -1,11 +1,12 @@
 {
   "featEyebrow": "Design AI Tools",
-  "featTitle": "K&G Loyalty",
-  "featDescription": "Founded in 1959, Kum & Go redefines convenience with customer-centric offerings. Partnering with Orium, they launched a new digital experience featuring enhanced promotions, loyalty programs, and improved merchandising.",
-  "btnroute": "work/1",
+  "featTitle": "VS Code Visual IDE Plugin",
+  "featDescription": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
+  "btnroute": "work/10",
   "label": "Feature Label",
-  "bgcolor": "background-color: #FFB81C",
-  "featImage": "casestudy/kg/kg-5.png",
+  "bgcolor": "background-color: #7D00FF",
+  "featImage": "casestudy/ide/temp-ide.png",
+
   "alt": "Alt Test",
   "entries": [
     {
@@ -30,11 +31,30 @@
         "filename3": "casestudy/kg/kg-1.jpg",
         "caption3": "This is a Caption3"
       },
+      "keypoints": [
+        {
+          "title": "Key Point 1",
+          "body": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer."
+        },
+        {
+          "title": "Key Point 2",
+          "body": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer."
+        },
+        {
+          "title": "Key Point 3",
+          "body": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer."
+        },
+        {
+          "title": "Key Point 4",
+          "body": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer."
+        }
+
+      ],
       "entries": [
         {
           "eyebrow": "",
 
-          "title": "The Problem",
+          "title": "Problem",
           "body": "Kum & Go aimed to redefine convenience for their customers by upgrading their digital experience. They sought to enhance their mobile app to include better search and merchandising, a new loyalty program, and support for modern shopping preferences. Additionally, the new app needed to be adaptable for future updates and improvements without causing any service disruptions.",
           "images": {
             "filename1": "casestudy/kg/kg-1.jpg",
@@ -42,20 +62,10 @@
             "caption": "This is Caption 1"
           }
         },
+        
         {
           "eyebrow": "",
-
-          "title": "Key Focus Areas",
-          "body": "To achieve these goals, Kum & Go partnered with Orium to implement a flexible and scalable platform focusing on four key objectives:",
-          "images": {
-            "filename1": "casestudy/kg/kg-1.jpg",
-            "alt": "This is Alt 2",
-            "caption": "This is Caption 2"
-          }
-        },
-        {
-          "eyebrow": "",
-          "title": "The Solution/Strategy",
+          "title": "Solution",
           "body": "Orium worked with Kum & Go to develop a React Native framework, leveraging Orium’s React Native Accelerator for a faster, more efficient development process. Contentful’s composable content platform was implemented for easy content management, and Typesense was used for search and product indexing. Paytronix was chosen to manage the loyalty program, providing comprehensive loyalty, promotions, and ordering capabilities. Integration with P97 enhanced Mobile Fuel Pay, allowing for prepaying gas and redeeming points at the pump.",
           "images": {
             "filename1": "casestudy/kg/kg-1.jpg",
@@ -65,7 +75,7 @@
         },
         {
           "eyebrow": "",
-          "title": "The Outcome",
+          "title": "Outcome",
           "body": "The revamped Kum & Go mobile app launched with an upgraded rewards program and an enhanced ecommerce experience. Key features included a personalized interface, home location selection, and customer history-based recommendations. The Mobile Fuel Pay feature was also improved, allowing customers to prepay for gas in selected increments. <br><br> Kum & Go plans to continue enhancing the mobile app and redesigning the web experience to match the new mobile app features.",
           "images": {
             "filename1": "casestudy/kg/kg-1.jpg",
@@ -185,7 +195,28 @@
         "filename3": "work/dod.svg"
       }
     },
-    
+    {
+      "id": 10,
+      "size": "small",
+      "title": "VS Code Visual IDE Plugin",
+      "tag": "Tag1 Tag4 Tag5",
+      "subtitle": "This is a subtitle 2",
+      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
+      "btnroute": "work/10",
+      "label": "Read More",
+      "filename3": "casestudy/ide/temp-ide.png",
+      "alt": "Alt Test",
+      "bgcolor": "background-color: #7D00FF",
+      "role": "Designer/Developer",
+      "type": "Work Type",
+      "status": "In Development",
+      "images": {
+        "filename1": "casestudy/ide/temp-ide.png",
+        "caption1": "This is a Caption1",
+        "filename2": "casestudy/ide/temp-ide.png",
+        "filename3": "casestudy/ide/temp-ide.png"
+      }
+    },
 
     {
       "id": 6,
@@ -201,7 +232,7 @@
     },
     {
       "id": 7,
-      "size": "large",
+      "size": "small",
       "title": "Work Name 4",
       "tag": "Tag2",
       "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
@@ -227,7 +258,7 @@
     },
     {
       "id": 8,
-      "size": "large",
+      "size": "small",
       "title": "Work Name 4",
       "tag": "Tag2",
       "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
@@ -282,8 +313,8 @@
       ]
     },
     {
-    "id": 9,
-      "size": "large",
+      "id": 9,
+      "size": "small",
       "title": "Fortune 100 Dashboard",
       "tag": "Tag1 Tag4 Tag5",
       "subtitle": "This is a subtitle 2",

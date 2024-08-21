@@ -117,7 +117,7 @@ export default {
 <style lang="scss">
 .nav-link > a {
   border-radius: 4px;
-  color: var(--text-reversed) !important;
+  color: var(--foreground-reversed) !important;
 
   &:hover {
     background: var(--background-darker-reversed);
@@ -128,7 +128,7 @@ export default {
 
 <style lang="scss" scoped>
 * {
-  color: var(--text-reversed) !important;
+  color: var(--foreground-reversed) !important;
   margin: 0;
   mix-blend-mode: normal;
 }

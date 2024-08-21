@@ -15,17 +15,17 @@
 
     > 
     -->
+    
     <form
       class="grid-parent container"
       @submit.prevent="sendEmail"
       onsubmit="alert('submit!');return false"
     >
-      <TextBlock header="Contact Me" />
+      <TextBlock title="Get in touch" />
 
       <MyInput
         label="Name"
         id="name"
-        type="name"
         name="user_name"
         placeholder="Enter your name"
       />
@@ -34,8 +34,9 @@
         id="email"
         type="email"
         name="user_email"
-        placeholder="islandboy@hotmail.com"
+        placeholder="Your Email"
       />
+     
       <TextArea
         class="wide"
         label="Message"
@@ -45,17 +46,12 @@
       />
       <!-- <Select label="Select" id="select" name="select" /> -->
       <MyButton
-        type="submit"
+        type="primary"
         name="submit"
         class="btn btn-primary"
-        text="Send"
+        label="Send"
       />
-      <MyButton
-        type="reset"
-        name="reset"
-        class="btn btn-secondary"
-        text="Clear"
-      />
+
     </form>
   </div>
 </template>

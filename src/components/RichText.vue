@@ -1,14 +1,11 @@
 <template>
   <div>
-    e
     <RichTextRenderer
       :document="richTextJson"
       :node-renderers="renderNodes()"
     />
   </div>
 </template>
-
-
 
 <script>
 import Asset from "../components/Asset.vue";
@@ -47,8 +44,7 @@ export default {
                   },
                 ],
                 data: {
-                  uri:
-                    "https://developer.rechargepayments.com/2021-11/addresses",
+                  uri: "https://developer.rechargepayments.com/2021-11/addresses",
                 },
               },
               {
@@ -88,8 +84,7 @@ export default {
                   },
                 ],
                 data: {
-                  uri:
-                    "https://developer.rechargepayments.com/2021-11/customers/customers_object",
+                  uri: "https://developer.rechargepayments.com/2021-11/customers/customers_object",
                 },
               },
               {

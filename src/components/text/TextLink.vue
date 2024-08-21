@@ -156,11 +156,14 @@ setup(props, { emit }) {
 // #richlink {
 //   color: var(--link);
 // }
+// a {
+//   text-decoration: underline !important;
+// }
 .link-size {
   /* background: var(--color-xlight); */
-  font-size: var(--font-xs);
   display: flex;
   align-items: center;
+
 }
 
 /* .link-size--default */

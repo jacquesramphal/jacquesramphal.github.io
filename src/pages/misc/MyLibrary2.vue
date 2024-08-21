@@ -118,7 +118,7 @@ export default {
 .library {
   display: grid;
   grid-gap: var(--spacing-lg);
-  color: var(--text);
+  color: var(--foreground);
   font-size: var(--font-2xs);
   grid-template-areas: "sidebar" "content";
   grid-template-columns: 1fr;

@@ -2,9 +2,8 @@
   <div id="headernav" class="navbar" :class="{ 'hidden-navbar': !showNavbar }">
     <GridContainer class="bg">
       <nav class="">
-        <!-- <span class="blend">Test Text</span> -->
         <span
-          class="wordmark"
+          class="glow animate delay-1 wordmark "
           style="
             display: flex;
             flex-direction: row;
@@ -14,7 +13,7 @@
           "
         >
           <TextLink
-            class="wordmark"
+            class="wordmark "
             style="text-decoration: none"
             label="Jacques Ramphal"
             route="/"
@@ -83,41 +82,33 @@
           ></span>
         </span>
 
-        <ul class="links justify-end">
-          <!-- <li v-if="!breadcrumb" v-show="isDesktopScreen && !menuOpen">
-            <TextLink label="Library" route="/library" />
+        <ul class="links justify-end glow animate delay-1-5"> 
+
+          <li class="" v-if="!breadcrumb" v-show="isDesktopScreen && !menuOpen">
+            <TextLink label="Work" route="/library" />
           </li>
-          <li v-show="isDesktopScreen && !menuOpen">
-            <TextLink label="Resume" route="/resume" />
+          <!-- <li class="glow animate delay-1-5" v-show="isDesktopScreen && !menuOpen">
+            <TextLink label="CV" route="/resume" />
           </li> -->
 
-
-          <!-- SHOW INSTEAD TO HIDE MENU BUTTON ON DESKTOP -->
-          <!-- <li
-            class="nav-link"
-            tabindex="0"
-            v-show="isMobileScreen && !menuOpen"
-          > -->
-          <li
-            class="nav-link"
-            tabindex="0"
-          >
+          <li  v-show="isMobileScreen && !menuOpen" class="nav-link" tabindex="0">
             <slot name="menu-button-mobile"></slot>
           </li>
-          <li>
-            <!-- <MyButton type="textlink" label="Theme" @click="toggleTheme" /> -->
+          <li class="">
+      
             <TextLink
               style="text-decoration: none"
               label="Theme"
               @click="toggleTheme"
             />
           </li>
-          <!-- 
-          <li
-            class="nav-link"
-            tabindex="0"
-            v-show="isMobileScreen && !menuOpen"
-          >    -->
+          <div v-show="isDesktopScreen && !menuOpen" class="input-container">
+
+          <input type="checkbox" id="font" name="font" value="Serif" /><label
+            >Aa</label
+          >
+        </div>
+       
         </ul>
       </nav>
     </GridContainer>
@@ -136,10 +127,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    // toggleMenu: {
-    //   type: Function,
-    //   required: true
-    // },
+    
   },
   data() {
     return {
@@ -242,10 +230,18 @@ export default {
       this.isMobileScreen = window.innerWidth < 768;
       this.isDesktopScreen = window.innerWidth >= 768;
     },
+    setFont(font) {
+      this.selectedFont = font;
+      this.$emit('update:font', font);
+    },
   },
 };
 </script>
 <style lang="scss">
+.selected {
+  font-weight: bold;
+  text-decoration: underline;
+}
 .nav-link > a {
   &:hover {
     background: var(--background-darker-reversed);
@@ -271,7 +267,6 @@ export default {
 //   z-index: -1;
 //   filter: blur(20px); /* Blur amount on hover, can be adjusted */
 // }
-
 
 // TESTING MIX BLEND MODE!!!!
 

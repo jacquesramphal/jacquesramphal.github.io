@@ -157,7 +157,7 @@ export default {
     border-radius: var(--spacing-xxxs);
     overflow-x: auto;
     margin-block-end: var(--spacing-sm);
-    color: var(--text-reversed);
+    color: var(--foreground-reversed);
   }
 
   code {
@@ -288,8 +288,8 @@ table {
 
 /* Table Header */
 th {
-  color: var(--text-subtle) !important;
-  // opacity: var(--text-subtle) !important;
+  color: var(--foreground-subtle) !important;
+  // opacity: var(--foreground-subtle) !important;
   font-weight: var(--font-bold);
   background-color: var(
     --background-darker
@@ -335,7 +335,7 @@ summary {
   // border-radius: var(--spacing-xxxs);
   // margin-block-end: var(--spacing-xs);
   // background-color: var(--background-darker);
-  // color: var(--text-subtle);
+  // color: var(--foreground-subtle);
   // list-style: none;
   // list-style-position: outside;
   // list-style-type: none;

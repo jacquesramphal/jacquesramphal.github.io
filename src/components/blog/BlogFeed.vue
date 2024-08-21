@@ -158,7 +158,7 @@ export default {
   display: grid
   grid-gap: var(--spacing-xs)
   background: var(--background)
-  color: var(--text)
+  color: var(--foreground)
   font-size: var(--font-xs)
   font-family: inherit
 .blog-post

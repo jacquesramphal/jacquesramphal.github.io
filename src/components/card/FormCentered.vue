@@ -1,30 +1,19 @@
 <template>
-
-
   <GridContainer class="form">
-
-
     <form
       class="grid-parent"
       @submit.prevent="sendEmail"
       onsubmit="alert('submit!');return false"
     >
-
-
       <TextBlock center eyebrow="" description="Contact Me" details="" />
 
-
       <div id="form-row">
-
-
         <MyInput
           label="Name"
           id="name"
-          type="name"
           name="user_name"
           placeholder="What's your name?"
         />
-
 
         <MyInput
           id="email"
@@ -34,7 +23,6 @@
           type="email"
         />
 
-
         <TextArea
           class="wide"
           id="message"
@@ -42,10 +30,7 @@
           name="message"
           placeholder="What's on your mind?"
         />
-
-
       </div>
-
 
       <MyButton
         class="btn"
@@ -55,16 +40,9 @@
         size="large"
         type="submit"
       />
-
-
     </form>
-
-
   </GridContainer>
-
-
 </template>
-
 
 <script>
 import MyInput from "@/components/form/MyInput.vue";
@@ -109,7 +87,6 @@ export default {
   },
 };
 </script>
-
 
 <style scoped>
 * {
@@ -177,5 +154,3 @@ export default {
   }
 }
 </style>
-
-

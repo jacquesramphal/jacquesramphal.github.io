@@ -93,7 +93,7 @@
           :style="{
             width: sizes.value,
             height: 'var(--size-4)',
-            backgroundColor: 'var(--text)',
+            backgroundColor: 'var(--foreground)',
           }"
         />
       </div>
@@ -111,7 +111,7 @@
           :style="{
             width: spacing.value,
             height: 'var(--size-4)',
-            backgroundColor: 'var(--text)',
+            backgroundColor: 'var(--foreground)',
           }"
         />
       </div>
@@ -183,11 +183,11 @@ export default {
     const style = getComputedStyle(document.documentElement);
     this.colors = [
       { name: "Pink", value: style.getPropertyValue("--color-pink") },
-      { name: "Text", value: style.getPropertyValue("--text") },
-      { name: "Text Muted", value: style.getPropertyValue("--text-muted") },
+      { name: "Text", value: style.getPropertyValue("--foreground") },
+      { name: "Text Muted", value: style.getPropertyValue("--foreground-muted") },
       {
         name: "Text Reversed",
-        value: style.getPropertyValue("--text-reversed"),
+        value: style.getPropertyValue("--foreground-reversed"),
       },
       {
         name: "Link Reversed",
@@ -337,7 +337,7 @@ export default {
 .library {
   display: grid;
   grid-gap: var(--spacing-lg);
-  color: var(--text);
+  color: var(--foreground);
   font-size: var(--font-2xs);
   // grid-template-areas: "sidebar" "segments";
   // grid-template-columns: 1fr;

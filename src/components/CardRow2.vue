@@ -19,6 +19,7 @@
         <TextBlock
           style="grid-column: 1 / 3"
           :title="title"
+          as="h2"
           description=""
         />
         
@@ -26,6 +27,7 @@
           <router-link :to="{ name: 'Library' }">View All</router-link>
         </p>
       </div>
+      
       <!-- HEADER COMPONENT END -->
 
       <GridParent tight>

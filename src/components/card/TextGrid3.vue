@@ -2,7 +2,6 @@
   <GridWrapper class="">
     <GridContainer>
       <GridParent tight>
-        
         <TextBlock
           id="section-title"
           tabIndex="0"
@@ -11,37 +10,18 @@
           eyebrow=""
           :description="`${description}`"
         />
+        
         <TextBlock
           class="subsection"
           as="h4"
           :title="`${eyebrow1}`"
           eyebrow=""
           :description="`${detail1}`"
+          :route="`${route}`"
+          :label="`${label}`"
+          btntype="outline"
         />
-        <TextBlock
-          class="subsection"
-          v-if="detail2"
-          as="h4"
-          :title="`${eyebrow2}`"
-          eyebrow=""
-          :description="`${detail2}`"
-        />
-        <TextBlock
-          class="subsection"
-          v-if="detail3"
-          as="h4"
-          :title="`${eyebrow3}`"
-          eyebrow=""
-          :description="`${detail3}`"
-        />
-        <TextBlock
-          class="subsection"
-          v-if="detail4"
-          as="h4"
-          :title="`${eyebrow4}`"
-          eyebrow=""
-          :description="`${detail4}`"
-        />
+        
       </GridParent>
     </GridContainer>
   </GridWrapper>
@@ -54,7 +34,7 @@ import GridWrapper from "../grid/GridWrapper.vue";
 import TextBlock from "../text/TextBlock/TextBlock.vue";
 
 export default {
-  name: "TextGrid",
+  name: "TextGrid3",
   components: {
     GridParent,
     GridContainer,
@@ -83,32 +63,18 @@ export default {
       type: String,
       default: "Eyebrow1",
     },
-    eyebrow2: {
-      type: String,
-      default: "Eyebrow2",
-    },
-    eyebrow3: {
-      type: String,
-      default: "Eyebrow3",
-    },
-    eyebrow4: {
-      type: String,
-      default: "Eyebrow4",
-    },
     detail1: {
       type: String,
       default:
         "Detail 1. Lorem ipsum doler optima sit amet doler optima sit amet doler optima sit amet optima sit amet amet doler optima sit amet optima sit amet.",
     },
-    detail2: {
+    label: {
       type: String,
     },
-    detail3: {
+    route: {
       type: String,
     },
-    detail4: {
-      type: String,
-    },
+
   },
 };
 </script>
@@ -143,7 +109,7 @@ block-size: 100vh;
     grid-column: 1 / 1;
   }
   #textblock {
-    grid-column: span 1;
+    grid-column: span 2;
     padding: 0 2.8em 2.8em 0;
   }
   h4 {

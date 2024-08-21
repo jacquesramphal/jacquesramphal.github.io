@@ -51,8 +51,8 @@
                   </g>
               </svg> -->
           </div>
-          <GridParent class="outer" >
-            <div id="maindetails" >
+          <GridParent tight class="outer">
+            <div id="maindetails">
               <TextBlock
                 title="Jake Ramphal"
                 description="My work explores the intersection between design and development and seeks to embrace emerging technologies for a more efficient and inclusive future.
@@ -60,7 +60,7 @@
 "
               />
             </div>
-            <GridParent tight id="content" >
+            <GridParent tight id="content">
               <div id="links1">
                 <p class="subtle">Useful Links</p>
                 <ul>
@@ -150,11 +150,15 @@
                   <li class="">
                     <a>Privacy Policy</a>
                   </li>
+                  <li>
+                    <TextLink label="Offerings" route="/doc/28" />
+                  </li>
+                  <!-- <NewsletterSubscription style="margin-block-start: var(--size-4);"/> -->
                 </ul>
               </div>
             </GridParent>
           </GridParent>
-          <p class="footer" style="font-size: var(--font-2xs)">
+          <p class="footer" style="font-size: var(--font-400)">
             All rights reserved © Jake Ramphal 2024
             <!-- © 2023 Jake Ramphal — Built with
             <a target="blank" href="https://v3.vuejs.org/">Vue3</a>.
@@ -232,7 +236,7 @@ $spacing-lg: var(--spacing-lg);
 $spacing-sm: var(--spacing-sm);
 
 #wrapper {
-  // border-block-start: var(--border);
+  border-block-start: var(--border);
   padding-block-end: $spacing-lg;
   @media only screen and (min-width: 1201px) {
     padding-block-end: inherit;
@@ -243,7 +247,6 @@ $spacing-sm: var(--spacing-sm);
   grid-template-columns: repeat(1, 1fr);
   @media only screen and (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
-
   }
   @media only screen and (min-width: 1201px) {
     grid-template-columns: repeat(3, 1fr);
@@ -260,7 +263,7 @@ ul {
 }
 li {
   inline-size: 100%;
-  font-size: var(--font-xs);
+  font-size: var(--font-500);
   line-height: var(--lineHeight-tall);
   float: left;
   list-style-type: none;
@@ -274,11 +277,7 @@ li.external::after {
 
 #maindetails {
   @media only screen and (min-width: 768px) {
-    padding-inline-end: var(--spacing-lg);
-  }
-  @media only screen and (min-width: 1201px) {
-    padding-inline-end: 0;
-
+    padding-inline-end: var(--spacing-md);
   }
 }
 #content {
@@ -286,7 +285,7 @@ li.external::after {
     padding-inline-end: var(--spacing-lg);
   }
   @media only screen and (min-width: 1201px) {
-grid-column: span 2;
+    grid-column: span 2;
   }
 }
 .footer {
