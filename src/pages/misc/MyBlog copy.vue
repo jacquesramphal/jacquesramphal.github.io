@@ -26,7 +26,7 @@
         :groupName="groupName"
       />
       <GridParent>
-        <DefaultCard
+        <ArticleCard
           v-for="entry in docs.entries"
           :key="entry.id"
           :image="entry.image"

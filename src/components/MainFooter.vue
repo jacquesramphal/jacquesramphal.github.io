@@ -101,7 +101,7 @@
                   <li>
                     <TextLink
                       label="LinkedIn"
-                      link="https://www.linkedin.com/in/jake-ramphal"
+                      link="https://linkedin.com/in/ramphal-design"
                     />
                   </li>
 
@@ -114,7 +114,7 @@
                   <li>
                     <TextLink
                       label="Email"
-                      link="mailto:jacques@ramphal.design"
+                      link="mailto:jake@ramphal.design"
                     />
                   </li>
                   <!-- <li>
@@ -236,7 +236,7 @@ $spacing-lg: var(--spacing-lg);
 $spacing-sm: var(--spacing-sm);
 
 #wrapper {
-  border-block-start: var(--border);
+  // border-block-start: var(--border);
   padding-block-end: $spacing-lg;
   @media only screen and (min-width: 1201px) {
     padding-block-end: inherit;

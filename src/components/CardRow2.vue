@@ -24,7 +24,7 @@
         />
         
         <p class="justify-end" style="align-self: center">
-          <router-link :to="{ name: 'Library' }">View All</router-link>
+          <router-link :to="{ name: 'Library', hash: '#writing' }">View All</router-link>
         </p>
       </div>
       
@@ -32,7 +32,7 @@
 
       <GridParent tight>
         
-        <DefaultCard
+        <ArticleCard
           borderless
           v-for="entry in docs.entries.slice(0, 3)"
           :key="entry.id"
@@ -82,7 +82,7 @@
           v-for="entry in docs.entries.slice(0, 3)"
           :key="entry.id"
         >
-          <DefaultCard
+          <ArticleCard
           borderless
             :image="entry.image"
             :eyebrow="entry.eyebrow"

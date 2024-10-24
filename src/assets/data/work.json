@@ -11,15 +11,16 @@
   "entries": [
     {
       "id": 1,
-      "size": "small",
+      "variant": "borderless",
       "title": "K&G Loyalty Platform",
       "tag": "Product Design, Design Systems, Development",
       "description": "Founded in 1959, Kum & Go redefines convenience with customer-centric offerings.",
       "btnroute": "work/1",
       "label": "Read More",
       "alt": "Alt Test",
+      "bgcolor": "background-color: var(--background-darker)",
+
       "filename3": "casestudy/kg/kg-5.png",
-      "bgcolor": "background-color: #FFB81C",
       "role": "Lead Product Designer, Developer",
       "type": "Work Type",
       "status": "Launched",
@@ -87,16 +88,17 @@
     },
     {
       "id": 2,
-      "size": "small",
+      "variant": "borderless",
       "title": "Softchoice Site & Motion Design",
       "tag": "Tag1 Tag4 Tag5",
       "subtitle": "This is a subtitle 2",
       "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
       "btnroute": "work/2",
       "label": "Read More",
-      "filename3": "casestudy/softchoice/sc-blog-1.png",
+      "filename2": "casestudy/softchoice/sc-blog-1.png",
+      "bgcolor": "background-color: var(--background-darker)",
+
       "alt": "Alt Test",
-      "bgcolor": "background-color: #7D00FF",
       "role": "Designer/Developer",
       "type": "Work Type",
       "status": "In Development",
@@ -109,7 +111,7 @@
     },
     {
       "id": 3,
-      "size": "small",
+      "variant": "borderless",
       "title": "Fortune 100 Dashboard",
       "tag": "Tag1 Tag4 Tag5",
       "subtitle": "This is a subtitle 2",
@@ -131,7 +133,7 @@
     },
     {
       "id": 4,
-      "size": "small",
+      "variant": "small",
       "title": "Fortune 100 Planning Tool",
       "tag": "Tag1 Tag4 Tag5",
       "subtitle": "This is a subtitle 2",
@@ -153,7 +155,7 @@
     },
     {
       "id": 5,
-      "size": "small",
+      "variant": "split",
       "title": "PD Toolkit",
       "tag": "Tag1 Tag4 Tag5",
       "subtitle": "Professional Development Spreadsheet",
@@ -175,7 +177,7 @@
     },
     {
       "id": 6,
-      "size": "small",
+      "variant": "borderless",
       "title": "Dashboard UI Starter",
       "tag": "Tag1 Tag4 Tag5",
       "subtitle": "This is a subtitle 2",
@@ -184,7 +186,7 @@
       "label": "Read More",
       "filename3": "casestudy/ui-lib/datagrid.png",
       "alt": "Alt Test",
-      "bgcolor": "background-color: #999",
+      "bgcolor": "background-color: var(--background-darker)",
       "role": "Designer/Developer",
       "type": "Work Type",
       "status": "In Development",
@@ -197,7 +199,7 @@
     },
     {
       "id": 10,
-      "size": "small",
+      "variant": "small",
       "title": "VS Code Visual IDE Plugin",
       "tag": "Tag1 Tag4 Tag5",
       "subtitle": "This is a subtitle 2",
@@ -220,19 +222,25 @@
 
     {
       "id": 6,
-      "size": "split",
+      "variant": "small",
       "title": "Designing Quality",
       "tag": "Course EBook",
       "description": "Enhance your design process and deliver exceptional user experiences with this comprehensive resource.",
       "btnroute": "course",
       "label": "View Ebook",
-      "filename1": "templates/template-desktop-device.svg",
+      "filename3": "casestudy/kg/kg-5.png",
       "alt": "Alt Test",
-      "bgcolor": "background-color: var(--background-darker)"
+      "bgcolor": "background-color: var(--background-darker)",
+      "images": {
+        "filename1": "casestudy/ide/temp-ide.png",
+        "caption1": "This is a Caption1",
+        "filename2": "casestudy/ide/temp-ide.png",
+        "filename3": "casestudy/ide/temp-ide.png"
+      }
     },
     {
       "id": 7,
-      "size": "small",
+      "variant": "small",
       "title": "Work Name 4",
       "tag": "Tag2",
       "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
@@ -258,15 +266,14 @@
     },
     {
       "id": 8,
-      "size": "small",
+      "variant": "cover",
       "title": "Work Name 4",
       "tag": "Tag2",
       "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
       "btnroute": "work/1",
       "label": "Read More",
-      "filename2": "casestudy/kg/kg-5.png",
+      "filename1": "about.jpg",
       "alt": "Alt Test",
-      "bgcolor": "background-color: #FFB81C",
       "role": "Designer/Developer",
       "type": "Work Type",
       "status": "In Development",
@@ -314,7 +321,7 @@
     },
     {
       "id": 9,
-      "size": "small",
+      "variant": "small",
       "title": "Fortune 100 Dashboard",
       "tag": "Tag1 Tag4 Tag5",
       "subtitle": "This is a subtitle 2",

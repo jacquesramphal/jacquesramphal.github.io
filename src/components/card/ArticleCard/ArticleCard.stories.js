@@ -1,21 +1,21 @@
-import DefaultCard from "./DefaultCard.vue";
+import ArticleCard from "./ArticleCard.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {
-  title: "Components/Card/DefaultCard",
-  component: DefaultCard,
+  title: "Components/Card/ArticleCard",
+  component: ArticleCard,
   decorators: [withDesign],
   argTypes: {},
 };
 
 const Template = (args) => ({
-  components: { DefaultCard },
+  components: { ArticleCard },
   setup() {
     return { args };
   },
   template: `
     <div>
-      <DefaultCard v-bind="args" />
+      <ArticleCard v-bind="args" />
     </div>
   `,
 });

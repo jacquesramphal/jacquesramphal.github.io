@@ -1,7 +1,7 @@
 <template>
   <AnimatedComponent>
     <GridWrapper id="wrapper" class="">
-      <GridContainer>
+      <GridContainer class="footer-container">
         <GridParent
           tight
           style="
@@ -109,12 +109,12 @@ $spacing-sm: var(--spacing-sm);
 
 #wrapper {
   border-block-start: var(--border);
-  padding-block-end: $spacing-lg;
   @media only screen and (min-width: 1201px) {
-    padding-block-end: inherit;
   }
 }
-
+.footer-container {
+  padding-block: var(--spacing-sm) !important;
+}
 .outer {
   grid-template-columns: repeat(1, 1fr);
   justify-content: center;
@@ -128,6 +128,10 @@ $spacing-sm: var(--spacing-sm);
 }
 
 ul {
+  @media only screen and (max-width: 768px) {
+    gap: var(--spacing-xxs);
+    flex-direction: column;
+  }
   list-style: none;
   margin: 0;
   display: flex;

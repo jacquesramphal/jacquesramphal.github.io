@@ -16,7 +16,7 @@
     />
     <GridContainer id="docs" class="animate delay-2">
       <GridParent>
-        <DefaultCard
+        <ArticleCard
           borderless
           v-for="entry in docs.entries"
           :alt="entry.alt"

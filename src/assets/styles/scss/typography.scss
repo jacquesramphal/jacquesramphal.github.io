@@ -78,7 +78,7 @@ p {
 }
 
 body:has(input[value="Serif"]:checked) .display h1 {
-  font-family: var(--fontFamily-displaySerif) !important;
+  font-family: var(--fontFamily-Serif) !important;
 }
 
 h1 {

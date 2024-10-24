@@ -49,19 +49,19 @@
           />
 
           <GridParent tight>
-            <DefaultCard
+            <ArticleCard
               icon="j-logo.svg"
               iconsize="40"
               title="Feature 1"
               description="A simple description telling the user the benefits of the product and why they should buy it."
             />
-            <DefaultCard
+            <ArticleCard
               icon="j-logo.svg"
               iconsize="40"
               title="Feature 2"
               description="A simple description telling the user the benefits of the product and why they should buy it."
             />
-            <DefaultCard
+            <ArticleCard
               icon="j-logo.svg"
               iconsize="40"
               title="Feature 3"
@@ -69,21 +69,21 @@
             />
           </GridParent>
           <GridParent>
-            <DefaultCard
+            <ArticleCard
               borderless
               icon="j-logo.svg"
               iconsize="40"
               title="Feature 1"
               description="A simple description telling the user the benefits of the product and why they should buy it."
             />
-            <DefaultCard
+            <ArticleCard
               borderless
               icon="j-logo.svg"
               iconsize="40"
               title="Feature 2"
               description="A simple description telling the user the benefits of the product and why they should buy it."
             />
-            <DefaultCard
+            <ArticleCard
               borderless
               icon="j-logo.svg"
               iconsize="40"

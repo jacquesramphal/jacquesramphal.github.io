@@ -70,6 +70,36 @@ A curated collection of my professional and personal projects, alongside writing
           filename1="avatar/avatar.svg"
           title="Avatar"
         /> -->
+        <!-- <ArticleCard
+          borderless
+          v-for="entry in docs.entries"
+          :alt="entry.alt"
+          :description="entry.description"
+          :filename="entry.thumbnail"
+          :key="entry.id"
+          :label="entry.label"
+          :route="entry.route"
+          :btnroute="entry.btnroute"
+          :eyebrow="entry.eyebrow"
+          :title="entry.title"
+        />
+         -->
+        <!-- <ArticleCard
+        cover
+          v-for="entry in work.entries"
+          :key="entry.id"
+          class="post"
+          :data-category="entry.tag"
+          :eyebrow="entry.tag"
+          :title="entry.title"
+          :description="entry.description"
+          :cta="entry.cta"
+          :route="entry.route"
+          :btnroute="entry.btnroute"
+          :link="entry.link"
+          alt="project image"
+          :filename="entry.filename3"
+        /> -->
         <ImageCard
           v-for="entry in work.entries"
           :key="entry.id"
@@ -82,11 +112,13 @@ A curated collection of my professional and personal projects, alongside writing
           :route="entry.route"
           :btnroute="entry.btnroute"
           :link="entry.link"
+          :alt="entry.alt"
           :filename1="entry.filename1"
           :filename2="entry.filename2"
           :filename3="entry.filename3"
           :style="entry.bgcolor"
           :size="entry.size"
+          :variant="entry.variant"
         />
       </GridParent>
       <div v-else>
@@ -114,11 +146,12 @@ A curated collection of my professional and personal projects, alongside writing
           as="h2"
           style="grid-column: 1 / 3"
           title="Writing"
+          id="writing"
           description=""
         />
       </GridParent>
       <GridParent tight class="">
-        <!-- <DefaultCard
+        <!-- <ArticleCard
         list
           borderless
           v-for="entry in docs.entries"
@@ -132,7 +165,7 @@ A curated collection of my professional and personal projects, alongside writing
           :eyebrow="entry.eyebrow"
           :title="entry.title"
         /> -->
-        <DefaultCard
+        <ArticleCard
           borderless
           v-for="entry in docs.entries"
           :alt="entry.alt"

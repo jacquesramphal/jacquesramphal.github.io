@@ -11,7 +11,7 @@ import CourseCard from "@/components/card/CourseCard.vue";
 import BlogFeed from "@/components/blog/BlogFeed.vue";
 // import CardRow from "@/components/CardRow.vue";
 import CardRow2 from "@/components/CardRow2.vue";
-import DefaultCard from "@/components/card/DefaultCard/DefaultCard.vue";
+import ArticleCard from "@/components/card/ArticleCard/ArticleCard.vue";
 import TextGrid from "@/components/card/TextGrid.vue";
 import TextGrid2 from "@/components/card/TextGrid2.vue";
 import TextGrid3 from "@/components/card/TextGrid3.vue";
@@ -119,7 +119,7 @@ app
   .component("CourseCard", CourseCard)
   .component("BlogFeed", BlogFeed)
   .component("CardRow2", CardRow2)
-  .component("DefaultCard", DefaultCard)
+  .component("ArticleCard", ArticleCard)
   .component("TextGrid", TextGrid)
   .component("TextGrid2", TextGrid2)
   .component("TextGrid3", TextGrid3)

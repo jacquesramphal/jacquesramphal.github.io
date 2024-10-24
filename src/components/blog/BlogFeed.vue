@@ -1,7 +1,7 @@
 <template>
   <GridWrapper id="Docs">
     <!-- <div class="showmobile scrolling-wrapper">
-      <DefaultCard
+      <ArticleCard
         class="post card"
         v-for="DocsPost in contentful"
         v-bind:key="blogPost.sys.id"
@@ -77,7 +77,7 @@
           <p @click="(e) => e.target.classList.toggle('mystyle2')">Test</p> -->
         </ol>
         <div class="hs grid-parent posts" id="testDiv">
-          <DefaultCard
+          <ArticleCard
             class="post"
             v-for="blogPost in contentful"
             v-bind:key="blogPost.sys.id"
@@ -99,13 +99,13 @@
 
 <script>
 // import BlogPostEntry from "@/components/blog/BlogPostEntry.vue";
-import DefaultCard from "@/components/card/DefaultCard/DefaultCard.vue";
+import ArticleCard from "@/components/card/ArticleCard/ArticleCard.vue";
 
 export default {
   name: "BlogFeed",
   components: {
     // BlogPostEntry,
-    DefaultCard,
+    ArticleCard,
   },
 
   // Testing Functions/Methods

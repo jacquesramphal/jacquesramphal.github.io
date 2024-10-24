@@ -47,7 +47,7 @@
 import TextBlock from "../../text/TextBlock/TextBlock.vue";
 
 export default {
-  name: "DefaultCard",
+  name: "ArticleCard",
   components: {
     TextBlock,
   },
