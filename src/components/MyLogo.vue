@@ -1,7 +1,7 @@
 <template>
   <div id="MyLogo" class="">
     <svg
-      block-size="100%"
+      :block-size="size"
       viewBox="0 0 35 43"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +104,12 @@
 <script>
 export default {
   name: "MyLogo",
-  props: {},
+  props: {
+    size: {
+      type: String,
+      default: '100%'
+    }
+  },
 };
 </script>
 

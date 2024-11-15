@@ -2,6 +2,7 @@
   <!-- <router-view v-if="isLoggedIn" v-slot="{ Component }"> -->
   <router-view v-slot="{ Component }">
     <!-- <BreadCrumb v-if="!$route.meta.hideBreadCrumb" /> -->
+    <SidebarNav/>
     <HeaderNav
       :toggle-menu="toggleMenu"
       v-if="!$route.meta.hideNav"
@@ -29,7 +30,6 @@
           type="textlink"
           :label="menuOpen ? 'Close' : 'Menu'"
           @click="toggleMenu"
-          
         />
       </template>
     </HeaderNav>
@@ -70,6 +70,7 @@ import MainFooter from "./components/MainFooter.vue";
 import TheLogin from "./components/TheLogin.vue";
 // import ThemeButton from "./components/ThemeButton.vue";
 // import BreadCrumb from "./components/BreadCrumb.vue";
+import SidebarNav from "./components/SidebarNav.vue";
 import { useRouter } from 'vue-router'; // Import Vue Router
 
 export default {
@@ -85,6 +86,7 @@ export default {
     MyButton,
     // NewsletterSubscription,
     // BreadCrumb,
+    SidebarNav,
 },
 data() {
     return {

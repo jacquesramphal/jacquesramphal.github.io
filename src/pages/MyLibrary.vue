@@ -105,7 +105,6 @@ A curated collection of my professional and personal projects, alongside writing
           :key="entry.id"
           class="post"
           :data-category="entry.tag"
-          :eyebrow="entry.tag"
           :title="entry.title"
           :description="entry.description"
           :cta="entry.cta"

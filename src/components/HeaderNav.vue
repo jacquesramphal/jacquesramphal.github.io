@@ -1,5 +1,5 @@
 <template>
-  <div id="headernav" class="navbar" :class="{ 'hidden-navbar': !showNavbar }">
+  <div id="headernav" class="navbar" :class="{ 'hidden-navbar': !showNavbar }" v-show="isMobileScreen && !menuOpen" >
     <GridContainer class="bg">
       <nav class="">
         <span

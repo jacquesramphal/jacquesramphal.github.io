@@ -39,7 +39,7 @@
 
 
 
-      <TextGrid
+      <!-- <TextGrid
       :key="entry.id"
 
       title= "Key Focus Areas"
@@ -54,7 +54,7 @@
         detail3="Enhancing the omnichannel experience to drive more in-store purchases."
         eyebrow4="Extensible and Maintainable Platform"
         detail4="Moving off a costly legacy platform to a more efficient and innovative system."
-      />
+      /> -->
 
       <TextGrid
       title= "Key Focus Areas"
@@ -71,7 +71,7 @@
       />
 
 
-      <TextImage
+      <!-- <TextImage
         v-for="(section, j) in entry.entries"
         :key="j"
         @click="openImage(section.images.filename1)"
@@ -83,7 +83,7 @@
         :filename="section.images.filename1"
         :alt="section.images.alt"
         as="h2"
-      />
+      /> -->
 
       <GridContainer>
         <GridParent rows >
@@ -97,10 +97,14 @@
             <TextBlock
               class="offset fadeInUp"
               left
+              as="h2"
               eyebrow=""
               :title="section.title"
               :description="section.body"
               :blockquote="section.blockquote"
+              style="
+              margin-block-end: var(--spacing-md) !important;
+            "
             />
             <GridWrapper
               tight
@@ -143,7 +147,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
-import TextImage from "@/components/card/TextImage.vue";
+// import TextImage from "@/components/card/TextImage.vue";
 
 gsap.registerPlugin(ScrollTrigger);
 document.addEventListener("DOMContentLoaded", () => {
@@ -191,7 +195,7 @@ export default {
     ImageCard,
     GridContainer,
     // CardRow2,
-    TextImage,
+    // TextImage,
     FullscreenImage,
     // BreadCrumb,
     // HeaderNav,

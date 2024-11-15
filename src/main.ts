@@ -28,6 +28,8 @@ import BreadCrumb from "@/components/BreadCrumb.vue";
 import ImageCard2 from "@/components/card/ImageCard2.vue";
 import MyButton from "@/components/Button/Button.vue";
 import ButtonRow from "@/components/ButtonRow.vue";
+import SidebarNav from "./components/SidebarNav.vue";
+import SideNav from "./components/SideNav.vue";
 // import ButtonRow2 from "@/components/ButtonRow2.vue";
 import MyLogo from "@/components/MyLogo.vue";
 import Icon from "@/components/Icon.vue";
@@ -151,7 +153,9 @@ app
 .component("MyInput", MyInput)
 .component("NewsletterSubscription", NewsletterSubscription)
 .component("FormCentered", FormCentered)
-.component("MyForm", MyForm);
+.component("MyForm", MyForm)
+.component("SidebarNav", SidebarNav)
+.component("SideNav", SideNav);
 
 // Mount the app
 app.mount("#app");

@@ -161,7 +161,7 @@ export default {
 //   content: "🌓"
 
 // .switch-toggle-checked::before
-//   content: "🌔"
+//   content: ""
 
 
 // UNICODE SWITCH
