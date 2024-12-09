@@ -100,14 +100,21 @@
     0px 6px 30px rgba(0, 0, 0, 0.06), 0px 8px 10px rgba(0, 0, 0, 0.1);
 
   /* FONT-FAMILY */
-  --fontFamily-primary: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+  /* --fontFamily-primary: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
   --fontFamily-secondary:  "Epilogue", sans-serif !important;
+  --fontFamily-tertiary: "Noto Serif", "Merriweather", Georgia, Cambria, "Times New Roman", Times !important;
+  --fontFamily-displaySans: "Noto Sans Display", sans-serif;
+  --fontFamily-displaySerif: "Noto Serif Display", "Merriweather", Georgia, Cambria, "Times New Roman", Times; */
+
+  /* FONT-FAMILY */
+  --fontFamily-primary:  Helvetica, Elena,-apple-system,BlinkMacSystemFont,Roboto,roboto slab,droid serif,segoe ui,system-ui,Arial,sans-serif;
+  --fontFamily-secondary:  Helvetica, "Epilogue", sans-serif !important;
   /*  --fontFamily-primary: "Atkinson Hyperlegible", sans-serif !important;
     --fontFamily-secondary: "Atkinson Hyperlegible", sans-serif !important; */
-  --fontFamily-tertiary: "Noto Serif", "Merriweather", Georgia, Cambria, "Times New Roman", Times !important;
+  --fontFamily-tertiary:  Helvetica, "Epilogue", sans-serif !important;
 
-  --fontFamily-displaySans: "Noto Sans Display", sans-serif;
-  --fontFamily-displaySerif: "Noto Serif Display", "Merriweather", Georgia, Cambria, "Times New Roman", Times;
+  --fontFamily-displaySans:  Helvetica, "Epilogue", sans-serif !important;
+  --fontFamily-displaySerif:  Helvetica, "Epilogue", sans-serif !important;
 
 
 

@@ -11,7 +11,15 @@
       />
       <GridContainer id="eyebrow" v-if="eyebrow" style="z-index: 10000">
         <div class="animate fade delay-3">
-          <component
+          <DynamicText
+              as="p"
+              :text="eyebrow"
+              isHtml
+              :attrs="{ id: 'eyebrow' }"
+              class="subtle"
+
+            />
+          <!-- <component
             :is="breadcrumb ? 'TextLink' : 'p'"
             class="subtle"
             v-if="eyebrow"
@@ -19,7 +27,7 @@
             :label="breadcrumb ? eyebrow : undefined"
             :route="breadcrumb ? breadcrumb : undefined"
             style="scroll-snap-align: start"
-          />
+          /> -->
         </div>
       </GridContainer>
       <GridContainer class="banner-container" v-if="title">
@@ -77,7 +85,7 @@
 <script>
 import GridContainer from "../grid/GridContainer.vue";
 import GridWrapper from "../grid/GridWrapper.vue";
-import TextLink from "../text/TextLink.vue";
+// import TextLink from "../text/TextLink.vue";
 // import MyButton from "./Button/Button.vue";
 import AnimatedComponent from "../AnimatedComponent.vue";
 import DynamicText from "../text/DynamicText.vue";
@@ -89,7 +97,7 @@ export default {
     GridWrapper,
     // MyButton,
     AnimatedComponent,
-    TextLink,
+    // TextLink,
     DynamicText
   },
   props: {

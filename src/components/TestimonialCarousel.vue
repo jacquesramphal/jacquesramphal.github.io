@@ -33,7 +33,7 @@
       <!-- <transition class="" name="" mode="out-in"> -->
       <div :key="currentQuoteIndex" class="quote">
         <div class="quote-text">
-          <h2>{{ quotes[currentQuoteIndex].quote }}</h2>
+          <h1>{{ quotes[currentQuoteIndex].quote }}</h1>
         </div>
         <!-- <MyIcon
               :url="quotes[currentQuoteIndex].image"
@@ -241,7 +241,7 @@ export default {
   padding: 20px; */
   text-align: left;
   @media only screen and (min-width: 1201px) {
-    max-width: 75vw;
+    // max-width: 75vw;
   }
 }
 .quote-text {
@@ -275,7 +275,7 @@ export default {
 .author-info {
   display: flex;
   margin-block-start: var(--spacing-md);
-  @media only screen and (max-width: 740px) {
+  @media only screen and (max-width: 768px) {
     flex-direction: column;
   }
 }

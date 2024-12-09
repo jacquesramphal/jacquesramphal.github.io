@@ -1,5 +1,5 @@
 <template>
-  <transition name="slide" mode="out-in">
+  <transition name="fade" mode="out-in">
     <div
       class="fullscreen-image"
       v-if="isOpen"
@@ -7,8 +7,9 @@
       aria-modal="true"
       aria-labelledby="image-heading"
     >
-      <p @click="closeImage" class="close-button">Close Image</p>
-      <img :src="imageSrc" alt="" class="fullscreen-image__img" />
+      
+      <img draggable="false" @click="closeImage" :src="imageSrc" :alt="imageSrc" class="fullscreen-image__img" />
+      <TextLink @click="closeImage" class="close-button" label="Close"/>
     </div>
   </transition>
 </template>
@@ -35,26 +36,31 @@ export default {
 
 <style scoped>
 .fullscreen-image {
+  z-index: 1000;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--background);
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: auto; /* Allow scrolling */
 }
 
 .fullscreen-image__img {
-  max-width: 90%;
-  max-height: 90%;
+  cursor: zoom-out;
+  max-width: 100%;
+  border-radius: 0 !important;
+  max-height: 100%;
+  display: block; /* Ensure the image is block-level for proper scrolling */
 }
 
 .close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: var(--spacing-xs);
+  left: var(--spacing-xs);
   cursor: pointer;
 }
 </style>

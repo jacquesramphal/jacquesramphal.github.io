@@ -4,7 +4,13 @@
     <!-- <GridWrapper motif1> -->
     <!-- ^ motif not working -->
 
-    <HeroBanner fullvh end id="hero" class="display" :title="title" />
+    <HeroBanner
+      fullvh
+      end
+      id="hero"
+      class="display"
+      :title="title"
+    />
 
     <!-- HEADER COMPONENT START -->
     <GridContainer style="padding-block-end: var(--spacing-md) !important">
@@ -15,7 +21,7 @@
         <TextBlock
           style="grid-column: 1 / 3"
           flex="1"
-          title="My Work"
+          title="Work & Play"
           as="h2"
           description=""
         />
@@ -28,19 +34,18 @@
     <!-- HEADER COMPONENT END -->
     <GridContainer style="padding-block-start: 0 !important">
       <GridParent tight id="recentwork ">
-
-      <ImageCard
-        class="post"
-        :eyebrow="work.featEyebrow"
-        :title="work.featTitle"
-        :description="work.featDescription"
-        :cta="work.label"
-        :route="work.route"
-        :btnroute="work.btnroute"
-        :filename3="work.featImage"
-        size="large"
-        :style="work.bgcolor"
-      />
+        <!-- <ImageCard
+          class="post"
+          :eyebrow="work.featEyebrow"
+          :title="work.featTitle"
+          :description="work.featDescription"
+          :cta="work.label"
+          :route="work.route"
+          :btnroute="work.btnroute"
+          :filename3="work.featImage"
+          size="large"
+          :style="work.bgcolor"
+        /> -->
         <!-- <ImageCard
       class="post"
       :eyebrow="work.featEyebrow"
@@ -54,59 +59,58 @@
       :style="work.bgcolor"
 
       /> -->
-        
-        <!-- <ImageCard   alt="J Monogram" filename1="work/j.svg" id="top" /> -->
-        <ImageCard2 
-        alt="Avatar"
-        class="hidemobile"
-        filename1="avatar/avatar.svg"
-        title="Avatar"
-        />
-        <ImageCard 
-        alt="Avatar"
-        class="showmobile"
-        filename1="avatar/avatar.svg"
-        title="Avatar"
-        />
-        
-        <ImageCard
-        v-for="entry in work.entries.slice(0, 2)"
 
-        :key="entry.id"
-        class="post"
-        :eyebrow="entry.tag"
-        :title="entry.title"
-        :description="entry.description"
-        :cta="entry.cta"
-        :route="entry.route"
-        :btnroute="entry.btnroute"
-        :link="entry.link"
-        :filename1="entry.filename1"
-        :filename2="entry.filename2"
-        :filename3="entry.filename3"
-        :alt="entry.alt"
-        :style="entry.bgcolor"
-        :size="entry.size"
-        :buttons="entry.buttonsData"
+        <!-- <ImageCard   alt="J Monogram" filename1="work/j.svg" id="top" /> -->
+        <!-- <ImageCard2
+          alt="Avatar"
+          class="hidemobile"
+          filename1="avatar/avatar.svg"
+          title="Avatar"
+        />
+        <ImageCard
+          alt="Avatar"
+          class="showmobile"
+          filename1="avatar/avatar.svg"
+          title="Avatar"
+        /> -->
+
+        <ImageCard
+          v-for="entry in work.entries.slice(0, 1)"
+          
+          :key="entry.id"
+          class="post"
+          :eyebrow="entry.tag"
+          :title="entry.title"
+          :description="entry.description"
+          :cta="entry.cta"
+          :route="entry.route"
+          :btnroute="entry.btnroute"
+          :link="entry.link"
+          :filename1="entry.filename1"
+          :filename2="entry.filename2"
+          :filename3="entry.filename3"
+          :alt="entry.alt"
+          :style="entry.bgcolor"
+          :size="entry.size"
+          :buttons="entry.buttonsData"
         />
       </GridParent>
     </GridContainer>
     <AnimatedComponent>
-
-    <TextGrid3
-      title="About"
-      as="h2"
-      description=""
-      eyebrow1=""
-      detail1="I'm a Staff Product Designer & Developer based in Toronto, ON. <br/> <br/>My work explores the intersection between design and development and seeks to embrace emerging technologies for a more efficient and inclusive future.<br/> <br/> From defining comprehensive design systems to ensuring the highest quality in execution, I specialize in full stack design that brings ideas to life with precision and creativity.
+      <TextGrid3
+        title="About"
+        as="h2"
+        description=""
+        eyebrow1=""
+        detail1="I'm a Staff Product Designer & Developer based in Toronto, ON. <br/> <br/>My work explores the intersection between design and development and seeks to embrace emerging technologies for a more efficient and inclusive future.<br/> <br/> From defining comprehensive design systems to ensuring the highest quality in execution, I specialize in full stack design that brings ideas to life with precision and creativity.
       <br/> <br/>
       Passionate about nurturing talent, I provide coaching and professional development to help individuals cross-skill, develop competitive abilities, and support junior designers in expanding their expertise into development.
 
 "
-label="Read More"
-route="doc/28"
-    />
-    </AnimatedComponent>  
+        label="Read More"
+        route="doc/28"
+      />
+    </AnimatedComponent>
 
     <!-- <TextGrid
       title="About"
@@ -123,12 +127,9 @@ route="doc/28"
     /> -->
     <!-- <FormCentered/>
       <MyForm/> -->
-      <AnimatedComponent>
-
-    <CardRow2 />
+    <AnimatedComponent>
+      <CardRow2 />
     </AnimatedComponent>
-
-    
 
     <!-- <HeroBanner eyebrow="01" filename="work/glo.svg" background overlap/> -->
 
@@ -177,7 +178,6 @@ route="doc/28"
       </div>
     </GridContainer> -->
     <TestimonialCarousel />
-
   </PageWrapper>
 </template>
 

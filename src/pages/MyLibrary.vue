@@ -22,7 +22,7 @@ A curated collection of my professional and personal projects, alongside writing
         <TextBlock
           as="h2"
           style="grid-column: 1 / 3"
-          title="Projects"
+          title="Work"
           description=""
         />
       </GridParent>
@@ -53,7 +53,7 @@ A curated collection of my professional and personal projects, alongside writing
       /> -->
       <GridParent
         tight
-        v-if="filteredEntries.length > 0"
+        v-if="filteredWorkEntries.length > 0"
         id="recentwork"
         class="posts"
       >
@@ -101,7 +101,51 @@ A curated collection of my professional and personal projects, alongside writing
           :filename="entry.filename3"
         /> -->
         <ImageCard
-          v-for="entry in work.entries"
+          v-for="entry in filteredWorkEntries"
+          :key="entry.id"
+          class="post"
+          :data-category="entry.tag"
+          :title="entry.title"
+          :description="entry.description"
+          :cta="entry.cta"
+          :route="entry.route"
+          :btnroute="entry.btnroute"
+          :link="entry.link"
+          :alt="entry.alt"
+          :filename1="entry.filename1"
+          :filename2="entry.filename2"
+          :filename3="entry.filename3"
+          :style="entry.bgcolor"
+          :size="entry.size"
+          :variant="entry.variant"
+        />
+      </GridParent>
+      <div v-else>
+        <!-- Not working -->
+        <p>No results found.</p>
+      </div>
+    </GridContainer>
+    <GridContainer>
+      <GridParent
+        style="padding-block-end: var(--spacing-md); align-items: center"
+      >
+        <TextBlock
+          as="h2"
+          style="grid-column: 1 / 3"
+          title="Play"
+          description=""
+        />
+      </GridParent>
+      
+      <GridParent
+        tight
+        v-if="filteredPlayEntries.length > 0"
+        id="recentplay"
+        class="posts"
+      >
+       
+        <ImageCard
+          v-for="entry in filteredPlayEntries"
           :key="entry.id"
           class="post"
           :data-category="entry.tag"
@@ -214,6 +258,12 @@ export default {
     };
   },
   computed: {
+    filteredWorkEntries() {
+      return this.work.entries.filter(entry => entry.category === "Work" && (this.selectedCategory === "All" || entry.tag.split(" ").includes(this.selectedCategory)));
+    },
+    filteredPlayEntries() {
+      return this.work.entries.filter(entry => entry.category === "Play" && (this.selectedCategory === "All" || entry.tag.split(" ").includes(this.selectedCategory)));
+    },
     filteredEntries() {
       if (this.selectedCategory === "All") {
         return this.work.entries;

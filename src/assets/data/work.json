@@ -11,15 +11,16 @@
   "entries": [
     {
       "id": 1,
-      "variant": "borderless",
+      "variant": "small",
+      "size": "large" ,
       "title": "K&G Loyalty Platform",
       "tag": "Product Design, Design Systems, Development",
       "description": "Founded in 1959, Kum & Go redefines convenience with customer-centric offerings.",
       "btnroute": "work/1",
       "label": "Read More",
       "alt": "Alt Test",
-      "bgcolor": "background-color: var(--background-darker)",
-
+      "bgcolor": "background-color: #FFB81C",
+      "category": "Work",
       "filename3": "casestudy/kg/kg-5.png",
       "role": "Lead Product Designer, Developer",
       "type": "Work Type",
@@ -49,7 +50,6 @@
           "title": "Key Point 4",
           "body": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer."
         }
-
       ],
       "entries": [
         {
@@ -63,7 +63,7 @@
             "caption": "This is Caption 1"
           }
         },
-        
+
         {
           "eyebrow": "",
           "title": "Solution",
@@ -88,17 +88,18 @@
     },
     {
       "id": 2,
-      "variant": "borderless",
+      "variant": "small",
+      
       "title": "Softchoice Site & Motion Design",
       "tag": "Tag1 Tag4 Tag5",
       "subtitle": "This is a subtitle 2",
       "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
       "btnroute": "work/2",
       "label": "Read More",
-      "filename2": "casestudy/softchoice/sc-blog-1.png",
+      "filename3": "casestudy/softchoice/sc-blog-1.png",
       "bgcolor": "background-color: var(--background-darker)",
-
       "alt": "Alt Test",
+      "category": "Work",
       "role": "Designer/Developer",
       "type": "Work Type",
       "status": "In Development",
@@ -110,8 +111,8 @@
       }
     },
     {
-      "id": 3,
-      "variant": "borderless",
+      "id": null,
+      "variant": "small",
       "title": "Fortune 100 Dashboard",
       "tag": "Tag1 Tag4 Tag5",
       "subtitle": "This is a subtitle 2",
@@ -121,6 +122,7 @@
       "filename3": "casestudy/eqx/eqx-2.png",
       "alt": "Alt Test",
       "bgcolor": "background-color: #40475A",
+      "category": "Work",
       "role": "Designer/Developer",
       "type": "Work Type",
       "status": "In Development",
@@ -143,6 +145,7 @@
       "filename3": "casestudy/glo/insights.png",
       "alt": "Alt Test",
       "bgcolor": "background-color: #47C8A6",
+      "category": "Work",
       "role": "Designer/Developer",
       "type": "Work Type",
       "status": "In Development",
@@ -155,7 +158,7 @@
     },
     {
       "id": 5,
-      "variant": "split",
+      "variant": "small",
       "title": "PD Toolkit",
       "tag": "Tag1 Tag4 Tag5",
       "subtitle": "Professional Development Spreadsheet",
@@ -165,6 +168,7 @@
       "filename3": "casestudy/pd-dash/pd-dash.png",
       "alt": "Alt Test",
       "bgcolor": "background-color: #2656C9",
+      "category": "Play",
       "role": "Designer/Developer",
       "type": "Work Type",
       "status": "In Development",
@@ -177,7 +181,7 @@
     },
     {
       "id": 6,
-      "variant": "borderless",
+      "variant": "small",
       "title": "Dashboard UI Starter",
       "tag": "Tag1 Tag4 Tag5",
       "subtitle": "This is a subtitle 2",
@@ -187,6 +191,7 @@
       "filename3": "casestudy/ui-lib/datagrid.png",
       "alt": "Alt Test",
       "bgcolor": "background-color: var(--background-darker)",
+      "category": "Play",
       "role": "Designer/Developer",
       "type": "Work Type",
       "status": "In Development",
@@ -198,7 +203,7 @@
       }
     },
     {
-      "id": 10,
+      "id": 7,
       "variant": "small",
       "title": "VS Code Visual IDE Plugin",
       "tag": "Tag1 Tag4 Tag5",
@@ -209,6 +214,7 @@
       "filename3": "casestudy/ide/temp-ide.png",
       "alt": "Alt Test",
       "bgcolor": "background-color: #7D00FF",
+      "category": "Play",
       "role": "Designer/Developer",
       "type": "Work Type",
       "status": "In Development",
@@ -220,126 +226,82 @@
       }
     },
 
+
     {
-      "id": 6,
+      "id": 12,
       "variant": "small",
-      "title": "Designing Quality",
-      "tag": "Course EBook",
-      "description": "Enhance your design process and deliver exceptional user experiences with this comprehensive resource.",
-      "btnroute": "course",
-      "label": "View Ebook",
-      "filename3": "casestudy/kg/kg-5.png",
-      "alt": "Alt Test",
-      "bgcolor": "background-color: var(--background-darker)",
-      "images": {
-        "filename1": "casestudy/ide/temp-ide.png",
-        "caption1": "This is a Caption1",
-        "filename2": "casestudy/ide/temp-ide.png",
-        "filename3": "casestudy/ide/temp-ide.png"
-      }
-    },
-    {
-      "id": 7,
-      "variant": "small",
-      "title": "Work Name 4",
-      "tag": "Tag2",
-      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
-      "btnroute": "work/1",
+      "size": "large" ,
+
+      "title": "OnLogic Composable Commerce Platform",
+      "tag": "E-commerce, Developer Friendly",
+      "description": "Empowering technical users with precision, flexibility, and control for configuring industrial PC systems.",
+      "btnroute": "work/12",
       "label": "Read More",
-      "filename2": "casestudy/kg/kg-5.png",
-      "alt": "Alt Test",
-      "bgcolor": "background-color: #FFB81C",
-      "role": "Designer/Developer",
+      "alt": "OnLogic Project Overview",
+      "bgcolor": "background-color: #0077C8",
+      "category": "Work",
+      "filename3": "casestudy/onlogic/onlogic-1.png",
+      "role": "Product Design",
       "type": "Work Type",
-      "status": "In Development",
+      "status": "Launched",
       "images": {
-        "filename1": "work/glo.svg",
-        "alt1": "This is Alt1",
-        "caption1": "This is a Caption1",
-        "filename2": "work/glo.svg",
-        "caption2": "This is a Caption2",
-        "alt2": "This is Alt2",
-        "filename3": "work/dod.svg",
-        "caption3": "This is a Caption3",
-        "alt3": "This is Alt3"
-      }
-    },
-    {
-      "id": 8,
-      "variant": "cover",
-      "title": "Work Name 4",
-      "tag": "Tag2",
-      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
-      "btnroute": "work/1",
-      "label": "Read More",
-      "filename1": "about.jpg",
-      "alt": "Alt Test",
-      "role": "Designer/Developer",
-      "type": "Work Type",
-      "status": "In Development",
-      "images": {
-        "filename1": "work/glo.svg",
-        "alt1": "This is Alt1",
-        "caption1": "This is a Caption1",
-        "filename2": "work/glo.svg",
-        "caption2": "This is a Caption2",
-        "alt2": "This is Alt2",
-        "filename3": "work/dod.svg",
-        "caption3": "This is a Caption3",
-        "alt3": "This is Alt3"
+        "filename1": "casestudy/onlogic/onlogic-1.png",
+        "caption1": "OnLogic Composable Architecture Screenshot",
+        "filename2": "casestudy/onlogic/onlogic-2.png",
+        "caption2": "OnLogic Product Configuration Interface",
+        "filename3": "casestudy/onlogic/onlogic-3.png",
+        "caption3": "Custom PDP and Checkout Experience"
       },
-
+      "keypoints": [
+        {
+          "title": "Empower Technical Users",
+          "body": "Designed an interface for IT professionals and developers, providing advanced customization options with usability in mind."
+        },
+        {
+          "title": "Facilitate Developer Implementation",
+          "body": "Created UI workflows developers could implement and extend, aligning with composable architecture principles."
+        },
+        {
+          "title": "Support High Customizability",
+          "body": "Enabled configuration and purchase of highly customizable products with seamless integration of pricing, tax rules, and global payment systems."
+        },
+        {
+          "title": "Provide Transparency and Control",
+          "body": "Delivered detailed product configuration workflows with real-time feedback and clear user-facing data."
+        }
+      ],
       "entries": [
         {
-          "title": "Sub Section 1",
-          "body": "Body 1 - This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer.",
+          "eyebrow": "",
+          "title": "Problem",
+          "body": "OnLogic needed a platform tailored to technical users, including IT professionals, to handle the complexities of configuring customizable products. The existing legacy platform couldn’t provide the precision, transparency, or scalability required to meet the needs of a global audience.",
           "images": {
-            "filename1": "work/glo.svg",
-            "alt": "This is Alt!",
-            "caption": "This is a Caption!"
+            "filename1": "casestudy/onlogic/onlogic-1.png",
+            "alt": "Legacy Platform Challenges",
+            "caption": "Legacy platform lacked configurability and scalability."
           }
         },
         {
-          "title": "Sub Section 2",
-          "body": "Body 2 - This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer.",
+          "eyebrow": "",
+          "title": "Solution",
+          "body": "Migrated to a composable commerce architecture using commercetools, enabling OnLogic to scale and meet modern demands. Developed configurable PDPs with real-time price calculations, validation checks, and modular designs. Integrated content management (Contentful), search (Algolia), and custom payment/tax systems to meet global requirements.",
           "images": {
-            "filename1": "work/glo.svg",
-            "alt": "This is Alt!",
-            "caption": "This is a Caption!"
+            "filename1": "casestudy/onlogic/onlogic-2.png",
+            "alt": "Composable Commerce Architecture",
+            "caption": "Composable architecture tailored for technical users."
           }
         },
         {
-          "title": "Sub Section 3",
-          "body": "Body 3 - This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer.",
+          "eyebrow": "",
+          "title": "Outcome",
+          "body": "The platform empowered OnLogic’s technical users with advanced customization options, seamless workflows, and real-time validation. Developers benefited from detailed design handoffs and modular implementation strategies. The scalable platform allows OnLogic to evolve its offerings to meet future needs.",
           "images": {
-            "filename1": "work/glo.svg",
-            "alt": "This is Alt!",
-            "caption": "This is a Caption!"
+            "filename1": "casestudy/onlogic/onlogic-3.png",
+            "alt": "Scalable and Modular Platform",
+            "caption": "Enhanced configurability and future-proof design."
           }
         }
       ]
-    },
-    {
-      "id": 9,
-      "variant": "small",
-      "title": "Fortune 100 Dashboard",
-      "tag": "Tag1 Tag4 Tag5",
-      "subtitle": "This is a subtitle 2",
-      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
-      "btnroute": "work/2",
-      "label": "Read More",
-      "filename2": "casestudy/eqx/eqx-2.png",
-      "alt": "Alt Test",
-      "bgcolor": "background-color: #40475A",
-      "role": "Designer/Developer",
-      "type": "Work Type",
-      "status": "In Development",
-      "images": {
-        "filename1": "casestudy/eqx/eqx-2.png",
-        "caption1": "This is a Caption1",
-        "filename2": "work/glo.svg",
-        "filename3": "work/dod.svg"
-      }
     }
   ]
 }

@@ -1,16 +1,18 @@
 <template>
   <!-- <GridWrapper id="doc" class=""> -->
-    <!-- <HeroBanner :title="pageData.title" /> -->
-    <GridContainer
-      maxvw
-      class="markdown"
-      v-html="renderedMarkdown"
-    ></GridContainer>
+  <!-- <HeroBanner :title="pageData.title" /> -->
+  <GridParent
+    tight
+    style="row-gap: 0; margin-top: var(--spacing-xl)"
+    class="markdown"
+    v-html="renderedMarkdown"
+  >
+  </GridParent>
   <!-- </GridWrapper> -->
 </template>
 
 <script>
-import GridContainer from "@/components/grid/GridContainer.vue";
+// import GridContainer from "@/components/grid/GridContainer.vue";
 import { marked } from "marked";
 import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js";
@@ -45,34 +47,57 @@ export default {
       immediate: true,
       handler(newMarkdown) {
         console.log("Markdown prop:", newMarkdown); // Add this line
+        
         this.parseMarkdown(newMarkdown);
       },
     },
   },
   methods: {
-    parseMarkdown(markdown) {
-      const { attributes, body } = frontMatter(markdown);
+   parseMarkdown(markdown) {
+  const { attributes, body } = frontMatter(markdown);
+  this.pageData = attributes;
 
-      // Use 'attributes' as your metadata
-      this.pageData = attributes;
+  if (typeof body === "string") {
+    const toc = [];
+    const renderer = new marked.Renderer();
+    renderer.heading = function (text, level, raw) {
+  console.log(`Heading detected: ${text}, Level: ${level}, Raw: ${raw}`); // Debugging
+  const anchor = raw.toLowerCase().replace(/[^\w]+/g, "-");
+  toc.push({ anchor, level, text });
+  return `<h${level} id="${anchor}">${text}</h${level}>`;
+};
 
-      // Ensure 'body' is a string before passing it to 'marked'
-      if (typeof body === "string") {
-        const options = {
-          mangle: false,
-          headerIds: false,
-          tables: true,
-        };
+    const options = {
+      mangle: false,
+      headerIds: false,
+      renderer, // Use custom renderer
+    };
 
-        this.renderedMarkdown = marked(body, options);
-      } else {
-        // Handle the case where 'body' is not a string (e.g., it's an object)
-        console.error("Invalid 'body' content:", body);
-        this.renderedMarkdown = ""; // Set an empty string or handle it appropriately
+    this.renderedMarkdown = marked(body, options);
+    console.log("Generated TOC:", toc); // Debugging: Check the TOC
+    this.$emit("headings", toc);
+  } else {
+    console.error("Invalid 'body' content:", body);
+    this.renderedMarkdown = "";
+  }
+},
+    // ...existing code...
+    extractHeadings(markdown) {
+      const headingRegex = /^(#{1,6})\s+(.*)$/gm;
+      const headings = [];
+      let match;
+
+      while ((match = headingRegex.exec(markdown)) !== null) {
+        const level = match[1].length;
+        const text = match[2];
+        const id = text.toLowerCase().replace(/[^\w]+/g, "-");
+        headings.push({ level, text, id });
       }
+
+      this.$emit("headings", headings);
     },
   },
-  components: { GridContainer },
+  // components: { GridContainer },
 };
 </script>
 
@@ -80,9 +105,25 @@ export default {
 /* ---- MARKDOWN STYLING ---- */
 .markdown {
   margin: var(--spacing-xl) 0;
+  * {
+    grid-column: 1 / 4;
+    @media only screen and (min-width: 768px) {
+      grid-column: 1 / 3;
+    }
+    @media only screen and (min-width: 1201px) {
+      grid-column: 2 / 4;
+    }
+  
+  }
+  p:has(> img) {
+    @media only screen and (min-width: 1201px) {
+      grid-column: 2 / 4;
+    }
+  }
+
   h1 {
     padding-block-end: 2.4rem;
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       padding-block-end: 3.6rem;
     }
   }
@@ -92,13 +133,13 @@ export default {
   h5,
   h6 {
     padding: 1.6rem 0;
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       padding: 2.4rem 0;
     }
   }
   p {
     padding-block-end: 1.6rem;
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       padding-block-end: 2.4rem;
     }
   }
@@ -111,7 +152,7 @@ export default {
   ul,
   ol {
     padding-block-end: 1.6rem;
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       padding-block-end: 2.4rem;
     }
   }
@@ -135,7 +176,7 @@ export default {
   }
   hr {
     margin: 2.4rem 0 1.6rem;
-    @media only screen and (min-width: 740px) {
+    @media only screen and (min-width: 768px) {
       margin: 3.6rem 0 2.4rem;
     }
   }
@@ -278,7 +319,7 @@ table {
   line-height: 1.5;
   font-weight: var(--font-normal);
   border: var(--border); /* Add a border to all table rows */
-  @media only screen and (max-width: 740px) {
+  @media only screen and (max-width: 768px) {
     display: block; /* Display as a block element to allow for horizontal scrolling */
     overflow-x: scroll; /* Enable horizontal scrolling */
     white-space: nowrap; /* Prevent table cells from wrapping */
@@ -330,7 +371,13 @@ summary {
   // display: block;
   cursor: pointer;
   padding-block-end: 1rem;
-  font-size: var(--font-xs);
+  font-size: var(--font-md);
+  font-family: var(--fontFamily-primary);
+  font-weight: var(--font-bold);
+  //  display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+
   // border: var(--border);
   // border-radius: var(--spacing-xxxs);
   // margin-block-end: var(--spacing-xs);

@@ -172,7 +172,7 @@ export default {
     inline-size: 25vw;
   }
   /* ------------ BREAKPOINT MD ------------ */
-  @media only screen and (max-width: 740px) {
+  @media only screen and (max-width: 768px) {
     .cardmobile {
       margin: 0 0 var(--spacing-sm) var(--spacing-sm);
       inline-size: 85vw;

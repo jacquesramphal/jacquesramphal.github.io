@@ -125,7 +125,6 @@ export default {
     grid-template-areas: "sidebar segments";
     grid-template-columns: 30% 1fr;
     grid-template-rows: auto 1fr auto;
-    padding-block-start: var(--spacing-xl) !important;
   }
 
   // ALIGNMENT
@@ -172,7 +171,7 @@ export default {
 
     @media only screen and (min-width: 768px) {
       inline-size: 25vw;
-      padding-block-start: var(--spacing-xl);
+      padding-block-start: var(--spacing-lg);
       inset-block-start:  0;
       inset-block-end:  0;
       position: fixed;

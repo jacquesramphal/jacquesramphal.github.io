@@ -1,11 +1,16 @@
 # About Me
 
-I'm a Senior Product Design Developer based in Toronto, ON. My work explores the intersection between design and development and seeks to embrace emerging technologies for a more efficient and inclusive future.
+I'm a Senior Product Design Developer based in Toronto, Canada. My work explores the intersection between design and development and seeks to embrace emerging technologies for a more efficient and inclusive future.
 
 ![Image](../images/portrait.jpg)
 
 ### Design Philosophy
 I specialize in full-stack design, where creativity meets precision. My approach combines the art of design with the science of development, ensuring that every project is executed with the highest quality. I am driven by the belief that design should not only be beautiful but also functional and aligned with business objectives.
+
+<details>
+<summary>Design Philosophy</summary>
+<p>I specialize in full-stack design, where creativity meets precision. My approach combines the art of design with the science of development, ensuring that every project is executed with the highest quality. I am driven by the belief that design should not only be beautiful but also functional and aligned with business objectives.</p>
+</details>
 
 ### Expertise
 * **End-to-End Design**: Leading the complete design process from concept to implementation, ensuring every detail is thoughtfully executed.

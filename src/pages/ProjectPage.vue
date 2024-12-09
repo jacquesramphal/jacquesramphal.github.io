@@ -4,9 +4,11 @@
       style="scroll-snap-align: start"
       :key="entry.id"
       :title="`${entry.title}`"
-      :subtitle="`${entry.description}`"
       :filename="`${entry.images.filename1}`"
+
     />
+    <!-- :filename3="`${entry.images.filename1}`" -->
+
     <!-- <TestimonialCarousel /> -->
 
     <GridContainer style="padding-block-start: var(--spacing-sm) !important">
@@ -21,7 +23,7 @@
 
     <GridContainer
       style="scroll-snap-align: start"
-      tight
+      
       class="animate glow delay-1"
     >
       <ImageCard
@@ -37,16 +39,12 @@
       <!-- <MarkdownRenderer :markdown="pageContent" /> -->
       <!-- <TextGrid2 /> -->
 
-
-
       <!-- <TextGrid
       :key="entry.id"
-
       title= "Key Focus Areas"
       as="h2"
         description=""
         :eyebrow1="`${entry.keypoints.title}`"
-
         detail1="Empowering Kum & Go to manage their search, merchandising, promotions, loyalty, and content independently."
         eyebrow2="Increased Customer Engagement"
         detail2="Launching a robust loyalty program to engage a larger segment of the consumer base."
@@ -56,55 +54,87 @@
         detail4="Moving off a costly legacy platform to a more efficient and innovative system."
       /> -->
 
-      <TextGrid
-      title= "Key Focus Areas"
-      as="h2"
-        description=""
-        eyebrow1="Control Over Digital Experience"
-        detail1="Empowering Kum & Go to manage their search, merchandising, promotions, loyalty, and content independently."
-        eyebrow2="Increased Customer Engagement"
-        detail2="Launching a robust loyalty program to engage a larger segment of the consumer base."
-        eyebrow3="More In-Store Purchases"
-        detail3="Enhancing the omnichannel experience to drive more in-store purchases."
-        eyebrow4="Extensible and Maintainable Platform"
-        detail4="Moving off a costly legacy platform to a more efficient and innovative system."
-      />
+      <!-- make label and route conditionally rendered -->
 
+      <!-- V1 -->
 
-      <!-- <TextImage
+      <!-- <TextGrid3
         v-for="(section, j) in entry.entries"
         :key="j"
-        @click="openImage(section.images.filename1)"
-        :flipped="j % 2 !== 0"
-        class="fadeInUp"
-        :eyebrow="section.eyebrow"
         :title="section.title"
-        :description="section.body"
-        :filename="section.images.filename1"
-        :alt="section.images.alt"
+        description=""
         as="h2"
+        eyebrow1=""
+        :detail1="section.body"
+        label=""
+        route=""
       /> -->
+      <!-- <GridParent rows>
+        <GridParent
+          tight
+          style="margin-block-end: var(--spacing-md) !important"
+          v-for="(section, j) in entry.entries"
+          :key="j"
+        >
+          <TextBlock
+            class="offset fadeInUp"
+            left
+            as="h2"
+            :title="`${entry.description}`"
+            :description="`${entry.description}`"
 
+           
+          />
+         
+        </GridParent>
+      </GridParent> -->
+
+      <GridContainer
+        rows
+        style="margin-block-end: var(--spacing-md) !important"
+        v-for="(section, j) in entry.entries"
+        :key="j"
+        class="fadeInUp"
+      >
+        <ImageCard
+          size="large"
+          class=""
+          title=""
+          :filename1="section.images.filename1"
+          :alt="section.images.alt"
+          :caption="section.images.caption"
+        />
+      </GridContainer>
+      
+      <!-- <TextGrid3
+        v-for="(section, j) in entry.entries"
+        :key="j"
+        :title="section.title"
+        description=""
+        as="h2"
+        eyebrow1=""
+        :detail1="section.body"
+        label=""
+        route=""
+      />
       <GridContainer>
-        <GridParent rows >
-          <GridParent tight
-            style="
-              margin-block-end: var(--spacing-md) !important;
-            "
+        <GridParent rows>
+        
+          <GridParent
+            tight
+            style="margin-block-end: var(--spacing-md) !important"
             v-for="(section, j) in entry.entries"
             :key="j"
           >
             <TextBlock
               class="offset fadeInUp"
               left
-              as="h2"
+              as="h3"
               eyebrow=""
               :title="section.title"
               :description="section.body"
               :blockquote="section.blockquote"
-              style="
-              margin-block-end: var(--spacing-md) !important;
-            "
+              style="margin-block-end: var(--spacing-md) !important"
             />
             <GridWrapper
               tight
@@ -120,14 +150,38 @@
                 :alt="section.images.alt"
                 :caption="section.images.caption"
               />
-            </GridWrapper> </GridParent
-        ></GridParent>
-      </GridContainer>
+            </GridWrapper>
+          </GridParent>
+        </GridParent>
+      </GridContainer> 
+
+      <TextImage
+        v-for="(section, j) in entry.entries"
+        :key="j"
+        @click="openImage(section.images.filename1)"
+        :flipped="j % 2 !== 0"
+        class="fadeInUp"
+        :eyebrow="section.eyebrow"
+        :title="section.title"
+        :description="section.body"
+        :filename="section.images.filename1"
+        :alt="section.images.alt"
+        as="h2"
+      /> -->
     </div>
 
-    <!-- class="fullvh fadeInUp" -->
-
-  
+    <!-- <iframe
+              v-bind:style="{
+                width: '100%',
+                height: '900px',
+                outline: 'var(--border)',
+                border: '0',
+                borderRadius: 'var(--spacing-xs)',
+                marginBottom: '16px',
+                zIndex: '100'
+              }"
+              src="https://codesandbox.io/p/sandbox/react-new?file=/src/index.js"
+            ></iframe> -->
     <FullscreenImage
       :isOpen="isImageOpen"
       :imageSrc="selectedImage"
@@ -209,18 +263,14 @@ export default {
   },
   methods: {
     openImage(image) {
-      this.selectedImage = image;
+      this.selectedImage = require(`@/assets/images/${image}`);
       this.isImageOpen = true;
     },
     closeImage() {
       this.isImageOpen = false;
+      this.selectedImage = null; // Clear the selected image when closing
     },
   },
-  // data() {
-  //   return {
-  //     htmlContent: "",
-  //   };
-  // },
 
   computed: {
     workId() {
@@ -320,6 +370,12 @@ export default {
         duration: 3,
         ease: "none",
       });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && this.isImageOpen) {
+        this.closeImage();
+      }
     });
   },
 };

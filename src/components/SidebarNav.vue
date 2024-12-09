@@ -191,6 +191,7 @@ export default {
 * {
   margin: 0;
   mix-blend-mode: normal;
+
 }
 @media print {
   * {
@@ -218,7 +219,7 @@ button {
   // padding-inline: var(--spacing-sm);
   // background: var(--background-darker);
   inset-inline-end: 0 !important;
-  border-inline-start: var(--border);
+  // border-inline-start: 1px solid var(--foreground);
   z-index: 100000 !important;
   transition: inline-size 0.3s ease-in-out;
   //   &:hover {
