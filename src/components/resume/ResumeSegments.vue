@@ -1,5 +1,5 @@
 <template>
-  <div class="resume-segments">
+  <div class="resume-segments" >
     <div v-for="(segment, i) in segments" :key="i" class="resume-segment">
       <div class=" resume-segment-title">
         <DynamicText

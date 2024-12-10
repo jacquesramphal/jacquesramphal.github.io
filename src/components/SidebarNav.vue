@@ -175,6 +175,13 @@ export default {
 </script>
 
 <style lang="scss">
+
+body {
+  /*SidebarNav Adjustment*/
+  @media only screen and (min-width: 768px) {
+    /* padding-inline-end: var(--spacing-lg); */
+  }
+}
 .selected {
   font-weight: bold;
   text-decoration: underline;
@@ -219,7 +226,7 @@ button {
   // padding-inline: var(--spacing-sm);
   // background: var(--background-darker);
   inset-inline-end: 0 !important;
-  // border-inline-start: 1px solid var(--foreground);
+//  border-inline-start: 1px solid var(--foreground);
   z-index: 100000 !important;
   transition: inline-size 0.3s ease-in-out;
   //   &:hover {

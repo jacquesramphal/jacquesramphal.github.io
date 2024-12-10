@@ -2,39 +2,23 @@
   <PageWrapper id="doc" class="">
     <!-- <HeroBanner :eyebrow="pageData.date" :title="pageData.title" /> -->
     <GridContainer class="offset">
-        <!-- <aside class="sidebar animate glow">
+      <GridWrapper>
+        <aside class="sidebar animate glow">
           <ul>
-            <li><p>Heading Link</p></li>
-            <li><p>Heading Link</p></li>
-            <li><p>Heading Link</p></li>
+            <li>test link DND</li>
             <li v-for="heading in headings" :key="heading.id">
               <p>
-                <a :href="'#' + heading.id">{{ heading.text }}</a>
+                <a :href="'#' + heading.id" :class="{ active: activeHeading === heading.id }">{{ heading.text }}</a>
               </p>
             </li>
           </ul>
-        </aside> -->
-        
-
-        <aside class="sidebar animate glow" v-if="showSidebar">
-          <ul style="block-size: 100%">
-            <li v-for="heading in headings" :key="heading.id">
-              <p><a :href="'#' + heading.id">{{ heading.text }}</a></p>
-            </li>
-          </ul>
-        </aside><!-- 
-        <MyButton label="Toggle Nav" @click="showSidebar = !showSidebar">
-          {{ showSidebar ? "Hide" : "Show" }} Sidebar
-        </MyButton> -->
-
-        <!-- <GridParent style="background-color:pink;"> -->
-
-        <MarkdownRenderer
-          class=""
-          :markdown="markdownContent"
-          @headings="updateHeadings"
-        />
-        
+        </aside>
+      </GridWrapper>
+      <MarkdownRenderer
+        class=""
+        :markdown="markdownContent"
+        @headings="updateHeadings"
+      />
     </GridContainer>
     <!-- <CardRow2 /> -->
   </PageWrapper>
@@ -55,36 +39,24 @@ export default {
     return {
       showSidebar: true,
       headings: [],
+      activeHeading: null,
+      windowWidth: window.innerWidth,
     };
   },
   computed: {
     gridStyle() {
-      // If the window width is greater than or equal to 768 pixels (desktop view)
-
       if (this.windowWidth >= 768) {
         return {
-          // If the sidebar is shown, set the grid areas to 'sidebar' and 'segments'
-          // Otherwise, set the grid area to 'segments' only
-
           gridTemplateAreas: this.showSidebar
             ? '"sidebar segments"'
             : '"segments"',
-          // If the sidebar is shown, set the grid columns to 30% for the sidebar and the rest for the segments
-          // Otherwise, set the grid column to take up the full width
-
           gridTemplateColumns: this.showSidebar ? "15% 1fr" : "1fr",
         };
       } else {
-        // If the window width is less than 768 pixels (mobile view)
         return {
-          // If the sidebar is shown, set the grid areas to 'sidebar' and 'segments' (stacked on top of each other)
-          // Otherwise, set the grid area to 'segments' only
-
           gridTemplateAreas: this.showSidebar
             ? '"sidebar" "segments"'
             : '"segments"',
-          // Set the grid column to take up the full width
-
           gridTemplateColumns: "1fr",
         };
       }
@@ -120,6 +92,32 @@ export default {
   methods: {
     updateHeadings(headings) {
       this.headings = headings;
+      this.observeHeadings();
+    },
+    observeHeadings() {
+      const options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      };
+
+      const callback = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.activeHeading = entry.target.id;
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(callback, options);
+      this.$nextTick(() => {
+        this.headings.forEach((heading) => {
+          const element = document.getElementById(heading.id);
+          if (element) {
+            observer.observe(element);
+          }
+        });
+      });
     },
   },
 };
@@ -127,15 +125,10 @@ export default {
 
 <style lang="scss" scoped>
 .sidebar {
-  grid-area: sidebar;
   overflow-x: hidden;
   position: relative;
   inline-size: auto;
   justify-content: start;
-  flex-direction: column;
-  display: flex;
-  background-color: pink;
-  flex: 1;
 
   @media only screen and (min-width: 768px) {
     // inline-size: 25vw;
@@ -148,6 +141,10 @@ export default {
   }
 
   /* override styles when printing */
+}
+.sidebar .active {
+  font-weight: bold;
+  color: var(--primary-color);
 }
 .section {
   padding-block-end: var(--spacing-lg);

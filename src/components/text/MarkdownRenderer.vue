@@ -1,14 +1,11 @@
 <template>
-  <!-- <GridWrapper id="doc" class=""> -->
-  <!-- <HeroBanner :title="pageData.title" /> -->
   <GridParent
     tight
-    style="row-gap: 0; margin-top: var(--spacing-xl)"
+    style="row-gap: 0"
     class="markdown"
     v-html="renderedMarkdown"
   >
   </GridParent>
-  <!-- </GridWrapper> -->
 </template>
 
 <script>
@@ -47,41 +44,42 @@ export default {
       immediate: true,
       handler(newMarkdown) {
         console.log("Markdown prop:", newMarkdown); // Add this line
-        
         this.parseMarkdown(newMarkdown);
       },
     },
   },
   methods: {
-   parseMarkdown(markdown) {
-  const { attributes, body } = frontMatter(markdown);
-  this.pageData = attributes;
+    parseMarkdown(markdown) {
+      const { attributes, body } = frontMatter(markdown);
 
-  if (typeof body === "string") {
-    const toc = [];
-    const renderer = new marked.Renderer();
-    renderer.heading = function (text, level, raw) {
-  console.log(`Heading detected: ${text}, Level: ${level}, Raw: ${raw}`); // Debugging
-  const anchor = raw.toLowerCase().replace(/[^\w]+/g, "-");
-  toc.push({ anchor, level, text });
-  return `<h${level} id="${anchor}">${text}</h${level}>`;
-};
+      // Use 'attributes' as your metadata
+      this.pageData = attributes;
 
-    const options = {
-      mangle: false,
-      headerIds: false,
-      renderer, // Use custom renderer
-    };
+      // Ensure 'body' is a string before passing it to 'marked'
+      if (typeof body === "string") {
+        const toc = [];
+        const renderer = new marked.Renderer();
+        renderer.heading = function (text, level) {
+          const slug = text.toLowerCase().replace(/[^\w]+/g, "-");
+          toc.push({ level, slug, title: text });
+          return `<h${level} id="${slug}"><a href="#${slug}" class="anchor"></a>${text}</h${level}>`;
+        };
 
-    this.renderedMarkdown = marked(body, options);
-    console.log("Generated TOC:", toc); // Debugging: Check the TOC
-    this.$emit("headings", toc);
-  } else {
-    console.error("Invalid 'body' content:", body);
-    this.renderedMarkdown = "";
-  }
-},
-    // ...existing code...
+        const options = {
+          mangle: false,
+          headerIds: false,
+          tables: true,
+          renderer: renderer,
+        };
+
+        this.renderedMarkdown = marked(body, options);
+        this.$emit("headings", toc);
+      } else {
+        // Handle the case where 'body' is not a string (e.g., it's an object)
+        console.error("Invalid 'body' content:", body);
+        this.renderedMarkdown = ""; // Set an empty string or handle it appropriately
+      }
+    },
     extractHeadings(markdown) {
       const headingRegex = /^(#{1,6})\s+(.*)$/gm;
       const headings = [];
@@ -113,8 +111,8 @@ export default {
     @media only screen and (min-width: 1201px) {
       grid-column: 2 / 4;
     }
-  
   }
+
   p:has(> img) {
     @media only screen and (min-width: 1201px) {
       grid-column: 2 / 4;
