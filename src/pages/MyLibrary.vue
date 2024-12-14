@@ -1,6 +1,7 @@
 <template>
   <PageWrapper>
     <HeroBanner
+    class=""
       id="hero"
       title="Library"
       subtitle="

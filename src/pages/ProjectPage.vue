@@ -39,7 +39,7 @@
       <!-- <MarkdownRenderer :markdown="pageContent" /> -->
       <!-- <TextGrid2 /> -->
 
-      <!-- <TextGrid
+      <TextGrid
       :key="entry.id"
       title= "Key Focus Areas"
       as="h2"
@@ -52,7 +52,7 @@
         detail3="Enhancing the omnichannel experience to drive more in-store purchases."
         eyebrow4="Extensible and Maintainable Platform"
         detail4="Moving off a costly legacy platform to a more efficient and innovative system."
-      /> -->
+      />
 
       <!-- make label and route conditionally rendered -->
 
@@ -104,6 +104,43 @@
           :alt="section.images.alt"
           :caption="section.images.caption"
         />
+      </GridContainer>
+      <GridContainer>
+        <GridParent rows>
+        
+          <GridParent
+            tight
+            style="margin-block-end: var(--spacing-md) !important"
+            v-for="(section, j) in entry.entries"
+            :key="j"
+          >
+            <TextBlock
+              class="offset fadeInUp"
+              left
+              as="h3"
+              eyebrow=""
+              :title="section.title"
+              :description="section.body"
+              :blockquote="section.blockquote"
+              style="margin-block-end: var(--spacing-md) !important"
+            />
+            <GridWrapper
+              tight
+              class="offset fadeInUp"
+              v-if="section.images.filename1"
+              id=""
+            >
+              <ImageCard
+                size="large"
+                class=""
+                title=""
+                :filename1="section.images.filename1"
+                :alt="section.images.alt"
+                :caption="section.images.caption"
+              />
+            </GridWrapper>
+          </GridParent>
+        </GridParent>
       </GridContainer>
       
       <!-- <TextGrid3
