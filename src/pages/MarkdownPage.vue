@@ -1,11 +1,18 @@
 <template>
   <PageWrapper id="doc" class="">
     <!-- <HeroBanner :eyebrow="pageData.date" :title="pageData.title" /> -->
-    <GridContainer class="offset">
-      <GridWrapper>
+    <GridContainer class="" >
+      <!-- <GridWrapper>
         <aside class="sidebar animate glow">
           <ul>
-            <li>test link DND</li>
+            <li><p>Heading Link 1</p></li>
+            <li><p>Heading Link 1</p></li>
+            <li><p>Heading Link 1</p></li>
+            <li><p>Heading Link 1</p></li>
+            <li><p>Heading Link 1</p></li>
+            <li><p>Heading Link 1</p></li>
+            <li><p>Heading Link 1</p></li>
+
             <li v-for="heading in headings" :key="heading.id">
               <p>
                 <a :href="'#' + heading.id" :class="{ active: activeHeading === heading.id }">{{ heading.text }}</a>
@@ -13,14 +20,15 @@
             </li>
           </ul>
         </aside>
-      </GridWrapper>
+      </GridWrapper> -->
       <MarkdownRenderer
-        class=""
+
+        class="content"
         :markdown="markdownContent"
         @headings="updateHeadings"
       />
     </GridContainer>
-    <!-- <CardRow2 /> -->
+    <CardRow2 title="Related Writing" style="background: var(--background-darker)"/>
   </PageWrapper>
 </template>
 
@@ -145,6 +153,12 @@ export default {
 .sidebar .active {
   font-weight: bold;
   color: var(--primary-color);
+}
+.content{
+  @media only screen and (min-width: 768px) {
+
+  padding-top: var(--spacing-lg);
+  }
 }
 .section {
   padding-block-end: var(--spacing-lg);

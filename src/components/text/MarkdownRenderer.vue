@@ -4,8 +4,7 @@
     style="row-gap: 0"
     class="markdown"
     v-html="renderedMarkdown"
-  >
-  </GridParent>
+  />
 </template>
 
 <script>
@@ -14,6 +13,9 @@ import { marked } from "marked";
 import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js";
 import frontMatter from "front-matter";
+
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 marked.use(
   markedHighlight({
@@ -24,6 +26,46 @@ marked.use(
     },
   })
 );
+
+gsap.registerPlugin(ScrollTrigger);
+document.addEventListener("DOMContentLoaded", () => {
+  // Get all focusable divs
+  const divs = document.querySelectorAll('div[tabindex="0"]');
+
+  // Function to change focus
+  function changeFocus(currentIndex, direction) {
+    let nextIndex = currentIndex + direction;
+
+    // Ensure nextIndex wraps around properly
+    if (nextIndex >= divs.length) {
+      nextIndex = 0; // Loop back to the first
+    } else if (nextIndex < 0) {
+      nextIndex = divs.length - 1; // Loop back to the last
+    }
+
+    // Check if the element exists before focusing
+    if (divs[nextIndex]) {
+      divs[nextIndex].focus();
+    } else {
+      console.error("Element not found for index:", nextIndex);
+    }
+  }
+
+  // Keydown event listener
+  document.addEventListener("keydown", (e) => {
+    // Ensure there are divs to focus
+    if (divs.length > 0) {
+      const currentIndex = Array.from(divs).indexOf(document.activeElement);
+      if (e.key === "ArrowDown") {
+        changeFocus(currentIndex, 1); // Move down
+        e.preventDefault(); // Prevent scrolling
+      } else if (e.key === "ArrowUp") {
+        changeFocus(currentIndex, -1); // Move up
+        e.preventDefault(); // Prevent scrolling
+      }
+    }
+  });
+});
 
 export default {
   name: "MarkdownRenderer",
@@ -72,7 +114,18 @@ export default {
           renderer: renderer,
         };
 
-        this.renderedMarkdown = marked(body, options);
+        // Add fadeInUp class to specific elements
+        const html = marked(body, options);
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = html;
+        const elementsToAnimate = [" p:has(> img)"]; // Add more elements as needed
+        elementsToAnimate.forEach((tag) => {
+          tempDiv.querySelectorAll(tag).forEach((el) => {
+            el.classList.add("fadeInUp");
+          });
+        });
+        this.renderedMarkdown = tempDiv.innerHTML;
+
         this.$emit("headings", toc);
       } else {
         // Handle the case where 'body' is not a string (e.g., it's an object)
@@ -95,6 +148,104 @@ export default {
       this.$emit("headings", headings);
     },
   },
+  mounted() {
+    // this.htmlContent = marked(content);
+    const fadeInUp = gsap.utils.toArray(".fadeInUp");
+    const fadeInDown = gsap.utils.toArray(".fadeInDown");
+    const fadeInRight = gsap.utils.toArray(".fadeInRight");
+    const fadeInLeft = gsap.utils.toArray(".fadeInLeft");
+    const parallaxBack = gsap.utils.toArray(".parallaxBack");
+    const parallaxFront = gsap.utils.toArray(".parallaxFront");
+
+    fadeInUp.forEach((fadeInUp) => {
+      gsap.from(fadeInUp, {
+        scrollTrigger: {
+          trigger: fadeInUp,
+          start: "top bottom",
+          end: "top 50%",
+          scrub: 1,
+          toggleActions: "restart pause reverse pause",
+        },
+        autoAlpha: 0,
+        y: 100,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    fadeInDown.forEach((fadeInDown) => {
+      gsap.from(fadeInDown, {
+        scrollTrigger: {
+          trigger: fadeInDown,
+          start: "top bottom",
+          end: "top 50%",
+          scrub: 1,
+          toggleActions: "restart pause reverse pause",
+        },
+        autoAlpha: 0,
+        y: -100,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    fadeInRight.forEach((fadeInRight) => {
+      gsap.from(fadeInRight, {
+        scrollTrigger: {
+          trigger: fadeInRight,
+          start: "top bottom",
+          end: "top 50%",
+          scrub: 1,
+          toggleActions: "restart pause reverse pause",
+        },
+        autoAlpha: 0,
+        x: 100,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    fadeInLeft.forEach((fadeInLeft) => {
+      gsap.from(fadeInLeft, {
+        scrollTrigger: {
+          trigger: fadeInLeft,
+          start: "top bottom",
+          end: "top 50%",
+          scrub: 1,
+          toggleActions: "restart pause reverse pause",
+        },
+        autoAlpha: 0,
+        x: -100,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    parallaxBack.forEach((parallaxBack) => {
+      gsap.to(parallaxBack, {
+        scrollTrigger: {
+          trigger: parallaxBack,
+          scrub: true,
+        },
+        yPercent: 10,
+        duration: 3,
+        ease: "none",
+      });
+    });
+    parallaxFront.forEach((parallaxFront) => {
+      gsap.to(parallaxFront, {
+        scrollTrigger: {
+          trigger: parallaxFront,
+          scrub: true,
+        },
+        yPercent: -10,
+        duration: 3,
+        ease: "none",
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && this.isImageOpen) {
+        this.closeImage();
+      }
+    });
+  },
   // components: { GridContainer },
 };
 </script>
@@ -113,34 +264,85 @@ export default {
     }
   }
 
-  p:has(> img) {
+  hr {
+    margin: 2.4rem 0 1.6rem;
+    @media only screen and (min-width: 768px) {
+      margin: var(--size-9) 0 var(--size-6);
+    }
     @media only screen and (min-width: 1201px) {
-      grid-column: 2 / 4;
+      grid-column: 1 / 4;
+      margin: var(--size-15) 0 var(--size-15);
     }
   }
 
+  p:has(> img) {
+    @media only screen and (min-width: 1201px) {
+      grid-column: 1 / 4;
+    }
+  }
+
+  img {
+    margin-block: var(--spacing-xs) var(--spacing-xxxs);
+
+    @media only screen and (min-width: 1201px) {
+      margin-block: var(--spacing-lg) var(--spacing-md);
+    }
+
+    // aspect-ratio: 16 / 8;
+    // max-width: 98rem !important;
+    // float: none;
+    // margin-inline-start: auto;
+    // margin-inline-end: auto;
+  }
+
+  header {
+    @media only screen and (min-width: 1201px) {
+      grid-column: 1 / 4;
+      margin-block: var(--spacing-xl) var(--spacing-md);
+    }
+  }
+  // main {
+  //   display: grid;
+  // }
   h1 {
     padding-block-end: 2.4rem;
     @media only screen and (min-width: 768px) {
       padding-block-end: 3.6rem;
     }
+    // @media only screen and (min-width: 1201px) {
+    //   grid-column: 1 / 4;
+    // }
   }
-  h2,
+  h2 {
+    padding: 1.6rem 0;
+    @media only screen and (min-width: 768px) {
+      padding: var(--size-6) 0;
+    }
+    @media only screen and (min-width: 1201px) {
+      grid-column: 1 / 2;
+      grid-row: span 6;
+      padding: var(--size-3) 0;
+    }
+  }
+
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  p,
+  summary {
     padding: 1.6rem 0;
     @media only screen and (min-width: 768px) {
       padding: 2.4rem 0;
     }
   }
-  p {
-    padding-block-end: 1.6rem;
-    @media only screen and (min-width: 768px) {
-      padding-block-end: 2.4rem;
-    }
-  }
+  // p {
+  //   padding-block-end: 1.6rem;
+  //   @media only screen and (min-width: 768px) {
+  //     padding-block-end: 2.4rem;
+  //   }
+  // align-content: center;
+  // }
   blockquote {
     margin-block-start: 0;
     p {
@@ -171,20 +373,6 @@ export default {
     font-variation-settings: "wdth" 102, "opsz" 19;
     margin-inline-start: 4rem;
     padding-block-end: 0.8rem;
-  }
-  hr {
-    margin: 2.4rem 0 1.6rem;
-    @media only screen and (min-width: 768px) {
-      margin: 3.6rem 0 2.4rem;
-    }
-  }
-  img {
-    margin: 4rem 0 1rem 0;
-    // aspect-ratio: 16 / 8;
-    // max-width: 98rem !important;
-    // float: none;
-    // margin-inline-start: auto;
-    // margin-inline-end: auto;
   }
 
   /* SCSS for Code Block Styling */
@@ -363,34 +551,6 @@ td:last-of-type {
   border-inline-end: none; /* Add a border to all table rows */
 }
 
-/* Accordians */
-
-summary {
-  // display: block;
-  cursor: pointer;
-  padding-block-end: 1rem;
-  font-size: var(--font-md);
-  font-family: var(--fontFamily-primary);
-  font-weight: var(--font-bold);
-  //  display: flex;
-  //   justify-content: space-between;
-  //   align-items: center;
-
-  // border: var(--border);
-  // border-radius: var(--spacing-xxxs);
-  // margin-block-end: var(--spacing-xs);
-  // background-color: var(--background-darker);
-  // color: var(--foreground-subtle);
-  // list-style: none;
-  // list-style-position: outside;
-  // list-style-type: none;
-  // position: relative;
-  // user-select: none;
-  // -webkit-user-select: none;
-  // -moz-user-select: none;
-  // -ms-user-select: none;
-}
-
 /* Optional: Add hover effect on rows */
 // tr:hover {
 //   background-color: #ddd;
@@ -456,4 +616,81 @@ summary {
 //     content: "Date of Birth";
 //   }
 // }
+
+/* Accordians */
+
+
+details {
+  // margin-block-end: var(--spacing-xs); /* Spacing between accordion sections */
+  border-block-end: 1px solid #e5e7eb; /* Subtle border between items */
+  padding: 0 var(--spacing-xs); /* Padding for each accordion section */
+  // border: 1px solid transparent;
+  border-block-end: var(--border);
+}
+
+details:hover{
+  // border: var(--border);
+}
+
+details[open] {
+  // background-color: var(--background-darker); /* Light hover effect */
+  // border-bottom-left-radius: var(--spacing-xxs);
+  // border-bottom-right-radius: var(--spacing-xxs);
+
+}
+
+details:last-of-type {
+  border-block-end: none; /* Remove border from the last child */
+}
+
+summary {
+  cursor: pointer;
+  font-size: var(--font-xs);
+  // font-weight: var(--fontWeight-semibold);
+  // display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0; /* Spacing around the summary */
+  border-radius: 4px; /* Rounded corners */
+}
+
+summary:hover {
+  // background-color: var(--background-darker); /* Light hover effect */
+}
+
+summary::-webkit-details-marker {
+  // display: none; /* Hide default marker */
+}
+
+details[open] summary {
+  color: var(--foreground-subtle)
+  // font-weight: 600; /* Bolder font for active state */
+  // color: #111827; /* Slightly darker text */
+  // background-color: var(--background-darker); /* Light hover effect */
+
+}
+
+details p {
+  margin: 0.5rem 0 0; /* Spacing above the content */
+  padding-left: 1rem; /* Indentation for content */
+  font-size: var(--font-xs);
+  // color: #6b7280; /* Muted color for supporting text */
+  line-height: 1.5; /* Comfortable line spacing */
+}
+
+// details summary::marker {
+//   color: var(--foreground); /* Color for the marker */
+//   font-size: var(--font-xs); /* Font size for the marker */
+//   content: "+"; /* Custom marker content */
+//   display: inline-block; /* Ensure marker is inline-block */
+//   width: 1em; /* Fixed width for the marker */
+//   text-align: center; /* Center the marker */
+// }
+
+// details[open] summary::marker {
+//   content: "x"; /* Custom marker content for open state */
+//   width: 1em; /* Fixed width for the marker */
+//   text-align: center; /* Center the marker */
+// }
+
 </style>
