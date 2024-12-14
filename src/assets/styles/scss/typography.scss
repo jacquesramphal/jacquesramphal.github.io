@@ -136,7 +136,8 @@ h1:hover {
 
 /* NEED TO STYLE h2 */
 h2 {
-  font-size: var(--font-800);
+/*  font-size: var(--font-800); */
+font-size: var(--size-9);
   font-weight: var(--fontWeight-medium);
   line-height: var(--lineHeight-base);
   letter-spacing: var(--letterSpacing-base) !important;
@@ -535,6 +536,10 @@ h1>a:hover {
   h1 {
     padding-block-end: 4px;
   }
+  h2 {
+    font-size: var(--size-12);
+
+  }
 }
 
 /* ------------ BREAKPOINT LG ------------ */
@@ -546,7 +551,7 @@ h1>a:hover {
   .display p {
     font-size: var(--font-600);
     line-height: var(--lineHeight-base);
-    letter-spacing: var(--letterSpacing-tight) !important;
+/*    letter-spacing: var(--letterSpacing-tight) !important;*/
   }
 
   /*.display .herobanner {
