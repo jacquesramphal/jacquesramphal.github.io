@@ -3,16 +3,24 @@ title: My Page
 date: 2023-09-17
 --- -->
 
+
+
+<header>
+
 # The Importance of Baselines
 
 Tags Tags Tags
 
-![Image](../images/article/cover2.png)
 
 
 [Avatar] Jake Ramphal  
 July 15, 2023  
 X min read
+
+</header>
+
+![Image](../images/article/cover2.png)
+
 
 - What are baselines?
 - Why they matter?

@@ -1,8 +1,13 @@
+<header>
+
 # The Future-Proof Toolkit for Front-end Design
 The Ramstack. Essential tools and resources for front-end design.
 
 Tags Tags Tags
+</header>
 
+
+<!-- <main> -->
 ![Image](../images/article/cover3.png)
 
 
@@ -98,6 +103,9 @@ VS Code is a lightweight source code editor with built in language support and a
 
 ---
 ## 2. Store: Git
+
+#### What is Git?
+
 An acronym for Global Information Tracker. A Git Repo tracks all changes made to files in your project, building a history over time.
 
 #### Store & Manage Code
@@ -195,3 +203,4 @@ CodeSandbox is an online code editor and prototyping tool that makes creating an
 
 
 
+<!-- </main> -->

@@ -1,6 +1,12 @@
+<header>
+
 # The Shifting Design Landscape
 
 AI, Design Futures, Automation, Cross-skilling
+
+</header>
+
+
 
 ![Image](../images/article/cover1.png)
 
