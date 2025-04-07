@@ -161,6 +161,10 @@
         />
       </div>
     </GridContainer> -->
+    <!-- <ProductCarousel 
+      title="Featured Products" 
+      :products="featuredProducts"
+    /> -->
   </PageWrapper>
 </template>
 
@@ -168,6 +172,7 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import work from "@/assets/data/work.json";
+// import ProductCarousel from '../components/ProductCarousel.vue';
 // import TestimonialCarousel from "@/components/TestimonialCarousel.vue";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -192,6 +197,36 @@ export default {
         "I'm a Staff Product Design Developer with a passion for cross-skill. Check out my work, and tools I use.",
       ],
       title: "",
+      featuredProducts: [
+        {
+          name: 'Modern Desk Lamp',
+          description: 'Sleek LED desk lamp with adjustable brightness',
+          image: 'https://source.unsplash.com/400x300/?lamp',
+          category: 'Lighting',
+          price: '$89.99'
+        },
+        {
+          name: 'Ergonomic Chair',
+          description: 'Premium office chair with lumbar support',
+          image: 'https://source.unsplash.com/400x300/?chair',
+          category: 'Furniture',
+          price: '$299.99'
+        },
+        {
+          name: 'Wireless Keyboard',
+          description: 'Mechanical keyboard with customizable RGB',
+          image: 'https://source.unsplash.com/400x300/?keyboard',
+          category: 'Electronics',
+          price: '$129.99'
+        },
+        {
+          name: 'Smart Monitor',
+          description: '27" 4K display with built-in speakers',
+          image: 'https://source.unsplash.com/400x300/?monitor',
+          category: 'Electronics',
+          price: '$449.99'
+        }
+      ]
     };
   },
   created() {
@@ -203,7 +238,9 @@ export default {
       return this.titles[randomIndex];
     },
   },
-  components: {},
+  // components: {
+  //   ProductCarousel
+  // },
   mounted() {
     // this.htmlContent = marked(content);
     const fadeInUp = gsap.utils.toArray(".fadeInUp");
