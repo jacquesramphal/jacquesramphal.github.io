@@ -17,14 +17,15 @@
           </li>
         </ul>
       </nav> -->
-      
-      <MainFooter class='mainfooter' />
+      <TextGrid3 :items="menuItems" />
+      <!-- <MainFooter class='mainfooter' /> -->
     </div>
   </transition>
 </template>
 
 <script>
-import MainFooter from "./MainFooter.vue";
+import TextGrid3 from "./card/TextGrid3.vue";
+// import MainFooter from "./MainFooter.vue";
 
 export default {
   props: {
@@ -76,7 +77,8 @@ export default {
     },
   },
   components: {
-    MainFooter,
+    // MainFooter,
+    TextGrid3,
   },
 };
 </script>

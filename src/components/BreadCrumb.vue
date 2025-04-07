@@ -50,11 +50,13 @@
 </template>
 
 <script>
-import workData from '@/assets/data/work.json';
+import workData from '../assets/data/work.json';
 import frontMatter from 'front-matter';
-
+import DynamicText from '../components/text/DynamicText.vue';
+import TextLink from '../components/text/TextLink.vue';
 export default {
   name: "BreadCrumb",
+  components: { DynamicText, TextLink },
   props: {
     isDesktopScreen: {
       type: Boolean,
@@ -68,31 +70,40 @@ export default {
   },
   computed: {
     isHome() {
-      return this.$route.path === '/';
+      return this.$route?.path === '/';
     },
     isLibrary() {
-      return this.$route.path === '/library';
+      return this.$route?.path === '/library';
     },
     isLibraryOrDeeper() {
-      return this.$route.path.startsWith('/library');
+      return this.$route?.path?.startsWith('/library');
     },
     isProjectOrDoc() {
-      return this.$route.meta?.dynamicTitle;
+      return this.$route?.meta?.dynamicTitle;
     }
   },
   async created() {
-    await this.updatePageTitle();
+    if (this.$route) {
+      await this.updatePageTitle();
+    }
   },
   watch: {
     '$route': {
       immediate: true,
       async handler() {
-        await this.updatePageTitle();
+        if (this.$route) {
+          await this.updatePageTitle();
+        }
       }
     }
   },
   methods: {
     async updatePageTitle() {
+      if (!this.$route) {
+        this.pageTitle = 'Home';
+        return;
+      }
+
       if (this.$route.path.startsWith('/work/')) {
         const workId = parseInt(this.$route.params.id);
         const work = workData.entries.find(entry => entry.id === workId);

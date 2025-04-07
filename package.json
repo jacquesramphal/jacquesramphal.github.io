@@ -3,12 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "pnpm build && pnpm serve",
-    "serve": "vue-cli-service serve",
+    "prod": "pnpm build && pnpm dev",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "sb": "storybook build && storybook dev",
-    "bsb": "storybook build",
+    "sb": "storybook dev",
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {

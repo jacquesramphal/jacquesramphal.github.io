@@ -70,7 +70,7 @@ import MyButton from "./components/Button/Button.vue";
 // import NewsletterSubscription from "./components/form/NewsletterSubscription.vue";
 import FullscreenMenu from "./components/FullscreenMenu.vue";
 import StickyNav from "./components/StickyNav.vue";
-import HeaderNav from "./components/HeaderNav.vue";
+import HeaderNav from "./components/HeaderNav/HeaderNav.vue";
 import MainFooter from "./components/MainFooter.vue";
 import TextLink from "./components/text/TextLink.vue";
 // import SimpleFooter from "./components/SimpleFooter.vue";

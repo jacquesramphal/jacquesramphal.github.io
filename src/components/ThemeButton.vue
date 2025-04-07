@@ -106,106 +106,44 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-:active
-  outline: transparent
+<style lang="scss" scoped>
+:active {
+  outline: transparent;
+}
 
-.switch-checkbox
-  display: none
+.switch-checkbox {
+  display: none;
+}
 
-.switch-label
-  border-radius: 0
-  cursor: pointer
-  color: var(--link) !important
-  display: flex
-  position: absolute
-  inset-inline-end:  0
-  inset-block-start:  0
-  padding: var(--spacing-xs) var(--spacing-xs)
-  justify-items: center
-  align-items: center
-  z-index: 1000
-  text-align: center
-  // box-shadow: var(--shadow-deep)
-  // block-size: var(--font-sm)
-  // border: calc(var(--element-size) * 0.025) solid var(--accent-color)
-  // border-radius: var(--spacing-xxs)
-  // padding: var(--spacing-sm) var(--spacing-xs)
-  // transition: all 0.5s ease
-  // @media only screen and (min-width: 768px)
-  //   padding: var(--spacing-lg)
-  // @media only screen and (min-width: 1201px)
-  //   padding: var(--spacing-lg)
+.switch-label {
+  border-radius: 0;
+  cursor: pointer;
+  color: var(--link);
+  display: flex;
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-start: 0;
+  padding: var(--spacing-xs) var(--spacing-xs);
+  justify-items: center;
+  align-items: center;
+  z-index: 1000;
+  text-align: center;
+}
 
-.switch-toggle
-  display: grid
-  justify-items: center
-  align-items: center
-  text-align: center
-  // font-size: var(--font-xs)
-  // font-weight: var(--fontWeight-normal)
+.switch-toggle {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
 
-// .switch-label:hover
-//   box-shadow: var(--shadow-hover)
-//   background: var(--background-darker)
+  &::before {
+    content: "Light";
+  }
+}
 
-
-// EMOJI SWITCH
-// .switch-toggle::before
-//   content: "🌒"
-
-// .switch-toggle:hover::before
-//   content: "🌓"
-
-// .switch-toggle:active::before
-//   content: "🌓"
-
-// .switch-toggle-checked::before
-//   content: ""
-
-
-// UNICODE SWITCH
-
-// .switch-toggle::before
-//   content: "⊚"
-
-// .switch-toggle:hover::before
-//   content: "⊚"
-
-// .switch-toggle:active::before
-//   content: "⊖"
-
-// .switch-toggle-checked::before
-//   content: "⊚"
-
-
-
-// TEXT SWITCH
-.switch-toggle::before
-  content: "Light"
-  // padding-inline-start: 1rem
-
-.switch-toggle-checked::before
-  content: "Dark"
-
-
-  // Moving toggle
-
-// .switch-toggle
-//   position: absolute
-//   background-color: transparent
-//   border: var(--border)
-//   border-width: 2px !important
-//   margin-block-start: -2px
-//   opacity: 0.5
-//   border-radius: 8px
-//   inset-block-start:  0
-//   inset-inline-start:  0
-//   block-size: 100%
-//   inline-size: 50%
-//   transform: translateX(0)
-//   transition: transform 0.3s ease, background-color 0.5s ease
-
-// .switch-toggle-checked
-//   transform: translateX(100%) !important
+.switch-toggle-checked {
+  &::before {
+    content: "Dark";
+  }
+}
 </style>
