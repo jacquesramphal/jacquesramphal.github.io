@@ -215,12 +215,12 @@ button {
   inset-block-end: -100%; /* Adjust the value to control the width of the additional background */
   inset-inline-end: 0;
   inline-size: 100%; /* Adjust the value to control the width of the additional background */
-  // background: var(--background);
+  background: var(--background);
   /* Specify the color of the additional background */
   opacity: 0.95;
   z-index: -1; /* Set the z-index to be behind the navbar */
   @media only screen and (min-width: 768px) {
-    // background: var(--background);
+    background: transparent;
     inset-block-end: 0;
     inset-block-start: -100%;
   }
@@ -232,6 +232,7 @@ button {
   }
 }
 .bg {
+  background: var(--background);
   transition: 0.5s box-shadow ease-in-out !important;
   justify-self: flex-end;
   overflow: visible;
@@ -241,6 +242,8 @@ button {
   inline-size: 100%;
   border-block-start: var(--border);
   @media only screen and (min-width: 768px) {
+    background: transparent;
+
     // padding-block: var(--size-12) var(--spacing-sm) !important;
     // padding-inline: var(--spacing-lg) !important;
     // padding-inline-end: var(--spacing-md) !important;
