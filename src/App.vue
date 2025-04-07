@@ -1,29 +1,35 @@
 <template id="app">
   <!-- <router-view v-if="isLoggedIn" v-slot="{ Component }"> -->
-  <router-view v-slot="{ Component }">
+  
+    <router-view v-slot="{ Component }">
     <!-- <BreadCrumb v-if="!$route.meta.hideBreadCrumb" /> -->
-    <SidebarNav/>
-    <HeaderNav
+   <!-- <SidebarNav/> -->
+   <!-- <TextLink
+            style="    position: absolute !important;
+left: 0; top: 0;
+z-index: 1000;
+writing-mode: vertical-rl;
+transform: rotate(90deg);
+"
+            label="Jacques Ramphal"
+            route="/"
+            v-show="isDesktopScreen && !menuOpen"
+          /> -->
+   <HeaderNav
       :toggle-menu="toggleMenu"
       v-if="!$route.meta.hideNav"
       :menu-open="menuOpen"
     >
-      <!-- BREADCRUMB NAV START-->
+   
 
-      <!-- <template v-slot:menu-button>
+      <template v-slot:menu-button>
         <TextLink
-          style="text-decoration: none"
-          :label="menuOpen ? $route.name : $route.name"
+          style="border: 0 !important; line-height: inherit"
+          type="textlink"
+          :label="menuOpen ? 'Close' : 'Menu'"
           @click="toggleMenu"
-          :unicodeRight="menuOpen ? '⏶' : '⏷'"
-          :isSvg="false"
-          iconsize="16"
-          
         />
-
-      </template> -->
-            <!-- BREADCRUMB NAV END-->
-
+      </template>
       <template v-slot:menu-button-mobile>
         <TextLink
           style="border: 0 !important; line-height: inherit"
@@ -42,7 +48,7 @@
       :is-open="menuOpen"
       @close="menuOpen = false"
     ></fullscreen-menu>
-    <!-- <StickyNav v-if="!$route.meta.hideNav" :menu-open="menuOpen">
+   <!-- <StickyNav v-if="!$route.meta.hideNav" :menu-open="menuOpen">
       <template v-slot:menu-button>
         <MyButton
           type="ghost"
@@ -63,9 +69,10 @@ import MyButton from "./components/Button/Button.vue";
 
 // import NewsletterSubscription from "./components/form/NewsletterSubscription.vue";
 import FullscreenMenu from "./components/FullscreenMenu.vue";
-// import StickyNav from "./components/StickyNav.vue";
+import StickyNav from "./components/StickyNav.vue";
 import HeaderNav from "./components/HeaderNav.vue";
 import MainFooter from "./components/MainFooter.vue";
+import TextLink from "./components/text/TextLink.vue";
 // import SimpleFooter from "./components/SimpleFooter.vue";
 import TheLogin from "./components/TheLogin.vue";
 // import ThemeButton from "./components/ThemeButton.vue";
@@ -76,9 +83,10 @@ import { useRouter } from 'vue-router'; // Import Vue Router
 export default {
   name: "App",
   components: {
-    // StickyNav,
+    StickyNav,
     HeaderNav,
     MainFooter,
+    TextLink,
     // SimpleFooter,
     // ThemeButton,
     TheLogin,

@@ -296,19 +296,34 @@ export default {
   }
 
   header {
+    padding-block-end: var(--spacing-sm);
     @media only screen and (min-width: 1201px) {
+      // padding-block-start: 4rem;
+      padding-block-end: var(--spacing-lg);
+
       grid-column: 1 / 4;
       margin-block: var(--spacing-xl) var(--spacing-md);
+    }
+    h4 {
+      font-size: var(--font-sm);
+      padding: 0;
+      margin-block-start: 2rem;
+      inline-size: 100%;
+
+      @media only screen and (min-width: 768px) {
+        max-width: 75vw;
+        margin-block-start: 3.2rem;
+      }
     }
   }
   // main {
   //   display: grid;
   // }
   h1 {
-    padding-block-end: 2.4rem;
-    @media only screen and (min-width: 768px) {
-      padding-block-end: 3.6rem;
-    }
+    // padding-block-end: 2.4rem;
+    // @media only screen and (min-width: 768px) {
+    //   padding-block-end: 3.6rem;
+    // }
     // @media only screen and (min-width: 1201px) {
     //   grid-column: 1 / 4;
     // }
@@ -619,16 +634,13 @@ td:last-of-type {
 
 /* Accordians */
 
-
 details {
   // margin-block-end: var(--spacing-xs); /* Spacing between accordion sections */
-  border-block-end: 1px solid #e5e7eb; /* Subtle border between items */
-  padding: 0 var(--spacing-xs); /* Padding for each accordion section */
+  padding: 0; /* Padding for each accordion section */
   // border: 1px solid transparent;
-  border-block-end: var(--border);
+  border-block-end: none;
 }
-
-details:hover{
+details:hover {
   // border: var(--border);
 }
 
@@ -636,16 +648,12 @@ details[open] {
   // background-color: var(--background-darker); /* Light hover effect */
   // border-bottom-left-radius: var(--spacing-xxs);
   // border-bottom-right-radius: var(--spacing-xxs);
-
-}
-
-details:last-of-type {
-  border-block-end: none; /* Remove border from the last child */
+  border-block-end: var(--border);
 }
 
 summary {
   cursor: pointer;
-  font-size: var(--font-xs);
+  font-size: var(--font-sm);
   // font-weight: var(--fontWeight-semibold);
   // display: flex;
   justify-content: space-between;
@@ -663,15 +671,14 @@ summary::-webkit-details-marker {
 }
 
 details[open] summary {
-  color: var(--foreground-subtle)
+  color: var(--foreground-subtle);
+
   // font-weight: 600; /* Bolder font for active state */
   // color: #111827; /* Slightly darker text */
   // background-color: var(--background-darker); /* Light hover effect */
-
 }
 
 details p {
-  margin: 0.5rem 0 0; /* Spacing above the content */
   padding-left: 1rem; /* Indentation for content */
   font-size: var(--font-xs);
   // color: #6b7280; /* Muted color for supporting text */
@@ -692,5 +699,4 @@ details p {
 //   width: 1em; /* Fixed width for the marker */
 //   text-align: center; /* Center the marker */
 // }
-
 </style>

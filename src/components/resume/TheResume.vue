@@ -129,7 +129,7 @@ export default {
 
   // ALIGNMENT
   .resume-image {
-    margin-block-end: var(--spacing-xs);
+    margin-block-end: var(--spacing-md);
     img {
       inline-size: 100%;
       max-width: 100%;

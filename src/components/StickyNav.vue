@@ -4,7 +4,7 @@
     class="navbar"
     :class="{ 'hidden-navbar': !showNavbar }"
   >
-    <div class="bg reversed">
+    <div class="bg" style="background-color: var(--background);">
       <nav class="">
         <li class="wordmark">
           <MyButton
@@ -117,10 +117,10 @@ export default {
 <style lang="scss">
 .nav-link > a {
   border-radius: 4px;
-  color: var(--foreground-reversed) !important;
+  color: var(--foreground) !important;
 
   &:hover {
-    background: var(--background-darker-reversed);
+    background: var(--background-darker);
     transition: all 0.25s ease;
   }
 }
@@ -128,7 +128,7 @@ export default {
 
 <style lang="scss" scoped>
 * {
-  color: var(--foreground-reversed) !important;
+  color: var(--foreground) !important;
   margin: 0;
   mix-blend-mode: normal;
 }
@@ -166,7 +166,7 @@ export default {
   inset-inline-end:  0;
   inline-size: 100%; /* Adjust the value to control the width of the additional background */
   background-color: var(
-    --background-reversed
+    --background
   ); /* Specify the color of the additional background */
   z-index: -1; /* Set the z-index to be behind the navbar */
   @media only screen and (min-width: 768px) {
@@ -184,6 +184,7 @@ export default {
 }
 
 .bg {
+  box-shadow: var(--shadow-z4) !important;
   transition: 0.5s box-shadow ease-in-out !important;
   align-items: middle;
   justify-self: stretch;
@@ -227,7 +228,7 @@ nav {
 }
 
 .router-link-exact-active {
-  background: var(--background-darker-reversed);
+  background: var(--background-darker);
   text-decoration: underline dashed !important;
 }
 

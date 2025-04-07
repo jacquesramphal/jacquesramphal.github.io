@@ -5,8 +5,7 @@
       id="hero"
       title="Library"
       subtitle="
-A curated collection of my professional and personal projects, alongside writings, musings, and reflective thoughts..
-"
+A curated collection of my professional and personal projects, musings, and reflective thoughts."
     />
     <!-- <TextImage
       :eyebrow="work.featEyebrow"
@@ -22,7 +21,7 @@ A curated collection of my professional and personal projects, alongside writing
       >
         <TextBlock
           as="h2"
-          style="grid-column: 1 / 3"
+          style="grid-column: 1 / 2"
           title="Work"
           description=""
         />
@@ -172,17 +171,7 @@ A curated collection of my professional and personal projects, alongside writing
     </GridContainer>
 
     <GridContainer id="docs" class="animate delay-2">
-      <!-- <DynamicText
-        as="h3"
-        text="Library"
-        style="margin-block-end: var(--spacing-md);"
-      /> -->
-      <!-- <TextBlock
-        as="h2"
-        title="My Ramblings"
-        description=""
-        style="margin-block: var(--spacing-lg)"
-      /> -->
+   
       <GridParent
         style="padding-block-end: var(--spacing-md); align-items: center"
       >
@@ -195,20 +184,7 @@ A curated collection of my professional and personal projects, alongside writing
         />
       </GridParent>
       <GridParent tight class="">
-        <!-- <ArticleCard
-        list
-          borderless
-          v-for="entry in docs.entries"
-          :alt=false
-          :description="entry.description"
-          :filename="entry.thumbnail"
-          :key="entry.id"
-          :label="entry.label"
-          :route="entry.route"
-          :btnroute="entry.btnroute"
-          :eyebrow="entry.eyebrow"
-          :title="entry.title"
-        /> -->
+       
         <ArticleCard
           borderless
           v-for="entry in docs.entries"
@@ -224,6 +200,7 @@ A curated collection of my professional and personal projects, alongside writing
         />
       </GridParent>
     </GridContainer>
+    <!-- <CardRow2 /> -->
   </PageWrapper>
 </template>
 

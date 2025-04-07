@@ -1,9 +1,12 @@
 <template>
-  <div id="headernav" class="navbar" :class="{ 'hidden-navbar': !showNavbar }">
+  <div id="headernav" class="navbar" :class="{ 'hidden-navbar': !showNavbar }" >
+  <!-- <div id="headernav" class="navbar" :class="{ 'hidden-navbar': !showNavbar }" v-show="isMobileScreen && !menuOpen" > -->
+
+    
     <GridContainer class="bg">
       <nav class="">
         <span
-          class="glow animate delay-1 wordmark"
+          class="glow animate delay-1 wordmark "
           style="
             display: flex;
             flex-direction: row;
@@ -12,27 +15,98 @@
             text-decoration: none !important;
           "
         >
-          <BreadCrumb
-            :isDesktopScreen="isDesktopScreen"
-            @toggle-menu="toggleFullscreenMenu"
+          <TextLink
+            class="wordmark"
+            :style="isMobileScreen ? 'text-decoration: none' : ''"
+            :label="isMobileScreen ? 'Jake Ramphal' : '👨🏽‍🦲 Jake Ramphal'"
+            route="/"
+            v-show="!menuOpen"
           />
+
+          <!-- BACKARROW WORDMARK NAV START-->
+
+          <!-- <TextLink
+            class="wordmark"
+            style="text-decoration: none"
+            label="Jake Ramphal"
+            route="/"
+            :unicode="$route.path !== '/' ? '←' : false"
+            :isSvg="false"
+            iconsize="20"
+            v-show="isDesktopScreen && !menuOpen"
+          /> -->
+          <!-- BACKARROW WORDMARK NAV END-->
+
+          <!-- BREADCRUMB NAV START-->
+          <!-- <TextLink
+            v-if="$route.path !== '/'"
+            label="Jake Ramphal"
+            route="/"
+            v-show="isDesktopScreen && !menuOpen"
+          />
+          <DynamicText
+            v-if="$route.path !== '/'"
+            v-show="isDesktopScreen && !menuOpen"
+            :as="p"
+            text="/"
+            style="line-height: inherit"
+          />
+
+          <TextLink
+            v-if="$route.name == 'Doc Title' || $route.name == 'Work Title'"
+            label="Library"
+            route="/library"
+            v-show="isDesktopScreen && !menuOpen"
+          />
+          <DynamicText
+            v-if="$route.name == 'Doc Title' || $route.name == 'Work Title'"
+            v-show="isDesktopScreen && !menuOpen"
+            :as="p"
+            text="/"
+            style="line-height: inherit"
+          /> -->
+          <!-- BREADCRUMB NAV END-->
+
+          <!-- <TextLink
+            class="wordmark"
+            style="text-decoration: none"
+            label="TEST"
+            @click="toggleMenu"
+          /> -->
+         
         </span>
 
-        <ul class="links justify-end glow">
-          <li class="glow animate delay-2" v-if="!breadcrumb">
+        <ul class="links justify-end glow animate delay-1-5"> 
+
+          <li class="" v-if="!breadcrumb">
             <TextLink label="Work" route="/library" />
           </li>
-          <li
-            class="glow animate delay-1-5"
-            v-show="isDesktopScreen && !menuOpen"
-          >
+          <!-- <li class="glow animate delay-1-5" v-show="isDesktopScreen && !menuOpen">
             <TextLink label="CV" route="/resume" />
-          </li>
-
-          <!-- <li  v-show="isMobileScreen && !menuOpen" class="nav-link" tabindex="0">
-            <slot name="menu-button-mobile"></slot>
           </li> -->
-          <span class="glow animate delay-1"> <slot name="menu-button"></slot></span>
+
+          <li  v-show="isMobileScreen && !menuOpen" class="nav-link" tabindex="0">
+            <slot name="menu-button-mobile"></slot>
+          </li>
+          <li class="">
+      
+            <TextLink
+              style="text-decoration: none"
+              label="Theme"
+              @click="toggleTheme"
+            />
+          </li>
+          <div v-show="isDesktopScreen && !menuOpen" class="input-container">
+
+          <input type="checkbox" id="font" name="font" value="Serif" /><label
+            >Aa</label
+          >
+          
+        </div>
+         <span v-show="isDesktopScreen && !menuOpen">
+            <slot name="menu-button"></slot
+          ></span>
+       
         </ul>
       </nav>
     </GridContainer>
@@ -41,21 +115,22 @@
 
 <script>
 import GridContainer from "./grid/GridContainer.vue";
-import BreadCrumb from "./BreadCrumb.vue";
 
 const OFFSET = 60;
 export default {
   name: "HeaderNav",
-  components: { GridContainer, BreadCrumb },
+  components: { GridContainer },
   props: {
     breadcrumb: {
       type: Boolean,
       default: false,
     },
+    
   },
   data() {
     return {
       menuOpen: false,
+      userTheme: "light-theme",
       backgroundColor: "#ffffff", // Not in use - Replace with your hex color
       showNavbar: true,
       lastScrollPosition: 0,
@@ -75,6 +150,9 @@ export default {
   },
   // not in use - end
   mounted() {
+    const initUserTheme = this.getMediaPreference();
+    this.setTheme(initUserTheme);
+
     this.lastScrollPosition = window.pageYOffset;
     window.addEventListener("scroll", this.onScroll);
     window.addEventListener("resize", this.onWindowResize);
@@ -106,6 +184,29 @@ export default {
     },
     // not in use - end
 
+    toggleTheme() {
+      const activeTheme = localStorage.getItem("user-theme");
+      if (activeTheme === "light-theme") {
+        this.setTheme("dark-theme");
+      } else {
+        this.setTheme("light-theme");
+      }
+    },
+    setTheme(theme) {
+      localStorage.setItem("user-theme", theme);
+      this.userTheme = theme;
+      document.documentElement.className = theme;
+    },
+    getMediaPreference() {
+      const hasDarkPreference = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      if (hasDarkPreference) {
+        return "dark-theme";
+      } else {
+        return "light-theme";
+      }
+    },
     toggleMenu() {
       this.menuOpen = !this.menuOpen;
     },
@@ -129,7 +230,7 @@ export default {
     },
     setFont(font) {
       this.selectedFont = font;
-      this.$emit("update:font", font);
+      this.$emit('update:font', font);
     },
   },
 };
@@ -215,12 +316,12 @@ button {
   inset-block-end: -100%; /* Adjust the value to control the width of the additional background */
   inset-inline-end: 0;
   inline-size: 100%; /* Adjust the value to control the width of the additional background */
-  // background: var(--background);
+  background: var(--background);
   /* Specify the color of the additional background */
   opacity: 0.95;
   z-index: -1; /* Set the z-index to be behind the navbar */
   @media only screen and (min-width: 768px) {
-    // background: var(--background);
+  background: var(--background);
     inset-block-end: 0;
     inset-block-start: -100%;
   }
@@ -248,10 +349,9 @@ button {
     border-block-start: none;
     justify-self: end;
   }
-  @media only screen and (min-width: 1024px) {
-    // padding-inline: var(--spacing-xl) !important;
-  }
-}
+    @media only screen and (min-width:  1024px) {
+      // padding-inline: var(--spacing-xl) !important;
+    }}
 ul {
   list-style: none;
   margin: 0;

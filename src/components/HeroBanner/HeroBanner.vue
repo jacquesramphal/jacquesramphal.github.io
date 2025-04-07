@@ -42,7 +42,7 @@
             />
             <p id="tags" v-if="tag" v-text="tag" class="subtle" />
 
-            <p v-if="subtitle" v-text="subtitle" id="subtitle" />
+            <h4 v-if="subtitle" v-text="subtitle" id="subtitle" />
 
             <div
               id="hero-cta"
@@ -220,7 +220,7 @@ img {
     margin-block-start: none;
   }
   span {
-    grid-column: span 2;
+    grid-column: span 3;
   }
 
   // #eyebrow
@@ -235,7 +235,7 @@ img {
 
   #subtitle {
     margin-block-start: 2rem;
-    max-width: 86.4rem;
+    // max-width: 86.4rem;
     inline-size: 100%;
     @media only screen and (min-width: 768px) {
       margin-block-start: 3.2rem;
@@ -391,7 +391,7 @@ img {
     float: none;
     margin-inline-start: auto;
     margin-inline-end: auto;
-    max-width: 86.4rem !important;
+    // max-width: 86.4rem !important;
     justify-self: center;
   }
 }

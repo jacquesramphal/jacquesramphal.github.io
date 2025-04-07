@@ -143,9 +143,7 @@ export default {
   font-family: inherit;
 }
 .button-icon {
-  margin-inline-end: var(
-    --spacing-xxs
-  ); // Adjust spacing between icon and label
+  margin-inline-end: var(    --spacing-xxs  ); // Adjust spacing between icon and label
   line-height: var(--lineHeight-none);
   // Add any other styling as needed for the icon
 }

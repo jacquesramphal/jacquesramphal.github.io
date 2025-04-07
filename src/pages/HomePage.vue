@@ -9,8 +9,9 @@
       end
       id="hero"
       class="display"
-      :title="title"
+      title="Staff Product Design Engineer with a passion for cross-skill ~ check out my <i><u>work</u></i> and <i><u>writing</u></i>."
     />
+    <!-- :title="title" -->
 
     <!-- HEADER COMPONENT START -->
     <GridContainer style="padding-block-end: var(--spacing-md) !important">
@@ -34,7 +35,7 @@
     <!-- HEADER COMPONENT END -->
     <GridContainer style="padding-block-start: 0 !important">
       <GridParent tight id="recentwork ">
-        <!-- <ImageCard
+        <ImageCard
           class="post"
           :eyebrow="work.featEyebrow"
           :title="work.featTitle"
@@ -43,25 +44,13 @@
           :route="work.route"
           :btnroute="work.btnroute"
           :filename3="work.featImage"
-          size="large"
+          size="small"
           :style="work.bgcolor"
-        /> -->
-        <!-- <ImageCard
-      class="post"
-      :eyebrow="work.featEyebrow"
-      :title="work.featTitle"
-      :description="work.featDescription"
-      :cta="work.label"
-      :route="work.route"
-      :btnroute="work.btnroute"
-      :filename3="work.featImage"
-      size="large"
-      :style="work.bgcolor"
+        />
+      
 
-      /> -->
-
-        <!-- <ImageCard   alt="J Monogram" filename1="work/j.svg" id="top" /> -->
-        <!-- <ImageCard2
+        <ImageCard   alt="J Monogram" filename1="work/j.svg" id="top" />
+        <ImageCard2
           alt="Avatar"
           class="hidemobile"
           filename1="avatar/avatar.svg"
@@ -72,7 +61,7 @@
           class="showmobile"
           filename1="avatar/avatar.svg"
           title="Avatar"
-        /> -->
+        />
 
         <ImageCard
           v-for="entry in work.entries.slice(0, 1)"
@@ -105,10 +94,9 @@
         detail1="I'm a Staff Product Designer & Developer based in Toronto, ON. <br/> <br/>My work explores the intersection between design and development and seeks to embrace emerging technologies for a more efficient and inclusive future.<br/> <br/> From defining comprehensive design systems to ensuring the highest quality in execution, I specialize in full stack design that brings ideas to life with precision and creativity.
       <br/> <br/>
       Passionate about nurturing talent, I provide coaching and professional development to help individuals cross-skill, develop competitive abilities, and support junior designers in expanding their expertise into development.
-
 "
         label="Read More"
-        route="doc/28"
+        route="doc/30"
       />
     </AnimatedComponent>
 
@@ -125,16 +113,12 @@
       eyebrow4="Thought Leadership and Musing"
       detail4="Sharing insights and exploring trends in design and technology, I engage in thought leadership and musing to inspire and influence the next generation of designers and developers."
     /> -->
-    <!-- <FormCentered/>
-      <MyForm/> -->
     <AnimatedComponent>
       <CardRow2 />
     </AnimatedComponent>
+    <!-- <MyForm/> -->
 
-    <!-- <HeroBanner eyebrow="01" filename="work/glo.svg" background overlap/> -->
 
-    <!-- <TextImage filename="work/glo.svg" /> -->
-    <!-- <TextImage filename="work/glo.svg" /> -->
 
     <!-- 
     Get in touch banner -->
@@ -177,7 +161,6 @@
         />
       </div>
     </GridContainer> -->
-    <TestimonialCarousel />
   </PageWrapper>
 </template>
 
@@ -203,9 +186,10 @@ export default {
       titles: [
         // "Full-stack Designer & Generalist",
         // "Front-end Designer exploring the intersection between design and development",
-        "I&#x2019;m a Sr. Product Design Developer",
-        "Staff Product Design Developer",
+        // "I&#x2019;m a Sr. Product Design Developer",
+        "Staff Product Design Developer with a passion for cross-skill. Check out my work, and tools I use.",
         // "I&#x2019;m a Sr. Design Integration Manager",
+        "I'm a Staff Product Design Developer with a passion for cross-skill. Check out my work, and tools I use.",
       ],
       title: "",
     };

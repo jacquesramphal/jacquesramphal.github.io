@@ -1,44 +1,30 @@
 <template>
   <transition name="" mode="out-in">
     <!-- <transition name="slide" mode="out-in"> -->
-      <div
-    class=" fullscreen-menu"
-    v-if="isOpen"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="menu-heading"
+    <div
+      class="fullscreen-menu"
+      v-if="isOpen"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="menu-heading"
     >
-    <!-- <MainFooter /> -->
-     
-      <GridContainer>
-        <GridParent>
-          <nav class="">
-            <ul class="animate delay-2">
-              <li v-for="(item, index) in menuItems" :key="index">
-                <router-link class="display" :to="item.route">
-                  <DynamicText
-                    as="h2"
-                    tabIndex="0"
-                    :attrs="{ class: '' }"
-                    :text="item.text"
-                  />
-                </router-link>
-                
-              </li>
-
-            </ul>
-          </nav>
-        </GridParent>
-      </GridContainer>
-      <div v-if="isMenuActive" class="menu-overlay"></div>
-    </div> 
-
+      <!-- <nav class="menu-content">
+        <ul class="animate delay-2">
+          <li v-for="(item, index) in menuItems" :key="index">
+            <router-link :to="item.route">
+              <h1 tabIndex="0">{{ item.text }}</h1>
+            </router-link>
+          </li>
+        </ul>
+      </nav> -->
+      
+      <MainFooter class='mainfooter' />
+    </div>
   </transition>
 </template>
 
 <script>
-import GridContainer from "./grid/GridContainer.vue";
-// import MainFooter from "./MainFooter.vue";
+import MainFooter from "./MainFooter.vue";
 
 export default {
   props: {
@@ -89,14 +75,20 @@ export default {
       }
     },
   },
-  components: { 
-    // MainFooter,
-    GridContainer
-   },
+  components: {
+    MainFooter,
+  },
 };
 </script>
 
 <style lang="scss">
+
+.mainfooter {
+  // background-color: var(--background-darker);
+  margin-top: auto;
+}
+
+
 .menu-open {
   overflow: hidden;
 }
@@ -120,46 +112,44 @@ export default {
   box-shadow: var(--shadow-heavy);
   z-index: 1000;
   display: flex;
-  justify-content: left;
-  align-items: end;
+  flex-direction: column;
+  justify-content: space-between;
   border-block-end: var(--border);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  
   @media only screen and (min-width: 1201px) {
     inline-size: fullvw;
-    // inline-size: auto;
+  }
 
-    // align-items: end;
+  .menu-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-lg);
   }
-  .close-button {
-    position: absolute;
-    inset-inline-end: var(--spacing-xs);
-    inset-block-start: var(--spacing-xs);
+
+  :deep(.main-footer) {
+    margin-top: auto;
+    width: 100%;
   }
-  &::after {
-  content: "";
-  position: absolute;
-  inset-block-start: 0; /* Start from the top */
-  inset-block-end: 0; /* Extend to the bottom */
-  inset-inline-start: 100%; /* Start from the right edge, making it initially invisible */
-  inline-size: 100%; /* Ensure it spans the full width of the parent when it slides in */
-  background-color: inherit; /* Maintain the background color */
-  z-index: -1; /* Keep it behind the main content */
-  transition: inset-inline-start 0.3s ease; /* Smooth transition for the slide-in effect */
-}
+
   nav {
-    padding-block-end: var(--spacing-lg);
-    // background: red;
-  
-    grid-column: span 3;
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
       li {
+        margin-bottom: var(--spacing-md);
         a {
           text-decoration: none;
           color: var(--foreground) !important;
           &:hover {
             color: var(--link) !important;
+          }
+          h1 {
+            margin: 0;
+            font-size: var(--font-size-xl);
           }
         }
       }

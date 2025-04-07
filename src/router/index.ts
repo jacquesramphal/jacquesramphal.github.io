@@ -96,18 +96,22 @@ const routes = [
     component: ProductPage,
   },
   {
-    name: "Work Title",
+    name: "Work",
     path: "/work/:id",
     component: ProjectPage,
-    // meta: {
-    //   hideNav: true,
-    //   hideFooter: true,
-    // },
+    props: true,
+    meta: {
+      dynamicTitle: true
+    }
   },
   {
-    name: "Doc Title",
+    name: "Doc",
     path: "/doc/:id",
     component: MarkdownPage,
+    props: true,
+    meta: {
+      dynamicTitle: true
+    }
   },
   // {
   //   name: "Doc",

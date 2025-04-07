@@ -1,13 +1,13 @@
 <template>
   <GridWrapper class="testimonial-carousel">
-    <div class="controls justify-end" style="align-self: flex-end">
-      <MyButton type="outline" label="←" @click="prevQuote" route=""></MyButton>
-      <MyButton type="outline" label="→" @click="nextQuote" route=""></MyButton>
-      <!-- <button @click="nextQuote">Next</button> -->
-      <!-- <div class="arrow left" @click="prevQuote">←</div>
-          <div class="arrow right" @click="nextQuote">→</div> -->
-    </div>
     <GridContainer class="quote-container">
+      <div class="controls">
+        <MyButton type="outline" size="small" label="←" @click="prevQuote" route=""></MyButton>
+        <MyButton type="outline" size="small" label="→" @click="nextQuote" route=""></MyButton>
+        <!-- <button @click="nextQuote">Next</button> -->
+        <!-- <div class="arrow left" @click="prevQuote">←</div>
+            <div class="arrow right" @click="nextQuote">→</div> -->
+      </div>
       <!-- HEADER COMPONENT START -->
 
       <div
@@ -312,15 +312,15 @@ export default {
   font-size: var(--font-sm);
   display: flex;
   gap: 10px;
-  position: absolute;
-  inset-block-start:  var(--spacing-sm);
+  position: relative;
+  // inset-block-start:  var(--spacing-sm);
 
-  inset-inline-end:  var(--spacing-sm);
+  // inset-inline-end:  var(--spacing-sm);
   block-size: 6rem;
   @media only screen and (min-width: 768px) {
-    inset-block-start:  var(--spacing-md);
+    // inset-block-start:  var(--spacing-md);
 
-    inset-inline-end:  var(--spacing-md);
+    // inset-inline-end:  var(--spacing-md);
   }
   // background-color: blue;
 }
