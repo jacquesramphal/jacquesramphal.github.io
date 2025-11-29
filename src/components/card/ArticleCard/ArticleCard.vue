@@ -21,6 +21,7 @@
         :icon="icon"
         :iconsize="iconsize"
         :title="title"
+        :titleRoute="route"
         :description="description"
         :label="label"
         :route="route ? `${route}` : undefined"

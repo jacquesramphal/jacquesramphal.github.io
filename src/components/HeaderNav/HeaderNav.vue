@@ -271,6 +271,10 @@ export default {
       }
     },
     '$route'() {
+      // Ensure navbar is visible when route changes
+      this.showNavbar = true;
+      this.onWindowResize(); // Re-check screen size
+      
       // Re-initialize when route changes to a markdown page
       if (this.isMarkdownPage) {
         this.showTOC = true;
@@ -282,6 +286,15 @@ export default {
         });
       } else {
         this.showTOC = true;
+        // Clean up observers when leaving markdown page
+        if (this.contentEndObserver) {
+          this.contentEndObserver.disconnect();
+          this.contentEndObserver = null;
+        }
+        if (this.contentEndScrollHandler) {
+          window.removeEventListener('scroll', this.contentEndScrollHandler);
+          this.contentEndScrollHandler = null;
+        }
       }
     },
   },

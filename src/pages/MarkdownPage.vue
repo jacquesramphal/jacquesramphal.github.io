@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { ref, onMounted, inject } from "vue";
+import { ref, onMounted, inject, watch } from "vue";
 import router from "@/router";
 import frontMatter from "front-matter";
 
@@ -33,9 +33,8 @@ export default {
     const updateMarkdownHeadings = inject('updateMarkdownHeadings', () => {});
     const updateMarkdownActiveHeading = inject('updateMarkdownActiveHeading', () => {});
 
-    onMounted(async () => {
+    const loadMarkdownContent = async (docId) => {
       try {
-        const docId = parseInt(router.currentRoute.value.params.id);
         const module = await import(`../assets/content/doc_${docId}.md`);
         const { attributes, body } = frontMatter(module.default);
 
@@ -50,6 +49,24 @@ export default {
       } catch (error) {
         console.error("Error loading Markdown content:", error);
         router.push({ name: "NotFound" }); // Redirect to a 404 page in case of an error
+      }
+    };
+
+    onMounted(() => {
+      const docId = parseInt(router.currentRoute.value.params.id);
+      loadMarkdownContent(docId);
+    });
+
+    // Watch for route changes to reload content when navigating between markdown pages
+    watch(() => router.currentRoute.value.params.id, (newId) => {
+      if (newId) {
+        const docId = parseInt(newId);
+        loadMarkdownContent(docId);
+        // Reset headings and active heading when route changes
+        headings.value = [];
+        activeHeading.value = null;
+        // Scroll to top immediately (no smooth behavior for full page feel)
+        window.scrollTo(0, 0);
       }
     });
 

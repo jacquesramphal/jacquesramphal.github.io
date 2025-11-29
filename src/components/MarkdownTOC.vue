@@ -227,7 +227,7 @@ export default {
 }
 
 .toc-item--level-2 {
-  font-size: var(--font-2xs);
+  font-size: var(--font-xs);
   padding-inline-start: 0;
   margin-block-start: var(--spacing-xxs);
 }

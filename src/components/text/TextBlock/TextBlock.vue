@@ -12,8 +12,20 @@
       :text="eyebrow"
       :attrs="{ class: 'eyebrow subtle' }"
     />
+    <router-link
+      v-if="title && titleRoute"
+      :to="titleRoute"
+      class="title-link"
+    >
+      <DynamicText
+        :as="as"
+        tabIndex="0"
+        :text="title"
+        :attrs="{ class: 'title' }"
+      />
+    </router-link>
     <DynamicText
-      v-if="title"
+      v-else-if="title"
       :as="as"
       tabIndex="0"
       :text="title"
@@ -128,6 +140,10 @@ export default {
       default: "",
       type: String,
     },
+    titleRoute: {
+      type: String,
+      required: false,
+    },
   },
 
   computed: {
@@ -161,6 +177,17 @@ export default {
   /* flex: 1; */
   inline-size: 100%;
   white-space: normal;
+}
+
+.title-link {
+  text-decoration: none;
+  color: inherit;
+  
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
 }
 .description {
   /* flex: 1; */

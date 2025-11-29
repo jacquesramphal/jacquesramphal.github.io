@@ -46,7 +46,7 @@ transform: rotate(90deg);
     </HeaderNav>
     <!-- <ThemeButton v-if="!$route.meta.hideThemeButton" /> -->
     <transition name="fade" mode="out-in">
-      <component :is="Component" />
+      <component :is="Component" :key="$route.path" />
     </transition>
 
     <transition name="slide">
@@ -161,8 +161,13 @@ setup() {
     const router = useRouter();
 
     // Use Vue Router's afterEach hook to close the menu on route change
-    router.afterEach(() => {
+    router.afterEach((to) => {
       this.closeMenu();
+      // Clear headings when navigating away from markdown pages
+      if (!to.path.startsWith('/doc/')) {
+        this.markdownHeadings = [];
+        this.markdownActiveHeading = null;
+      }
     });
     
     // Dynamically load the n8nchatui.com widget script only once
