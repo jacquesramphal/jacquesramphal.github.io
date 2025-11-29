@@ -21,15 +21,6 @@
               @toggle-menu="toggleFullscreenMenu"
             />
           </span>
-          <div 
-            v-if="isMarkdownPage && hasHeadings && headings && headings.length > 0 && showTOC && !menuOpen"
-            class="toc-container"
-          >
-            <MarkdownTOC
-              :headings="headings"
-              :active-heading="activeHeading"
-            />
-          </div>
         </div>
 
         <ul class="links justify-end glow">
@@ -56,13 +47,12 @@
 import GridContainer from "../grid/GridContainer.vue";
 import BreadCrumb from "../BreadCrumb.vue";
 import TextLink from "../text/TextLink.vue";
-import MarkdownTOC from "../MarkdownTOC.vue";
 // import ThemeButton from "../ThemeButton.vue";
 
 const OFFSET = 60;
 export default {
   name: "HeaderNav",
-  components: { GridContainer, TextLink, BreadCrumb, MarkdownTOC },
+  components: { GridContainer, TextLink, BreadCrumb },
   props: {
     breadcrumb: {
       type: Boolean,
@@ -93,9 +83,6 @@ export default {
       scrollValue: 0,
       isMobileScreen: false,
       isDesktopScreen: false,
-      showTOC: true,
-      contentEndObserver: null,
-      contentEndScrollHandler: null,
     };
   },
   computed: {
@@ -121,20 +108,11 @@ export default {
     document.head.appendChild(viewportMeta);
 
     this.onWindowResize();
-    if (this.isMarkdownPage) {
-      this.observeContentEnd();
-    }
   },
 
   beforeUnmount() {
     window.removeEventListener("scroll", this.onScroll);
     window.removeEventListener("resize", this.onWindowResize);
-    if (this.contentEndObserver) {
-      this.contentEndObserver.disconnect();
-    }
-    if (this.contentEndScrollHandler) {
-      window.removeEventListener('scroll', this.contentEndScrollHandler);
-    }
   },
 
   methods: {
@@ -175,127 +153,12 @@ export default {
       this.selectedFont = font;
       this.$emit("update:font", font);
     },
-    observeContentEnd() {
-      if (!this.isMarkdownPage) {
-        return;
-      }
-
-      // Clean up existing observers
-      if (this.contentEndObserver) {
-        this.contentEndObserver.disconnect();
-        this.contentEndObserver = null;
-      }
-      if (this.contentEndScrollHandler) {
-        window.removeEventListener('scroll', this.contentEndScrollHandler);
-        this.contentEndScrollHandler = null;
-      }
-
-      // Wait for the markdown content to be rendered
-      this.$nextTick(() => {
-        const findContentEnd = () => {
-          // Watch the related-writing-section - hide TOC when it enters viewport
-          let relatedSection = document.getElementById('related-writing-section');
-          
-          if (!relatedSection) {
-            // Retry after a short delay if element not found
-            setTimeout(() => findContentEnd(), 300);
-            return;
-          }
-
-          // Function to check if the related section has entered the viewport
-          let ticking = false;
-          const checkContentEnd = () => {
-            if (ticking) return;
-            ticking = true;
-            requestAnimationFrame(() => {
-              const rect = relatedSection.getBoundingClientRect();
-              // Hide TOC when the related section enters the viewport
-              // rect.top <= window.innerHeight means the section has entered or is entering viewport
-              const shouldShow = rect.top > window.innerHeight;
-              
-              if (this.showTOC !== shouldShow) {
-                this.showTOC = shouldShow;
-              }
-              ticking = false;
-            });
-          };
-
-          // Initial check
-          checkContentEnd();
-
-          // Use IntersectionObserver for efficiency
-          const options = {
-            root: null,
-            rootMargin: '0px',
-            threshold: [0, 0.1, 0.5, 1],
-          };
-
-          const callback = () => {
-            checkContentEnd();
-          };
-
-          this.contentEndObserver = new IntersectionObserver(callback, options);
-          this.contentEndObserver.observe(relatedSection);
-
-          // Also listen to scroll events as a fallback
-          const scrollHandler = () => {
-            checkContentEnd();
-          };
-          window.addEventListener('scroll', scrollHandler, { passive: true });
-          
-          // Store scroll handler for cleanup
-          this.contentEndScrollHandler = scrollHandler;
-        };
-
-        findContentEnd();
-      });
-    },
   },
   watch: {
-    isMarkdownPage(newValue) {
-      if (newValue) {
-        this.showTOC = true;
-        this.$nextTick(() => {
-          this.observeContentEnd();
-        });
-      } else {
-        this.showTOC = true;
-        if (this.contentEndObserver) {
-          this.contentEndObserver.disconnect();
-          this.contentEndObserver = null;
-        }
-        if (this.contentEndScrollHandler) {
-          window.removeEventListener('scroll', this.contentEndScrollHandler);
-          this.contentEndScrollHandler = null;
-        }
-      }
-    },
     '$route'() {
       // Ensure navbar is visible when route changes
       this.showNavbar = true;
       this.onWindowResize(); // Re-check screen size
-      
-      // Re-initialize when route changes to a markdown page
-      if (this.isMarkdownPage) {
-        this.showTOC = true;
-        // Wait a bit longer for content to render
-        this.$nextTick(() => {
-          setTimeout(() => {
-            this.observeContentEnd();
-          }, 100);
-        });
-      } else {
-        this.showTOC = true;
-        // Clean up observers when leaving markdown page
-        if (this.contentEndObserver) {
-          this.contentEndObserver.disconnect();
-          this.contentEndObserver = null;
-        }
-        if (this.contentEndScrollHandler) {
-          window.removeEventListener('scroll', this.contentEndScrollHandler);
-          this.contentEndScrollHandler = null;
-        }
-      }
     },
   },
 };
@@ -462,28 +325,6 @@ nav {
   align-items: flex-start;
 }
 
-.toc-container {
-  inline-size: fit-content;
-  max-inline-size: 33.333%;
-  padding: 0;
-  margin: 0;
-  overflow-y: auto;
-  pointer-events: none; // Allow clicks to pass through to content behind
-  
-  // Hide on mobile
-  display: none;
-  
-  @media only screen and (min-width: 768px) {
-    display: block;
-    padding-block-start: var(--spacing-lg);
-    margin-block-start: var(--spacing-sm);
-  }
-  
-  // Re-enable pointer events for the TOC content
-  :deep(*) {
-    pointer-events: auto;
-  }
-}
 #richlink {
   text-decoration: none !important;
 }
