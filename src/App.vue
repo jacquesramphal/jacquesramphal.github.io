@@ -50,11 +50,11 @@ transform: rotate(90deg);
     </transition>
 
     <transition name="slide">
-      <fullscreen-menu
+    <fullscreen-menu
         v-if="menuOpen"
-        :is-open="menuOpen"
-        @close="menuOpen = false"
-      ></fullscreen-menu>
+      :is-open="menuOpen"
+      @close="menuOpen = false"
+    ></fullscreen-menu>
     </transition>
     
     <!-- <StickyNav v-if="!$route.meta.hideNav" :menu-open="menuOpen">

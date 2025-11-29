@@ -1,5 +1,5 @@
 <template>
-  <aside ref="tocContainer" class="markdown-toc">
+  <aside ref="tocContainer" class="markdown-toc" >
     <nav v-if="h2Headings.length > 0">
       <ul class="toc-list">
         <li
@@ -194,8 +194,8 @@ export default {
 <style lang="scss" scoped>
 .markdown-toc {
   display: block;
+  inline-size: fit-content;
   max-inline-size: 100%;
-  inline-size: 100%;
   overflow-x: hidden;
   padding: 0;
   position: relative;

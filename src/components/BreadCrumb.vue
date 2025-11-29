@@ -90,9 +90,16 @@ export default {
   watch: {
     '$route': {
       immediate: true,
-      async handler() {
-        if (this.$route) {
-          await this.updatePageTitle();
+      deep: true,
+      async handler(newRoute, oldRoute) {
+        if (newRoute) {
+          // Only update if route path or params changed
+          if (!oldRoute || newRoute.path !== oldRoute.path || 
+              JSON.stringify(newRoute.params) !== JSON.stringify(oldRoute?.params)) {
+            // Wait for route to be fully updated
+            await this.$nextTick();
+            await this.updatePageTitle();
+          }
         }
       }
     }
@@ -100,9 +107,12 @@ export default {
   methods: {
     async updatePageTitle() {
       if (!this.$route) {
-        this.pageTitle = 'Home';
+        this.pageTitle = '';
         return;
       }
+
+      // Reset title first
+      this.pageTitle = '';
 
       if (this.$route.path.startsWith('/work/')) {
         const workId = parseInt(this.$route.params.id);
@@ -111,13 +121,44 @@ export default {
       } else if (this.$route.path.startsWith('/doc/')) {
         try {
           const docId = this.$route.params.id;
-          const module = await import(`@/assets/content/doc_${docId}.md`);
-          const { attributes } = frontMatter(module.default);
-          this.pageTitle = attributes.title || 'Document';
+          if (!docId) {
+            this.pageTitle = 'Document';
+            return;
+          }
+          // Try both import paths for compatibility
+          let module;
+          try {
+            module = await import(`@/assets/content/doc_${docId}.md`);
+          } catch (e) {
+            // Fallback to relative path
+            module = await import(`../assets/content/doc_${docId}.md`);
+          }
+          const { attributes, body } = frontMatter(module.default);
+          
+          // First try to get title from front matter
+          if (attributes?.title) {
+            this.pageTitle = attributes.title;
+          } else {
+            // If no front matter title, extract from first H1 heading
+            const content = body || module.default;
+            const h1Match = content.match(/^#\s+(.+)$/m);
+            if (h1Match && h1Match[1]) {
+              // Remove markdown formatting (bold, italic, etc.)
+              this.pageTitle = h1Match[1]
+                .replace(/\*\*/g, '') // Remove bold
+                .replace(/\*/g, '') // Remove italic
+                .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove links, keep text
+                .trim();
+            } else {
+              this.pageTitle = 'Document';
+            }
+          }
         } catch (error) {
           console.error('Error loading document title:', error);
           this.pageTitle = 'Document';
         }
+      } else {
+        this.pageTitle = '';
       }
     }
   }

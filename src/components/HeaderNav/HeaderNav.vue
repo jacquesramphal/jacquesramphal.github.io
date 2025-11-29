@@ -38,7 +38,7 @@
           </li>
           <li
             class="glow animate delay-1-5"
-            v-show="isDesktopScreen && !menuOpen"
+            v-show="isDesktopScreen"
           >
             <TextLink label="CV" route="/resume" />
           </li>
@@ -468,6 +468,7 @@ nav {
   padding: 0;
   margin: 0;
   overflow-y: auto;
+  pointer-events: none; // Allow clicks to pass through to content behind
   
   // Hide on mobile
   display: none;
@@ -476,6 +477,11 @@ nav {
     display: block;
     padding-block-start: var(--spacing-lg);
     margin-block-start: var(--spacing-sm);
+  }
+  
+  // Re-enable pointer events for the TOC content
+  :deep(*) {
+    pointer-events: auto;
   }
 }
 #richlink {

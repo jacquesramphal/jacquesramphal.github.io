@@ -1,5 +1,5 @@
 <template>
-  <div
+      <div
     v-if="isOpen"
     class="fullscreen-menu"
     role="dialog"
@@ -29,7 +29,7 @@
         </GridParent>
       </GridContainer>
       <div v-if="isMenuActive" class="menu-overlay"></div>
-    </div>
+    </div> 
 </template>
 
 <script>
