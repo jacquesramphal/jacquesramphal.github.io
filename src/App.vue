@@ -1,10 +1,10 @@
 <template id="app">
   <!-- <router-view v-if="isLoggedIn" v-slot="{ Component }"> -->
-  
-    <router-view v-slot="{ Component }">
+
+  <router-view v-slot="{ Component }">
     <!-- <BreadCrumb v-if="!$route.meta.hideBreadCrumb" /> -->
-   <!-- <SidebarNav/> -->
-   <!-- <TextLink
+    <!-- <SidebarNav/> -->
+    <!-- <TextLink
             style="    position: absolute !important;
 left: 0; top: 0;
 z-index: 1000;
@@ -15,13 +15,11 @@ transform: rotate(90deg);
             route="/"
             v-show="isDesktopScreen && !menuOpen"
           /> -->
-   <HeaderNav
+    <HeaderNav
       :toggle-menu="toggleMenu"
       v-if="!$route.meta.hideNav"
       :menu-open="menuOpen"
     >
-   
-
       <template v-slot:menu-button>
         <TextLink
           style="border: 0 !important; line-height: inherit"
@@ -48,7 +46,7 @@ transform: rotate(90deg);
       :is-open="menuOpen"
       @close="menuOpen = false"
     ></fullscreen-menu>
-   <!-- <StickyNav v-if="!$route.meta.hideNav" :menu-open="menuOpen">
+    <!-- <StickyNav v-if="!$route.meta.hideNav" :menu-open="menuOpen">
       <template v-slot:menu-button>
         <MyButton
           type="ghost"
@@ -60,6 +58,21 @@ transform: rotate(90deg);
     <!-- <NewsletterSubscription /> -->
     <MainFooter v-if="!$route.meta.hideFooter" />
     <!-- <SimpleFooter v-if="!$route.meta.hideFooter" /> -->
+    <!-- Chat with Jake's agent button and sidebar -->
+    <!-- <div class="fixed-chat-entry" @click="toggleChatSidebar">
+      <span class="vertical-text">chat with Jake's agent</span>
+    </div>
+    <transition name="slide">
+      <div v-if="showChatSidebar" class="chat-sidebar">
+        <div class="chat-sidebar-header">
+          <span>AI Chat (n8n agent)</span>
+          <button class="close-btn" @click.stop="toggleChatSidebar">&times;</button>
+        </div>
+        <div class="chat-sidebar-content">
+          <p>This is a placeholder for the n8n chat agent UI.</p>
+        </div>
+      </div>
+    </transition> -->
   </router-view>
   <!-- <TheLogin v-else @TheLogin::loginResult="handleLoginResult" /> -->
 </template>
@@ -116,6 +129,96 @@ data() {
     router.afterEach(() => {
       this.closeMenu();
     });
+    // Dynamically load the n8nchatui.com widget script only once
+    if (!window.__n8nChatUILoaded) {
+      const script = document.createElement('script');
+      script.type = 'module';
+      script.defer = true;
+      script.innerHTML = `
+          import Chatbot from "https://cdn.n8nchatui.com/v1/pole-embed-yard.js";
+  Chatbot.init({
+    n8nChatUrl: "https://orium.app.n8n.cloud/webhook/f406671e-c954-4691-b39a-66c90aa2f103/chat",
+    metadata: {},
+    theme: {
+      button: {
+        backgroundColor: "#fff",
+        right: 20,
+        bottom: 20,
+        size: 50,
+        iconColor: "#000",
+        customIconSrc: "https://www.svgrepo.com/show/339963/chat-bot.svg",
+        customIconSize: 60,
+        customIconBorderRadius: 15,
+        autoWindowOpen: {
+          autoOpen: false,
+          openDelay: 2
+        },
+        borderRadius: "rounded"
+      },
+      tooltip: {
+        showTooltip: false,
+        tooltipMessage: "Jake Ramphal's AI Agent",
+        tooltipBackgroundColor: "#fff9f6",
+        tooltipTextColor: "#1c1c1c",
+        tooltipFontSize: 15
+      },
+      chatWindow: {
+        borderRadiusStyle: "rounded",
+        avatarBorderRadius: 25,
+        messageBorderRadius: 6,
+        showTitle: true,
+        title: "Rambot",
+        titleAvatarSrc: "https://www.svgrepo.com/show/339963/chat-bot.svg",
+        avatarSize: 40,
+        welcomeMessage: "Hey! I’m Jake Ramphal’s site guide. Looking to learn about his projects, design work, or writing? Just ask—I’ll point you in the right direction.",
+        errorMessage: "Please connect me to n8n first",
+        backgroundColor: "#ffffff",
+        height: 600,
+        width: 400,
+        fontSize: 16,
+        starterPrompts: [
+          "Who is Jake Ramphal?",
+          "What is Jake Ramphal's work?",
+          "What is Jake Ramphal's writing?",
+        ],
+        starterPromptFontSize: 15,
+        renderHTML: false,
+        clearChatOnReload: false,
+        showScrollbar: false,
+        botMessage: {
+          backgroundColor: "#fff",
+          textColor: "#050505",
+          showAvatar: true,
+          avatarSrc: "https://www.svgrepo.com/show/334455/bot.svg"
+        },
+        userMessage: {
+          backgroundColor: "#f2f2f2",
+          textColor: "#050505",
+          showAvatar: true,
+          avatarSrc: "https://www.svgrepo.com/show/532363/user-alt-1.svg"
+        },
+        textInput: {
+          placeholder: "Type your query",
+          backgroundColor: "#ffffff",
+          textColor: "#1e1e1f",
+          sendButtonColor: "#000",
+          maxChars: 50,
+          maxCharsWarningMessage: "You exceeded the characters limit. Please input less than 50 characters.",
+          autoFocus: false,
+          borderRadius: 6,
+          sendButtonBorderRadius: 50
+        },
+        // footer: {
+        //   companyLink: "ramphal.design",
+        //   company: "ramphal.design"
+        // }
+      }
+    }
+  });
+      `;
+      document.body.appendChild(script);
+      window.__n8nChatUILoaded = true;
+    }
   },
 
   // data() {
@@ -136,6 +239,7 @@ data() {
 };
 </script>
 
-<style lang="sass">
-@import "./assets/styles/css/all.css"
+<style lang="scss">
+@import "./assets/styles/css/all.css";
+// Remove the custom chat sidebar and entrypoint styles
 </style>

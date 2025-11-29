@@ -92,46 +92,89 @@ export default {
   },
   methods: {
     parseMarkdown(markdown) {
-      const { attributes, body } = frontMatter(markdown);
+      if (!markdown || typeof markdown !== "string") {
+        console.warn("MarkdownRenderer: Invalid markdown input", markdown);
+        this.renderedMarkdown = "";
+        this.$emit("headings", []);
+        return;
+      }
 
-      // Use 'attributes' as your metadata
-      this.pageData = attributes;
+      // Check if markdown is already HTML
+      const isAlreadyHTML = markdown.trim().startsWith("<");
 
-      // Ensure 'body' is a string before passing it to 'marked'
-      if (typeof body === "string") {
-        const toc = [];
-        const renderer = new marked.Renderer();
-        renderer.heading = function (text, level) {
-          const slug = text.toLowerCase().replace(/[^\w]+/g, "-");
-          toc.push({ level, slug, title: text });
-          return `<h${level} id="${slug}"><a href="#${slug}" class="anchor"></a>${text}</h${level}>`;
-        };
+      let html = "";
+      let toc = [];
 
-        const options = {
-          mangle: false,
-          headerIds: false,
-          tables: true,
-          renderer: renderer,
-        };
-
-        // Add fadeInUp class to specific elements
-        const html = marked(body, options);
+      if (isAlreadyHTML) {
+        // If already HTML, use it directly and extract headings
+        html = markdown;
         const tempDiv = document.createElement("div");
         tempDiv.innerHTML = html;
-        const elementsToAnimate = [" p:has(> img)"]; // Add more elements as needed
-        elementsToAnimate.forEach((tag) => {
-          tempDiv.querySelectorAll(tag).forEach((el) => {
-            el.classList.add("fadeInUp");
-          });
+        
+        // Extract headings from HTML
+        const headings = tempDiv.querySelectorAll("h1, h2, h3, h4, h5, h6");
+        headings.forEach((heading) => {
+          let id = heading.id || heading.getAttribute("id");
+          // If no ID, try to get it from the anchor link inside
+          if (!id) {
+            const anchor = heading.querySelector("a.anchor");
+            if (anchor) {
+              id = anchor.getAttribute("href")?.replace("#", "");
+            }
+          }
+          // If still no ID, generate one from text
+          if (!id) {
+            id = heading.textContent.trim().toLowerCase().replace(/[^\w]+/g, "-");
+            heading.id = id;
+          }
+          const level = parseInt(heading.tagName.charAt(1));
+          const title = heading.textContent.trim();
+          if (id && title) {
+            toc.push({ level, slug: id, title });
+          }
         });
-        this.renderedMarkdown = tempDiv.innerHTML;
-
-        this.$emit("headings", toc);
+        
+        this.renderedMarkdown = html;
       } else {
-        // Handle the case where 'body' is not a string (e.g., it's an object)
-        console.error("Invalid 'body' content:", body);
-        this.renderedMarkdown = ""; // Set an empty string or handle it appropriately
+        // Parse markdown normally
+        const { attributes, body } = frontMatter(markdown);
+        this.pageData = attributes;
+
+        if (typeof body === "string" && body.trim().length > 0) {
+          const renderer = new marked.Renderer();
+          renderer.heading = function (text, level) {
+            const slug = text.toLowerCase().replace(/[^\w]+/g, "-");
+            toc.push({ level, slug, title: text });
+            return `<h${level} id="${slug}"><a href="#${slug}" class="anchor"></a>${text}</h${level}>`;
+          };
+
+          const options = {
+            mangle: false,
+            headerIds: false,
+            tables: true,
+            renderer: renderer,
+          };
+
+          html = marked(body, options);
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = html;
+          const elementsToAnimate = [" p:has(> img)"]; // Add more elements as needed
+          elementsToAnimate.forEach((tag) => {
+            tempDiv.querySelectorAll(tag).forEach((el) => {
+              el.classList.add("fadeInUp");
+            });
+          });
+          this.renderedMarkdown = tempDiv.innerHTML;
+        } else {
+          console.warn("MarkdownRenderer: Empty or invalid body content", body);
+          this.renderedMarkdown = "";
+          this.$emit("headings", []);
+          return;
+        }
       }
+
+      console.log("MarkdownRenderer: Emitting headings:", toc);
+      this.$emit("headings", toc);
     },
     extractHeadings(markdown) {
       const headingRegex = /^(#{1,6})\s+(.*)$/gm;
@@ -260,7 +303,7 @@ export default {
       grid-column: 1 / 3;
     }
     @media only screen and (min-width: 1201px) {
-      grid-column: 2 / 4;
+      grid-column: 1 / 4; // Span all 3 columns of GridParent to fill content area (columns 2-3 of outer grid)
     }
   }
 
@@ -270,7 +313,7 @@ export default {
       margin: var(--size-9) 0 var(--size-6);
     }
     @media only screen and (min-width: 1201px) {
-      grid-column: 1 / 4;
+      grid-column: 1 / 4; // Span all 3 columns to match content width
       margin: var(--size-15) 0 var(--size-15);
     }
   }
@@ -334,8 +377,8 @@ export default {
       padding: var(--size-6) 0;
     }
     @media only screen and (min-width: 1201px) {
-      grid-column: 1 / 2;
-      grid-row: span 6;
+      // grid-column: 1 / 2;
+      // grid-row: span 6;
       padding: var(--size-3) 0;
     }
   }

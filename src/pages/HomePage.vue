@@ -9,7 +9,7 @@
       end
       id="hero"
       class="display"
-      title="Staff Product Design Engineer with a passion for cross-skill ~ check out my <i><u>work</u></i> and <i><u>writing</u></i>."
+      title="UX and AI Designer with a passion for cross-skill ~ check out my <i><u>work</u></i> and <i><u>writing</u></i>."
     />
     <!-- :title="title" -->
 

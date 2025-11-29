@@ -32,7 +32,6 @@
           >
             <TextLink label="CV" route="/resume" />
           </li>
-
           <!-- <li  v-show="isMobileScreen && !menuOpen" class="nav-link" tabindex="0">
             <slot name="menu-button-mobile"></slot>
           </li> -->

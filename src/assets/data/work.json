@@ -1,13 +1,13 @@
 {
-  "featEyebrow": "Design AI Tools",
-  "featTitle": "VS Code Visual IDE Plugin",
-  "featDescription": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
-  "btnroute": "work/10",
-  "label": "Feature Label",
-  "bgcolor": "background-color: #7D00FF",
-  "featImage": "casestudy/ide/temp-ide.png",
+  "featEyebrow": "Agentic AI Design",
+  "featTitle": "Designing Genie: Pioneering UX Patterns for Agentic AI",
+  "featDescription": "Built an agentic orchestration layer that transformed how teams reclaim creative focus. Learned n8n, AI development, and product thinking while automating routine design work to free the team for novel problems.",
+  "btnroute": "doc/31",
+  "label": "Read Case Study",
+  "bgcolor": "background-color: #0D47A1",
+  "featImage": "casestudy/genie/genie.png",
 
-  "alt": "Alt Test",
+  "alt": "Genie - Agentic AI Platform",
   "entries": [
     {
       "id": 1,
@@ -225,7 +225,30 @@
         "filename3": "casestudy/ide/temp-ide.png"
       }
     },
-
+    {
+      "id": 8,
+      "variant": "large",
+      "title": "Agentic Experience Agents and Workflows",
+      "tag": "Tag1 Tag4 Tag5",
+      "subtitle": "This is a subtitle 2",
+      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
+      "btnroute": "work/10",
+      "label": "Read More",
+      "filename1": "casestudy/genie/genie.png",
+      "alt": "Alt Test",
+      "bgcolor": "background-color: #7D00FF",
+      "category": "Work",
+      "role": "Designer/Developer",
+      "type": "Work Type",
+      "status": "In Development",
+      "images": {
+        "filename1": "casestudy/ide/temp-ide.png",
+        "caption1": "This is a Caption1",
+        "filename2": "casestudy/ide/temp-ide.png",
+        "filename3": "casestudy/ide/temp-ide.png"
+      }
+    },
+    
 
     {
       "id": 12,
