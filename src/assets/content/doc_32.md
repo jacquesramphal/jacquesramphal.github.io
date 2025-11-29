@@ -190,10 +190,10 @@ This is the one that kept me up at night.
 Genie operates across multiple modes: sometimes it answers questions, sometimes it surfaces insights without being asked, sometimes it executes workflows, sometimes it generates artifacts. **The danger is when users don't know which mode they're in.**
 
 **The Real Scenarios We Had to Design For:**
-- User asks: "What should our backlog be?" → Genie drafts it
-- Project hits a risk indicator → Genie automatically alerts the team
-- Genie sees a pattern → It recommends a decision (but doesn't execute)
-- Friday 5 PM → Genie automatically generates weekly status deck and posts it to Slack
+- User requests an output → Agent generates it on demand
+- System detects a threshold condition → Agent proactively surfaces an alert
+- Agent identifies an opportunity → It suggests an action (but requires approval)
+- Scheduled trigger occurs → Agent autonomously executes a routine workflow
 
 Without clear design signals, users could be confused: Did I make this decision or did the agent? Did I approve this action or did it happen automatically?
 
@@ -238,19 +238,18 @@ You don't become an AI developer by taking courses. You become one by building s
 
 You don't become a product manager by reading frameworks. You become one by making hard tradeoffs and gathering real feedback.
 
-### 1. **Your Best Growth Comes From Real Problems**
+#### 1. **Your Best Growth Comes From Real Problems**
 Don't wait for permission to learn. If you have a problem, experiment. Real constraints force real learning.
 
-### 2. **Stay Close to the Work While Leading**
+#### 2. **Stay Close to the Work While Leading**
 You can be a high-performing individual contributor AND a leader. That proximity to the work makes you a better leader.
 
-### 3. **Know When to Go Deep and When to Step Back**
+#### 3. **Know When to Go Deep and When to Step Back**
 Building at scale requires knowing the difference. The best builders are comfortable with that tension.
 
-### 4. **Serve Your Team While Serving Your Own Growth**
+#### 4. **Serve Your Team While Serving Your Own Growth**
 Look for projects that do both. That's the sweet spot. That's where real transformation happens.
 
-### 5. **Building Products Changes You More Than Courses Ever Will**
 You become a different technologist by doing. By shipping. By iterating.
 
 ---
@@ -308,7 +307,7 @@ That's what Genie is teaching me.
 ---
 
 **Jacques Ramphal**  
-*Staff Product Designer, Design Lead for Genie | Orium*
+*Senior Product Designer & Design Lead for Genie | Orium*
 
 *This is the full case study. For the summary version, [click here](/doc/31).*
 

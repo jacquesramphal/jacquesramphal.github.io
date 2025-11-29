@@ -1,14 +1,18 @@
 <template>
-  <aside class="markdown-toc">
+  <aside ref="tocContainer" class="markdown-toc">
     <nav v-if="h2Headings.length > 0">
       <ul class="toc-list">
         <li
-          v-for="heading in h2Headings"
+          v-for="(heading, index) in h2Headings"
           :key="heading.slug"
+          :data-slug="heading.slug"
           :class="[
             'toc-item',
+            'glow',
+            'animate',
             `toc-item--level-${heading.level}`,
-            { 'toc-item--active': activeHeading === heading.slug }
+            { 'toc-item--active': activeHeading === heading.slug },
+            getDelayClass(index)
           ]"
         >
           <a
@@ -55,8 +59,85 @@ export default {
       },
       immediate: true,
     },
+    activeHeading(newHeading) {
+      if (newHeading) {
+        this.$nextTick(() => {
+          this.scrollToActiveItem(newHeading);
+        });
+      }
+    },
   },
   methods: {
+    getDelayClass(index) {
+      // Normal order: first item gets delay-1, last item gets highest delay
+      const delayMap = {
+        0: 'delay-1',
+        1: 'delay-1-5',
+        2: 'delay-2',
+        3: 'delay-2-5',
+        4: 'delay-3',
+        5: 'delay-3-5',
+        6: 'delay-4',
+      };
+      return delayMap[index] || delayMap[Math.min(index, 6)];
+    },
+    scrollToActiveItem(slug) {
+      const tocContainer = this.$refs.tocContainer;
+      if (!tocContainer) return;
+      
+      // Find the active item by data-slug attribute
+      const activeItem = tocContainer.querySelector(`[data-slug="${slug}"]`);
+      
+      if (activeItem) {
+        // Find the scrollable parent container (toc-drawer__content)
+        let scrollContainer = tocContainer.closest('.toc-drawer__content');
+        if (!scrollContainer) {
+          // Fallback: try to find any scrollable parent
+          scrollContainer = tocContainer.parentElement;
+          while (scrollContainer && scrollContainer !== document.body) {
+            const overflow = window.getComputedStyle(scrollContainer).overflowY;
+            if (overflow === 'auto' || overflow === 'scroll') {
+              break;
+            }
+            scrollContainer = scrollContainer.parentElement;
+          }
+        }
+        
+        if (scrollContainer) {
+          const itemRect = activeItem.getBoundingClientRect();
+          const containerRect = scrollContainer.getBoundingClientRect();
+          const scrollTop = scrollContainer.scrollTop;
+          
+          // Calculate position relative to container
+          const itemTop = itemRect.top - containerRect.top + scrollTop;
+          const itemBottom = itemTop + itemRect.height;
+          const containerHeight = containerRect.height;
+          const currentScroll = scrollTop;
+          
+          // Scroll to center the active item if it's not fully visible
+          let targetScroll = currentScroll;
+          if (itemTop < currentScroll) {
+            // Item is above visible area
+            targetScroll = itemTop - (containerHeight / 4); // Scroll to show item with some padding
+          } else if (itemBottom > currentScroll + containerHeight) {
+            // Item is below visible area
+            targetScroll = itemBottom - containerHeight + (containerHeight / 4);
+          }
+          
+          scrollContainer.scrollTo({
+            top: targetScroll,
+            behavior: 'smooth',
+          });
+        } else {
+          // Fallback: use scrollIntoView
+          activeItem.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'nearest',
+          });
+        }
+      }
+    },
     handleClick(e, slug) {
       e.preventDefault();
       
@@ -112,18 +193,12 @@ export default {
 
 <style lang="scss" scoped>
 .markdown-toc {
-  display: none;
-
-  @media only screen and (min-width: 1201px) {
-    display: block;
-    max-inline-size: 100%;
-    inline-size: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 0;
-    scrollbar-width: thin;
-    scrollbar-color: var(--foreground-subtle) transparent;
-  }
+  display: block;
+  max-inline-size: 100%;
+  inline-size: 100%;
+  overflow-x: hidden;
+  padding: 0;
+  position: relative;
 }
 
 .toc-list {
@@ -152,13 +227,13 @@ export default {
 }
 
 .toc-item--level-2 {
-  font-size: var(--font-xs);
-  padding-inline-start: var(--spacing-sm);
+  font-size: var(--font-2xs);
+  padding-inline-start: 0;
   margin-block-start: var(--spacing-xxs);
 }
 
 .toc-item--level-3 {
-  font-size: var(--font-xs);
+  font-size: var(--font-2xs);
   padding-inline-start: var(--spacing-md);
   color: var(--foreground-subtle);
 }
@@ -166,7 +241,7 @@ export default {
 .toc-item--level-4,
 .toc-item--level-5,
 .toc-item--level-6 {
-  font-size: var(--font-xs);
+  font-size: var(--font-2xs);
   padding-inline-start: var(--spacing-lg);
   color: var(--foreground-subtle);
 }
@@ -176,16 +251,21 @@ export default {
   text-decoration: none;
   transition: color 0.2s ease;
   display: block;
-  padding: var(--spacing-xxs) 0;
+  padding: 0;
+  font-size: inherit;
   
   &:hover {
     color: var(--foreground);
   }
 }
 
-.toc-link--active {
+.toc-link--active,
+.toc-item--active a {
   color: var(--foreground) !important;
   font-weight: var(--font-weight-semibold);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
 }
 
 .toc-item--active {

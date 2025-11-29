@@ -80,10 +80,10 @@ export default {
 .author-content {
   grid-template-columns: auto 1fr;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
 
   @media only screen and (min-width: 768px) {
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
   }
 }
 

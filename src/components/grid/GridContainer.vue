@@ -24,6 +24,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    overflowVisible: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     classes() {
@@ -33,6 +37,7 @@ export default {
         "container-spacing--fullvw": this.fullvw,
         "container-spacing--maxvw": this.maxvw,
         "container-spacing--fullvh": this.fullvh,
+        "container-spacing--overflow-visible": this.overflowVisible,
       };
     },
   },
@@ -95,6 +100,10 @@ export default {
     float: none;
     margin-inline-start: auto;
     margin-inline-end: auto;
+  }
+
+  &--overflow-visible {
+    overflow: visible !important;
   }
 }
 </style>

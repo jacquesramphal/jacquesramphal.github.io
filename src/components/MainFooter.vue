@@ -26,9 +26,7 @@
               <TextBlock
                 as="h4"
                 title="Jake Ramphal"
-                description="My work explores the intersection between design and development and seeks to embrace emerging technologies for a more efficient and inclusive future.
-
-"
+                description="I lead design work where systems, code, and AI meet—building the practices and platforms that let cross-functional teams deliver meaningful products efficiently and sustainably."
               />
             </div>
             <GridParent tight id="content">

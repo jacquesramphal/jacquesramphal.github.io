@@ -1,5 +1,5 @@
 <template>
-  <div class="" style="overflow: visible !important">
+  <div class="" style="overflow: visible !important; background: transparent !important;">
     <!-- DESKTOP VIEW START -->
     <GridContainer
       v-if="isDesktopScreen"
@@ -90,7 +90,8 @@
             :alt="entry.alt"
             :title="entry.title"
             :description="entry.description"
-            :route="entry.btnroute"
+            :route="entry.route"
+            :btnroute="entry.btnroute"
             :label="entry.label"
           />
         </GridParent></div

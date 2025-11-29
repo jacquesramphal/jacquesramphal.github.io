@@ -3,13 +3,13 @@
     "title": "Experience",
     "entries": [
       {
-        "title": "Senior Product Designer",
+        "title": "Senior Product Designer & Design Lead",
         "position": "",
-        "location": "Orium",
+        "location": "Orium (formerly Myplanet)",
         "from": "2013",
         "to": "Present",
-        "description": "Multi-disciplinary Designer with a strong track record of collaborating with high-performing teams to create interfaces that empower the workplace and engage users. As a tenured member of Orium, a company deeply rooted in the principles of empathy-for-all, collaboration, flexibility, and humanity, I have witnessed firsthand the evolution of our culture amidst the ever-changing tech landscape. Throughout my 10 years with Orium (previously Myplanet), I have continuously refined my expertise in UI Development and front-end polish, driving innovation and shaping new approaches to learning. Self-awareness and empathy lie at the heart of my personal and professional journey, mirroring the values that drive Orium's success.[See new language around MP on WR]",
-        "callout": "For the past 9 years, I've been growing alongside Orium, defining new ways of learning through UI Development and front-end polish."
+        "description": "Senior Product Designer and design lead working at the intersection of design systems, code, and AI. Over more than a decade at Orium, I’ve helped scale design across enterprise clients by architecting design systems, pairing closely with engineering, and driving design quality from concept through implementation. Recent focus includes leading UX for Genie, an agentic AI/AX platform, and strengthening design–dev integration so the things we design are the things we actually ship.",
+        "callout": "Senior Product Designer & Design Lead focusing on design systems, Genie (AI/AX), and design–dev integration across enterprise products."
       },
       {
         "title": "Mindfulness Facilitator",
@@ -26,7 +26,7 @@
         "location": "University Health Network",
         "from": "",
         "to": "Summer 2013",
-        "description": "This section will contain a concise description of my responsibilities and achievements during my tenure as a UX Designer at University Health Network."
+        "description": "UX Designer contributing to healthcare digital products in a complex, regulated environment, supporting patient- and clinician-facing experiences."
       },
       {
         "title": "UI Designer",
@@ -42,7 +42,7 @@
         "location": "Staples",
         "from": "Nov 2010",
         "to": "Dec 2012",
-        "description": "This section will contain a concise description of my responsibilities and achievements during my tenure as a Print Shop Rep at Staples."
+        "description": "Print production and customer-facing role supporting small business and personal print work while studying design."
       },
       {
         "title": "Graphic Designer",
@@ -50,7 +50,7 @@
         "location": "Bethel Group",
         "from": "Sep 2008",
         "to": "Jul 2010",
-        "description": "This section will contain a concise description of my responsibilities and achievements during my tenure as a Graphic Designer at Bethel Group."
+        "description": "Graphic Designer working on visual communication and layout projects early in my career."
       },
       {
         "title": "Design Intern",
@@ -58,7 +58,7 @@
         "location": "Media Enterprises Ltd.",
         "from": "Mar 2008",
         "to": "Aug 2008",
-        "description": "This is where I learned the magic of Photoshop. This section will contain a concise description of my responsibilities and achievements during my internship at Media Enterprises Ltd."
+        "description": "Design internship focused on hands-on production, typography, and learning the day-to-day realities of commercial design."
       }
     ]
   },
@@ -68,10 +68,10 @@
     "entries": [
       {
         "title": "Graphic Design",
-        "location": "OCADU",
+        "location": "OCADU (Ontario College of Art & Design University)",
         "from": "2010",
         "to": "2014",
-        "description": "This section will contain a concise description of my education at OCADU, including the Graphic Design program and any relevant courses or achievements."
+        "description": "Bachelor-level Graphic Design program with a focus on digital design, typography, and emerging media."
       }
     ]
   },
@@ -79,36 +79,21 @@
   {
     "title": "Skills",
     "entries": [
-      "Placeholder for listing your key skills and competencies relevant to the job you are applying for.",
-      "Example: UI/UX Design, Front-end Development, Mindfulness Facilitation, Adobe Creative Suite, Collaboration, Emotional Intelligence"
-    ]
-  },
-
-  {
-    "title": "Certifications",
-    "entries": [
-      "Placeholder for listing any relevant certifications or licenses that enhance your qualifications."
+      "Design Systems · Design Tokens · Component Architecture",
+      "Product Design · UX Design · Interaction Design",
+      "Front-end Development (React, Vue, CSS/SCSS)",
+      "AI/AX Design (Genie, agentic experiences)",
+      "Design–Dev Integration · Design QA · Storybook",
+      "Leadership · Mentorship · Mindfulness Facilitation"
     ]
   },
 
   {
     "title": "Projects",
     "entries": [
-      "Placeholder for highlighting any relevant projects you've worked on, showcasing your abilities and accomplishments."
-    ]
-  },
-
-  {
-    "title": "Volunteer Experience",
-    "entries": [
-      "Placeholder for mentioning any volunteer experience that demonstrates valuable skills or aligns with the job."
-    ]
-  },
-
-  {
-    "title": "Interests/Hobbies",
-    "entries": [
-      "Placeholder for mentioning your interests or hobbies that complement your professional skills or show a well-rounded personality."
+      "K&G Loyalty Platform – Lead product design and front-end implementation for a mobile loyalty experience (React Native + partner platforms).",
+      "OnLogic Composable Commerce – Product and systems design for a configurable commerce experience serving technical users at scale.",
+      "Genie AI/AX Platform – Design lead for agentic AI experiences, defining UX patterns for how teams collaborate with AI agents."
     ]
   }
 ]

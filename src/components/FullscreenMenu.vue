@@ -1,9 +1,7 @@
 <template>
-  <transition name="" mode="out-in">
-    <!-- <transition name="slide" mode="out-in"> -->
-      <div
-    class=" fullscreen-menu"
+  <div
     v-if="isOpen"
+    class="fullscreen-menu"
     role="dialog"
     aria-modal="true"
     aria-labelledby="menu-heading"
@@ -31,9 +29,7 @@
         </GridParent>
       </GridContainer>
       <div v-if="isMenuActive" class="menu-overlay"></div>
-    </div> 
-
-  </transition>
+    </div>
 </template>
 
 <script>
@@ -167,30 +163,33 @@ export default {
   }
 }
 
-.slide-enter-active,
+.slide-enter-from {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.slide-enter-active {
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+              opacity 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.slide-enter-to {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-leave-from {
+  transform: translateX(0);
+  opacity: 1;
+}
+
 .slide-leave-active {
-  animation: slide 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+              opacity 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
-@keyframes slide {
-  from {
-    transform: translateX(100%); /* Start off-screen to the left */
-  }
-  to {
-    transform: translateX(0); /* Slide to the original position */
-  }
-}
-
-.slide-leave-active {
-  animation: slide-out 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-
-@keyframes slide-out {
-  from {
-    transform: translateX(0); /* Start at the original position */
-  }
-  to {
-    transform: translateX(100%); /* Slide out to the right */
-  }
+.slide-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
 }
 </style>

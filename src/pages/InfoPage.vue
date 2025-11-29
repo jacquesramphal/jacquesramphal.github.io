@@ -12,18 +12,31 @@
       :label3="about.statLabel3"
     />  -->
     <GridContainer class="animate delay-2">
-      <TextStats/>
+      <TextStats />
 
       <GridParent>
         <TextBlock
           as="h4"
-          title="TextBlock"
+          title="Design systems that ship"
           icon="j-logo.svg"
           iconsize="128"
-          alt="Image alt"
+          alt="Design systems icon"
+          description="I architect token-based systems and governance models so teams can move faster with fewer regressions—and designs arrive in code the way they were intended."
         />
-        <TextBlock as="h4" title="TextBlock" icon="j-logo.svg" alt="Image alt" />
-        <TextBlock as="h4" title="TextBlock" icon="j-logo.svg" alt="Image alt" />
+        <TextBlock
+          as="h4"
+          title="AI/AX patterns with Genie"
+          icon="j-logo.svg"
+          alt="AI/AX icon"
+          description="At Orium, I'm designing <a href='/doc/32'>Genie</a>—an AI/AX platform for agentic experiences—where the work isn't just chatting with an assistant, it's collaborating with AI on real, multi-step workflows."
+        />
+        <TextBlock
+          as="h4"
+          title="Design-dev bridge & mentorship"
+          icon="j-logo.svg"
+          alt="Mentorship icon"
+          description="I still write code, mentor designers into developers, and care a lot about team health—mindfulness, thoughtful critique, and work that feels sustainable."
+        />
       </GridParent>
     </GridContainer>
   
@@ -36,12 +49,12 @@
       :title="about.detailHeader"
       :eyebrow1="about.detailEyebrow1"
       :detail1="about.detailDetails1"
-      eyebrow2="Component Library"
-      detail2="UI Regression Testing with Storybook and Chromatic ensures my components are throughly tested and documented"
-      eyebrow3="SEO & Accessibility"
-      detail3="UI Regression Testing with Storybook and Chromatic ensures my components are throughly tested and documented"
-      eyebrow4="Future-Proof Ramstack"
-      detail4="Clean design, Javascript, API, Headless CMS. Carefully selected tools and frameworks keep this site alive and flexible to grow as I do."
+      eyebrow2="Design Systems & Infrastructure"
+      detail2="I build token-based systems, semantic naming, and governance that reduce design-to-dev iteration time by 40% and increase cross-team consistency."
+      eyebrow3="AI/AX Design (Genie)"
+      detail3="I'm pioneering UX patterns for agentic experiences through <a href='/doc/32'>Genie</a>—rethinking how people collaborate with AI, build trust, and understand what agents can do."
+      eyebrow4="Design-Dev Integration & Mentorship"
+      detail4="I code my own designs, mentor designers into developers, and bring mindfulness and emotional intelligence into teams so great work doesn't require burnout."
     />
     <!-- <HeroBanner
       id="hero"

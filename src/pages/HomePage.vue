@@ -9,7 +9,7 @@
       end
       id="hero"
       class="display"
-      title="UX and AI Designer with a passion for cross-skill ~ check out my <i><u>work</u></i> and <i><u>writing</u></i>."
+      title="I'm Jake, a Senior Product Designer & Design Lead at Orium, working where systems, code, and AI meet to ship real products."
     />
     <!-- :title="title" -->
 
@@ -90,12 +90,9 @@
         title="About"
         as="h2"
         description=""
-        eyebrow1=""
-        detail1="I'm a Staff Product Designer & Developer based in Toronto, ON. <br/> <br/>My work explores the intersection between design and development and seeks to embrace emerging technologies for a more efficient and inclusive future.<br/> <br/> From defining comprehensive design systems to ensuring the highest quality in execution, I specialize in full stack design that brings ideas to life with precision and creativity.
-      <br/> <br/>
-      Passionate about nurturing talent, I provide coaching and professional development to help individuals cross-skill, develop competitive abilities, and support junior designers in expanding their expertise into development.
-"
-        label="Read More"
+        eyebrow1="Design systems, AI, and code—inside one brain."
+        detail1="I'm a Senior Product Designer and design lead in Toronto, and for the last 15 years at Orium I've been obsessed with making design actually ship. <br/><br/>I architect token-based design systems and the workflows around them so designers and developers spend less time arguing over specs and more time shipping. Through Genie, our AI/AX platform, I'm exploring how humans and AI share work, not just chat. <br/><br/>I still code my own designs, mentor designers into developers, and care a lot about teams feeling calm, focused, and proud of what they put into production. <br/><br/>You can read my longer story on the <a href='/doc/34'>About page</a>, or browse an interview-style <a href='/doc/30'>Ask Me Anything</a> with questions people tend to ask in interviews."
+        label="Read FAQ"
         route="doc/30"
       />
     </AnimatedComponent>

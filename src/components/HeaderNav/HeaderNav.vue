@@ -5,22 +5,32 @@
             <TextLink label="Jake Ramphal" route="/" />
           </li> -->
       <nav class="">
-        
-        <span
-          class="glow animate delay-1 wordmark"
-          style="
-            display: flex;
-            flex-direction: row;
-            gap: var(--spacing-xs);
-            align-items: center;
-            text-decoration: none !important;
-          "
-        >
-          <BreadCrumb
-            :isDesktopScreen="isDesktopScreen"
-            @toggle-menu="toggleFullscreenMenu"
-          />
-        </span>
+        <div class="nav-left">
+          <span
+            class="glow animate delay-1 wordmark"
+            style="
+              display: flex;
+              flex-direction: row;
+              gap: var(--spacing-xs);
+              align-items: center;
+              text-decoration: none !important;
+            "
+          >
+            <BreadCrumb
+              :isDesktopScreen="isDesktopScreen"
+              @toggle-menu="toggleFullscreenMenu"
+            />
+          </span>
+          <div 
+            v-if="isMarkdownPage && hasHeadings && headings && headings.length > 0 && showTOC && !menuOpen"
+            class="toc-container"
+          >
+            <MarkdownTOC
+              :headings="headings"
+              :active-heading="activeHeading"
+            />
+          </div>
+        </div>
 
         <ul class="links justify-end glow">
           <li class="glow animate delay-2" v-if="!breadcrumb">
@@ -46,30 +56,52 @@
 import GridContainer from "../grid/GridContainer.vue";
 import BreadCrumb from "../BreadCrumb.vue";
 import TextLink from "../text/TextLink.vue";
+import MarkdownTOC from "../MarkdownTOC.vue";
 // import ThemeButton from "../ThemeButton.vue";
 
 const OFFSET = 60;
 export default {
   name: "HeaderNav",
-  components: { GridContainer, TextLink, BreadCrumb },
+  components: { GridContainer, TextLink, BreadCrumb, MarkdownTOC },
   props: {
     breadcrumb: {
+      type: Boolean,
+      default: false,
+    },
+    hasHeadings: {
+      type: Boolean,
+      default: false,
+    },
+    headings: {
+      type: Array,
+      default: () => [],
+    },
+    activeHeading: {
+      type: String,
+      default: null,
+    },
+    menuOpen: {
       type: Boolean,
       default: false,
     },
   },
   data() {
     return {
-      menuOpen: false,
       backgroundColor: "#ffffff", // Not in use - Replace with your hex color
       showNavbar: true,
       lastScrollPosition: 0,
       scrollValue: 0,
       isMobileScreen: false,
       isDesktopScreen: false,
+      showTOC: true,
+      contentEndObserver: null,
+      contentEndScrollHandler: null,
     };
   },
   computed: {
+    isMarkdownPage() {
+      return this.$route?.path?.startsWith('/doc/');
+    },
     // not in use - start
     backgroundStyle() {
       const rgb = this.hexToRgb(this.backgroundColor);
@@ -89,11 +121,20 @@ export default {
     document.head.appendChild(viewportMeta);
 
     this.onWindowResize();
+    if (this.isMarkdownPage) {
+      this.observeContentEnd();
+    }
   },
 
   beforeUnmount() {
     window.removeEventListener("scroll", this.onScroll);
     window.removeEventListener("resize", this.onWindowResize);
+    if (this.contentEndObserver) {
+      this.contentEndObserver.disconnect();
+    }
+    if (this.contentEndScrollHandler) {
+      window.removeEventListener('scroll', this.contentEndScrollHandler);
+    }
   },
 
   methods: {
@@ -111,13 +152,11 @@ export default {
     },
     // not in use - end
 
-    toggleMenu() {
-      this.menuOpen = !this.menuOpen;
-    },
-    closeMenu() {
-      this.menuOpen = false;
-    },
     onScroll() {
+      // Disable hide/show transition on markdown pages
+      if (this.isMarkdownPage) {
+        return;
+      }
       if (window.pageYOffset < 0) {
         return;
       }
@@ -135,6 +174,115 @@ export default {
     setFont(font) {
       this.selectedFont = font;
       this.$emit("update:font", font);
+    },
+    observeContentEnd() {
+      if (!this.isMarkdownPage) {
+        return;
+      }
+
+      // Clean up existing observers
+      if (this.contentEndObserver) {
+        this.contentEndObserver.disconnect();
+        this.contentEndObserver = null;
+      }
+      if (this.contentEndScrollHandler) {
+        window.removeEventListener('scroll', this.contentEndScrollHandler);
+        this.contentEndScrollHandler = null;
+      }
+
+      // Wait for the markdown content to be rendered
+      this.$nextTick(() => {
+        const findContentEnd = () => {
+          // Watch the related-writing-section - hide TOC when it enters viewport
+          let relatedSection = document.getElementById('related-writing-section');
+          
+          if (!relatedSection) {
+            // Retry after a short delay if element not found
+            setTimeout(() => findContentEnd(), 300);
+            return;
+          }
+
+          // Function to check if the related section has entered the viewport
+          let ticking = false;
+          const checkContentEnd = () => {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(() => {
+              const rect = relatedSection.getBoundingClientRect();
+              // Hide TOC when the related section enters the viewport
+              // rect.top <= window.innerHeight means the section has entered or is entering viewport
+              const shouldShow = rect.top > window.innerHeight;
+              
+              if (this.showTOC !== shouldShow) {
+                this.showTOC = shouldShow;
+              }
+              ticking = false;
+            });
+          };
+
+          // Initial check
+          checkContentEnd();
+
+          // Use IntersectionObserver for efficiency
+          const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: [0, 0.1, 0.5, 1],
+          };
+
+          const callback = () => {
+            checkContentEnd();
+          };
+
+          this.contentEndObserver = new IntersectionObserver(callback, options);
+          this.contentEndObserver.observe(relatedSection);
+
+          // Also listen to scroll events as a fallback
+          const scrollHandler = () => {
+            checkContentEnd();
+          };
+          window.addEventListener('scroll', scrollHandler, { passive: true });
+          
+          // Store scroll handler for cleanup
+          this.contentEndScrollHandler = scrollHandler;
+        };
+
+        findContentEnd();
+      });
+    },
+  },
+  watch: {
+    isMarkdownPage(newValue) {
+      if (newValue) {
+        this.showTOC = true;
+        this.$nextTick(() => {
+          this.observeContentEnd();
+        });
+      } else {
+        this.showTOC = true;
+        if (this.contentEndObserver) {
+          this.contentEndObserver.disconnect();
+          this.contentEndObserver = null;
+        }
+        if (this.contentEndScrollHandler) {
+          window.removeEventListener('scroll', this.contentEndScrollHandler);
+          this.contentEndScrollHandler = null;
+        }
+      }
+    },
+    '$route'() {
+      // Re-initialize when route changes to a markdown page
+      if (this.isMarkdownPage) {
+        this.showTOC = true;
+        // Wait a bit longer for content to render
+        this.$nextTick(() => {
+          setTimeout(() => {
+            this.observeContentEnd();
+          }, 100);
+        });
+      } else {
+        this.showTOC = true;
+      }
     },
   },
 };
@@ -285,12 +433,37 @@ li {
 }
 nav {
   overflow: visible;
-  align-items: center;
+  align-items: flex-start;
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: 1fr auto;
+  gap: var(--spacing-md);
   // block-size: 5.2rem;
   justify-self: stretch;
   position: relative;
+}
+
+.nav-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  align-items: flex-start;
+}
+
+.toc-container {
+  inline-size: fit-content;
+  max-inline-size: 33.333%;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  
+  // Hide on mobile
+  display: none;
+  
+  @media only screen and (min-width: 768px) {
+    display: block;
+    padding-block-start: var(--spacing-lg);
+    margin-block-start: var(--spacing-sm);
+  }
 }
 #richlink {
   text-decoration: none !important;

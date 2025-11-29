@@ -1,78 +1,37 @@
 <template>
-  <PageWrapper id="doc" class="">
+  <PageWrapper id="doc" class="markdown-page-wrapper">
     <!-- <HeroBanner :eyebrow="pageData.date" :title="pageData.title" /> -->
-    <GridContainer class="markdown-layout" >
-      <GridParent>
-        <MarkdownTOC
-          class="toc-column"
-          :headings="headings"
-          :active-heading="activeHeading"
-        />
+    <GridContainer class="markdown-layout">
+      <main id="markdown-content-end" class="markdown-main">
         <MarkdownRenderer
           class="content"
           :markdown="markdownContent"
           @headings="updateHeadings"
         />
-      </GridParent>
+      </main>
     </GridContainer>
-    <GridContainer>
-      <AuthorBioBar
-        :name="pageData.author || 'Jake Ramphal'"
-        :title="pageData.authorTitle || 'Staff Product Designer, Design Lead for Genie | Orium'"
-        :description="pageData.authorDescription || ''"
-      />
-    </GridContainer>
-    <CardRow2 title="Related Writing" style="background: var(--background-darker)"/>
+    <div id="related-writing-section" style="background: transparent !important;">
+      <CardRow2 title="Related Writing"/>
+    </div>
   </PageWrapper>
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, inject } from "vue";
 import router from "@/router";
 import frontMatter from "front-matter";
-import AuthorBioBar from "@/components/AuthorBioBar.vue";
-import MarkdownTOC from "@/components/MarkdownTOC.vue";
-import GridParent from "@/components/grid/GridParent.vue";
-// import CardRow2 from "@/components/CardRow2.vue";
 
 export default {
   name: "MarkdownPage",
-  components: {
-    AuthorBioBar,
-    MarkdownTOC,
-    GridParent,
-    // CardRow2,
-  },
-  data() {
-    return {
-      showSidebar: true,
-      headings: [],
-      activeHeading: null,
-      windowWidth: window.innerWidth,
-    };
-  },
-  computed: {
-    gridStyle() {
-      if (this.windowWidth >= 768) {
-        return {
-          gridTemplateAreas: this.showSidebar
-            ? '"sidebar segments"'
-            : '"segments"',
-          gridTemplateColumns: this.showSidebar ? "15% 1fr" : "1fr",
-        };
-      } else {
-        return {
-          gridTemplateAreas: this.showSidebar
-            ? '"sidebar" "segments"'
-            : '"segments"',
-          gridTemplateColumns: "1fr",
-        };
-      }
-    },
-  },
   setup() {
     const pageData = ref({});
     const markdownContent = ref("");
+    const headings = ref([]);
+    const activeHeading = ref(null);
+    
+    // Inject update functions from App.vue
+    const updateMarkdownHeadings = inject('updateMarkdownHeadings', () => {});
+    const updateMarkdownActiveHeading = inject('updateMarkdownActiveHeading', () => {});
 
     onMounted(async () => {
       try {
@@ -97,12 +56,31 @@ export default {
     return {
       pageData,
       markdownContent,
+      headings,
+      activeHeading,
+      updateMarkdownHeadings,
+      updateMarkdownActiveHeading,
     };
+  },
+  watch: {
+    headings(newHeadings) {
+      if (this.updateMarkdownHeadings) {
+        this.updateMarkdownHeadings(newHeadings);
+      }
+    },
+    activeHeading(newActive) {
+      if (this.updateMarkdownActiveHeading) {
+        this.updateMarkdownActiveHeading(newActive);
+      }
+    },
   },
   methods: {
     updateHeadings(headings) {
       console.log("MarkdownPage received headings:", headings);
       this.headings = headings;
+      if (this.updateMarkdownHeadings) {
+        this.updateMarkdownHeadings(headings);
+      }
       this.observeHeadings();
     },
     observeHeadings() {
@@ -139,50 +117,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.sidebar {
-  overflow-x: hidden;
-  position: relative;
-  inline-size: auto;
-  justify-content: start;
-
-  @media only screen and (min-width: 768px) {
-    // inline-size: 25vw;
-    padding-block-start: var(--spacing-xl);
-    inset-block-start: 0;
-    inset-block-end: 0;
-    position: fixed;
-    // background-color: red;
-    padding-block-end: var(--spacing-md) !important;
+// GridContainer will use 3-column grid on desktop
+.markdown-layout {
+  @media only screen and (min-width: 1201px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: var(--spacing-lg);
   }
+}
 
-  /* override styles when printing */
-}
-.sidebar .active {
-  font-weight: bold;
-  color: var(--primary-color);
-}
-.toc-column {
-  display: none;
+// Main content area
+.markdown-main {
+  width: 100%;
+  grid-column: 1 / -1; // Full width on mobile and tablet
   
   @media only screen and (min-width: 1201px) {
-    display: block;
-    grid-column: 1 / 2; // Column 1 out of 3 (1/3 width)
-    position: fixed;
-    align-self: start;
-    inset-block-start: var(--spacing-xl);
-    inset-inline-start: var(--spacing-xl); // Match GridContainer padding
-    block-size: calc(100vh - var(--spacing-xl));
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 0;
-    background: var(--background);
-    scrollbar-width: thin;
-    scrollbar-color: var(--foreground-subtle) transparent;
-    // Since fixed, calculate 1/3 width accounting for container padding
-    // GridParent creates 3 equal columns, so approximately 1/3 of container
-    inline-size: calc((100vw - (var(--spacing-xl) * 2) - (var(--spacing-lg) * 2)) / 3);
-    max-inline-size: calc((100vw - (var(--spacing-xl) * 2) - (var(--spacing-lg) * 2)) / 3);
-    box-sizing: border-box;
+    grid-column: 2 / 4; // Last 2 columns of 3-column layout on desktop
   }
 }
 
@@ -190,30 +139,12 @@ export default {
   @media only screen and (min-width: 768px) {
     padding-top: var(--spacing-lg);
   }
-  
-  @media only screen and (min-width: 1201px) {
-    grid-column: 2 / 4; // Content starts at column 2, spans columns 2 and 3 (2/3 width)
-  }
-}
-
-/* TOC scrollbar styling */
-.toc-column::-webkit-scrollbar {
-  width: 4px;
-}
-
-.toc-column::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.toc-column::-webkit-scrollbar-thumb {
-  background: var(--foreground-subtle);
-  border-radius: 2px;
-}
-
-.toc-column::-webkit-scrollbar-thumb:hover {
-  background: var(--foreground);
 }
 .section {
   padding-block-end: var(--spacing-lg);
+}
+
+#related-writing-section {
+  background: transparent !important;
 }
 </style>

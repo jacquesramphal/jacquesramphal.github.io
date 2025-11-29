@@ -22,7 +22,7 @@
 
           </div> -->
           <GridParent tight class="outer">
-            <p class="footer">All rights reserved © Jake Ramphal 2024</p>
+            <p class="footer">All rights reserved © Jake Ramphal 2025</p>
             <ul>
               <li>
                 <router-link to="/library">Library</router-link>

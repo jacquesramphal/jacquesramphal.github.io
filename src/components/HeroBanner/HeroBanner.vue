@@ -216,7 +216,6 @@ img {
   text-align: left;
   z-index: 1000;
   @media only screen and (min-width: 1201px) {
-    max-width: 75vw;
     margin-block-start: none;
   }
   span {

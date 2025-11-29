@@ -363,35 +363,73 @@ export default {
   //   display: grid;
   // }
   h1 {
-    // padding-block-end: 2.4rem;
-    // @media only screen and (min-width: 768px) {
-    //   padding-block-end: 3.6rem;
-    // }
-    // @media only screen and (min-width: 1201px) {
-    //   grid-column: 1 / 4;
-    // }
-  }
-  h2 {
-    padding: 1.6rem 0;
+    margin-block-start: 0;
+    margin-block-end: 1.6rem;
     @media only screen and (min-width: 768px) {
-      padding: var(--size-6) 0;
+      margin-block-end: 2rem;
     }
     @media only screen and (min-width: 1201px) {
-      // grid-column: 1 / 2;
-      // grid-row: span 6;
-      padding: var(--size-3) 0;
+      margin-block-end: 2.4rem;
+    }
+  }
+  h2 {
+    margin-block-start: 2.4rem;
+    margin-block-end: 1.2rem;
+    @media only screen and (min-width: 768px) {
+      margin-block-start: 3.2rem;
+      margin-block-end: 1.6rem;
+    }
+    @media only screen and (min-width: 1201px) {
+      margin-block-start: 4rem;
+      margin-block-end: 2rem;
     }
   }
 
-  h3,
+  h3 {
+    margin-block-start: 2rem;
+    margin-block-end: 1rem;
+    @media only screen and (min-width: 768px) {
+      margin-block-start: 2.4rem;
+      margin-block-end: 1.2rem;
+    }
+    @media only screen and (min-width: 1201px) {
+      margin-block-start: 3.2rem;
+      margin-block-end: 1.6rem;
+    }
+  }
+
   h4,
   h5,
-  h6,
-  p,
-  summary {
-    padding: 1.6rem 0;
+  h6 {
+    margin-block-start: 1.6rem;
+    margin-block-end: 0.8rem;
     @media only screen and (min-width: 768px) {
-      padding: 2.4rem 0;
+      margin-block-start: 2rem;
+      margin-block-end: 1rem;
+    }
+    @media only screen and (min-width: 1201px) {
+      margin-block-start: 2.4rem;
+      margin-block-end: 1.2rem;
+    }
+  }
+
+  p {
+    margin-block-start: 0;
+    margin-block-end: 1.2rem;
+    @media only screen and (min-width: 768px) {
+      margin-block-end: 1.6rem;
+    }
+    @media only screen and (min-width: 1201px) {
+      margin-block-end: 1.8rem;
+    }
+  }
+
+  summary {
+    margin-block-start: 1.2rem;
+    margin-block-end: 0.8rem;
+    @media only screen and (min-width: 768px) {
+      margin-block-start: 1.6rem;
+      margin-block-end: 1rem;
     }
   }
   // p {
@@ -402,16 +440,22 @@ export default {
   // align-content: center;
   // }
   blockquote {
-    margin-block-start: 0;
+    margin-block-start: 1.6rem;
+    margin-block-end: 1.6rem;
     p {
-      padding-block-end: 0;
+      margin-block-end: 1.2rem;
+      &:last-child {
+        margin-block-end: 0;
+      }
     }
   }
   ul,
   ol {
-    padding-block-end: 1.6rem;
+    margin-block-start: 1.2rem;
+    margin-block-end: 1.2rem;
     @media only screen and (min-width: 768px) {
-      padding-block-end: 2.4rem;
+      margin-block-start: 1.6rem;
+      margin-block-end: 1.6rem;
     }
   }
 
@@ -421,7 +465,7 @@ export default {
     line-height: 1.8;
     font-variation-settings: "wdth" 102, "opsz" 19;
     margin-inline-start: 4rem;
-    padding-block-end: 0.8rem;
+    margin-block-end: 0.6rem;
     list-style-position: outside;
   }
   ul > li {
@@ -430,7 +474,7 @@ export default {
     line-height: 1.8;
     font-variation-settings: "wdth" 102, "opsz" 19;
     margin-inline-start: 4rem;
-    padding-block-end: 0.8rem;
+    margin-block-end: 0.6rem;
   }
 
   /* SCSS for Code Block Styling */

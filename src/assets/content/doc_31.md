@@ -126,5 +126,5 @@ The full version includes:
 ---
 
 **Jacques Ramphal**  
-*Staff Product Designer, Design Lead for Genie | Orium*
+*Senior Product Designer & Design Lead for Genie | Orium*
 

@@ -1,34 +1,30 @@
 [
   {
-    "title": "Skills",
+    "title": "Core Skills",
     "entries": [
       {
-        "title": "Product-Design",
+        "title": "Design Systems & Product / UX Design",
         "level": 5
       },
       {
-        "title": "Front-end Design",
+        "title": "AI/AX Design (Genie, agentic UX)",
+        "level": 5
+      },
+      {
+        "title": "Front-end (React, Vue, CSS/SCSS)",
         "level": 5
       }
     ]
   },
   {
-    "title": "Tools",
+    "title": "Collaboration & Culture",
     "entries": [
       {
-        "title": "Figma",
+        "title": "Design–Dev Integration & QA",
         "level": 5
       },
       {
-        "title": "Sketch",
-        "level": 5
-      },
-      {
-        "title": "Github",
-        "level": 5
-      },      
-      {
-        "title": "Visual Studio Code",
+        "title": "Leadership, Mentorship & Mindfulness",
         "level": 5
       }
     ]
