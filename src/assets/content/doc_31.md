@@ -95,20 +95,6 @@ Look for projects that do both.
 ### 5. Building Products Changes You More Than Courses Ever Will
 You become a different technologist by doing, shipping, iterating.
 
-## Read the Full Case Study
-
-For the complete case study with all design patterns, implementation details, strategic vision, and thought leadership insights:
-
-**[Read Full Case Study](/doc/32)**
-
-The full version includes:
-- Deep dive into the three mental model problems
-- Complete agentic UX framework with all principles
-- Design patterns library and implementation examples
-- Full outcomes, learnings, and strategic roadmap
-- Pattern library for other AI/AX designers
-- Open questions I'm exploring in the field
-
 **Jacques Ramphal**  
 *Senior Product Designer & Design Lead for Genie | Orium*
 
