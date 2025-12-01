@@ -25,7 +25,7 @@
 
         <ul class="links justify-end glow">
           <li class="glow animate delay-2" v-if="!breadcrumb">
-            <TextLink label="Work" route="/library" />
+            <TextLink label="Library" route="/library" />
           </li>
           <li
             class="glow animate delay-1-5"

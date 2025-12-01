@@ -1,9 +1,9 @@
 <template>
   <aside ref="tocContainer" class="markdown-toc" >
-    <nav v-if="h2Headings.length > 0">
+    <nav v-if="h2h3Headings.length > 0">
       <ul class="toc-list">
         <li
-          v-for="(heading, index) in h2Headings"
+          v-for="(heading, index) in h2h3Headings"
           :key="heading.slug"
           :data-slug="heading.slug"
           :class="[
@@ -45,7 +45,7 @@ export default {
     },
   },
   computed: {
-    h2Headings() {
+    h2h3Headings() {
       return this.headings.filter(heading => heading.level === 2);
     },
   },
@@ -196,7 +196,7 @@ export default {
   display: block;
   inline-size: fit-content;
   max-inline-size: 100%;
-  overflow-x: hidden;
+  overflow: visible;
   padding: 0;
   position: relative;
 }
@@ -217,7 +217,7 @@ export default {
 }
 
 .toc-item--level-1 {
-  font-size: var(--font-sm);
+  font-size: var(--font-2xs);
   font-weight: var(--font-weight-semibold);
   margin-block-start: var(--spacing-xs);
   
@@ -227,7 +227,7 @@ export default {
 }
 
 .toc-item--level-2 {
-  font-size: var(--font-xs);
+  font-size: var(--font-2xs);
   padding-inline-start: 0;
   margin-block-start: var(--spacing-xxs);
 }
@@ -235,7 +235,7 @@ export default {
 .toc-item--level-3 {
   font-size: var(--font-2xs);
   padding-inline-start: var(--spacing-md);
-  color: var(--foreground-subtle);
+  color: var(--foreground-subtle) !important;
 }
 
 .toc-item--level-4,
@@ -243,43 +243,47 @@ export default {
 .toc-item--level-6 {
   font-size: var(--font-2xs);
   padding-inline-start: var(--spacing-lg);
-  color: var(--foreground-subtle);
+  color: var(--foreground-subtle) !important;
 }
 
-.toc-item a {
-  color: var(--foreground-subtle);
-  text-decoration: none;
+// Override global link styles - inactive items use muted color
+.markdown-toc .toc-item:not(.toc-item--active) a,
+.markdown-toc .toc-item a:not(.toc-link--active) {
+  color: var(--foreground-subtle) !important;
+  text-decoration: none !important;
   transition: color 0.2s ease;
   display: block;
   padding: 0;
   font-size: inherit;
   
   &:hover {
-    color: var(--foreground);
+    color: var(--foreground) !important;
+    text-decoration: underline !important;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
   }
 }
 
-.toc-link--active,
-.toc-item--active a {
+// Active items use foreground color
+.markdown-toc .toc-link--active,
+.markdown-toc .toc-item--active a {
   color: var(--foreground) !important;
-  font-weight: var(--font-weight-semibold);
-  text-decoration: underline;
+  font-size: var(--font-2xs) !important;
+  font-weight: inherit;
+  text-decoration: underline !important;
   text-underline-offset: 0.2em;
   text-decoration-thickness: 1px;
+  
+  &:hover {
+    color: var(--foreground) !important;
+    text-decoration: underline !important;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
 }
 
 .toc-item--active {
   position: relative;
-  
-  &::before {
-    content: "";
-    position: absolute;
-    inset-inline-start: calc(-1 * var(--spacing-xs));
-    inset-block-start: 0;
-    inset-block-end: 0;
-    inline-size: 2px;
-    background-color: var(--foreground);
-  }
 }
 
 /* Scrollbar styling */
@@ -303,7 +307,7 @@ export default {
 .toc-empty {
   padding: var(--spacing-sm);
   font-size: var(--font-xs);
-  color: var(--foreground-subtle);
+  color: var(--foreground-subtle) !important;
 }
 
 .toc-debug {

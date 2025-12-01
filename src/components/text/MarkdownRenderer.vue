@@ -79,6 +79,7 @@ export default {
     return {
       pageData: {},
       renderedMarkdown: "",
+      enableScrollTrigger: false, // Disable ScrollTrigger on markdown pages
     };
   },
   watch: {
@@ -88,6 +89,12 @@ export default {
         console.log("Markdown prop:", newMarkdown); // Add this line
         this.parseMarkdown(newMarkdown);
       },
+    },
+    renderedMarkdown() {
+      // Re-setup animations when content changes
+      this.$nextTick(() => {
+        this.setupAnimations();
+      });
     },
   },
   methods: {
@@ -130,11 +137,105 @@ export default {
           const level = parseInt(heading.tagName.charAt(1));
           const title = heading.textContent.trim();
           if (id && title) {
+            // Commented out slug: designing-genie-agentic-ai
+            if (id === "designing-genie-agentic-ai") {
+              return; // Skip this heading
+            }
             toc.push({ level, slug: id, title });
           }
         });
         
-        this.renderedMarkdown = html;
+        // Group content into sections between h2 headings (same logic as markdown parsing)
+        const allElements = Array.from(tempDiv.children);
+        const sections = [];
+        let currentSection = [];
+        
+        allElements.forEach((el) => {
+          if (el.tagName === 'H2') {
+            // Save previous section if it has content
+            if (currentSection.length > 0) {
+              sections.push([...currentSection]);
+              currentSection = [];
+            }
+            // Start new section with the h2
+            currentSection.push(el);
+          } else {
+            // Add element to current section
+            currentSection.push(el);
+          }
+        });
+        
+        // Don't forget the last section
+        if (currentSection.length > 0) {
+          sections.push([...currentSection]);
+        }
+        
+        // Clear tempDiv and rebuild with wrapped sections
+        tempDiv.innerHTML = '';
+        
+        sections.forEach((sectionElements) => {
+          if (sectionElements.length === 0) return;
+          
+          const sectionWrapper = document.createElement("div");
+          sectionWrapper.className = "markdown-section fadeInUp";
+          
+          // Process elements in order, grouping by h3 but keeping images separate
+          const h3Sections = [];
+          let currentH3Section = [];
+          
+          sectionElements.forEach((el) => {
+            // Check if element contains an image
+            const hasImage = el.tagName === 'P' && el.querySelector('img') !== null;
+            
+            if (hasImage) {
+              // Save current h3 section before adding image
+              if (currentH3Section.length > 0) {
+                h3Sections.push({ type: 'h3', elements: [...currentH3Section] });
+                currentH3Section = [];
+              }
+              // Add image as standalone element
+              h3Sections.push({ type: 'image', element: el });
+            } else if (el.tagName === 'H3') {
+              // Save previous h3 section if it has content
+              if (currentH3Section.length > 0) {
+                h3Sections.push({ type: 'h3', elements: [...currentH3Section] });
+                currentH3Section = [];
+              }
+              // Start new h3 section
+              currentH3Section.push(el);
+            } else {
+              // Add element to current h3 section
+              currentH3Section.push(el);
+            }
+          });
+          
+          // Don't forget the last h3 section
+          if (currentH3Section.length > 0) {
+            h3Sections.push({ type: 'h3', elements: [...currentH3Section] });
+          }
+          
+          // Render sections and images in order
+          h3Sections.forEach((item) => {
+            if (item.type === 'image') {
+              // Add animation class directly to image element
+              item.element.classList.add("fadeInUp");
+              sectionWrapper.appendChild(item.element);
+            } else if (item.type === 'h3' && item.elements.length > 0) {
+              const h3SectionWrapper = document.createElement("div");
+              h3SectionWrapper.className = "markdown-subsection fadeInUp";
+              
+              item.elements.forEach((el) => {
+                h3SectionWrapper.appendChild(el);
+              });
+              
+              sectionWrapper.appendChild(h3SectionWrapper);
+            }
+          });
+          
+          tempDiv.appendChild(sectionWrapper);
+        });
+        
+        this.renderedMarkdown = tempDiv.innerHTML;
       } else {
         // Parse markdown normally
         const { attributes, body } = frontMatter(markdown);
@@ -144,6 +245,10 @@ export default {
           const renderer = new marked.Renderer();
           renderer.heading = function (text, level) {
             const slug = text.toLowerCase().replace(/[^\w]+/g, "-");
+            // Commented out slug: designing-genie-agentic-ai
+            if (slug === "designing-genie-agentic-ai") {
+              return `<h${level} id="${slug}"><a href="#${slug}" class="anchor"></a>${text}</h${level}>`;
+            }
             toc.push({ level, slug, title: text });
             return `<h${level} id="${slug}"><a href="#${slug}" class="anchor"></a>${text}</h${level}>`;
           };
@@ -158,12 +263,111 @@ export default {
           html = marked(body, options);
           const tempDiv = document.createElement("div");
           tempDiv.innerHTML = html;
-          const elementsToAnimate = [" p:has(> img)"]; // Add more elements as needed
-          elementsToAnimate.forEach((tag) => {
-            tempDiv.querySelectorAll(tag).forEach((el) => {
-              el.classList.add("fadeInUp");
-            });
+          
+          // Group content into sections between h2 headings
+          const allElements = Array.from(tempDiv.children);
+          const sections = [];
+          let currentSection = [];
+          
+          allElements.forEach((el) => {
+            if (el.tagName === 'H2') {
+              // Save previous section if it has content
+              if (currentSection.length > 0) {
+                sections.push([...currentSection]);
+                currentSection = [];
+              }
+              // Start new section with the h2
+              currentSection.push(el);
+            } else {
+              // Add element to current section
+              currentSection.push(el);
+            }
           });
+          
+          // Don't forget the last section
+          if (currentSection.length > 0) {
+            sections.push([...currentSection]);
+          }
+          
+          // Clear tempDiv and rebuild with wrapped sections
+          tempDiv.innerHTML = '';
+          
+          sections.forEach((sectionElements) => {
+            if (sectionElements.length === 0) return;
+            
+            const sectionWrapper = document.createElement("div");
+            sectionWrapper.className = "markdown-section fadeInUp";
+            
+            // Separate images from other content
+            const imageElements = [];
+            const nonImageElements = [];
+            
+            sectionElements.forEach((el) => {
+              // Check if element contains an image
+              const hasImage = el.tagName === 'P' && el.querySelector('img') !== null;
+              if (hasImage) {
+                imageElements.push(el);
+                // Add animation class directly to image elements
+                el.classList.add("fadeInUp");
+              } else {
+                nonImageElements.push(el);
+              }
+            });
+            
+            // Group non-image content within this section by h3 headings
+            const h3Sections = [];
+            let currentH3Section = [];
+            
+            nonImageElements.forEach((el) => {
+              if (el.tagName === 'H3') {
+                // Save previous h3 section if it has content
+                if (currentH3Section.length > 0) {
+                  h3Sections.push([...currentH3Section]);
+                  currentH3Section = [];
+                }
+                // Start new h3 section
+                currentH3Section.push(el);
+              } else {
+                // Add element to current h3 section
+                currentH3Section.push(el);
+              }
+            });
+            
+            // Don't forget the last h3 section
+            if (currentH3Section.length > 0) {
+              h3Sections.push([...currentH3Section]);
+            }
+            
+            // Add h3 sections and images in order
+            let imageIndex = 0;
+            let h3Index = 0;
+            
+            sectionElements.forEach((el) => {
+              const hasImage = el.tagName === 'P' && el.querySelector('img') !== null;
+              
+              if (hasImage) {
+                // Add image directly (already has fadeInUp class)
+                sectionWrapper.appendChild(imageElements[imageIndex]);
+                imageIndex++;
+              } else if (el.tagName === 'H3' || (h3Sections[h3Index] && h3Sections[h3Index].includes(el))) {
+                // Check if this is the start of a new h3 section
+                if (el.tagName === 'H3' && h3Sections[h3Index] && h3Sections[h3Index][0] === el) {
+                  const h3SectionWrapper = document.createElement("div");
+                  h3SectionWrapper.className = "markdown-subsection fadeInUp";
+                  
+                  h3Sections[h3Index].forEach((h3El) => {
+                    h3SectionWrapper.appendChild(h3El);
+                  });
+                  
+                  sectionWrapper.appendChild(h3SectionWrapper);
+                  h3Index++;
+                }
+              }
+            });
+            
+            tempDiv.appendChild(sectionWrapper);
+          });
+          
           this.renderedMarkdown = tempDiv.innerHTML;
         } else {
           console.warn("MarkdownRenderer: Empty or invalid body content", body);
@@ -190,104 +394,133 @@ export default {
 
       this.$emit("headings", headings);
     },
+    setupAnimations() {
+      // Disable ScrollTrigger on markdown pages - implementation retained but disabled
+      if (!this.enableScrollTrigger) {
+        return;
+      }
+
+      // Kill existing ScrollTriggers to avoid duplicates
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.vars && trigger.vars.trigger && 
+            this.$el && this.$el.contains(trigger.vars.trigger)) {
+          trigger.kill();
+        }
+      });
+
+      // Wait for DOM to be ready
+      this.$nextTick(() => {
+        const fadeInUp = gsap.utils.toArray(".fadeInUp", this.$el);
+        const fadeInDown = gsap.utils.toArray(".fadeInDown", this.$el);
+        const fadeInRight = gsap.utils.toArray(".fadeInRight", this.$el);
+        const fadeInLeft = gsap.utils.toArray(".fadeInLeft", this.$el);
+        const parallaxBack = gsap.utils.toArray(".parallaxBack", this.$el);
+        const parallaxFront = gsap.utils.toArray(".parallaxFront", this.$el);
+
+        fadeInUp.forEach((element) => {
+          gsap.from(element, {
+            scrollTrigger: {
+              trigger: element,
+              start: "top bottom",
+              end: "top 50%",
+              scrub: 1,
+              toggleActions: "restart pause reverse pause",
+            },
+            autoAlpha: 0,
+            y: 100,
+            duration: 3,
+            ease: "none",
+          });
+        });
+        fadeInDown.forEach((element) => {
+          gsap.from(element, {
+            scrollTrigger: {
+              trigger: element,
+              start: "top bottom",
+              end: "top 50%",
+              scrub: 1,
+              toggleActions: "restart pause reverse pause",
+            },
+            autoAlpha: 0,
+            y: -100,
+            duration: 3,
+            ease: "none",
+          });
+        });
+        fadeInRight.forEach((element) => {
+          gsap.from(element, {
+            scrollTrigger: {
+              trigger: element,
+              start: "top bottom",
+              end: "top 50%",
+              scrub: 1,
+              toggleActions: "restart pause reverse pause",
+            },
+            autoAlpha: 0,
+            x: 100,
+            duration: 3,
+            ease: "none",
+          });
+        });
+        fadeInLeft.forEach((element) => {
+          gsap.from(element, {
+            scrollTrigger: {
+              trigger: element,
+              start: "top bottom",
+              end: "top 50%",
+              scrub: 1,
+              toggleActions: "restart pause reverse pause",
+            },
+            autoAlpha: 0,
+            x: -100,
+            duration: 3,
+            ease: "none",
+          });
+        });
+        parallaxBack.forEach((element) => {
+          gsap.to(element, {
+            scrollTrigger: {
+              trigger: element,
+              scrub: true,
+            },
+            yPercent: 10,
+            duration: 3,
+            ease: "none",
+          });
+        });
+        parallaxFront.forEach((element) => {
+          gsap.to(element, {
+            scrollTrigger: {
+              trigger: element,
+              scrub: true,
+            },
+            yPercent: -10,
+            duration: 3,
+            ease: "none",
+          });
+        });
+      });
+    },
   },
   mounted() {
-    // this.htmlContent = marked(content);
-    const fadeInUp = gsap.utils.toArray(".fadeInUp");
-    const fadeInDown = gsap.utils.toArray(".fadeInDown");
-    const fadeInRight = gsap.utils.toArray(".fadeInRight");
-    const fadeInLeft = gsap.utils.toArray(".fadeInLeft");
-    const parallaxBack = gsap.utils.toArray(".parallaxBack");
-    const parallaxFront = gsap.utils.toArray(".parallaxFront");
-
-    fadeInUp.forEach((fadeInUp) => {
-      gsap.from(fadeInUp, {
-        scrollTrigger: {
-          trigger: fadeInUp,
-          start: "top bottom",
-          end: "top 50%",
-          scrub: 1,
-          toggleActions: "restart pause reverse pause",
-        },
-        autoAlpha: 0,
-        y: 100,
-        duration: 3,
-        ease: "none",
-      });
-    });
-    fadeInDown.forEach((fadeInDown) => {
-      gsap.from(fadeInDown, {
-        scrollTrigger: {
-          trigger: fadeInDown,
-          start: "top bottom",
-          end: "top 50%",
-          scrub: 1,
-          toggleActions: "restart pause reverse pause",
-        },
-        autoAlpha: 0,
-        y: -100,
-        duration: 3,
-        ease: "none",
-      });
-    });
-    fadeInRight.forEach((fadeInRight) => {
-      gsap.from(fadeInRight, {
-        scrollTrigger: {
-          trigger: fadeInRight,
-          start: "top bottom",
-          end: "top 50%",
-          scrub: 1,
-          toggleActions: "restart pause reverse pause",
-        },
-        autoAlpha: 0,
-        x: 100,
-        duration: 3,
-        ease: "none",
-      });
-    });
-    fadeInLeft.forEach((fadeInLeft) => {
-      gsap.from(fadeInLeft, {
-        scrollTrigger: {
-          trigger: fadeInLeft,
-          start: "top bottom",
-          end: "top 50%",
-          scrub: 1,
-          toggleActions: "restart pause reverse pause",
-        },
-        autoAlpha: 0,
-        x: -100,
-        duration: 3,
-        ease: "none",
-      });
-    });
-    parallaxBack.forEach((parallaxBack) => {
-      gsap.to(parallaxBack, {
-        scrollTrigger: {
-          trigger: parallaxBack,
-          scrub: true,
-        },
-        yPercent: 10,
-        duration: 3,
-        ease: "none",
-      });
-    });
-    parallaxFront.forEach((parallaxFront) => {
-      gsap.to(parallaxFront, {
-        scrollTrigger: {
-          trigger: parallaxFront,
-          scrub: true,
-        },
-        yPercent: -10,
-        duration: 3,
-        ease: "none",
-      });
-    });
-
+    this.setupAnimations();
+    
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && this.isImageOpen) {
         this.closeImage();
       }
     });
+  },
+  beforeUnmount() {
+    // Clean up ScrollTriggers (only if ScrollTrigger was enabled)
+    if (this.enableScrollTrigger) {
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.vars && trigger.vars.trigger && 
+            this.$el && this.$el.contains(trigger.vars.trigger)) {
+          trigger.kill();
+        }
+      });
+    }
   },
   // components: { GridContainer },
 };
@@ -336,6 +569,13 @@ export default {
     // float: none;
     // margin-inline-start: auto;
     // margin-inline-end: auto;
+  }
+
+  // First image (hero image) - 4:3 aspect ratio
+  p:has(> img):first-of-type img,
+  img:first-of-type {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
   }
 
   header {

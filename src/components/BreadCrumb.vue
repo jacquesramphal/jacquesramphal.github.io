@@ -133,24 +133,61 @@ export default {
             // Fallback to relative path
             module = await import(`../assets/content/doc_${docId}.md`);
           }
-          const { attributes, body } = frontMatter(module.default);
+          const { attributes } = frontMatter(module.default);
           
           // First try to get title from front matter
           if (attributes?.title) {
             this.pageTitle = attributes.title;
           } else {
-            // If no front matter title, extract from first H1 heading
-            const content = body || module.default;
-            const h1Match = content.match(/^#\s+(.+)$/m);
-            if (h1Match && h1Match[1]) {
+            // Extract title using same logic as MarkdownPage
+            const markdown = module.default;
+            let title = "";
+            
+            // Try to extract from header block (old format)
+            const headerMatch = markdown.match(/<header[^>]*>([\s\S]*?)<\/header>/i);
+            if (headerMatch) {
+              const headerContent = headerMatch[1];
+              const h1Match = headerContent.match(/#\s+(.+?)(?:\n|$)/);
+              if (h1Match) {
+                title = h1Match[1].trim();
+              }
+            } else {
+              // New format: # Title at the very start (before any comments)
+              // Remove leading HTML comments first
+              const cleanStart = markdown.replace(/^<!--[\s\S]*?-->\s*\n?/gm, '').trim();
+              // Match h1 at start of line - use non-greedy match and allow newline or end
+              const h1Match = cleanStart.match(/^#\s+(.+?)(?:\n|$)/m);
+              if (h1Match && h1Match[1]) {
+                title = h1Match[1].trim();
+              } else {
+                // Fallback: try to find any h1 in the document (not just at start)
+                const anyH1Match = markdown.match(/^#\s+(.+?)(?:\n|$)/m);
+                if (anyH1Match && anyH1Match[1]) {
+                  title = anyH1Match[1].trim();
+                }
+              }
+            }
+            
+            if (title) {
               // Remove markdown formatting (bold, italic, etc.)
-              this.pageTitle = h1Match[1]
+              this.pageTitle = title
                 .replace(/\*\*/g, '') // Remove bold
                 .replace(/\*/g, '') // Remove italic
                 .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove links, keep text
                 .trim();
             } else {
-              this.pageTitle = 'Document';
+              // Last resort: try to get first line that starts with #
+              const lines = markdown.split('\n');
+              for (const line of lines) {
+                const trimmed = line.trim();
+                if (trimmed.startsWith('# ')) {
+                  this.pageTitle = trimmed.substring(2).trim();
+                  break;
+                }
+              }
+              if (!this.pageTitle) {
+                this.pageTitle = 'Document';
+              }
             }
           }
         } catch (error) {

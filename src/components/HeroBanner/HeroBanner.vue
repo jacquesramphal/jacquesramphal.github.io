@@ -103,7 +103,8 @@ export default {
   props: {
     contentful: {
       type: Array,
-      required: true,
+      required: false,
+      default: () => [],
       // TODO: add validation
     },
 

@@ -1,10 +1,9 @@
 # Designing Genie: Pioneering UX Patterns for Agentic AI
 
-**By Jacques Ramphal**  
-*Design Lead & Product Owner, Orium*  
-*November 2025*
+<!-- **By Jacques Ramphal**  
+Design Lead & Product Owner, Orium  -->
 
----
+![Genie Core Functions Diagram](../images/casestudy/genie/genie.png)
 
 ## What is Genie?
 
@@ -25,8 +24,6 @@ At its core, Genie does four things:
 4. **Automates Workflows** — It takes action: creates tickets, sends reminders, generates presentation decks, publishes updates. It handles the busywork so humans can focus on decisions.
 
 Most importantly: **Genie maintains transparency about what it's doing and why.** Every output shows sources, reasoning, and confidence levels. It's not a black box. It's a trustworthy collaborator.
-
----
 
 ## The Origin: Reclaim Creative Focus
 
@@ -60,6 +57,8 @@ I love design. I love solving user problems. I love the craft of front-end quali
 
 Not to do more work. To do better work. To redirect my effort from routine to novel.
 
+![Routine vs Creative Work](../images/casestudy/genie/genie.png)
+
 That's when I started experimenting.
 
 ### The Spark: A Personal Experiment
@@ -90,9 +89,9 @@ That's when it got interesting. Building Genie for just me was one challenge. Sc
 
 I had to become a product manager. Not in the traditional sense—I was still a designer. I was in the trenches, shipping features, gathering feedback from the team, making tradeoffs about what to automate and what to keep manual. Learning product thinking through building for other designers.
 
-I had to learn how to lead without full authority. How to champion a vision for reclaiming creative work while remaining a high-performing individual contributor. How to serve my team's needs to do better design work. How to work with key collaborators (Everett, Jennifer) and distribute the load of building something this complex.
+I had to learn how to lead without full authority. How to champion a vision for reclaiming creative work while remaining a high-performing individual contributor. How to serve my team's needs to do better design work. How to work with key colleagues and distribute the load of building something this complex.
 
-When I brought the experiments to leadership, Everett saw what I was figuring out: this could transform not just how we work, but what kind of work we focus on. Instead of routine and mechanical, more novel and strategic. More connected to users and their real problems.
+When I brought the experiments to leadership, my colleagues saw what I was figuring out: this could transform not just how we work, but what kind of work we focus on. Instead of routine and mechanical, more novel and strategic. More connected to users and their real problems.
 
 I pitched the vision: **a supervisor agent with access to design and project data, capable of orchestrating design audits, requirements generation, and design pattern recognition—surfacing insights in real-time and freeing designers to focus on novel user problems.**
 
@@ -113,8 +112,6 @@ But most importantly: I stayed a designer. I stayed connected to what I love abo
 **That's the real story of Genie.**
 
 It's not just what I built. It's what building it made me capable of. And more importantly, it's what it enabled us to do as a team—to reclaim our creativity and focus on the design work that actually matters.
-
----
 
 ## The Problem: Designing an Interface That Doesn't Feel Like an Interface
 
@@ -140,8 +137,6 @@ Here's what we were grappling with:
 
 **Traditional design thinking wasn't enough.** We needed a framework for **agentic experience design**—and we had to invent it as we went.
 
----
-
 ## The Design Challenge: My Three Mental Model Problems
 
 Once the team was aligned on the vision, I owned the design challenge. And it was immediately clear: this wasn't a typical design problem.
@@ -150,7 +145,9 @@ Genie isn't a feature to bolt onto an app. It's a fundamental rethinking of how 
 
 I discovered three core problems I had to solve—problems that became the pillars of my agentic UX framework:
 
-### 1. **Capability Exposition: "What Can Genie Actually Do?"**
+![Three Mental Model Problems](../images/casestudy/genie/genie.png)
+
+### 1. Capability Exposition: "What Can Genie Actually Do?"
 
 When I shared my initial experiments with the team, I quickly realized: **people didn't know what to ask for.**
 
@@ -164,11 +161,11 @@ I had built tools to solve MY specific problems. But other team members had slig
 
 I was building an agent, but if people didn't understand what it could do or when to ask for help, all that capability would be invisible. They'd keep doing manual work out of habit.
 
-**As Everett put it:** "People need to know Genie exists as a solution before they can think to use it."
+**As a colleague put it:** "People need to know Genie exists as a solution before they can think to use it."
 
 The design challenge: How do I surface capabilities in the moment people need them, not buried in documentation?
 
-### 2. **Trust & Transparency: "Should I Actually Believe This?"**
+### 2. Trust & Transparency: "Should I Actually Believe This?"
 
 This was the hardest problem to solve because it goes to the heart of working with autonomous systems.
 
@@ -183,7 +180,9 @@ Early in the process, we had to make a hard choice: **Do we want to be correct 9
 
 We chose the latter. This meant designing outputs that showed **where Genie got its information, how it reasoned, and what it was confident about**. We needed **justified trust**, not blind faith.
 
-### 3. **Autonomy vs. Control: "Who's Actually in Charge?"**
+![Trust and Transparency Design](../images/casestudy/genie/genie.png)
+
+### 3. Autonomy vs. Control: "Who's Actually in Charge?"
 
 This is the one that kept me up at night.
 
@@ -198,8 +197,6 @@ Genie operates across multiple modes: sometimes it answers questions, sometimes 
 Without clear design signals, users could be confused: Did I make this decision or did the agent? Did I approve this action or did it happen automatically?
 
 In enterprise contexts, confusion + autonomous systems = serious problems. We had to be obsessively clear about **who is in control at every moment**.
-
----
 
 ## The Outcomes: What We Learned About Agentic UX
 
@@ -216,7 +213,7 @@ Now? That work takes significantly less time, and most of it is reviewing what G
 
 What do project leads do with those recovered hours? **Deeper discovery conversations. Better stakeholder relationships. Understanding client needs at a deeper level.**
 
-As Jennifer (our delivery leader) said: "Instead of filtering beans on spreadsheets, we can actually be developing deeper relationships and better understanding our customers, their brands, their stakeholders' personal and team needs."
+As a colleague on our delivery team put it: "Instead of filtering beans on spreadsheets, we can actually be developing deeper relationships and better understanding our customers, their brands, their stakeholders' personal and team needs."
 
 **That's the real design outcome.** We didn't just automate work. We freed up cognitive space for the strategic, human-centered work that actually drives project success.
 
@@ -228,6 +225,8 @@ Since launching Genie, we're seeing teams adopt it across new projects. The outp
 
 But the real measure of success? **Teams are using the time Genie saves to do work that actually needs human judgment and creativity.**
 
+![Genie Outcomes Dashboard](../images/casestudy/genie/genie.png)
+
 ---
 
 ## Key Takeaways: Building a Product, Rebuilding Yourself
@@ -238,21 +237,19 @@ You don't become an AI developer by taking courses. You become one by building s
 
 You don't become a product manager by reading frameworks. You become one by making hard tradeoffs and gathering real feedback.
 
-#### 1. **Your Best Growth Comes From Real Problems**
+#### 1. Your Best Growth Comes From Real Problems
 Don't wait for permission to learn. If you have a problem, experiment. Real constraints force real learning.
 
-#### 2. **Stay Close to the Work While Leading**
+#### 2. Stay Close to the Work While Leading
 You can be a high-performing individual contributor AND a leader. That proximity to the work makes you a better leader.
 
-#### 3. **Know When to Go Deep and When to Step Back**
+#### 3. Know When to Go Deep and When to Step Back
 Building at scale requires knowing the difference. The best builders are comfortable with that tension.
 
-#### 4. **Serve Your Team While Serving Your Own Growth**
+#### 4. Serve Your Team While Serving Your Own Growth
 Look for projects that do both. That's the sweet spot. That's where real transformation happens.
 
 You become a different technologist by doing. By shipping. By iterating.
-
----
 
 ## The Real Challenge: Building For Others
 
@@ -303,8 +300,6 @@ I'm building a skillset that's transferable. Not just in AI and workflow systems
 **Real impact isn't about being right. It's about understanding why people resist, what they're actually afraid of, and building something that addresses their real fears.**
 
 That's what Genie is teaching me.
-
----
 
 **Jacques Ramphal**  
 *Senior Product Designer & Design Lead for Genie | Orium*

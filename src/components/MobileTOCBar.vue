@@ -169,7 +169,7 @@ export default {
   padding: 0 var(--spacing-sm);
   display: flex;
   flex-direction: row;
-  gap: var(--spacing-sm);
+  gap: 0;
   align-items: center;
   white-space: nowrap;
   inline-size: max-content;

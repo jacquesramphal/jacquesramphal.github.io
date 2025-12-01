@@ -1,39 +1,14 @@
-<!-- <header class="display"> -->
-<header>
-
 # K&G Loyalty Platform
 
 Case Study  Product Design  Design Systems  Mobile Development
 
-</header>
-
-
-
-<!-- <div class='offset'>
-
-![Image](../images/casestudy/kg/kg-1.jpg)
-
-</div> -->
-
-![Image](../images/casestudy/kg/kg-1.jpg)
-
-
-
-<!-- <div class='offset'>
-
-## Background
-
-</div> -->
+![Image](../images/casestudy/kg/kg-5.png)
 
 ## Overview
 
 ### Background
 
-
-
 Founded in 1959, Kum & Go redefines convenience with customer-centric offerings. Partnering with Orium, they launched a new digital experience featuring enhanced promotions, loyalty programs, and improved merchandising.
-
-
 
 - Download the app (US only): https://kumandgo.com/download
 - Visit site: https://kumandgo.com/
@@ -55,7 +30,7 @@ To achieve these goals, Kum & Go partnered with Orium to implement a flexible an
 3. **More In-Store Purchases**: Enhancing the omnichannel experience to drive more in-store purchases.
 4. **Extensible and Maintainable Platform**: Moving off a costly legacy platform to a more efficient and innovative system.
 
-Orium worked with Kum & Go to develop a React Native framework, leveraging Orium’s React Native Accelerator for a faster, more efficient development process. Contentful’s composable content platform was implemented for easy content management, and Typesense was used for search and product indexing. Paytronix was chosen to manage the loyalty program, providing comprehensive loyalty, promotions, and ordering capabilities. Integration with P97 enhanced Mobile Fuel Pay, allowing for prepaying gas and redeeming points at the pump.
+Orium worked with Kum & Go to develop a React Native framework, leveraging Orium's React Native Accelerator for a faster, more efficient development process. Contentful's composable content platform was implemented for easy content management, and Typesense was used for search and product indexing. Paytronix was chosen to manage the loyalty program, providing comprehensive loyalty, promotions, and ordering capabilities. Integration with P97 enhanced Mobile Fuel Pay, allowing for prepaying gas and redeeming points at the pump.
 
 ![Image](../images/casestudy/kg/kg-3.jpg)
 

@@ -12,6 +12,7 @@
   --foreground-opacity: 0.7;
   --foreground: var(--color-darktext);
   --foreground-muted: rgba(var(--color-darktext), var(--foreground-opacity));
+  --text-muted: var(--foreground-muted);
   --foreground-subtle: rgba(43, 61, 79, var(--foreground-opacity));
   /* Use the RGB values for --color-darktext */
   --background: var(--color-offwhite);
@@ -293,6 +294,7 @@
 :root.dark-theme {
   --foreground: var(--color-offwhite);
   --foreground-muted: rgba(var(--foreground), 0.7);
+  --text-muted: var(--foreground-muted);
   --foreground-subtle: rgba(250, 250, 250, 0.5);
   /* Use the RGB values for #fafafa */
   --background: var(--color-offblack);
@@ -340,6 +342,7 @@
   :root {
     --foreground: var(--color-offwhite);
     --foreground-muted: rgba(var(--foreground), 0.7);
+    --text-muted: var(--foreground-muted);
     --foreground-subtle: rgba(250, 250, 250, 0.5);
     /* Use the RGB values for #fafafa */
     --background: var(--color-offblack);
@@ -385,6 +388,7 @@
 :root.light-theme {
   --foreground: var(--color-darktext);
   --foreground-muted: rgba(var(--foreground), 0.7);
+  --text-muted: var(--foreground-muted);
   --foreground-subtle: rgba(43, 61, 79, var(--foreground-opacity));
   /* Use the RGB values for --color-darktext */
 

@@ -4,8 +4,6 @@
 *Design Lead & Product Owner, Orium*  
 *November 2025*
 
----
-
 ## What is Genie?
 
 Before I tell you the story of building it, you need to understand what Genie actually is.
@@ -25,8 +23,6 @@ At its core, Genie does four things:
 4. **Automates Workflows** — It takes action: creates tickets, sends reminders, generates presentation decks, publishes updates. It handles the busywork so humans can focus on decisions.
 
 Most importantly: **Genie maintains transparency about what it's doing and why.** Every output shows sources, reasoning, and confidence levels. It's not a black box. It's a trustworthy collaborator.
-
----
 
 ## The Origin: Reclaim Creative Focus
 
@@ -50,8 +46,6 @@ This was all **necessary work**. But it was repetitive. I was spending creativit
 
 Not to do more work. To do better work. To redirect my effort from routine to novel.
 
----
-
 ## The Spark: A Personal Experiment
 
 I started experimenting on late afternoons. Small automations. Custom GPTs. Scripts that could run site audits, generate user stories from scope documents.
@@ -59,8 +53,6 @@ I started experimenting on late afternoons. Small automations. Custom GPTs. Scri
 Learning n8n, workflow orchestration, agentic AI patterns—tools I'd never used before, solving problems I'd never encountered.
 
 It was a passion project. It was also an education.
-
----
 
 ## From Personal Reclamation to Organizational Capability
 
@@ -71,8 +63,6 @@ I showed my quick experiments to the team, and people started asking: "Can Genie
 Every designer on our team was drowning in routine work. Every one was spending creative energy on mechanical tasks when they could be connecting with users, solving real problems.
 
 **My personal reclamation could become an organizational reclamation.**
-
----
 
 ## The Real Challenge: Building For Others
 
@@ -85,8 +75,6 @@ We ask a lot of our teams. Learn this new tool. Change your workflow. Trust an a
 Not everyone adopts immediately. Some teams are afraid of change. Some are too tired to learn new things. These aren't objections to overcome. **These are legitimate concerns from people doing hard work.**
 
 I'm learning that building something useful for yourself doesn't mean it's automatically useful for others. That takes patience, listening, and genuine empathy for the people you're building for.
-
----
 
 ## Key Takeaways
 
@@ -107,8 +95,6 @@ Look for projects that do both.
 ### 5. Building Products Changes You More Than Courses Ever Will
 You become a different technologist by doing, shipping, iterating.
 
----
-
 ## Read the Full Case Study
 
 For the complete case study with all design patterns, implementation details, strategic vision, and thought leadership insights:
@@ -122,8 +108,6 @@ The full version includes:
 - Full outcomes, learnings, and strategic roadmap
 - Pattern library for other AI/AX designers
 - Open questions I'm exploring in the field
-
----
 
 **Jacques Ramphal**  
 *Senior Product Designer & Design Lead for Genie | Orium*
