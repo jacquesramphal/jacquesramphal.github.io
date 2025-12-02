@@ -135,8 +135,10 @@ export default {
               title = h1Match[1].trim();
               // Strip any nested HTML tags
               title = title.replace(/<[^>]+>/g, '');
-              // Clean up HTML entities
-              title = title.replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+              // Decode HTML entities (including numeric entities like &#39;)
+              const tempDivTitle = document.createElement('div');
+              tempDivTitle.innerHTML = title;
+              title = tempDivTitle.textContent || tempDivTitle.innerText || title;
               // Clean up newlines and extra whitespace
               title = title.replace(/\n+/g, ' ').replace(/\r+/g, ' ').replace(/\s+/g, ' ').trim();
               console.log("Title extracted from HTML:", title);
@@ -192,7 +194,10 @@ export default {
           
           // Always clean up title to remove any HTML entities or special characters
           if (title) {
-            title = title.replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+            // Decode HTML entities (including numeric entities like &#39;)
+            const tempDivTitle = document.createElement('div');
+            tempDivTitle.innerHTML = title;
+            title = tempDivTitle.textContent || tempDivTitle.innerText || title;
             title = title.replace(/\n+/g, ' ').replace(/\r+/g, ' ').replace(/\s+/g, ' ').trim();
           }
         } catch (error) {
@@ -212,6 +217,10 @@ export default {
               tag = h4Match[1].trim();
               // Strip any nested HTML tags
               tag = tag.replace(/<[^>]+>/g, '');
+              // Decode HTML entities (including numeric entities like &#39;)
+              const tempDiv = document.createElement('div');
+              tempDiv.innerHTML = tag;
+              tag = tempDiv.textContent || tempDiv.innerText || tag;
               // Clean up newlines and extra whitespace
               tag = tag.replace(/\n+/g, ' ').replace(/\r+/g, ' ').replace(/\s+/g, ' ').trim();
               console.log("Tag extracted from HTML:", tag);
@@ -219,6 +228,11 @@ export default {
               // Fallback: get text between h1 and closing header, strip HTML
               const afterH1 = headerContent.replace(/<h1[^>]*>.*?<\/h1>/i, '');
               tag = afterH1.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+              // Decode HTML entities (including numeric entities like &#39;)
+              const tempDiv = document.createElement('div');
+              tempDiv.innerHTML = tag;
+              tag = tempDiv.textContent || tempDiv.innerText || tag;
+              tag = tag.replace(/\s+/g, ' ').trim();
               console.log("Tag extracted from HTML (fallback):", tag);
             }
           } else {
@@ -591,13 +605,19 @@ export default {
         // Clean up title - remove HTML tags, newlines, and normalize whitespace
         let newTitle = (heroData?.title || "").toString().trim();
         newTitle = newTitle.replace(/<[^>]+>/g, ''); // Remove HTML tags
-        newTitle = newTitle.replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+        // Decode HTML entities (including numeric entities like &#39;)
+        const tempDivTitle = document.createElement('div');
+        tempDivTitle.innerHTML = newTitle;
+        newTitle = tempDivTitle.textContent || tempDivTitle.innerText || newTitle;
         newTitle = newTitle.replace(/\n+/g, ' ').replace(/\r+/g, ' ').replace(/\s+/g, ' ').trim();
         
         // Clean up tag/subtitle - remove HTML tags, newlines, and normalize whitespace
         let newTag = (heroData?.tag || "").toString().trim();
         newTag = newTag.replace(/<[^>]+>/g, ''); // Remove HTML tags
-        newTag = newTag.replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+        // Decode HTML entities (including numeric entities like &#39;)
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = newTag;
+        newTag = tempDiv.textContent || tempDiv.innerText || newTag;
         newTag = newTag.replace(/\n+/g, ' ').replace(/\r+/g, ' ').replace(/\s+/g, ' ').trim();
         
         const newSubtitle = newTag; // Map tag to subtitle for the banner
@@ -892,31 +912,47 @@ export default {
           if (!sidebarElement || !wrapElement) return;
 
           const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          const sidebarTop = wrapElement.offsetTop;
+          
+          // Get accurate positions using getBoundingClientRect
+          const wrapRect = wrapElement.getBoundingClientRect();
           const sidebarHeight = sidebarElement.offsetHeight;
-          const wrapHeight = wrapElement.offsetHeight;
-          const stopPoint = sidebarTop + wrapHeight - sidebarHeight;
+          
+          // Calculate the actual top position of the wrapper relative to document
+          const sidebarTop = wrapRect.top + scrollTop;
+          
+          // Get the markdown content element to calculate the actual end point
+          const markdownMain = document.querySelector('.markdown-main');
+          let contentBottom = sidebarTop + wrapElement.offsetHeight;
+          
+          if (markdownMain) {
+            const mainRect = markdownMain.getBoundingClientRect();
+            contentBottom = mainRect.bottom + scrollTop;
+          }
+          
+          // Calculate stop point: when sidebar bottom would align with content bottom
+          // The sidebar should stop scrolling when its bottom reaches the content bottom
+          const stopPoint = contentBottom - sidebarHeight - 20; // 20px for top padding
           
           // Get the wrapper's position to maintain right column alignment
-          const wrapRect = wrapElement.getBoundingClientRect();
           const wrapLeft = wrapRect.left;
+          const wrapWidth = wrapElement.offsetWidth;
 
-          if (scrollTop > sidebarTop && scrollTop < stopPoint) {
-            // Stick to top of viewport, maintain right column position
+          if (scrollTop + 20 < sidebarTop) {
+            // Before reaching the wrapper top - normal position at top
+            sidebarElement.style.position = 'absolute';
+            sidebarElement.style.top = '0';
+            sidebarElement.style.left = '0';
+            sidebarElement.style.width = '100%';
+          } else if (scrollTop < stopPoint) {
+            // Between wrapper top and stop point - stick to top of viewport
             sidebarElement.style.position = 'fixed';
             sidebarElement.style.top = '20px';
             sidebarElement.style.left = `${wrapLeft}px`;
-            sidebarElement.style.width = `${wrapElement.offsetWidth}px`;
-          } else if (scrollTop >= stopPoint) {
-            // Stick to bottom of wrapper
-            sidebarElement.style.position = 'absolute';
-            sidebarElement.style.top = `${wrapHeight - sidebarHeight}px`;
-            sidebarElement.style.left = '0';
-            sidebarElement.style.width = '100%';
+            sidebarElement.style.width = `${wrapWidth}px`;
           } else {
-            // Normal position at top
+            // Past stop point - stick to bottom of wrapper (content has ended)
             sidebarElement.style.position = 'absolute';
-            sidebarElement.style.top = '0';
+            sidebarElement.style.top = `${wrapElement.offsetHeight - sidebarHeight}px`;
             sidebarElement.style.left = '0';
             sidebarElement.style.width = '100%';
           }

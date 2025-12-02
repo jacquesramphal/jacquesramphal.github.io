@@ -1,9 +1,7 @@
 <template>
   <div id="headernav" class="navbar" :class="{ 'hidden-navbar': !showNavbar }">
     <GridContainer class="bg">
-      <!-- <li class="glow animate delay-2" v-if="!breadcrumb">
-            <TextLink label="Jake Ramphal" route="/" />
-          </li> -->
+
       <nav class="">
         <div class="nav-left">
           <span
@@ -16,10 +14,12 @@
               text-decoration: none !important;
             "
           >
-            <BreadCrumb
+          <TextLink label="Jake Ramphal" route="/" />
+
+            <!-- <BreadCrumb
               :isDesktopScreen="isDesktopScreen"
               @toggle-menu="toggleFullscreenMenu"
-            />
+            /> -->
           </span>
         </div>
 
@@ -45,14 +45,14 @@
 
 <script>
 import GridContainer from "../grid/GridContainer.vue";
-import BreadCrumb from "../BreadCrumb.vue";
+// import BreadCrumb from "../BreadCrumb.vue";
 import TextLink from "../text/TextLink.vue";
 // import ThemeButton from "../ThemeButton.vue";
 
 const OFFSET = 60;
 export default {
   name: "HeaderNav",
-  components: { GridContainer, TextLink, BreadCrumb },
+  components: { GridContainer, TextLink },
   props: {
     breadcrumb: {
       type: Boolean,
