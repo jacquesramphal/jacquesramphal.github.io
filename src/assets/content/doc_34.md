@@ -1,6 +1,7 @@
 ---
 title: About Jacques
 date: November 2025
+showHero: true
 ---
 
 # About

@@ -42,7 +42,13 @@
             />
             <p id="tags" v-if="tag" v-text="tag" class="subtle" />
 
-            <h4 v-if="subtitle" v-text="subtitle" id="subtitle" />
+            <DynamicText
+              v-if="subtitle"
+              as="h4"
+              :text="subtitle"
+              :isHtml="false"
+              :attrs="{ id: 'subtitle' }"
+            />
 
             <div
               id="hero-cta"

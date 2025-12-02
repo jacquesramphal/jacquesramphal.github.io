@@ -1,8 +1,17 @@
+<header>
+
 # Designing Genie: Pioneering UX Patterns for Agentic AI
+
+#### I'm Jacques, a Senior Product Designer and design lead based in Toronto. I work at the intersection of design systems, code, and AI—designing experiences that actually ship.
+
+
+</header>
 
 ![Genie Core Functions Diagram](../images/casestudy/genie/genie.png)
 
 ## What is Genie?
+
+Before I tell you the story of building it, you need to understand what Genie actually is.
 
 **Genie is an agentic orchestration layer for delivery operations.** It connects to your live project ecosystem—Jira, Slack, Mavenlink, project databases—and continuously synthesizes context, surfaces insights, and automates workflows without manual intervention.
 

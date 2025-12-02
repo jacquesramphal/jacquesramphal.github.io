@@ -147,25 +147,66 @@ export default {
             const headerMatch = markdown.match(/<header[^>]*>([\s\S]*?)<\/header>/i);
             if (headerMatch) {
               const headerContent = headerMatch[1];
-              const h1Match = headerContent.match(/#\s+(.+?)(?:\n|$)/);
-              if (h1Match) {
-                title = h1Match[1].trim();
+              // Check if it's HTML or markdown
+              const isHTML = headerContent.includes('<h1>');
+              if (isHTML) {
+                const h1Match = headerContent.match(/<h1[^>]*>(.*?)<\/h1>/i);
+                if (h1Match && h1Match[1]) {
+                  title = h1Match[1].trim();
+                  // Clean HTML tags and newlines
+                  title = title.replace(/<[^>]+>/g, '').replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
+                }
+              } else {
+                // Extract from markdown - match h1, exclude "# #" patterns
+                const h1Match = headerContent.match(/^#\s+([^#\n][^\n]*?)(?:\n|$)/m) ||
+                               headerContent.match(/#\s+([^#\s\n][^\n]*?)(?:\n|$)/);
+                if (h1Match && h1Match[1]) {
+                  title = h1Match[1].trim();
+                  // Don't include hash in title
+                  if (title.startsWith('#')) {
+                    title = title.replace(/^#+\s*/, '').trim();
+                  }
+                  // Clean newlines
+                  title = title.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
+                }
               }
             } else {
               // New format: # Title at the very start (before any comments)
               // Remove leading HTML comments first
               const cleanStart = markdown.replace(/^<!--[\s\S]*?-->\s*\n?/gm, '').trim();
-              // Match h1 at start of line - use non-greedy match and allow newline or end
-              const h1Match = cleanStart.match(/^#\s+(.+?)(?:\n|$)/m);
+              // Match h1 at start of line - exclude "# #" patterns
+              const h1Match = cleanStart.match(/^#\s+([^#\n][^\n]*?)(?:\n|$)/m) ||
+                             cleanStart.match(/#\s+([^#\s\n][^\n]*?)(?:\n|$)/);
               if (h1Match && h1Match[1]) {
                 title = h1Match[1].trim();
+                // Don't include hash in title
+                if (title.startsWith('#')) {
+                  title = title.replace(/^#+\s*/, '').trim();
+                }
+                // Clean newlines
+                title = title.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
               } else {
                 // Fallback: try to find any h1 in the document (not just at start)
-                const anyH1Match = markdown.match(/^#\s+(.+?)(?:\n|$)/m);
+                const anyH1Match = markdown.match(/^#\s+([^#\n][^\n]*?)(?:\n|$)/m);
                 if (anyH1Match && anyH1Match[1]) {
                   title = anyH1Match[1].trim();
+                  // Don't include hash in title
+                  if (title.startsWith('#')) {
+                    title = title.replace(/^#+\s*/, '').trim();
+                  }
+                  // Clean newlines
+                  title = title.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
                 }
               }
+            }
+            
+            // Final cleanup - remove any HTML entities, tags, or special characters
+            if (title) {
+              title = title.replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+              title = title.replace(/<[^>]+>/g, ''); // Remove any HTML tags
+              title = title.replace(/\n+/g, ' ').replace(/\r+/g, ' ').replace(/\s+/g, ' ').trim();
+              // Remove any remaining HTML tag fragments like </h1>
+              title = title.replace(/<\/?[^>]+>/g, '').trim();
             }
             
             if (title) {

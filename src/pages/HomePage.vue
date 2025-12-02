@@ -9,7 +9,7 @@
       end
       id="hero"
       class="display"
-      title="I'm Jake, a Senior Product Designer & Design Lead at Orium, working where systems, code, and AI meet to ship real products."
+      title="I'm Jake—a designer at Orium turning systems, code, and AI into real products."
     />
     <!-- :title="title" -->
 
