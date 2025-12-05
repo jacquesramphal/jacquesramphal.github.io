@@ -199,6 +199,8 @@ export default {
   overflow: visible;
   padding: 0;
   position: relative;
+  margin-block-start: var(--spacing-md);
+
 }
 
 .toc-list {
@@ -217,7 +219,7 @@ export default {
 }
 
 .toc-item--level-1 {
-  font-size: var(--font-2xs);
+  font-size: var(--font-xs);
   font-weight: var(--font-weight-semibold);
   margin-block-start: var(--spacing-xs);
   
@@ -227,13 +229,13 @@ export default {
 }
 
 .toc-item--level-2 {
-  font-size: var(--font-2xs);
+  font-size: var(--font-xs);
   padding-inline-start: 0;
   margin-block-start: var(--spacing-xxs);
 }
 
 .toc-item--level-3 {
-  font-size: var(--font-2xs);
+  font-size: var(--font-xs);
   padding-inline-start: var(--spacing-md);
   color: var(--foreground-subtle) !important;
 }
@@ -241,7 +243,7 @@ export default {
 .toc-item--level-4,
 .toc-item--level-5,
 .toc-item--level-6 {
-  font-size: var(--font-2xs);
+  font-size: var(--font-xs);
   padding-inline-start: var(--spacing-lg);
   color: var(--foreground-subtle) !important;
 }
@@ -268,7 +270,7 @@ export default {
 .markdown-toc .toc-link--active,
 .markdown-toc .toc-item--active a {
   color: var(--foreground) !important;
-  font-size: var(--font-2xs) !important;
+  font-size: var(--font-xs) !important;
   font-weight: inherit;
   text-decoration: underline !important;
   text-underline-offset: 0.2em;
