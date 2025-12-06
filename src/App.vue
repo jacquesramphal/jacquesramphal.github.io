@@ -15,10 +15,10 @@ transform: rotate(90deg);
             route="/"
             v-show="isDesktopScreen && !menuOpen"
           /> -->
-    <MobileTOCBar
+    <!-- <MobileTOCBar
       :headings="markdownHeadings || []"
       :active-heading="markdownActiveHeading"
-    />
+    /> -->
     <HeaderNav
       :toggle-menu="toggleMenu"
       v-if="!$route.meta.hideNav"

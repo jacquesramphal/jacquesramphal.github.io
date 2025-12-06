@@ -24,7 +24,8 @@
         </div>
 
         <ul class="links justify-end glow">
-          <li class="glow animate delay-2" v-if="!breadcrumb">
+          <li class="glow animate delay-2" v-if="!breadcrumb"             v-show="isDesktopScreen"
+          >
             <TextLink label="Library" route="/library" />
           </li>
           <li
@@ -222,7 +223,7 @@ button {
 
 .navbar {
   display: flex;
-  inset-block-end: 0;
+  inset-block-start: 0;
   align-items: center;
   mix-blend-mode: normal !important;
   overflow: visible;
@@ -232,7 +233,6 @@ button {
   inline-size: 100vw !important;
   z-index: 100000 !important;
   @media only screen and (min-width: 768px) {
-    inset-block-end: auto;
     inset-block-start: 0;
   }
 }
@@ -240,8 +240,8 @@ button {
 .navbar::after {
   content: "";
   position: absolute;
-  inset-block-start: 0;
-  inset-block-end: -100%; /* Adjust the value to control the width of the additional background */
+  inset-block-start: -100%;
+  inset-block-end: 0; /* Adjust the value to control the width of the additional background */
   inset-inline-end: 0;
   inline-size: 100%; /* Adjust the value to control the width of the additional background */
   background: var(--background);
@@ -255,7 +255,7 @@ button {
   }
 }
 .navbar.hidden-navbar {
-  transform: translate3d(0, 150%, 0) !important;
+  transform: translate3d(0, -150%, 0) !important;
   @media only screen and (min-width: 768px) {
     transform: translate3d(0, -150%, 0) !important;
   }
@@ -269,7 +269,7 @@ button {
   padding-block: var(--spacing-xs) var(--spacing-sm) !important;
   padding-inline-end: var(--spacing-sm) !important;
   inline-size: 100%;
-  border-block-start: var(--border);
+  border-block-end: var(--border);
   @media only screen and (min-width: 768px) {
     background: transparent;
 
@@ -277,7 +277,7 @@ button {
     // padding-inline: var(--spacing-lg) !important;
     // padding-inline-end: var(--spacing-md) !important;
     // border-block-end: var(--border);
-    border-block-start: none;
+    border-block-end: none;
     justify-self: end;
   }
   @media only screen and (min-width: 1024px) {

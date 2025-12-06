@@ -135,637 +135,116 @@ export default {
     const updateMarkdownHeadings = inject('updateMarkdownHeadings', () => {});
     const updateMarkdownActiveHeading = inject('updateMarkdownActiveHeading', () => {});
 
+    // -------------------------------------------------------------
+    // NEW extractHeroData — clean, predictable, and robust
+    // -------------------------------------------------------------
     const extractHeroData = (markdown) => {
+      if (!markdown || typeof markdown !== "string") {
+        return { title: "", tag: "", image: "" };
+      }
+
       let title = "";
       let tag = "";
       let image = "";
 
-      if (!markdown || typeof markdown !== "string") {
-        console.warn("extractHeroData: Invalid markdown input");
-        return { title, tag, image };
-      }
-
-      // First, try to extract from header block (old format)
-      // Format: <header>\n\n# Title\n\nTag text\n\n</header>
-      // Note: markdown-loader may convert to HTML, so check for both markdown and HTML
+      // ---------------------------
+      // 1. Extract <header> block
+      // ---------------------------
       const headerMatch = markdown.match(/<header[^>]*>([\s\S]*?)<\/header>/i);
-      console.log("extractHeroData: Header match result:", headerMatch ? "FOUND" : "NOT FOUND");
-      console.log("extractHeroData: Markdown length:", markdown.length);
-      console.log("extractHeroData: Markdown has <header>:", markdown.includes('<header>'));
-      if (headerMatch && headerMatch[1]) {
-        const headerContent = headerMatch[1];
-        console.log("extractHeroData: Header content length:", headerContent.length);
-        console.log("extractHeroData: Header content found:", JSON.stringify(headerContent.substring(0, 200)));
-        
-        // Check if content is HTML (from markdown-loader) or raw markdown
-        // Also check for HTML entities and processed markdown patterns
-        const isHTML = headerContent.includes('<h1>') || 
-                      headerContent.includes('<h4>') || 
-                      headerContent.includes('<p>') ||
-                      headerContent.includes('&nbsp;') ||
-                      (headerContent.includes('#') && !headerContent.match(/^#\s+/m)); // Has # but not at start of line (might be in HTML)
-        console.log("Header content is HTML:", isHTML);
-        console.log("Header content sample:", JSON.stringify(headerContent.substring(0, 150)));
-        
-        // Extract h1 title - handle both markdown (# Title) and HTML (<h1>Title</h1>)
-        try {
-          let h1Match = null;
-          if (isHTML) {
-            // Extract from HTML
-            console.log("extractHeroData: Extracting from HTML content");
-            // Try multiple HTML patterns
-            h1Match = headerContent.match(/<h1[^>]*>(.*?)<\/h1>/i) ||
-                     headerContent.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-            console.log("extractHeroData: H1 HTML match:", h1Match);
-            
-            if (h1Match && h1Match[1]) {
-              title = h1Match[1].trim();
-              // Strip any nested HTML tags
-              title = title.replace(/<[^>]+>/g, '');
-              // Decode HTML entities (including numeric entities like &#39;)
-              const tempDivTitle = document.createElement('div');
-              tempDivTitle.innerHTML = title;
-              title = tempDivTitle.textContent || tempDivTitle.innerText || title;
-              // Clean up newlines and extra whitespace
-              title = title.replace(/\n+/g, ' ').replace(/\r+/g, ' ').replace(/\s+/g, ' ').trim();
-              console.log("Title extracted from HTML:", title);
-            } else {
-              console.warn("extractHeroData: No <h1> tag found in HTML content");
-              // Fallback: try to find any text that looks like a title
-              const textMatch = headerContent.match(/>([^<]+)</);
-              if (textMatch && textMatch[1]) {
-                title = textMatch[1].trim();
-                title = title.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
-                console.log("Title extracted from HTML (fallback):", title);
-              }
-            }
-          } else {
-            // Extract from markdown
-            // Match h1 - must be # followed by space, then text (not another #)
-            // Pattern: # followed by space, then one or more non-# characters
-            h1Match = headerContent.match(/^#\s+([^#\n][^\n]*?)(?:\n|$)/m);
-            console.log("extractHeroData: H1 match (markdown, pattern 1):", h1Match);
-            
-            // Fallback: try without requiring it to be at start of line, but still exclude "# #"
-            if (!h1Match || !h1Match[1]) {
-              // Match # space, but the next character must not be # or space
-              h1Match = headerContent.match(/#\s+([^#\s\n][^\n]*?)(?:\n|$)/);
-              console.log("extractHeroData: H1 match (markdown, pattern 2):", h1Match);
-            }
-            
-            if (h1Match && h1Match[1]) {
-              title = h1Match[1].trim();
-              // Don't include the hash in the title - if it starts with #, remove it
-              if (title.startsWith('#')) {
-                title = title.replace(/^#+\s*/, '').trim();
-              }
-              // Clean up newlines and extra whitespace (in case markdown has them)
-              title = title.replace(/\n+/g, ' ').replace(/\r+/g, ' ').replace(/\s+/g, ' ').trim();
-              console.log("Title extracted from markdown:", title);
-            } else {
-              console.warn("extractHeroData: No h1 match found in markdown header content");
-            }
-          }
-          
-          if (!title) {
-            console.warn("No H1 title found in header content:", headerContent.substring(0, 100));
-            // Fallback: try to find any h1 in the header content (markdown or HTML)
-            const fallbackMatch = headerContent.match(/#\s+(.+)/) || headerContent.match(/<h1[^>]*>(.*?)<\/h1>/i);
-            if (fallbackMatch && fallbackMatch[1]) {
-              title = fallbackMatch[1].trim().replace(/<[^>]+>/g, '');
-              // Clean up newlines and extra whitespace
-              title = title.replace(/\n+/g, ' ').replace(/\r+/g, ' ').replace(/\s+/g, ' ').trim();
-              console.log("Title extracted (fallback):", title);
-            }
-          }
-          
-          // Always clean up title to remove any HTML entities or special characters
-          if (title) {
-            // Decode HTML entities (including numeric entities like &#39;)
-            const tempDivTitle = document.createElement('div');
-            tempDivTitle.innerHTML = title;
-            title = tempDivTitle.textContent || tempDivTitle.innerText || title;
-            title = title.replace(/\n+/g, ' ').replace(/\r+/g, ' ').replace(/\s+/g, ' ').trim();
-          }
-        } catch (error) {
-          console.error("Error extracting title:", error);
-          title = "";
+      let headerContent = headerMatch ? headerMatch[1] : "";
+
+      if (headerContent) {
+        // TITLE
+        const h1 =
+          headerContent.match(/<h1[^>]*>(.*?)<\/h1>/i) ||
+          headerContent.match(/^#\s+(.+)$/m);
+
+        if (h1) {
+          title = h1[1].replace(/<[^>]+>/g, "").trim();
         }
-        // Extract tag (text after h1, before closing header)
-        // Handle both HTML and markdown formats
-        try {
-          if (isHTML) {
-            // Extract from HTML - look for h4 or h5 tags (the #### tag line)
-            // Try h4 first, then h5, then any heading after h1
-            // Use multiline flag and handle whitespace/newlines
-            const h4Match = headerContent.match(/<h4[^>]*>([\s\S]*?)<\/h4>/i) || 
-                           headerContent.match(/<h5[^>]*>([\s\S]*?)<\/h5>/i) ||
-                           headerContent.match(/<h[23456][^>]*>([\s\S]*?)<\/h[23456]>/i);
-            if (h4Match && h4Match[1]) {
-              tag = h4Match[1].trim();
-              // Strip any nested HTML tags
-              tag = tag.replace(/<[^>]+>/g, '');
-              // Decode HTML entities (including numeric entities like &#39;)
-              const tempDiv = document.createElement('div');
-              tempDiv.innerHTML = tag;
-              tag = tempDiv.textContent || tempDiv.innerText || tag;
-              // Clean up newlines and extra whitespace
-              tag = tag.replace(/\n+/g, ' ').replace(/\r+/g, ' ').replace(/\s+/g, ' ').trim();
-              console.log("Tag extracted from HTML:", tag);
-            } else {
-              // Fallback: get text between h1 and closing header, strip HTML
-              const afterH1 = headerContent.replace(/<h1[^>]*>.*?<\/h1>/i, '');
-              tag = afterH1.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-              // Decode HTML entities (including numeric entities like &#39;)
-              const tempDiv = document.createElement('div');
-              tempDiv.innerHTML = tag;
-              tag = tempDiv.textContent || tempDiv.innerText || tag;
-              tag = tag.replace(/\s+/g, ' ').trim();
-              console.log("Tag extracted from HTML (fallback):", tag);
-            }
-          } else {
-            // Extract from markdown - look for #### or ##### lines (h4/h5)
-            console.log("extractHeroData: Looking for h4/h5 in header content");
-            const lines = headerContent.split('\n');
-            console.log("extractHeroData: Header content lines:", lines.slice(0, 10).map((l, i) => `${i}: ${JSON.stringify(l)}`));
-            
-            // Strategy: Find h1 first, then look for h4/h5 after it
-            let h1LineIndex = -1;
-            for (let i = 0; i < lines.length; i++) {
-              if (lines[i].match(/^#\s+/)) {
-                h1LineIndex = i;
-                console.log(`extractHeroData: H1 found at line ${i}: ${JSON.stringify(lines[i])}`);
-                break;
-              }
-            }
-            
-            // Now look for h4/h5 after the h1
-            let h4MarkdownMatch = null;
-            if (h1LineIndex >= 0) {
-              // Look at lines after h1 (skip empty lines)
-              for (let i = h1LineIndex + 1; i < lines.length; i++) {
-                const line = lines[i];
-                // Check both trimmed and untrimmed versions
-                const trimmedLine = line.trim();
-                if (trimmedLine) {
-                  // Check if this line is h4 or h5 (with or without leading whitespace)
-                  const h4Match = trimmedLine.match(/^####\s+(.+)$/) || 
-                                  trimmedLine.match(/^#####\s+(.+)$/) ||
-                                  line.match(/^\s*####\s+(.+)$/) ||
-                                  line.match(/^\s*#####\s+(.+)$/);
-                  if (h4Match && h4Match[1]) {
-                    h4MarkdownMatch = h4Match;
-                    console.log(`extractHeroData: H4 found at line ${i} after H1: ${JSON.stringify(line)}`);
-                    break;
-                  }
-                }
-              }
-            }
-            
-            // Fallback: Try regex patterns if line-by-line didn't work
-            if (!h4MarkdownMatch) {
-              // Pattern 1: Exact 4 hashes at start of line (with optional leading whitespace)
-              h4MarkdownMatch = headerContent.match(/^\s*####\s+(.+?)(?:\n|$)/m);
-              console.log("extractHeroData: Pattern 1 (^####):", h4MarkdownMatch);
-              
-              // Pattern 2: Exact 5 hashes at start of line (with optional leading whitespace)
-              if (!h4MarkdownMatch) {
-                h4MarkdownMatch = headerContent.match(/^\s*#####\s+(.+?)(?:\n|$)/m);
-                console.log("extractHeroData: Pattern 2 (^#####):", h4MarkdownMatch);
-              }
-              
-              // Pattern 3: #### anywhere (not just start of line, but must be followed by space and text)
-              if (!h4MarkdownMatch) {
-                h4MarkdownMatch = headerContent.match(/####\s+([^\n]+)/);
-                console.log("extractHeroData: Pattern 3 (#### anywhere):", h4MarkdownMatch);
-              }
-              
-              // Pattern 4: ##### anywhere
-              if (!h4MarkdownMatch) {
-                h4MarkdownMatch = headerContent.match(/#####\s+([^\n]+)/);
-                console.log("extractHeroData: Pattern 4 (##### anywhere):", h4MarkdownMatch);
-              }
-            }
-            
-            if (h4MarkdownMatch && h4MarkdownMatch[1]) {
-              tag = h4MarkdownMatch[1].trim();
-              // Clean up newlines and extra whitespace
-              tag = tag.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
-              console.log("Tag extracted from markdown (direct h4/h5 match):", tag);
-            } else {
-              // Fallback: get lines after h1
-              const lines = headerContent.split('\n');
-              console.log("extractHeroData: All lines in header:", lines.map((l, i) => `${i}: ${JSON.stringify(l)}`));
-              
-              let h1Found = false;
-              const afterH1Lines = [];
-              for (let i = 0; i < lines.length; i++) {
-                const line = lines[i];
-                if (h1Found) {
-                  afterH1Lines.push(line);
-                } else if (line.match(/^#\s+/)) {
-                  h1Found = true;
-                  console.log(`extractHeroData: H1 found at line ${i}: ${JSON.stringify(line)}`);
-                  // Also check if the next non-empty line is h4 (keep searching, don't stop at first non-empty line)
-                  for (let j = i + 1; j < lines.length; j++) {
-                    const nextLine = lines[j].trim();
-                    if (nextLine) {
-                      console.log(`extractHeroData: Next non-empty line ${j}: ${JSON.stringify(nextLine)}`);
-                      // Check for h4 or h5 (with or without leading whitespace)
-                      const h4Match = nextLine.match(/^\s*####\s+(.+)$/) || nextLine.match(/^\s*#####\s+(.+)$/);
-                      if (h4Match && h4Match[1]) {
-                        // Found h4 right after h1
-                        tag = h4Match[1].trim();
-                        tag = tag.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
-                        console.log("Tag extracted from markdown (h4 right after h1):", tag);
-                        break;
-                      }
-                      // Don't break here - continue searching for h4/h5 even if this line isn't one
-                      // Only break if we've checked several lines and found nothing
-                      if (j > i + 5) {
-                        break; // Stop after checking a few lines
-                      }
-                    }
-                  }
-                }
-              }
-              
-              // Only use afterH1Lines if we didn't already extract tag
-              if (!tag) {
-                // Remove empty lines and get the tag text, stripping markdown heading syntax
-                tag = afterH1Lines
-                  .filter(line => line.trim())
-                  .map(line => line.replace(/^#+\s+/, '').trim()) // Strip markdown heading syntax
-                  .join(' ')
-                  .replace(/\s+/g, ' ') // Clean up multiple spaces
-                  .trim();
-                console.log("Tag extracted from markdown (after h1 lines):", tag);
-              }
-            }
-          }
-          
-          // Final fallback: if still no tag, try to find any #### line in header (anywhere, not just start of line)
-          // Try both HTML and markdown patterns as a last resort
-          if (!tag) {
-            // First try markdown pattern (even if we thought it was HTML)
-            const anyH4Match = headerContent.match(/####\s+([^\n]+)/) || 
-                              headerContent.match(/#####\s+([^\n]+)/) ||
-                              // Also try to find any line with 4+ hashes that's not h1 (h2-h6)
-                              headerContent.match(/^\s*#{2,6}\s+([^\n]+)$/m);
-            if (anyH4Match && anyH4Match[1]) {
-              tag = anyH4Match[1].trim();
-              // Clean up newlines and extra whitespace
-              tag = tag.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
-              console.log("Tag extracted (final fallback - markdown pattern):", tag);
-            } else {
-              // Try HTML pattern as well (even if we thought it was markdown)
-              const htmlH4Match = headerContent.match(/<h4[^>]*>([\s\S]*?)<\/h4>/i) || 
-                                 headerContent.match(/<h5[^>]*>([\s\S]*?)<\/h5>/i);
-              if (htmlH4Match && htmlH4Match[1]) {
-                tag = htmlH4Match[1].trim();
-                // Strip any nested HTML tags
-                tag = tag.replace(/<[^>]+>/g, '');
-                // Decode HTML entities
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = tag;
-                tag = tempDiv.textContent || tempDiv.innerText || tag;
-                tag = tag.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
-                console.log("Tag extracted (final fallback - HTML pattern):", tag);
-              }
-            }
-          }
-          
-          // Debug: log what we found
-          console.log("extractHeroData: Final tag value:", tag);
-          console.log("extractHeroData: Tag length:", tag.length);
-          
-          // Always clean up the tag to remove newlines and normalize whitespace
-          if (tag) {
-            tag = tag.replace(/\n+/g, ' ').replace(/\r+/g, ' ').replace(/\s+/g, ' ').trim();
-          }
-        } catch (error) {
-          console.warn("Error extracting tag:", error);
-          tag = "";
+
+        // SUBTITLE
+        const h4 =
+          headerContent.match(/<h4[^>]*>(.*?)<\/h4>/i) ||
+          headerContent.match(/^####\s+(.+)$/m);
+
+        if (h4) {
+          tag = h4[1].replace(/<[^>]+>/g, "").trim();
         }
-      } else {
-        // New format: # Title at the very start (doc_32 format) or after front matter (doc_34 format)
-        // Remove front matter (--- blocks) and HTML comments first
-        let cleanStart = markdown
-          .replace(/^---[\s\S]*?---\s*\n?/m, '') // Remove front matter
-          .replace(/^<!--[\s\S]*?-->\s*\n?/gm, '') // Remove HTML comments
-          .trim();
-        
-        console.log("No header tag found, trying to extract from content. Clean start:", cleanStart.substring(0, 200));
-        
-        // Match h1 at start of line (with optional whitespace before)
-        const h1Match = cleanStart.match(/^#\s+(.+)$/m);
-        if (h1Match) {
-          title = h1Match[1].trim();
-          console.log("Title extracted from content (no header tag):", title);
-          // Look for tag/subtitle after title (next non-empty line before image or next heading)
-          const afterTitle = cleanStart.substring(cleanStart.indexOf(h1Match[0]) + h1Match[0].length);
-          const beforeImage = afterTitle.split(/!\[/)[0];
-          const beforeNextHeading = beforeImage.split(/^##/m)[0]; // Stop at next h2
-          const tagLines = beforeNextHeading.split('\n')
-            .map(line => line.trim())
-            .filter(line => {
-              return line && 
-                     !line.startsWith('<!--') && 
-                     !line.startsWith('#') && 
-                     !line.startsWith('![') &&
-                     !line.startsWith('---');
-            });
-          if (tagLines.length > 0) {
-            tag = tagLines[0].trim(); // Take first non-empty line as tag/subtitle
-            console.log("Tag/subtitle extracted from content:", tag);
-          }
-        } else {
-          // Fallback: try to find any h1 in the document
-          const anyH1Match = markdown.match(/^#\s+(.+?)(?:\n|$)/m);
-          if (anyH1Match) {
-            title = anyH1Match[1].trim();
-            console.log("Title extracted (fallback):", title);
+      }
+
+      // ---------------------------
+      // 2. Extract first image AFTER header
+      // ---------------------------
+      const lines = markdown.split("\n");
+      let headerClosedLine = -1;
+
+      lines.forEach((l, i) => {
+        if (l.toLowerCase().includes("</header>")) {
+          headerClosedLine = i;
+        }
+      });
+
+      // Scan from line after header until you find an image
+      if (headerClosedLine >= 0) {
+        for (let i = headerClosedLine + 1; i < lines.length; i++) {
+          const match = lines[i].match(/!\[[^\]]*\]\(([^)]+)\)/);
+          if (match) {
+            image = match[1];
+            break;
           }
         }
       }
 
-      // Extract first image (skip images in HTML comments)
-      // Priority: images inside header tags first, then first image after header
-      let headerImage = "";
-      let fallbackImage = "";
-      let headerClosedAtLine = -1;
-      
-      console.log("extractHeroData: ========== STARTING IMAGE EXTRACTION ==========");
-      const lines = markdown.split('\n');
-      let insideHeader = false;
-      
-      console.log("extractHeroData: Total lines to process:", lines.length);
-      console.log("extractHeroData: First 10 lines:", lines.slice(0, 10).map((l, i) => `${i}: ${JSON.stringify(l)}`));
-      
-      for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
-        
-        // Track if we're inside header tags (case-insensitive)
-        if (line.toLowerCase().includes('<header')) {
-          insideHeader = true;
-          console.log(`extractHeroData: Entered header at line ${i}:`, JSON.stringify(line));
-        }
-        if (line.toLowerCase().includes('</header>')) {
-          console.log(`extractHeroData: Exited header at line ${i}:`, JSON.stringify(line));
-          headerClosedAtLine = i;
-          insideHeader = false;
-        }
-        
-        const imageMatch = line.match(/!\[[^\]]*\]\(([^)]+)\)/);
-        if (imageMatch) {
-          console.log(`extractHeroData: Found image match at line ${i} (0-indexed):`, imageMatch[1]);
-          console.log(`extractHeroData: Line content:`, JSON.stringify(line));
-          console.log(`extractHeroData: Currently insideHeader:`, insideHeader);
-          console.log(`extractHeroData: Header closed at line (0-indexed):`, headerClosedAtLine);
-          
-          // Check if this line is in a comment
-          let inComment = false;
-          for (let j = i - 1; j >= 0; j--) {
-            if (lines[j].includes('-->')) break;
-            if (lines[j].includes('<!--')) {
-              inComment = true;
-              break;
-            }
-          }
-          
-          if (inComment) {
-            console.log(`extractHeroData: Image at line ${i} is in a comment, skipping`);
-            continue;
-          }
-          
-          const imagePath = imageMatch[1];
-          console.log(`extractHeroData: Processing image path:`, imagePath);
-          
-          // Convert relative path to asset path
-          let processedPath = imagePath;
-          if (processedPath.startsWith('../images/')) {
-            processedPath = processedPath.replace('../images/', '');
-            console.log(`extractHeroData: Removed ../images/ prefix, result:`, processedPath);
-          } else if (processedPath.startsWith('/images/')) {
-            processedPath = processedPath.replace('/images/', '');
-            console.log(`extractHeroData: Removed /images/ prefix, result:`, processedPath);
-          } else if (processedPath.startsWith('./images/')) {
-            processedPath = processedPath.replace('./images/', '');
-            console.log(`extractHeroData: Removed ./images/ prefix, result:`, processedPath);
-          }
-          
-          // Check if image is inside header OR right after header closes (within 5 lines)
-          const isRightAfterHeader = headerClosedAtLine >= 0 && i > headerClosedAtLine && i <= headerClosedAtLine + 5;
-          console.log(`extractHeroData: isRightAfterHeader calculation:`, {
-            headerClosedAtLine,
-            currentLine: i,
-            condition1: headerClosedAtLine >= 0,
-            condition2: i > headerClosedAtLine,
-            condition3: i <= headerClosedAtLine + 5,
-            result: isRightAfterHeader
-          });
-          
-          // Priority: header image > image right after header > first image anywhere
-          if (insideHeader && !headerImage) {
-            headerImage = processedPath;
-            console.log("extractHeroData: ✓✓✓ IMAGE FOUND IN HEADER ✓✓✓");
-            console.log("extractHeroData: Original path:", imagePath);
-            console.log("extractHeroData: Processed path:", processedPath);
-            console.log("extractHeroData: Header image set to:", headerImage);
-            // Stop searching once we find image in header
-            break;
-          } else if (isRightAfterHeader && !headerImage) {
-            headerImage = processedPath;
-            console.log("extractHeroData: ✓✓✓ IMAGE FOUND RIGHT AFTER HEADER ✓✓✓");
-            console.log("extractHeroData: Line number:", i, "Header closed at:", headerClosedAtLine);
-            console.log("extractHeroData: Original path:", imagePath);
-            console.log("extractHeroData: Processed path:", processedPath);
-            console.log("extractHeroData: Header image set to:", headerImage);
-            // Stop searching once we find image right after header
-            break;
-          } else if (!fallbackImage) {
-            // Store first image as fallback (will be used if no header image found)
-            fallbackImage = processedPath;
-            console.log("extractHeroData: Image found (stored as fallback):", fallbackImage);
-            console.log("extractHeroData: Will continue searching for header image...");
-            // Don't break here - continue looking for header image
-          }
-        }
-      }
-      
-      console.log("extractHeroData: ========== IMAGE EXTRACTION COMPLETE ==========");
-      
-      // Use header image if found, otherwise use first fallback image
-      // This ensures we always use the first image for the hero if available
-      image = headerImage || fallbackImage;
-      console.log("extractHeroData: Final extracted image path:", image);
-      console.log("extractHeroData: Header image was:", headerImage);
-      console.log("extractHeroData: Fallback image was:", fallbackImage);
-      console.log("extractHeroData: Using image:", image);
-      console.log("extractHeroData: Image type:", typeof image);
-      console.log("extractHeroData: Image length:", image ? image.length : 0);
-      
+      // ---------------------------
+      // 3. Clean image path
+      // ---------------------------
       if (image) {
-        console.log("extractHeroData: ✓✓✓ Image will be used for hero:", image);
-      } else {
-        console.log("extractHeroData: ✗✗✗ No image found for hero");
+        image = image
+          .replace("../images/", "")
+          .replace("./images/", "")
+          .replace("/images/", "")
+          .trim();
       }
 
       return { title, tag, image };
     };
 
     const removeHeaderAndFirstImage = (markdown) => {
-      if (!markdown || typeof markdown !== 'string') {
-        return '';
+  if (!markdown || typeof markdown !== "string") {
+    return "";
+  }
+
+  let output = markdown;
+
+  // 1. Remove the entire <header>...</header> block
+  output = output.replace(/<header[^>]*>[\s\S]*?<\/header>/gi, "").trim();
+
+  const lines = output.split("\n");
+
+  // 2. Remove the first image (markdown OR HTML)
+  let removedImage = false;
+  const cleaned = [];
+
+  for (let line of lines) {
+    if (!removedImage) {
+      // Markdown image
+      let md = line.match(/!\[[^\]]*\]\(([^)]+)\)/);
+
+      // HTML <img>
+      let html = line.match(/<img[^>]+src=["']([^"']+)["']/i);
+
+      if (md || html) {
+        removedImage = true;
+        continue; // Skip this line
       }
-      
-      let processed = markdown;
-      
-      // Check if content is HTML (from markdown-loader) or raw markdown
-      const isHTML = processed.includes('<h1>') || processed.includes('<p>') || processed.includes('<div>');
-      
-      if (isHTML) {
-        // Handle HTML content
-        // First, extract and remember which image was in the header (if any)
-        let headerImageSrc = null;
-        const headerBlockMatch = processed.match(/<header[^>]*>([\s\S]*?)<\/header>/i);
-        if (headerBlockMatch && headerBlockMatch[1]) {
-          const headerContent = headerBlockMatch[1];
-          // Try to find image in header content (both markdown and HTML formats)
-          const headerImageMatch = headerContent.match(/!\[[^\]]*\]\(([^)]+)\)/) ||
-                                  headerContent.match(/<img[^>]+src=["']([^"']+)["'][^>]*>/i) ||
-                                  headerContent.match(/<img[^>]+src=([^\s>]+)/i);
-          if (headerImageMatch) {
-            headerImageSrc = headerImageMatch[1].replace(/["']/g, '');
-            console.log("removeHeaderAndFirstImage: Found image in header (HTML):", headerImageSrc);
-          }
-        }
-        
-        // Remove <header> block if it exists
-        // This already removes any images inside the header
-        processed = processed.replace(/<header[^>]*>[\s\S]*?<\/header>/gi, '');
-        
-        // Remove first <h1> if it's at the start (from header extraction)
-        // But be careful - only remove if it's likely from the header, not article content
-        // Check if there's a <header> tag first - if we removed it, the h1 after is likely from header
-        if (!markdown.includes('<header>') || markdown.match(/<header[^>]*>[\s\S]*?<h1/i)) {
-          // Remove first h1 and any h4/h5 immediately after (the tag line)
-          processed = processed.replace(/^\s*<h1[^>]*>.*?<\/h1>\s*/i, '');
-          processed = processed.replace(/^\s*<h[45][^>]*>.*?<\/h[45]>\s*/i, '');
-        }
-        
-        // Only remove the first image if it matches the one that was in the header
-        // This prevents removing images that should be in the content
-        if (headerImageSrc) {
-          // Try to match the header image and remove it
-          const imageRegex = new RegExp(`<img[^>]+src=["']?${headerImageSrc.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["']?[^>]*>`, 'i');
-          processed = processed.replace(imageRegex, '');
-          // Also try wrapped in <p> tags
-          processed = processed.replace(new RegExp(`<p>\\s*<img[^>]+src=["']?${headerImageSrc.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["']?[^>]*>\\s*</p>`, 'i'), '');
-          console.log("removeHeaderAndFirstImage: Removed header image from content (HTML)");
-        }
-        // If no header image was found, don't remove any images - they should all stay in content
-      } else {
-        // Handle raw markdown
-        // First, extract and remember which image was in the header (if any)
-        // so we can remove it specifically, not just any first image
-        let headerImagePath = null;
-        const headerBlockMatch = processed.match(/<header[^>]*>([\s\S]*?)<\/header>/i);
-        if (headerBlockMatch && headerBlockMatch[1]) {
-          const headerContent = headerBlockMatch[1];
-          // Try to find image in header content
-          const headerImageMatch = headerContent.match(/!\[[^\]]*\]\(([^)]+)\)/);
-          if (headerImageMatch) {
-            headerImagePath = headerImageMatch[1];
-            console.log("removeHeaderAndFirstImage: Found image in header:", headerImagePath);
-          }
-        }
-        
-        // Remove header block (including h1 and tag) - old format
-        // This already removes any images inside the header
-        processed = processed.replace(/<header[^>]*>[\s\S]*?<\/header>/gi, '');
-        
-        // Remove leading HTML comments
-        processed = processed.replace(/^<!--[\s\S]*?-->\s*\n?/gm, '');
-        
-        // Remove first h1 title (new format - doc_32 style)
-        // Only if it's at the very start (after comments removed)
-        processed = processed.replace(/^#\s+.+?\n+/m, '');
-        
-        // Remove the first image if it matches the one that was in the header
-        // OR if there was no header image, remove the first image right after header (within 5 lines)
-        const lines = processed.split('\n');
-        
-        if (headerImagePath) {
-          // Remove the specific header image
-          for (let i = 0; i < lines.length; i++) {
-            const line = lines[i];
-            const imageMatch = line.match(/!\[[^\]]*\]\(([^)]+)\)/);
-            if (imageMatch && imageMatch[1] === headerImagePath) {
-              // Check if this line is in a comment
-              let inComment = false;
-              for (let j = i - 1; j >= 0; j--) {
-                if (lines[j].includes('-->')) break;
-                if (lines[j].includes('<!--')) {
-                  inComment = true;
-                  break;
-                }
-              }
-              if (!inComment) {
-                // Remove this specific image line (the one from header)
-                lines.splice(i, 1);
-                console.log("removeHeaderAndFirstImage: Removed header image from content");
-                break;
-              }
-            }
-          }
-        } else {
-          // No image in header - check if first image is right after header (within 5 lines)
-          // Find where header would have been (look for empty lines or h1 that was removed)
-          let headerEndIndex = -1;
-          for (let i = 0; i < lines.length; i++) {
-            const line = lines[i].trim();
-            // Header was already removed, so look for first non-empty line or h2 as marker
-            if (line && !line.startsWith('<!--') && !line.startsWith('#')) {
-              headerEndIndex = i;
-              break;
-            }
-          }
-          
-          // Remove first image if it's within 5 lines of where header ended
-          if (headerEndIndex >= 0) {
-            for (let i = headerEndIndex; i < Math.min(headerEndIndex + 5, lines.length); i++) {
-              const line = lines[i];
-              const imageMatch = line.match(/!\[[^\]]*\]\(([^)]+)\)/);
-              if (imageMatch) {
-                // Check if this line is in a comment
-                let inComment = false;
-                for (let j = i - 1; j >= 0; j--) {
-                  if (lines[j].includes('-->')) break;
-                  if (lines[j].includes('<!--')) {
-                    inComment = true;
-                    break;
-                  }
-                }
-                if (!inComment) {
-                  // Remove this image (it's the hero image)
-                  lines.splice(i, 1);
-                  console.log("removeHeaderAndFirstImage: Removed first image after header (hero image)");
-                  break;
-                }
-              }
-            }
-          }
-        }
-        
-        processed = lines.join('\n');
-      }
-      
-      // Remove any leading empty lines
-      processed = processed.replace(/^\s*\n+/m, '');
-      
-      return processed;
-    };
+    }
+
+    cleaned.push(line);
+  }
+
+  return cleaned.join("\n").trim();
+};
 
     const loadMarkdownContent = async (docId) => {
       try {
@@ -1097,10 +576,22 @@ export default {
     return {
       scrollHandler: null,
       headingScrollHandler: null,
+      resizeHandler: null,
+      isDesktop: false,
     };
   },
   mounted() {
     // Setup will be called when headings are available
+    this.checkDesktopSize();
+    this.resizeHandler = this.handleResize.bind(this);
+    window.addEventListener('resize', this.resizeHandler, { passive: true });
+    
+    // Initial check to ensure sidebar is properly positioned
+    this.$nextTick(() => {
+      if (this.isDesktop && this.headings && this.headings.length > 0) {
+        this.setupTOCSticky();
+      }
+    });
   },
   beforeUnmount() {
     if (this.scrollHandler) {
@@ -1108,6 +599,9 @@ export default {
     }
     if (this.headingScrollHandler) {
       window.removeEventListener('scroll', this.headingScrollHandler);
+    }
+    if (this.resizeHandler) {
+      window.removeEventListener('resize', this.resizeHandler);
     }
   },
   watch: {
@@ -1248,7 +742,46 @@ export default {
       // Setup sticky positioning when headings are available
       this.setupTOCSticky();
     },
+    checkDesktopSize() {
+      this.isDesktop = window.innerWidth >= 1201;
+    },
+    handleResize() {
+      const wasDesktop = this.isDesktop;
+      this.checkDesktopSize();
+      
+      // Reset sidebar styles when switching breakpoints
+      if (this.$refs.tocSidebar) {
+        const sidebarElement = this.$refs.tocSidebar;
+        
+        if (!this.isDesktop) {
+          // On mobile - reset all inline styles that could cause issues
+          sidebarElement.style.position = '';
+          sidebarElement.style.top = '';
+          sidebarElement.style.left = '';
+          sidebarElement.style.width = '';
+          
+          // Remove scroll handler if switching from desktop to mobile
+          if (wasDesktop && this.scrollHandler) {
+            window.removeEventListener('scroll', this.scrollHandler);
+            this.scrollHandler = null;
+          }
+        } else {
+          // On desktop - recalculate position
+          // Only setup if we just switched to desktop or if handler doesn't exist
+          if (!wasDesktop || !this.scrollHandler) {
+            this.$nextTick(() => {
+              this.setupTOCSticky();
+            });
+          }
+        }
+      }
+    },
     setupTOCSticky() {
+      // Only setup on desktop
+      if (!this.isDesktop) {
+        return;
+      }
+
       // Clean up existing handler
       if (this.scrollHandler) {
         window.removeEventListener('scroll', this.scrollHandler);
@@ -1264,13 +797,28 @@ export default {
         const sidebarElement = this.$refs.tocSidebar;
         const wrapElement = this.$refs.tocSidebarWrap;
 
+        // Reset styles first to ensure clean state
+        sidebarElement.style.position = 'absolute';
+        sidebarElement.style.top = '0';
+        sidebarElement.style.left = '0';
+        sidebarElement.style.width = '100%';
+
         const handleScroll = () => {
-          if (!sidebarElement || !wrapElement) return;
+          // Double-check we're still on desktop
+          if (!this.isDesktop || !sidebarElement || !wrapElement) {
+            return;
+          }
 
           const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
           
           // Get accurate positions using getBoundingClientRect
           const wrapRect = wrapElement.getBoundingClientRect();
+          
+          // If wrapper is not visible (display: none), don't calculate
+          if (wrapRect.width === 0 || wrapRect.height === 0) {
+            return;
+          }
+          
           const sidebarHeight = sidebarElement.offsetHeight;
           
           // Calculate the actual top position of the wrapper relative to document

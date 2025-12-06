@@ -1,13 +1,12 @@
+
 <header>
 
 # Design Tokens: The Unseen Hero in a Changing Design Landscape
 
 #### A Shared Language in Turbulent Times.
 
-![Genie Core Functions Diagram](../images/article/without-tokens.png)
-
 </header>
-
+![Genie Core Functions Diagram](../images/article/without-tokens.png)
 
 ## Intro Header
 
