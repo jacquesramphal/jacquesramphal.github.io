@@ -2,11 +2,14 @@
 
 # Design Tokens: The Unseen Hero in a Changing Design Landscape
 
-#### A Shared Language in Turbulent Times
+#### A Shared Language in Turbulent Times.
 
-
+![Genie Core Functions Diagram](../images/article/without-tokens.png)
 
 </header>
+
+
+## Intro Header
 
 I remember standing in a client workshop a few months ago, surrounded by designers, developers, and product folks. We were talking about the whirlwind of change in our industry – how AI is rewriting workflows, how new tools emerge every quarter, how designers and engineers are increasingly wearing each other’s hats. In this volatile landscape, someone asked: “What’s one thing we can invest in that won’t be outdated next year?” My answer was immediate: design tokens.
 

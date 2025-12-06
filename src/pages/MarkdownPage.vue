@@ -8,10 +8,22 @@
       :title="heroTitle || 'Document'"
       :subtitle="heroSubtitle || 'No description available'"
       :filename="heroImage"
-      :background="true"
+      :background="false"
       :center="false"
       :breadcrumb="''"
     />
+    <div 
+      v-if="heroImageSrc"
+      class="hero-fullscreen-image"
+      style="scroll-snap-align: start"
+    >
+      <img
+        :src="heroImageSrc"
+        :alt="heroTitle || 'Hero image'"
+        draggable="false"
+        class="hero-fullscreen-image__img"
+      />
+    </div>
     <GridContainer 
       v-if="showStats"
       style="padding-block-start: var(--spacing-sm) !important"
@@ -63,6 +75,41 @@ import MarkdownTOC from "@/components/MarkdownTOC.vue";
 import HeroBanner from "@/components/HeroBanner/HeroBanner.vue";
 import TextStats from "@/components/card/TextStats.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
+import fallbackImage from "@/assets/images/placeholder.png";
+
+// Pre-load all images using require.context so webpack can bundle them
+// This allows dynamic image loading at runtime
+const imageContext = require.context('../assets/images', true, /\.(png|jpg|jpeg|gif|svg)$/);
+const imageMap = {};
+imageContext.keys().forEach((item) => {
+  // require.context returns paths like './article/without-tokens.png' or './casestudy/genie/genie.png'
+  // Store with original path (with ./)
+  imageMap[item] = imageContext(item);
+  
+  // Remove './' prefix for cleaner lookup
+  const key = item.replace(/^\.\//, '');
+  imageMap[key] = imageContext(item);
+  
+  // Also store with just the filename for direct lookup (but be careful with duplicates)
+  const pathParts = key.split('/');
+  const filename = pathParts[pathParts.length - 1];
+  if (filename && pathParts.length > 1) {
+    // Only store filename if it's unique or matches a specific pattern
+    if (!imageMap[filename] || imageMap[filename] === imageContext(item)) {
+      imageMap[filename] = imageContext(item);
+    }
+  }
+  
+  // Store nested path (everything after first directory)
+  if (pathParts.length > 1) {
+    const nestedKey = pathParts.slice(1).join('/');
+    imageMap[nestedKey] = imageContext(item);
+  }
+});
+console.log("MarkdownPage: Pre-loaded images map. Total images:", Object.keys(imageMap).length);
+console.log("MarkdownPage: Sample image keys:", Object.keys(imageMap).slice(0, 30));
+console.log("MarkdownPage: Looking for 'article/without-tokens.png':", !!imageMap['article/without-tokens.png']);
+console.log("MarkdownPage: Looking for 'casestudy/genie/genie.png':", !!imageMap['casestudy/genie/genie.png']);
 
 export default {
   name: "MarkdownPage",
@@ -210,9 +257,10 @@ export default {
           if (isHTML) {
             // Extract from HTML - look for h4 or h5 tags (the #### tag line)
             // Try h4 first, then h5, then any heading after h1
-            const h4Match = headerContent.match(/<h4[^>]*>(.*?)<\/h4>/i) || 
-                           headerContent.match(/<h5[^>]*>(.*?)<\/h5>/i) ||
-                           headerContent.match(/<h[23456][^>]*>(.*?)<\/h[23456]>/i);
+            // Use multiline flag and handle whitespace/newlines
+            const h4Match = headerContent.match(/<h4[^>]*>([\s\S]*?)<\/h4>/i) || 
+                           headerContent.match(/<h5[^>]*>([\s\S]*?)<\/h5>/i) ||
+                           headerContent.match(/<h[23456][^>]*>([\s\S]*?)<\/h[23456]>/i);
             if (h4Match && h4Match[1]) {
               tag = h4Match[1].trim();
               // Strip any nested HTML tags
@@ -254,12 +302,17 @@ export default {
             // Now look for h4/h5 after the h1
             let h4MarkdownMatch = null;
             if (h1LineIndex >= 0) {
-              // Look at lines after h1
+              // Look at lines after h1 (skip empty lines)
               for (let i = h1LineIndex + 1; i < lines.length; i++) {
-                const line = lines[i].trim();
-                if (line) {
-                  // Check if this line is h4 or h5
-                  const h4Match = line.match(/^####\s+(.+)$/) || line.match(/^#####\s+(.+)$/);
+                const line = lines[i];
+                // Check both trimmed and untrimmed versions
+                const trimmedLine = line.trim();
+                if (trimmedLine) {
+                  // Check if this line is h4 or h5 (with or without leading whitespace)
+                  const h4Match = trimmedLine.match(/^####\s+(.+)$/) || 
+                                  trimmedLine.match(/^#####\s+(.+)$/) ||
+                                  line.match(/^\s*####\s+(.+)$/) ||
+                                  line.match(/^\s*#####\s+(.+)$/);
                   if (h4Match && h4Match[1]) {
                     h4MarkdownMatch = h4Match;
                     console.log(`extractHeroData: H4 found at line ${i} after H1: ${JSON.stringify(line)}`);
@@ -271,20 +324,26 @@ export default {
             
             // Fallback: Try regex patterns if line-by-line didn't work
             if (!h4MarkdownMatch) {
-              // Pattern 1: Exact 4 hashes at start of line
-              h4MarkdownMatch = headerContent.match(/^####\s+(.+?)(?:\n|$)/m);
+              // Pattern 1: Exact 4 hashes at start of line (with optional leading whitespace)
+              h4MarkdownMatch = headerContent.match(/^\s*####\s+(.+?)(?:\n|$)/m);
               console.log("extractHeroData: Pattern 1 (^####):", h4MarkdownMatch);
               
-              // Pattern 2: Exact 5 hashes at start of line
+              // Pattern 2: Exact 5 hashes at start of line (with optional leading whitespace)
               if (!h4MarkdownMatch) {
-                h4MarkdownMatch = headerContent.match(/^#####\s+(.+?)(?:\n|$)/m);
+                h4MarkdownMatch = headerContent.match(/^\s*#####\s+(.+?)(?:\n|$)/m);
                 console.log("extractHeroData: Pattern 2 (^#####):", h4MarkdownMatch);
               }
               
-              // Pattern 3: #### anywhere (not just start of line)
+              // Pattern 3: #### anywhere (not just start of line, but must be followed by space and text)
               if (!h4MarkdownMatch) {
-                h4MarkdownMatch = headerContent.match(/####\s+(.+)/);
+                h4MarkdownMatch = headerContent.match(/####\s+([^\n]+)/);
                 console.log("extractHeroData: Pattern 3 (#### anywhere):", h4MarkdownMatch);
+              }
+              
+              // Pattern 4: ##### anywhere
+              if (!h4MarkdownMatch) {
+                h4MarkdownMatch = headerContent.match(/#####\s+([^\n]+)/);
+                console.log("extractHeroData: Pattern 4 (##### anywhere):", h4MarkdownMatch);
               }
             }
             
@@ -307,19 +366,25 @@ export default {
                 } else if (line.match(/^#\s+/)) {
                   h1Found = true;
                   console.log(`extractHeroData: H1 found at line ${i}: ${JSON.stringify(line)}`);
-                  // Also check if the next non-empty line is h4
+                  // Also check if the next non-empty line is h4 (keep searching, don't stop at first non-empty line)
                   for (let j = i + 1; j < lines.length; j++) {
                     const nextLine = lines[j].trim();
                     if (nextLine) {
                       console.log(`extractHeroData: Next non-empty line ${j}: ${JSON.stringify(nextLine)}`);
-                      if (nextLine.match(/^####\s+/)) {
+                      // Check for h4 or h5 (with or without leading whitespace)
+                      const h4Match = nextLine.match(/^\s*####\s+(.+)$/) || nextLine.match(/^\s*#####\s+(.+)$/);
+                      if (h4Match && h4Match[1]) {
                         // Found h4 right after h1
-                        tag = nextLine.replace(/^####\s+/, '').trim();
+                        tag = h4Match[1].trim();
                         tag = tag.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
                         console.log("Tag extracted from markdown (h4 right after h1):", tag);
                         break;
                       }
-                      break; // Stop after first non-empty line
+                      // Don't break here - continue searching for h4/h5 even if this line isn't one
+                      // Only break if we've checked several lines and found nothing
+                      if (j > i + 5) {
+                        break; // Stop after checking a few lines
+                      }
                     }
                   }
                 }
@@ -340,17 +405,33 @@ export default {
           }
           
           // Final fallback: if still no tag, try to find any #### line in header (anywhere, not just start of line)
-          if (!tag && !isHTML) {
-            // Try exact 4 hashes first
-            const anyH4Match = headerContent.match(/####\s+(.+)/) || 
-                              headerContent.match(/#####\s+(.+)/) ||
-                              // Also try to find any line with 4+ hashes that's not h1
-                              headerContent.match(/^#{2,6}\s+(.+)$/m);
+          // Try both HTML and markdown patterns as a last resort
+          if (!tag) {
+            // First try markdown pattern (even if we thought it was HTML)
+            const anyH4Match = headerContent.match(/####\s+([^\n]+)/) || 
+                              headerContent.match(/#####\s+([^\n]+)/) ||
+                              // Also try to find any line with 4+ hashes that's not h1 (h2-h6)
+                              headerContent.match(/^\s*#{2,6}\s+([^\n]+)$/m);
             if (anyH4Match && anyH4Match[1]) {
               tag = anyH4Match[1].trim();
               // Clean up newlines and extra whitespace
               tag = tag.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
-              console.log("Tag extracted (final fallback - any h4):", tag);
+              console.log("Tag extracted (final fallback - markdown pattern):", tag);
+            } else {
+              // Try HTML pattern as well (even if we thought it was markdown)
+              const htmlH4Match = headerContent.match(/<h4[^>]*>([\s\S]*?)<\/h4>/i) || 
+                                 headerContent.match(/<h5[^>]*>([\s\S]*?)<\/h5>/i);
+              if (htmlH4Match && htmlH4Match[1]) {
+                tag = htmlH4Match[1].trim();
+                // Strip any nested HTML tags
+                tag = tag.replace(/<[^>]+>/g, '');
+                // Decode HTML entities
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = tag;
+                tag = tempDiv.textContent || tempDiv.innerText || tag;
+                tag = tag.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
+                console.log("Tag extracted (final fallback - HTML pattern):", tag);
+              }
             }
           }
           
@@ -409,11 +490,39 @@ export default {
       }
 
       // Extract first image (skip images in HTML comments)
+      // Priority: images inside header tags first, then first image after header
+      let headerImage = "";
+      let fallbackImage = "";
+      let headerClosedAtLine = -1;
+      
+      console.log("extractHeroData: ========== STARTING IMAGE EXTRACTION ==========");
       const lines = markdown.split('\n');
+      let insideHeader = false;
+      
+      console.log("extractHeroData: Total lines to process:", lines.length);
+      console.log("extractHeroData: First 10 lines:", lines.slice(0, 10).map((l, i) => `${i}: ${JSON.stringify(l)}`));
+      
       for (let i = 0; i < lines.length; i++) {
         const line = lines[i];
+        
+        // Track if we're inside header tags (case-insensitive)
+        if (line.toLowerCase().includes('<header')) {
+          insideHeader = true;
+          console.log(`extractHeroData: Entered header at line ${i}:`, JSON.stringify(line));
+        }
+        if (line.toLowerCase().includes('</header>')) {
+          console.log(`extractHeroData: Exited header at line ${i}:`, JSON.stringify(line));
+          headerClosedAtLine = i;
+          insideHeader = false;
+        }
+        
         const imageMatch = line.match(/!\[[^\]]*\]\(([^)]+)\)/);
         if (imageMatch) {
+          console.log(`extractHeroData: Found image match at line ${i} (0-indexed):`, imageMatch[1]);
+          console.log(`extractHeroData: Line content:`, JSON.stringify(line));
+          console.log(`extractHeroData: Currently insideHeader:`, insideHeader);
+          console.log(`extractHeroData: Header closed at line (0-indexed):`, headerClosedAtLine);
+          
           // Check if this line is in a comment
           let inComment = false;
           for (let j = i - 1; j >= 0; j--) {
@@ -423,17 +532,83 @@ export default {
               break;
             }
           }
-          if (!inComment) {
-            image = imageMatch[1];
-            // Convert relative path to asset path
-            if (image.startsWith('../images/')) {
-              image = image.replace('../images/', '');
-            } else if (image.startsWith('/images/')) {
-              image = image.replace('/images/', '');
-            }
+          
+          if (inComment) {
+            console.log(`extractHeroData: Image at line ${i} is in a comment, skipping`);
+            continue;
+          }
+          
+          const imagePath = imageMatch[1];
+          console.log(`extractHeroData: Processing image path:`, imagePath);
+          
+          // Convert relative path to asset path
+          let processedPath = imagePath;
+          if (processedPath.startsWith('../images/')) {
+            processedPath = processedPath.replace('../images/', '');
+            console.log(`extractHeroData: Removed ../images/ prefix, result:`, processedPath);
+          } else if (processedPath.startsWith('/images/')) {
+            processedPath = processedPath.replace('/images/', '');
+            console.log(`extractHeroData: Removed /images/ prefix, result:`, processedPath);
+          } else if (processedPath.startsWith('./images/')) {
+            processedPath = processedPath.replace('./images/', '');
+            console.log(`extractHeroData: Removed ./images/ prefix, result:`, processedPath);
+          }
+          
+          // Check if image is inside header OR right after header closes (within 5 lines)
+          const isRightAfterHeader = headerClosedAtLine >= 0 && i > headerClosedAtLine && i <= headerClosedAtLine + 5;
+          console.log(`extractHeroData: isRightAfterHeader calculation:`, {
+            headerClosedAtLine,
+            currentLine: i,
+            condition1: headerClosedAtLine >= 0,
+            condition2: i > headerClosedAtLine,
+            condition3: i <= headerClosedAtLine + 5,
+            result: isRightAfterHeader
+          });
+          
+          // Priority: header image > image right after header > first image anywhere
+          if (insideHeader && !headerImage) {
+            headerImage = processedPath;
+            console.log("extractHeroData: ✓✓✓ IMAGE FOUND IN HEADER ✓✓✓");
+            console.log("extractHeroData: Original path:", imagePath);
+            console.log("extractHeroData: Processed path:", processedPath);
+            console.log("extractHeroData: Header image set to:", headerImage);
+            // Stop searching once we find image in header
             break;
+          } else if (isRightAfterHeader && !headerImage) {
+            headerImage = processedPath;
+            console.log("extractHeroData: ✓✓✓ IMAGE FOUND RIGHT AFTER HEADER ✓✓✓");
+            console.log("extractHeroData: Line number:", i, "Header closed at:", headerClosedAtLine);
+            console.log("extractHeroData: Original path:", imagePath);
+            console.log("extractHeroData: Processed path:", processedPath);
+            console.log("extractHeroData: Header image set to:", headerImage);
+            // Stop searching once we find image right after header
+            break;
+          } else if (!fallbackImage) {
+            // Store first image as fallback (will be used if no header image found)
+            fallbackImage = processedPath;
+            console.log("extractHeroData: Image found (stored as fallback):", fallbackImage);
+            console.log("extractHeroData: Will continue searching for header image...");
+            // Don't break here - continue looking for header image
           }
         }
+      }
+      
+      console.log("extractHeroData: ========== IMAGE EXTRACTION COMPLETE ==========");
+      
+      // Use header image if found, otherwise use first fallback image
+      // This ensures we always use the first image for the hero if available
+      image = headerImage || fallbackImage;
+      console.log("extractHeroData: Final extracted image path:", image);
+      console.log("extractHeroData: Header image was:", headerImage);
+      console.log("extractHeroData: Fallback image was:", fallbackImage);
+      console.log("extractHeroData: Using image:", image);
+      console.log("extractHeroData: Image type:", typeof image);
+      console.log("extractHeroData: Image length:", image ? image.length : 0);
+      
+      if (image) {
+        console.log("extractHeroData: ✓✓✓ Image will be used for hero:", image);
+      } else {
+        console.log("extractHeroData: ✗✗✗ No image found for hero");
       }
 
       return { title, tag, image };
@@ -451,7 +626,23 @@ export default {
       
       if (isHTML) {
         // Handle HTML content
+        // First, extract and remember which image was in the header (if any)
+        let headerImageSrc = null;
+        const headerBlockMatch = processed.match(/<header[^>]*>([\s\S]*?)<\/header>/i);
+        if (headerBlockMatch && headerBlockMatch[1]) {
+          const headerContent = headerBlockMatch[1];
+          // Try to find image in header content (both markdown and HTML formats)
+          const headerImageMatch = headerContent.match(/!\[[^\]]*\]\(([^)]+)\)/) ||
+                                  headerContent.match(/<img[^>]+src=["']([^"']+)["'][^>]*>/i) ||
+                                  headerContent.match(/<img[^>]+src=([^\s>]+)/i);
+          if (headerImageMatch) {
+            headerImageSrc = headerImageMatch[1].replace(/["']/g, '');
+            console.log("removeHeaderAndFirstImage: Found image in header (HTML):", headerImageSrc);
+          }
+        }
+        
         // Remove <header> block if it exists
+        // This already removes any images inside the header
         processed = processed.replace(/<header[^>]*>[\s\S]*?<\/header>/gi, '');
         
         // Remove first <h1> if it's at the start (from header extraction)
@@ -463,12 +654,35 @@ export default {
           processed = processed.replace(/^\s*<h[45][^>]*>.*?<\/h[45]>\s*/i, '');
         }
         
-        // Remove first image if it's right after header
-        processed = processed.replace(/^\s*<img[^>]*>\s*/i, '');
-        processed = processed.replace(/^\s*<p>\s*<img[^>]*>\s*<\/p>\s*/i, '');
+        // Only remove the first image if it matches the one that was in the header
+        // This prevents removing images that should be in the content
+        if (headerImageSrc) {
+          // Try to match the header image and remove it
+          const imageRegex = new RegExp(`<img[^>]+src=["']?${headerImageSrc.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["']?[^>]*>`, 'i');
+          processed = processed.replace(imageRegex, '');
+          // Also try wrapped in <p> tags
+          processed = processed.replace(new RegExp(`<p>\\s*<img[^>]+src=["']?${headerImageSrc.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["']?[^>]*>\\s*</p>`, 'i'), '');
+          console.log("removeHeaderAndFirstImage: Removed header image from content (HTML)");
+        }
+        // If no header image was found, don't remove any images - they should all stay in content
       } else {
         // Handle raw markdown
+        // First, extract and remember which image was in the header (if any)
+        // so we can remove it specifically, not just any first image
+        let headerImagePath = null;
+        const headerBlockMatch = processed.match(/<header[^>]*>([\s\S]*?)<\/header>/i);
+        if (headerBlockMatch && headerBlockMatch[1]) {
+          const headerContent = headerBlockMatch[1];
+          // Try to find image in header content
+          const headerImageMatch = headerContent.match(/!\[[^\]]*\]\(([^)]+)\)/);
+          if (headerImageMatch) {
+            headerImagePath = headerImageMatch[1];
+            console.log("removeHeaderAndFirstImage: Found image in header:", headerImagePath);
+          }
+        }
+        
         // Remove header block (including h1 and tag) - old format
+        // This already removes any images inside the header
         processed = processed.replace(/<header[^>]*>[\s\S]*?<\/header>/gi, '');
         
         // Remove leading HTML comments
@@ -478,29 +692,72 @@ export default {
         // Only if it's at the very start (after comments removed)
         processed = processed.replace(/^#\s+.+?\n+/m, '');
         
-        // Remove first image (if it's right after title/header, not in comments)
+        // Remove the first image if it matches the one that was in the header
+        // OR if there was no header image, remove the first image right after header (within 5 lines)
         const lines = processed.split('\n');
-        let imageRemoved = false;
-        for (let i = 0; i < lines.length && !imageRemoved; i++) {
-          const line = lines[i];
-          const imageMatch = line.match(/!\[[^\]]*\]\([^)]+\)/);
-          if (imageMatch) {
-            // Check if this line is in a comment
-            let inComment = false;
-            for (let j = i - 1; j >= 0; j--) {
-              if (lines[j].includes('-->')) break;
-              if (lines[j].includes('<!--')) {
-                inComment = true;
+        
+        if (headerImagePath) {
+          // Remove the specific header image
+          for (let i = 0; i < lines.length; i++) {
+            const line = lines[i];
+            const imageMatch = line.match(/!\[[^\]]*\]\(([^)]+)\)/);
+            if (imageMatch && imageMatch[1] === headerImagePath) {
+              // Check if this line is in a comment
+              let inComment = false;
+              for (let j = i - 1; j >= 0; j--) {
+                if (lines[j].includes('-->')) break;
+                if (lines[j].includes('<!--')) {
+                  inComment = true;
+                  break;
+                }
+              }
+              if (!inComment) {
+                // Remove this specific image line (the one from header)
+                lines.splice(i, 1);
+                console.log("removeHeaderAndFirstImage: Removed header image from content");
                 break;
               }
             }
-            if (!inComment) {
-              // Remove this image line
-              lines.splice(i, 1);
-              imageRemoved = true;
+          }
+        } else {
+          // No image in header - check if first image is right after header (within 5 lines)
+          // Find where header would have been (look for empty lines or h1 that was removed)
+          let headerEndIndex = -1;
+          for (let i = 0; i < lines.length; i++) {
+            const line = lines[i].trim();
+            // Header was already removed, so look for first non-empty line or h2 as marker
+            if (line && !line.startsWith('<!--') && !line.startsWith('#')) {
+              headerEndIndex = i;
+              break;
+            }
+          }
+          
+          // Remove first image if it's within 5 lines of where header ended
+          if (headerEndIndex >= 0) {
+            for (let i = headerEndIndex; i < Math.min(headerEndIndex + 5, lines.length); i++) {
+              const line = lines[i];
+              const imageMatch = line.match(/!\[[^\]]*\]\(([^)]+)\)/);
+              if (imageMatch) {
+                // Check if this line is in a comment
+                let inComment = false;
+                for (let j = i - 1; j >= 0; j--) {
+                  if (lines[j].includes('-->')) break;
+                  if (lines[j].includes('<!--')) {
+                    inComment = true;
+                    break;
+                  }
+                }
+                if (!inComment) {
+                  // Remove this image (it's the hero image)
+                  lines.splice(i, 1);
+                  console.log("removeHeaderAndFirstImage: Removed first image after header (hero image)");
+                  break;
+                }
+              }
             }
           }
         }
+        
         processed = lines.join('\n');
       }
       
@@ -591,7 +848,9 @@ export default {
           console.log("MarkdownPage: Extracted hero data:", heroData);
           console.log("MarkdownPage: Hero data title:", heroData?.title);
           console.log("MarkdownPage: Hero data tag:", heroData?.tag);
+          console.log("MarkdownPage: Hero data image:", heroData?.image);
           console.log("MarkdownPage: Hero data tag length:", heroData?.tag?.length || 0);
+          console.log("MarkdownPage: Hero data image length:", heroData?.image?.length || 0);
           console.log("MarkdownPage: Hero data title type:", typeof heroData?.title);
           console.log("MarkdownPage: Hero data title truthy:", !!heroData?.title);
           console.log("MarkdownPage: Hero data title length:", heroData?.title?.length || 0);
@@ -628,6 +887,7 @@ export default {
           newTag,
           newSubtitle,
           newImage,
+          newImageLength: newImage.length,
           newTagLength: newTag.length,
           newSubtitleLength: newSubtitle.length
         });
@@ -637,6 +897,20 @@ export default {
         heroTag.value = newTag;
         heroSubtitle.value = newSubtitle;
         heroImage.value = newImage;
+        
+        console.log("MarkdownPage: ========== IMAGE EXTRACTION SUMMARY ==========");
+        console.log("MarkdownPage: heroImage.value set to:", JSON.stringify(heroImage.value));
+        console.log("MarkdownPage: heroImage.value type:", typeof heroImage.value);
+        console.log("MarkdownPage: heroImage.value truthy:", !!heroImage.value);
+        console.log("MarkdownPage: heroImage.value length:", heroImage.value.length);
+        console.log("MarkdownPage: heroImage.value trimmed:", JSON.stringify(heroImage.value.trim()));
+        console.log("MarkdownPage: Expected path format: article/without-tokens.png or casestudy/genie/genie.png");
+        console.log("MarkdownPage: Will this path be in imageMap?", {
+          direct: !!imageMap[heroImage.value.trim()],
+          withDot: !!imageMap[`./${heroImage.value.trim()}`],
+          sampleKeys: Object.keys(imageMap).filter(k => k.includes('article') || k.includes('genie')).slice(0, 5)
+        });
+        console.log("MarkdownPage: ==============================================");
         
         console.log("MarkdownPage: Hero values set:", {
           title: heroTitle.value,
@@ -703,6 +977,86 @@ export default {
       return result;
     });
 
+    // Computed property for hero image source
+    const heroImageSrc = computed(() => {
+      if (!heroImage.value) {
+        console.log("heroImageSrc: No heroImage value");
+        return null;
+      }
+      
+      const imagePath = heroImage.value.trim();
+      console.log("heroImageSrc: Original image path from extraction:", imagePath);
+      
+      // Clean up the path - remove any leading/trailing slashes and normalize
+      // The extraction already removes ../images/ prefix, so we should have clean path like "casestudy/genie/genie.png"
+      let cleanPath = imagePath;
+      
+      // Remove any remaining image path prefixes (in case extraction didn't catch them)
+      cleanPath = cleanPath.replace(/^(images\/|\.\/images\/|\/images\/|\.\.\/images\/|assets\/images\/)/, '');
+      // Remove any leading/trailing slashes
+      cleanPath = cleanPath.replace(/^\/+|\/+$/g, '');
+      
+      console.log("heroImageSrc: Cleaned path:", cleanPath);
+      console.log("heroImageSrc: Looking up in imageMap...");
+      console.log("heroImageSrc: Total images in map:", Object.keys(imageMap).length);
+      
+      // Try multiple lookup strategies
+      const lookupKeys = [
+        cleanPath, // Direct match: "article/without-tokens.png"
+        `./${cleanPath}`, // With ./ prefix: "./article/without-tokens.png"
+        imagePath, // Original extracted path
+        imagePath.replace(/^(\.\.\/images\/|images\/|\.\/images\/|\/images\/)/, ''), // Remove any image prefix
+      ];
+      
+      // Also try filename only if path has subdirectories
+      if (cleanPath.includes('/')) {
+        const filename = cleanPath.split('/').pop();
+        lookupKeys.push(filename);
+      }
+      
+      console.log("heroImageSrc: Trying lookup keys:", lookupKeys);
+      
+      for (const lookupKey of lookupKeys) {
+        const normalized = lookupKey.replace(/^\.\//, '').replace(/^\/+|\/+$/g, '');
+        console.log(`heroImageSrc: Checking key: "${normalized}"`, imageMap[normalized] ? '✓ FOUND' : '✗ not found');
+        if (imageMap[normalized]) {
+          console.log("heroImageSrc: ✓✓✓ SUCCESS! Found image with key:", normalized);
+          return imageMap[normalized];
+        }
+      }
+      
+      // Debug: show some actual keys from the map for comparison
+      const sampleKeys = Object.keys(imageMap).filter(k => 
+        k.includes('without-tokens') || 
+        k.includes('genie.png') || 
+        k.includes('article') || 
+        k.includes('casestudy')
+      );
+      console.log("heroImageSrc: Relevant keys in map:", sampleKeys);
+      
+      // Fallback: try require() as last resort (might work for some cases)
+      try {
+        const imageSrc = require(`../assets/images/${cleanPath}`);
+        console.log("heroImageSrc: ✓ Found image with require():", cleanPath);
+        return imageSrc;
+      } catch (error) {
+        console.warn("heroImageSrc: require() also failed:", error.message);
+      }
+      
+      console.error("heroImageSrc: ✗ All lookup attempts failed for:", imagePath);
+      console.error("heroImageSrc: Cleaned path was:", cleanPath);
+      console.error("heroImageSrc: Tried lookup keys:", lookupKeys);
+      console.error("heroImageSrc: Returning fallback image");
+      
+      // Return fallback image if main image fails to load
+      return fallbackImage;
+    });
+
+    // Fallback image source (always available)
+    const fallbackImageSrc = computed(() => {
+      return fallbackImage;
+    });
+
     return {
       pageData,
       markdownContent,
@@ -715,6 +1069,8 @@ export default {
       heroTag,
       heroSubtitle,
       heroImage,
+      heroImageSrc,
+      fallbackImageSrc,
       shouldShowHero,
       statsLabel1,
       statsValue1,
@@ -1040,5 +1396,27 @@ export default {
 
 #related-writing-section {
   background: transparent !important;
+}
+
+.hero-fullscreen-image {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  
+  &__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 0;
+    max-height: 25vh;
+    
+    @media only screen and (min-width: 768px) {
+      max-height: 50vh;
+      object-fit: cover;
+    }
+  }
 }
 </style>

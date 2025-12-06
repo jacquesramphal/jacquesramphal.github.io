@@ -4,10 +4,9 @@
 
 #### I'm Jacques, a Senior Product Designer and design lead based in Toronto. I work at the intersection of design systems, code, and AI—designing experiences that actually ship.
 
+![Genie Core Functions Diagram](../images/casestudy/genie/genie.png)
 
 </header>
-
-![Genie Core Functions Diagram](../images/casestudy/genie/genie.png)
 
 ## What is Genie?
 
