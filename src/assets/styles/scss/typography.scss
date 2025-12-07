@@ -83,7 +83,7 @@ body:has(input[value="Serif"]:checked) .display h1 {
 
 h1 {
   font-size: var(--font-900);
-  font-weight: var(--fontWeight-medium);
+  font-weight: var(--fontWeight-bold);
   line-height: var(--lineHeight-shorter);
   letter-spacing: var(--letterSpacing-tight) !important;
   /*  overflow-wrap: break-word;
@@ -538,7 +538,6 @@ h1>a:hover {
   }
   h2 {
     font-size: var(--size-12);
-
   }
 }
 

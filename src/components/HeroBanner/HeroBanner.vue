@@ -17,7 +17,6 @@
               isHtml
               :attrs="{ id: 'eyebrow' }"
               class="subtle"
-
             />
           <!-- <component
             :is="breadcrumb ? 'TextLink' : 'p'"
@@ -281,11 +280,13 @@ img {
   overflow: hidden !important;
   position: relative;
   block-size: auto;
+  padding-block-end: var(--spacing-xs);
   @media only screen and (min-width: 768px) {
     background-position: 100% 100%;
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 60vh;
+    padding-block-end: var(--spacing-sm);
   }
 }
 .herobanner--background {
