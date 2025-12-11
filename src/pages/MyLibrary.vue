@@ -5,7 +5,7 @@
       id="hero"
       title="Library"
       subtitle="
-A curated collection of my professional and personal projects, musings, and reflective thoughts."
+A curated collection of my writing, professional work, and personal projects."
     />
     <!-- <TextImage
       :eyebrow="work.featEyebrow"
@@ -15,16 +15,52 @@ A curated collection of my professional and personal projects, musings, and refl
       :label="work.label"
       :filename="work.featImage"
     /> -->
-    <GridContainer>
+    
+    <!-- WRITING SECTION - MOVED TO TOP FOR PROMINENCE -->
+    <GridContainer id="writing" class="animate delay-1">
       <GridParent
         style="padding-block-end: var(--spacing-md); align-items: center"
       >
         <TextBlock
           as="h2"
-          style="grid-column: 1 / 2"
-          title="Work"
+          style="grid-column: 1 / 3"
+          title="Writing"
           description=""
         />
+        <!-- description="Thoughts on design systems, AI/AX patterns, design-development integration, and the evolving landscape of product design." -->
+
+      </GridParent>
+      <GridParent tight class="">
+        <ArticleCard
+          borderless
+          v-for="entry in docs.entries"
+          :alt="entry.alt"
+          :description="entry.description"
+          :filename="entry.thumbnail"
+          :key="entry.id"
+          :label="entry.label"
+          :route="entry.route"
+          :btnroute="entry.btnroute"
+          :eyebrow="entry.eyebrow"
+          :title="entry.title"
+        />
+      </GridParent>
+    </GridContainer>
+
+    <!-- WORK SECTION -->
+    <GridContainer id="work">
+      <GridParent
+        style="padding-block-end: var(--spacing-md); align-items: center"
+      >
+        <TextBlock
+          as="h2"
+          style="grid-column: 1 / 3"
+          title="Work"
+          description=""
+          
+        />
+        <!-- description="Case studies and project work showcasing design systems, AI/AX design, and design-development integration." -->
+
       </GridParent>
       <!-- 
       <input type="radio" id="All" name="categories" value="All" checked />
@@ -125,7 +161,8 @@ A curated collection of my professional and personal projects, musings, and refl
         <p>No results found.</p>
       </div>
     </GridContainer>
-    <GridContainer>
+    <!-- PLAY SECTION - HIDDEN FOR NOW -->
+    <!-- <GridContainer id="play">
       <GridParent
         style="padding-block-end: var(--spacing-md); align-items: center"
       >
@@ -133,7 +170,7 @@ A curated collection of my professional and personal projects, musings, and refl
           as="h2"
           style="grid-column: 1 / 3"
           title="Play"
-          description=""
+          description="Experimental projects, tools, and personal explorations in design and development."
         />
       </GridParent>
       
@@ -165,42 +202,9 @@ A curated collection of my professional and personal projects, musings, and refl
         />
       </GridParent>
       <div v-else>
-        <!-- Not working -->
         <p>No results found.</p>
       </div>
-    </GridContainer>
-
-    <GridContainer id="docs" class="animate delay-2">
-   
-      <GridParent
-        style="padding-block-end: var(--spacing-md); align-items: center"
-      >
-        <TextBlock
-          as="h2"
-          style="grid-column: 1 / 3"
-          title="Writing"
-          id="writing"
-          description=""
-        />
-      </GridParent>
-      <GridParent tight class="">
-       
-        <ArticleCard
-          borderless
-          v-for="entry in docs.entries"
-          :alt="entry.alt"
-          :description="entry.description"
-          :filename="entry.thumbnail"
-          :key="entry.id"
-          :label="entry.label"
-          :route="entry.route"
-          :btnroute="entry.btnroute"
-          :eyebrow="entry.eyebrow"
-          :title="entry.title"
-        />
-      </GridParent>
-    </GridContainer>
-    <!-- <CardRow2 /> -->
+    </GridContainer> -->
   </PageWrapper>
 </template>
 

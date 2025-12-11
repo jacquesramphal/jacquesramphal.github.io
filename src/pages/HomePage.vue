@@ -13,78 +13,12 @@
     />
     <!-- :title="title" -->
 
-    <!-- HEADER COMPONENT START -->
-    <GridContainer style="padding-block-end: var(--spacing-md) !important">
-      <div
-        class="grid-parent"
-        style="align-items: center; grid-template-columns: repeat(3, 1fr)"
-      >
-        <TextBlock
-          style="grid-column: 1 / 3"
-          flex="1"
-          title="Work & Play"
-          as="h2"
-          description=""
-        />
+    <!-- WRITING SECTION - MOVED UP FOR PROMINENCE -->
+    <AnimatedComponent>
+      <CardRow2 />
+    </AnimatedComponent>
 
-        <p class="justify-end" style="align-self: center">
-          <router-link :to="{ name: 'Library' }">View All</router-link>
-        </p>
-      </div>
-    </GridContainer>
-    <!-- HEADER COMPONENT END -->
-    <GridContainer style="padding-block-start: 0 !important">
-      <GridParent tight id="recentwork ">
-        <ImageCard
-          class="post"
-          :eyebrow="work.featEyebrow"
-          :title="work.featTitle"
-          :description="work.featDescription"
-          :cta="work.label"
-          :route="work.route"
-          :btnroute="work.btnroute"
-          :filename3="work.featImage"
-          size="small"
-          :style="work.bgcolor"
-        />
-      
-
-        <ImageCard   alt="J Monogram" filename1="work/j.svg" id="top" />
-        <ImageCard2
-          alt="Avatar"
-          class="hidemobile"
-          filename1="avatar/avatar.svg"
-          title="Avatar"
-        />
-        <ImageCard
-          alt="Avatar"
-          class="showmobile"
-          filename1="avatar/avatar.svg"
-          title="Avatar"
-        />
-
-        <ImageCard
-          v-for="entry in work.entries.slice(0, 1)"
-          
-          :key="entry.id"
-          class="post"
-          :eyebrow="entry.tag"
-          :title="entry.title"
-          :description="entry.description"
-          :cta="entry.cta"
-          :route="entry.route"
-          :btnroute="entry.btnroute"
-          :link="entry.link"
-          :filename1="entry.filename1"
-          :filename2="entry.filename2"
-          :filename3="entry.filename3"
-          :alt="entry.alt"
-          :style="entry.bgcolor"
-          :size="entry.size"
-          :buttons="entry.buttonsData"
-        />
-      </GridParent>
-    </GridContainer>
+    <!-- ABOUT SECTION -->
     <AnimatedComponent>
       <TextGrid3
         title="About"
@@ -97,22 +31,57 @@
       />
     </AnimatedComponent>
 
-    <!-- <TextGrid
-      title="About"
-      as="h2"
-      description=""
-      eyebrow1="Full-stack Product Design"
-      detail1="From defining comprehensive design systems to ensuring the highest quality in execution, I specialize in full stack design that brings ideas to life with precision and creativity."
-      eyebrow2="Coaching"
-      detail2="Passionate about nurturing talent, I provide coaching and professional development to help individuals cross-skill, develop competitive abilities, and support junior designers in expanding their expertise into development."
-      eyebrow3="Design Critiques"
-      detail3="I offer constructive design critiques aimed at enhancing design quality and effectiveness, providing valuable feedback that helps refine and perfect visual and functional elements."
-      eyebrow4="Thought Leadership and Musing"
-      detail4="Sharing insights and exploring trends in design and technology, I engage in thought leadership and musing to inspire and influence the next generation of designers and developers."
-    /> -->
-    <AnimatedComponent>
-      <CardRow2 />
-    </AnimatedComponent>
+    <!-- FEATURED WORK SECTION - SPLIT FROM PLAY -->
+    <GridContainer style="padding-block-end: var(--spacing-md) !important">
+      <div
+        class="grid-parent"
+        style="align-items: center; grid-template-columns: repeat(3, 1fr)"
+      >
+        <TextBlock
+          style="grid-column: 1 / 3"
+          flex="1"
+          title="Featured Work"
+          as="h2"
+          description=""
+        />
+
+        <p class="justify-end" style="align-self: center">
+          <router-link :to="{ name: 'Library', hash: '#work' }">View All Work</router-link>
+        </p>
+      </div>
+    </GridContainer>
+    <GridContainer style="padding-block-start: 0 !important">
+      <GridParent tight id="recentwork">
+        <!-- Featured Genie Card - Only Featured Work Item -->
+        <ImageCard
+          class="post"
+          :eyebrow="work.featEyebrow"
+          :title="work.featTitle"
+          :description="work.featDescription"
+          :cta="work.label"
+          :route="work.route"
+          :btnroute="work.btnroute"
+          :filename3="work.featImage"
+          size="large"
+          :style="work.bgcolor"
+        />
+        
+        <!-- Decorative Cards -->
+        <!-- <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />
+        <ImageCard2
+          alt="Avatar"
+          class="hidemobile"
+          filename1="avatar/avatar.svg"
+          title="Avatar"
+        />
+        <ImageCard
+          alt="Avatar"
+          class="showmobile"
+          filename1="avatar/avatar.svg"
+          title="Avatar"
+        /> -->
+      </GridParent>
+    </GridContainer>
     <!-- <MyForm/> -->
 
 
@@ -225,6 +194,12 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    // Filter work entries to show only Work category (exclude Play)
+    filteredWorkEntries() {
+      return this.work.entries.filter(entry => entry.category === "Work");
+    },
   },
   created() {
     this.title = this.getRandomTitle();

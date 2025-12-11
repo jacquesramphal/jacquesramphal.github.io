@@ -9,56 +9,22 @@
       "id": 1,
       "title": "The Shifting Landscape of Design",
       "description": "The design industry is in a state of flux. The landscape is shifting, and the role of the designer is evolving. The days of the designer as a pixel pusher are long gone. The designer of today is a strategic thinker, a problem solver, and a storyteller. The designer of today is a leader, a collaborator, and a change agent. The designer of today is a business person, a technologist, and a futurist.",
-      "eyebrow": "Design AI Tools",
+      "eyebrow": "Design Evolution AI",
       "route": "/doc/13",
       "thumbnail": "article/cover1.png",
       "alt": "Article: The Shifting Landscape of Design"
     },
     {
       "id": 2,
-      "title": "The Importance of Baselines",
-      "eyebrow": "Tag1 Tag2 typography",
-      "description": "Baselines provide a stable and known starting point for comparison during software development and testing. By comparing changes or new versions against the baseline, discrepancies, bugs, or regressions can be easily identified, ensuring software quality and reliability throughout its development life cycle.",
+      "title": "Baselines & Design QA: Setting the Foundation for Quality",
+      "eyebrow": "Quality Process",
+      "description": "How early baselines make Design QA effortless. When you set design baselines before implementation begins, you prevent problems from taking root. The result? Less testing needed later, fewer discrepancies to catch, and a shared understanding of what 'done' looks like.",
       "route": "/doc/1",
       "thumbnail": "article/cover2.png",
-      "alt": "Article: The Importance of Baselines"
+      "alt": "Article: Baselines & Design QA"
     },
-    {
-      "id": 3,
-      "title": "The Future-Proof Toolkit for Front-end Design",
-      "eyebrow": "Tag1 Tag2 typography",
-      "description": "Currently knee-deep in the sea of design tools, much like we've always been, we realize that the current industry standard file format is just a pitstop on the journey – a tool bound to be succeeded by something else down the line. It's a matter of time before we navigate a new terrain, and design tools become a stepping stone in the ongoing design evolution.",
-      "route": "/doc/12",
-      "thumbnail": "article/cover3.png",
-      "alt": "Article:: The Future-Proof Toolkit for Front-end Design"
-    },
-    {
-      "id": 4,
-      "title": "Embracing Design QA",
-      "eyebrow": "Tag1 Tag2 DesignQA",
-      "description": "In our pursuit of perfection, we've introduced Design Quality Assurance (DQA) at our company. This isn't just a change in terminology—it's a fundamental shift in how we approach the bridge between design and development. So, why the new focus? DQA is about more than catching bugs; it's about ensuring our designs not only look good but function beautifully right from the start.",
-      "route": "/doc/17",
-      "thumbnail": "article/cover4.png",
-      "alt": "Article: Embracing Design QA"
-    },
-    {
-      "id": 5,
-      "title": "CSS Configuration Starter",
-      "eyebrow": "CSS Accelerator",
-      "description": "This CSS starter configuration is designed to provide a comprehensive scaffolding for styling a website. It includes a robust set of variables for colors, typography, spacing, and more, allowing for extensive customization. The configuration supports both light and dark themes and is structured to be easily adaptable to various design needs.",
-      "route": "/doc/18",
-      "thumbnail": "article/cover4.png",
-      "alt": "Article: CSS Configuration Starter"
-    },
-    {
-      "id": 6,
-      "title": "Dynamic Text Component",
-      "eyebrow": "Snippet Typography",
-      "description": "The `DynamicText` component is a flexible Vue component designed to render text as plain text or HTML. It dynamically determines the rendering mode based on a Boolean prop. Below, you'll find usage examples for Vue, plain HTML, and React.",
-      "route": "/doc/19",
-      "thumbnail": "article/cover2.png",
-      "alt": "Article: Dynamic Text Component"
-    },
+
+    
     {
       "id": 7,
       "title": "The Value of Writing",
@@ -67,6 +33,24 @@
       "route": "/doc/27",
       "thumbnail": "article/jacques.jpg",
       "alt": "Article: Writing for Non-Writers"
+    },
+    {
+      "id": 8,
+      "title": "Building My Portfolio: A Design System Playground",
+      "eyebrow": "Case Study Design Systems",
+      "description": "A living portfolio site that serves as both a showcase and a design system playground. Features a fully-styled markdown renderer, token-based theming with user mode switching, variable font typography, reusable components, and an AI chatbot trained on site content.",
+      "route": "/doc/36",
+      "thumbnail": "gennifer.png",
+      "alt": "Portfolio Site: Design System Playground"
+    },
+    {
+      "id": 9,
+      "title": "Designing Genie: Pioneering UX Patterns for Agentic AI",
+      "eyebrow": "Agentic AI Design",
+      "description": "An agentic orchestration layer for delivery operations that connects to project ecosystems and continuously synthesizes context, surfaces insights, and automates workflows. Explores three mental model problems in designing for agentic AI: capability exposition, trust & transparency, and autonomy vs. control.",
+      "route": "/doc/32",
+      "thumbnail": "casestudy/genie/genie.png",
+      "alt": "Genie - Agentic AI Platform"
     }
   ]
 }

@@ -7,26 +7,33 @@
       style="scroll-snap-align: start"
       :title="heroTitle || 'Document'"
       :subtitle="heroSubtitle || 'No description available'"
-      :filename="heroImage"
       :background="false"
       :center="false"
       :breadcrumb="''"
     />
-    <div 
-      v-if="heroImageSrc"
+    <GridContainer 
+    tight
+      v-if="heroImageSrc && heroImage"
       class="hero-fullscreen-image"
       style="scroll-snap-align: start"
     >
-      <img
+    <img
         :src="heroImageSrc"
         :alt="heroTitle || 'Hero image'"
         draggable="false"
         class="hero-fullscreen-image__img"
       />
-    </div>
+      <!-- <ImageCard
+        :filename2="heroImage"
+        :alt="heroTitle || 'Hero image'"
+        variant="borderless"
+        :route="''"
+        size="large"
+        style="background-color: #FFB81C"
+      /> -->
+    </GridContainer>
     <GridContainer 
       v-if="showStats"
-      style="padding-block-start: var(--spacing-sm) !important"
     >
       <TextStats
         :label1="statsLabel1"
@@ -76,6 +83,7 @@ import HeroBanner from "@/components/HeroBanner/HeroBanner.vue";
 import TextStats from "@/components/card/TextStats.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
 import fallbackImage from "@/assets/images/placeholder.png";
+// import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
 
 // Pre-load all images using require.context so webpack can bundle them
 // This allows dynamic image loading at runtime
@@ -562,6 +570,7 @@ export default {
     };
   },
   components: {
+    // ImageCard,
     MarkdownTOC,
     HeroBanner,
     TextStats,
@@ -947,23 +956,42 @@ export default {
 }
 
 .hero-fullscreen-image {
-  width: 100%;
   display: block;
   overflow: hidden;
   margin: 0;
   padding: 0;
+  aspect-ratio: 16 / 9;
+  max-height: 75vh;
+  
+  :deep(.image-card) {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    img,
+    .filename1,
+    .filename2,
+    .filename3,
+    .bg,
+    .bg2 {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
   
   &__img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
     object-fit: cover;
-    border-radius: 0;
-    max-height: 25vh;
-    
+    object-position: top;
+
     @media only screen and (min-width: 768px) {
-      max-height: 50vh;
       object-fit: cover;
+      object-position: top;
     }
   }
 }

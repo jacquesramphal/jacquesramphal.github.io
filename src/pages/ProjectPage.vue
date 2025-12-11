@@ -23,8 +23,8 @@
 
     <GridContainer
       style="scroll-snap-align: start"
-      
       class="animate glow delay-1"
+      tight
     >
       <ImageCard
         size="large"
@@ -33,13 +33,14 @@
         :alt="`${entry.alt}`"
         route=""
         :style="`${entry.bgcolor}`"
-    /></GridContainer>
+      />
+    </GridContainer>
 
     <div class="section">
       <!-- <MarkdownRenderer :markdown="pageContent" /> -->
       <!-- <TextGrid2 /> -->
 
-      <TextGrid
+      <!-- <TextGrid
       :key="entry.id"
       title= "Key Focus Areas"
       as="h2"
@@ -52,7 +53,7 @@
         detail3="Enhancing the omnichannel experience to drive more in-store purchases."
         eyebrow4="Extensible and Maintainable Platform"
         detail4="Moving off a costly legacy platform to a more efficient and innovative system."
-      />
+      /> -->
 
       <!-- make label and route conditionally rendered -->
 
@@ -89,22 +90,6 @@
         </GridParent>
       </GridParent> -->
 
-      <GridContainer
-        rows
-        style="margin-block-end: var(--spacing-md) !important"
-        v-for="(section, j) in entry.entries"
-        :key="j"
-        class="fadeInUp"
-      >
-        <ImageCard
-          size="large"
-          class=""
-          title=""
-          :filename1="section.images.filename1"
-          :alt="section.images.alt"
-          :caption="section.images.caption"
-        />
-      </GridContainer>
       <GridContainer>
         <GridParent rows>
         
@@ -224,6 +209,9 @@
       :imageSrc="selectedImage"
       @close="closeImage"
     />
+    <div id="related-work-section" style="background: transparent !important;">
+      <CardRow2 title="Related Work"/>
+    </div>
   </PageWrapper>
 </template>
 
@@ -238,6 +226,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
+import CardRow2 from "@/components/CardRow2.vue";
 // import TextImage from "@/components/card/TextImage.vue";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -285,7 +274,7 @@ export default {
   components: {
     ImageCard,
     GridContainer,
-    // CardRow2,
+    CardRow2,
     // TextImage,
     FullscreenImage,
     // BreadCrumb,

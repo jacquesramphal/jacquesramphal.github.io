@@ -402,6 +402,7 @@ img {
     margin-inline-end: auto;
     // max-width: 86.4rem !important;
     justify-self: center;
+
   }
 }
 
