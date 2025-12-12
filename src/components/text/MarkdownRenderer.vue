@@ -529,7 +529,7 @@ export default {
 <style lang="scss">
 /* ---- MARKDOWN STYLING ---- */
 .markdown {
-  margin: var(--spacing-xl) 0;
+  // margin: var(--spacing-xl) 0;
   * {
     grid-column: 1 / 4;
     @media only screen and (min-width: 768px) {

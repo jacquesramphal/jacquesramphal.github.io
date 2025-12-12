@@ -14,36 +14,19 @@
     <GridContainer 
     tight
       v-if="heroImageSrc && heroImage"
-      class="hero-fullscreen-image"
       style="scroll-snap-align: start"
     >
-    <img
-        :src="heroImageSrc"
-        :alt="heroTitle || 'Hero image'"
-        draggable="false"
-        class="hero-fullscreen-image__img"
-      />
-      <!-- <ImageCard
-        :filename2="heroImage"
-        :alt="heroTitle || 'Hero image'"
-        variant="borderless"
-        :route="''"
-        size="large"
-        style="background-color: #FFB81C"
-      /> -->
+      <div class="hero-fullscreen-image">
+        <img
+          :src="heroImageSrc"
+          :alt="heroTitle || 'Hero image'"
+          draggable="false"
+          class="hero-fullscreen-image__img"
+        />
+      </div>
+  
     </GridContainer>
-    <GridContainer 
-      v-if="showStats"
-    >
-      <TextStats
-        :label1="statsLabel1"
-        :value1="statsValue1"
-        :label2="statsLabel2"
-        :value2="statsValue2"
-        :label3="statsLabel3"
-        :value3="statsValue3"
-      />
-    </GridContainer>
+   
     <GridContainer class="markdown-layout">
       <main id="markdown-content-end" class="markdown-main">
         <MarkdownRenderer
@@ -80,7 +63,7 @@ import router from "@/router";
 import frontMatter from "front-matter";
 import MarkdownTOC from "@/components/MarkdownTOC.vue";
 import HeroBanner from "@/components/HeroBanner/HeroBanner.vue";
-import TextStats from "@/components/card/TextStats.vue";
+// import TextStats from "@/components/card/TextStats.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
 import fallbackImage from "@/assets/images/placeholder.png";
 // import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
@@ -573,7 +556,7 @@ export default {
     // ImageCard,
     MarkdownTOC,
     HeroBanner,
-    TextStats,
+    // TextStats,
     GridContainer,
   },
   computed: {
@@ -842,24 +825,29 @@ export default {
             contentBottom = mainRect.bottom + scrollTop;
           }
           
+          // Top spacing when sticky (using CSS variable for consistency)
+          const stickyTopOffset = 80; // Space above TOC when sticky
+          const stickyTriggerOffset = 100; // How much before wrapper top to start sticking
+          
           // Calculate stop point: when sidebar bottom would align with content bottom
           // The sidebar should stop scrolling when its bottom reaches the content bottom
-          const stopPoint = contentBottom - sidebarHeight - 20; // 20px for top padding
+          const stopPoint = contentBottom - sidebarHeight - stickyTopOffset;
           
           // Get the wrapper's position to maintain right column alignment
           const wrapLeft = wrapRect.left;
           const wrapWidth = wrapElement.offsetWidth;
 
-          if (scrollTop + 20 < sidebarTop) {
-            // Before reaching the wrapper top - normal position at top
+          // Make it sticky sooner - trigger when we're still above the wrapper
+          if (scrollTop + stickyTriggerOffset < sidebarTop) {
+            // Before reaching the sticky trigger point - normal position at top
             sidebarElement.style.position = 'absolute';
             sidebarElement.style.top = '0';
             sidebarElement.style.left = '0';
             sidebarElement.style.width = '100%';
           } else if (scrollTop < stopPoint) {
-            // Between wrapper top and stop point - stick to top of viewport
+            // Between sticky trigger and stop point - stick to top of viewport with spacing
             sidebarElement.style.position = 'fixed';
-            sidebarElement.style.top = '20px';
+            sidebarElement.style.top = `${stickyTopOffset}px`;
             sidebarElement.style.left = `${wrapLeft}px`;
             sidebarElement.style.width = `${wrapWidth}px`;
           } else {
@@ -936,14 +924,14 @@ export default {
     height: fit-content;
     max-height: calc(100vh - 40px);
     overflow: visible;
-    padding-block-start: var(--spacing-lg);
+    padding-block-start: 0;
     box-sizing: border-box;
   }
 }
 
 .content {
   @media only screen and (min-width: 768px) {
-    padding-top: var(--spacing-lg);
+    // padding-top: var(--spacing-lg);
   }
 }
 
@@ -956,12 +944,11 @@ export default {
 }
 
 .hero-fullscreen-image {
-  display: block;
+  width: 100%;
   overflow: hidden;
-  margin: 0;
-  padding: 0;
   aspect-ratio: 16 / 9;
   max-height: 75vh;
+  position: relative;
   
   :deep(.image-card) {
     width: 100%;
@@ -987,11 +974,14 @@ export default {
     height: 100%;
     display: block;
     object-fit: cover;
-    object-position: top;
+    object-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
 
     @media only screen and (min-width: 768px) {
       object-fit: cover;
-      object-position: top;
+      object-position: center;
     }
   }
 }

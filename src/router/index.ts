@@ -140,11 +140,12 @@ router.beforeEach((to, from, next) => {
   // Determine if maintenance mode is enabled by default
   const maintenanceMode = true; // Set this to true by default
 
-  // Check if the application is running on localhost
-  const isLocalhost = window.location.hostname === "localhost";
+  // Check if the application is running on localhost or local network IP
+  const hostname = window.location.hostname;
+  const isLocalhost = hostname === "localhost" || hostname === "127.0.0.1" || hostname === "192.168.2.204";
 
   if (isLocalhost) {
-    // If it's localhost, disable maintenance mode
+    // If it's localhost or local network IP, disable maintenance mode
     next();
   } else if (maintenanceMode && to.name !== "MaintenancePage") {
     // If maintenance mode is enabled and not on the maintenance page, redirect to maintenance page

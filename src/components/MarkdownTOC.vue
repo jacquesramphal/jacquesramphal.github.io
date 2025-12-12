@@ -199,7 +199,7 @@ export default {
   overflow: visible;
   padding: 0;
   position: relative;
-  margin-block-start: var(--spacing-md);
+  margin-block-start: 0;
 
 }
 

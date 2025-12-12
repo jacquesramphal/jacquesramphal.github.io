@@ -8,7 +8,7 @@
 </header>
 ![Genie Core Functions Diagram](../images/article/without-tokens.png)
 
-## The Bedrock in Shifting Sand
+### The Bedrock in Shifting Sand
 
 I remember standing in a client workshop a few months ago, surrounded by designers, developers, and product folks. We were talking about the whirlwind of change in our industry – how AI is rewriting workflows, how new tools emerge every quarter, how designers and engineers are increasingly wearing each other’s hats. In this volatile landscape, someone asked: “What’s one thing we can invest in that won’t be outdated next year?” My answer was immediate: design tokens.
 
@@ -16,7 +16,7 @@ Design tokens aren’t new or shiny; they’ve been around long enough to lose t
 browserlondon.com
 . In other words, tokens turn design decisions into a common dialect, bridging people and platforms alike.
 
-## When Design Lacks Tokens
+### When Design Lacks Tokens
 
 What happens if you don’t have this shared language? I’ve seen firsthand how things go off the rails. Picture an enterprise product team without design tokens. Every new project or feature is a blank slate of values – colors picked from scratch, paddings eyeballed anew in each design file, developers hard-coding what they think matches the mockups. It might look fine at first, but over time the cracks show.
 
@@ -32,7 +32,7 @@ Slow, Costly Updates: Now imagine an executive says “We’re refreshing the br
 
 In short, not using design tokens often means design by guesswork and endless tweaking. It’s stressful for everyone: designers feel like they’re herding cats, developers feel like they’re chasing a moving target, and PMs see timelines slip due to “yet another visual fix.”
 
-## How Design Tokens Elevate Collaboration
+### How Design Tokens Elevate Collaboration
 
 Now contrast that with a team that’s embraced design tokens. Here, every color, spacing, and typographic scale is anchored by a token name – a single source of truth that’s referenced everywhere. The design tool, the codebase, the style guide all pull from the same dictionary of values. This creates a different world:
 
@@ -49,7 +49,7 @@ Reduced Technical Debt: Because styles are centralized, technical debt from desi
 
 Perhaps the biggest benefit I’ve observed is clarity. Tokens force you to name things and decide their purpose (“This is a secondary text color” or “this is the base spacing for forms”), which encourages thoughtful design decisions. And once those decisions are made, everyone can execute on them confidently. Instead of stifling creativity, this clarity frees the team to focus on higher-level problems because the basics are handled.
 
-## Real Stories: From Chaos to Clarity
+### Real Stories: From Chaos to Clarity
 
 Some of the most convincing arguments for design tokens come from seeing them in action. Here are a few anonymized tales from recent client engagements that highlighted the pain of not having tokens – and the relief after adopting them.
 
@@ -61,7 +61,7 @@ AI-Assisted Workflows: Perhaps the most forward-looking example came from a comp
 
 Each of these stories comes back to a simple theme: tokens turn chaos into clarity. They’re not about adding bureaucracy; they’re about removing the arbitrary variations and misunderstandings that slow teams down. And interestingly, these wins weren’t about creating perfect design systems overnight – they were about making impactful improvements with just a bit of structure.
 
-## Adaptability Over Perfection
+### Adaptability Over Perfection
 
 It’s worth addressing a common hesitation: the fear that “we’re not ready for design tokens” or “we’ll do it when we can do it perfectly.” I hear this from teams who feel they must map out every possible token and variant before starting, which can be paralyzing. Let me share a secret learned over years of systems work: design tokens don’t have to be complete or perfect to be useful. In fact, no design system is ever truly complete – and that’s okay. The goal is to start establishing a stable backbone that you can build on and adapt.
 
@@ -71,7 +71,7 @@ Get those into a token format and let your team start referencing them. Even thi
 
 Crucially, tokens themselves help you handle change. If a new device or platform comes along, you’re not going back to square one – you’re extending your existing token set to cover it. If your brand undertakes a refresh, you update values in one place instead of redesigning every screen. In this way, a token system makes your design adaptable. It provides a safety net for change, which is a huge relief in an era where change is the only constant. Rather than aiming for a mythical state of perfection, aim for resilience. A token that’s 90% right and used consistently is better than ten bespoke styles that are 100% ideal in isolation but collectively a maintenance headache.
 
-## Looking Forward: Tokens as a Timeless Investment
+### Looking Forward: Tokens as a Timeless Investment
 
 It’s 2025, and I know some designers are wondering if traditional deliverables and static guidelines will even matter in a few years. With AI co-designers and code-based tooling on the rise, isn’t the future all about dynamic generation rather than static definitions? It’s a fair question – the creative process is becoming more fluid, and yes, even code editors (the “IDEs” of the world) are turning into creative spaces where design decisions happen on the fly. In this climate, it might seem counterintuitive to champion something as seemingly old-school as design tokens. But from what I’ve seen, that’s exactly why tokens are one of the few bets truly worth making. They are not about chasing hype; they’re about ensuring resilience and shared understanding amid whatever changes come next.
 

@@ -132,10 +132,6 @@ export default {
     // not in use - end
 
     onScroll() {
-      // Disable hide/show transition on markdown pages
-      if (this.isMarkdownPage) {
-        return;
-      }
       if (window.pageYOffset < 0) {
         return;
       }
