@@ -21,6 +21,8 @@ That usually looks like:
 * Coaching designers who want to move closer to code or systems work  
 
 Most of my time is spent making sure the things we design are things we can reliably ship.
+
+At Orium, this work has helped reduce design-to-dev iteration time and dramatically improve cross-team consistency. Systems aren't just a library—they're a way of giving people a shared language for making better decisions, faster.
 </details>
 
 <details>
@@ -68,13 +70,17 @@ Coding keeps me honest. It’s hard to design impossible things when you regular
 
 I try to make collaboration feel calm and clear rather than chaotic and reactive.  
 
-Practically, that looks like:
+Over the years I've moved gradually from "designing screens" to **designing teams and systems**.
 
+That shows up as:
+
+* Mentoring designers into more technical work and, in some cases, full development roles  
+* Setting quality bars and review practices that feel constructive instead of punitive  
+* Facilitating mindfulness and emotional intelligence practices so teams can do great work without burning out  
 * Clear expectations around design quality and handoff  
 * Shared rituals (crits, audits, retros) that actually lead to change  
-* Mindfulness and emotional intelligence as real tools for better work, not side projects  
 
-I'm happiest when teams feel proud of what they ship—and not burned out getting there.
+I care a lot about the *how* of the work, not just the *what*. Great products tend to come from teams that feel safe, respected, and curious. I'm happiest when teams feel proud of what they ship—and not burned out getting there.
 </details>
 
 <details>
@@ -93,7 +99,7 @@ If a problem requires both systems thinking and hands-on building, I’m probabl
 
 <!-- ![Image](../images/portrait.jpg) -->
 
-## Design Process (For the interviewers)
+## Design Process
 
 <span>
 <details>
@@ -117,7 +123,7 @@ Throughout, I try to keep one eye on the immediate release and one eye on the sy
 My core stack right now:
 
 - **Figma** for design systems, flows, and collaboration  
-- **VS Code + Git** for front-end work and experiments  
+- **AI-enabled IDEs + Git** for front-end work and experiments  
 - **Storybook** for documenting and testing components  
 - **n8n / agent frameworks / LLM tooling** for Genie and other AI workflows  
 

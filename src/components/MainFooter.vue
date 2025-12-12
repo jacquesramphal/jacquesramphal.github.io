@@ -191,9 +191,9 @@ export default {
       menuItems1: [
         { text: "Home", route: "/" },
         { text: "Library", route: "/library" },
-        { text: "Resume", route: "/resume" },
-        { text: "Design System", route: "/designsystem" },
-        { text: "Useful Links", route: "/links" },
+        // { text: "Resume", route: "/resume" },
+        // { text: "Design System", route: "/designsystem" },
+        // { text: "Useful Links", route: "/links" },
         { text: "FAQs", route: "/doc/30" },
       ],
       menuItems2: [

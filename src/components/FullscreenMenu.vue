@@ -13,14 +13,22 @@
           <nav class="">
             <ul class="animate delay-2">
               <li v-for="(item, index) in menuItems" :key="index">
-                <router-link class="display" :to="item.route">
+                <router-link v-if="item.route" class="display" :to="item.route">
                   <DynamicText
-                    as="h2"
+                    as="h1"
                     tabIndex="0"
                     :attrs="{ class: '' }"
                     :text="item.text"
                   />
                 </router-link>
+                <a v-else-if="item.url" class="display" :href="item.url" target="_blank" rel="noopener noreferrer">
+                  <DynamicText
+                    as="h1"
+                    tabIndex="0"
+                    :attrs="{ class: '' }"
+                    :text="item.text"
+                  />
+                </a>
                 
               </li>
 
@@ -42,13 +50,13 @@ export default {
   },
   data() {
     return {
-      isMenuActive: false, // Initially hidden
+      isMenuActive: false, // Initiall`y hidden
 
       menuItems: [
         { text: "Home", route: "/" },
         { text: "Library", route: "/library" },
-        { text: "Resume", route: "/resume" },
-        { text: "Design System", route: "/designsystem" },
+        { text: "CV", url: "https://linkedin.com/in/ramphal-design" },
+        // { text: "Design System", route: "/designsystem" },
       ],
     };
   },

@@ -32,7 +32,7 @@
             class="glow animate delay-1-5"
             v-show="isDesktopScreen"
           >
-            <TextLink label="CV" route="/resume" />
+            <TextLink label="CV" link="https://linkedin.com/in/ramphal-design" />
           </li>
           <!-- <li  v-show="isMobileScreen && !menuOpen" class="nav-link" tabindex="0">
             <slot name="menu-button-mobile"></slot>
@@ -265,7 +265,7 @@ button {
   padding-block: var(--spacing-xs) var(--spacing-sm) !important;
   padding-inline-end: var(--spacing-sm) !important;
   inline-size: 100%;
-  border-block-end: var(--border);
+  // border-block-end: var(--border);
   @media only screen and (min-width: 768px) {
     background: transparent;
 

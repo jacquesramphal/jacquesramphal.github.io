@@ -32,7 +32,7 @@ Will there be a day when the designer and developer environments are one and the
 
 So, how do we bridge the gap and make our designs as flexible as pencil and paper? As interoperable as code? Can we break free from the constraints of design tools, dictating what we can and cannot do with our ideas? Designing directly in the browser might be the answer, but the learning curve could be a hurdle not all of us are ready to tackle.
 
-Builder.io takes a swing at this concept, allowing us to design in the browser with custom components from our codebase. But, of course, it's just another tool in the toolbox. Developers have their arsenal too – Visual Studio Code, GitHub – but the key difference is flexibility. Code can be manipulated in both complex and simple programs, and is less likely to become obsolete (check back in 5 years and see if this is still true).
+Builder.io takes a swing at this concept, allowing us to design in the browser with custom components from our codebase. But, of course, it's just another tool in the toolbox. Developers have their arsenal too – AI-enabled IDEs, GitHub – but the key difference is flexibility. Code can be manipulated in both complex and simple programs, and is less likely to become obsolete (check back in 5 years and see if this is still true).
 
 ====== TMP ======
 
@@ -70,34 +70,34 @@ The following is my recommended suite of Jamstack tools. This list is everything
 - Debug & Test
 
 ---
-## 1. Write: VScode
-VS Code is a lightweight source code editor with built in language support and a rich community of plugins and workflow tools
-[https://code.visualstudio.com/download](https://code.visualstudio.com/download)
+## 1. Write: AI-Enabled IDEs
+Modern AI-enabled IDEs are powerful source code editors with built-in language support, AI assistance, and a rich ecosystem of plugins and workflow tools.
 
 - Integrated Terminal
-- Plugins
-- Source Control
+- AI-Powered Autocomplete & Assistance
+- Source Control Integration
 
 #### Write Clean Code
 
-- VS Code is a lightweight source code editor 
-- Extensive built in support for all languages and frameworks
+- AI-enabled IDEs provide intelligent code completion and suggestions
+- Extensive built-in support for all languages and frameworks
 - Rich ecosystem of plugins and workflow tools
-- Quick templates
+- Quick templates and code generation
 
 ![Image2](images/image2.png)
 
-#### Plugins
+#### AI-Powered Features
 
-- Extensions let you add languages, debuggers, and endlessly useful tools to your workflow.
-- Auto complete, linting tools, etc. can help support you as you learn to code.
+- AI assistants help you write code faster with intelligent suggestions and completions
+- Auto complete, linting tools, and AI-powered refactoring support you as you learn to code
+- Context-aware suggestions understand your codebase and provide relevant help
 
 ![Image3](images/image3.png)
 
 #### Integrated Terminal
 
-- VS Code conveniently includes a full featured integrated terminal that starts at the root of your workspace.
-- Terminal is a text input and output environment. Allows us to enter commands that the computer processes.
+- Modern IDEs include a full-featured integrated terminal that starts at the root of your workspace
+- Terminal is a text input and output environment that allows you to enter commands that the computer processes
 
 ![Image4](images/image4.png)
 

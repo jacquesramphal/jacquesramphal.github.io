@@ -24,8 +24,8 @@
         title="About"
         as="h2"
         description=""
-        eyebrow1="Design systems, AI, and code—inside `one brain."
-        detail1="I'm a Senior Product Designer and design lead in Toronto, and for the last 15 years at Orium I've been obsessed with making design actually ship. <br/><br/>I architect token-based design systems and the workflows around them so designers and developers spend less time arguing over specs and more time shipping. Through Genie, our AI/AX platform, I'm exploring how humans and AI share work, not just chat. <br/><br/>I still code my own designs, mentor designers into developers, and care a lot about teams feeling calm, focused, and proud of what they put into production. <br/><br/>You can read my longer story on the <a href='/doc/34'>About page</a>, or browse an interview-style <a href='/doc/30'>Ask Me Anything</a> with questions people tend to ask in interviews."
+        eyebrow1=""
+        detail1="I'm a Senior Product Designer and design lead in Toronto, and for the last 15 years at Orium I've been obsessed with making design actually ship. <br/><br/>I architect token-based design systems and the workflows around them so designers and developers spend less time arguing over specs and more time shipping. Through Genie, our AI/AX platform, I'm exploring how humans and AI share work, not just chat. <br/><br/>I still code my own designs, mentor designers into developers, and care a lot about teams feeling calm, focused, and proud of what they put into production. <br/><br/>Learn more about my work, process, and approach in my <a href='/doc/30'>Ask Me Anything FAQ</a>."
         label="Read FAQ"
         route="doc/30"
       />
