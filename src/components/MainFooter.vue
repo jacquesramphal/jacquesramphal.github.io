@@ -80,7 +80,10 @@
           </GridParent>
           <div class="footer-utility">
             <p class="footer" style="font-size: var(--font-400)">
-              All rights reserved © Jake Ramphal 2025 🇨🇦
+              <span class="footer-copy footer-copy--full">
+                All rights reserved © Jake Ramphal 2025 🇨🇦
+              </span>
+              <span class="footer-copy footer-copy--short">© 2025 Jake Ramphal</span>
               <!-- © 2023 Jake Ramphal — Built with
               <a target="blank" href="https://v3.vuejs.org/">Vue3</a>.
           
@@ -387,7 +390,10 @@ li.external::after {
   padding-block-start: var(--spacing-sm);
   border-block-start: var(--border);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
   gap: var(--spacing-sm);
   
   @media only screen and (min-width: 768px) {
@@ -401,6 +407,20 @@ li.external::after {
 
 .footer {
   margin: 0;
+  min-inline-size: 0;
+}
+
+.footer-copy--short {
+  display: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .footer-copy--full {
+    display: none;
+  }
+  .footer-copy--short {
+    display: inline;
+  }
 }
 
 .utility-controls {
@@ -408,6 +428,7 @@ li.external::after {
   align-items: center;
   gap: var(--spacing-md);
   flex-wrap: wrap;
+  flex: 0 0 auto;
   margin-inline-start: 0;
   padding-inline-start: 0;
   

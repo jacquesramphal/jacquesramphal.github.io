@@ -1,7 +1,6 @@
 <template>
   <div id="headernav" class="navbar" :class="{ 'hidden-navbar': !showNavbar }">
     <GridContainer class="bg">
-
       <nav class="">
         <div class="nav-left">
           <span
@@ -14,7 +13,19 @@
               text-decoration: none !important;
             "
           >
-          <TextLink label="Jake Ramphal" route="/" />
+            <router-link
+              to="/resume"
+              class="nav-avatar-link"
+              aria-label="View resume"
+            >
+              <img
+                class="nav-avatar"
+                src="@/assets/images/portrait.jpg"
+                draggable="false"
+                alt="Jake Ramphal"
+              />
+            </router-link>
+            <TextLink label="Jake Ramphal" route="/" />
 
             <!-- <BreadCrumb
               :isDesktopScreen="isDesktopScreen"
@@ -24,20 +35,25 @@
         </div>
 
         <ul class="links justify-end glow">
-          <li class="glow animate delay-2" v-if="!breadcrumb"             v-show="isDesktopScreen"
+          <li
+            class="glow animate delay-2"
+            v-if="!breadcrumb"
+            v-show="isDesktopScreen"
           >
             <TextLink label="Library" route="/library" />
           </li>
-          <li
-            class="glow animate delay-1-5"
-            v-show="isDesktopScreen"
-          >
-          <TextLink label="CV" link="https://linkedin.com/in/ramphal-design" />
-        </li>
+          <li class="glow animate delay-1-5" v-show="isDesktopScreen">
+            <TextLink
+              label="CV"
+              link="https://linkedin.com/in/ramphal-design"
+            />
+          </li>
           <!-- <li  v-show="isMobileScreen && !menuOpen" class="nav-link" tabindex="0">
             <slot name="menu-button-mobile"></slot>
           </li> -->
-          <span class="glow animate delay-1"> <slot name="menu-button"></slot></span>
+          <span class="glow animate delay-1">
+            <slot name="menu-button"></slot
+          ></span>
         </ul>
       </nav>
     </GridContainer>
@@ -88,7 +104,7 @@ export default {
   },
   computed: {
     isMarkdownPage() {
-      return this.$route?.path?.startsWith('/doc/');
+      return this.$route?.path?.startsWith("/doc/");
     },
     // not in use - start
     backgroundStyle() {
@@ -152,7 +168,7 @@ export default {
     },
   },
   watch: {
-    '$route'() {
+    $route() {
       // Ensure navbar is visible when route changes
       this.showNavbar = true;
       this.onWindowResize(); // Re-check screen size
@@ -328,6 +344,22 @@ nav {
       mix-blend-mode: difference !important;
     }
   }
+}
+
+.nav-avatar-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none !important;
+}
+
+.nav-avatar {
+  inline-size: var(--spacing-md);
+  block-size: var(--spacing-md);
+  aspect-ratio: 1 / 1;
+  border-radius: var(--spacing-xxs);
+  object-fit: cover;
+  box-shadow: var(--shadow-light);
 }
 
 #richlink {

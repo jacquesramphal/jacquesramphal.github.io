@@ -69,6 +69,7 @@ transform: rotate(90deg);
     <!-- <NewsletterSubscription /> -->
     <MainFooter v-if="!$route.meta.hideFooter" />
     <!-- <SimpleFooter v-if="!$route.meta.hideFooter" /> -->
+    <CustomChatUI />
     <!-- Chat with Jake's agent button and sidebar -->
     <!-- <div class="fixed-chat-entry" @click="toggleChatSidebar">
       <span class="vertical-text">chat with Jake's agent</span>
@@ -103,6 +104,7 @@ import TheLogin from "./components/TheLogin.vue";
 // import ThemeButton from "./components/ThemeButton.vue";
 // import BreadCrumb from "./components/BreadCrumb.vue";
 import SidebarNav from "./components/SidebarNav.vue";
+import CustomChatUI from "./components/CustomChatUI.vue";
 import { useRouter } from 'vue-router'; // Import Vue Router
 import { provide, ref } from 'vue';
 
@@ -122,6 +124,7 @@ export default {
     // NewsletterSubscription,
     // BreadCrumb,
     SidebarNav,
+    CustomChatUI,
 },
 setup() {
     const markdownHeadings = ref([]);
@@ -169,97 +172,6 @@ setup() {
         this.markdownActiveHeading = null;
       }
     });
-    
-    // Dynamically load the n8nchatui.com widget script only once
-    if (!window.__n8nChatUILoaded) {
-      const script = document.createElement('script');
-      script.type = 'module';
-      script.defer = true;
-      script.innerHTML = `
-          import Chatbot from "https://cdn.n8nchatui.com/v1/pole-embed-yard.js";
-  Chatbot.init({
-    n8nChatUrl: "https://orium.app.n8n.cloud/webhook/f406671e-c954-4691-b39a-66c90aa2f103/chat",
-    metadata: {},
-    theme: {
-      button: {
-        backgroundColor: "#fff",
-        right: 20,
-        bottom: 20,
-        size: 50,
-        iconColor: "#000",
-        customIconSrc: "https://www.svgrepo.com/show/339963/chat-bot.svg",
-        customIconSize: 60,
-        customIconBorderRadius: 15,
-        autoWindowOpen: {
-          autoOpen: false,
-          openDelay: 2
-        },
-        borderRadius: "rounded"
-      },
-      tooltip: {
-        showTooltip: false,
-        tooltipMessage: "Jake Ramphal's AI Agent",
-        tooltipBackgroundColor: "#fff9f6",
-        tooltipTextColor: "#1c1c1c",
-        tooltipFontSize: 15
-      },
-      chatWindow: {
-        borderRadiusStyle: "rounded",
-        avatarBorderRadius: 25,
-        messageBorderRadius: 6,
-        showTitle: true,
-        title: "Rambot",
-        titleAvatarSrc: "https://www.svgrepo.com/show/339963/chat-bot.svg",
-        avatarSize: 40,
-        welcomeMessage: "Hey! I’m Jake Ramphal’s site guide. Looking to learn about his projects, design work, or writing? Just ask—I’ll point you in the right direction.",
-        errorMessage: "Please connect me to n8n first",
-        backgroundColor: "#ffffff",
-        height: 600,
-        width: 400,
-        fontSize: 16,
-        starterPrompts: [
-          "Who is Jake Ramphal?",
-          "What is Jake Ramphal's work?",
-          "What is Jake Ramphal's writing?",
-        ],
-        starterPromptFontSize: 15,
-        renderHTML: false,
-        clearChatOnReload: false,
-        showScrollbar: false,
-        botMessage: {
-          backgroundColor: "#fff",
-          textColor: "#050505",
-          showAvatar: true,
-          avatarSrc: "https://www.svgrepo.com/show/334455/bot.svg"
-        },
-        userMessage: {
-          backgroundColor: "#f2f2f2",
-          textColor: "#050505",
-          showAvatar: true,
-          avatarSrc: "https://www.svgrepo.com/show/532363/user-alt-1.svg"
-        },
-        textInput: {
-          placeholder: "Type your query",
-          backgroundColor: "#ffffff",
-          textColor: "#1e1e1f",
-          sendButtonColor: "#000",
-          maxChars: 50,
-          maxCharsWarningMessage: "You exceeded the characters limit. Please input less than 50 characters.",
-          autoFocus: false,
-          borderRadius: 6,
-          sendButtonBorderRadius: 50
-        },
-        // footer: {
-        //   companyLink: "ramphal.design",
-        //   company: "ramphal.design"
-        // }
-      }
-    }
-  });
-      `;
-      document.body.appendChild(script);
-      window.__n8nChatUILoaded = true;
-    }
   },
 
   // data() {
@@ -312,5 +224,15 @@ setup() {
   transform: translateX(100%);
   opacity: 0;
 }
-// Remove the custom chat sidebar and entrypoint styles
+
+/* Safety: hide legacy n8nchatui inline widget if it ever loads */
+.n8n-chat-ui,
+[class^="n8n-chat-ui"],
+[class*=" n8n-chat-ui"],
+[id*="n8n-chat-ui"],
+[id*="n8nchatui"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
 </style>
