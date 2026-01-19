@@ -470,7 +470,7 @@ By utilizing Figma Tokens and Style Dictionary, we can easily define and oversee
         
 - Github
     
-- AI-enabled IDEs (e.g., Cursor, VS Code with AI extensions)
+- [VS Code](https://code.visualstudio.com/ "https://code.visualstudio.com/")
     
 - [Style Dictionary](https://amzn.github.io/style-dictionary/#/ "https://amzn.github.io/style-dictionary/#/")
     

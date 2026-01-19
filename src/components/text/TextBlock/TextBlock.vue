@@ -54,9 +54,10 @@
     <MyButton
       id="btn"
       :type="btntype"
-      v-if="(route || btnroute) && label"
+      v-if="(route || btnroute || link) && label"
       :label="label"
-      :route="route || btnroute"
+      :route="link ? undefined : (route || btnroute)"
+      :link="link"
     />
   </div>
 </template>

@@ -9,7 +9,7 @@
       end
       id="hero"
       class="display"
-      title="I'm Jake—a designer at Orium turning systems, code, and AI into real products."
+      title="I&#x2019;m Jake—Design Lead at Orium turning systems, code, and AI into real products."
     />
     <!-- :title="title" -->
 
@@ -25,14 +25,12 @@
         as="h2"
         description=""
         eyebrow1=""
-        detail1="I'm a Senior Product Designer and design lead in Toronto, and for the last 15 years at Orium I've been obsessed with making design actually ship. <br/><br/>I architect token-based design systems and the workflows around them so designers and developers spend less time arguing over specs and more time shipping. Through Genie, our AI/AX platform, I'm exploring how humans and AI share work, not just chat. <br/><br/>I still code my own designs, mentor designers into developers, and care a lot about teams feeling calm, focused, and proud of what they put into production. <br/><br/>Learn more about my work, process, and approach in my <a href='/doc/30'>Ask Me Anything FAQ</a>."
-        label="Read FAQ"
-        route="doc/30"
+        detail1="I'm a Senior Product Designer and design lead in Toronto, and for the last 15 years at Orium I've been obsessed with making design actually ship. <br/><br/>I architect token-based design systems and the workflows around them so designers and developers spend less time arguing over specs and more time shipping. Through Genie, our AI/AX platform, I'm exploring how humans and AI share work, not just chat. <br/><br/>I still code my own designs, mentor designers into developers, and care a lot about teams feeling calm, focused, and proud of what they put into production."
       />
     </AnimatedComponent>
 
     <!-- FEATURED WORK SECTION - SPLIT FROM PLAY -->
-    <GridContainer style="padding-block-end: var(--spacing-md) !important">
+    <!-- <GridContainer style="padding-block-end: var(--spacing-md) !important">
       <div
         class="grid-parent"
         style="align-items: center; grid-template-columns: repeat(3, 1fr)"
@@ -49,10 +47,9 @@
           <router-link :to="{ name: 'Library', hash: '#work' }">View All Work</router-link>
         </p>
       </div>
-    </GridContainer>
+    </GridContainer> 
     <GridContainer style="padding-block-start: 0 !important">
       <GridParent tight id="recentwork">
-        <!-- Featured Genie Card - Only Featured Work Item -->
         <ImageCard
           class="post"
           :eyebrow="work.featEyebrow"
@@ -66,7 +63,14 @@
           :style="work.bgcolor"
         />
         
-        <!-- Decorative Cards -->
+   
+      </GridParent>
+    </GridContainer>
+
+   -->
+    
+   
+         <!-- Decorative Cards -->
         <!-- <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />
         <ImageCard2
           alt="Avatar"
@@ -80,8 +84,6 @@
           filename1="avatar/avatar.svg"
           title="Avatar"
         /> -->
-      </GridParent>
-    </GridContainer>
     <!-- <MyForm/> -->
 
 

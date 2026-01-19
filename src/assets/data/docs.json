@@ -6,6 +6,35 @@
   "label": "Feature Label",
   "entries": [
     {
+      "id": 11,
+      "title": "Design Tokens: The Unseen Hero in a Changing Design Landscape",
+      "eyebrow": "Design Systems",
+      "description": "Why a shared design language is the most resilient investment teams can make as tools, roles, and workflows keep evolving. In a time when everything else in tech feels like shifting sand, design tokens are the bedrock—tiny pieces of your design's DNA that become a shared language everyone can speak, ensuring consistency and adaptability even as the design tools around them evolve.",
+      "link": "https://composable.com/insights/design-tokens-shared-language-design-systems",
+      "thumbnail": "article/token-article.jpg",
+      "alt": "Article: Design Tokens - The Unseen Hero in a Changing Design Landscape",
+      "label": "Read on Composable.com"
+    },
+    {
+      "id": 10,
+      "title": "Designing Genie: Pioneering Agentic AI for Delivery",
+      "eyebrow": "Agentic AI Design",
+      "description": "Designing agentic systems forces you to rethink how work gets done. Not in the abstract, but in the day-to-day reality of delivery: shifting requirements, scattered context, rising risk, and teams stretched thin. This article explores how we built Genie—an agentic orchestration layer that consolidates context, generates requirements, surfaces risks, and automates workflows—and the three mental model problems we solved in designing for agentic AI.",
+      "link": "https://orium.com/blog/orium-genie-agentic-ai-design",
+      "thumbnail": "article/Designing_Genie-hero-20.jpg",
+      "alt": "Article: Designing Genie - Pioneering Agentic AI for Delivery",
+      "label": "Read on Orium"
+    },
+    {
+      "id": 9,
+      "title": "Building Genie Didn’t Just Change How We Work. It Changed Me",
+      "eyebrow": "Agentic AI Design",
+      "description": "The story of building Genie—from personal experiment to organizational platform—and the three mental model problems we had to solve to design for agentic AI. A personal journey about reclaiming creative focus, learning new skills, and transforming routine work into strategic impact.",
+      "route": "/doc/32",
+      "thumbnail": "gennifer.png",
+      "alt": "Genie - Agentic AI Platform"
+    },
+    {
       "id": 1,
       "title": "The Shifting Landscape of Design",
       "description": "The design industry is in a state of flux. The landscape is shifting, and the role of the designer is evolving. The days of the designer as a pixel pusher are long gone. The designer of today is a strategic thinker, a problem solver, and a storyteller. The designer of today is a leader, a collaborator, and a change agent. The designer of today is a business person, a technologist, and a futurist.",
@@ -33,24 +62,6 @@
       "route": "/doc/27",
       "thumbnail": "article/jacques.jpg",
       "alt": "Article: Writing for Non-Writers"
-    },
-    {
-      "id": 8,
-      "title": "Building My Portfolio: A Design System Playground",
-      "eyebrow": "Case Study Design Systems",
-      "description": "A living portfolio site that serves as both a showcase and a design system playground. Features a fully-styled markdown renderer, token-based theming with user mode switching, variable font typography, reusable components, and an AI chatbot trained on site content.",
-      "route": "/doc/36",
-      "thumbnail": "gennifer.png",
-      "alt": "Portfolio Site: Design System Playground"
-    },
-    {
-      "id": 9,
-      "title": "Designing Genie: Pioneering UX Patterns for Agentic AI",
-      "eyebrow": "Agentic AI Design",
-      "description": "An agentic orchestration layer for delivery operations that connects to project ecosystems and continuously synthesizes context, surfaces insights, and automates workflows. Explores three mental model problems in designing for agentic AI: capability exposition, trust & transparency, and autonomy vs. control.",
-      "route": "/doc/32",
-      "thumbnail": "casestudy/genie/genie.png",
-      "alt": "Genie - Agentic AI Platform"
     }
   ]
 }

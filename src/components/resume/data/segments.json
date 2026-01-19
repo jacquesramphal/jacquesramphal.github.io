@@ -3,13 +3,13 @@
     "title": "Experience",
     "entries": [
       {
-        "title": "Senior Product Designer & Design Lead",
+        "title": "Senior Product Designer",
         "position": "Permanent Full-time",
-        "location": "Orium (formerly Myplanet)",
+        "location": "Orium",
         "from": "2013",
         "to": "Present",
-        "description": "Senior Product Designer and design lead working at the intersection of design systems, code, and AI. Over more than a decade at Orium, I’ve helped scale design across enterprise clients by architecting design systems, pairing closely with engineering, and driving design quality from concept through implementation. Recent focus includes leading UX for Genie, an agentic AI/AX platform, and strengthening design–dev integration so the things we design are the things we actually ship.",
-        "callout": "Senior Product Designer & Design Lead focusing on design systems, Genie (AI/AX), and design–dev integration across enterprise products."
+        "description": "As a multi-disciplinary designer with over a decade at Orium (formerly Myplanet), I've collaborated with high-performing teams to create engaging user experiences and empower customers to connect with their audience. Orium values empathy, collaboration, flexibility, and humanity, and I've played a key role in its evolution. I've partnered with diverse teams and clients to craft beautiful designs and ensure rigorous Design QA standards. Recently, I've focused on Design Advocacy, bridging functional gaps, implementing shared token languages, and enhancing tool visibility. Our teams aim for cross-functional excellence. My hands-on approach in designing and coding on production projects ensures full polish and improves team communication. By refining my expertise in UI development and front-end polish, I've driven innovation and shaped new learning approaches within the organization.",
+        "callout": "I'm a design advocate, bridging functional gaps, implementing shared token languages, and enhancing tool visibility. I drive innovation and shape new learning approaches within the organization."
       },
       {
         "title": "Mindfulness Facilitator",
@@ -26,7 +26,7 @@
         "location": "University Health Network",
         "from": "",
         "to": "Summer 2013",
-        "description": "UX Designer contributing to healthcare digital products in a complex, regulated environment, supporting patient- and clinician-facing experiences."
+        "description": "This section will contain a concise description of my responsibilities and achievements during my tenure as a UX Designer at University Health Network."
       },
       {
         "title": "UI Designer",
@@ -42,7 +42,7 @@
         "location": "Staples",
         "from": "Nov 2010",
         "to": "Dec 2012",
-        "description": "Print production and customer-facing role supporting small business and personal print work while studying design."
+        "description": "This section will contain a concise description of my responsibilities and achievements during my tenure as a Print Shop Rep at Staples."
       },
       {
         "title": "Graphic Designer",
@@ -50,7 +50,7 @@
         "location": "Bethel Group",
         "from": "Sep 2008",
         "to": "Jul 2010",
-        "description": "Graphic Designer working on visual communication and layout projects early in my career."
+        "description": "This section will contain a concise description of my responsibilities and achievements during my tenure as a Graphic Designer at Bethel Group."
       },
       {
         "title": "Design Intern",
@@ -58,7 +58,7 @@
         "location": "Media Enterprises Ltd.",
         "from": "Mar 2008",
         "to": "Aug 2008",
-        "description": "Design internship focused on hands-on production, typography, and learning the day-to-day realities of commercial design."
+        "description": "This is where I learned the magic of Photoshop. This section will contain a concise description of my responsibilities and achievements during my internship at Media Enterprises Ltd."
       }
     ]
   },
@@ -68,10 +68,10 @@
     "entries": [
       {
         "title": "Graphic Design",
-        "location": "OCADU (Ontario College of Art & Design University)",
+        "location": "OCADU",
         "from": "2010",
         "to": "2014",
-        "description": "Bachelor-level Graphic Design program with a focus on digital design, typography, and emerging media."
+        "description": "This section will contain a concise description of my education at OCADU, including the Graphic Design program and any relevant courses or achievements."
       }
     ]
   },
@@ -79,29 +79,36 @@
   {
     "title": "Skills",
     "entries": [
-      "Design Systems · Design Tokens · Component Architecture",
-      "Product Design · UX Design · Interaction Design",
-      "Front-end Development (React, Vue, CSS/SCSS)",
-      "AI/AX Design (Genie, agentic experiences)",
-      "Design–Dev Integration · Design QA · Storybook",
-      "Leadership · Mentorship · Mindfulness Facilitation"
+      "Placeholder for listing your key skills and competencies relevant to the job you are applying for.",
+      "Example: UI/UX Design, Front-end Development, Mindfulness Facilitation, Adobe Creative Suite, Collaboration, Emotional Intelligence"
     ]
   },
 
   {
-    "title": "Tools",
+    "title": "Certifications",
     "entries": [
-      "Figma · Sketch · Storybook",
-      "Git · GitHub · AI-enabled IDEs"
+      "Placeholder for listing any relevant certifications or licenses that enhance your qualifications."
     ]
   },
 
   {
     "title": "Projects",
     "entries": [
-      "K&G Loyalty Platform – Lead product design and front-end implementation for a mobile loyalty experience (React Native + partner platforms).",
-      "OnLogic Composable Commerce – Product and systems design for a configurable commerce experience serving technical users at scale.",
-      "Genie AI/AX Platform – Design lead for agentic AI experiences, defining UX patterns for how teams collaborate with AI agents."
+      "Placeholder for highlighting any relevant projects you've worked on, showcasing your abilities and accomplishments."
+    ]
+  },
+
+  {
+    "title": "Volunteer Experience",
+    "entries": [
+      "Placeholder for mentioning any volunteer experience that demonstrates valuable skills or aligns with the job."
+    ]
+  },
+
+  {
+    "title": "Interests/Hobbies",
+    "entries": [
+      "Placeholder for mentioning your interests or hobbies that complement your professional skills or show a well-rounded personality."
     ]
   }
 ]

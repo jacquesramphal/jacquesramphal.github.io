@@ -1,7 +1,7 @@
 <template :class="classes">
   <div class="default-card" :class="classes" :data-category="`${eyebrow}`">
     <div v-if="alt" class="image">
-      <router-link :to="`${route}`">
+      <router-link v-if="route && !link" :to="`${route}`">
         <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" />
         <img
           draggable="false"
@@ -10,6 +10,24 @@
           :alt="`${alt}`"
         />
       </router-link>
+      <a v-else-if="link" :href="link" target="_blank" rel="noopener noreferrer">
+        <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" />
+        <img
+          draggable="false"
+          v-if="filename"
+          :src="require(`../../../assets/images/${filename}`)"
+          :alt="`${alt}`"
+        />
+      </a>
+      <div v-else>
+        <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" />
+        <img
+          draggable="false"
+          v-if="filename"
+          :src="require(`../../../assets/images/${filename}`)"
+          :alt="`${alt}`"
+        />
+      </div>
     </div>
 
     <div class="info">
@@ -26,6 +44,7 @@
         :label="label"
         :route="route ? `${route}` : undefined"
         :btnroute="btnroute ? `${btnroute}` : undefined"
+        :link="link ? `${link}` : undefined"
       />
 
       <!-- <TextBlock
@@ -93,6 +112,11 @@ export default {
       required: false,
     },
     btnroute: {
+      default: "",
+      type: String,
+      required: false,
+    },
+    link: {
       default: "",
       type: String,
       required: false,

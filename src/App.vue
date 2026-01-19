@@ -98,7 +98,7 @@ import HeaderNav from "./components/HeaderNav/HeaderNav.vue";
 import MainFooter from "./components/MainFooter.vue";
 import TextLink from "./components/text/TextLink.vue";
 import MobileTOCBar from "./components/MobileTOCBar.vue";
-// import SimpleFooter from "./components/SimpleFooter.vue";
+import SimpleFooter from "./components/SimpleFooter.vue";
 import TheLogin from "./components/TheLogin.vue";
 // import ThemeButton from "./components/ThemeButton.vue";
 // import BreadCrumb from "./components/BreadCrumb.vue";
@@ -114,7 +114,7 @@ export default {
     MainFooter,
     TextLink,
     MobileTOCBar,
-    // SimpleFooter,
+    SimpleFooter,
     // ThemeButton,
     TheLogin,
     FullscreenMenu,

@@ -32,8 +32,8 @@
             class="glow animate delay-1-5"
             v-show="isDesktopScreen"
           >
-            <TextLink label="CV" link="https://linkedin.com/in/ramphal-design" />
-          </li>
+          <TextLink label="CV" link="https://linkedin.com/in/ramphal-design" />
+        </li>
           <!-- <li  v-show="isMobileScreen && !menuOpen" class="nav-link" tabindex="0">
             <slot name="menu-button-mobile"></slot>
           </li> -->
@@ -176,7 +176,6 @@ export default {
 <style lang="scss" scoped>
 * {
   margin: 0;
-  mix-blend-mode: normal;
 }
 @media print {
   * {
@@ -290,6 +289,10 @@ ul {
   gap: var(--spacing-sm);
   @media only screen and (min-width: 768px) {
     gap: var(--spacing-md);
+    a,
+    router-link {
+      mix-blend-mode: difference !important;
+    }
   }
 }
 li {
@@ -319,6 +322,12 @@ nav {
   flex-direction: column;
   gap: var(--spacing-xs);
   align-items: flex-start;
+  @media only screen and (min-width: 768px) {
+    a,
+    router-link {
+      mix-blend-mode: difference !important;
+    }
+  }
 }
 
 #richlink {

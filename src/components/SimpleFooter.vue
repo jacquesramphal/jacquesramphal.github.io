@@ -9,7 +9,9 @@
             grid-template-rows: repeat(2, auto);
           "
         >
-          <!-- <div class="">
+        
+          <GridParent tight class="outer">
+            <div class="" style="display: flex; flex-direction: row; gap: var(--spacing-xs);">
             <router-link to="/resume"
               ><img
                 id="avatar"
@@ -19,10 +21,9 @@
                 alt="logo.svg"
                 style="width: 40px; aspect-ratio: 1 / 1"
             /></router-link>
+            <p class="footer">All rights reserved © Jake Ramphal 2025 🇨🇦</p>
 
-          </div> -->
-          <GridParent tight class="outer">
-            <p class="footer">All rights reserved © Jake Ramphal 2025</p>
+          </div>
             <ul>
               <li>
                 <router-link to="/library">Library</router-link>
@@ -35,42 +36,7 @@
               </li>
             </ul>
 
-            <!-- <div id="links2">
-                <p class="subtle">Let's Connect</p>
-                <ul>
-                  <li>
-                    <TextLink
-                      label="LinkedIn"
-                      link="https://www.linkedin.com/in/jake-ramphal"
-                    />
-                  </li>
-
-                  <li>
-                    <TextLink
-                      label="Github"
-                      link="https://github.com/jacquesramphal"
-                    />
-                  </li>
-                  <li>
-                    <TextLink
-                      label="Email"
-                      link="mailto:jacques@ramphal.design"
-                    />
-                  </li>
-                  
-                </ul>
-              </div>
-              <div id="links3">
-                <p class="subtle">More</p>
-                <ul>
-                  <li class="">
-                    <a>Privacy Policy</a>
-                  </li>
-                  <li>
-                    <TextLink label="Offerings" route="/doc/28" />
-                  </li>
-                </ul>
-              </div> -->
+          
           </GridParent>
         </GridParent>
       </GridContainer>
@@ -113,7 +79,8 @@ $spacing-sm: var(--spacing-sm);
   }
 }
 .footer-container {
-  padding-block: var(--spacing-sm) !important;
+  padding-block-start: var(--spacing-md) !important;
+  padding-block-end: 0 !important;
 }
 .outer {
   grid-template-columns: repeat(1, 1fr);

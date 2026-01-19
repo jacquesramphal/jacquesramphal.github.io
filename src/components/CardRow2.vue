@@ -43,6 +43,7 @@
           :description="entry.description"
           :btnroute="entry.btnroute"
           :route="entry.route"
+          :link="entry.link"
           :label="entry.label"
         />
       </GridParent>
@@ -92,6 +93,7 @@
             :description="entry.description"
             :route="entry.route"
             :btnroute="entry.btnroute"
+            :link="entry.link"
             :label="entry.label"
           />
         </GridParent></div

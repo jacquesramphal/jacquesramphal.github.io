@@ -283,7 +283,7 @@
     {
       "id": 7,
       "variant": "small",
-      "title": "AI-Enabled IDE Visual Plugin",
+      "title": "VS Code Visual IDE Plugin",
       "tag": "Tag1 Tag4 Tag5",
       "subtitle": "This is a subtitle 2",
       "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",

@@ -32,7 +32,7 @@ A curated collection of my writing, professional work, and personal projects."
       </GridParent>
       <GridParent tight class="">
         <ArticleCard
-          borderless
+          
           v-for="entry in docs.entries"
           :alt="entry.alt"
           :description="entry.description"
@@ -41,6 +41,7 @@ A curated collection of my writing, professional work, and personal projects."
           :label="entry.label"
           :route="entry.route"
           :btnroute="entry.btnroute"
+          :link="entry.link"
           :eyebrow="entry.eyebrow"
           :title="entry.title"
         />

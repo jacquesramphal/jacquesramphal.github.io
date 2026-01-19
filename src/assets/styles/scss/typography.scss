@@ -140,8 +140,8 @@ h2 {
 font-size: var(--size-9);
 font-weight: var(--fontWeight-bold);
 line-height: var(--lineHeight-base);
-  letter-spacing: var(--letterSpacing-base) !important;
-  font-variation-settings: "YAXS" 400, "wdth" 110, "opsz" 48;
+letter-spacing: var(--letterSpacing-tight) !important;
+font-variation-settings: "YAXS" 400, "wdth" 105, "opsz" 48;
 }
 
 h3 {
@@ -159,7 +159,7 @@ h4 {
   font-size: var(--font-600);
   font-weight: var(--fontWeight-medium);
   line-height: var(--lineHeight-tall);
-  font-variation-settings: "YAXS" 400, "wdth" 110, "opsz" 48;
+  font-variation-settings: "YAXS" 400, "wdth" 100, "opsz" 48;
 }
 
 h5 {
@@ -187,7 +187,7 @@ blockquote {
   font-size: var(--font-500);
   font-weight: var(--fontWeight-normal);
   line-height: var(--lineHeight-taller);
-  font-variation-settings: "wdth" 102, "opsz" 16;
+  font-variation-settings: "wdth" 102, "opsz" 20;
 }
 
 blockquote {

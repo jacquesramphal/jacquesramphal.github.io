@@ -6,9 +6,9 @@
     aria-modal="true"
     aria-labelledby="menu-heading"
     >
-    <!-- <MainFooter /> -->
+    <MainFooter />
      
-      <GridContainer>
+      <!-- <GridContainer>
         <GridParent>
           <nav class="">
             <ul class="animate delay-2">
@@ -35,14 +35,14 @@
             </ul>
           </nav>
         </GridParent>
-      </GridContainer>
+      </GridContainer> -->
       <div v-if="isMenuActive" class="menu-overlay"></div>
     </div> 
 </template>
 
 <script>
-import GridContainer from "./grid/GridContainer.vue";
-// import MainFooter from "./MainFooter.vue";
+// import GridContainer from "./grid/GridContainer.vue";
+import MainFooter from "./MainFooter.vue";
 
 export default {
   props: {
@@ -94,8 +94,8 @@ export default {
     },
   },
   components: { 
-    // MainFooter,
-    GridContainer
+    MainFooter,
+    // GridContainer
    },
 };
 </script>

@@ -664,6 +664,26 @@ export default {
     }
   }
 
+  a {
+    color: var(--color-action) !important;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+    transition: color 0.2s ease, text-decoration-thickness 0.2s ease;
+
+    &:hover,
+    &:focus {
+      color: var(--color-action) !important;
+      text-decoration-thickness: 2px;
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+
+    &:visited {
+      color: var(--color-action) !important;
+    }
+  }
+
   summary {
     margin-block-start: 1.2rem;
     margin-block-end: 0.8rem;
