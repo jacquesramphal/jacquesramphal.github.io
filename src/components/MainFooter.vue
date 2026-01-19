@@ -88,41 +88,46 @@
               <a target="blank" href="https://www.netlify.com/">Netlify</a>. -->
             </p>
             <div class="utility-controls">
-              <div class="theme-selector" @click.stop>
-                <button
-                  class="theme-button"
-                  @click.stop="showThemeMenu = !showThemeMenu"
-                  :aria-expanded="showThemeMenu"
-                  aria-haspopup="true"
-                >
+              <SelectorCta
+                v-model="showThemeMenu"
+                class="theme-selector"
+                :label="currentThemeLabel"
+                align="end"
+                placement="top-end"
+              >
+                <template #icon>
                   <span class="theme-icon" v-html="themeIconSvg"></span>
-                  <span class="theme-label">{{ currentThemeLabel }}</span>
-                </button>
-                <div v-if="showThemeMenu" class="theme-menu" @click.stop>
+                </template>
+                <template #menu="{ close }">
                   <button
                     v-for="option in themeOptions"
                     :key="option.value"
                     class="theme-option"
                     :class="{ active: currentTheme === option.value }"
-                    @click.stop="selectTheme(option.value)"
+                    @click.stop="
+                      selectTheme(option.value);
+                      close();
+                    "
                   >
-                    <span v-if="currentTheme === option.value" class="checkmark">✓</span>
+                    <span
+                      class="theme-dot"
+                      :class="{ active: currentTheme === option.value }"
+                      aria-hidden="true"
+                    />
                     {{ option.label }}
                   </button>
-                </div>
-              </div>
-              <!-- <div class="font-toggle">
-                <input
-                  type="checkbox"
-                  id="font"
-                  name="font"
-                  value="Serif"
-                  v-model="isSerifFont"
-                  @change="toggleFont"
-                />
-                <label for="font" class="font-label">
-                  <p>Font</p>
-                </label>
+                </template>
+              </SelectorCta>
+              <!-- <div class="font-selector" @click.stop>
+                <button
+                  class="font-button"
+                  @click.stop="toggleFont"
+                  :aria-pressed="isSerifFont"
+                  aria-label="Toggle font"
+                >
+                  <span class="font-icon"><strong>Aa</strong></span>
+                  <span class="font-label">Font</span>
+                </button>
               </div> -->
             </div>
           </div>
@@ -167,6 +172,7 @@ import TextBlock from "./text/TextBlock/TextBlock.vue";
 import AnimatedComponent from "./AnimatedComponent.vue";
 import TextLink from "./text/TextLink.vue";
 import GridParent from "./grid/GridParent.vue";
+import SelectorCta from "./Button/SelectorCta.vue";
 // import TextArea from "@/components/form/TextArea.vue";
 // import MyButton from "@/components/Button/Button.vue";
 
@@ -179,6 +185,7 @@ export default {
     AnimatedComponent,
     TextLink,
     GridParent,
+    SelectorCta,
   },
   props: {
     title: {
@@ -211,6 +218,7 @@ export default {
       ],
       isSerifFont: false,
       mediaQuery: null,
+      fontCheckbox: null,
     };
   },
   computed: {
@@ -250,27 +258,39 @@ export default {
     this.mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     this.mediaQuery.addEventListener("change", this.handleSystemThemeChange);
 
-    // Close theme menu when clicking outside
-    document.addEventListener("click", this.handleClickOutside);
-
     // Initialize font preference
-    const fontCheckbox = document.getElementById("font");
-    if (fontCheckbox) {
-      this.isSerifFont = fontCheckbox.checked;
+    // Create hidden checkbox for CSS :has() selector compatibility
+    this.fontCheckbox = document.createElement("input");
+    this.fontCheckbox.type = "checkbox";
+    this.fontCheckbox.id = "font";
+    this.fontCheckbox.name = "font";
+    this.fontCheckbox.value = "Serif";
+    this.fontCheckbox.style.position = "absolute";
+    this.fontCheckbox.style.opacity = "0";
+    this.fontCheckbox.style.pointerEvents = "none";
+    document.body.appendChild(this.fontCheckbox);
+    
+    // Check if serif was previously selected
+    const savedFont = localStorage.getItem("user-font");
+    if (savedFont === "serif") {
+      this.isSerifFont = true;
+      this.fontCheckbox.checked = true;
     }
   },
   beforeUnmount() {
     if (this.mediaQuery) {
       this.mediaQuery.removeEventListener("change", this.handleSystemThemeChange);
     }
-    document.removeEventListener("click", this.handleClickOutside);
+    // Clean up font checkbox
+    if (this.fontCheckbox && this.fontCheckbox.parentNode) {
+      this.fontCheckbox.parentNode.removeChild(this.fontCheckbox);
+    }
   },
   methods: {
     selectTheme(theme) {
       this.currentTheme = theme;
       localStorage.setItem("user-theme", theme);
       this.applyTheme();
-      this.showThemeMenu = false;
     },
     applyTheme() {
       if (this.currentTheme === "system") {
@@ -291,17 +311,13 @@ export default {
         this.applyTheme();
       }
     },
-    handleClickOutside(event) {
-      if (this.showThemeMenu) {
-        const themeSelector = event.target.closest(".theme-selector");
-        if (!themeSelector) {
-          this.showThemeMenu = false;
-        }
-      }
-    },
     toggleFont() {
-      // The font toggle is handled by CSS :has() selector
-      // This method is here for potential future functionality
+      this.isSerifFont = !this.isSerifFont;
+      if (this.fontCheckbox) {
+        this.fontCheckbox.checked = this.isSerifFont;
+      }
+      // Save preference
+      localStorage.setItem("user-font", this.isSerifFont ? "serif" : "sans");
     },
   },
 };
@@ -314,8 +330,8 @@ $spacing-lg: var(--spacing-lg);
 $spacing-sm: var(--spacing-sm);
 
 #wrapper {
-  // border-block-start: var(--border);
-  padding-block-end: $spacing-lg;
+  border-block-start: var(--border);
+  // padding-block-end: $spacing-lg;
   @media only screen and (min-width: 1201px) {
     padding-block-end: inherit;
   }
@@ -368,12 +384,15 @@ li.external::after {
 }
 .footer-utility {
   margin-block-start: var(--spacing-md);
+  padding-block-start: var(--spacing-sm);
+  border-block-start: var(--border);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
   
   @media only screen and (min-width: 768px) {
     margin-block-start: var(--spacing-lg);
+    padding-block-start: var(--spacing-sm);
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -389,35 +408,24 @@ li.external::after {
   align-items: center;
   gap: var(--spacing-md);
   flex-wrap: wrap;
+  margin-inline-start: 0;
+  padding-inline-start: 0;
+  
+  @media only screen and (max-width: 767px) {
+    margin-inline-start: 0;
+    padding-inline-start: 0;
+  }
 }
 
 .theme-selector {
   position: relative;
   display: inline-block;
-}
-
-.theme-button {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xxs);
-  padding: var(--spacing-xxs) var(--spacing-xs);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: var(--font-400);
-  color: var(--foreground);
-  text-decoration: underline;
-  text-underline-offset: 0.625rem;
-  text-decoration-thickness: 0.1rem;
-  transition: all 0.1s;
+  margin-inline-start: 0;
+  padding-inline-start: 0;
   
-  &:hover {
-    text-decoration-thickness: 0.2rem;
-  }
-  
-  &:active {
-    text-decoration: underline dashed;
-    text-decoration-thickness: 0.1rem;
+  @media only screen and (max-width: 767px) {
+    margin-inline-start: 0;
+    padding-inline-start: 0;
   }
 }
 
@@ -434,23 +442,6 @@ li.external::after {
     height: 100%;
     display: block;
   }
-}
-
-.theme-label {
-  font-size: var(--font-400);
-}
-
-.theme-menu {
-  position: absolute;
-  inset-block-end: calc(100% + var(--spacing-xxs));
-  inset-inline-end: 0;
-  background: var(--background);
-  border: var(--border);
-  border-radius: 0.25rem;
-  box-shadow: var(--shadow-light);
-  min-inline-size: 120px;
-  z-index: 100;
-  overflow: hidden;
 }
 
 .theme-option {
@@ -476,9 +467,17 @@ li.external::after {
   }
 }
 
-.checkmark {
-  color: var(--link);
-  font-weight: bold;
+.theme-dot {
+  inline-size: 6px;
+  block-size: 6px;
+  border-radius: 999px;
+  background: var(--link);
+  opacity: 0;
+  flex: 0 0 6px;
+}
+
+.theme-dot.active {
+  opacity: 1;
 }
 
 // #avatar {
@@ -512,29 +511,55 @@ li.external::after {
   }
 }
 
-.font-toggle {
+.font-selector {
+  position: relative;
+  display: inline-block;
+}
+
+.font-button {
   display: flex;
   align-items: center;
   gap: var(--spacing-xxs);
-}
-
-.font-toggle input[type="checkbox"] {
-  margin: 0;
-  cursor: pointer;
-}
-
-.font-label {
-  margin: 0;
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  background: transparent;
+  border: none;
   cursor: pointer;
   font-size: var(--font-400);
   color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 0.625rem;
+  text-decoration-thickness: 0.1rem;
+  transition: all 0.1s;
   
-  p {
-    margin: 0;
+  &:hover {
+    text-decoration-thickness: 0.2rem;
+  }
+  
+  &:active {
+    text-decoration: underline dashed;
+    text-decoration-thickness: 0.1rem;
   }
 }
 
-.font-aa {
-  margin-left: var(--spacing-xxs);
+.font-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: var(--font-400);
+  line-height: 1;
+  text-decoration: none !important;
+  
+  strong {
+    font-weight: var(--fontWeight-bold);
+    color: var(--foreground);
+    text-decoration: none !important;
+  }
+}
+
+.font-label {
+  font-size: var(--font-400);
 }
 </style>

@@ -7,12 +7,7 @@
 <script>
 export default {
   name: "PageWrapper",
-  props: {
-    overflowVisible: {
-      type: Boolean,
-      default: false,
-    },
-  },
+  props: {},
   mounted() {
     window.scrollTo(0, 0);
   },
@@ -22,7 +17,6 @@ export default {
 <style lang="scss" scoped>
 div {
   overflow: hidden;
-  padding-block-end: var(--spacing-lg) !important;
 
   @media only screen and (min-width: 768px) {
     // padding-block-start: var(--spacing-lg) !important;
@@ -31,10 +25,6 @@ div {
 
   @media only screen and (min-width: 1201px) {
     padding-block-end: 0 !important;
-  }
-
-  &.overflow-visible {
-    overflow: visible !important;
   }
 }
 </style>
