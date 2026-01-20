@@ -8,13 +8,13 @@
       <nav class="">
         <li class="wordmark">
           <MyButton
-            label="Jake Ramphal"
+            label="Jacques Ramphal"
             route="/"
             type="ghost"
             v-show="isDesktopScreen && !menuOpen"
           />
           <MyButton
-            label="Jake Ramphal"
+            label="Jacques Ramphal"
             route="/"
             type="ghost"
             v-show="isMobileScreen && !menuOpen"
@@ -56,7 +56,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Jake Ramphal",
+      default: "Jacques Ramphal",
     },
   },
   data() {

@@ -5,7 +5,7 @@
         <router-link to="/resume">
           <img
             src="@/assets/images/portrait.jpg"
-            alt="Jake Ramphal"
+            alt="Jacques Ramphal"
             draggable="false"
           />
         </router-link>
@@ -44,7 +44,7 @@ export default {
   props: {
     name: {
       type: String,
-      default: "Jake Ramphal",
+      default: "Jacques Ramphal",
     },
     title: {
       type: String,

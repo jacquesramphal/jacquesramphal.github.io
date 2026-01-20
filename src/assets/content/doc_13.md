@@ -1,14 +1,9 @@
-<header>
 
 # The Shifting Design Landscape
 
 #### From pixel pushers to strategic advocates: how designers are evolving in an AI-driven, cross-skilled world
 
-</header>
-
-
-
-![Image](../images/article/cover1.png)
+![Image](../images/article/cover2.png)
 
 The design industry is in a state of flux. The landscape is shifting, and the role of the designer is evolving. The days of the designer as a pixel pusher are long gone. The designer of today is a strategic thinker, a problem solver, and a storyteller. The designer of today is a leader, a collaborator, and a change agent. The designer of today is a business person, a technologist, and a futurist.
 

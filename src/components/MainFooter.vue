@@ -25,7 +25,7 @@
             <div id="maindetails">
               <TextBlock
                 as="h4"
-                title="Jake Ramphal"
+                title="Jacques Ramphal"
                 description="I lead design work where systems, code, and AI meet—building the practices and platforms that let cross-functional teams deliver meaningful products efficiently and sustainably."
               />
             </div>
@@ -81,10 +81,10 @@
           <div class="footer-utility">
             <p class="footer" style="font-size: var(--font-400)">
               <span class="footer-copy footer-copy--full">
-                All rights reserved © Jake Ramphal 2025 🇨🇦
+                All rights reserved © Jacques Ramphal 2025 🇨🇦
               </span>
-              <span class="footer-copy footer-copy--short">© 2025 Jake Ramphal</span>
-              <!-- © 2023 Jake Ramphal — Built with
+              <span class="footer-copy footer-copy--short">© 2025 Jacques Ramphal</span>
+              <!-- © 2023 Jacques Ramphal — Built with
               <a target="blank" href="https://v3.vuejs.org/">Vue3</a>.
           
               Deployed on
@@ -138,7 +138,7 @@
       </GridContainer>
       <!-- <GridContainer>
           <p style="font-size: var(--font-2xs)">
-            All rights reserved © Jake Ramphal 2024
+            All rights reserved © Jacques Ramphal 2024
             
           </p>
       </GridContainer> -->
@@ -193,7 +193,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Jake Ramphal",
+      default: "Jacques Ramphal",
     },
   },
   data() {
@@ -204,7 +204,7 @@ export default {
         // { text: "Resume", route: "/resume" },
         // { text: "Design System", route: "/designsystem" },
         // { text: "Useful Links", route: "/links" },
-        { text: "FAQs", route: "/doc/30" },
+        { text: "FAQs", route: "/doc/ask-me-anything" },
       ],
       menuItems2: [
         { text: "LinkedIn", url: "https://linkedin.com/in/ramphal-design", icon: "icon/linkedin.svg"  },
@@ -333,7 +333,7 @@ $spacing-lg: var(--spacing-lg);
 $spacing-sm: var(--spacing-sm);
 
 #wrapper {
-  border-block-start: var(--border);
+  // border-block-start: var(--border);
   // padding-block-end: $spacing-lg;
   @media only screen and (min-width: 1201px) {
     padding-block-end: inherit;

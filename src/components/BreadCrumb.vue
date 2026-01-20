@@ -4,7 +4,7 @@
     <TextLink
       class="nav-item"
       :class="{ 'active': isHome }"
-      label="Jake Ramphal"
+      label="Jacques Ramphal"
       route="/"
       :isSvg="false"
       iconsize="20"
@@ -14,7 +14,7 @@
     <!-- <TextLink
             class="wordmark"
             :style="isMobileScreen ? 'text-decoration: none' : ''"
-            :label="isMobileScreen ? 'Jake Ramphal' : 'Jake Ramphal'"
+            :label="isMobileScreen ? 'Jacques Ramphal' : 'Jacques Ramphal'"
             route="/"
             v-show="!menuOpen"
           /> -->
@@ -54,6 +54,13 @@ import workData from '../assets/data/work.json';
 import frontMatter from 'front-matter';
 import DynamicText from '../components/text/DynamicText.vue';
 import TextLink from '../components/text/TextLink.vue';
+import {
+  getDocRecordById,
+  getDocRecordBySlug,
+  isNumericRouteParam,
+} from "@/utils/docRegistry";
+
+const contentContext = require.context("../assets/content", false, /\.md$/);
 export default {
   name: "BreadCrumb",
   components: { DynamicText, TextLink },
@@ -120,18 +127,33 @@ export default {
         this.pageTitle = work ? work.title : 'Work';
       } else if (this.$route.path.startsWith('/doc/')) {
         try {
-          const docId = this.$route.params.id;
-          if (!docId) {
+          const param = (this.$route.params.slug || this.$route.params.id || "")
+            .toString()
+            .trim();
+          if (!param) {
             this.pageTitle = 'Document';
             return;
           }
-          // Try both import paths for compatibility
+          const isNumeric = isNumericRouteParam(param);
+          const docId = isNumeric ? parseInt(param, 10) : null;
+          const record = isNumeric
+            ? getDocRecordById(docId)
+            : getDocRecordBySlug(param);
+
+          const contentFile =
+            record?.contentFile || (isNumeric ? `doc_${docId}.md` : null);
+
+          if (!contentFile) {
+            this.pageTitle = "Document";
+            return;
+          }
+
+          // Prefer require.context so arbitrary filenames work reliably in webpack.
           let module;
           try {
-            module = await import(`@/assets/content/doc_${docId}.md`);
+            module = contentContext(`./${contentFile}`);
           } catch (e) {
-            // Fallback to relative path
-            module = await import(`../assets/content/doc_${docId}.md`);
+            module = await import(`../assets/content/${contentFile}`);
           }
           const { attributes } = frontMatter(module.default);
           

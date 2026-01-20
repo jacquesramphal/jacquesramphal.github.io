@@ -21,7 +21,7 @@
                 alt="logo.svg"
                 style="width: 40px; aspect-ratio: 1 / 1"
             /></router-link>
-            <p class="footer">All rights reserved © Jake Ramphal 2025 🇨🇦</p>
+            <p class="footer">All rights reserved © Jacques Ramphal 2025 🇨🇦</p>
 
           </div>
             <ul>
@@ -61,7 +61,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Jake Ramphal",
+      default: "Jacques Ramphal",
     },
   },
 };

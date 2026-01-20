@@ -6,7 +6,7 @@
     style="padding: 0"
   >
     <GridContainer class="text-container">
-      <GridWrapper class="text" style="oveflow: visible !important">
+      <GridWrapper class="text" style="overflow: visible !important">
         <TextBlock
           clamped
           :eyebrow="`${eyebrow}`"
@@ -44,6 +44,7 @@
         draggable="false"
         :src="require(`../../../assets/images/${filename1}`)"
         :alt="`${alt}`"
+        :style="bgImageStyle"
       />
     </router-link>
   </span>
@@ -56,7 +57,7 @@
   >
     <GridContainer tight class="text-container2">
       
-      <GridWrapper class="text2" style="oveflow: visible !important">
+      <GridWrapper class="text2" style="overflow: visible !important">
         <TextBlock
           clamped
           :eyebrow="`${eyebrow}`"
@@ -95,6 +96,7 @@
         draggable="false"
         :src="require(`../../../assets/images/${filename1}`)"
         :alt="`${alt}`"
+        :style="bgImageStyle"
       />
     </router-link>
   </span>
@@ -130,6 +132,7 @@
           draggable="false"
           :src="require(`../../../assets/images/${filename1}`)"
           :alt="`${alt}`"
+          :style="bgImageStyle"
         />
       </router-link>
     </div>
@@ -184,6 +187,7 @@
           draggable="false"
           :src="require(`../../../assets/images/${filename1}`)"
           :alt="`${alt}`"
+          :style="bgImageStyle"
         />
       </figure>
     </span>
@@ -287,6 +291,16 @@ export default {
         defaultcard: true,
         [`defaultcard--${reactiveProps.variant}`]: true,
       })),
+      bgImageStyle: computed(() => {
+        const filename = reactiveProps.filename1 || "";
+        const isSvg = typeof filename === "string" && filename.toLowerCase().endsWith(".svg");
+        const isLarge = reactiveProps.size === "large";
+        // For large SVG "logo cards" (like work/dod.svg), keep the image centered (not pinned).
+        if (isSvg && isLarge) {
+          return { objectPosition: "50% 50%", objectFit: "contain" };
+        }
+        return {};
+      }),
     };
   },
 };
@@ -481,7 +495,7 @@ img {
   @media only screen and (min-width: 768px) {
     grid-column: 1 / 3;
     .bg {
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 16 / 8;
       object-position: 0% 0%;
     }
     // .filename2 {

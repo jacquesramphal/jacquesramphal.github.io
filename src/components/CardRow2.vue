@@ -24,28 +24,53 @@
         />
         
         <p class="justify-end" style="align-self: center">
-          <router-link :to="{ name: 'Library', hash: '#writing' }">View All</router-link>
+          <router-link v-if="viewAllTo" :to="viewAllTo">View All</router-link>
         </p>
       </div>
       
       <!-- HEADER COMPONENT END -->
 
       <GridParent tight>
-        
-        <ArticleCard
-          borderless
-          v-for="entry in docs.entries.slice(0, 3)"
-          :key="entry.id"
-          :eyebrow="entry.eyebrow"
-          :filename="entry.thumbnail"
-          :alt="entry.alt"
-          :title="entry.title"
-          :description="entry.description"
-          :btnroute="entry.btnroute"
-          :route="entry.route"
-          :link="entry.link"
-          :label="entry.label"
-        />
+        <template v-if="kind === 'writing'">
+          <ArticleCard
+            borderless
+            v-for="entry in visibleItems"
+            :key="`writing-${entry.id}`"
+            :eyebrow="entry.eyebrow"
+            :filename="entry.thumbnail"
+            :alt="entry.alt"
+            :title="entry.title"
+            :description="entry.description"
+            :btnroute="entry.btnroute"
+            :route="entry.route"
+            :link="entry.link"
+            :label="entry.label"
+          />
+        </template>
+        <template v-else>
+          <ImageCard
+            v-for="entry in visibleItems"
+            :key="`nonwriting-${entry.id}`"
+            class="post"
+            :data-category="entry.tag"
+            :title="entry.title"
+            :description="entry.description"
+            :cta="entry.cta"
+            :route="entry.route || (entry.btnroute ? `/${entry.btnroute}` : '')"
+            :btnroute="entry.btnroute"
+            :link="entry.link"
+            :alt="entry.alt"
+            :filename1="kind === 'work' ? 'blank.svg' : (entry.filename1 || entry.filename3 || entry.images?.filename1)"
+            :filename2="kind === 'work' ? null : (entry.filename2 || entry.images?.filename2)"
+            :filename3="
+              kind === 'work'
+                ? (entry.filename3 || entry.filename2 || entry.filename1 || entry.images?.filename1 || entry.images?.filename3)
+                : (entry.filename3 || entry.images?.filename3)
+            "
+            :style="entry.bgcolor"
+            size="small"
+          />
+        </template>
       </GridParent>
     </GridContainer>
 
@@ -71,7 +96,7 @@
             description= ""
           />
           <p class="justify-start" style="grid-column: 3 / 3; align-self: flex-start">
-            <router-link :to="{ name: 'Library' }">View All</router-link>
+            <router-link v-if="viewAllTo" :to="viewAllTo">View All</router-link>
           </p>
         </div>
         <!-- HEADER COMPONENT END -->
@@ -80,11 +105,13 @@
       <div class="scrolling-wrapper">
         <GridParent
           class="cardmobile"
-          v-for="entry in docs.entries.slice(0, 3)"
+          v-for="entry in visibleItems"
           :key="entry.id"
         >
           <ArticleCard
-          borderless
+            v-if="kind === 'writing'"
+            borderless
+            :key="`writing-${entry.id}`"
             :image="entry.image"
             :eyebrow="entry.eyebrow"
             :filename="entry.thumbnail"
@@ -96,6 +123,27 @@
             :link="entry.link"
             :label="entry.label"
           />
+          <ImageCard
+            v-else
+            :key="`nonwriting-${entry.id}`"
+            :data-category="entry.tag"
+            :title="entry.title"
+            :description="entry.description"
+            :cta="entry.cta"
+            :route="entry.route || (entry.btnroute ? `/${entry.btnroute}` : '')"
+            :btnroute="entry.btnroute"
+            :link="entry.link"
+            :alt="entry.alt"
+            :filename1="kind === 'work' ? 'blank.svg' : (entry.filename1 || entry.filename3 || entry.images?.filename1)"
+            :filename2="kind === 'work' ? null : (entry.filename2 || entry.images?.filename2)"
+            :filename3="
+              kind === 'work'
+                ? (entry.filename3 || entry.filename2 || entry.filename1 || entry.images?.filename1 || entry.images?.filename3)
+                : (entry.filename3 || entry.images?.filename3)
+            "
+            :style="entry.bgcolor"
+            size="small"
+          />
         </GridParent></div
     ></span>
     <!-- MOBILE VIEW END -->
@@ -104,15 +152,34 @@
 
 <script>
 import docs from "../assets/data/docs.json";
+import ArticleCard from "@/components/card/ArticleCard/ArticleCard.vue";
+import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
 const OFFSET = 60;
 
 export default {
   name: "CardRow2",
-  components: {},
+  components: { ArticleCard, ImageCard },
   props: {
     title: {
       type: String,
       default: "Writing",
+    },
+    kind: {
+      type: String,
+      default: "writing",
+    },
+    items: {
+      type: Array,
+      default: null,
+    },
+    viewAllTo: {
+      // string path or vue-router location object
+      type: [String, Object],
+      default: null,
+    },
+    limit: {
+      type: Number,
+      default: 3,
     },
   },
   data() {
@@ -123,6 +190,16 @@ export default {
       showMobile: false, // Change to regular data property
       isDesktopScreen: false, // Change to regular data property
     };
+  },
+  computed: {
+    resolvedItems() {
+      if (Array.isArray(this.items)) return this.items;
+      // Back-compat default: writing docs
+      return this.docs.entries;
+    },
+    visibleItems() {
+      return this.resolvedItems.slice(0, this.limit);
+    },
   },
   mounted() {
     this.lastScrollPosition = window.pageYOffset;

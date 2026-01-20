@@ -28,7 +28,7 @@
           title="AI/AX patterns with Genie"
           icon="j-logo.svg"
           alt="AI/AX icon"
-          description="At Orium, I'm designing <a href='/doc/32'>Genie</a>—an AI/AX platform for agentic experiences—where the work isn't just chatting with an assistant, it's collaborating with AI on real, multi-step workflows."
+          description="At Orium, I'm designing <a href='/doc/building-genie-changed-me'>Genie</a>—an AI/AX platform for agentic experiences—where the work isn't just chatting with an assistant, it's collaborating with AI on real, multi-step workflows."
         />
         <TextBlock
           as="h4"
@@ -52,7 +52,7 @@
       eyebrow2="Design Systems & Infrastructure"
       detail2="I build token-based systems, semantic naming, and governance that reduce design-to-dev iteration time by 40% and increase cross-team consistency."
       eyebrow3="AI/AX Design (Genie)"
-      detail3="I'm pioneering UX patterns for agentic experiences through <a href='/doc/32'>Genie</a>—rethinking how people collaborate with AI, build trust, and understand what agents can do."
+      detail3="I'm pioneering UX patterns for agentic experiences through <a href='/doc/building-genie-changed-me'>Genie</a>—rethinking how people collaborate with AI, build trust, and understand what agents can do."
       eyebrow4="Design-Dev Integration & Mentorship"
       detail4="I code my own designs, mentor designers into developers, and bring mindfulness and emotional intelligence into teams so great work doesn't require burnout."
     />

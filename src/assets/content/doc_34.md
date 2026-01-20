@@ -20,7 +20,7 @@ On our teams at Orium, this work has helped reduce design-to-dev iteration time 
 
 ## AI/AX Design with Genie
 
-I’m currently leading UX for **[Genie](/doc/32)**, our agentic AI/AX platform.
+I’m currently leading UX for **[Genie](/doc/building-genie-changed-me)**, our agentic AI/AX platform.
 
 The core question I’m exploring is:  
 **What does it mean to design for an agent—not just an interface?**
@@ -67,6 +67,6 @@ Most of the problems I’m drawn to share a few traits:
 
 If you’re working on something in that space—whether it’s a design system, an AI-enabled product, or a team trying to bridge design and engineering—I’m probably interested.
 
-If you prefer a more conversational version of this page, you can also check out my **Ask Me Anything** style FAQ on `/doc/30`.
+If you prefer a more conversational version of this page, you can also check out my **Ask Me Anything** style FAQ on `/doc/ask-me-anything`.
 
 

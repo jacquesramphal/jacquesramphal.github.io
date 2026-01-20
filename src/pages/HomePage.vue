@@ -9,13 +9,13 @@
       end
       id="hero"
       class="display"
-      title="I&#x2019;m Jake—Design Lead at Orium turning systems, code, and AI into real products."
+      title="I&#x2019;m Jacques—Design Lead at Orium turning systems, code, and AI into real products."
     />
     <!-- :title="title" -->
 
     <!-- WRITING SECTION - MOVED UP FOR PROMINENCE -->
     <AnimatedComponent>
-      <CardRow2 />
+      <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'WritingIndex' }" />
     </AnimatedComponent>
 
     <!-- ABOUT SECTION -->

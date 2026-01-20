@@ -58,7 +58,7 @@
       </div>
     </GridContainer>
     <div id="related-writing-section" style="background: transparent !important;">
-      <CardRow2 title="Related Writing"/>
+      <CardRow2 title="Related Writing" kind="writing" :viewAllTo="{ name: 'WritingIndex' }" />
     </div>
   </PageWrapper>
 </template>
@@ -70,6 +70,11 @@ import frontMatter from "front-matter";
 import MarkdownTOC from "@/components/MarkdownTOC.vue";
 import HeroBanner from "@/components/HeroBanner/HeroBanner.vue";
 import ShareWidget from "@/components/blog/ShareWidget.vue";
+import {
+  getDocRecordById,
+  getDocRecordBySlug,
+  isNumericRouteParam,
+} from "@/utils/docRegistry";
 // import TextStats from "@/components/card/TextStats.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
 import fallbackImage from "@/assets/images/placeholder.png";
@@ -108,6 +113,9 @@ console.log("MarkdownPage: Pre-loaded images map. Total images:", Object.keys(im
 console.log("MarkdownPage: Sample image keys:", Object.keys(imageMap).slice(0, 30));
 console.log("MarkdownPage: Looking for 'article/without-tokens.png':", !!imageMap['article/without-tokens.png']);
 console.log("MarkdownPage: Looking for 'casestudy/genie/genie.png':", !!imageMap['casestudy/genie/genie.png']);
+
+// Pre-load all markdown docs so we can load by arbitrary filename.
+const contentContext = require.context("../assets/content", false, /\.md$/);
 
 export default {
   name: "MarkdownPage",
@@ -254,7 +262,7 @@ export default {
       return cleaned.join("\n").trim();
     };
 
-    const loadMarkdownContent = async (docId) => {
+    const loadMarkdownContent = async (routeParam) => {
       try {
         // Reset values at start
         heroTitle.value = "";
@@ -263,7 +271,21 @@ export default {
         heroImage.value = "";
         hasHeaderTag.value = false;
         
-        // Import markdown - webpack markdown-loader converts to HTML
+        // Resolve route param -> content file.
+        const param = (routeParam || "").toString().trim();
+        const isNumeric = isNumericRouteParam(param);
+        const docId = isNumeric ? parseInt(param, 10) : null;
+        const record = isNumeric
+          ? getDocRecordById(docId)
+          : getDocRecordBySlug(param);
+
+        const contentFile = record?.contentFile || (isNumeric ? `doc_${docId}.md` : null);
+        if (!contentFile) {
+          router.push({ name: "NotFound" });
+          return;
+        }
+
+        // Import markdown - markdown-loader may convert to HTML.
         // We need to fetch the raw file for extraction, but use processed for rendering
         let rawMarkdown = '';
         let processedMarkdownForRender = '';
@@ -271,15 +293,24 @@ export default {
         try {
           // Try to get raw markdown first (for extraction)
           try {
-            const rawModule = await import(`../assets/content/doc_${docId}.md?raw`);
+            const rawModule = await import(`../assets/content/${contentFile}?raw`);
             rawMarkdown = typeof rawModule.default === 'string' ? rawModule.default : (rawModule.default?.default || '');
           } catch (e) {
             console.log("MarkdownPage: ?raw import not available, using regular import");
           }
           
-          // Always get the processed version for rendering
-          const module = await import(`../assets/content/doc_${docId}.md`);
-          processedMarkdownForRender = typeof module.default === 'string' ? module.default : (module.default?.default || '');
+          // Always get the processed version for rendering.
+          // Prefer require.context so arbitrary filenames work reliably in webpack.
+          let module;
+          try {
+            module = contentContext(`./${contentFile}`);
+          } catch (e) {
+            module = await import(`../assets/content/${contentFile}`);
+          }
+          processedMarkdownForRender =
+            typeof module.default === "string"
+              ? module.default
+              : module.default?.default || "";
           
           // If we don't have raw, try to use processed (might be HTML or markdown)
           if (!rawMarkdown && processedMarkdownForRender) {
@@ -300,7 +331,9 @@ export default {
         }
         
         const { attributes } = frontMatter(rawMarkdown);
+        console.log("MarkdownPage: Doc param:", param);
         console.log("MarkdownPage: Doc ID:", docId);
+        console.log("MarkdownPage: Content file:", contentFile);
         console.log("MarkdownPage: Raw markdown type:", typeof rawMarkdown);
         console.log("MarkdownPage: Raw markdown length:", rawMarkdown.length);
         console.log("MarkdownPage: Processed markdown length:", processedMarkdownForRender.length);
@@ -441,12 +474,18 @@ export default {
     };
 
     onMounted(() => {
-      const docId = parseInt(router.currentRoute.value.params.id);
-      loadMarkdownContent(docId);
+      const param =
+        router.currentRoute.value.params.slug ??
+        router.currentRoute.value.params.id;
+      loadMarkdownContent(param);
     });
 
-    watch(() => router.currentRoute.value.params.id, (newId) => {
-      if (newId) {
+    watch(
+      () =>
+        router.currentRoute.value.params.slug ??
+        router.currentRoute.value.params.id,
+      (newParam) => {
+        if (newParam) {
         // Reset hero values before loading new content
         heroTitle.value = "";
         heroTag.value = "";
@@ -454,11 +493,11 @@ export default {
         heroImage.value = "";
         headings.value = [];
         activeHeading.value = null;
-        const docId = parseInt(newId);
-        loadMarkdownContent(docId);
+        loadMarkdownContent(newParam);
         window.scrollTo(0, 0);
+        }
       }
-    });
+    );
 
     // Computed to ensure reactivity for hero banner display
     const shouldShowHero = computed(() => {

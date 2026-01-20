@@ -5,7 +5,7 @@
       background
       fullvh
       style="scroll-snap-align: start"
-      title="Jake's Product"
+      title="Jacques's Product"
       subtitle="A simple description telling the user the benefits of the product and why they should buy it."
       label="View Product"
       route="/"
@@ -22,7 +22,7 @@
           <TextBlock
           center
             as="h2"
-            title="Jake's Product"
+            title="Jacques's Product"
             subtitle="A simple description telling the user the benefits of the product and why they should buy it."
           />
 
@@ -118,7 +118,7 @@
       />
     </div>
 
-    <CardRow2 title="Read the Docs" />
+    <CardRow2 title="Read the Docs" kind="writing" :viewAllTo="{ name: 'WritingIndex' }" />
 
     <HeroBanner
       center

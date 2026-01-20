@@ -11,7 +11,9 @@
         type="button"
         :class="classes"
         @click="onClick"
-        :style="style"
+        :disabled="disabled"
+        :aria-disabled="disabled ? 'true' : 'false'"
+        :aria-label="ariaLabel || label"
       >
         <!-- <span v-if="icon" class="button-icon">{{ icon }}</span> -->
 
@@ -22,7 +24,10 @@
           :is-svg="true"
           size="16"
         />
-        <span class="button-label">{{ label }}</span>
+        <span v-if="!hideLabel" class="button-label">
+          <slot>{{ label }}</slot>
+        </span>
+        <slot v-else />
       </button>
     </router-link>
     <a v-else-if="link" id="btn" :href="`${link}`" target="blank">
@@ -31,7 +36,9 @@
         type="button"
         :class="classes"
         @click="onClick"
-        :style="style"
+        :disabled="disabled"
+        :aria-disabled="disabled ? 'true' : 'false'"
+        :aria-label="ariaLabel || label"
       >
         <!-- <span v-if="icon" class="button-icon">{{ icon }}</span> -->
 
@@ -42,7 +49,10 @@
           :is-svg="true"
           size="16"
         />
-        <span class="button-label">{{ label }}</span>
+        <span v-if="!hideLabel" class="button-label">
+          <slot>{{ label }}</slot>
+        </span>
+        <slot v-else />
       </button>
     </a>
     <button
@@ -51,7 +61,9 @@
       type="button"
       :class="classes"
       @click="onClick"
-      :style="style"
+      :disabled="disabled"
+      :aria-disabled="disabled ? 'true' : 'false'"
+      :aria-label="ariaLabel || label"
     >
       <!-- <span v-if="icon" class="button-icon">{{ icon }}</span> -->
 
@@ -62,7 +74,10 @@
         :is-svg="true"
         size="16"
       />
-      <span class="button-label">{{ label }}</span>
+      <span v-if="!hideLabel" class="button-label">
+        <slot>{{ label }}</slot>
+      </span>
+      <slot v-else />
     </button>
   </span>
 </template>
@@ -79,8 +94,20 @@ export default {
   props: {
     label: {
       type: String,
-      required: true,
+      required: false,
       default: "Button Label",
+    },
+    ariaLabel: {
+      type: String,
+      default: "",
+    },
+    hideLabel: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
     route: {
       type: String,
@@ -132,6 +159,7 @@ export default {
         // "link-right--default": !this.right,
       })),
       onClick() {
+        if (props.disabled) return;
         emit("click");
       },
     };
@@ -148,9 +176,7 @@ export default {
   // Add any other styling as needed for the icon
 }
 
-.button-label {
-  // Add styling for the label
-}
+/* .button-label intentionally left unstyled */
 .button {
   border-radius: var(--spacing-xxs);
   border: none;
@@ -213,7 +239,7 @@ export default {
 }
 
 .button--ghost {
-  color: var(--link) !important;
+  color: var(--text) !important;
   background-color: transparent;
   border: 1px solid transparent !important;
   font-weight: var(--fontWeight-normal);
@@ -222,7 +248,8 @@ export default {
     color: inherit !important;
   }
   &:hover {
-    border: 1px solid var(--link) !important;
+    background-color: var(--background-darker) !important;
+    // border: 1px solid var(--text) !important;
   }
   // &:active,
   // .router-link-exact-active {

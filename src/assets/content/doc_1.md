@@ -1,11 +1,8 @@
-<header>
-
 # Baselines & Design QA: Setting the Foundation for Quality
 
 #### How Early Baselines Make Design QA Effortless
 
-</header>
-![Image](../images/article/cover2.png)
+![Image](../images/article/cover1.png)
 
 <blockquote>Baselines provide a stable and known starting point for comparison during software development and testing. By comparing changes or new versions against the baseline, discrepancies, bugs, or regressions can be easily identified, ensuring software quality and reliability throughout its development life cycle.</blockquote>
 

@@ -2,12 +2,15 @@
   <teleport to="body">
     <div class="custom-chat-ui">
       <!-- Floating Chat Button -->
-      <button
+      <MyButton
         v-if="!isOpen"
         class="chat-button"
+        type="ghost"
+        size="small"
+        hideLabel
         :style="buttonStyle"
-        @click="openChat"
         :aria-label="buttonLabel"
+        @click="openChat"
       >
         <img
           v-if="buttonIconSrc"
@@ -26,7 +29,7 @@
         >
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
         </svg>
-      </button>
+      </MyButton>
 
       <!-- Chat Window -->
       <transition name="chat-window">
@@ -52,11 +55,14 @@
               <h3 class="chat-header-title">{{ title }}</h3>
             </div>
             <div class="chat-header-actions">
-              <button
-                class="chat-header-button"
-                @click="toggleFullscreen"
-                :aria-label="isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'"
+              <MyButton
                 v-if="allowFullscreen"
+                class="chat-header-button"
+                type="ghost"
+                size="small"
+                hideLabel
+                :aria-label="isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'"
+                @click="toggleFullscreen"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -76,11 +82,14 @@
                     d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
                   />
                 </svg>
-              </button>
-              <button
+              </MyButton>
+              <MyButton
                 class="chat-header-button"
-                @click="closeChat"
+                type="ghost"
+                size="small"
+                hideLabel
                 aria-label="Close chat"
+                @click="closeChat"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +103,7 @@
                   <line x1="18" y1="6" x2="6" y2="18" />
                   <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
-              </button>
+              </MyButton>
             </div>
           </div>
 
@@ -113,14 +122,16 @@
               v-if="messages.length === 0 && starterPrompts.length > 0"
               class="chat-starter-prompts"
             >
-              <button
+              <MyButton
                 v-for="(prompt, index) in starterPrompts"
                 :key="index"
                 class="chat-starter-prompt"
+                type="ghost"
+                size="small"
+                :label="prompt"
                 @click="sendMessage(prompt)"
               >
-                {{ prompt }}
-              </button>
+              </MyButton>
             </div>
 
             <!-- Messages -->
@@ -139,14 +150,12 @@
                 alt="Bot"
                 class="chat-message-avatar"
               />
-              <img
-                v-if="message.role === 'user' && userAvatarSrc && showUserAvatar"
-                :src="userAvatarSrc"
-                alt="User"
-                class="chat-message-avatar"
-              />
               <div
                 class="chat-message-bubble"
+                :class="{
+                  'chat-message-bubble--bot': message.role === 'bot',
+                  'chat-message-bubble--user': message.role === 'user',
+                }"
                 :style="message.role === 'bot' ? botMessageStyle : userMessageStyle"
                 v-html="formatMessage(message.text)"
               ></div>
@@ -175,36 +184,31 @@
 
           <!-- Chat Input -->
           <div class="chat-input-container" :style="inputContainerStyle">
-            <input
+            <MyInput
+              class="chat-input-wrapper"
               v-model="inputMessage"
               type="text"
+              name="chat"
               :placeholder="inputPlaceholder"
-              class="chat-input"
+              :disabled="isLoading"
+              :required="false"
+              :hideLabel="true"
+              :maxlength="maxChars || undefined"
+              inputClass="chat-input"
               :style="inputStyle"
               @keyup.enter="handleSend"
               @input="handleInput"
               ref="inputRef"
             />
-            <button
+            <MyButton
               class="chat-send-button"
+              type="ghost"
+              size="small"
+              label="Send"
               @click="handleSend"
               :disabled="!canSend || isLoading"
-              :style="sendButtonStyle"
               aria-label="Send message"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                width="20"
-                height="20"
-              >
-                <line x1="22" y1="2" x2="11" y2="13" />
-                <polygon points="22 2 15 22 11 13 2 9 22 2" />
-              </svg>
-            </button>
+            />
           </div>
 
           <!-- Character Limit Warning -->
@@ -219,8 +223,14 @@
 </template>
 
 <script>
+import MyButton from "./Button/Button.vue";
+import MyInput from "./form/MyInput.vue";
+import portraitSrc from "@/assets/images/portrait.jpg";
+import userAvatarSrc from "@/assets/images/avatar/avatar-alt.svg";
+
 export default {
   name: "CustomChatUI",
+  components: { MyButton, MyInput },
   props: {
     // Webhook Configuration
     webhookUrl: {
@@ -244,7 +254,8 @@ export default {
     },
     buttonIconSrc: {
       type: String,
-      default: "https://www.svgrepo.com/show/339963/chat-bot.svg",
+      // Keep existing default icon unless overridden by parent
+      default: "",
     },
     buttonBackgroundColor: {
       type: String,
@@ -300,7 +311,7 @@ export default {
     },
     titleAvatarSrc: {
       type: String,
-      default: "https://www.svgrepo.com/show/339963/chat-bot.svg",
+      default: portraitSrc,
     },
     headerBackgroundColor: {
       type: String,
@@ -311,7 +322,7 @@ export default {
     welcomeMessage: {
       type: String,
       default:
-        "Hey! I’m Jake Ramphal’s site guide. Looking to learn about his projects, design work, or writing? Just ask—I’ll point you in the right direction.",
+        "Hey! I’m Jacques Ramphal’s site guide. Looking to learn about his projects, design work, or writing? Just ask—I’ll point you in the right direction.",
     },
     errorMessage: {
       type: String,
@@ -320,9 +331,9 @@ export default {
     starterPrompts: {
       type: Array,
       default: () => [
-        "Who is Jake Ramphal?",
-        "What is Jake Ramphal's work?",
-        "What is Jake Ramphal's writing?",
+        "Who is Jacques Ramphal?",
+        "What is Jacques Ramphal's work?",
+        "What is Jacques Ramphal's writing?",
       ],
     },
     starterPromptFontSize: {
@@ -345,11 +356,11 @@ export default {
     // Avatar Configuration
     botAvatarSrc: {
       type: String,
-      default: "https://www.svgrepo.com/show/334455/bot.svg",
+      default: portraitSrc,
     },
     userAvatarSrc: {
       type: String,
-      default: "https://www.svgrepo.com/show/532363/user-alt-1.svg",
+      default: userAvatarSrc,
     },
     showBotAvatar: {
       type: Boolean,
@@ -389,7 +400,7 @@ export default {
     },
     userMessageTextColor: {
       type: String,
-      default: "var(--foreground-reversed)",
+      default: "var(--foreground)",
     },
     userMessageBorderRadius: {
       type: Number,
@@ -556,14 +567,16 @@ export default {
     },
     botMessageStyle() {
       return {
-        backgroundColor: this.botMessageBackgroundColor,
+        // Bot: no background/border (styling is handled by CSS class)
+        backgroundColor: "transparent",
         color: this.botMessageTextColor,
         borderRadius: `${this.botMessageBorderRadius}px`,
       };
     },
     userMessageStyle() {
       return {
-        backgroundColor: this.userMessageBackgroundColor,
+        // User: light grey background, no border (styling is handled by CSS class)
+        backgroundColor: "transparent",
         color: this.userMessageTextColor,
         borderRadius: `${this.userMessageBorderRadius}px`,
       };
@@ -926,6 +939,13 @@ export default {
 /* Chat Button */
 .chat-button {
   position: fixed;
+  z-index: 9998;
+  display: block;
+}
+
+.chat-button .custom-btn {
+  width: 100%;
+  height: 100%;
   cursor: pointer;
   border: var(--chat-border);
   box-shadow: var(--shadow-z4);
@@ -934,32 +954,32 @@ export default {
   background: var(--chat-surface);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
-  z-index: 9998;
+  transition: all 0.2s ease;
+  padding: 0;
+}
 
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: var(--chat-shadow-hover);
-  }
+.chat-button .custom-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: var(--chat-shadow-hover);
+}
 
-  &:active {
-    transform: scale(0.95);
-  }
+.chat-button .custom-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
 
-  &:focus-visible {
-    outline: none;
-    box-shadow: var(--shadow-z4), var(--chat-ring);
-  }
+.chat-button .custom-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-z4), var(--chat-ring);
+}
 
-  .chat-button-icon {
-    width: 60%;
-    height: 60%;
-    object-fit: contain;
-    filter: var(--filter);
-  }
+.chat-button .chat-button-icon {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  filter: var(--filter);
 }
 
 /* Chat Window */
@@ -1020,10 +1040,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* Match inline widget feel: a bit roomier, 20px horizontal */
-  padding: var(--size-4) var(--size-5);
+  /* Tighter header spacing */
+  padding: var(--spacing-xs) var(--spacing-sm);
   border-bottom: var(--chat-border);
-  min-height: 60px;
+  min-height: 48px;
 
   &-info {
     display: flex;
@@ -1051,36 +1071,38 @@ export default {
     gap: 0.5rem;
   }
 
-  &-button {
+  &-button .custom-btn {
     background: transparent;
     border: var(--chat-border);
     cursor: pointer;
     padding: var(--spacing-xxs);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     color: inherit;
     border-radius: var(--chat-radius);
     transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    min-width: 36px;
+    min-height: 36px;
+  }
 
-    &:hover {
-      background-color: var(--chat-surface-2);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-z1);
-    }
+  &-button .custom-btn:hover:not(:disabled) {
+    background-color: var(--chat-surface-2);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-z1);
+  }
 
-    &:active {
-      transform: translateY(0);
-    }
+  &-button .custom-btn:active:not(:disabled) {
+    transform: translateY(0);
+  }
 
-    &:focus-visible {
-      outline: none;
-      box-shadow: var(--shadow-z1), var(--chat-ring);
-    }
+  &-button .custom-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-z1), var(--chat-ring);
+  }
 
-    svg {
-      stroke: currentColor;
-    }
+  &-button svg {
+    stroke: currentColor;
   }
 }
 
@@ -1088,10 +1110,10 @@ export default {
 .chat-messages {
   flex: 1;
   overflow-y: auto;
-  padding: var(--size-5);
+  padding: var(--spacing-sm);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xs);
   scroll-behavior: smooth;
   /* Match site default <p> scale */
   font-size: var(--font-500);
@@ -1114,33 +1136,35 @@ export default {
   margin-bottom: 1rem;
 }
 
-.chat-starter-prompt {
-  padding: var(--spacing-xs) var(--spacing-sm);
+.chat-starter-prompt .custom-btn {
+  width: 100%;
+  text-align: left;
+  padding: var(--spacing-xxs) var(--spacing-xs);
   background-color: var(--chat-surface-2);
   border: var(--chat-border);
   border-radius: var(--chat-radius);
   cursor: pointer;
-  text-align: left;
   font-size: inherit;
   transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
   color: inherit;
+}
 
-  &:hover {
-    box-shadow: var(--shadow-z2);
-    transform: translateX(4px);
-  }
+.chat-starter-prompt .custom-btn:hover:not(:disabled) {
+  box-shadow: var(--shadow-z2);
+  transform: translateX(4px);
+}
 
-  &:focus-visible {
-    outline: none;
-    box-shadow: var(--shadow-z2), var(--chat-ring);
-  }
+.chat-starter-prompt .custom-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-z2), var(--chat-ring);
 }
 
 .chat-message {
   display: flex;
   gap: 0.75rem;
   align-items: flex-start;
-  max-width: 85%;
+  width: 100%;
+  max-width: 100%;
 
   &--welcome {
     max-width: 100%;
@@ -1153,7 +1177,7 @@ export default {
 
   &--user {
     align-self: flex-end;
-    flex-direction: row-reverse;
+    justify-content: flex-end;
   }
 }
 
@@ -1167,18 +1191,33 @@ export default {
 }
 
 .chat-message-bubble {
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-xxs) var(--spacing-xs);
   line-height: var(--lineHeight-taller);
   word-wrap: break-word;
-  border: var(--chat-border);
-  box-shadow: var(--shadow-z1);
+  border: none;
+  box-shadow: none;
   font-size: inherit;
+  background: transparent;
+  max-width: 100%;
 
   :deep(a) {
     color: inherit !important;
     text-decoration-thickness: 0.1rem !important;
     text-underline-offset: 0.35rem;
   }
+}
+
+.chat-message-bubble--user {
+  /* User: light grey bg, no border */
+  background: var(--chat-surface-2);
+  color: var(--foreground);
+  margin-left: auto;
+  text-align: left;
+}
+
+.chat-message-bubble--bot {
+  /* Bot: no bg, no border */
+  background: transparent;
 }
 
 .chat-loading {
@@ -1248,23 +1287,25 @@ export default {
 .chat-input-container {
   display: flex;
   gap: 0.5rem;
-  padding: var(--size-4) var(--size-5);
+  padding: var(--spacing-xs) var(--spacing-sm);
   border-top: var(--chat-border);
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0),
-    var(--chat-surface)
-  );
+  background: var(--chat-surface);
+}
+
+.chat-input-wrapper {
+  flex: 1;
+  min-width: 0;
 }
 
 .chat-input {
-  flex: 1;
+  width: 100%;
   border: var(--chat-border);
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-xxs) var(--spacing-xs);
   outline: none;
   font-family: inherit;
   font-size: var(--font-500);
   line-height: var(--lineHeight-taller);
+  min-height: 36px;
 
   &:focus {
     border-color: var(--link);
@@ -1279,35 +1320,31 @@ export default {
   }
 }
 
-.chat-send-button {
+/* MyButton renders a wrapper element around the internal <button> */
+.chat-send-button .custom-btn {
   background: var(--chat-surface-2);
   border: var(--chat-border);
   cursor: pointer;
-  padding: var(--spacing-xs);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
   min-width: 44px;
+}
 
-  &:hover:not(:disabled) {
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-z2);
-  }
+.chat-send-button .custom-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-z2);
+}
 
-  &:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-  }
+.chat-send-button .custom-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
 
-  &:focus-visible {
-    outline: none;
-    box-shadow: var(--shadow-z2), var(--chat-ring);
-  }
-
-  svg {
-    stroke: currentColor;
-  }
+.chat-send-button .custom-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-z2), var(--chat-ring);
 }
 
 :root.chat-fullscreen-open #headernav {

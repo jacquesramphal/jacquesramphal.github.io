@@ -8,7 +8,7 @@
 ## Current State Analysis
 
 ### Homepage Structure (Current)
-1. **Hero Banner** - "I'm Jake—a designer at Orium..."
+1. **Hero Banner** - "I'm Jacques—a designer at Orium..."
 2. **Work & Play** (Mixed) - Shows 1 work entry + decorative cards
 3. **About** - Design systems, AI, code narrative
 4. **Writing** - Shows 3 latest articles via CardRow2 component

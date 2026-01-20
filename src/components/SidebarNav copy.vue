@@ -42,7 +42,7 @@
         <TextLink
             class=""
             
-            :label="isMobileScreen ? '👨🏽‍🦲 Jake Ramphal' : 'JR'"
+            :label="isMobileScreen ? '👨🏽‍🦲 Jacques Ramphal' : 'JR'"
             route="/"
           /> 
         </span>

@@ -2,7 +2,7 @@
   "featEyebrow": "Design AI Tools",
   "featTitle": "This is a feature title",
   "featDescription": "This is a feature description",
-  "btnroute": "doc/13",
+  "btnroute": "doc/the-shifting-design-landscape",
   "label": "Feature Label",
   "entries": [
     {
@@ -27,39 +27,51 @@
     },
     {
       "id": 9,
+      "docId": 32,
+      "slug": "building-genie-changed-me",
       "title": "Building Genie didn’t just change how we work. It changed me",
       "eyebrow": "Agentic AI Design",
       "description": "The story of building Genie—from personal experiment to organizational platform—and the three mental model problems we had to solve to design for agentic AI. A personal journey about reclaiming creative focus, learning new skills, and transforming routine work into strategic impact.",
-      "route": "/doc/32",
+      "route": "/doc/building-genie-changed-me",
+      "contentFile": "doc_32.md",
       "thumbnail": "casestudy/genie/genie.png",
       "alt": "Genie - Agentic AI Platform"
     },
     {
       "id": 1,
+      "docId": 13,
+      "slug": "the-shifting-design-landscape",
       "title": "The Shifting Landscape of Design",
       "description": "The design industry is in a state of flux. The landscape is shifting, and the role of the designer is evolving. The days of the designer as a pixel pusher are long gone. The designer of today is a strategic thinker, a problem solver, and a storyteller. The designer of today is a leader, a collaborator, and a change agent. The designer of today is a business person, a technologist, and a futurist.",
       "eyebrow": "Design Evolution AI",
-      "route": "/doc/13",
-      "thumbnail": "article/cover1.png",
+      "route": "/doc/the-shifting-design-landscape",
+      "contentFile": "doc_13.md",
+      "thumbnail": "article/cover2.png",
       "alt": "Article: The Shifting Landscape of Design"
     },
     {
       "id": 2,
+      "docId": 1,
+      "slug": "baselines-design-qa",
       "title": "Baselines & Design QA: Setting the Foundation for Quality",
       "eyebrow": "Quality Process",
       "description": "How early baselines make Design QA effortless. When you set design baselines before implementation begins, you prevent problems from taking root. The result? Less testing needed later, fewer discrepancies to catch, and a shared understanding of what 'done' looks like.",
-      "route": "/doc/1",
-      "thumbnail": "article/cover2.png",
+      "route": "/doc/baselines-design-qa",
+      "contentFile": "doc_1.md",
+      "thumbnail": "article/cover1.png",
       "alt": "Article: Baselines & Design QA"
     },
 
     
     {
       "id": 7,
+      "docId": 27,
+      "slug": "the-value-of-writing",
       "title": "The Value of Writing",
       "eyebrow": "Musing",
       "description": "What am I trying to say? Do I even have a point?",
-      "route": "/doc/27",
+      "route": "/doc/the-value-of-writing",
+      "contentFile": "doc_27.md",
       "thumbnail": "article/jacques.jpg",
       "alt": "Article: Writing for Non-Writers"
     }

@@ -1,17 +1,4 @@
 import HeaderNav from './HeaderNav.vue';
-import { createRouter, createWebHistory } from 'vue-router';
-
-// Create a mock router
-const router = createRouter({
-  history: createWebHistory(),
-  routes: [
-    {
-      path: '/',
-      name: 'Home',
-      meta: {}
-    }
-  ]
-});
 
 export default {
   title: 'Components/HeaderNav',

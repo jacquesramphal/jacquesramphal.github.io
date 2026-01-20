@@ -12,9 +12,13 @@ import ProductPage from "@/pages/ProductPage.vue";
 import MarkdownPage from "@/pages/MarkdownPage.vue";
 import HomePage from "@/pages/HomePage.vue";
 import MyLibrary from "@/pages/MyLibrary.vue";
+import WritingIndex from "@/pages/WritingIndex.vue";
+import WorkIndex from "@/pages/WorkIndex.vue";
+import PlayIndex from "@/pages/PlayIndex.vue";
 import UsefulLinks from "@/pages/UsefulLinks.vue";
 import CoursePage from "@/pages/CoursePage.vue";
 import FullscreenMenu from "../components/FullscreenMenu.vue";
+import { getDocRecordById } from "@/utils/docRegistry";
 
 const routes = [
   {
@@ -53,7 +57,7 @@ const routes = [
   },
   {
     path: "/",
-    name: "Jake Ramphal",
+    name: "Jacques Ramphal",
     component: HomePage,
     children: [],
     meta: {
@@ -91,6 +95,21 @@ const routes = [
     component: MyLibrary,
   },
   {
+    name: "WritingIndex",
+    path: "/writing",
+    component: WritingIndex,
+  },
+  {
+    name: "WorkIndex",
+    path: "/work",
+    component: WorkIndex,
+  },
+  {
+    name: "PlayIndex",
+    path: "/play",
+    component: PlayIndex,
+  },
+  {
     name: "Product",
     path: "/product",
     component: ProductPage,
@@ -105,13 +124,33 @@ const routes = [
     }
   },
   {
-    name: "Doc",
-    path: "/doc/:id",
+    name: "DocById",
+    path: "/doc/:id(\\d+)",
     component: MarkdownPage,
     props: true,
     meta: {
-      dynamicTitle: true
-    }
+      dynamicTitle: true,
+    },
+    beforeEnter: (to) => {
+      const raw = to.params?.id;
+      const id = typeof raw === "string" ? parseInt(raw, 10) : NaN;
+      if (!Number.isFinite(id)) return true;
+
+      const record = getDocRecordById(id);
+      if (record?.slug) {
+        return { name: "Doc", params: { slug: record.slug } };
+      }
+      return true;
+    },
+  },
+  {
+    name: "Doc",
+    path: "/doc/:slug",
+    component: MarkdownPage,
+    props: true,
+    meta: {
+      dynamicTitle: true,
+    },
   },
   // {
   //   name: "Doc",

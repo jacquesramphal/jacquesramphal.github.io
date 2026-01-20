@@ -4,31 +4,43 @@
   "entries": [
     {
       "id": 1,
+      "docId": 1,
       "tag": "00",
       "title": "Introduction",
       "description": "Introduction to the course",
-      "route": "/doc/1",
+      "slug": "baselines-design-qa",
+      "route": "/doc/baselines-design-qa",
+      "contentFile": "doc_1.md",
       "read": false
     },
     {
       "id": 2,
+      "docId": 2,
       "tag": "01",
       "title": "Quality Assurance Activities Overview",
-      "route": "/doc/2",
+      "slug": "quality-assurance-activities-overview",
+      "route": "/doc/quality-assurance-activities-overview",
+      "contentFile": "doc_2.md",
       "read": false
     },
     {
       "id": 3,
+      "docId": 3,
       "tag": "02",
       "title": "Accelerator Tools for Streamlining DQA",
-      "route": "/doc/3",
+      "slug": "designing-quality-qa-for-designers",
+      "route": "/doc/designing-quality-qa-for-designers",
+      "contentFile": "doc_3.md",
       "read": false
     },
     {
       "id": 4,
+      "docId": 4,
       "tag": "03",
       "title": "Usability and User Experience Testing",
-      "route": "/doc/4",
+      "slug": "usability-and-user-experience-testing",
+      "route": "/doc/usability-and-user-experience-testing",
+      "contentFile": "doc_4.md",
       "read": false
     }
   ]

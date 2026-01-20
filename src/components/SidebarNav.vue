@@ -4,7 +4,7 @@
       <!-- Logo/Home Link -->
       <TextLink
         class="home-link"
-        :label="isMobileScreen ? '👨🏽‍🦲 Jake Ramphal' : 'JR'"
+        :label="isMobileScreen ? '👨🏽‍🦲 Jacques Ramphal' : 'JR'"
         route="/"
       />
 

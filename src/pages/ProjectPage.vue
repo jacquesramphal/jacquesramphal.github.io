@@ -29,7 +29,7 @@
       <ImageCard
         size="large"
         title=""
-        :filename3="`${entry.images.filename1}`"
+        :filename1="`${entry.images.filename1}`"
         :alt="`${entry.alt}`"
         route=""
         :style="`${entry.bgcolor}`"
@@ -210,7 +210,13 @@
       @close="closeImage"
     />
     <div id="related-work-section" style="background: transparent !important;">
-      <CardRow2 title="Related Work"/>
+      <CardRow2
+        title="Related Work"
+        kind="work"
+        :items="relatedWorkEntries"
+        :viewAllTo="{ name: 'WorkIndex' }"
+        :limit="3"
+      />
     </div>
   </PageWrapper>
 </template>
@@ -304,6 +310,11 @@ export default {
     },
     entry() {
       return workData.entries.find((entry) => entry.id == this.workId);
+    },
+    relatedWorkEntries() {
+      return workData.entries
+        .filter((e) => e.category === "Work" && e.id != this.workId)
+        .slice(0, 6);
     },
   },
   mounted() {

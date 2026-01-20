@@ -5,6 +5,7 @@
         <div class="nav-left">
           <span
             class="glow animate delay-1 wordmark"
+            v-show="!menuOpen"
             style="
               display: flex;
               flex-direction: row;
@@ -14,7 +15,7 @@
             "
           >
             <router-link
-              to="/resume"
+              to="/"
               class="nav-avatar-link"
               aria-label="View resume"
             >
@@ -22,11 +23,18 @@
                 class="nav-avatar"
                 src="@/assets/images/portrait.jpg"
                 draggable="false"
-                alt="Jake Ramphal"
+                alt="Jacques Ramphal"
               />
+              <!-- <img
+                class="nav-avatar"
+                src="@/assets/images/avatar/avatar.svg"
+                draggable="false"
+                alt="Jacques Ramphal"
+              /> -->
             </router-link>
-            <TextLink label="Jake Ramphal" route="/" />
-
+            
+            <p>Jacques Ramphal </p>
+            <!-- <TextLink label="Jake Ramphal" route="/" /> -->
             <!-- <BreadCrumb
               :isDesktopScreen="isDesktopScreen"
               @toggle-menu="toggleFullscreenMenu"
@@ -357,7 +365,7 @@ nav {
   inline-size: var(--spacing-md);
   block-size: var(--spacing-md);
   aspect-ratio: 1 / 1;
-  border-radius: var(--spacing-xxs);
+  border-radius: 100%;
   object-fit: cover;
   box-shadow: var(--shadow-light);
 }
