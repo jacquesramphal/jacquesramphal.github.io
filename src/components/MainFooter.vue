@@ -105,7 +105,7 @@
                   <button
                     v-for="option in themeOptions"
                     :key="option.value"
-                    class="theme-option"
+                    class="selector-item theme-option"
                     :class="{ active: currentTheme === option.value }"
                     @click.stop="
                       selectTheme(option.value);

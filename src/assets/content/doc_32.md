@@ -1,12 +1,10 @@
-<header>
 
-# Building Genie Didn’t Just Change How We Work. It Changed Me.
+# Building Genie didn’t just change how we work. It changed me.
 
 #### This is the story of building Genie—from personal experiment to organizational platform—and the three mental model problems we had to solve to design for agentic AI.
 
 
-</header>
-![Genie Core Functions Diagram](../images/article/genie.png)
+![Genie Core Functions Diagram](../images/casestudy/genie/genie.png)
 
 
 ## What is Genie?
@@ -30,6 +28,8 @@ The challenge wasn’t about working harder or improving time management or tryi
 
 ## A Personal Experiment That Got Out of Hand
 I started experimenting in small pockets of time. Thirty minutes between design reviews or an hour on a Friday evening playing with small automations, custom GPTs, and scripts that could run audits, generate user stories, and map components.
+
+![Genie Core Functions Diagram](../images/gennifer.png)
 
 I was learning tools I’d never touched before—[N8n](https://n8n.io/), workflow orchestration, agentic AI patterns—to solve problems I’d never encountered before. I had to learn AI development properly and truly understand how agents work, because I was building one to solve real design problems. Curiosity turned into a passion project, and an education I hadn’t planned on.
 

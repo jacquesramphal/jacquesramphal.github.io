@@ -27,11 +27,11 @@
     },
     {
       "id": 9,
-      "title": "Building Genie Didn’t Just Change How We Work. It Changed Me",
+      "title": "Building Genie didn’t just change how we work. It changed me",
       "eyebrow": "Agentic AI Design",
       "description": "The story of building Genie—from personal experiment to organizational platform—and the three mental model problems we had to solve to design for agentic AI. A personal journey about reclaiming creative focus, learning new skills, and transforming routine work into strategic impact.",
       "route": "/doc/32",
-      "thumbnail": "gennifer.png",
+      "thumbnail": "casestudy/genie/genie.png",
       "alt": "Genie - Agentic AI Platform"
     },
     {

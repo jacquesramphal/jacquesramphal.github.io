@@ -253,6 +253,35 @@ export default {
   max-inline-size: min(360px, 90vw);
 }
 
+:deep(.selector-cta__menu .selector-item) {
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 0; /* no rounded corners on hover/background */
+  background: transparent;
+  color: var(--foreground);
+  cursor: pointer;
+  text-align: left;
+  font-size: var(--font-400);
+  line-height: 1.2;
+}
+
+:deep(.selector-cta__menu .selector-item:hover) {
+  background: var(--background-darker);
+  border-radius: 0;
+}
+
+:deep(.selector-cta__menu .selector-item.is-muted) {
+  opacity: 0.85;
+}
+
+:deep(.selector-cta__menu .selector-divider) {
+  height: 1px;
+  background: color-mix(in srgb, var(--foreground) 12%, transparent);
+  margin: 6px 6px;
+  border-radius: 999px;
+}
+
 .selector-cta__menu.placement-bottom-start,
 .selector-cta__menu.placement-bottom-end {
   inset-block-start: calc(100% + var(--spacing-xxs));

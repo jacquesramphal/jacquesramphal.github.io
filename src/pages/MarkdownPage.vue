@@ -4,6 +4,7 @@
     <!-- :tag="heroTag" -->
 
     <HeroBanner
+      v-if="hasHeaderTag"
       style="scroll-snap-align: start"
       :title="heroTitle || 'Document'"
       :subtitle="heroSubtitle || 'No description available'"
@@ -13,7 +14,7 @@
     />
     <GridContainer 
     tight
-      v-if="heroImageSrc && heroImage"
+      v-if="hasHeaderTag && heroImageSrc && heroImage"
       style="scroll-snap-align: start"
     >
       <div class="hero-fullscreen-image">
@@ -27,13 +28,18 @@
   
     </GridContainer>
    
-    <GridContainer class="markdown-layout">
+    <GridContainer
+      :class="['markdown-layout', { 'markdown-layout--no-hero': !hasHeaderTag }]"
+    >
       <main id="markdown-content-end" class="markdown-main">
         <MarkdownRenderer
           class="content"
           :markdown="processedMarkdown"
           @headings="updateHeadings"
         />
+        <div class="markdown-share">
+          <ShareWidget :title="shareTitle" />
+        </div>
       </main>
       <div 
         v-if="headings && headings.length > 0"
@@ -63,6 +69,7 @@ import router from "@/router";
 import frontMatter from "front-matter";
 import MarkdownTOC from "@/components/MarkdownTOC.vue";
 import HeroBanner from "@/components/HeroBanner/HeroBanner.vue";
+import ShareWidget from "@/components/blog/ShareWidget.vue";
 // import TextStats from "@/components/card/TextStats.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
 import fallbackImage from "@/assets/images/placeholder.png";
@@ -116,6 +123,7 @@ export default {
     const heroTag = ref("");
     const heroSubtitle = ref("");
     const heroImage = ref("");
+    const hasHeaderTag = ref(false);
     const statsLabel1 = ref("");
     const statsValue1 = ref("");
     const statsLabel2 = ref("");
@@ -202,40 +210,49 @@ export default {
     };
 
     const removeHeaderAndFirstImage = (markdown) => {
-  if (!markdown || typeof markdown !== "string") {
-    return "";
-  }
-
-  let output = markdown;
-
-  // 1. Remove the entire <header>...</header> block
-  output = output.replace(/<header[^>]*>[\s\S]*?<\/header>/gi, "").trim();
-
-  const lines = output.split("\n");
-
-  // 2. Remove the first image (markdown OR HTML)
-  let removedImage = false;
-  const cleaned = [];
-
-  for (let line of lines) {
-    if (!removedImage) {
-      // Markdown image
-      let md = line.match(/!\[[^\]]*\]\(([^)]+)\)/);
-
-      // HTML <img>
-      let html = line.match(/<img[^>]+src=["']([^"']+)["']/i);
-
-      if (md || html) {
-        removedImage = true;
-        continue; // Skip this line
+      if (!markdown || typeof markdown !== "string") {
+        return "";
       }
-    }
 
-    cleaned.push(line);
-  }
+      const headerRegex = /<header[^>]*>[\s\S]*?<\/header>/i;
+      const hasHeader = headerRegex.test(markdown);
 
-  return cleaned.join("\n").trim();
-};
+      // If there is no <header> block, we should not strip anything
+      // (otherwise we'd remove the first content image even though no hero will render).
+      if (!hasHeader) {
+        return markdown;
+      }
+
+      let output = markdown;
+
+      // 1. Remove the entire <header>...</header> block
+      output = output.replace(/<header[^>]*>[\s\S]*?<\/header>/gi, "").trim();
+
+      const lines = output.split("\n");
+
+      // 2. Remove the first image (markdown OR HTML)
+      let removedImage = false;
+      const cleaned = [];
+
+      for (let line of lines) {
+        if (!removedImage) {
+          // Markdown image
+          let md = line.match(/!\[[^\]]*\]\(([^)]+)\)/);
+
+          // HTML <img>
+          let html = line.match(/<img[^>]+src=["']([^"']+)["']/i);
+
+          if (md || html) {
+            removedImage = true;
+            continue; // Skip this line
+          }
+        }
+
+        cleaned.push(line);
+      }
+
+      return cleaned.join("\n").trim();
+    };
 
     const loadMarkdownContent = async (docId) => {
       try {
@@ -244,6 +261,7 @@ export default {
         heroTag.value = "";
         heroSubtitle.value = "";
         heroImage.value = "";
+        hasHeaderTag.value = false;
         
         // Import markdown - webpack markdown-loader converts to HTML
         // We need to fetch the raw file for extraction, but use processed for rendering
@@ -313,6 +331,10 @@ export default {
             console.log("MarkdownPage: rawMarkdown is empty, using processedMarkdownForRender");
             markdownToExtract = processedMarkdownForRender;
           }
+
+          // If there is no <header> block in the doc, we should not render the hero at all.
+          // This flag is the single source of truth for hero rendering.
+          hasHeaderTag.value = /<header[^>]*>/i.test(markdownToExtract || "");
           
           heroData = extractHeroData(markdownToExtract);
           console.log("MarkdownPage: Extracted hero data:", heroData);
@@ -447,6 +469,13 @@ export default {
       return result;
     });
 
+    const shareTitle = computed(() => {
+      const t = (heroTitle.value || "").toString().trim();
+      if (t) return t;
+      const h1 = (headings.value || []).find((h) => h && h.level === 1 && h.title);
+      return h1?.title || "";
+    });
+
     // Computed property for hero image source
     const heroImageSrc = computed(() => {
       if (!heroImage.value) {
@@ -539,9 +568,11 @@ export default {
       heroTag,
       heroSubtitle,
       heroImage,
+      hasHeaderTag,
       heroImageSrc,
       fallbackImageSrc,
       shouldShowHero,
+      shareTitle,
       statsLabel1,
       statsValue1,
       statsLabel2,
@@ -556,6 +587,7 @@ export default {
     // ImageCard,
     MarkdownTOC,
     HeroBanner,
+    ShareWidget,
     // TextStats,
     GridContainer,
   },
@@ -880,6 +912,16 @@ export default {
     grid-template-columns: 1fr 2fr;
     grid-gap: var(--spacing-lg);
   }
+}
+
+.markdown-layout--no-hero {
+  margin-block-start: var(--spacing-lg);
+}
+
+.markdown-share {
+  margin-block-start: var(--spacing-lg);
+  display: flex;
+  justify-content: flex-end;
 }
 
 .markdown-main {
