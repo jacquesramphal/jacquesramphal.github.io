@@ -1,0 +1,10 @@
+dist
+storybook-static
+node_modules
+coverage
+
+*.min.*
+*.snap
+
+src/assets/content
+src/assets/data

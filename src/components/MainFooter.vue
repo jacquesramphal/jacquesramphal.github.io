@@ -121,7 +121,7 @@
                   </button>
                 </template>
               </SelectorCta>
-              <!-- <div class="font-selector" @click.stop>
+              <div class="font-selector" @click.stop>
                 <button
                   class="font-button"
                   @click.stop="toggleFont"
@@ -131,7 +131,7 @@
                   <span class="font-icon"><strong>Aa</strong></span>
                   <span class="font-label">Font</span>
                 </button>
-              </div> -->
+              </div>
             </div>
           </div>
         </GridParent>

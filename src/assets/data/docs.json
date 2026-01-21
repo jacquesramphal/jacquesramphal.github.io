@@ -74,6 +74,18 @@
       "contentFile": "doc_27.md",
       "thumbnail": "article/jacques.jpg",
       "alt": "Article: Writing for Non-Writers"
+    },
+    {
+      "id": 12,
+      "docId": 37,
+      "slug": "smart-quotes-fixer",
+      "title": "Smart Quotes Fixer (Vue + Markdown)",
+      "eyebrow": "Tooling",
+      "description": "A safe script that converts dumb quotes to smart quotes in rendered content (Vue templates + Markdown) without touching code, bindings, or attribute delimiters.",
+      "route": "/doc/smart-quotes-fixer",
+      "contentFile": "doc_37.md",
+      "thumbnail": "article/cover1.png",
+      "alt": "Doc: Smart Quotes Fixer"
     }
   ]
 }

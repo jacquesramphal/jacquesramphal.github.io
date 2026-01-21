@@ -245,7 +245,7 @@ export default {
   font-weight: var(--fontWeight-normal);
   &:before,
   &:after {
-    color: inherit !important;
+    color: var(--link) !important;
   }
   &:hover {
     background-color: var(--background-darker) !important;

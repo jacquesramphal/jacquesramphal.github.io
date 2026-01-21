@@ -9,7 +9,7 @@
       end
       id="hero"
       class="display"
-      title="I&#x2019;m Jacques—Design Lead at Orium turning systems, code, and AI into real products."
+      title="I’m Jacques—Design Lead at Orium turning systems, code, and AI into real products."
     />
     <!-- :title="title" -->
 
@@ -25,7 +25,7 @@
         as="h2"
         description=""
         eyebrow1=""
-        detail1="I'm a Senior Product Designer and design lead in Toronto, and for the last 15 years at Orium I've been obsessed with making design actually ship. <br/><br/>I architect token-based design systems and the workflows around them so designers and developers spend less time arguing over specs and more time shipping. Through Genie, our AI/AX platform, I'm exploring how humans and AI share work, not just chat. <br/><br/>I still code my own designs, mentor designers into developers, and care a lot about teams feeling calm, focused, and proud of what they put into production."
+        detail1="I’m a Senior Product Designer and design lead in Toronto, and for the last 15 years at Orium I’ve been obsessed with making design actually ship. <br/><br/>I architect token-based design systems and the workflows around them so designers and developers spend less time arguing over specs and more time shipping. Through Genie, our AI/AX platform, I’m exploring how humans and AI share work, not just chat. <br/><br/>I still code my own designs, mentor designers into developers, and care a lot about teams feeling calm, focused, and proud of what they put into production."
       />
     </AnimatedComponent>
 
