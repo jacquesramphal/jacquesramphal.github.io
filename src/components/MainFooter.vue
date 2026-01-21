@@ -540,7 +540,7 @@ li.external::after {
 .font-button {
   display: flex;
   align-items: center;
-  gap: var(--spacing-xxs);
+  gap: 40px;
   padding: var(--spacing-xxs) var(--spacing-xs);
   background: transparent;
   border: none;

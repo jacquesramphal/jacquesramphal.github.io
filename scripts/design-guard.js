@@ -167,12 +167,17 @@ function scanText(file, text, config) {
 }
 
 function main() {
+  const verbose = process.argv.includes('--verbose') || process.argv.includes('-v');
+
   const rootRes = runGit(['rev-parse', '--show-toplevel']);
   const repoRoot = rootRes.code === 0 ? rootRes.stdout.trim() : process.cwd();
   const config = loadConfig(repoRoot);
 
   const stagedFiles = getStagedFiles().filter((f) => shouldScanFile(f, config));
   if (stagedFiles.length === 0) {
+    if (verbose) {
+      console.log('Design guard: no staged files to scan (run `git add` first).');
+    }
     process.exit(0);
   }
 
@@ -186,6 +191,9 @@ function main() {
   }
 
   if (allWarnings.length === 0) {
+    if (verbose) {
+      console.log(`Design guard: no warnings across ${stagedFiles.length} staged file(s).`);
+    }
     process.exit(0);
   }
 
