@@ -2,5 +2,8 @@
 
 . "$(dirname -- "$0")/_/husky.sh"
 
-# Design guard (warning-only; never blocks commit)
+# Design guard (mode controlled by design-guard.config.json)
+# Override temporarily:
+# - DESIGN_GUARD_MODE=warn git commit ...
+# - DESIGN_GUARD_STRICT=0 git commit ...
 node scripts/design-guard.js

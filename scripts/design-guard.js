@@ -167,11 +167,28 @@ function scanText(file, text, config) {
 }
 
 function main() {
-  const verbose = process.argv.includes('--verbose') || process.argv.includes('-v');
+  const argv = process.argv.slice(2);
+  const verbose = argv.includes('--verbose') || argv.includes('-v');
+  const strictArg = argv.includes('--strict');
+  const warnArg = argv.includes('--warn');
 
   const rootRes = runGit(['rev-parse', '--show-toplevel']);
   const repoRoot = rootRes.code === 0 ? rootRes.stdout.trim() : process.cwd();
   const config = loadConfig(repoRoot);
+
+  const envModeRaw = (process.env.DESIGN_GUARD_MODE || '').trim().toLowerCase();
+  const envStrictRaw = (process.env.DESIGN_GUARD_STRICT || '').trim().toLowerCase();
+
+  const strictFromEnvMode = envModeRaw === 'strict' ? true : envModeRaw === 'warn' ? false : null;
+  const strictFromEnvStrict =
+    envStrictRaw === '1' || envStrictRaw === 'true' || envStrictRaw === 'yes'
+      ? true
+      : envStrictRaw === '0' || envStrictRaw === 'false' || envStrictRaw === 'no'
+        ? false
+        : null;
+
+  const strictMode =
+    warnArg ? false : strictArg ? true : strictFromEnvMode ?? strictFromEnvStrict ?? Boolean(config.strict);
 
   const stagedFiles = getStagedFiles().filter((f) => shouldScanFile(f, config));
   if (stagedFiles.length === 0) {
@@ -197,8 +214,7 @@ function main() {
     process.exit(0);
   }
 
-  // Pretty output (warning-only)
-  console.warn('\nDesign guard warnings (non-blocking):');
+  console.warn(`\nDesign guard warnings (${strictMode ? 'commit-blocking' : 'non-blocking'}):`);
   for (const w of allWarnings.slice(0, 250)) {
     console.warn(`- [${w.rule}] ${w.file}:${w.line} (${w.match})`);
     console.warn(`  ${w.excerpt}`);
@@ -208,13 +224,12 @@ function main() {
   }
   console.warn(
     '\nNotes:\n' +
-      '- This is warning-only for rollout; commits are NOT blocked.\n' +
+      `- Mode: ${strictMode ? 'STRICT (commit-blocking)' : 'WARNING-ONLY'}.\n` +
       '- Add `design-guard:ignore` to silence a single line, or `design-guard:off` to silence a whole file.\n'
   );
 
-  // Strict mode (opt-in via config). Default is warning-only.
-  if (config.strict) {
-    console.warn('- Strict mode is enabled (design-guard.config.json: strict=true); failing with exit code 1.\n');
+  if (strictMode) {
+    console.warn('- Failing due to strict mode.\n');
     process.exit(1);
   }
 
