@@ -43,68 +43,57 @@
             ]"
             :style="windowStyle"
           >
-          <!-- Chat Header -->
-          <div class="chat-header" :style="headerStyle">
-            <div class="chat-header-info">
-              <img
-                v-if="titleAvatarSrc"
-                :src="titleAvatarSrc"
-                alt="Bot avatar"
-                class="chat-header-avatar"
-              />
-              <h3 class="chat-header-title">{{ title }}</h3>
-            </div>
-            <div class="chat-header-actions">
-              <MyButton
-                v-if="allowFullscreen"
-                class="chat-header-button"
-                type="ghost"
-                size="small"
-                hideLabel
-                :aria-label="isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'"
-                @click="toggleFullscreen"
+          <!-- Floating actions (no header / no avatar / no title) -->
+          <div class="chat-floating-actions">
+            <MyButton
+              v-if="allowFullscreen"
+              class="chat-floating-button"
+              type="ghost"
+              size="small"
+              hideLabel
+              :aria-label="isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'"
+              @click="toggleFullscreen"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                width="20"
+                height="20"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  width="20"
-                  height="20"
-                >
-                  <path
-                    v-if="isFullscreen"
-                    d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"
-                  />
-                  <path
-                    v-else
-                    d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
-                  />
-                </svg>
-              </MyButton>
-              <MyButton
-                class="chat-header-button"
-                type="ghost"
-                size="small"
-                hideLabel
-                aria-label="Close chat"
-                @click="closeChat"
+                <path
+                  v-if="isFullscreen"
+                  d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"
+                />
+                <path
+                  v-else
+                  d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
+                />
+              </svg>
+            </MyButton>
+            <MyButton
+              class="chat-floating-button"
+              type="ghost"
+              size="small"
+              hideLabel
+              aria-label="Close chat"
+              @click="closeChat"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                width="20"
+                height="20"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  width="20"
-                  height="20"
-                >
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              </MyButton>
-            </div>
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </MyButton>
           </div>
 
           <!-- Chat Messages Container -->
@@ -144,12 +133,6 @@
                 'chat-message--user': message.role === 'user',
               }"
             >
-              <img
-                v-if="message.role === 'bot' && botAvatarSrc && showBotAvatar"
-                :src="botAvatarSrc"
-                alt="Bot"
-                class="chat-message-avatar"
-              />
               <div
                 class="chat-message-bubble"
                 :class="{
@@ -163,12 +146,6 @@
 
             <!-- Loading Indicator -->
             <div v-if="isLoading" class="chat-message chat-message--bot">
-              <img
-                v-if="botAvatarSrc && showBotAvatar"
-                :src="botAvatarSrc"
-                alt="Bot"
-                class="chat-message-avatar"
-              />
               <div class="chat-loading">
                 <span></span>
                 <span></span>
@@ -225,8 +202,6 @@
 <script>
 import MyButton from "./Button/Button.vue";
 import MyInput from "./form/MyInput.vue";
-import portraitSrc from "@/assets/images/portrait.jpg";
-import userAvatarSrc from "@/assets/images/avatar/avatar-alt.svg";
 
 export default {
   name: "CustomChatUI",
@@ -304,20 +279,6 @@ export default {
       default: true,
     },
 
-    // Header Configuration
-    title: {
-      type: String,
-      default: "Rambot",
-    },
-    titleAvatarSrc: {
-      type: String,
-      default: portraitSrc,
-    },
-    headerBackgroundColor: {
-      type: String,
-      default: "var(--background)",
-    },
-
     // Messages Configuration
     welcomeMessage: {
       type: String,
@@ -351,32 +312,6 @@ export default {
     clearChatOnReload: {
       type: Boolean,
       default: false,
-    },
-
-    // Avatar Configuration
-    botAvatarSrc: {
-      type: String,
-      default: portraitSrc,
-    },
-    userAvatarSrc: {
-      type: String,
-      default: userAvatarSrc,
-    },
-    showBotAvatar: {
-      type: Boolean,
-      default: true,
-    },
-    showUserAvatar: {
-      type: Boolean,
-      default: true,
-    },
-    avatarSize: {
-      type: Number,
-      default: 40,
-    },
-    avatarBorderRadius: {
-      type: [Number, String],
-      default: 25,
     },
 
     // Bot Message Styling
@@ -558,11 +493,6 @@ export default {
         backgroundColor: this.backgroundColor,
         borderRadius: this.borderRadius,
         ...positions[this.buttonPosition],
-      };
-    },
-    headerStyle() {
-      return {
-        backgroundColor: this.headerBackgroundColor,
       };
     },
     botMessageStyle() {
@@ -1035,82 +965,56 @@ export default {
   }
 }
 
-/* Chat Header */
-.chat-header {
+/* Floating actions (headerless) */
+.chat-floating-actions {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
   display: flex;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.chat-floating-button .custom-btn {
+  /* Match existing bordered button treatment in this widget */
+  border: var(--border);
+  cursor: pointer;
+  padding: var(--spacing-xxs);
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  /* Tighter header spacing */
-  padding: var(--spacing-xs) var(--spacing-sm);
-  border-bottom: var(--chat-border);
-  min-height: 48px;
+  justify-content: center;
+  color: inherit;
+  border-radius: var(--chat-radius);
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s,
+    opacity 0.2s;
+  min-width: 36px;
+  min-height: 36px;
+}
 
-  &-info {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
+.chat-floating-button .custom-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-z2);
+}
 
-  &-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--chat-radius);
-    object-fit: cover;
-    box-shadow: var(--shadow-light);
-  }
+.chat-floating-button .custom-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
 
-  &-title {
-    margin: 0;
-    font-size: var(--font-500);
-    font-weight: var(--fontWeight-bold);
-    letter-spacing: var(--letterSpacing-tight);
-  }
+.chat-floating-button .custom-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-z2), var(--chat-ring);
+}
 
-  &-actions {
-    display: flex;
-    gap: 0.5rem;
-  }
-
-  &-button .custom-btn {
-    background: transparent;
-    border: var(--chat-border);
-    cursor: pointer;
-    padding: var(--spacing-xxs);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: inherit;
-    border-radius: var(--chat-radius);
-    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
-    min-width: 36px;
-    min-height: 36px;
-  }
-
-  &-button .custom-btn:hover:not(:disabled) {
-    background-color: var(--chat-surface-2);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-z1);
-  }
-
-  &-button .custom-btn:active:not(:disabled) {
-    transform: translateY(0);
-  }
-
-  &-button .custom-btn:focus-visible {
-    outline: none;
-    box-shadow: var(--shadow-z1), var(--chat-ring);
-  }
-
-  &-button svg {
-    stroke: currentColor;
-  }
+.chat-floating-button svg {
+  stroke: currentColor;
 }
 
 /* Chat Messages */
 .chat-messages {
   flex: 1;
   overflow-y: auto;
-  padding: var(--spacing-sm);
+  /* Leave room for floating action buttons */
+  padding: calc(var(--spacing-sm) + 44px) var(--spacing-sm) var(--spacing-sm);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
@@ -1179,15 +1083,6 @@ export default {
     align-self: flex-end;
     justify-content: flex-end;
   }
-}
-
-.chat-message-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--chat-radius);
-  object-fit: cover;
-  flex-shrink: 0;
-  box-shadow: var(--shadow-light);
 }
 
 .chat-message-bubble {

@@ -33,7 +33,6 @@
           :btnroute="entry.btnroute"
           :link="entry.link"
           :alt="entry.alt"
-          filename1="blank.svg"
           :filename3="entry.filename3 || entry.filename2 || entry.filename1 || entry.images?.filename1 || entry.images?.filename3"
           :style="entry.bgcolor"
           size="large"

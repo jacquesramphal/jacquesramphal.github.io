@@ -1,0 +1,19 @@
+{
+  "strict": false,
+  "include": ["src"],
+  "exclude": [
+    "dist/**",
+    "node_modules/**",
+    "storybook-static/**",
+    "src/styles/tokens/**",
+    "src/assets/styles/tokens/**",
+    "src/tokens/**"
+  ],
+  "rules": {
+    "noHardcodedPx": true,
+    "noHardcodedColors": true
+  },
+  "allow": {
+    "px": ["0px", "1px"]
+  }
+}

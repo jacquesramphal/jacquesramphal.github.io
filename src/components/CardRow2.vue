@@ -60,7 +60,6 @@
             :btnroute="entry.btnroute"
             :link="entry.link"
             :alt="entry.alt"
-            :filename1="kind === 'work' ? 'blank.svg' : (entry.filename1 || entry.filename3 || entry.images?.filename1)"
             :filename2="kind === 'work' ? null : (entry.filename2 || entry.images?.filename2)"
             :filename3="
               kind === 'work'

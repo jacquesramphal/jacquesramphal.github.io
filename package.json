@@ -8,6 +8,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "storybook": "storybook dev",
+    "design:guard": "node scripts/design-guard.js",
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {

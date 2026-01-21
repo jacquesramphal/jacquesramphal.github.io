@@ -1,0 +1,217 @@
+/* eslint-disable no-console */
+/**
+ * Repo-local "design guard" (lightweight)
+ *
+ * - Scans STAGED files only (git index)
+ * - Warns on:
+ *   - hardcoded px (except allowlisted values like 0px/1px)
+ *   - hardcoded colors (#fff, rgb(), hsl(), etc.)
+ * - Never blocks commit (always exits 0)
+ *
+ * Disable on a line with: design-guard:ignore
+ * Disable for an entire file with: design-guard:off
+ */
+
+const fs = require('fs');
+const path = require('path');
+const { spawnSync } = require('child_process');
+
+const HARD_CODED_PX_RE = /(-?\d*\.?\d+)px\b/g;
+const HARD_CODED_COLOR_RE = /#[0-9a-fA-F]{3,8}\b|\b(?:rgb|rgba|hsl|hsla)\s*\(/g;
+
+function runGit(args, opts = {}) {
+  const res = spawnSync('git', args, { encoding: 'utf8', ...opts });
+  return {
+    code: res.status ?? 0,
+    stdout: res.stdout ?? '',
+    stderr: res.stderr ?? '',
+  };
+}
+
+function globToRegExp(glob) {
+  // Very small glob implementation: *, **, ?
+  // - *  => any chars except path separator
+  // - ** => any chars (including path separators)
+  // - ?  => any single char except path separator
+  const escaped = glob
+    .replace(/[.+^${}()|[\]\\]/g, '\\$&')
+    .replace(/\*\*/g, '<<<ANY>>>')
+    .replace(/\*/g, '[^/]*')
+    .replace(/\?/g, '[^/]')
+    .replace(/<<<ANY>>>/g, '.*');
+  return new RegExp(`^${escaped}$`);
+}
+
+function loadConfig(repoRoot) {
+  const configPath = path.join(repoRoot, 'design-guard.config.json');
+  try {
+    const raw = fs.readFileSync(configPath, 'utf8');
+    const parsed = JSON.parse(raw);
+    return {
+      strict: Boolean(parsed.strict),
+      include: Array.isArray(parsed.include) ? parsed.include : ['src'],
+      exclude: Array.isArray(parsed.exclude) ? parsed.exclude : [],
+      rules: parsed.rules ?? { noHardcodedPx: true, noHardcodedColors: true },
+      allow: parsed.allow ?? { px: ['0px', '1px'] },
+    };
+  } catch (e) {
+    return {
+      strict: false,
+      include: ['src'],
+      exclude: ['dist/**', 'node_modules/**', 'storybook-static/**'],
+      rules: { noHardcodedPx: true, noHardcodedColors: true },
+      allow: { px: ['0px', '1px'] },
+    };
+  }
+}
+
+function shouldScanFile(file, config) {
+  const normalized = file.replace(/\\/g, '/');
+  const isIncluded =
+    config.include.length === 0 ||
+    config.include.some((inc) => normalized === inc || normalized.startsWith(`${inc}/`) || globToRegExp(inc).test(normalized));
+
+  if (!isIncluded) return false;
+
+  const isExcluded = config.exclude.some((ex) => {
+    const re = globToRegExp(ex);
+    return re.test(normalized) || normalized.includes(ex.replace('/**', '/'));
+  });
+
+  if (isExcluded) return false;
+
+  // Only scan code + styles where px/colors matter
+  const ext = path.extname(normalized).toLowerCase();
+  return [
+    '.vue',
+    '.js',
+    '.jsx',
+    '.ts',
+    '.tsx',
+    '.css',
+    '.scss',
+    '.sass',
+    '.less',
+  ].includes(ext);
+}
+
+function getStagedFiles() {
+  const res = runGit(['diff', '--cached', '--name-only', '--diff-filter=ACMR']);
+  if (res.code !== 0) return [];
+  return res.stdout
+    .split('\n')
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+function getStagedFileContent(file) {
+  // Read from git index, not working tree
+  const res = runGit(['show', `:${file}`]);
+  if (res.code !== 0) return null;
+  const text = res.stdout;
+  // skip binary-ish
+  if (text.includes('\u0000')) return null;
+  return text;
+}
+
+function stripForExcerpt(line) {
+  return line.length > 160 ? `${line.slice(0, 157)}...` : line;
+}
+
+function scanText(file, text, config) {
+  const allowPxSet = new Set((config.allow?.px ?? []).map(String));
+  const warnings = [];
+
+  const lines = text.split(/\r?\n/);
+  const fileOff = lines.some((l) => l.includes('design-guard:off'));
+  if (fileOff) return warnings;
+
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i];
+    if (!line) continue;
+    if (line.includes('design-guard:ignore')) continue;
+
+    if (config.rules?.noHardcodedPx) {
+      HARD_CODED_PX_RE.lastIndex = 0;
+      let m;
+      while ((m = HARD_CODED_PX_RE.exec(line))) {
+        const raw = m[0];
+        if (allowPxSet.has(raw)) continue;
+        warnings.push({
+          rule: 'noHardcodedPx',
+          file,
+          line: i + 1,
+          match: raw,
+          excerpt: stripForExcerpt(line.trim()),
+        });
+      }
+    }
+
+    if (config.rules?.noHardcodedColors) {
+      HARD_CODED_COLOR_RE.lastIndex = 0;
+      let m;
+      while ((m = HARD_CODED_COLOR_RE.exec(line))) {
+        const raw = m[0];
+        warnings.push({
+          rule: 'noHardcodedColors',
+          file,
+          line: i + 1,
+          match: raw,
+          excerpt: stripForExcerpt(line.trim()),
+        });
+      }
+    }
+  }
+
+  return warnings;
+}
+
+function main() {
+  const rootRes = runGit(['rev-parse', '--show-toplevel']);
+  const repoRoot = rootRes.code === 0 ? rootRes.stdout.trim() : process.cwd();
+  const config = loadConfig(repoRoot);
+
+  const stagedFiles = getStagedFiles().filter((f) => shouldScanFile(f, config));
+  if (stagedFiles.length === 0) {
+    process.exit(0);
+  }
+
+  const allWarnings = [];
+
+  for (const file of stagedFiles) {
+    const content = getStagedFileContent(file);
+    if (typeof content !== 'string') continue;
+    const warnings = scanText(file, content, config);
+    allWarnings.push(...warnings);
+  }
+
+  if (allWarnings.length === 0) {
+    process.exit(0);
+  }
+
+  // Pretty output (warning-only)
+  console.warn('\nDesign guard warnings (non-blocking):');
+  for (const w of allWarnings.slice(0, 250)) {
+    console.warn(`- [${w.rule}] ${w.file}:${w.line} (${w.match})`);
+    console.warn(`  ${w.excerpt}`);
+  }
+  if (allWarnings.length > 250) {
+    console.warn(`- ... ${allWarnings.length - 250} more warnings omitted`);
+  }
+  console.warn(
+    '\nNotes:\n' +
+      '- This is warning-only for rollout; commits are NOT blocked.\n' +
+      '- Add `design-guard:ignore` to silence a single line, or `design-guard:off` to silence a whole file.\n'
+  );
+
+  // Strict mode (opt-in via config). Default is warning-only.
+  if (config.strict) {
+    console.warn('- Strict mode is enabled (design-guard.config.json: strict=true); failing with exit code 1.\n');
+    process.exit(1);
+  }
+
+  process.exit(0);
+}
+
+main();
+

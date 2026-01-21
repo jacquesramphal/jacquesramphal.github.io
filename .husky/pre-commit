@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
-# . "$(dirname -- "$0")/_/husky.sh"
+. "$(dirname -- "$0")/_/husky.sh"
 
-# node scripts/update-stories.js
+# Design guard (warning-only; never blocks commit)
+node scripts/design-guard.js
