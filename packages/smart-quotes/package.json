@@ -1,0 +1,25 @@
+{
+  "name": "@jacquesramphal/smart-quotes",
+  "version": "0.1.0",
+  "description": "Framework-agnostic smart quotes helpers (curly quotes) with safe attribute-value support.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "bin": {
+    "smart-quotes": "./cli.js"
+  },
+  "files": [
+    "index.js",
+    "cli.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}
+

@@ -5,7 +5,6 @@
 #### A tiny typography fix that prevents broken markup (freebie)
 
 </header>
-
 I have a soft spot for the kind of “tooling hygiene” that feels slightly over‑crafted… right up until the day it saves you from shipping a broken page.
 
 This is one of those.

@@ -39,26 +39,10 @@ function isWordChar(ch) {
   return Boolean(ch) && /[A-Za-z0-9]/.test(ch);
 }
 
-function prevNonSpace(str, i) {
-  for (let k = i - 1; k >= 0; k -= 1) {
-    const ch = str[k];
-    if (!/\s/.test(ch)) return ch;
-  }
-  return '';
-}
-
-function nextNonSpace(str, i) {
-  for (let k = i + 1; k < str.length; k += 1) {
-    const ch = str[k];
-    if (!/\s/.test(ch)) return ch;
-  }
-  return '';
-}
-
-function isOpeningContext(prevCh, nextCh) {
-  // Opening quote if it starts a "word-ish" run and is preceded by boundary/punct/whitespace.
-  // This is intentionally conservative; we only handle common prose cases.
-  const prevIsBoundary = !prevCh || /[\s([{<]/.test(prevCh) || /[–—-]/.test(prevCh);
+function isOpeningQuote(prevCh, nextCh) {
+  // Use immediate neighbors (not prevNonSpace), otherwise: `word "Quote"` gets misclassified.
+  const prevIsBoundary =
+    !prevCh || /\s/.test(prevCh) || /[([{<]/.test(prevCh) || /[–—-]/.test(prevCh);
   const nextIsWordish = Boolean(nextCh) && !/[\s)\]}>.,;:!?]/.test(nextCh);
   return prevIsBoundary && nextIsWordish;
 }
@@ -71,9 +55,9 @@ function toSmartQuotes(input) {
     const ch = input[i];
 
     if (ch === '"') {
-      const prevCh = prevNonSpace(input, i);
-      const nextCh = nextNonSpace(input, i);
-      out += isOpeningContext(prevCh, nextCh) ? '“' : '”';
+      const prevCh = input[i - 1] ?? '';
+      const nextCh = input[i + 1] ?? '';
+      out += isOpeningQuote(prevCh, nextCh) ? '“' : '”';
       continue;
     }
 
@@ -87,9 +71,7 @@ function toSmartQuotes(input) {
         continue;
       }
 
-      const prevNS = prevNonSpace(input, i);
-      const nextNS = nextNonSpace(input, i);
-      out += isOpeningContext(prevNS, nextNS) ? '‘' : '’';
+      out += isOpeningQuote(prevCh, nextCh) ? '‘' : '’';
       continue;
     }
 
