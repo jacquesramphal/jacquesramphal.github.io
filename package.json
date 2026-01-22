@@ -11,8 +11,9 @@
     "design:guard": "node scripts/design-guard.js --verbose",
     "design:guard:strict": "node scripts/design-guard.js --strict --verbose",
     "design:guard:warn": "node scripts/design-guard.js --warn --verbose",
-    "smart-quotes": "node scripts/smart-quotes.js --check",
-    "smart-quotes:write": "node scripts/smart-quotes.js --write",
+    "smart-quotes": "smart-quotes --write",
+    "smart-quotes:check": "smart-quotes --check",
+    "smart-quotes:write": "smart-quotes --write",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "preinstall": "npx only-allow pnpm"
@@ -52,6 +53,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
+    "@jacquesramphal/smart-quotes": "workspace:*",
     "@storybook/addon-actions": "^7.0.23",
     "@storybook/addon-docs": "^7.0.23",
     "@storybook/addon-essentials": "^7.0.23",

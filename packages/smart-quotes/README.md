@@ -1,13 +1,60 @@
 ## @jacquesramphal/smart-quotes
 
-Framework-agnostic helpers for converting "dumb" quotes (`'` and `"`) into Unicode smart quotes (`‘ ’ “ ”`).
+Convert "straight" quotes (`'` and `"`) into Unicode smart quotes (`‘ ’ “ ”`) without breaking code.
 
-This is meant to complement the “copy/paste freebie” version in the site docs: if you want the same behavior as a reusable module (or a tiny CLI), use this package.
+This started as typography snobbery and became practical: pasted copy can break markup like:
+
+```txt
+title="I'm "Jacques""
+```
+
+The CLI in this package fixes quotes in **rendered content** (Vue templates + Markdown) while avoiding code/bindings.
 
 ### Install
 
 ```bash
-npm i @jacquesramphal/smart-quotes
+npm i -D @jacquesramphal/smart-quotes
+```
+
+Run without installing:
+
+```bash
+npx smart-quotes --check
+```
+
+### CLI (recommended)
+
+Scan the whole repo (default is check mode; exits 1 if changes needed):
+
+```bash
+smart-quotes
+smart-quotes --check
+```
+
+Apply fixes:
+
+```bash
+smart-quotes --write
+```
+
+Scan just one file (the “current file” workflow):
+
+```bash
+smart-quotes src/pages/HomePage.vue --check
+smart-quotes src/pages/HomePage.vue --write
+```
+
+Control what gets scanned:
+
+```bash
+smart-quotes --paths src,content --ext .vue,.md,.mdx --write
+```
+
+Stdin mode (string transform):
+
+```bash
+echo "\"I'm \\\"Jacques\\\"\"" | smart-quotes --stdin
+echo "\"I'm \\\"Jacques\\\"\"" | smart-quotes --stdin --attr
 ```
 
 ### API
@@ -21,15 +68,32 @@ toSmartQuotes(`I'm "Jacques"`); // → I’m “Jacques”
 toSmartQuotesInsideAttributeValue(`"I'm \"Jacques\""`); // → "I’m “Jacques”"
 ```
 
-### CLI
+### Automate on commit (Husky)
+
+Use **check** mode to block commits that introduce straight quotes:
 
 ```bash
-echo "\"Hello\"" | smart-quotes
-echo "\"I'm \\\"Jacques\\\"\"" | smart-quotes --attr
+pnpm smart-quotes:check
 ```
 
-### Notes
+Or use **write** mode to auto-fix during commit:
+
+```bash
+pnpm smart-quotes
+git add -A
+```
+
+### Publishing (npm + 2FA)
+
+From `packages/smart-quotes`:
+
+```bash
+npm login
+npm publish --otp=123456
+```
+
+### Notes / expectations
 
 - This is **heuristic**, not a full typography engine.
-- The “safe” approach in UI code is still: **only transform rendered text** and avoid code/bindings.
+- The scanner is safe by design, but you should still review diffs.
 

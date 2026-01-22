@@ -17,11 +17,17 @@ title="I'm "Jacques""
 
 That looks harmless when you paste it. But it’s invalid markup because the inner `"` **closes the attribute early**. Depending on where it lands, it can break rendering, hydration, or just quietly eat half your copy.
 
-So I made a small script that converts dumb quotes to **Unicode smart quotes** *only where text is rendered*, so you can keep writing naturally without turning your templates into escape sequences.
+So I made a small script that converts straight quotes to **Unicode smart quotes** *only where text is rendered*, so you can keep writing naturally without turning your templates into escape sequences.
 
-## What are "dumb" vs “smart” quotes?
+> **Freebie (npm package + CLI)**  
+> Install/runs anywhere: [`@jacquesramphal/smart-quotes`](https://www.npmjs.com/package/@jacquesramphal/smart-quotes)  
+>  
+> - Check your repo: `npx smart-quotes --check`  
+> - Auto-fix: `npx smart-quotes --write`
 
-- **Dumb / straight quotes**: `'` and `"` (ASCII)
+## What are "straight" vs “smart” quotes?
+
+- **Straight quotes**: `'` and `"` (ASCII)
   - Apostrophe: `I'm` uses `'`
   - Quotation marks: `"Hello"`
 - **Smart / curly quotes**: `‘ ’ “ ”` (Unicode)
@@ -46,7 +52,7 @@ Two things can be true at once:
 
 ## The rule: only touch what the user will read
 
-If you do “smart quotes” with dumb search/replace, you’ll eventually break something.
+If you do “smart quotes” with straight search/replace, you’ll eventually break something.
 
 The safe, framework-agnostic approach is:
 - Parse your source into an AST
@@ -77,16 +83,10 @@ function toSmartQuotes(input) {
   if (!input || (!input.includes("'") && !input.includes('"'))) return input;
 
   const isWordChar = (ch) => Boolean(ch) && /[A-Za-z0-9]/.test(ch);
-  const prevNonSpace = (str, i) => {
-    for (let k = i - 1; k >= 0; k -= 1) if (!/\s/.test(str[k])) return str[k];
-    return "";
-  };
-  const nextNonSpace = (str, i) => {
-    for (let k = i + 1; k < str.length; k += 1) if (!/\s/.test(str[k])) return str[k];
-    return "";
-  };
-  const isOpeningContext = (prevCh, nextCh) => {
-    const prevIsBoundary = !prevCh || /[\s([{<]/.test(prevCh) || /[–—-]/.test(prevCh);
+  const isOpeningQuote = (prevCh, nextCh) => {
+    // Use immediate neighbors, otherwise: `word "Quote"` gets misclassified.
+    const prevIsBoundary =
+      !prevCh || /\s/.test(prevCh) || /[([{<]/.test(prevCh) || /[–—-]/.test(prevCh);
     const nextIsWordish = Boolean(nextCh) && !/[\s)\]}>.,;:!?]/.test(nextCh);
     return prevIsBoundary && nextIsWordish;
   };
@@ -96,9 +96,9 @@ function toSmartQuotes(input) {
     const ch = input[i];
 
     if (ch === '"') {
-      const prevCh = prevNonSpace(input, i);
-      const nextCh = nextNonSpace(input, i);
-      out += isOpeningContext(prevCh, nextCh) ? "“" : "”";
+      const prevCh = input[i - 1] ?? "";
+      const nextCh = input[i + 1] ?? "";
+      out += isOpeningQuote(prevCh, nextCh) ? "“" : "”";
       continue;
     }
 
@@ -112,9 +112,7 @@ function toSmartQuotes(input) {
         continue;
       }
 
-      const prevNS = prevNonSpace(input, i);
-      const nextNS = nextNonSpace(input, i);
-      out += isOpeningContext(prevNS, nextNS) ? "‘" : "’";
+      out += isOpeningQuote(prevCh, nextCh) ? "‘" : "’";
       continue;
     }
 
@@ -141,27 +139,27 @@ function toSmartQuotesInsideAttributeValue(valueSource) {
 
 ## Usage (this repo)
 
-Check whether anything needs fixing (exits non‑zero if changes are needed):
+Auto-fix (tool mode):
 
 ```bash
 pnpm smart-quotes
 ```
 
-Apply fixes:
+CI / pre-commit check (fails if changes are needed):
 
 ```bash
-pnpm smart-quotes:write
+pnpm smart-quotes:check
 ```
 
 Target a specific file:
 
 ```bash
-node scripts/smart-quotes.js --write --paths src/pages/HomePage.vue
+smart-quotes src/pages/HomePage.vue --write
 ```
 
 If you want to include Markdown scanning, pass extensions explicitly:
 
 ```bash
-node scripts/smart-quotes.js --write --paths src --ext .vue,.md,.mdx
+smart-quotes --paths src --ext .vue,.md,.mdx --write
 ```
 

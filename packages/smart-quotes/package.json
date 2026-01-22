@@ -1,9 +1,9 @@
 {
   "name": "@jacquesramphal/smart-quotes",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "Framework-agnostic smart quotes helpers (curly quotes) with safe attribute-value support.",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "type": "commonjs",
   "main": "./index.js",
   "exports": {
@@ -11,6 +11,9 @@
   },
   "bin": {
     "smart-quotes": "./cli.js"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "index.js",
@@ -20,6 +23,9 @@
   ],
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "@vue/compiler-dom": "^3.5.27",
+    "@vue/compiler-sfc": "^3.5.27"
   }
 }
-
