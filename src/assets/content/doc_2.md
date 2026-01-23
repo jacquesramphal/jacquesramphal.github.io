@@ -6,7 +6,7 @@ This guide is designed to enhance the integration of Design Quality Assurance (D
 
 ## Team Roles for Successful DQA wip
 
-Designers have a crucial role in ensuring the product's visual quality matches the design, similar to how a QA Developer manages QA approval. To ensure successful DQA integration, effective collaboration among Designers, Developers, and Product Managers is vital. Here's how each role contributes:
+Designers have a crucial role in ensuring the product’s visual quality matches the design, similar to how a QA Developer manages QA approval. To ensure successful DQA integration, effective collaboration among Designers, Developers, and Product Managers is vital. Here’s how each role contributes:
 
 |**Role**|**Responsibilities**|
 |---|---|
@@ -15,13 +15,13 @@ Designers have a crucial role in ensuring the product's visual quality matches t
 |**Product & Delivery Managers**|- **Design Insights:** Collaborate with Designers to understand design constraints and possibilities, enabling informed decisions balancing business goals and user experience.<br>    <br><br>- **Timeline Management:** Set project timelines for thorough DQA without compromising quality, considering iterative design improvement.|
 |**All Team**|- **Timely Feedback:** Team members provide timely feedback, contributing to design improvement and project alignment.<br>    <br>- **Adaptability Culture:** Foster adaptability and continuous enhancement, embracing adjustments based on design feedback to keep the process dynamic and responsive.|
 
-By fostering a collaborative environment and understanding each other's roles and expectations, we can optimize the Design QA process and collectively contribute to the successful delivery of high-quality design outcomes.
+By fostering a collaborative environment and understanding each other’s roles and expectations, we can optimize the Design QA process and collectively contribute to the successful delivery of high-quality design outcomes.
 
 ---
 
 ## Design QA Touchpoints and Activities wip
 
-Here's a concise summary of the Design QA touchpoints and activities for each Agile phase:
+Here’s a concise summary of the Design QA touchpoints and activities for each Agile phase:
 
 |**Phase**|**Design QA Activities**|
 |---|---|
@@ -33,12 +33,12 @@ Here's a concise summary of the Design QA touchpoints and activities for each Ag
 
 ## Common Pitfalls in Design QA
 
-In our quest for impeccable design quality, it's essential to be aware of and steer clear of these common pitfalls that can hamper our efforts and project success.
+In our quest for impeccable design quality, it’s essential to be aware of and steer clear of these common pitfalls that can hamper our efforts and project success.
 
 1. **Lack of Stakeholder Alignment:** Ensure everyone understands the importance of design QA.
 2. **Inadequate Documentation:** Keep clear records of processes and findings.
 3. **Scope Creep:** Define and stick to the scope of design QA.
-4. **Expecting Perfection:** Don't assume designs will be flawless.
+4. **Expecting Perfection:** Don’t assume designs will be flawless.
 5. **Isolation:** Collaborate with the entire team, including developers and product managers.
 6. **Neglecting Usability:** Consider user perspectives and usability.
 7. **Ignoring Feedback:** Take design issues seriously.
@@ -66,7 +66,7 @@ By employing these measurement methods, we continuously validate the effectivene
 
 ## Team Maturity
 
-Design QA needs are determined by the team's maturity and how closely they adhere to design specifications. Here's a breakdown based on team maturity levels:
+Design QA needs are determined by the team’s maturity and how closely they adhere to design specifications. Here’s a breakdown based on team maturity levels:
 
 **Level 1 (Highly Mature):**
 
@@ -96,9 +96,9 @@ Different levels of design support align with project requirements:
 |No Design Support|The project does not involve any design work, and design decisions are not a consideration.|
 |Limited Design Support|The project includes some design work, but it is limited in scope or importance. Design decisions may be made by non-designers, or the project may not have a dedicated designer.|
 |Moderate Design Support|The project includes a significant amount of design work, and design decisions are an important consideration. The project may have a dedicated designer or design team, and design decisions are made collaboratively with other stakeholders.|
-|High Design Support|The project is heavily focused on design, and design decisions have a significant impact on the project's success. The project has a dedicated design team, and design decisions are made collaboratively with other stakeholders. Design is seen as a key differentiator for the project.|
+|High Design Support|The project is heavily focused on design, and design decisions have a significant impact on the project’s success. The project has a dedicated design team, and design decisions are made collaboratively with other stakeholders. Design is seen as a key differentiator for the project.|
 
-It's important to note that the level of design support needed for a project will depend on various factors such as the complexity of the project, budget, timeline, and the overall importance of design in achieving project goals.
+It’s important to note that the level of design support needed for a project will depend on various factors such as the complexity of the project, budget, timeline, and the overall importance of design in achieving project goals.
 
 ---
 
@@ -143,7 +143,7 @@ Next Section:
 
 **2.2 Overview of Quality Assurance Activities**
 
-Here's a summary of the activities, their time requirements as a percentage, and how they may change based on team size and project type:
+Here’s a summary of the activities, their time requirements as a percentage, and how they may change based on team size and project type:
 
 |**Phase: Discovery/Research**|**Time: 10-15%**|**Team Size/Project Impact**|**Level of Design Support**|**Description**|**Team Member**|
 |---|---|---|---|---|---|

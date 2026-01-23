@@ -11,7 +11,7 @@ Readers immediately understand what Genie IS
 Not defensive, focused on reclaiming creative work
 
 ### ✅ Design-Focused Identity
-You're a designer first, always—expanding tools, not abandoning craft
+You’re a designer first, always—expanding tools, not abandoning craft
 
 ### ✅ Personal Transformation
 Learned AI, workflow systems, product thinking—through real challenges
@@ -77,9 +77,9 @@ Adoption is hard
 Teams are tired  
 Resistance is legitimate  
 Building trust takes patience  
-Success isn't metrics, it's conversations
+Success isn’t metrics, it’s conversations
 
-### 6. What You're Learning (Resilience)
+### 6. What You’re Learning (Resilience)
 Patience  
 Listening  
 Distinguishing good from bad feedback  
@@ -96,17 +96,17 @@ Authentic growth through real challenges
 
 ## What Readers Will Feel
 
-✅ **Recognition:** "I see my own struggles in this"  
-✅ **Respect:** "This person is honest and self-aware"  
-✅ **Connection:** "They care about real people, not just metrics"  
-✅ **Inspiration:** "I can do this kind of work too"  
-✅ **Authenticity:** "This is real, not marketing"  
+✅ **Recognition:** “I see my own struggles in this”  
+✅ **Respect:** “This person is honest and self-aware”  
+✅ **Connection:** “They care about real people, not just metrics”  
+✅ **Inspiration:** “I can do this kind of work too”  
+✅ **Authenticity:** “This is real, not marketing”  
 
 ---
 
 ## Why This Works (In One Paragraph)
 
-You're not telling a "I built an amazing product and everyone loves it" story. You're telling a "I built something real, I'm learning what it takes to help people adopt new ways of thinking, and I'm growing through the messy reality of building for others" story. That second story is infinitely more powerful because it's true, it's vulnerable, it's humble, and it teaches people something real about building, listening, and growth.
+You’re not telling a “I built an amazing product and everyone loves it” story. You’re telling a “I built something real, I’m learning what it takes to help people adopt new ways of thinking, and I’m growing through the messy reality of building for others” story. That second story is infinitely more powerful because it’s true, it’s vulnerable, it’s humble, and it teaches people something real about building, listening, and growth.
 
 ---
 
@@ -138,17 +138,17 @@ Your case study:
 
 ---
 
-## The Story You're Now Telling
+## The Story You’re Now Telling
 
-> "I built Genie because I was spending creativity on routine. But building it taught me something more important than technology: patience. Listening. Resilience.
+> “I built Genie because I was spending creativity on routine. But building it taught me something more important than technology: patience. Listening. Resilience.
 > 
-> Genie works. But adoption is hard because people are tired and change is scary. I'm learning to respect that. To build trust through action, not promises.
+> Genie works. But adoption is hard because people are tired and change is scary. I’m learning to respect that. To build trust through action, not promises.
 > 
-> I'm not just building a product. I'm learning what it means to build FOR others, not just for myself.
+> I’m not just building a product. I’m learning what it means to build FOR others, not just for myself.
 > 
-> And I'm staying true to who I am—a designer who loves solving for users—while expanding what I'm capable of."
+> And I’m staying true to who I am—a designer who loves solving for users—while expanding what I’m capable of.”
 
-**That's a story worth telling.**
+**That’s a story worth telling.**
 
 ---
 
@@ -166,7 +166,7 @@ Your case study:
 
 ---
 
-## You're Done
+## You’re Done
 
 Your portfolio audit is complete.  
 Your Genie case study is complete.  
@@ -175,7 +175,7 @@ Your story is authentic.
 
 **Now publish it.**
 
-The world needs to hear this story. Not because you're bragging. But because you're being honest about what it takes to build something real. And that honesty is rare. It's valuable. It's leadership.
+The world needs to hear this story. Not because you’re bragging. But because you’re being honest about what it takes to build something real. And that honesty is rare. It’s valuable. It’s leadership.
 
 **Tell it.**
 

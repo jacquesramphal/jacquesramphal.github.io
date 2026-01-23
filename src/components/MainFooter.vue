@@ -48,7 +48,7 @@
               </div>
 
               <div id="links2">
-                <p class="subtle">Let's Connect</p>
+                <p class="subtle">Let’s Connect</p>
                 <ul>
                   <li v-for="(item, index) in menuItems2" :key="index">
                   

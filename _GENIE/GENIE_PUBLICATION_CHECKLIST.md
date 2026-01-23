@@ -90,7 +90,7 @@
 - [ ] Share highlights on LinkedIn Stories
 
 ### Ongoing
-- [ ] Use in your "featured work" section
+- [ ] Use in your “featured work” section
 - [ ] Reference in Twitter/LinkedIn replies
 - [ ] Mention in conversations about AI/AX design
 - [ ] Use as speaking example for conferences
@@ -217,15 +217,15 @@ Feedback welcome. What patterns are you discovering in agentic design?
 ## Key Quotes for Promotion
 
 **For LinkedIn/Twitter:**
-- "Designing for agents isn't like designing for chatbots. Agents are proactive, autonomous, and make decisions with consequences."
+- “Designing for agents isn’t like designing for chatbots. Agents are proactive, autonomous, and make decisions with consequences.”
 
-- "Trust is built through transparency first, capability clarity second, control assurance third. Most people build backwards."
+- “Trust is built through transparency first, capability clarity second, control assurance third. Most people build backwards.”
 
-- "We didn't just automate work. We freed up cognitive space for the strategic, human-centered work that actually drives project success."
+- “We didn’t just automate work. We freed up cognitive space for the strategic, human-centered work that actually drives project success.”
 
-- "Instead of filtering beans on spreadsheets, we can be developing deeper relationships and better understanding our customers."
+- “Instead of filtering beans on spreadsheets, we can be developing deeper relationships and better understanding our customers.”
 
-- "The story isn't 'we have a tool that makes it cheaper.' The story is 'we can now tell you exactly what it will cost and deliver it with confidence.'"
+- “The story isn’t ‘we have a tool that makes it cheaper.’ The story is ‘we can now tell you exactly what it will cost and deliver it with confidence.’”
 
 ---
 
@@ -248,19 +248,19 @@ Feedback welcome. What patterns are you discovering in agentic design?
 
 Once this publishes, you have natural follow-ups:
 
-1. **"Designing Agent Failures"**
+1. **”Designing Agent Failures”**
    - How do you design when agents get things wrong?
    - Confidence indicators and graceful degradation
 
-2. **"Teaching Teams to Work With Agents"**
+2. **”Teaching Teams to Work With Agents”**
    - Onboarding users to agentic workflows
    - Mental models for non-technical users
 
-3. **"Multi-Agent Orchestration: The UX Challenge"**
+3. **”Multi-Agent Orchestration: The UX Challenge”**
    - What happens when multiple agents coordinate?
    - Visualization and control
 
-4. **"Risk Prediction UX"**
+4. **”Risk Prediction UX”**
    - Designing around predictions and what-ifs
    - Simulation interfaces
 
@@ -293,7 +293,7 @@ Share this case study with:
 - **Your mentees**: As teaching material for agentic UX thinking
 - **Orium leadership**: Shows strategic design contribution
 
-This positions you as the design voice for Orium's agent & agentic AI initiative. 
+This positions you as the design voice for Orium’s agent & agentic AI initiative. 
 
 **Leverage it.**
 

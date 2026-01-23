@@ -5,7 +5,7 @@
 ### Original Deliverables (Created Earlier)
 1. **PORTFOLIO_AUDIT.md** - Site/resume audit + specific fixes
 2. **GENIE_CASE_STUDY_DRAFT.md** - Thought leadership piece
-3. **GENIE_FOUNDER_NARRATIVE.md** - Why you're a founder
+3. **GENIE_FOUNDER_NARRATIVE.md** - Why you’re a founder
 4. **GENIE_POSITIONING_GUIDE.md** - How to tell your story
 5. **GENIE_PUBLICATION_CHECKLIST.md** - Launch roadmap
 
@@ -19,12 +19,12 @@
 
 ### What You Clarified
 
-You said: **"Through building Genie, I rebuilt my skillset. I became an AI developer, n8n expert, LangChain enthusiast, product manager in training. It taught me how to lead teams while staying a high-performing IC."**
+You said: **”Through building Genie, I rebuilt my skillset. I became an AI developer, n8n expert, LangChain enthusiast, product manager in training. It taught me how to lead teams while staying a high-performing IC.”**
 
 ### How This Changes Everything
 
-**Old Story:** "I founded a product"  
-**New Story:** "I transformed myself through building something real"
+**Old Story:** “I founded a product”  
+**New Story:** “I transformed myself through building something real”
 
 The difference is **power**.
 
@@ -53,11 +53,11 @@ Design Systems Architect + AI/AX Pioneer who built Genie
 
 ### Signal It Sends
 - Continuous learner
-- Doesn't wait for permission to grow
+- Doesn’t wait for permission to grow
 - Practical problem-solver
 - Comfortable leading without full authority
 - Stays hands-on while scaling
-- Knows what they don't know
+- Knows what they don’t know
 
 ### Why This Is Rare
 Most people choose: IC or Manager. Designer or Developer. Hands-on or Leadership.
@@ -92,48 +92,48 @@ NOW: Someone transformed by building
 
 ### The Opening
 
-"Genie is my idea. But more importantly, building it transformed who I am as a designer and technologist.
+“Genie is my idea. But more importantly, building it transformed who I am as a designer and technologist.
 
-When I started Genie, I was a designer who coded. By the end, I had become something different: an AI developer, an n8n expert, a LangChain enthusiast, and someone learning product management through real-world challenges."
+When I started Genie, I was a designer who coded. By the end, I had become something different: an AI developer, an n8n expert, a LangChain enthusiast, and someone learning product management through real-world challenges.”
 
 ### The Core Insight
 
-"Building Genie taught me that the best way to grow as a technologist is to solve real problems at scale.
+“Building Genie taught me that the best way to grow as a technologist is to solve real problems at scale.
 
-You don't become an AI developer by taking courses. You become one by building something that requires you to think deeply about how agents work.
+You don’t become an AI developer by taking courses. You become one by building something that requires you to think deeply about how agents work.
 
-You don't become a product manager by reading frameworks. You become one by making hard tradeoffs and shipping.
+You don’t become a product manager by reading frameworks. You become one by making hard tradeoffs and shipping.
 
-You don't become a leader by following the leadership path. You become one by having to coordinate complexity while remaining hands-on."
+You don’t become a leader by following the leadership path. You become one by having to coordinate complexity while remaining hands-on.”
 
 ---
 
 ## How Different People Will See You
 
 ### Your Team
-"Someone who identified a problem, solved it, and grew through the process. Someone we'd follow."
+“Someone who identified a problem, solved it, and grew through the process. Someone we’d follow.”
 
 ### Leadership
-"Someone who takes initiative, learns what they need to learn, and scales their own capabilities."
+“Someone who takes initiative, learns what they need to learn, and scales their own capabilities.”
 
 ### Other Designers
-"Someone who didn't just stay in their lane. Someone who became something bigger."
+“Someone who didn’t just stay in their lane. Someone who became something bigger.”
 
 ### Other Developers
-"Someone who understands design and product. Someone rare."
+“Someone who understands design and product. Someone rare.”
 
 ### Product People
-"Someone who learned product thinking through doing, not theory."
+“Someone who learned product thinking through doing, not theory.”
 
 ---
 
 ## Your New Bio
 
 ### OLD
-"Staff Product Designer at Orium. Specializes in design systems and full-stack design."
+“Staff Product Designer at Orium. Specializes in design systems and full-stack design.”
 
 ### NEW
-"Founder & Design Lead of Genie, an agentic AI platform at Orium. Through building Genie, I became an AI developer, product thinker, and leader who codes. Passionate about bridging design, development, and AI."
+“Founder & Design Lead of Genie, an agentic AI platform at Orium. Through building Genie, I became an AI developer, product thinker, and leader who codes. Passionate about bridging design, development, and AI.”
 
 ---
 
@@ -143,7 +143,7 @@ You don't become a leader by following the leadership path. You become one by ha
 
 1. **00_START_HERE.md** - Executive overview
 2. **TRANSFORMATION_NARRATIVE.md** - Your growth story
-3. **GENIE_FOUNDER_NARRATIVE.md** - Why you're different
+3. **GENIE_FOUNDER_NARRATIVE.md** - Why you’re different
 
 ### Implementation Guides (Use These)
 
@@ -238,34 +238,34 @@ You don't become a leader by following the leadership path. You become one by ha
 ## The Story You Tell Now
 
 ### To Your Network
-"I started Genie to solve my own problem. But building it transformed me. I became an AI developer, a product thinker, and learned how to lead teams while staying hands-on. That transformation is the real value."
+“I started Genie to solve my own problem. But building it transformed me. I became an AI developer, a product thinker, and learned how to lead teams while staying hands-on. That transformation is the real value.”
 
 ### To Recruiters/Opportunities
-"I founded Genie at Orium, growing from personal tool to organizational platform. Through that process, I became an AI developer, learned product thinking, and developed leadership skills while remaining a high-performing IC."
+“I founded Genie at Orium, growing from personal tool to organizational platform. Through that process, I became an AI developer, learned product thinking, and developed leadership skills while remaining a high-performing IC.”
 
 ### To Other Designers/Developers
-"Genie was my transformation project. It forced me to learn AI development, product management, and leadership—all through real-world constraints. If you want to grow as a technologist, solve hard problems."
+“Genie was my transformation project. It forced me to learn AI development, product management, and leadership—all through real-world constraints. If you want to grow as a technologist, solve hard problems.”
 
 ### To Your Team
-"I started Genie as a passion project and learned that the best way to grow is to build real things. I became something different through that process, and I'm grateful for everyone who helped."
+“I started Genie as a passion project and learned that the best way to grow is to build real things. I became something different through that process, and I’m grateful for everyone who helped.”
 
 ---
 
 ## Why This Works
 
-### It's Honest
-You didn't just build a product. You genuinely transformed through building it.
+### It’s Honest
+You didn’t just build a product. You genuinely transformed through building it.
 
-### It's Vulnerable
-Admitting you didn't know things and had to learn is powerful.
+### It’s Vulnerable
+Admitting you didn’t know things and had to learn is powerful.
 
-### It's Inspiring
+### It’s Inspiring
 Shows others that growth comes from doing, not learning.
 
-### It's Differentiated
+### It’s Differentiated
 Nobody else has your exact combination of skills and growth story.
 
-### It's Credible
+### It’s Credible
 You can point to real outcomes (100% adoption, 75% faster onboarding, etc.) AND real transformation (AI dev, product thinking, leadership).
 
 ---
@@ -279,7 +279,7 @@ You have:
 ✅ Thought leadership opportunity
 ✅ Clear differentiation
 
-What's missing:
+What’s missing:
 ❌ Telling the world about it
 
 **This strategy fixes that.**
@@ -288,13 +288,13 @@ What's missing:
 
 ## Final Thought
 
-Your story is better than "I built a product."
+Your story is better than “I built a product.”
 
-Your story is: **"I transformed myself by building something real. Here's what that journey teaches about growth, learning, and becoming something more than you were."**
+Your story is: **”I transformed myself by building something real. Here’s what that journey teaches about growth, learning, and becoming something more than you were.”**
 
-That's the story people need to hear.
+That’s the story people need to hear.
 
-That's the story that opens doors.
+That’s the story that opens doors.
 
 **Now execute it.**
 
@@ -315,5 +315,5 @@ That's the story that opens doors.
 
 ---
 
-**You're ready. The positioning is clear. The narrative is authentic. Now publish it.**
+**You’re ready. The positioning is clear. The narrative is authentic. Now publish it.**
 

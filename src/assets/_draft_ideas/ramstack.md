@@ -13,13 +13,13 @@ Tags Tags Tags
 
 ##### Notes
 - currently need to remove the tools from the list to ensure this is actually future proof
-- instead of "use vscode" say, use an editor that supports XYZ
+- instead of “use vscode” say, use an editor that supports XYZ
 - instead of use netlify
 - instead of a bunch of plugins, ensure the core of your app is self sufficient and deosnt include excessive dependencies
 
 ====== TMP ======
 
-Currently knee-deep in the sea of design tools, much like we've always been, we realize that the current industry standard file format is just a pitstop on the journey – a tool bound to be succeeded by something else down the line. It's a matter of time before we navigate a new terrain, and design tools become a stepping stone in the ongoing design evolution.
+Currently knee-deep in the sea of design tools, much like we’ve always been, we realize that the current industry standard file format is just a pitstop on the journey – a tool bound to be succeeded by something else down the line. It’s a matter of time before we navigate a new terrain, and design tools become a stepping stone in the ongoing design evolution.
 
 Figma, with all its versatile features like auto layout, pinning, and plugin workflows rooted in web standards, presents a double-edged sword. Despite its strengths, it brings along compatibility challenges – these features are not universal, causing snags in our designs when eventually transitioning across different design tools. 
 
@@ -32,7 +32,7 @@ Will there be a day when the designer and developer environments are one and the
 
 So, how do we bridge the gap and make our designs as flexible as pencil and paper? As interoperable as code? Can we break free from the constraints of design tools, dictating what we can and cannot do with our ideas? Designing directly in the browser might be the answer, but the learning curve could be a hurdle not all of us are ready to tackle.
 
-Builder.io takes a swing at this concept, allowing us to design in the browser with custom components from our codebase. But, of course, it's just another tool in the toolbox. Developers have their arsenal too – Visual Studio Code, GitHub – but the key difference is flexibility. Code can be manipulated in both complex and simple programs, and is less likely to become obsolete (check back in 5 years and see if this is still true).
+Builder.io takes a swing at this concept, allowing us to design in the browser with custom components from our codebase. But, of course, it’s just another tool in the toolbox. Developers have their arsenal too – Visual Studio Code, GitHub – but the key difference is flexibility. Code can be manipulated in both complex and simple programs, and is less likely to become obsolete (check back in 5 years and see if this is still true).
 
 ====== TMP ======
 
@@ -42,13 +42,13 @@ Builder.io takes a swing at this concept, allowing us to design in the browser w
 ### Headless Complexity
 - With the domination of headless architectures, there seems to be a tool for everything. The tool for X and another tool for Y. Endless integrations and microservices all playing together to form the complexity that is a modern application.
 - While this is most certainly good in many ways, it brings about a slippery slope, in which our products can be made infinitely more complex -- more tools more dependencies. 
-- What I'm saying is, headless can get messy.
+- What I’m saying is, headless can get messy.
 
 ![Image](images/image1.png)
 
 ### Interoperability
 
-- Often we strive to get one tool to rule them all. The low code builder that respects both designer's and developer's wishes, can handle complex prototyping, export to code, gather feedback and serve as a handoff tool for developers.
+- Often we strive to get one tool to rule them all. The low code builder that respects both designer’s and developer’s wishes, can handle complex prototyping, export to code, gather feedback and serve as a handoff tool for developers.
 - We are trying to avoid a messy toolbox, but we can’t always find that one tool to do everything AND do it well.
 - Inevitably Our tools become outdated
 - The next industry standard file type takes over.
@@ -116,7 +116,7 @@ An acronym for Global Information Tracker. A Git Repo tracks all changes made to
 - Give others access, ask for help
 
 #### Pull Requests & Merging
-Pull requests let you tell others about changes you've pushed to a branch in a repository on GitHub. Once a pull request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch.
+Pull requests let you tell others about changes you’ve pushed to a branch in a repository on GitHub. Once a pull request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch.
 
 - Document changes you’ve pushed to a branch
 - Discuss and review with collaborators before merging

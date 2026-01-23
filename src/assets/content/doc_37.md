@@ -15,7 +15,7 @@ It started as a petty typography preference (the kind that triggers debates), an
 title="I'm "Jacques""
 ```
 
-That looks harmless when you paste it. But it’s invalid markup because the inner `"` **closes the attribute early**. Depending on where it lands, it can break rendering, hydration, or just quietly eat half your copy.
+That looks harmless when you paste it. But it’s invalid markup because the inner `”` **closes the attribute early**. Depending on where it lands, it can break rendering, hydration, or just quietly eat half your copy.
 
 So I made a small script that converts straight quotes to **Unicode smart quotes** *only where text is rendered*, so you can keep writing naturally without turning your templates into escape sequences.
 
@@ -25,20 +25,20 @@ So I made a small script that converts straight quotes to **Unicode smart quotes
 > - Check your repo: `npx smart-quotes --check`  
 > - Auto-fix: `npx smart-quotes --write`
 
-## What are "straight" vs “smart” quotes?
+## What are “straight” vs “smart” quotes?
 
-- **Straight quotes**: `'` and `"` (ASCII)
-  - Apostrophe: `I'm` uses `'`
-  - Quotation marks: `"Hello"`
+- **Straight quotes**: `’` and `”` (ASCII)
+  - Apostrophe: `I’m` uses `’`
+  - Quotation marks: `“Hello”`
 - **Smart / curly quotes**: `‘ ’ “ ”` (Unicode)
   - Apostrophe: `I’m`
   - Quotation marks: `“Hello”`
 
-Smart quotes are typographically nicer in prose, and—importantly for templates—curly quotes inside text don’t conflict with the plain ASCII `"` delimiter used by HTML attributes.
+Smart quotes are typographically nicer in prose, and—importantly for templates—curly quotes inside text don’t conflict with the plain ASCII `”` delimiter used by HTML attributes.
 
 ## Why you’d want this (beyond vibes)
 
-- **Prevents broken markup** when copy contains quotes inside attribute strings (`title="..."`, `description="..."`, etc.).
+- **Prevents broken markup** when copy contains quotes inside attribute strings (`title=”...”`, `description=”...”`, etc.).
 - **Makes content look more polished** (typographic quotes are standard in publishing).
 - **Keeps code safe** by avoiding script expressions and code blocks.
 
@@ -48,7 +48,7 @@ Smart quotes have a reputation: to some people they’re *basic typography*, to 
 
 Two things can be true at once:
 - **Yes, it’s partly aesthetics** (curly quotes read better in long-form text).
-- **But it’s also practical engineering**: curly quotes in prose don’t conflict with the plain ASCII `"` that often delimits attributes/strings in markup, so they help prevent “I pasted a sentence and broke the template” moments.
+- **But it’s also practical engineering**: curly quotes in prose don’t conflict with the plain ASCII `”` that often delimits attributes/strings in markup, so they help prevent “I pasted a sentence and broke the template” moments.
 
 ## The rule: only touch what the user will read
 
@@ -67,10 +67,10 @@ In this repo, the implementation:
 - **Parses Vue SFCs** and edits only the `<template>` section.
 - Converts quotes in:
   - **Rendered text nodes** (what users see)
-  - **Safe static attribute values** used for copy (e.g. `title="..."`, `description="..."`)
+  - **Safe static attribute values** used for copy (e.g. `title=”...”`, `description=”...”`)
 - **Skips**:
   - `<script>` / `<style>`
-  - Vue bindings and expressions (`:title="..."`, `v-if="..."`, `{{ ... }}`)
+  - Vue bindings and expressions (`:title=”...”`, `v-if=”...”`, `{{ ... }}`)
   - `<pre>` / `<code>` descendants (rendered code)
 - For attributes, it **preserves the outer delimiter quotes** and only smartens the inside.
 

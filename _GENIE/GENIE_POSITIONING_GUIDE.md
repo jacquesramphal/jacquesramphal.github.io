@@ -116,23 +116,23 @@ agentic AI systems—foundational work in an emerging field.
 ## How Different Audiences Should See This
 
 ### For Recruiters/Hiring Managers
-- **NOT:** "Designer on Genie project"
-- **YES:** "Founded and led product vision for Genie, an agentic AI platform"
+- **NOT:** “Designer on Genie project”
+- **YES:** “Founded and led product vision for Genie, an agentic AI platform”
 - **Signal:** Initiative, vision, leadership, end-to-end ownership
 
 ### For Other Designers
-- **NOT:** "Designed UX for agents"
-- **YES:** "Pioneered agentic UX patterns by identifying personal need, building solution, then scaling to organization"
+- **NOT:** “Designed UX for agents”
+- **YES:** “Pioneered agentic UX patterns by identifying personal need, building solution, then scaling to organization”
 - **Signal:** Problem-solving mindset, user empathy (starting with your own experience), systems thinking
 
 ### For Product People
-- **NOT:** "Design lead on an internal tool"
-- **YES:** "Founder of product that went from personal tool to 100% adoption platform"
+- **NOT:** “Design lead on an internal tool”
+- **YES:** “Founder of product that went from personal tool to 100% adoption platform”
 - **Signal:** Product thinking, user research, validation, organizational impact
 
 ### For AI/ML People
-- **NOT:** "UX for AI"
-- **YES:** "Led design for transparent, justifiable agentic decision-making"
+- **NOT:** “UX for AI”
+- **YES:** “Led design for transparent, justifiable agentic decision-making”
 - **Signal:** Thoughtfulness about AI transparency, user trust, cognitive load
 
 ---
@@ -140,35 +140,35 @@ agentic AI systems—foundational work in an emerging field.
 ## Key Phrases to Use
 
 ### When Introducing Genie
-✅ "I founded Genie..."
-✅ "I started Genie to solve my own problem..."
-✅ "Personal passion project that became organizational platform..."
-✅ "I led the vision and design..."
-✅ "Pioneered agentic UX patterns..."
+✅ “I founded Genie...”
+✅ “I started Genie to solve my own problem...”
+✅ “Personal passion project that became organizational platform...”
+✅ “I led the vision and design...”
+✅ “Pioneered agentic UX patterns...”
 
 ### When Describing Impact
-✅ "What started as a personal tool became a platform with 100% adoption"
-✅ "Identified a problem, built a solution, led organizational adoption"
-✅ "Transformed from individual productivity hack to core delivery capability"
-✅ "Freed teams to focus on strategic work instead of manual setup"
+✅ “What started as a personal tool became a platform with 100% adoption”
+✅ “Identified a problem, built a solution, led organizational adoption”
+✅ “Transformed from individual productivity hack to core delivery capability”
+✅ “Freed teams to focus on strategic work instead of manual setup”
 
 ### When Talking About the Design
-✅ "Drew from my own experience to design for how people actually work"
-✅ "Solved my own mental models first, then extended to organization"
-✅ "Pioneered patterns for transparent, trustworthy agent collaboration"
-✅ "Built framework that others are now adopting"
+✅ “Drew from my own experience to design for how people actually work”
+✅ “Solved my own mental models first, then extended to organization”
+✅ “Pioneered patterns for transparent, trustworthy agent collaboration”
+✅ “Built framework that others are now adopting”
 
 ---
 
 ## Positioning Summary
 
-### Before (If You'd Framed It Differently)
-"I led the design for Genie, an internal AI platform that automates project setup work."
+### Before (If You’d Framed It Differently)
+“I led the design for Genie, an internal AI platform that automates project setup work.”
 
 **Credibility Level:** Medium (good design work)
 
 ### After (Your Actual Story)
-"I founded Genie—a personal productivity solution that grew into a platform transforming our entire delivery model. I led both the vision and the design, pioneering UX patterns for agentic AI."
+“I founded Genie—a personal productivity solution that grew into a platform transforming our entire delivery model. I led both the vision and the design, pioneering UX patterns for agentic AI.”
 
 **Credibility Level:** High (founder + vision + design + execution + impact)
 
@@ -177,41 +177,41 @@ agentic AI systems—foundational work in an emerging field.
 ## The Three-Layer Narrative
 
 **Layer 1: Personal** (Why You Care)
-"I was stretched too thin. I needed to solve my own problem."
+“I was stretched too thin. I needed to solve my own problem.”
 
 **Layer 2: Organizational** (Why It Matters)
-"I realized everyone had this problem. It could transform how we deliver."
+“I realized everyone had this problem. It could transform how we deliver.”
 
 **Layer 3: Universal** (Why Others Should Care)
-"This is an emerging field. The patterns I discovered are foundational work."
+“This is an emerging field. The patterns I discovered are foundational work.”
 
 ---
 
 ## Your Updated Bio
 
 ### OLD
-"Design Lead at Orium. Specializes in design systems and full-stack design."
+“Design Lead at Orium. Specializes in design systems and full-stack design.”
 
 ### NEW
-"Founder & Design Lead of Genie, an agentic AI platform at Orium. Pioneering UX patterns for human-AI collaboration. Design systems architect. Passionate about solving my own problems and scaling them for others."
+“Founder & Design Lead of Genie, an agentic AI platform at Orium. Pioneering UX patterns for human-AI collaboration. Design systems architect. Passionate about solving my own problems and scaling them for others.”
 
 ---
 
 ## Final Thought
 
-This isn't just a case study about designing Genie.
+This isn’t just a case study about designing Genie.
 
 This is your **founder story**.
 
 You saw a problem. You solved it. You got others to join. You scaled it.
 
-That's entrepreneurship. Whether you're doing it in a startup or inside an organization, that's the entrepreneurial mindset.
+That’s entrepreneurship. Whether you’re doing it in a startup or inside an organization, that’s the entrepreneurial mindset.
 
 **Own it.**
 
-When you tell this story, you're not positioning yourself as a designer who worked on a project. You're positioning yourself as a founder and vision leader who happens to also design and code.
+When you tell this story, you’re not positioning yourself as a designer who worked on a project. You’re positioning yourself as a founder and vision leader who happens to also design and code.
 
-That's a different level.
+That’s a different level.
 
 ---
 
@@ -224,11 +224,11 @@ That's a different level.
 5. 📋 TODO: Reach out to Everett & Jennifer for feedback
 6. 📋 TODO: Publish on your blog
 7. 📋 TODO: Share on LinkedIn/Twitter with founder narrative
-8. 📋 TODO: Update your LinkedIn headline to mention "Founder of Genie"
+8. 📋 TODO: Update your LinkedIn headline to mention “Founder of Genie”
 
-You're not just a designer anymore.
+You’re not just a designer anymore.
 
-You're a founder.
+You’re a founder.
 
 Act like it.
 

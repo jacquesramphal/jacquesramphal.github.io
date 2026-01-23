@@ -28,7 +28,7 @@
           title="AI/AX patterns with Genie"
           icon="j-logo.svg"
           alt="AI/AX icon"
-          description="At Orium, I'm designing <a href='/doc/building-genie-changed-me'>Genie</a>—an AI/AX platform for agentic experiences—where the work isn't just chatting with an assistant, it's collaborating with AI on real, multi-step workflows."
+          description="At Orium, I’m designing <a href=’/doc/building-genie-changed-me’>Genie</a>—an AI/AX platform for agentic experiences—where the work isn’t just chatting with an assistant, it’s collaborating with AI on real, multi-step workflows."
         />
         <TextBlock
           as="h4"

@@ -1,6 +1,6 @@
 # Your Portfolio Audit & Genie Case Study: Complete Deliverables
 
-## 📦 What We've Created
+## 📦 What We’ve Created
 
 ### 1. **PORTFOLIO_AUDIT.md** (4,000+ words)
 **Complete audit of your portfolio, homepage, resume, and projects**
@@ -14,7 +14,7 @@ Covers:
 - ✅ 6-12 month thought leadership strategy
 - ✅ 100+ specific action items
 
-**Key Finding:** You're a generalist being sold as a generalist. Should be positioned as "Design Systems Architect + AI/AX Pioneer."
+**Key Finding:** You’re a generalist being sold as a generalist. Should be positioned as “Design Systems Architect + AI/AX Pioneer.”
 
 ---
 
@@ -29,7 +29,7 @@ Includes:
 - ✅ Trust-First Agentic UX principle
 - ✅ Pattern library for other designers
 - ✅ Strategic roadmap for 2026
-- ✅ Open questions you're exploring
+- ✅ Open questions you’re exploring
 
 **Positioning:** You as **founder + designer + thought leader** in emerging agentic AI field.
 
@@ -66,14 +66,14 @@ Includes:
 **Critical narrative shift showing you as founder, not just designer**
 
 Covers:
-- ✅ The shift from "brought in to design" → "founded the product"
+- ✅ The shift from “brought in to design” → “founded the product”
 - ✅ How your story positions you differently
 - ✅ Founder narrative advantages
 - ✅ How to tell the story at conferences
 - ✅ Key positioning statements
 - ✅ Updated bio and title
 
-**Key Insight:** You're not "a designer who worked on Genie" — you're "the founder who envisioned Genie and led its design."
+**Key Insight:** You’re not “a designer who worked on Genie” — you’re “the founder who envisioned Genie and led its design.”
 
 ---
 
@@ -99,14 +99,14 @@ Includes:
 **Secondary:** Design-Dev Bridge (rare skill)  
 **Tertiary:** Design Leadership & Mentorship
 
-**Why:** These are your actual deep competencies and they're rare. Own them.
+**Why:** These are your actual deep competencies and they’re rare. Own them.
 
 ---
 
 ### The Genie Story (Corrected)
 
-**NOT:** "I was hired to design Genie"  
-**YES:** "I founded Genie to solve my own problem, then grew it into an organizational platform"
+**NOT:** “I was hired to design Genie”  
+**YES:** “I founded Genie to solve my own problem, then grew it into an organizational platform”
 
 This frames you as:
 - ✅ Problem identifier
@@ -135,7 +135,7 @@ This frames you as:
 
 4. **Fix your resume** (from Portfolio Audit)
    - Remove placeholder text
-   - Update to "Staff Product Designer"
+   - Update to “Staff Product Designer”
    - Add Genie prominence
    - Complete all entries
 
@@ -180,21 +180,21 @@ This frames you as:
 | Team Leadership | ✅✅ | ⚠️ | ❌ |
 | Design-Dev Bridge | ✅✅✅ | ❌ | ⚠️ |
 
-**You're the only person excelling at ALL of these.**
+**You’re the only person excelling at ALL of these.**
 
 ---
 
 ## 🚀 Your Positioning After Implementation
 
 ### Today
-"Designer-developer at Orium with broad interests"
+“Designer-developer at Orium with broad interests”
 ↓
 Competes with everyone  
 Unclear value proposition  
 Premium pricing not justified
 
 ### After Audit Implementation
-"Founder of Genie + Staff Product Designer + Design Systems Architect + AI/AX Pioneer"
+“Founder of Genie + Staff Product Designer + Design Systems Architect + AI/AX Pioneer”
 ↓
 Competes with nobody else  
 Clear, defensible positioning  
@@ -268,11 +268,11 @@ You have a **genuinely rare skillset**:
 - Leadership and mentorship capability
 - Organizational culture contribution
 
-You're not positioning these effectively. This audit and case study changes that.
+You’re not positioning these effectively. This audit and case study changes that.
 
-**The case study is your most powerful asset.** It shows you didn't just design something—you **founded it**. You saw a problem, solved it, scaled it.
+**The case study is your most powerful asset.** It shows you didn’t just design something—you **founded it**. You saw a problem, solved it, scaled it.
 
-That's the story that opens doors.
+That’s the story that opens doors.
 
 ---
 
@@ -284,9 +284,9 @@ That's the story that opens doors.
 4. Get feedback from Everett/Jennifer
 5. Publish and promote
 
-You've got the materials. Now execute.
+You’ve got the materials. Now execute.
 
-The world needs to know what you're doing with Genie.
+The world needs to know what you’re doing with Genie.
 
 Tell them.
 

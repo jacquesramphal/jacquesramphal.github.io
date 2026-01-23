@@ -12,8 +12,8 @@ Your portfolio currently positions you as a **generalist designer-developer**, w
 
 **Key Findings:**
 - ✅ Strong technical credibility (design systems, full-stack work)
-- ❌ Unclear value proposition—lacks a clear "why hire me" narrative
-- ❌ "Genie" (your AI/AX work) is buried and underemphasized
+- ❌ Unclear value proposition—lacks a clear “why hire me” narrative
+- ❌ “Genie” (your AI/AX work) is buried and underemphasized
 - ❌ Resume contains placeholder text and incomplete entries
 - ❌ Writing lacks conviction and strategic framing
 - ❌ Projects need stronger problem-solution-outcome storytelling
@@ -31,22 +31,22 @@ About: "Staff Product Designer & Developer based in Toronto... explores intersec
 ### Critical Issues
 
 #### 1. **Vague Hero Statement** ❌
-- **Problem:** "Cross-skill" and "intersection" are buzzwords without clear meaning
-- **Why it matters:** Visitors don't immediately understand what makes you different
+- **Problem:** “Cross-skill” and “intersection” are buzzwords without clear meaning
+- **Why it matters:** Visitors don’t immediately understand what makes you different
 - **Impact:** Lost opportunity in the first 3 seconds
 
-#### 2. **Missing "Genie" in Hero** ❌
-- **Problem:** Your AI/AX work for Genie isn't mentioned until deep in projects
+#### 2. **Missing “Genie” in Hero** ❌
+- **Problem:** Your AI/AX work for Genie isn’t mentioned until deep in projects
 - **Why it matters:** AI expertise is highly sought-after; it should be front-and-center
-- **Impact:** You're competing as a generic product designer instead of an AI specialist
+- **Impact:** You’re competing as a generic product designer instead of an AI specialist
 
 #### 3. **Weak Value Proposition** ❌
-- **Current:** "Explores the intersection between design and development"
-- **Problem:** Doesn't answer "Why should I hire you?"
+- **Current:** “Explores the intersection between design and development”
+- **Problem:** Doesn’t answer “Why should I hire you?”
 - **Missing:** Business impact, specific specialization, unique advantage
 
 #### 4. **About Section Lacks Specificity** ❌
-- **Problem:** Generic statements about "full-stack design," "precision," "creativity"
+- **Problem:** Generic statements about “full-stack design,” “precision,” “creativity”
 - **Why it matters:** Every designer claims these
 - **Missing:** Concrete examples of impact, specific methodologies, proven results
 
@@ -118,8 +118,8 @@ Multiple sections have placeholder text:
 Current: "Senior Product Designer" at Orium
 Your Role: Staff Product Designer (higher seniority level)
 ```
-**Impact:** Underselling yourself; resume doesn't reflect your title  
-**Fix:** Update to "Staff Product Designer"
+**Impact:** Underselling yourself; resume doesn’t reflect your title  
+**Fix:** Update to “Staff Product Designer”
 
 #### 3. **Missing AI/AX Emphasis** ❌
 Current experience at Orium focuses on:
@@ -132,7 +132,7 @@ Current experience at Orium focuses on:
 - AI experience design methodology
 - Agentic UX patterns
 
-**Fix:** Add dedicated "Recent Focus" or expand Orium description to include:
+**Fix:** Add dedicated “Recent Focus” or expand Orium description to include:
 ```
 "Currently leading AI/AX design initiatives for Genie, 
 defining UX patterns and mental models for agentic experiences."
@@ -159,8 +159,8 @@ and coaching design teams through design-to-dev integration."
 ```
 
 #### 6. **Missing Work Examples in Resume** ❌
-- Skills section: "Placeholder for listing your key skills..."
-- Projects section: "Placeholder for highlighting any relevant projects..."
+- Skills section: “Placeholder for listing your key skills...”
+- Projects section: “Placeholder for highlighting any relevant projects...”
 
 **Fix:** Populate with:
 - **Skills:** UI/UX Design, Design Systems, React/Vue Development, Design Tokens, Figma, Storybook, AI/AX Design, Mindfulness Facilitation, Design QA, Mentorship
@@ -179,10 +179,10 @@ Focus: Digital design, print, and emerging media
 ```
 
 #### 8. **Missing Mindfulness Certification** ⚠️
-Your role as "Mindfulness Facilitator" is included but no certification listed  
+Your role as “Mindfulness Facilitator” is included but no certification listed  
 **Options:**
 - List any mindfulness certifications if you have them
-- Or rephrase as "Mindfulness Practitioner & Organizational Culture Lead"
+- Or rephrase as “Mindfulness Practitioner & Organizational Culture Lead”
 
 ### Resume Restructure Recommendation
 
@@ -217,16 +217,16 @@ Your role as "Mindfulness Facilitator" is included but no certification listed
 
 #### 2. **Weak Value Propositions** ❌
 Current messaging emphasizes WHAT you do, not WHY it matters:
-- ❌ "Full-stack design"
-- ❌ "Intersection of design and development"
-- ✅ "I reduce time-to-market by 40% through design-dev integration"
+- ❌ “Full-stack design”
+- ❌ “Intersection of design and development”
+- ✅ “I reduce time-to-market by 40% through design-dev integration”
 
-#### 3. **"Passion for Cross-Skill" is Unclear** ❌
-This phrase appears in your hero but isn't explained  
+#### 3. **”Passion for Cross-Skill” is Unclear** ❌
+This phrase appears in your hero but isn’t explained  
 **Better framing:**
-- "I teach designers to code and developers to design"
-- "I bridge the design-engineering gap"
-- "I translate between creative and technical teams"
+- “I teach designers to code and developers to design”
+- “I bridge the design-engineering gap”
+- “I translate between creative and technical teams”
 
 ### Recommended Positioning Framework
 
@@ -260,11 +260,11 @@ Replace generic messaging with specific, benefit-driven messaging:
 
 | Current | ❌ Vague | ✅ Specific |
 |---------|---------|-----------|
-| "Specializes in full-stack design" | Vague buzzword | "I deliver production-ready designs that developers can implement in 1/3 the time" |
-| "Explores intersection of design & dev" | Unclear value | "I lead design handoffs that eliminate rework and miscommunication" |
-| "Passion for cross-skill" | Meaningless | "I mentor designers into developers and help teams ship faster" |
-| "Seeks to embrace emerging technologies" | Generic tech bro | "I'm pioneering UX patterns for AI agents (Genie)" |
-| "Precise and creative" | Every designer says this | "I combine rigorous design systems with creative problem-solving" |
+| “Specializes in full-stack design” | Vague buzzword | “I deliver production-ready designs that developers can implement in 1/3 the time” |
+| “Explores intersection of design & dev” | Unclear value | “I lead design handoffs that eliminate rework and miscommunication” |
+| “Passion for cross-skill” | Meaningless | “I mentor designers into developers and help teams ship faster” |
+| “Seeks to embrace emerging technologies” | Generic tech bro | “I’m pioneering UX patterns for AI agents (Genie)” |
+| “Precise and creative” | Every designer says this | “I combine rigorous design systems with creative problem-solving” |
 
 ---
 
@@ -282,10 +282,10 @@ The full description will be longer"
 **Impact:** Reduces credibility, looks unfinished
 
 #### 2. **Placeholder Text Everywhere** ❌
-- "Tag1 Tag4 Tag5" (not descriptive)
-- "This is a subtitle 2"
-- "Work Type" (what work type?)
-- "Designer/Developer" (everyone's both)
+- “Tag1 Tag4 Tag5” (not descriptive)
+- “This is a subtitle 2”
+- “Work Type” (what work type?)
+- “Designer/Developer” (everyone’s both)
 
 #### 3. **Missing Project Context** ❌
 Projects lack:
@@ -357,7 +357,7 @@ Description: "This is a short description..."
 - Specific tech stack (React Native, Contentful, Typesense, Paytronix, P97)
 
 **Weaknesses:**
-- Your role could be more specific ("Lead Product Designer & Front-end Developer")
+- Your role could be more specific (“Lead Product Designer & Front-end Developer”)
 - Missing metrics (adoption rate, user satisfaction, time-to-market reduction)
 
 #### OnLogic Composable Commerce ✅ (Good structure)
@@ -367,8 +367,8 @@ Description: "This is a short description..."
 - Key outcomes mentioned
 
 **Weaknesses:**
-- Missing quantified impact (e.g., "increased configuration options by X%")
-- Outcome section vague ("empowered technical users" - how exactly?)
+- Missing quantified impact (e.g., “increased configuration options by X%”)
+- Outcome section vague (“empowered technical users” - how exactly?)
 
 #### Genie (AI/AX Platform) ❌ (Needs work)
 **Current:**
@@ -426,25 +426,25 @@ Design lead for AI/AX UX patterns, designing:
 ### Current Writing Issues
 
 #### 1. **FAQ Format Lacks Personality** ❌
-Your "About" page is structured as Q&A with details tags:
+Your “About” page is structured as Q&A with details tags:
 - Efficient but impersonal
 - Reads like documentation, not a person
-- Doesn't convey passion or unique perspective
+- Doesn’t convey passion or unique perspective
 
 #### 2. **Generic Statements Repeated** ❌
 Multiple instances of:
-- "I specialize in full-stack design"
-- "Design should be beautiful but also functional"
-- "Cross-functional collaboration"
+- “I specialize in full-stack design”
+- “Design should be beautiful but also functional”
+- “Cross-functional collaboration”
 
 #### 3. **Placeholder Text Everywhere** ❌
-"This section will contain a concise description..."
+“This section will contain a concise description...”
 
 #### 4. **Missing Point of View** ❌
 Your writing is descriptive but lacks opinion  
 **Example:**
-- Current: "I use a variety of tools depending on project needs"
-- Better: "I use Figma for design systems work, but I choose Sketch when I need precision for complex interactions. And I reach for Blender when 3D is the best way to solve a problem."
+- Current: “I use a variety of tools depending on project needs”
+- Better: “I use Figma for design systems work, but I choose Sketch when I need precision for complex interactions. And I reach for Blender when 3D is the best way to solve a problem.”
 
 #### 5. **Missing Your Story** ❌
 No narrative about:
@@ -459,32 +459,32 @@ No narrative about:
 
 1. **Personal Story** (Why you care)
    ```
-   "I started as a graphic designer at 22, making print files. 
-   By 30, I realized the future wasn't print—it was digital systems. 
-   So I taught myself to code. This wasn't a pivot; it was an evolution.
+   “I started as a graphic designer at 22, making print files. 
+   By 30, I realized the future wasn’t print—it was digital systems. 
+   So I taught myself to code. This wasn’t a pivot; it was an evolution.
    I realized that to solve complex digital problems, you need both 
-   perspectives in one mind."
+   perspectives in one mind.”
    ```
 
 2. **Your Philosophy** (How you think)
    ```
-   "I believe design systems are the future of scale. 
-   They're not just color palettes and components—they're organizational 
+   “I believe design systems are the future of scale. 
+   They’re not just color palettes and components—they’re organizational 
    infrastructure that multiplies team velocity. And that multiplied velocity 
-   is what allows innovation."
+   is what allows innovation.”
    ```
 
 3. **What You Do (Now Specific)**
    ```
-   "Today, I lead design at Orium across three main areas:
+   “Today, I lead design at Orium across three main areas:
    
    1. Design Systems Architecture
       - I build token-based systems that scale from 5 designers to 50
       - I design the governance model so systems evolve without breaking
    
    2. AI/AX Design (Genie)
-      - I'm pioneering UX for agents—how do humans collaborate with AI?
-      - This is new territory, and we're writing the playbook
+      - I’m pioneering UX for agents—how do humans collaborate with AI?
+      - This is new territory, and we’re writing the playbook
    
    3. Design-Dev Integration
       - I pair design strategy with implementation
@@ -493,9 +493,9 @@ No narrative about:
 
 4. **Why You Exist** (Your value prop)
    ```
-   "If you're building a product and you need design that actually ships,
+   “If you’re building a product and you need design that actually ships,
    not design that gets handed off and reinterpreted, you should talk to me.
-   I bridge the chasm between vision and execution."
+   I bridge the chasm between vision and execution.”
    ```
 
 ---
@@ -508,14 +508,14 @@ No narrative about:
 **Recommended Change:** Make it your primary differentiator
 
 **Action:**
-- Add a dedicated "Genie" section before "Recent Work"
+- Add a dedicated “Genie” section before “Recent Work”
 - Write a Genie-focused case study on your blog
 - Speak about AI/AX patterns publicly
 - Position yourself as a thought leader in this emerging field
 
 **Why:** 
 - AI/AX is a new, high-value specialization
-- You're early in this space (competitive advantage)
+- You’re early in this space (competitive advantage)
 - Growing market demand for this expertise
 - Differentiates you from other design systems architects
 
@@ -537,15 +537,15 @@ can implement with fidelity. I work in code with them."
 4. Case study: How a design system reduces dev time
 
 **Why:**
-- Rare skill (most designers can't code)
+- Rare skill (most designers can’t code)
 - High ROI for companies
 - Competitive advantage
 - Attracts engineering-minded clients
 
-### Recommendation 3: Reframe "Cross-Skill" as Teaching Leadership
+### Recommendation 3: Reframe “Cross-Skill” as Teaching Leadership
 
-**Current State:** "Passion for cross-skill"  
-**Recommended Change:** "I teach designers to code"
+**Current State:** “Passion for cross-skill”  
+**Recommended Change:** “I teach designers to code”
 
 **Why:**
 - More specific and credible
@@ -554,9 +554,9 @@ can implement with fidelity. I work in code with them."
 - Aligns with your mindfulness focus
 
 **How to promote it:**
-1. Add a "Mentorship" section to your resume
+1. Add a “Mentorship” section to your resume
 2. Write about your mentorship approach
-3. Highlight designers you've mentored into developers
+3. Highlight designers you’ve mentored into developers
 4. Offer design-to-dev curriculum or workshops
 
 ### Recommendation 4: Elevate Your Thought Leadership
@@ -601,8 +601,8 @@ can implement with fidelity. I work in code with them."
 **Action Items:**
 - [ ] Remove all placeholder text
 - [ ] Complete all incomplete entries
-- [ ] Add "Genie" to experience description
-- [ ] Update title to "Staff Product Designer"
+- [ ] Add “Genie” to experience description
+- [ ] Update title to “Staff Product Designer”
 - [ ] Add specific metrics/outcomes for each role
 - [ ] Populate Skills and Projects sections
 - [ ] Fix HTML rendering issues
@@ -614,7 +614,7 @@ can implement with fidelity. I work in code with them."
 **Timeline:** This week
 
 **Action Items:**
-- [ ] Replace hero with one of the 3 recommended options (I'd suggest Option C)
+- [ ] Replace hero with one of the 3 recommended options (I’d suggest Option C)
 - [ ] Rewrite About section with specific specializations
 - [ ] Mention Genie explicitly
 - [ ] Add a 3-tier positioning statement
@@ -815,11 +815,11 @@ See portfolio for case studies on:
 
 2. **AI/AX Pioneer**
    - New field with few established experts
-   - You're designing the patterns others will copy
+   - You’re designing the patterns others will copy
    - Unique value: Early mover advantage in growing market
 
 3. **Design Leadership + Mentorship**
-   - You don't just design; you level up your team
+   - You don’t just design; you level up your team
    - You teach designers to code
    - Unique value: Culture builder, not just output producer
 
@@ -830,7 +830,7 @@ See portfolio for case studies on:
 
 5. **Mindfulness + Team Health**
    - Rare for designers to openly practice/teach mindfulness
-   - Differentiates you from the "hustle culture" crowd
+   - Differentiates you from the “hustle culture” crowd
    - Unique value: Sustainable creative practice
 
 ---
@@ -844,7 +844,7 @@ See portfolio for case studies on:
   - Update title to Staff Product Designer
   - Complete Genie description
   - Add metrics to each role
-  - Add "Thought Leadership" section
+  - Add “Thought Leadership” section
 
 - [ ] **Rewrite Homepage Hero**
   - Pick one of the 3 recommended versions
@@ -912,7 +912,7 @@ See portfolio for case studies on:
 | **Design-Dev Bridge** | ❌ | ⚠️ | ⚠️ | **✅✅✅** |
 | **Mentorship** | ❌ | ⚠️ | ❌ | **✅✅✅** |
 
-**Your competitive edge:** You're the only person in this table who excels at DESIGN-DEV BRIDGE + AI/AX + MENTORSHIP. That's your positioning.
+**Your competitive edge:** You’re the only person in this table who excels at DESIGN-DEV BRIDGE + AI/AX + MENTORSHIP. That’s your positioning.
 
 ---
 
@@ -947,12 +947,12 @@ See portfolio for case studies on:
 ### Top 5 Changes to Make Immediately
 
 1. **Emphasize Genie (AI/AX) Work**
-   - It's your biggest differentiator
-   - It's a growing market
-   - You're early in this field
+   - It’s your biggest differentiator
+   - It’s a growing market
+   - You’re early in this field
 
-2. **Reposition as "Design Systems + Code"**
-   - This is rarer and more valuable than "generalist"
+2. **Reposition as “Design Systems + Code”**
+   - This is rarer and more valuable than “generalist”
    - Justifies premium positioning
    - Clearer value proposition
 
@@ -983,7 +983,7 @@ You have a **rare combination of skills** that positions you for premium opportu
 - Leadership and mentorship
 - Organizational culture contribution
 
-The issue isn't your abilities—it's your **positioning and communication**. Your website and resume currently position you as a generalist, when you should be positioned as a **specialist in the intersection of design systems, AI/AX, and design-dev integration**.
+The issue isn’t your abilities—it’s your **positioning and communication**. Your website and resume currently position you as a generalist, when you should be positioned as a **specialist in the intersection of design systems, AI/AX, and design-dev integration**.
 
 **Next step:** Pick one primary positioning and double down on it for 6-12 months. Once you own that positioning (through speaking, writing, and case studies), you can expand to a secondary position.
 
@@ -994,8 +994,8 @@ The issue isn't your abilities—it's your **positioning and communication**. Yo
 
 **Questions to consider:**
 1. Which positioning (primary) resonates most with you?
-2. What's your biggest differentiator compared to other designers?
-3. What work are you most excited about right now? (Hint: that's probably your north star)
+2. What’s your biggest differentiator compared to other designers?
+3. What work are you most excited about right now? (Hint: that’s probably your north star)
 4. What problems do you most want to solve?
 
 Once you clarify these, your website copy, resume, and projects will follow naturally.

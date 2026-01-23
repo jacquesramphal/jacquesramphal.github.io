@@ -9,7 +9,7 @@
 
 ## The Challenge: Modern Convenience Needs Modern Tools
 
-Founded in 1959, Kum & Go has been redefining convenience retail for over 60 years. But by 2020, their digital experience wasn't keeping pace with customer expectations. The mobile app needed to evolve from a basic utility into a platform that could drive engagement, loyalty, and seamless omnichannel experiences.
+Founded in 1959, Kum & Go has been redefining convenience retail for over 60 years. But by 2020, their digital experience wasn’t keeping pace with customer expectations. The mobile app needed to evolve from a basic utility into a platform that could drive engagement, loyalty, and seamless omnichannel experiences.
 
 **The core challenge:** How do you build a digital experience that enhances—rather than replaces—the convenience store experience? How do you create a loyalty program that feels valuable, not transactional?
 
@@ -21,10 +21,10 @@ Kum & Go wanted to upgrade their digital experience to better serve their custom
 
 - **Legacy Platform Limitations** — The existing system was costly to maintain and difficult to extend
 - **Fragmented Customer Experience** — Search, merchandising, promotions, and loyalty were disconnected
-- **Limited Engagement** — The current loyalty program wasn't engaging a large enough segment of customers
+- **Limited Engagement** — The current loyalty program wasn’t engaging a large enough segment of customers
 - **Omnichannel Gap** — Digital and in-store experiences felt separate, not integrated
 
-Most importantly, they needed a platform that could adapt and evolve without service disruptions. This wasn't just a redesign—it was a complete platform transformation.
+Most importantly, they needed a platform that could adapt and evolve without service disruptions. This wasn’t just a redesign—it was a complete platform transformation.
 
 ## The Solution: A Composable, Scalable Architecture
 
@@ -40,7 +40,7 @@ A robust loyalty program was essential, but it needed to feel valuable and engag
 
 ### 3. More In-Store Purchases
 
-The digital experience shouldn't compete with in-store—it should enhance it. We needed to create an omnichannel experience that drove customers to physical locations while providing digital convenience.
+The digital experience shouldn’t compete with in-store—it should enhance it. We needed to create an omnichannel experience that drove customers to physical locations while providing digital convenience.
 
 ### 4. Extensible and Maintainable Platform
 
@@ -54,11 +54,11 @@ We built the platform using a composable architecture that gave Kum & Go flexibi
 
 ### React Native for Mobile
 
-We leveraged Orium's React Native Accelerator to build a cross-platform mobile app that works seamlessly on both iOS and Android. This approach allowed us to maintain a single codebase while delivering native experiences.
+We leveraged Orium’s React Native Accelerator to build a cross-platform mobile app that works seamlessly on both iOS and Android. This approach allowed us to maintain a single codebase while delivering native experiences.
 
 ### Contentful for Content Management
 
-Contentful's composable content platform gave Kum & Go's marketing team the ability to manage content, promotions, and merchandising without developer intervention. This was crucial for the "control over digital experience" objective.
+Contentful’s composable content platform gave Kum & Go’s marketing team the ability to manage content, promotions, and merchandising without developer intervention. This was crucial for the “control over digital experience” objective.
 
 ### Typesense for Search
 
@@ -92,25 +92,25 @@ The Mobile Fuel Pay feature was enhanced to allow customers to prepay for gas in
 
 ### Platform for Growth
 
-The new platform wasn't just a one-time launch—it was built to evolve. Kum & Go now has a foundation they can extend and enhance as customer needs change, without the constraints of legacy systems.
+The new platform wasn’t just a one-time launch—it was built to evolve. Kum & Go now has a foundation they can extend and enhance as customer needs change, without the constraints of legacy systems.
 
 ## What This Project Taught Me
 
-This project reinforced a fundamental truth about digital transformation: **the best digital experiences don't replace physical ones—they enhance them.**
+This project reinforced a fundamental truth about digital transformation: **the best digital experiences don’t replace physical ones—they enhance them.**
 
-Building a loyalty platform isn't just about points and rewards. It's about creating a relationship between brand and customer that spans digital and physical touchpoints. The Mobile Fuel Pay integration was a perfect example—it took a digital action (prepaying for gas) and made it meaningful in the physical world (at the pump).
+Building a loyalty platform isn’t just about points and rewards. It’s about creating a relationship between brand and customer that spans digital and physical touchpoints. The Mobile Fuel Pay integration was a perfect example—it took a digital action (prepaying for gas) and made it meaningful in the physical world (at the pump).
 
-**The technical lesson:** Composable architecture isn't just a buzzword. When you build with composable principles—separating content, commerce, search, and loyalty into independent systems—you create flexibility that pays dividends. Kum & Go can now evolve each part of their platform independently, without breaking the whole system.
+**The technical lesson:** Composable architecture isn’t just a buzzword. When you build with composable principles—separating content, commerce, search, and loyalty into independent systems—you create flexibility that pays dividends. Kum & Go can now evolve each part of their platform independently, without breaking the whole system.
 
 **The design lesson:** Omnichannel experiences require thinking beyond screens. The most impactful features were the ones that connected digital actions to physical outcomes—prepaying for gas, earning points at the pump, using the app to enhance the in-store experience.
 
-This project also taught me the value of working with specialized partners. We didn't build everything from scratch—we integrated best-in-class solutions (Contentful, Typesense, Paytronix, P97) to create a platform that was both powerful and maintainable. Sometimes the best architecture is knowing what to build and what to integrate.
+This project also taught me the value of working with specialized partners. We didn’t build everything from scratch—we integrated best-in-class solutions (Contentful, Typesense, Paytronix, P97) to create a platform that was both powerful and maintainable. Sometimes the best architecture is knowing what to build and what to integrate.
 
 ## Looking Forward
 
 Kum & Go continues to enhance the mobile app and is redesigning the web experience to match the new mobile features. The platform we built gives them the foundation to evolve and adapt as customer expectations change.
 
-The success of this project wasn't just in the launch—it was in creating a system that Kum & Go can grow with, extend, and refine over time. That's the real value of a well-architected platform.
+The success of this project wasn’t just in the launch—it was in creating a system that Kum & Go can grow with, extend, and refine over time. That’s the real value of a well-architected platform.
 
 **Jacques Ramphal**  
 *Lead Product Designer & Front-end Developer | Orium*

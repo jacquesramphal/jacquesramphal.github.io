@@ -18,15 +18,15 @@ An Artboard is a abstract collage of visual design elements, for e.g. colours, f
 
 What we’ll be asking you to do is choose 5 words you think best describes the design.
 
-We'll follow up with some prompting questions afterwards.
+We’ll follow up with some prompting questions afterwards.
 
-There are no wrong answers here, and we're not testing you!
+There are no wrong answers here, and we’re not testing you!
 
 (Experience Criteria:
 
 **Confident, Empowered, Informed, Collaborative**
 
-ask about words that weren't chosen?)
+ask about words that weren’t chosen?)
 
 ### Steps
 

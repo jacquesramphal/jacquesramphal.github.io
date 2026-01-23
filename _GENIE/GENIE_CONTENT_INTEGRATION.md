@@ -1,6 +1,6 @@
 # ✅ GENIE CASE STUDY: MOVED TO CONTENT & FEATURED
 
-## What's Been Completed
+## What’s Been Completed
 
 ### 1. ✅ Case Study Moved to Content
 - **File:** `/src/assets/content/doc_31.md`
@@ -9,7 +9,7 @@
 
 ### 2. ✅ Featured on Homepage
 - **Updated:** `/src/assets/data/work.json`
-- **Featured Title:** "Designing Genie: Pioneering UX Patterns for Agentic AI"
+- **Featured Title:** “Designing Genie: Pioneering UX Patterns for Agentic AI”
 - **Featured Description:** Explains what you built and key learnings
 - **Featured Link:** Routes to `doc/31` (the content markdown)
 - **Featured Color:** Deep Blue (#0D47A1) - matches tech/AI theme
@@ -46,10 +46,10 @@ Genie is now available in your library system via the featured project tile.
 
 ### Homepage Display
 The featured tile will show:
-- **Title:** "Designing Genie: Pioneering UX Patterns for Agentic AI"
-- **Eyebrow:** "Agentic AI Design"
+- **Title:** “Designing Genie: Pioneering UX Patterns for Agentic AI”
+- **Eyebrow:** “Agentic AI Design”
 - **Description:** Your key value prop (reclaiming creative focus, learning journey)
-- **CTA:** "Read Case Study"
+- **CTA:** “Read Case Study”
 - **Visual:** Genie image (when you add it)
 
 ### Library Navigation

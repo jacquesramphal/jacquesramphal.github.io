@@ -5,7 +5,7 @@
       background
       fullvh
       style="scroll-snap-align: start"
-      title="Jacques's Product"
+      title="Jacques’s Product"
       subtitle="A simple description telling the user the benefits of the product and why they should buy it."
       label="View Product"
       route="/"

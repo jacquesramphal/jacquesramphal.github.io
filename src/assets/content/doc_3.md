@@ -4,7 +4,7 @@
     - [Chapter 1: Introduction to Design Quality Assurance](https://myplanet.jira.com/wiki/spaces/DQA/pages/296812551/Design+Quality+Assurance+DQA+Handbook#Chapter-1:-Introduction-to-Design-Quality-Assurance)
         - [1.1 What is Design Quality Assurance?](https://myplanet.jira.com/wiki/spaces/DQA/pages/296812551/Design+Quality+Assurance+DQA+Handbook#1.1-What-is-Design-Quality-Assurance?)
         - [1.2 Key Terminology in Design QA](https://myplanet.jira.com/wiki/spaces/DQA/pages/296812551/Design+Quality+Assurance+DQA+Handbook#1.2-Key-Terminology-in-Design-QA)
-        - [1.3 Understanding the Designer's Role in QA](https://myplanet.jira.com/wiki/spaces/DQA/pages/296812551/Design+Quality+Assurance+DQA+Handbook#1.3-Understanding-the-Designer's-Role-in-QA)
+        - [1.3 Understanding the Designer’s Role in QA](https://myplanet.jira.com/wiki/spaces/DQA/pages/296812551/Design+Quality+Assurance+DQA+Handbook#1.3-Understanding-the-Designer's-Role-in-QA)
         - [1.4 Object-oriented vs. Holistic QA Approaches](https://myplanet.jira.com/wiki/spaces/DQA/pages/296812551/Design+Quality+Assurance+DQA+Handbook#1.4-Object-oriented-vs.-Holistic-QA-Approaches)
     - [Chapter 2: Quality Assurance Activities Overview](https://myplanet.jira.com/wiki/spaces/DQA/pages/296812551/Design+Quality+Assurance+DQA+Handbook#Chapter-2:-Quality-Assurance-Activities-Overview)
         - [2.1 Overview of Quality Assurance Activities](https://myplanet.jira.com/wiki/spaces/DQA/pages/296812551/Design+Quality+Assurance+DQA+Handbook#2.1-Overview-of-Quality-Assurance-Activities)
@@ -40,7 +40,7 @@ The best QA Process is one that doesn’t have to happen
 
 ### 1.1 What is Design Quality Assurance?
 
-_Design Quality Assurance (DQA)_ is the process of reviewing and testing a design project to ensure that it meets certain standards and specifications. This includes checking for consistency, accuracy, and usability across different platforms, devices, and browsers. The aim of DQA is to identify and resolve any issues or errors in the design before it is released to the public. DQA is a crucial step in the design process to ensure that the final product meets the client's requirements, meets the user's needs, and is of high quality.
+_Design Quality Assurance (DQA)_ is the process of reviewing and testing a design project to ensure that it meets certain standards and specifications. This includes checking for consistency, accuracy, and usability across different platforms, devices, and browsers. The aim of DQA is to identify and resolve any issues or errors in the design before it is released to the public. DQA is a crucial step in the design process to ensure that the final product meets the client’s requirements, meets the user’s needs, and is of high quality.
 
 ### 1.2 Key Terminology in Design QA
 
@@ -48,9 +48,9 @@ DQA is the preferred choice for comprehensive quality assurance of design over o
 
 DQA goes beyond visual elements and ensures that the design meets specified standards, functional requirements, and user expectations. It encompasses aspects like usability, functionality, and user experience, providing a more holistic approach to quality assurance. By using DQA, you can ensure end-to-end assessment and validation of the design, covering visual aspects as well as other crucial factors that impact the overall quality of the design.
 
-### 1.3 Understanding the Designer's Role in QA
+### 1.3 Understanding the Designer’s Role in QA
 
-As designers, it is our responsibility to define and advocate for a product's visual language and user experience. Collaboration tools can help bridge the gap between design and development, but Design Quality Assurance (DQA) is still an important step in every project's lifecycle. Here are some tips and takeaways to ensure proper fit and finish at the end of a project:
+As designers, it is our responsibility to define and advocate for a product’s visual language and user experience. Collaboration tools can help bridge the gap between design and development, but Design Quality Assurance (DQA) is still an important step in every project’s lifecycle. Here are some tips and takeaways to ensure proper fit and finish at the end of a project:
 
 - Identify and review key screens first, then work through subpages.
     
@@ -64,7 +64,7 @@ As designers, it is our responsibility to define and advocate for a product's vi
     
 - Confirm required browsers and test on as many devices as possible within your given timeframe.
     
-- Limit your review to primary screens and global elements and define what constitutes "done".
+- Limit your review to primary screens and global elements and define what constitutes “done”.
     
 
 While it may not be possible to ensure that every detail is perfect based on constraints, designing with the end user in mind and considering the implications of design choices across devices and browsers is essential.
@@ -75,7 +75,7 @@ _Object-oriented design QA_ refers to a testing approach that focuses on definin
 
 _Non-object-oriented of Holistic QA_ refers to a testing approach that tests the entire system or application as a whole. In this approach, testers focus on the entire system, including its design, functionality, usability, and performance.
 
-At the start of a project, it's recommended to focus on quality assurance (QA) at the component level. This helps to maintain the ability to reuse components and reduces the chances of errors during implementation. Overall, both approaches have their unique advantages and disadvantages, and the choice of which approach to use depends on the specific needs of the project and the goals of the testing process.
+At the start of a project, it’s recommended to focus on quality assurance (QA) at the component level. This helps to maintain the ability to reuse components and reduces the chances of errors during implementation. Overall, both approaches have their unique advantages and disadvantages, and the choice of which approach to use depends on the specific needs of the project and the goals of the testing process.
 
 ---
 
@@ -85,7 +85,7 @@ DQA involves various activities to ensure the visual and design elements of a pr
 
 ### 2.1 Overview of Quality Assurance Activities
 
-Here's a summary of the activities, their time requirements as a percentage, and how they may change based on team size and project type:
+Here’s a summary of the activities, their time requirements as a percentage, and how they may change based on team size and project type:
 
 |**Phase: Discovery/Research**|**Time: 10-15%**|**Team Size/Project Impact**|**Level of Design Support**|**Description**|**Team Member**|
 |---|---|---|---|---|---|
@@ -140,9 +140,9 @@ Here are some different examples of levels of design support:
 |No Design Support|The project does not involve any design work, and design decisions are not a consideration.|
 |Limited Design Support|The project includes some design work, but it is limited in scope or importance. Design decisions may be made by non-designers, or the project may not have a dedicated designer.|
 |Moderate Design Support|The project includes a significant amount of design work, and design decisions are an important consideration. The project may have a dedicated designer or design team, and design decisions are made collaboratively with other stakeholders.|
-|High Design Support|The project is heavily focused on design, and design decisions have a significant impact on the project's success. The project has a dedicated design team, and design decisions are made collaboratively with other stakeholders. Design is seen as a key differentiator for the project.|
+|High Design Support|The project is heavily focused on design, and design decisions have a significant impact on the project’s success. The project has a dedicated design team, and design decisions are made collaboratively with other stakeholders. Design is seen as a key differentiator for the project.|
 
-It's important to note that the level of design support needed for a project will depend on various factors such as the complexity of the project, budget, timeline, and the overall importance of design in achieving project goals.
+It’s important to note that the level of design support needed for a project will depend on various factors such as the complexity of the project, budget, timeline, and the overall importance of design in achieving project goals.
 
 ---
 
@@ -165,7 +165,7 @@ This section outlines how we can leverage an accelerated workflow opportunity to
 
 #### Leveraging Figma for Effective Quality Assurance
 
-Figma is an 'all-in-one' design platform that provides powerful collaborative features for design teams. Here are some important plugins and tools that enhance Quality Assurance (QA) in Figma:
+Figma is an ‘all-in-one’ design platform that provides powerful collaborative features for design teams. Here are some important plugins and tools that enhance Quality Assurance (QA) in Figma:
 
 - [Storybook Connect Figma Plugin](https://help.figma.com/hc/en-us/articles/360045003494-Storybook-and-Figma "https://help.figma.com/hc/en-us/articles/360045003494-Storybook-and-Figma")
     
@@ -263,7 +263,7 @@ The team should consider the following factors when deciding how to handle DQA t
 
 - Treating each DQA issue as an individual ticket allows for better tracking and management, providing clear visibility into the status and resolution of design-related feedback and defects.
     
-- Depending on the team's preference and established workflow, DQA bugs can be handled as part of the feature ticket or in separate dedicated Jira tickets.
+- Depending on the team’s preference and established workflow, DQA bugs can be handled as part of the feature ticket or in separate dedicated Jira tickets.
     
 - Separating DQA issues into their own tickets can be beneficial for documentation purposes, providing a clear record of design-related feedback and defects.
     
@@ -278,7 +278,7 @@ To effectively manage DQA tickets, the team should follow these best practices:
     
 - The Project Manager plays a crucial role in grooming the list of DQA tickets, considering options like combining related tickets or creating epics for better organization.
     
-- Pre-groom the backlog before sprint planning, and collectively provide formal estimates during the planning session for "consolidated" DQA tickets to include them in the sprint accordingly.
+- Pre-groom the backlog before sprint planning, and collectively provide formal estimates during the planning session for “consolidated” DQA tickets to include them in the sprint accordingly.
     
 
 By following these considerations and best practices, teams can effectively leverage DQA in Jira, enhancing collaboration, improving design quality, and delivering high-quality products within their development sprints. The well-structured process and workflow ensure efficient handling of DQA tickets, reducing potential setbacks and optimizing the development cycle.
@@ -361,9 +361,9 @@ The DQA column should not be a stagnant blockage, and designers should be update
 |Moderate design support|Design resources allocated to the project, providing full UI/UX design and collaborating with developers||
 |High design support|Design resources allocated to the project, providing full UI/UX design, collaborating with developers, and conducting user testing||
 
-It's important to note that the level of design support needed for a project will depend on various factors such as the complexity of the project, budget, timeline, and the overall importance of design in achieving project goals.
+It’s important to note that the level of design support needed for a project will depend on various factors such as the complexity of the project, budget, timeline, and the overall importance of design in achieving project goals.
 
-Typically we dont account for DQA in our DoD. Visual polish is part of a ticket's acceptance criteria. This means when estimating, we may need to take on less tickets per sprint, but as a result we will deliver more complete tickets each sprint, lessening the need to revisit and refactor tickets during User Acceptance Testing (UAT) sprints later in the project. Sometimes due to timelines, we never get to this step. This significantly impacts the quality of the work we deliver.
+Typically we dont account for DQA in our DoD. Visual polish is part of a ticket’s acceptance criteria. This means when estimating, we may need to take on less tickets per sprint, but as a result we will deliver more complete tickets each sprint, lessening the need to revisit and refactor tickets during User Acceptance Testing (UAT) sprints later in the project. Sometimes due to timelines, we never get to this step. This significantly impacts the quality of the work we deliver.
 
 To Add:
 
@@ -511,7 +511,7 @@ Read more: [What is Automated Regression Testing?](https://myplanet.jira.com/wik
 
 Using the Chromatic plugin in Storybook can ensure efficient and quality integration between designers and developers. A review process is recommended to approve changes before merging and comparison overlays aid with identifying regressions. Alternatively, visual regression testing can be conducted with Virtuoso, which allows for testing automation and configurable alerts. Consult your team to determine the best tool for you project.
 
-Investigation into visual regression testing with Figma's visual baselines is to come.
+Investigation into visual regression testing with Figma’s visual baselines is to come.
 
 Using Storybook Chromatic to manage and review changes
 
@@ -573,7 +573,7 @@ Visual and UX testing as dedicated tasks
 
 - **Complexity:** Automated testing can be complex and difficult to estimate in terms of effort required.
     
-- **Workflow Integration:** When the automated testing workflow isn't integrated, it can consume large amounts of design and development time.
+- **Workflow Integration:** When the automated testing workflow isn’t integrated, it can consume large amounts of design and development time.
     
 - **Developer Overload:** A staggered testing workflow can cause developer overload, especially under tight timelines.
     

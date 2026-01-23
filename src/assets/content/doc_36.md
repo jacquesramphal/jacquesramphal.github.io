@@ -9,15 +9,15 @@
 
 *Caption: The portfolio site serves as both a showcase and a living design system, demonstrating token-based theming, markdown rendering, and component reusability.*
 
-This portfolio site isn't just a showcase of my work—it's a playground for experimentation, a testbed for design system thinking, and a demonstration of how thoughtful architecture can make even complex features feel simple. Built with Vue.js, it features a fully-styled markdown renderer, token-based theming with user mode switching, variable font typography, and an AI chatbot trained on the site's content.
+This portfolio site isn’t just a showcase of my work—it’s a playground for experimentation, a testbed for design system thinking, and a demonstration of how thoughtful architecture can make even complex features feel simple. Built with Vue.js, it features a fully-styled markdown renderer, token-based theming with user mode switching, variable font typography, and an AI chatbot trained on the site’s content.
 
 ## The Philosophy: Simple Surface, Complex Foundation
 
-The goal was to create a site that feels effortless to use but reveals sophisticated engineering under the hood. Every component is designed for reusability, every token is intentional, and every feature serves both form and function. This isn't just a portfolio—it's a case study in building systems that scale.
+The goal was to create a site that feels effortless to use but reveals sophisticated engineering under the hood. Every component is designed for reusability, every token is intentional, and every feature serves both form and function. This isn’t just a portfolio—it’s a case study in building systems that scale.
 
 ## The Markdown Renderer: Write Freely, Render Beautifully
 
-One of the features I'm most proud of is the markdown rendering system. It's not just a basic markdown parser—it's a fully-styled, production-ready content management system that gives me complete freedom to write and publish.
+One of the features I’m most proud of is the markdown rendering system. It’s not just a basic markdown parser—it’s a fully-styled, production-ready content management system that gives me complete freedom to write and publish.
 
 ### Why This Matters
 
@@ -50,7 +50,7 @@ The theming system is built entirely on CSS custom properties (design tokens), a
 
 ### Why This Matters
 
-With token-based theming, changing the entire site's appearance is as simple as swapping a class name. Every component automatically adapts because they all reference the same tokens. Want a dark mode? It's already there. Want to add a new theme? Just define a new set of tokens.
+With token-based theming, changing the entire site’s appearance is as simple as swapping a class name. Every component automatically adapts because they all reference the same tokens. Want a dark mode? It’s already there. Want to add a new theme? Just define a new set of tokens.
 
 This approach means:
 - **Instant Switching**: Users can toggle themes with zero delay
@@ -85,7 +85,7 @@ The typography adapts to context:
 
 *Caption: Variable font settings are tuned per element type—display sizes for headings, readable sizes for body text—all from a single font file.*
 
-This isn't just about aesthetics—it's about creating a typographic system that's both expressive and performant, where every text element is optimized for its purpose.
+This isn’t just about aesthetics—it’s about creating a typographic system that’s both expressive and performant, where every text element is optimized for its purpose.
 
 ## DynamicText: One Component, Many Uses
 
@@ -101,7 +101,7 @@ The component is used everywhere:
 - Eyebrow text with custom styling
 - Anywhere text needs to be rendered
 
-The beauty is in its simplicity: one component, clear props, consistent behavior. It's a small piece that makes the entire system more maintainable.
+The beauty is in its simplicity: one component, clear props, consistent behavior. It’s a small piece that makes the entire system more maintainable.
 
 ## ImageCard: Layered Layouts for Visual Interest
 
@@ -128,22 +128,22 @@ Multiple variants (default, borderless, cover, split, list) use the same compone
 
 ## The AI Chatbot: Content-Aware Assistant
 
-One of the more experimental features is the AI chatbot trained on the site's content. Built with n8n, it provides a conversational interface to explore the portfolio.
+One of the more experimental features is the AI chatbot trained on the site’s content. Built with n8n, it provides a conversational interface to explore the portfolio.
 
 ### Why This Matters
 
-The chatbot demonstrates how AI can be integrated thoughtfully—not as a gimmick, but as a useful tool that understands the site's content and can help visitors navigate and learn. It's trained on the actual markdown content, so it knows what I've written about and can point people in the right direction.
+The chatbot demonstrates how AI can be integrated thoughtfully—not as a gimmick, but as a useful tool that understands the site’s content and can help visitors navigate and learn. It’s trained on the actual markdown content, so it knows what I’ve written about and can point people in the right direction.
 
 ![n8n Workflow](../images/gennifer.png)
 
 *Caption: The n8n workflow connects chat triggers to content retrieval, processing, and an AI agent with memory and tool access.*
 
 The chatbot shows:
-- **Content Integration**: AI that actually knows the site's content
-- **Useful Functionality**: Helps visitors find what they're looking for
+- **Content Integration**: AI that actually knows the site’s content
+- **Useful Functionality**: Helps visitors find what they’re looking for
 - **Technical Experimentation**: Exploring how AI can enhance user experience
 
-It's a proof of concept for how AI can be integrated into content sites in a meaningful way, not just as a chat widget, but as a content-aware assistant.
+It’s a proof of concept for how AI can be integrated into content sites in a meaningful way, not just as a chat widget, but as a content-aware assistant.
 
 ## What Sets This Apart
 
@@ -165,7 +165,7 @@ Every component is designed to work together:
 
 ### Practical Experimentation
 
-This isn't just a showcase—it's a working example of:
+This isn’t just a showcase—it’s a working example of:
 - Design system principles in practice
 - Token-based architecture
 - Component reusability
@@ -179,7 +179,7 @@ Writing in markdown means I can focus on content, not formatting. The renderer h
 
 ### 2. Token-Based Architecture
 
-Using CSS custom properties for theming means the entire site can change appearance instantly. It's not just about dark mode—it's about creating a system where design changes are easy and consistent.
+Using CSS custom properties for theming means the entire site can change appearance instantly. It’s not just about dark mode—it’s about creating a system where design changes are easy and consistent.
 
 ### 3. Component Reusability
 
@@ -191,13 +191,13 @@ One font file with precise control means better performance and more expressive 
 
 ## The Result
 
-This portfolio site demonstrates that thoughtful architecture and design system thinking can create something that's both beautiful and maintainable. By prioritizing reusability, token-based theming, and flexible content systems, I've built a foundation that makes adding new features and content straightforward.
+This portfolio site demonstrates that thoughtful architecture and design system thinking can create something that’s both beautiful and maintainable. By prioritizing reusability, token-based theming, and flexible content systems, I’ve built a foundation that makes adding new features and content straightforward.
 
 The markdown renderer means I can write freely and publish easily. The theming system means the entire site can change appearance instantly. The component architecture means new features come together quickly. And the variable fonts mean typography is both expressive and performant.
 
-Most importantly, it was fun to build. The joy of crafting a system where everything fits together, where components compose elegantly, and where adding new content is as simple as writing markdown—that's what makes this project special.
+Most importantly, it was fun to build. The joy of crafting a system where everything fits together, where components compose elegantly, and where adding new content is as simple as writing markdown—that’s what makes this project special.
 
-It's a playground for experimentation, a showcase of capabilities, and a living example of design system principles in action.
+It’s a playground for experimentation, a showcase of capabilities, and a living example of design system principles in action.
 
 ---
 

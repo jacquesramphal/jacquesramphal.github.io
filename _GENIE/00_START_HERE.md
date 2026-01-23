@@ -2,7 +2,7 @@
 
 ## The Situation
 
-Your portfolio and positioning don't match your actual capabilities and achievements.
+Your portfolio and positioning don’t match your actual capabilities and achievements.
 
 **You are:**
 - Staff Product Designer (not Senior)
@@ -12,10 +12,10 @@ Your portfolio and positioning don't match your actual capabilities and achievem
 - Thought Leader (not just executor)
 
 **Your site currently says:**
-"Generalist designer-developer with interest in cross-skill"
+“Generalist designer-developer with interest in cross-skill”
 
 **It should say:**
-"Design Systems Architect, AI/AX Pioneer, and founder of Genie—pioneering agentic UX patterns"
+“Design Systems Architect, AI/AX Pioneer, and founder of Genie—pioneering agentic UX patterns”
 
 ---
 
@@ -25,16 +25,16 @@ Your portfolio and positioning don't match your actual capabilities and achievem
 
 1. **PORTFOLIO_AUDIT.md** — Full site audit with specific fixes
 2. **GENIE_CASE_STUDY_DRAFT.md** — Your thought leadership piece (553 lines)
-3. **GENIE_FOUNDER_NARRATIVE.md** — Why you're a founder, not just a designer
+3. **GENIE_FOUNDER_NARRATIVE.md** — Why you’re a founder, not just a designer
 4. **GENIE_POSITIONING_GUIDE.md** — How to tell your story consistently
 5. **GENIE_PUBLICATION_CHECKLIST.md** — Complete launch roadmap
-6. **DELIVERABLES_SUMMARY.md** — What's in each document and next steps
+6. **DELIVERABLES_SUMMARY.md** — What’s in each document and next steps
 
 ---
 
 ## The Critical Insight About Genie
 
-**What you said:** "Genie was MY idea, not something I was brought into"
+**What you said:** “Genie was MY idea, not something I was brought into”
 
 **This changes EVERYTHING:**
 
@@ -42,8 +42,8 @@ Your portfolio and positioning don't match your actual capabilities and achievem
 **New Frame:** Founder who identified a problem, built a solution, scaled it
 
 This is the difference between:
-- "I designed something" (medium credibility)
-- "I founded something, led the vision, AND designed it" (high credibility)
+- “I designed something” (medium credibility)
+- “I founded something, led the vision, AND designed it” (high credibility)
 
 ---
 
@@ -137,7 +137,7 @@ This is the difference between:
 
 ## Why This Matters
 
-You're not competing effectively because you're underselling yourself.
+You’re not competing effectively because you’re underselling yourself.
 
 **Competitive Position Before:** Generic designer-developer (low-value, commodity market)
 
@@ -174,15 +174,15 @@ How to publish and promote the case study
 
 ## The Genie Case Study in 3 Sentences
 
-"I founded Genie to solve my own problem—being stretched too thin. Realized others had the same problem. Grew it into an organizational platform that transformed how we deliver, pioneering agentic UX patterns in an emerging field."
+“I founded Genie to solve my own problem—being stretched too thin. Realized others had the same problem. Grew it into an organizational platform that transformed how we deliver, pioneering agentic UX patterns in an emerging field.”
 
 ---
 
 ## Your New Elevator Pitch
 
-**OLD:** "I'm a design-dev generalist at Orium working on design systems and AI stuff"
+**OLD:** “I’m a design-dev generalist at Orium working on design systems and AI stuff”
 
-**NEW:** "I founded Genie, an agentic AI platform that transformed our entire delivery model. I led both the product vision and the UX design, pioneering patterns for transparent, trustworthy human-AI collaboration. I'm passionate about design systems architecture and emerging AI/UX design."
+**NEW:** “I founded Genie, an agentic AI platform that transformed our entire delivery model. I led both the product vision and the UX design, pioneering patterns for transparent, trustworthy human-AI collaboration. I’m passionate about design systems architecture and emerging AI/UX design.”
 
 ---
 
@@ -192,9 +192,9 @@ You have:
 ✅ Genuine competitive advantages (rare skill combination)
 ✅ Proven impact (100% adoption, 75% efficiency gains, transformed business model)
 ✅ Thought leadership (pioneering work in emerging field)
-✅ Founding credibility (you started Genie, didn't just work on it)
+✅ Founding credibility (you started Genie, didn’t just work on it)
 
-What's missing:
+What’s missing:
 ❌ Positioning that reflects these strengths
 ❌ Case study showing your thinking
 ❌ Consistent messaging
@@ -210,7 +210,7 @@ All documents saved to your portfolio repository:
 
 - `/PORTFOLIO_AUDIT.md` — Start here for site improvements
 - `/GENIE_CASE_STUDY_DRAFT.md` — Your thought leadership piece
-- `/GENIE_FOUNDER_NARRATIVE.md` — Why you're a founder
+- `/GENIE_FOUNDER_NARRATIVE.md` — Why you’re a founder
 - `/GENIE_POSITIONING_GUIDE.md` — How to tell your story
 - `/GENIE_PUBLICATION_CHECKLIST.md` — How to launch
 - `/DELIVERABLES_SUMMARY.md` — Overview of everything
@@ -234,5 +234,5 @@ Let me know which you want to tackle first.
 
 **Your positioning is about to be 10x better.**
 
-Let's execute.
+Let’s execute.
 

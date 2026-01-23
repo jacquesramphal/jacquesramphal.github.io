@@ -12,7 +12,7 @@
           label="Name"
           id="name"
           name="user_name"
-          placeholder="What's your name?"
+          placeholder="What’s your name?"
         />
 
         <MyInput
@@ -28,7 +28,7 @@
           id="message"
           label="Message"
           name="message"
-          placeholder="What's on your mind?"
+          placeholder="What’s on your mind?"
         />
       </div>
 

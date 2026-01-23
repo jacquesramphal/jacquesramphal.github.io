@@ -2,15 +2,15 @@
 
 ## What Changed
 
-You clarified something essential: **Genie wasn't just a product you built. It was a catalyst for your own transformation.**
+You clarified something essential: **Genie wasn’t just a product you built. It was a catalyst for your own transformation.**
 
 ### The Critical Insight
 
-**You said:** "I was just a designer who coded. Genie expanded my skills, taught me how to deal with leading teams while still remaining a high performing IC, it taught me how to think differently about other disciplines and their problems..."
+**You said:** “I was just a designer who coded. Genie expanded my skills, taught me how to deal with leading teams while still remaining a high performing IC, it taught me how to think differently about other disciplines and their problems...”
 
 This completely reframes the narrative from:
-- ❌ "Here's a product I founded"
-- ✅ **"Here's how I transformed myself through building something real"**
+- ❌ “Here’s a product I founded”
+- ✅ **”Here’s how I transformed myself through building something real”**
 
 ---
 
@@ -18,13 +18,13 @@ This completely reframes the narrative from:
 
 ### Opening (NEW FRAME)
 
-**OLD:** "Genie is my idea. And that matters."
+**OLD:** “Genie is my idea. And that matters.”
 
-**NEW:** "Genie is my idea. But more importantly, building it transformed who I am as a designer and technologist."
+**NEW:** “Genie is my idea. But more importantly, building it transformed who I am as a designer and technologist.”
 
 Then immediately:
 
-"When I started Genie, I was a designer who coded. By the end, I had become something different: an AI developer, an n8n expert, a LangChain enthusiast, and someone learning product management through real-world challenges."
+“When I started Genie, I was a designer who coded. By the end, I had become something different: an AI developer, an n8n expert, a LangChain enthusiast, and someone learning product management through real-world challenges.”
 
 This sets up the story correctly: **personal transformation**.
 
@@ -40,11 +40,11 @@ Now tells the story as:
 
 The case study now emphasizes:
 
-"Building Genie at scale—even if that scale was 'just for our teams,' often as a one-person show supported by main characters—taught me that **the best builders are comfortable with not knowing everything.**"
+“Building Genie at scale—even if that scale was ‘just for our teams,’ often as a one-person show supported by main characters—taught me that **the best builders are comfortable with not knowing everything.**”
 
 This shows:
-- Humility about what you don't know
-- Leadership that isn't about control
+- Humility about what you don’t know
+- Leadership that isn’t about control
 - Practical product thinking
 - Growth mindset
 
@@ -54,9 +54,9 @@ This shows:
 
 **NEW:** 
 
-"Genie isn't just a product. It's a documented journey of transformation.
+“Genie isn’t just a product. It’s a documented journey of transformation.
 
-When I started building it, I was a designer who could code. By the time it became an organizational platform, I'd become something different:
+When I started building it, I was a designer who could code. By the time it became an organizational platform, I’d become something different:
 
 - **An AI developer** - not theoretically, but practically
 - **An n8n expert** - from pushing the platform to its limits
@@ -64,7 +64,7 @@ When I started building it, I was a designer who could code. By the time it beca
 - **A leader who codes** - maintaining hands-on ability while scaling
 - **Someone comfortable with not knowing** - understanding which problems deserve deep expertise and which require humility
 
-That transformation is the real story."
+That transformation is the real story.”
 
 ---
 
@@ -74,19 +74,19 @@ That transformation is the real story."
 
 **Other Designers/Developers:**
 - Signal: Growth mindset, continuous learning, willing to tackle hard problems
-- Resonance: "I want to grow like that"
+- Resonance: “I want to grow like that”
 
 **Leaders/Managers:**
 - Signal: Self-directed learning, practical problem-solving, leadership through competence not control
-- Resonance: "I want people like this on my team"
+- Resonance: “I want people like this on my team”
 
 **Product People:**
 - Signal: Learned product thinking through doing, not theory
-- Resonance: "This person understands real constraints"
+- Resonance: “This person understands real constraints”
 
 **Your Team/Colleagues:**
 - Signal: Stayed close to the work while leading, knows when to go deep and step back, serves others while growing
-- Resonance: "This is the kind of leader I respect"
+- Resonance: “This is the kind of leader I respect”
 
 ---
 
@@ -109,7 +109,7 @@ The case study now demonstrates:
    - Remained hands-on while scaling
    - Worked with collaborators (Everett, Jennifer)
 
-4. **Judgment** (Certainty → Knowing What You Don't Know)
+4. **Judgment** (Certainty → Knowing What You Don’t Know)
    - When to go deep
    - When to step back
    - When to ask for help
@@ -124,10 +124,10 @@ The case study now demonstrates:
 ## The New Positioning
 
 ### Who You Were
-"A designer who could code"
+“A designer who could code”
 
 ### Who You Are Now
-"An AI developer, product thinker, and leader who designed Genie—all learned through building real products"
+“An AI developer, product thinker, and leader who designed Genie—all learned through building real products”
 
 ### What This Communicates
 
@@ -180,37 +180,37 @@ This document breaks down:
 ## The Story You Now Tell
 
 **Opening:**
-"Genie started because I was doing repetitive work and built a tool to solve it. But the real story is what building it taught me."
+“Genie started because I was doing repetitive work and built a tool to solve it. But the real story is what building it taught me.”
 
 **Body:**
-"I became an AI developer not from courses but from having to understand agents to build them. I became a product thinker through shipping and gathering real feedback. I became a leader by having to coordinate complexity while remaining hands-on.
+“I became an AI developer not from courses but from having to understand agents to build them. I became a product thinker through shipping and gathering real feedback. I became a leader by having to coordinate complexity while remaining hands-on.
 
-That transformation—designer → AI developer + product thinker + leader who codes—is the real value."
+That transformation—designer → AI developer + product thinker + leader who codes—is the real value.”
 
 **Close:**
-"The best way to grow as a technologist is to solve real problems at scale. That's what Genie taught me."
+“The best way to grow as a technologist is to solve real problems at scale. That’s what Genie taught me.”
 
 ---
 
 ## How This Positions You
 
-### Against "Generic Designer-Developer"
+### Against “Generic Designer-Developer”
 This positions you as someone who **transforms through building**, not someone who follows a predetermined path.
 
-### Against "Product Manager"
-You're not just a PM. You're a PM who codes, who designs, who understands technical constraints.
+### Against “Product Manager”
+You’re not just a PM. You’re a PM who codes, who designs, who understands technical constraints.
 
-### Against "Developer"
-You're not just a developer. You're a developer who thinks about product, design, user mental models, organizational impact.
+### Against “Developer”
+You’re not just a developer. You’re a developer who thinks about product, design, user mental models, organizational impact.
 
-### Against "AI Specialist"
-You're not just an AI person. You're an AI developer who understands design, product, and leadership.
+### Against “AI Specialist”
+You’re not just an AI person. You’re an AI developer who understands design, product, and leadership.
 
-**In short: You're the rare combination everyone wants.**
+**In short: You’re the rare combination everyone wants.**
 
 ---
 
-## What's Next
+## What’s Next
 
 1. ✅ Case study rewritten with transformation narrative
 2. ✅ Transformation narrative document created
@@ -223,13 +223,13 @@ You're not just an AI person. You're an AI developer who understands design, pro
 
 ## The Bottom Line
 
-You didn't just **build** Genie.
+You didn’t just **build** Genie.
 
 You **transformed** through building it.
 
-That's the story that matters.
+That’s the story that matters.
 
-That's the story that opens doors.
+That’s the story that opens doors.
 
 **Tell it.**
 

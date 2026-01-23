@@ -2,7 +2,7 @@
 
 # Ask Me Anything
 
-#### I'm Jacques, a Senior Product Designer and design lead based in Toronto. I work at the intersection of design systems, code, and AI—designing experiences that actually ship.
+#### I’m Jacques, a Senior Product Designer and design lead based in Toronto. I work at the intersection of design systems, code, and AI—designing experiences that actually ship.
 
 </header>
 
@@ -34,21 +34,21 @@ Design systems are organizational infrastructure. Good systems:
 * Make it easier to do the right thing than the wrong thing  
 * Give teams shared language for decisions  
 
-At the same time, I'm not interested in systems for their own sake. The point is to free people up—to spend less time on repetitive work and more time on novel problems, deeper discovery, and better decision-making.
+At the same time, I’m not interested in systems for their own sake. The point is to free people up—to spend less time on repetitive work and more time on novel problems, deeper discovery, and better decision-making.
 </details>
 
 <details>
 <summary>Where does AI fit into your work?</summary>
 
-Through Genie, I'm focused on **agentic UX**—how people collaborate with AI agents that can act on their behalf.  
+Through Genie, I’m focused on **agentic UX**—how people collaborate with AI agents that can act on their behalf.  
 
 That work includes:
 
 * Designing how capabilities are surfaced so people know what an agent can do  
 * Making reasoning and confidence visible so people know when to trust outputs  
-* Balancing autonomy and control so it's always clear who's in charge  
+* Balancing autonomy and control so it’s always clear who’s in charge  
 
-I'm less interested in AI as a “wow” moment and more interested in how it quietly reshapes the work teams do every day.
+I’m less interested in AI as a “wow” moment and more interested in how it quietly reshapes the work teams do every day.
 </details>
 
 <details>
@@ -57,7 +57,7 @@ I'm less interested in AI as a “wow” moment and more interested in how it qu
 I still write a fair amount of front-end code. That means:
 
 * Building components in React/Vue that match the system exactly  
-* Prototyping interaction patterns directly in code when Figma isn't enough  
+* Prototyping interaction patterns directly in code when Figma isn’t enough  
 * Pairing with engineers on architecture decisions that affect UX  
 
 Coding keeps me honest. It’s hard to design impossible things when you regularly implement them.
@@ -74,13 +74,13 @@ Practically, that looks like:
 * Shared rituals (crits, audits, retros) that actually lead to change  
 * Mindfulness and emotional intelligence as real tools for better work, not side projects  
 
-I'm happiest when teams feel proud of what they ship—and not burned out getting there.
+I’m happiest when teams feel proud of what they ship—and not burned out getting there.
 </details>
 
 <details>
 <summary>What kind of opportunities are you most excited about?</summary>
 
-I'm especially interested in work that sits at the overlap of:
+I’m especially interested in work that sits at the overlap of:
 
 * **Design systems architecture** for complex products  
 * **AI/AX design** for agentic or autonomous systems  

@@ -1,59 +1,73 @@
 ## @jacquesramphal/smart-quotes
 
-Convert "straight" quotes (`'` and `"`) into Unicode smart quotes (`‘ ’ “ ”`) without breaking code.
+Convert straight quotes (`’` and `”`) into Unicode smart quotes (`‘ ’ “ ”`) **in human-readable content**, without mangling code.
 
-This started as typography snobbery and became practical: pasted copy can break markup like:
+### Why
+
+Pasted copy often introduces straight quotes into titles, labels, and prose. If you “smart quote” blindly, you can break things like markup delimiters:
 
 ```txt
 title="I'm "Jacques""
 ```
 
-The CLI in this package fixes quotes in **rendered content** (Vue templates + Markdown) while avoiding code/bindings.
+This package gives you:
 
-### Install
+- **A small API** you can call on any string
+- **A CLI** to scan Markdown/MDX (and template-like files you choose) while avoiding code blocks, inline code, and other unsafe regions
+
+It’s **framework-agnostic**: it runs in any Node project and does not require any framework runtime.
+
+### Install / run
+
+Install (recommended for projects):
 
 ```bash
 npm i -D @jacquesramphal/smart-quotes
 ```
 
-Run without installing:
+Run once without installing:
 
 ```bash
 npx smart-quotes --check
 ```
 
-### CLI (recommended)
+### CLI
 
-Scan the whole repo (default is check mode; exits 1 if changes needed):
+By default the CLI scans the current directory in **check mode** (prints files that need changes and exits with code 1).
 
 ```bash
 smart-quotes
 smart-quotes --check
 ```
 
-Apply fixes:
+Apply fixes in-place:
 
 ```bash
 smart-quotes --write
 ```
 
-Scan just one file (the “current file” workflow):
+Scan a specific file or directory:
 
 ```bash
-smart-quotes src/pages/HomePage.vue --check
-smart-quotes src/pages/HomePage.vue --write
+smart-quotes README.md --check
+smart-quotes content/ --write
 ```
 
 Control what gets scanned:
 
 ```bash
-smart-quotes --paths src,content --ext .vue,.md,.mdx --write
+smart-quotes --paths src,content --ext .md,.mdx --write
 ```
 
 Stdin mode (string transform):
 
 ```bash
 echo "\"I'm \\\"Jacques\\\"\"" | smart-quotes --stdin
+```
+
+Stdin mode, preserving the **outer** attribute quotes (useful when your input string includes its own delimiter quotes):
+
+```bash
 echo "\"I'm \\\"Jacques\\\"\"" | smart-quotes --stdin --attr
 ```
 
@@ -68,32 +82,27 @@ toSmartQuotes(`I'm "Jacques"`); // → I’m “Jacques”
 toSmartQuotesInsideAttributeValue(`"I'm \"Jacques\""`); // → "I’m “Jacques”"
 ```
 
-### Automate on commit (Husky)
+### What it will (and won’t) touch
 
-Use **check** mode to block commits that introduce straight quotes:
+- **Markdown / MDX**: skips fenced code blocks, inline code, raw HTML tags, and link destinations.
+- **General guidance**: run this on prose/content files, not on source code (JS/TS/etc).
+
+### Automate (optional)
+
+- **CI**: fail the build when files need changes:
 
 ```bash
-pnpm smart-quotes:check
+npx smart-quotes --check
 ```
 
-Or use **write** mode to auto-fix during commit:
+- **Pre-commit**: auto-fix then stage:
 
 ```bash
-pnpm smart-quotes
+npx smart-quotes --write
 git add -A
-```
-
-### Publishing (npm + 2FA)
-
-From `packages/smart-quotes`:
-
-```bash
-npm login
-npm publish --otp=123456
 ```
 
 ### Notes / expectations
 
 - This is **heuristic**, not a full typography engine.
-- The scanner is safe by design, but you should still review diffs.
-
+- Always review diffs after running `--write`.

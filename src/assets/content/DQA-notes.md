@@ -1,4 +1,4 @@
-# Title: "Designing Quality: A Comprehensive Guide to QA for Designers"
+# Title: “Designing Quality: A Comprehensive Guide to QA for Designers”
 
 This 12 part living document offers a deep dive into QA practices for designers, covering usability testing, visual design QA, collaboration strategies, and emerging trends. Enhance your design process and deliver exceptional user experiences with this comprehensive resource.
 
@@ -84,7 +84,7 @@ This 12 part living document offers a deep dive into QA practices for designers,
 
 ## Table of Contents
 
-- [Title: "Designing Quality: A Comprehensive Guide to QA for Designers"](#title-designing-quality-a-comprehensive-guide-to-qa-for-designers)
+- [Title: “Designing Quality: A Comprehensive Guide to QA for Designers”](#title-designing-quality-a-comprehensive-guide-to-qa-for-designers)
   - [Introduction](#introduction)
   - [Chapter 1: Fundamentals of Quality Assurance](#chapter-1-fundamentals-of-quality-assurance)
   - [Chapter 2: Preparing for Quality Assurance](#chapter-2-preparing-for-quality-assurance)

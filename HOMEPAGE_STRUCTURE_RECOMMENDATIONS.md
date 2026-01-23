@@ -8,7 +8,7 @@
 ## Current State Analysis
 
 ### Homepage Structure (Current)
-1. **Hero Banner** - "I'm Jacques—a designer at Orium..."
+1. **Hero Banner** - “I’m Jacques—a designer at Orium...”
 2. **Work & Play** (Mixed) - Shows 1 work entry + decorative cards
 3. **About** - Design systems, AI, code narrative
 4. **Writing** - Shows 3 latest articles via CardRow2 component
@@ -35,20 +35,20 @@
 **New Homepage Structure:**
 1. **Hero Banner** - Keep current
 2. **Writing** (NEW POSITION - Move up) 
-   - Title: "Writing" or "Latest Thoughts"
+   - Title: “Writing” or “Latest Thoughts”
    - Show 3-4 latest articles
-   - Link: "View All Writing" → Library #writing
+   - Link: “View All Writing” → Library #writing
    - **Why:** Establishes you as a thought leader, showcases fresh content
 3. **Featured Work** (Refined)
-   - Title: "Featured Work" 
+   - Title: “Featured Work” 
    - Show ONLY 2-3 best pieces (Genie + 1-2 others)
-   - Filter to show only `category: "Work"` entries
-   - Link: "View All Work" → Library #work
+   - Filter to show only `category: “Work”` entries
+   - Link: “View All Work” → Library #work
    - **Why:** Quality over quantity, highlights your best work
 4. **About** - Keep current
 5. **Play** (Optional, or move to Library only)
    - Either remove from homepage OR
-   - Show 1-2 items with "More in Library" link
+   - Show 1-2 items with “More in Library” link
    - **Why:** Play is less critical for positioning, can live in library
 
 **Benefits:**
@@ -69,7 +69,7 @@
    - **Work** (Center/Second) 
    - **Play** (Right/Third)
 3. **About**
-4. **Library Link** - "Explore Full Library"
+4. **Library Link** - “Explore Full Library”
 
 **Benefits:**
 - ✅ Equal prominence for all three
@@ -89,7 +89,7 @@
 2. **Writing** - Full section with 4-6 articles
 3. **Featured Work** - Only 2-3 best pieces (Genie prominently featured)
 4. **About**
-5. **Library CTA** - "Browse All Work, Play & Writing"
+5. **Library CTA** - “Browse All Work, Play & Writing”
 
 **Benefits:**
 - ✅ Maximum writing prominence
@@ -98,7 +98,7 @@
 - ✅ Library handles everything else
 
 **Drawbacks:**
-- ⚠️ Play completely removed from homepage (may be fine if it's less important)
+- ⚠️ Play completely removed from homepage (may be fine if it’s less important)
 
 ---
 
@@ -106,7 +106,7 @@
 
 ### 1. Split Work & Play on Homepage ✅
 
-**Current:** Mixed "Work & Play" section  
+**Current:** Mixed “Work & Play” section  
 **New:** Separate sections or filter appropriately
 
 **Implementation:**
@@ -131,7 +131,7 @@
 
 **Implementation:**
 - Move `<CardRow2 />` component higher in template
-- Consider renaming to "Latest Writing" or "Thoughts"
+- Consider renaming to “Latest Writing” or “Thoughts”
 
 ### 3. Feature Genie Prominently ✅
 
@@ -141,7 +141,7 @@
 **Implementation:**
 - Update `work.json` to ensure Genie entry has proper category/tags
 - Filter homepage to show Genie first, or create dedicated featured section
-- Consider a hero-style card for Genie (it's your biggest differentiator)
+- Consider a hero-style card for Genie (it’s your biggest differentiator)
 
 ### 4. Keep Unified Library ✅
 
@@ -150,7 +150,7 @@
 **Enhancements:**
 - Add anchor links in library: `/library#work`, `/library#play`, `/library#writing`
 - Consider adding a filter/tab system in library for easier navigation
-- Add "Back to Homepage" or breadcrumb navigation
+- Add “Back to Homepage” or breadcrumb navigation
 
 ---
 
@@ -228,10 +228,10 @@ Library:
    - Option: First item in Work section (simpler)
 
 4. **Writing section title?**
-   - "Writing" (current)
-   - "Latest Thoughts"
-   - "Articles & Essays"
-   - "Thought Leadership"
+   - “Writing” (current)
+   - “Latest Thoughts”
+   - “Articles & Essays”
+   - “Thought Leadership”
 
 ---
 

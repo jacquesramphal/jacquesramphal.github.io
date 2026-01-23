@@ -17,8 +17,8 @@ This CSS starter configuration is designed to provide a comprehensive scaffoldin
    - Import it into your existing CSS using `@import`.
 
 2. **Customization**
-   - Modify the variables in the `:root` section to match your brand's color scheme and design aesthetics.
-   - Adjust font families to the typefaces you're using by replacing the URL in the `@font-face` rule.
+   - Modify the variables in the `:root` section to match your brand’s color scheme and design aesthetics.
+   - Adjust font families to the typefaces you’re using by replacing the URL in the `@font-face` rule.
 
 3. **Utility Classes**
    - Apply utility classes directly to HTML elements to quickly add colors, backgrounds, and shadows.
