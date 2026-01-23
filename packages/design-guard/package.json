@@ -6,7 +6,7 @@
   "private": false,
   "type": "commonjs",
   "bin": {
-    "design-guard": "./cli.js"
+    "design-guard": "cli.js"
   },
   "publishConfig": {
     "access": "public"
@@ -21,4 +21,3 @@
     "node": ">=18"
   }
 }
-

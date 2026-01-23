@@ -10,22 +10,67 @@
 <script>
 // import GridContainer from "@/components/grid/GridContainer.vue";
 import { marked } from "marked";
-import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js";
 import frontMatter from "front-matter";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-marked.use(
-  markedHighlight({
-    langPrefix: "hljs language-",
-    highlight(code, lang) {
-      const language = hljs.getLanguage(lang) ? lang : "plaintext";
-      return hljs.highlight(code, { language }).value;
-    },
-  })
-);
+const LANGUAGE_LABELS = {
+  js: "JavaScript",
+  jsx: "JSX",
+  ts: "TypeScript",
+  tsx: "TSX",
+  json: "JSON",
+  html: "HTML",
+  css: "CSS",
+  scss: "SCSS",
+  md: "Markdown",
+  yaml: "YAML",
+  yml: "YAML",
+  sh: "Shell",
+  bash: "Bash",
+  zsh: "Zsh",
+  pwsh: "PowerShell",
+  powershell: "PowerShell",
+  sql: "SQL",
+  graphql: "GraphQL",
+  vue: "Vue",
+  python: "Python",
+  py: "Python",
+  go: "Go",
+  rust: "Rust",
+  java: "Java",
+  kotlin: "Kotlin",
+  diff: "Diff",
+};
+
+function normalizeLang(lang) {
+  if (!lang) return "";
+  return String(lang).trim().toLowerCase();
+}
+
+function languageLabel(lang) {
+  const norm = normalizeLang(lang);
+  if (!norm) return "Text";
+  return LANGUAGE_LABELS[norm] || norm.toUpperCase();
+}
+
+function renderCodeBlockHtml({ code, lang }) {
+  const norm = normalizeLang(lang);
+  const language = norm && hljs.getLanguage(norm) ? norm : "plaintext";
+  const highlighted = hljs.highlight(code, { language }).value;
+  const label = languageLabel(norm || language);
+
+  return `
+<figure class="codeblock" data-lang="${language}">
+  <div class="codeblock-header">
+    <span class="codeblock-lang">${label}</span>
+    <button class="codeblock-copy custom-btn button button--ghost button--small button--none" type="button" aria-label="Copy code">Copy</button>
+  </div>
+  <pre><code class="hljs language-${language}">${highlighted}</code></pre>
+</figure>`.trim();
+}
 
 gsap.registerPlugin(ScrollTrigger);
 document.addEventListener("DOMContentLoaded", () => {
@@ -74,6 +119,12 @@ export default {
       type: String,
       required: true,
     },
+    // Optional prefix to ensure heading IDs are unique when rendering multiple markdown documents on one page.
+    // Example: "library-doc-foo" will produce ids like "library-doc-foo-my-heading".
+    headingIdPrefix: {
+      type: String,
+      default: "",
+    },
   },
   data() {
     return {
@@ -98,6 +149,62 @@ export default {
     },
   },
   methods: {
+    decorateCodeBlocks(rootEl) {
+      if (!rootEl || !(rootEl instanceof HTMLElement)) return;
+
+      const codeEls = rootEl.querySelectorAll("pre > code");
+      codeEls.forEach((codeEl) => {
+        const preEl = codeEl.parentElement;
+        if (!preEl) return;
+
+        // Skip if already wrapped
+        if (preEl.closest(".codeblock")) return;
+
+        // Detect language from existing class (if any)
+        const className = codeEl.getAttribute("class") || "";
+        const match = className.match(/language-([^\s]+)/);
+        const lang = match?.[1] || "";
+
+        // Build wrapper
+        const fig = document.createElement("figure");
+        fig.className = "codeblock";
+        fig.setAttribute("data-lang", normalizeLang(lang) || "plaintext");
+
+        const header = document.createElement("div");
+        header.className = "codeblock-header";
+
+        const label = document.createElement("span");
+        label.className = "codeblock-lang";
+        label.textContent = languageLabel(lang);
+
+        const btn = document.createElement("button");
+        btn.className =
+          "codeblock-copy custom-btn button button--ghost button--small button--none";
+        btn.type = "button";
+        btn.setAttribute("aria-label", "Copy code");
+        btn.textContent = "Copy";
+
+        header.appendChild(label);
+        header.appendChild(btn);
+
+        // Move the <pre> into figure
+        const parent = preEl.parentNode;
+        if (!parent) return;
+        parent.insertBefore(fig, preEl);
+        fig.appendChild(header);
+        fig.appendChild(preEl);
+
+        // Ensure highlight if HTML came in un-highlighted
+        const hasHljs = (codeEl.getAttribute("class") || "").includes("hljs");
+        if (!hasHljs) {
+          const norm = normalizeLang(lang);
+          const language = norm && hljs.getLanguage(norm) ? norm : "plaintext";
+          const raw = codeEl.textContent || "";
+          codeEl.classList.add("hljs", `language-${language}`);
+          codeEl.innerHTML = hljs.highlight(raw, { language }).value;
+        }
+      });
+    },
     parseMarkdown(markdown) {
       if (!markdown || typeof markdown !== "string") {
         console.warn("MarkdownRenderer: Invalid markdown input", markdown);
@@ -105,6 +212,18 @@ export default {
         this.$emit("headings", []);
         return;
       }
+
+      const normalizeHeadingPrefix = (raw) => {
+        if (!raw || typeof raw !== "string") return "";
+        const cleaned = raw
+          .trim()
+          .toLowerCase()
+          .replace(/[^\w-]+/g, "-")
+          .replace(/-+/g, "-")
+          .replace(/^-+|-+$/g, "");
+        return cleaned ? `${cleaned}-` : "";
+      };
+      const headingPrefix = normalizeHeadingPrefix(this.headingIdPrefix);
 
       // Check if markdown is already HTML
       const isAlreadyHTML = markdown.trim().startsWith("<");
@@ -117,6 +236,7 @@ export default {
         html = markdown;
         const tempDiv = document.createElement("div");
         tempDiv.innerHTML = html;
+        this.decorateCodeBlocks(tempDiv);
         
         // Extract headings from HTML
         const headings = tempDiv.querySelectorAll("h1, h2, h3, h4, h5, h6");
@@ -132,13 +252,15 @@ export default {
           // If still no ID, generate one from text
           if (!id) {
             id = heading.textContent.trim().toLowerCase().replace(/[^\w]+/g, "-");
-            heading.id = id;
           }
+          // Prefix IDs to avoid duplicates across multiple markdown renders on one page.
+          if (headingPrefix) id = `${headingPrefix}${id}`;
+          heading.id = id;
           const level = parseInt(heading.tagName.charAt(1));
           const title = heading.textContent.trim();
           if (id && title) {
             // Commented out slug: designing-genie-agentic-ai
-            if (id === "designing-genie-agentic-ai") {
+            if (id === `${headingPrefix}designing-genie-agentic-ai` || id === "designing-genie-agentic-ai") {
               return; // Skip this heading
             }
             toc.push({ level, slug: id, title });
@@ -245,12 +367,17 @@ export default {
           const renderer = new marked.Renderer();
           renderer.heading = function (text, level) {
             const slug = text.toLowerCase().replace(/[^\w]+/g, "-");
+            const id = `${headingPrefix}${slug}`;
             // Commented out slug: designing-genie-agentic-ai
             if (slug === "designing-genie-agentic-ai") {
-              return `<h${level} id="${slug}"><a href="#${slug}" class="anchor"></a>${text}</h${level}>`;
+              return `<h${level} id="${id}"><a href="#${id}" class="anchor"></a>${text}</h${level}>`;
             }
-            toc.push({ level, slug, title: text });
-            return `<h${level} id="${slug}"><a href="#${slug}" class="anchor"></a>${text}</h${level}>`;
+            toc.push({ level, slug: id, title: text });
+            return `<h${level} id="${id}"><a href="#${id}" class="anchor"></a>${text}</h${level}>`;
+          };
+          renderer.code = function (code, infostring) {
+            const lang = (infostring || "").trim().split(/\s+/)[0];
+            return renderCodeBlockHtml({ code, lang });
           };
 
           const options = {
@@ -263,6 +390,7 @@ export default {
           html = marked(body, options);
           const tempDiv = document.createElement("div");
           tempDiv.innerHTML = html;
+          this.decorateCodeBlocks(tempDiv);
           
           // Group content into sections between h2 headings
           const allElements = Array.from(tempDiv.children);
@@ -504,6 +632,47 @@ export default {
   },
   mounted() {
     this.setupAnimations();
+
+    this._onMarkdownClick = async (e) => {
+      const btn = e?.target?.closest?.("button.codeblock-copy");
+      if (!btn) return;
+
+      const figure = btn.closest(".codeblock");
+      const codeEl = figure?.querySelector("pre > code");
+      const text = codeEl?.textContent || "";
+      if (!text) return;
+
+      const original = btn.textContent;
+      btn.textContent = "Copying…";
+      btn.disabled = true;
+
+      try {
+        if (navigator?.clipboard?.writeText) {
+          await navigator.clipboard.writeText(text.replace(/\n$/, ""));
+        } else {
+          const ta = document.createElement("textarea");
+          ta.value = text.replace(/\n$/, "");
+          ta.setAttribute("readonly", "");
+          ta.style.position = "fixed";
+          ta.style.opacity = "0";
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+        }
+        btn.textContent = "Copied";
+      } catch (err) {
+        console.warn("Copy failed", err);
+        btn.textContent = "Copy failed";
+      } finally {
+        window.setTimeout(() => {
+          btn.textContent = original || "Copy";
+          btn.disabled = false;
+        }, 1200);
+      }
+    };
+
+    this.$el?.addEventListener?.("click", this._onMarkdownClick);
     
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && this.isImageOpen) {
@@ -512,6 +681,9 @@ export default {
     });
   },
   beforeUnmount() {
+    if (this._onMarkdownClick) {
+      this.$el?.removeEventListener?.("click", this._onMarkdownClick);
+    }
     // Clean up ScrollTriggers (only if ScrollTrigger was enabled)
     if (this.enableScrollTrigger) {
       ScrollTrigger.getAll().forEach(trigger => {
@@ -739,44 +911,94 @@ export default {
 
   /* SCSS for Code Block Styling */
 
-  pre {
-    /* Set background color and padding for code block */
-    background-color: var(--background-reversed);
-    padding: var(--spacing-sm);
+  .codeblock {
+    background-color: var(--code-bg);
+    border: 1px solid var(--code-border);
     border-radius: var(--spacing-xxxs);
+    overflow: hidden;
+    margin: 0 0 var(--spacing-sm);
+  }
+
+  .codeblock-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xxxs) var(--spacing-xs);
+    border-bottom: 1px solid var(--code-border);
+    color: var(--code-fg);
+  }
+
+  .codeblock-lang {
+    font-size: var(--font-3xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  .codeblock pre {
+    background: transparent;
+    border: 0;
+    margin: 0;
+    padding: var(--spacing-sm);
     overflow-x: auto;
-    margin-block-end: var(--spacing-sm);
-    color: var(--foreground-reversed);
+    color: var(--code-fg);
+    line-height: 1.6;
   }
 
   code {
-    /* Set font family and size for inline code */
-    font-family: monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
     font-size: var(--font-xs);
   }
 
-  /* Set styles for different code languages */
-  code[class*="language-"] {
-    /* Set font family and size for code blocks */
-    font-family: monospace;
-    font-size: var(--font-xs);
+  pre code {
+    display: block;
+    padding: 0;
+    background: transparent;
+    color: inherit;
   }
 
-  /* Custom syntax highlighting styles for specific languages */
-  /* Replace 'language-python' with the appropriate language class */
-  // code.language-python {
-  //   color: var(--color-text);
-  // }
-
-  // code.language-javascript {
-  //   color: var(--color-text);
-  // }
-
-  // code.language-html {
-  //   color: var(--color-text);
-  // }
-
-  /* Add more code language styles as needed */
+  /* highlight.js tokens (theme-aware via CSS variables) */
+  pre code.hljs {
+    color: var(--code-fg);
+  }
+  .hljs-comment,
+  .hljs-quote {
+    color: var(--code-comment);
+  }
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-literal {
+    color: var(--code-keyword);
+  }
+  .hljs-string,
+  .hljs-regexp {
+    color: var(--code-string);
+  }
+  .hljs-number,
+  .hljs-built_in,
+  .hljs-type {
+    color: var(--code-number);
+  }
+  .hljs-title,
+  .hljs-section,
+  .hljs-function .hljs-title {
+    color: var(--code-title);
+  }
+  .hljs-attr,
+  .hljs-attribute {
+    color: var(--code-attr);
+  }
+  .hljs-meta {
+    color: var(--code-meta);
+  }
+  .hljs-addition {
+    color: var(--code-addition);
+  }
+  .hljs-deletion {
+    color: var(--code-deletion);
+  }
 
   /* Line numbers (optional) */
   /* Uncomment the following styles if you want line numbers in code blocks */
@@ -802,59 +1024,13 @@ export default {
   li > code,
   dd > code,
   td > code {
-    background: var(--background-darker);
+    background: var(--code-inline-bg);
+    color: var(--code-inline-fg);
     word-wrap: break-word;
     box-decoration-break: clone;
     padding: 0.1rem 0.3rem 0.2rem;
     border-radius: 0.2rem;
   }
-}
-/* Custom syntax highlighting styles for specific languages */
-
-/* HTML */
-code.language-html {
-  color: #e34c26; /* HTML tags */
-}
-
-code.language-html .hljs-attr {
-  color: #f50; /* HTML attributes */
-}
-
-code.language-html .hljs-meta {
-  color: #999; /* HTML meta tags like <!DOCTYPE> */
-}
-
-code.language-html .hljs-string {
-  color: #090; /* HTML strings */
-}
-
-code.language-html .hljs-tag .hljs-name {
-  color: #e34c26; /* HTML tag names */
-}
-
-/* JavaScript */
-code.language-javascript {
-  color: #f1e05a; /* JavaScript code */
-}
-
-code.language-javascript .hljs-meta {
-  color: #75715e; /* JavaScript meta keywords like 'import', 'export', etc. */
-}
-
-code.language-javascript .hljs-keyword {
-  color: #c678dd; /* JavaScript keywords like 'function', 'if', 'else', etc. */
-}
-
-code.language-javascript .hljs-string {
-  color: #98c379; /* JavaScript strings */
-}
-
-code.language-javascript .hljs-number {
-  color: #d19a66; /* JavaScript numbers */
-}
-
-code.language-javascript .hljs-function {
-  color: #61aeee; /* JavaScript functions */
 }
 
 /* -------- TABLES -------- */
@@ -987,9 +1163,6 @@ details {
   // border: 1px solid transparent;
   border-block-end: none;
 }
-details:hover {
-  // border: var(--border);
-}
 
 details[open] {
   // background-color: var(--background-darker); /* Light hover effect */
@@ -1007,14 +1180,6 @@ summary {
   align-items: center;
   padding: 0.5rem 0; /* Spacing around the summary */
   border-radius: 4px; /* Rounded corners */
-}
-
-summary:hover {
-  // background-color: var(--background-darker); /* Light hover effect */
-}
-
-summary::-webkit-details-marker {
-  // display: none; /* Hide default marker */
 }
 
 details[open] summary {

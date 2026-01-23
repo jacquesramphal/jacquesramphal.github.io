@@ -86,6 +86,18 @@
       "contentFile": "doc_37.md",
       "thumbnail": "article/cover1.png",
       "alt": "Doc: Smart Quotes Fixer"
+    },
+    {
+      "id": 13,
+      "docId": 38,
+      "slug": "design-guard",
+      "title": "Design Guard (Package + CLI)",
+      "eyebrow": "Tooling Package",
+      "description": "A lightweight design guard that scans staged files for hardcoded lengths (px/rem/%/etc.) and colors, nudging code toward design tokens.",
+      "route": "/doc/design-guard",
+      "contentFile": "doc_38.md",
+      "thumbnail": "article/cover1.png",
+      "alt": "Doc: Design Guard"
     }
   ]
 }

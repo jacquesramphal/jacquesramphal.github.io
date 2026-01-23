@@ -30,6 +30,24 @@
   --font-reversed-bold: 550;
   --font-reversed-heavy: 700;
 
+  /* CODE (markdown + snippets) */
+  --code-bg: var(--background-darker);
+  --code-fg: var(--foreground);
+  --code-border: rgba(0, 0, 0, 0.08);
+  --code-inline-bg: var(--background-darker);
+  --code-inline-fg: var(--foreground);
+
+  /* Code syntax tokens (highlight.js classes) */
+  --code-comment: rgba(43, 61, 79, 0.65);
+  --code-keyword: #6d28d9;
+  --code-string: #047857;
+  --code-number: #b45309;
+  --code-title: #1d4ed8;
+  --code-attr: #b91c1c;
+  --code-meta: rgba(43, 61, 79, 0.75);
+  --code-addition: #047857;
+  --code-deletion: #b91c1c;
+
   /* NEUTRAL */
   --color: 0, 100%;
   --l: 50%;
@@ -337,6 +355,24 @@
   --letterSpacing-reversed-base: 0;
   --letterSpacing-reversed-loose: 0.03rem;
 
+  /* CODE (markdown + snippets) */
+  --code-bg: var(--background-darker);
+  --code-fg: var(--foreground);
+  --code-border: rgba(255, 255, 255, 0.12);
+  --code-inline-bg: var(--background-darker);
+  --code-inline-fg: var(--foreground);
+
+  /* Code syntax tokens (highlight.js classes) */
+  --code-comment: rgba(250, 250, 250, 0.6);
+  --code-keyword: #c4b5fd;
+  --code-string: #6ee7b7;
+  --code-number: #fbbf24;
+  --code-title: #93c5fd;
+  --code-attr: #fda4af;
+  --code-meta: rgba(250, 250, 250, 0.7);
+  --code-addition: #6ee7b7;
+  --code-deletion: #fda4af;
+
 }
 
 /* Styles for users who prefer dark mode at the OS level */
@@ -383,6 +419,24 @@
     --letterSpacing-reversed-base: 0;
     --letterSpacing-reversed-loose: 0.03rem;
 
+    /* CODE (markdown + snippets) */
+    --code-bg: var(--background-darker);
+    --code-fg: var(--foreground);
+    --code-border: rgba(255, 255, 255, 0.12);
+    --code-inline-bg: var(--background-darker);
+    --code-inline-fg: var(--foreground);
+
+    /* Code syntax tokens (highlight.js classes) */
+    --code-comment: rgba(250, 250, 250, 0.6);
+    --code-keyword: #c4b5fd;
+    --code-string: #6ee7b7;
+    --code-number: #fbbf24;
+    --code-title: #93c5fd;
+    --code-attr: #fda4af;
+    --code-meta: rgba(250, 250, 250, 0.7);
+    --code-addition: #6ee7b7;
+    --code-deletion: #fda4af;
+
   }
 }
 
@@ -421,6 +475,24 @@
 
   /* IMAGE FILTERS */
   --filter: brightness(1) saturate(1);
+
+  /* CODE (markdown + snippets) */
+  --code-bg: var(--background-darker);
+  --code-fg: var(--foreground);
+  --code-border: rgba(0, 0, 0, 0.08);
+  --code-inline-bg: var(--background-darker);
+  --code-inline-fg: var(--foreground);
+
+  /* Code syntax tokens (highlight.js classes) */
+  --code-comment: rgba(43, 61, 79, 0.65);
+  --code-keyword: #6d28d9;
+  --code-string: #047857;
+  --code-number: #b45309;
+  --code-title: #1d4ed8;
+  --code-attr: #b91c1c;
+  --code-meta: rgba(43, 61, 79, 0.75);
+  --code-addition: #047857;
+  --code-deletion: #b91c1c;
 
   /* SPACING */
   --letterSpacing-tight: -0.16rem;

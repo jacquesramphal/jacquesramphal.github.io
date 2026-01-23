@@ -249,7 +249,6 @@ export default {
   }
   &:hover {
     background-color: var(--background-darker) !important;
-    // border: 1px solid var(--text) !important;
   }
   // &:active,
   // .router-link-exact-active {
