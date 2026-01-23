@@ -3,7 +3,7 @@
     <GridWrapper id="wrapper" class="">
       <GridContainer>
         <GridParent
-          tight
+          
           style="
             grid-template-columns: none !important;
             grid-template-rows: repeat(2, auto);
