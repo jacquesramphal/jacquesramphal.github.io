@@ -9,11 +9,15 @@
     "src/assets/styles/tokens/**",
     "src/tokens/**"
   ],
+  "ignoreFiles": [
+    "src/assets/styles/scss/_config.scss"
+  ],
   "rules": {
-    "noHardcodedPx": true,
+    "noHardcodedLengths": true,
     "noHardcodedColors": true
   },
   "allow": {
-    "px": ["0px", "1px"]
+    "px": ["0px", "1px"],
+    "lengths": ["0%", "100%"]
   }
 }

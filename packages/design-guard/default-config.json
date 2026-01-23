@@ -1,0 +1,15 @@
+{
+  "strict": false,
+  "include": ["src"],
+  "exclude": ["dist/**", "node_modules/**", "storybook-static/**"],
+  "ignoreFiles": [],
+  "rules": {
+    "noHardcodedLengths": true,
+    "noHardcodedColors": true
+  },
+  "allow": {
+    "px": ["0px", "1px"],
+    "lengths": ["0%", "100%"]
+  }
+}
+

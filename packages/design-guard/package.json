@@ -1,0 +1,24 @@
+{
+  "name": "@jacquesramphal/design-guard",
+  "version": "0.1.0",
+  "description": "Repo-local design guard CLI (scan staged files for hardcoded CSS values).",
+  "license": "MIT",
+  "private": false,
+  "type": "commonjs",
+  "bin": {
+    "design-guard": "./cli.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "cli.js",
+    "default-config.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}
+

@@ -4,7 +4,7 @@
  *
  * - Scans STAGED files only (git index)
  * - Warns on:
- *   - hardcoded px (except allowlisted values like 0px/1px)
+ *   - hardcoded lengths (px/rem/em/%/vw/vh/etc.) (except allowlisted values)
  *   - hardcoded colors (#fff, rgb(), hsl(), etc.)
  * - Never blocks commit (always exits 0)
  *
@@ -17,6 +17,12 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 
 const HARD_CODED_PX_RE = /(-?\d*\.?\d+)px\b/g;
+// Includes common CSS length units. `%` is handled specially (no word-boundary).
+// Notes:
+// - We intentionally do NOT flag unitless numbers (e.g. line-height: 1.4)
+// - We do flag hardcoded numeric lengths anywhere they appear on a line
+const HARD_CODED_LENGTH_RE =
+  /(-?\d*\.?\d+)(?:px|rem|em|vh|vw|vmin|vmax|ch|ex|cm|mm|in|pt|pc)\b|(-?\d*\.?\d+)%/g;
 const HARD_CODED_COLOR_RE = /#[0-9a-fA-F]{3,8}\b|\b(?:rgb|rgba|hsl|hsla)\s*\(/g;
 
 function runGit(args, opts = {}) {
@@ -51,6 +57,7 @@ function loadConfig(repoRoot) {
       strict: Boolean(parsed.strict),
       include: Array.isArray(parsed.include) ? parsed.include : ['src'],
       exclude: Array.isArray(parsed.exclude) ? parsed.exclude : [],
+      ignoreFiles: Array.isArray(parsed.ignoreFiles) ? parsed.ignoreFiles : [],
       rules: parsed.rules ?? { noHardcodedPx: true, noHardcodedColors: true },
       allow: parsed.allow ?? { px: ['0px', '1px'] },
     };
@@ -59,10 +66,26 @@ function loadConfig(repoRoot) {
       strict: false,
       include: ['src'],
       exclude: ['dist/**', 'node_modules/**', 'storybook-static/**'],
+      ignoreFiles: [],
       rules: { noHardcodedPx: true, noHardcodedColors: true },
       allow: { px: ['0px', '1px'] },
     };
   }
+}
+
+function isPlainPathPattern(pattern) {
+  return typeof pattern === 'string' && !/[*?]/.test(pattern);
+}
+
+function matchesAnyPattern(file, patterns) {
+  const normalized = file.replace(/\\/g, '/');
+  return (patterns ?? []).some((p) => {
+    if (typeof p !== 'string' || !p.trim()) return false;
+    const pattern = p.replace(/\\/g, '/').trim();
+    if (normalized === pattern) return true;
+    if (isPlainPathPattern(pattern) && normalized.startsWith(`${pattern}/`)) return true;
+    return globToRegExp(pattern).test(normalized);
+  });
 }
 
 function shouldScanFile(file, config) {
@@ -73,10 +96,8 @@ function shouldScanFile(file, config) {
 
   if (!isIncluded) return false;
 
-  const isExcluded = config.exclude.some((ex) => {
-    const re = globToRegExp(ex);
-    return re.test(normalized) || normalized.includes(ex.replace('/**', '/'));
-  });
+  if (matchesAnyPattern(normalized, config.ignoreFiles)) return false;
+  const isExcluded = matchesAnyPattern(normalized, config.exclude);
 
   if (isExcluded) return false;
 
@@ -120,18 +141,22 @@ function stripForExcerpt(line) {
 
 function scanText(file, text, config) {
   const allowPxSet = new Set((config.allow?.px ?? []).map(String));
+  const allowLengthSet = new Set((config.allow?.lengths ?? []).map(String));
   const warnings = [];
 
   const lines = text.split(/\r?\n/);
   const fileOff = lines.some((l) => l.includes('design-guard:off'));
   if (fileOff) return warnings;
 
+  const lengthsEnabled = Boolean(config.rules?.noHardcodedLengths);
+  const pxEnabled = Boolean(config.rules?.noHardcodedPx) && !lengthsEnabled;
+
   for (let i = 0; i < lines.length; i += 1) {
     const line = lines[i];
     if (!line) continue;
     if (line.includes('design-guard:ignore')) continue;
 
-    if (config.rules?.noHardcodedPx) {
+    if (pxEnabled) {
       HARD_CODED_PX_RE.lastIndex = 0;
       let m;
       while ((m = HARD_CODED_PX_RE.exec(line))) {
@@ -139,6 +164,24 @@ function scanText(file, text, config) {
         if (allowPxSet.has(raw)) continue;
         warnings.push({
           rule: 'noHardcodedPx',
+          file,
+          line: i + 1,
+          match: raw,
+          excerpt: stripForExcerpt(line.trim()),
+        });
+      }
+    }
+
+    if (lengthsEnabled) {
+      HARD_CODED_LENGTH_RE.lastIndex = 0;
+      let m;
+      while ((m = HARD_CODED_LENGTH_RE.exec(line))) {
+        const raw = m[0];
+        // Back-compat: still respect allow.px for px values
+        if (raw.endsWith('px') && allowPxSet.has(raw)) continue;
+        if (allowLengthSet.has(raw)) continue;
+        warnings.push({
+          rule: 'noHardcodedLengths',
           file,
           line: i + 1,
           match: raw,
@@ -225,7 +268,8 @@ function main() {
   console.warn(
     '\nNotes:\n' +
       `- Mode: ${strictMode ? 'STRICT (commit-blocking)' : 'WARNING-ONLY'}.\n` +
-      '- Add `design-guard:ignore` to silence a single line, or `design-guard:off` to silence a whole file.\n'
+      '- Add `design-guard:ignore` to silence a single line, or `design-guard:off` to silence a whole file.\n' +
+      '- Config supports `include`, `exclude`, and `ignoreFiles` (globs/paths) to control which staged files are scanned.\n'
   );
 
   if (strictMode) {

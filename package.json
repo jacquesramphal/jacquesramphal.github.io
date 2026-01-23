@@ -1,16 +1,15 @@
 {
   "name": "jacquesramphal.github.io",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.0",  "private": true,
   "scripts": {
     "prod": "pnpm build && pnpm dev",
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "storybook": "storybook dev",
-    "design:guard": "node scripts/design-guard.js --verbose",
-    "design:guard:strict": "node scripts/design-guard.js --strict --verbose",
-    "design:guard:warn": "node scripts/design-guard.js --warn --verbose",
+    "design:guard": "design-guard --verbose",
+    "design:guard:strict": "design-guard --strict --verbose",
+    "design:guard:warn": "design-guard --warn --verbose",
     "smart-quotes": "smart-quotes --write",
     "smart-quotes:check": "smart-quotes --check",
     "smart-quotes:write": "smart-quotes --write",
@@ -53,6 +52,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
+    "@jacquesramphal/design-guard": "workspace:*",
     "@jacquesramphal/smart-quotes": "workspace:*",
     "@storybook/addon-actions": "^7.0.23",
     "@storybook/addon-docs": "^7.0.23",
