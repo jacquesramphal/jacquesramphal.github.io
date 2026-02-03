@@ -4,10 +4,7 @@
       <GridContainer>
         <GridParent
           tight
-          style="
-            grid-template-columns: none !important;
-            grid-template-rows: repeat(2, auto);
-          "
+          style="grid-template-columns: none !important; grid-template-rows: repeat(2, auto)"
         >
           <div class="">
             <!-- Profile Picture -->
@@ -36,12 +33,7 @@
                 <ul>
                   <li v-for="(item, index) in menuItems1" :key="index">
                     <router-link :to="item.route">
-                      <DynamicText
-                        as="p"
-                        tabIndex="0"
-                        :attrs="{ class: '' }"
-                        :text="item.text"
-                      />
+                      <DynamicText as="p" tabIndex="0" :attrs="{ class: '' }" :text="item.text" />
                     </router-link>
                   </li>
                 </ul>
@@ -51,17 +43,11 @@
                 <p class="subtle">Let’s Connect</p>
                 <ul>
                   <li v-for="(item, index) in menuItems2" :key="index">
-                  
                     <!-- :icon="item.icon"
                       iconsize="16" -->
 
-                    <TextLink
-                      :label="item.text"
-                      :link="item.url"
-                    />
+                    <TextLink :label="item.text" :link="item.url" />
                   </li>
-
-               
                 </ul>
               </div>
               <div id="links3">
@@ -121,7 +107,7 @@
                   </button>
                 </template>
               </SelectorCta>
-              <div class="font-selector" @click.stop>
+              <!-- <div class="font-selector" @click.stop>
                 <button
                   class="font-button"
                   @click.stop="toggleFont"
@@ -131,7 +117,7 @@
                   <span class="font-icon"><strong>Aa</strong></span>
                   <span class="font-label">Font</span>
                 </button>
-              </div>
+              </div> -->
             </div>
           </div>
         </GridParent>
@@ -169,18 +155,18 @@
           </form> -->
 
 <script>
-import GridContainer from "./grid/GridContainer.vue";
-import GridWrapper from "./grid/GridWrapper.vue";
-import TextBlock from "./text/TextBlock/TextBlock.vue";
-import AnimatedComponent from "./AnimatedComponent.vue";
-import TextLink from "./text/TextLink.vue";
-import GridParent from "./grid/GridParent.vue";
-import SelectorCta from "./Button/SelectorCta.vue";
+import GridContainer from './grid/GridContainer.vue';
+import GridWrapper from './grid/GridWrapper.vue';
+import TextBlock from './text/TextBlock/TextBlock.vue';
+import AnimatedComponent from './AnimatedComponent.vue';
+import TextLink from './text/TextLink.vue';
+import GridParent from './grid/GridParent.vue';
+import SelectorCta from './Button/SelectorCta.vue';
 // import TextArea from "@/components/form/TextArea.vue";
 // import MyButton from "@/components/Button/Button.vue";
 
 export default {
-  name: "MainFooter",
+  name: 'MainFooter',
   components: {
     GridContainer,
     GridWrapper,
@@ -193,31 +179,35 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Jacques Ramphal",
+      default: 'Jacques Ramphal',
     },
   },
   data() {
     return {
       menuItems1: [
-        { text: "Home", route: "/" },
-        { text: "Library", route: "/library" },
+        { text: 'Home', route: '/' },
+        { text: 'Library', route: '/library' },
         // { text: "Resume", route: "/resume" },
         // { text: "Design System", route: "/designsystem" },
         // { text: "Useful Links", route: "/links" },
-        { text: "FAQs", route: "/doc/ask-me-anything" },
+        { text: 'FAQs', route: '/doc/ask-me-anything' },
       ],
       menuItems2: [
-        { text: "LinkedIn", url: "https://linkedin.com/in/ramphal-design", icon: "icon/linkedin.svg"  },
-        { text: "Github", url: "https://github.com/jacquesramphal", icon: "icon/github-mark.svg" },
-        { text: "Email", url: "hmailto:jake@ramphal.design", icon: "icon/j-logo.svg" },
+        {
+          text: 'LinkedIn',
+          url: 'https://linkedin.com/in/ramphal-design',
+          icon: 'icon/linkedin.svg',
+        },
+        { text: 'Github', url: 'https://github.com/jacquesramphal', icon: 'icon/github-mark.svg' },
+        { text: 'Email', url: 'hmailto:jake@ramphal.design', icon: 'icon/j-logo.svg' },
       ],
 
-      currentTheme: "system",
+      currentTheme: 'system',
       showThemeMenu: false,
       themeOptions: [
-        { label: "Light", value: "light-theme" },
-        { label: "Dark", value: "dark-theme" },
-        { label: "System", value: "system" },
+        { label: 'Light', value: 'light-theme' },
+        { label: 'Dark', value: 'dark-theme' },
+        { label: 'System', value: 'system' },
       ],
       isSerifFont: false,
       mediaQuery: null,
@@ -226,8 +216,8 @@ export default {
   },
   computed: {
     currentThemeLabel() {
-      const option = this.themeOptions.find(opt => opt.value === this.currentTheme);
-      return option ? option.label : "System";
+      const option = this.themeOptions.find((opt) => opt.value === this.currentTheme);
+      return option ? option.label : 'System';
     },
     themeIconSvg() {
       const lightSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -240,49 +230,49 @@ export default {
   <circle cx="8" cy="8" r="7" stroke="var(--foreground)" stroke-width="1.5" fill="none"/>
   <path d="M 8 1 A 7 7 0 0 1 8 15 Z" fill="var(--foreground)"/>
 </svg>`;
-      
-      if (this.currentTheme === "system") {
+
+      if (this.currentTheme === 'system') {
         return systemSvg;
       }
-      return this.currentTheme === "dark-theme" ? darkSvg : lightSvg;
+      return this.currentTheme === 'dark-theme' ? darkSvg : lightSvg;
     },
   },
   mounted() {
     // Initialize theme from localStorage or system preference
-    const savedTheme = localStorage.getItem("user-theme");
-    if (savedTheme && ["light-theme", "dark-theme", "system"].includes(savedTheme)) {
+    const savedTheme = localStorage.getItem('user-theme');
+    if (savedTheme && ['light-theme', 'dark-theme', 'system'].includes(savedTheme)) {
       this.currentTheme = savedTheme;
     } else {
-      this.currentTheme = "system";
+      this.currentTheme = 'system';
     }
     this.applyTheme();
 
     // Listen for system theme changes
-    this.mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    this.mediaQuery.addEventListener("change", this.handleSystemThemeChange);
+    this.mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    this.mediaQuery.addEventListener('change', this.handleSystemThemeChange);
 
     // Initialize font preference
     // Create hidden checkbox for CSS :has() selector compatibility
-    this.fontCheckbox = document.createElement("input");
-    this.fontCheckbox.type = "checkbox";
-    this.fontCheckbox.id = "font";
-    this.fontCheckbox.name = "font";
-    this.fontCheckbox.value = "Serif";
-    this.fontCheckbox.style.position = "absolute";
-    this.fontCheckbox.style.opacity = "0";
-    this.fontCheckbox.style.pointerEvents = "none";
+    this.fontCheckbox = document.createElement('input');
+    this.fontCheckbox.type = 'checkbox';
+    this.fontCheckbox.id = 'font';
+    this.fontCheckbox.name = 'font';
+    this.fontCheckbox.value = 'Serif';
+    this.fontCheckbox.style.position = 'absolute';
+    this.fontCheckbox.style.opacity = '0';
+    this.fontCheckbox.style.pointerEvents = 'none';
     document.body.appendChild(this.fontCheckbox);
-    
+
     // Check if serif was previously selected
-    const savedFont = localStorage.getItem("user-font");
-    if (savedFont === "serif") {
+    const savedFont = localStorage.getItem('user-font');
+    if (savedFont === 'serif') {
       this.isSerifFont = true;
       this.fontCheckbox.checked = true;
     }
   },
   beforeUnmount() {
     if (this.mediaQuery) {
-      this.mediaQuery.removeEventListener("change", this.handleSystemThemeChange);
+      this.mediaQuery.removeEventListener('change', this.handleSystemThemeChange);
     }
     // Clean up font checkbox
     if (this.fontCheckbox && this.fontCheckbox.parentNode) {
@@ -292,11 +282,11 @@ export default {
   methods: {
     selectTheme(theme) {
       this.currentTheme = theme;
-      localStorage.setItem("user-theme", theme);
+      localStorage.setItem('user-theme', theme);
       this.applyTheme();
     },
     applyTheme() {
-      if (this.currentTheme === "system") {
+      if (this.currentTheme === 'system') {
         const systemTheme = this.getMediaPreference();
         document.documentElement.className = systemTheme;
       } else {
@@ -304,13 +294,11 @@ export default {
       }
     },
     getMediaPreference() {
-      const hasDarkPreference = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
-      return hasDarkPreference ? "dark-theme" : "light-theme";
+      const hasDarkPreference = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      return hasDarkPreference ? 'dark-theme' : 'light-theme';
     },
     handleSystemThemeChange() {
-      if (this.currentTheme === "system") {
+      if (this.currentTheme === 'system') {
         this.applyTheme();
       }
     },
@@ -320,7 +308,7 @@ export default {
         this.fontCheckbox.checked = this.isSerifFont;
       }
       // Save preference
-      localStorage.setItem("user-font", this.isSerifFont ? "serif" : "sans");
+      localStorage.setItem('user-font', this.isSerifFont ? 'serif' : 'sans');
     },
   },
 };
@@ -368,7 +356,7 @@ li {
 }
 
 li.external::after {
-  content: " ↗";
+  content: ' ↗';
   color: var(--link);
 }
 
@@ -395,7 +383,7 @@ li.external::after {
   align-items: center;
   flex-wrap: nowrap;
   gap: var(--spacing-sm);
-  
+
   @media only screen and (min-width: 768px) {
     margin-block-start: var(--spacing-lg);
     padding-block-start: var(--spacing-sm);
@@ -431,7 +419,7 @@ li.external::after {
   flex: 0 0 auto;
   margin-inline-start: 0;
   padding-inline-start: 0;
-  
+
   @media only screen and (max-width: 767px) {
     margin-inline-start: 0;
     padding-inline-start: 0;
@@ -443,7 +431,7 @@ li.external::after {
   display: inline-block;
   margin-inline-start: 0;
   padding-inline-start: 0;
-  
+
   @media only screen and (max-width: 767px) {
     margin-inline-start: 0;
     padding-inline-start: 0;
@@ -457,7 +445,7 @@ li.external::after {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  
+
   svg {
     width: 100%;
     height: 100%;
@@ -478,11 +466,11 @@ li.external::after {
   font-size: var(--font-400);
   color: var(--foreground);
   transition: background 0.1s;
-  
+
   &:hover {
     background: var(--background-darker);
   }
-  
+
   &.active {
     background: var(--background-darker);
   }
@@ -551,11 +539,11 @@ li.external::after {
   text-underline-offset: 0.625rem;
   text-decoration-thickness: 0.1rem;
   transition: all 0.1s;
-  
+
   &:hover {
     text-decoration-thickness: 0.2rem;
   }
-  
+
   &:active {
     text-decoration: underline dashed;
     text-decoration-thickness: 0.1rem;
@@ -572,7 +560,7 @@ li.external::after {
   font-size: var(--font-400);
   line-height: 1;
   text-decoration: none !important;
-  
+
   strong {
     font-weight: var(--fontWeight-bold);
     color: var(--foreground);

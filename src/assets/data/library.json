@@ -1,0 +1,537 @@
+{
+   "featEyebrow": "Agentic AI Design",
+  "featTitle": "Designing Genie: Pioneering UX Patterns for Agentic AI",
+  "featDescription": "Built an agentic orchestration layer that transformed how teams reclaim creative focus. Learned n8n, AI development, and product thinking while automating routine design work to free the team for novel problems.",
+  "btnroute": "doc/building-genie-changed-me",
+  "label": "Read Case Study",
+  "bgcolor": "background-color: #0D47A1",
+  "featImage": "casestudy/genie/genie.png",
+
+  "alt": "Genie - Agentic AI Platform",
+  "entries": [
+    {
+      "id": 11,
+      "type": "article",
+      "title": "Design Tokens: The Unseen Hero in a Changing Design Landscape",
+      "eyebrow": "Design Systems",
+      "description": "Why a shared design language is the most resilient investment teams can make as tools, roles, and workflows keep evolving. In a time when everything else in tech feels like shifting sand, design tokens are the bedrock—tiny pieces of your design's DNA that become a shared language everyone can speak, ensuring consistency and adaptability even as the design tools around them evolve.",
+      "link": "https://composable.com/insights/design-tokens-shared-language-design-systems",
+      "thumbnail": "article/token-article.jpg",
+      "alt": "Article: Design Tokens - The Unseen Hero in a Changing Design Landscape",
+      "label": "Read on Composable.com",
+      "tags": [
+        "design-systems",
+        "tokens",
+        "process"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "article",
+      "title": "Designing Genie: Pioneering Agentic AI for Delivery",
+      "eyebrow": "Agentic AI Design",
+      "description": "Designing agentic systems forces you to rethink how work gets done. Not in the abstract, but in the day-to-day reality of delivery: shifting requirements, scattered context, rising risk, and teams stretched thin. This article explores how we built Genie—an agentic orchestration layer that consolidates context, generates requirements, surfaces risks, and automates workflows—and the three mental model problems we solved in designing for agentic AI.",
+      "link": "https://orium.com/blog/orium-genie-agentic-ai-design",
+      "thumbnail": "article/Designing_Genie-hero-20.jpg",
+      "alt": "Article: Designing Genie - Pioneering Agentic AI for Delivery",
+      "label": "Read on Orium",
+      "tags": [
+        "ai",
+        "agentic-ai",
+        "workflow"
+      ]
+    },
+    {
+      "id": 9,
+      "docId": 32,
+      "slug": "building-genie-changed-me",
+      "type": "article",
+      "title": "Building Genie didn't just change how we work. It changed me",
+      "eyebrow": "Agentic AI Design",
+      "description": "The story of building Genie—from personal experiment to organizational platform—and the three mental model problems we had to solve to design for agentic AI. A personal journey about reclaiming creative focus, learning new skills, and transforming routine work into strategic impact.",
+      "route": "/doc/building-genie-changed-me",
+      "contentFile": "doc_32.md",
+      "thumbnail": "casestudy/genie/genie.png",
+      "alt": "Genie - Agentic AI Platform",
+      "tags": [
+        "ai",
+        "agentic-ai",
+        "personal"
+      ]
+    },
+    {
+      "id": 1,
+      "docId": 13,
+      "slug": "the-shifting-design-landscape",
+      "type": "article",
+      "title": "The Shifting Landscape of Design",
+      "description": "The design industry is in a state of flux. The landscape is shifting, and the role of the designer is evolving. The days of the designer as a pixel pusher are long gone. The designer of today is a strategic thinker, a problem solver, and a storyteller. The designer of today is a leader, a collaborator, and a change agent. The designer of today is a business person, a technologist, and a futurist.",
+      "eyebrow": "Design Evolution AI",
+      "route": "/doc/the-shifting-design-landscape",
+      "contentFile": "doc_13.md",
+      "thumbnail": "article/cover2.png",
+      "alt": "Article: The Shifting Landscape of Design",
+      "tags": [
+        "design",
+        "ai",
+        "evolution"
+      ]
+    },
+    {
+      "id": 2,
+      "docId": 1,
+      "slug": "baselines-design-qa",
+      "type": "article",
+      "title": "Baselines & Design QA: Setting the Foundation for Quality",
+      "eyebrow": "Quality Process",
+      "description": "How early baselines make Design QA effortless. When you set design baselines before implementation begins, you prevent problems from taking root. The result? Less testing needed later, fewer discrepancies to catch, and a shared understanding of what 'done' looks like.",
+      "route": "/doc/baselines-design-qa",
+      "contentFile": "doc_1.md",
+      "thumbnail": "article/cover1.png",
+      "alt": "Article: Baselines & Design QA",
+      "tags": [
+        "quality",
+        "qa",
+        "design-systems"
+      ]
+    },
+    {
+      "id": 7,
+      "docId": 27,
+      "slug": "the-value-of-writing",
+      "type": "article",
+      "title": "The Value of Writing",
+      "eyebrow": "Musing",
+      "description": "What am I trying to say? Do I even have a point?",
+      "route": "/doc/the-value-of-writing",
+      "contentFile": "doc_27.md",
+      "thumbnail": "article/jacques.jpg",
+      "alt": "Article: Writing for Non-Writers",
+      "tags": [
+        "writing",
+        "philosophy",
+        "personal"
+      ]
+    },
+    {
+      "id": 14,
+      "docId": 29,
+      "slug": "leading-design-innovation",
+      "type": "article",
+      "title": "Leading Design Innovation",
+      "eyebrow": "Design Leadership",
+      "description": "How I focus on aligning design with broader company goals, ensuring it serves as a strategic, value-driving function rather than merely an aesthetic service. Exploring vision, technology, team strategy, and the evolution of design through AI, automation, and data-driven thinking.",
+      "route": "/doc/leading-design-innovation",
+      "contentFile": "doc_29.md",
+      "alt": "Article: Leading Design Innovation",
+      "tags": [
+        "writing",
+        "design",
+        "leadership",
+        "ai",
+        "strategy"
+      ]
+    },
+    {
+      "id": 12,
+      "docId": 37,
+      "slug": "smart-quotes-fixer",
+      "type": "tool",
+      "title": "Smart Quotes Fixer",
+      "eyebrow": "CLI Package",
+      "description": "A safe script that converts straight quotes to smart quotes in rendered content without touching code, bindings, or attribute delimiters.",
+      "route": "/doc/smart-quotes-fixer",
+      "contentFile": "doc_37.md",
+      "alt": "Doc: Smart Quotes Fixer",
+      "github": "https://github.com/jacquesramphal/smart-quotes",
+      "npm": "@jacquesramphal/smart-quotes",
+      "tags": [
+        "cli",
+        "npm",
+        "vue"
+      ]
+    },
+    {
+      "id": 13,
+      "docId": 38,
+      "slug": "design-guard",
+      "type": "tool",
+      "title": "Design Guard",
+      "eyebrow": "CLI Package",
+      "description": "A lightweight design guard that scans staged files for hardcoded lengths (px/rem/%/etc.) and colors, nudging code toward design tokens.",
+      "route": "/doc/design-guard",
+      "contentFile": "doc_38.md",
+      "alt": "Doc: Design Guard",
+      "github": "https://github.com/jacquesramphal/design-guard",
+      "npm": "@jacquesramphal/design-guard",
+      "tags": [
+        "cli",
+        "npm",
+        "design-systems"
+      ]
+    },
+    {
+      "id": "case-study-softchoice",
+      "type": "case-study",
+      "variant": "small",
+      "title": "Softchoice Website Rebrand",
+      "tag": "Brand Design, Motion Design, CMS Integration",
+      "subtitle": "Polishing a Brand Identity in Motion",
+      "description": "When a brand launches a new identity, the website needs to reflect it—without breaking what already works. Redesigned Softchoice's website to reflect their new brand identity, working within their existing CMS structure. Enhanced modules, introduced motion design, and collaborated closely with development to ensure design fidelity.",
+      "btnroute": "work/2",
+      "label": "Read Case Study",
+      "filename3": "casestudy/softchoice/sc-desktop-1.png",
+      "bgcolor": "background-color: #7d00ff",
+      "alt": "Softchoice Website Rebrand",
+      "category": "Work",
+      "role": "Lead Product Designer",
+      "status": "Launched",
+      "tags": [
+        "rebrand",
+        "cms",
+        "motion-design"
+      ],
+      "images": {
+        "filename1": "casestudy/softchoice/sc-desktop-1.png",
+        "caption1": "Softchoice Desktop Homepage",
+        "filename2": "casestudy/softchoice/sc-blog-1.png",
+        "caption2": "Softchoice Blog Page",
+        "filename3": "casestudy/softchoice/sc-motion.gif",
+        "caption3": "Motion Design Elements"
+      },
+      "keypoints": [
+        {
+          "title": "Consistent Brand Identity",
+          "body": "The website now fully reflects Softchoice's new brand identity. Every module, every page, every interaction feels like it belongs to the same visual language. This consistency builds trust and reinforces brand recognition."
+        },
+        {
+          "title": "Enhanced User Experience",
+          "body": "The thoughtful module redesign and light animations created a more engaging and intuitive interface. Users don't notice the individual improvements—they just feel that the site is more polished, more professional, more aligned with what they expect from Softchoice."
+        },
+        {
+          "title": "Efficient Development Process",
+          "body": "Clear specifications and ongoing collaboration meant the development team could implement the design accurately without constant back-and-forth. The detailed guidelines reduced ambiguity and sped up the implementation phase."
+        },
+        {
+          "title": "Collaborative Success",
+          "body": "This project required coordination between multiple parties: the design partner, the branding agency that created the new identity, and Softchoice's internal IT team. The success came from everyone understanding their role and working together toward a shared vision."
+        }
+      ],
+      "entries": [
+        {
+          "eyebrow": "",
+          "title": "The Challenge",
+          "body": "In late 2020, Softchoice was preparing to launch a new brand identity in January. Their website, built on an interim design from August 2020, had incomplete design elements and wasn't ready to represent the new brand. The challenge wasn't just visual—it was about enhancing the experience while respecting the existing CMS architecture that was already serving the organization well.<br><br>The constraint: We couldn't rebuild the site. We had to work within the established module-driven CMS structure, enhancing and polishing without disrupting what was already functioning.<br><br>This is a common scenario in enterprise work: you're not starting from scratch. You're improving what exists while respecting the systems already in place.",
+          "images": {
+            "filename1": "casestudy/softchoice/sc-desktop-1.png",
+            "alt": "Softchoice Website Before Rebrand",
+            "caption": "The existing website needed to reflect the new brand without breaking what already worked."
+          }
+        },
+        {
+          "eyebrow": "",
+          "title": "The Approach",
+          "body": "Rather than tearing down and rebuilding, we took a surgical approach: redesign the modules, not the system.<br><br><strong>Brand Guidelines as the Foundation</strong><br>The new brand guidelines were comprehensive—colors, typography, spacing, imagery principles. Our first step was to understand how these guidelines could translate into the existing module structure.<br><br><strong>Module Redesign Strategy</strong><br>The CMS was built on a block model approach. Key modules included hero sections, page navigation, two-column layouts, callouts and stats, image quadrants, text quadrants, related content sections, and accordions. Each module needed to be redesigned to reflect the new brand while maintaining its functional purpose.<br><br><strong>Motion Design: Bringing Life to the Interface</strong><br>One of the most impactful additions was introducing light animations and motion design. This wasn't about flashy effects—it was about enhancing the user experience through thoughtful motion: navigation behavior with smooth transitions, module loading that feels intentional, text appearance on scroll, and interactive navigation buttons with responsive feedback.",
+          "images": {
+            "filename1": "casestudy/softchoice/sc-guide-1.png",
+            "alt": "Brand Guidelines and Module Design",
+            "caption": "Brand guidelines translated into module-driven design system."
+          }
+        },
+        {
+          "eyebrow": "",
+          "title": "The Outcome",
+          "body": "The rebrand wasn't just about new colors and fonts. It was about creating a cohesive experience that reflected Softchoice's new brand identity across every touchpoint.<br><br>Working within constraints—whether they're technical, timeline, or budget-related—forces you to be more creative, not less. We couldn't rebuild everything, so we had to be strategic about what to enhance and how to enhance it.<br><br>Sometimes the best design work happens when you're improving what exists rather than starting from scratch. It requires a different kind of creativity—one that sees potential in constraints and finds elegant solutions within established systems. This rebranding effort modernized Softchoice's online presence while respecting the foundation that was already working.",
+          "images": {
+            "filename1": "casestudy/softchoice/sc-motion.gif",
+            "alt": "Motion Design in Action",
+            "caption": "Thoughtful motion design enhances the user experience without calling attention to itself."
+          }
+        }
+      ]
+    },
+    {
+      "id": "case-study-kg",
+      "type": "case-study",
+      "variant": "split",
+      "size": "small",
+      "title": "K&G Loyalty Platform",
+      "tag": "Product Design, Design Systems, Development",
+      "description": "Founded in 1959, Kum & Go redefines convenience with customer-centric offerings. Partnering with Orium, they launched a new digital experience featuring enhanced promotions, loyalty programs, and improved merchandising.",
+      "btnroute": "work/1",
+      "label": "Read More",
+      "alt": "K&G Loyalty Platform - Mobile App Experience",
+      "bgcolor": "background-color: #FFB81C",
+      "category": "Work",
+      "filename3": "casestudy/kg/kg-5.png",
+      "role": "Lead Product Designer, Developer",
+      "status": "Launched",
+      "tags": [
+        "loyalty",
+        "mobile",
+        "react-native"
+      ],
+      "images": {
+        "filename1": "casestudy/kg/kg-5.png",
+        "caption1": "K&G Loyalty Platform - Mobile App Hero",
+        "filename2": "casestudy/kg/kg-1.jpg",
+        "caption2": "K&G Mobile App Interface",
+        "filename3": "casestudy/kg/kg-1.jpg",
+        "caption3": "K&G Digital Experience"
+      },
+      "keypoints": [
+        {
+          "title": "Control Over Digital Experience",
+          "body": "Empowering Kum & Go to manage their search, merchandising, promotions, loyalty, and content independently."
+        },
+        {
+          "title": "Increased Customer Engagement",
+          "body": "Launching a robust loyalty program to engage a smallr segment of the consumer base."
+        },
+        {
+          "title": "More In-Store Purchases",
+          "body": "Enhancing the omnichannel experience to drive more in-store purchases."
+        },
+        {
+          "title": "Extensible and Maintainable Platform",
+          "body": "Moving off a costly legacy platform to a more efficient and innovative system."
+        }
+      ],
+      "entries": [
+        {
+          "eyebrow": "",
+          "title": "Problem",
+          "body": "Kum & Go aimed to redefine convenience for their customers by upgrading their digital experience. They sought to enhance their mobile app to include better search and merchandising, a new loyalty program, and support for modern shopping preferences. Additionally, the new app needed to be adaptable for future updates and improvements without causing any service disruptions.",
+          "images": {
+            "filename1": "casestudy/kg/kg-2.jpg",
+            "alt": "Kum & Go Digital Experience Challenges",
+            "caption": "Identifying opportunities to enhance the mobile app experience."
+          }
+        },
+        {
+          "eyebrow": "",
+          "title": "Solution",
+          "body": "To achieve these goals, Kum & Go partnered with Orium to implement a flexible and scalable platform focusing on four key objectives: control over digital experience, increased customer engagement, more in-store purchases, and an extensible platform. Orium worked with Kum & Go to develop a React Native framework, leveraging Orium's React Native Accelerator for a faster, more efficient development process. Contentful's composable content platform was implemented for easy content management, and Typesense was used for search and product indexing. Paytronix was chosen to manage the loyalty program, providing comprehensive loyalty, promotions, and ordering capabilities. Integration with P97 enhanced Mobile Fuel Pay, allowing for prepaying gas and redeeming points at the pump.",
+          "images": {
+            "filename1": "casestudy/kg/kg-3.jpg",
+            "alt": "React Native Framework and Composable Architecture",
+            "caption": "Modern mobile architecture with React Native and composable content management."
+          }
+        },
+        {
+          "eyebrow": "",
+          "title": "Outcome",
+          "body": "The revamped Kum & Go mobile app launched with an upgraded rewards program and an enhanced ecommerce experience. Key features included a personalized interface, home location selection, and customer history-based recommendations. The Mobile Fuel Pay feature was also improved, allowing customers to prepay for gas in selected increments. <br><br> Kum & Go plans to continue enhancing the mobile app and redesigning the web experience to match the new mobile app features.",
+          "images": {
+            "filename1": "casestudy/kg/kg-4.png",
+            "alt": "K&G Mobile App Launch and Features",
+            "caption": "Launched mobile app with enhanced loyalty program and ecommerce capabilities."
+          }
+        }
+      ]
+    },
+    {
+      "id": "case-study-fortune100",
+      "type": "case-study",
+      "variant": "small",
+      "title": "Fortune 100 Planning Tool",
+      "tag": "Product Design, Dashboard Design",
+      "description": "A comprehensive planning tool designed for enterprise-level strategic planning, featuring intuitive dashboards and real-time analytics for data-driven decision making.",
+      "btnroute": "work/4",
+      "label": "Read More",
+      "alt": "Fortune 100 Planning Tool Dashboard",
+      "bgcolor": "background-color: #47C8A6",
+      "category": "Work",
+      "filename3": "casestudy/glo/planner.png",
+      "role": "Product Designer",
+      "status": "Launched",
+      "tags": [
+        "dashboard",
+        "analytics",
+        "planning"
+      ],
+      "images": {
+        "filename1": "work/glo.svg",
+        "caption1": "Planning dashboard interface",
+        "filename2": "casestudy/glo/insights.png",
+        "caption2": "Analytics and insights view",
+        "filename3": "casestudy/glo/details.png",
+        "caption3": "Detailed planning view"
+      },
+      "keypoints": [
+        {
+          "title": "Intuitive Dashboard Design",
+          "body": "Created an intuitive planning interface that simplifies complex enterprise data into actionable insights."
+        },
+        {
+          "title": "Real-Time Analytics",
+          "body": "Implemented real-time analytics capabilities to support data-driven decision making at scale."
+        },
+        {
+          "title": "Scalable Architecture",
+          "body": "Designed a flexible platform architecture that adapts to evolving enterprise planning needs."
+        },
+        {
+          "title": "Enhanced User Experience",
+          "body": "Improved workflow efficiency through thoughtful UX patterns and streamlined navigation."
+        }
+      ],
+      "entries": [
+        {
+          "eyebrow": "",
+          "title": "Planning Dashboard",
+          "body": "The main planning interface provides a comprehensive view of strategic planning data with intuitive navigation and real-time updates. The dashboard enables teams to visualize key metrics, track progress, and make informed decisions quickly.",
+          "images": {
+            "filename1": "casestudy/glo/planner.png",
+            "alt": "Planning dashboard interface",
+            "caption": "Planning dashboard interface"
+          }
+        },
+        {
+          "eyebrow": "",
+          "title": "Analytics & Insights",
+          "body": "Advanced analytics capabilities surface key insights and trends to support data-driven decision making at the enterprise level. The insights view helps identify patterns, forecast outcomes, and optimize planning strategies.",
+          "images": {
+            "filename1": "casestudy/glo/insights.png",
+            "alt": "Analytics and insights view",
+            "caption": "Analytics and insights view"
+          }
+        },
+        {
+          "eyebrow": "",
+          "title": "Detailed Planning View",
+          "body": "The detailed view allows for granular planning and analysis, enabling teams to drill down into specific metrics and projections. This level of detail supports comprehensive strategic planning and resource allocation.",
+          "images": {
+            "filename1": "casestudy/glo/details.png",
+            "alt": "Detailed planning view",
+            "caption": "Detailed planning view"
+          }
+        }
+      ]
+    },
+    {
+      "id": "case-study-onlogic",
+      "type": "case-study",
+      "variant": "small",
+      "size": "small",
+      "title": "OnLogic Composable Commerce Platform",
+      "tag": "E-commerce, Developer Friendly",
+      "description": "Empowering technical users with precision, flexibility, and control for configuring industrial PC systems.",
+      "btnroute": "work/12",
+      "label": "Read More",
+      "alt": "OnLogic Project Overview",
+      "bgcolor": "background-color: #0077C8",
+      "category": "Work",
+      "filename3": "casestudy/onlogic/onlogic-1.png",
+      "role": "Product Design",
+      "status": "Launched",
+      "tags": [
+        "commerce",
+        "configurator",
+        "composable"
+      ],
+      "images": {
+        "filename1": "casestudy/onlogic/onlogic-1.png",
+        "caption1": "OnLogic Composable Architecture Screenshot",
+        "filename2": "casestudy/onlogic/onlogic-2.png",
+        "caption2": "OnLogic Product Configuration Interface",
+        "filename3": "casestudy/onlogic/onlogic-3.png",
+        "caption3": "Custom PDP and Checkout Experience"
+      },
+      "keypoints": [
+        {
+          "title": "Empower Technical Users",
+          "body": "Designed an interface for IT professionals and developers, providing advanced customization options with usability in mind."
+        },
+        {
+          "title": "Facilitate Developer Implementation",
+          "body": "Created UI workflows developers could implement and extend, aligning with composable architecture principles."
+        },
+        {
+          "title": "Support High Customizability",
+          "body": "Enabled configuration and purchase of highly customizable products with seamless integration of pricing, tax rules, and global payment systems."
+        },
+        {
+          "title": "Provide Transparency and Control",
+          "body": "Delivered detailed product configuration workflows with real-time feedback and clear user-facing data."
+        }
+      ],
+      "entries": [
+        {
+          "eyebrow": "",
+          "title": "Problem",
+          "body": "OnLogic needed a platform tailored to technical users, including IT professionals, to handle the complexities of configuring customizable products. The existing legacy platform couldn't provide the precision, transparency, or scalability required to meet the needs of a global audience.",
+          "images": {
+            "filename1": "casestudy/onlogic/onlogic-1.png",
+            "alt": "Legacy Platform Challenges",
+            "caption": "Legacy platform lacked configurability and scalability."
+          }
+        },
+        {
+          "eyebrow": "",
+          "title": "Solution",
+          "body": "Migrated to a composable commerce architecture using commercetools, enabling OnLogic to scale and meet modern demands. Developed configurable PDPs with real-time price calculations, validation checks, and modular designs. Integrated content management (Contentful), search (Algolia), and custom payment/tax systems to meet global requirements.",
+          "images": {
+            "filename1": "casestudy/onlogic/onlogic-2.png",
+            "alt": "Composable Commerce Architecture",
+            "caption": "Composable architecture tailored for technical users."
+          }
+        },
+        {
+          "eyebrow": "",
+          "title": "Outcome",
+          "body": "The platform empowered OnLogic's technical users with advanced customization options, seamless workflows, and real-time validation. Developers benefited from detailed design handoffs and modular implementation strategies. The scalable platform allows OnLogic to evolve its offerings to meet future needs.",
+          "images": {
+            "filename1": "casestudy/onlogic/onlogic-3.png",
+            "alt": "Scalable and Modular Platform",
+            "caption": "Enhanced configurability and future-proof design."
+          }
+        }
+      ]
+    },
+    {
+      "id": "work-logo-dod",
+      "type": "design-project",
+      "title": "",
+      "description": "",
+      "alt": "Work logo",
+      "filename1": "work/dod.svg",
+      "size": "small",
+      "variant": "small",
+      "tags": []
+    },
+    {
+      "id": "work-logo-j",
+      "type": "design-project",
+      "title": "",
+      "description": "",
+      "alt": "Work logo",
+      "filename1": "work/j.svg",
+      "size": "small",
+      "variant": "small",
+      "tags": []
+    },
+    {
+      "id": "work-logo-gob",
+      "type": "design-project",
+      "title": "",
+      "description": "",
+      "alt": "Work logo",
+      "filename1": "work/gob.svg",
+      "size": "small",
+      "variant": "small",
+      "tags": []
+    },
+    
+    {
+      "id": "work-logo-mailback",
+      "type": "design-project",
+      "title": "",
+      "description": "",
+      "alt": "Work logo",
+      "filename1": "work/mailback.svg",
+      "size": "small",
+      "tags": []
+    }
+  ]
+}

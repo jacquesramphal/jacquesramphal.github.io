@@ -11,13 +11,7 @@
       />
       <GridContainer id="eyebrow" v-if="eyebrow" style="z-index: 10000">
         <div class="animate fade delay-3">
-          <DynamicText
-              as="p"
-              :text="eyebrow"
-              isHtml
-              :attrs="{ id: 'eyebrow' }"
-              class="subtle"
-            />
+          <DynamicText as="p" :text="eyebrow" isHtml :attrs="{ id: 'eyebrow' }" class="subtle" />
           <!-- <component
             :is="breadcrumb ? 'TextLink' : 'p'"
             class="subtle"
@@ -31,44 +25,36 @@
       </GridContainer>
       <GridContainer class="banner-container" v-if="title">
         <GridParent id="hero-text" class="animate fade delay-1">
-          <span
-            >
-            <DynamicText
-              :as="as"
-              :text="title"
-              isHtml
-              :attrs="{ id: 'title' }"
-            />
-            <p id="tags" v-if="tag" v-text="tag" class="subtle" />
+          <span>
+            <div class="hero-content">
+              <DynamicText :as="as" :text="title" isHtml :attrs="{ id: 'title' }" />
+              <p id="tags" v-if="tag" v-text="tag" class="subtle" />
 
-            <DynamicText
-              v-if="subtitle"
-              as="h4"
-              :text="subtitle"
-              :isHtml="false"
-              :attrs="{ id: 'subtitle' }"
-            />
+              <DynamicText
+                v-if="subtitle"
+                as="h4"
+                :text="subtitle"
+                :isHtml="false"
+                :attrs="{ id: 'subtitle' }"
+              />
 
-            <div
-              id="hero-cta"
-              v-if="label"
-              :class="{ 'with-gap': label && labeltwo }"
-            >
-              <MyButton
-                v-if="label"
-                size="large"
-                :label="`${label}`"
-                :route="`${route}`"
-                :link="`${link}`"
-              />
-              <MyButton
-                v-if="labeltwo"
-                type="outline"
-                size="large"
-                :label="`${labeltwo}`"
-                :route="`${routetwo}`"
-                :link="`${linktwo}`"
-              />
+              <div id="hero-cta" v-if="label" :class="{ 'with-gap': label && labeltwo }">
+                <MyButton
+                  v-if="label"
+                  size="large"
+                  :label="`${label}`"
+                  :route="`${route}`"
+                  :link="`${link}`"
+                />
+                <MyButton
+                  v-if="labeltwo"
+                  type="outline"
+                  size="large"
+                  :label="`${labeltwo}`"
+                  :route="`${routetwo}`"
+                  :link="`${linktwo}`"
+                />
+              </div>
             </div>
             <!-- <ButtonRow v-if="buttonsData" :buttons="`${buttonsData}`" /> -->
 
@@ -81,6 +67,31 @@
             /> -->
           </span>
         </GridParent>
+        <GridParent v-if="showSearch" tight class="hero-search-container">
+          <div class="hero-search-wrapper">
+            <MyInput
+              id="hero-search"
+              :value="searchValue"
+              @input="$emit('update:searchValue', $event.target.value)"
+              type="text"
+              name="search"
+              label=""
+              :hideLabel="true"
+              :placeholder="searchPlaceholder"
+              autocomplete="off"
+              :required="false"
+              inputClass="hero-search__input"
+            />
+            <MyButton
+              v-if="searchValue"
+              size="small"
+              type="ghost"
+              label="Clear"
+              class="hero-search-clear"
+              @click="$emit('clear-search')"
+            />
+          </div>
+        </GridParent>
       </GridContainer>
       <div class="overlay" />
     </GridWrapper>
@@ -88,22 +99,26 @@
 </template>
 
 <script>
-import GridContainer from "../grid/GridContainer.vue";
-import GridWrapper from "../grid/GridWrapper.vue";
+import GridContainer from '../grid/GridContainer.vue';
+import GridWrapper from '../grid/GridWrapper.vue';
+import GridParent from '../grid/GridParent.vue';
 // import TextLink from "../text/TextLink.vue";
-// import MyButton from "./Button/Button.vue";
-import AnimatedComponent from "../AnimatedComponent.vue";
-import DynamicText from "../text/DynamicText.vue";
+import MyButton from '../Button/Button.vue';
+import MyInput from '../form/MyInput.vue';
+import AnimatedComponent from '../AnimatedComponent.vue';
+import DynamicText from '../text/DynamicText.vue';
 
 export default {
-  name: "HeroBanner",
+  name: 'HeroBanner',
   components: {
     GridContainer,
     GridWrapper,
-    // MyButton,
+    GridParent,
+    MyButton,
+    MyInput,
     AnimatedComponent,
     // TextLink,
-    DynamicText
+    DynamicText,
   },
   props: {
     contentful: {
@@ -123,17 +138,17 @@ export default {
     },
     title: {
       type: String,
-      default: "Banner Title",
+      default: 'Banner Title',
     },
     as: {
-      default: "h1",
+      default: 'h1',
       type: String,
       required: false,
     },
     tag: {
       type: String,
       required: false,
-      default: "",
+      default: '',
     },
     subtitle: {
       type: String,
@@ -185,17 +200,31 @@ export default {
       type: Boolean,
       default: false,
     },
+
+    // Search props
+    showSearch: {
+      type: Boolean,
+      default: false,
+    },
+    searchValue: {
+      type: String,
+      default: '',
+    },
+    searchPlaceholder: {
+      type: String,
+      default: 'Search...',
+    },
   },
   computed: {
     classes() {
       return {
         herobanner: true,
-        "herobanner--normal": !this.background,
-        "herobanner--background": this.background,
-        "herobanner--center": this.center,
-        "herobanner--overlap": this.overlap,
-        "herobanner--fullvh": this.fullvh,
-        "herobanner--end": this.end,
+        'herobanner--normal': !this.background,
+        'herobanner--background': this.background,
+        'herobanner--center': this.center,
+        'herobanner--overlap': this.overlap,
+        'herobanner--fullvh': this.fullvh,
+        'herobanner--end': this.end,
       };
     },
   },
@@ -223,11 +252,14 @@ img {
   z-index: 1000;
   @media only screen and (min-width: 1201px) {
     margin-block-start: none;
-      max-width: 75vw;
-
+    max-width: 75vw;
   }
   span {
     grid-column: span 3;
+  }
+
+  .hero-content {
+    display: contents;
   }
 
   // #eyebrow
@@ -307,11 +339,7 @@ img {
     inline-size: -moz-available;
     inline-size: -webkit-fill-available;
     block-size: 100%;
-    background: linear-gradient(
-      0deg,
-      var(--background) 0%,
-      rgba(255, 255, 255, 0) 200%
-    );
+    background: linear-gradient(0deg, var(--background) 0%, rgba(255, 255, 255, 0) 200%);
   }
 }
 
@@ -402,7 +430,6 @@ img {
     margin-inline-end: auto;
     // max-width: 86.4rem !important;
     justify-self: center;
-
   }
 }
 
@@ -428,5 +455,29 @@ img {
   span {
     grid-column: 1 / 4 !important;
   }
+}
+
+.hero-search-container {
+  margin-block-start: var(--spacing-lg);
+}
+
+.hero-search-wrapper {
+  position: relative;
+  grid-column: span 1;
+
+  :deep(input) {
+    font-size: var(--font-xs);
+  }
+}
+
+.hero-search-clear {
+  position: absolute;
+  right: calc(var(--spacing-xxs) - 1px);
+  top: -10px;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: fit-content;
+  z-index: 10;
 }
 </style>

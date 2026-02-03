@@ -76,6 +76,18 @@
       "alt": "Article: Writing for Non-Writers"
     },
     {
+      "id": 14,
+      "docId": 29,
+      "slug": "leading-design-innovation",
+      "title": "Leading Design Innovation",
+      "eyebrow": "Design Leadership",
+      "description": "How I focus on aligning design with broader company goals, ensuring it serves as a strategic, value-driving function rather than merely an aesthetic service. Exploring vision, technology, team strategy, and the evolution of design through AI, automation, and data-driven thinking.",
+      "route": "/doc/leading-design-innovation",
+      "contentFile": "doc_29.md",
+      "thumbnail": "article/cover1.png",
+      "alt": "Article: Leading Design Innovation"
+    },
+    {
       "id": 12,
       "docId": 37,
       "slug": "smart-quotes-fixer",

@@ -15,7 +15,7 @@
 
     <!-- WRITING SECTION - MOVED UP FOR PROMINENCE -->
     <AnimatedComponent>
-      <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'WritingIndex' }" />
+      <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
     </AnimatedComponent>
 
     <!-- ABOUT SECTION -->
@@ -30,11 +30,8 @@
     </AnimatedComponent>
 
     <!-- FEATURED WORK SECTION - SPLIT FROM PLAY -->
-    <!-- <GridContainer style="padding-block-end: var(--spacing-md) !important">
-      <div
-        class="grid-parent"
-        style="align-items: center; grid-template-columns: repeat(3, 1fr)"
-      >
+    <GridContainer style="padding-block-end: var(--spacing-md) !important">
+      <div class="grid-parent" style="align-items: center; grid-template-columns: repeat(3, 1fr)">
         <TextBlock
           style="grid-column: 1 / 3"
           flex="1"
@@ -47,7 +44,7 @@
           <router-link :to="{ name: 'Library', hash: '#work' }">View All Work</router-link>
         </p>
       </div>
-    </GridContainer> 
+    </GridContainer>
     <GridContainer style="padding-block-start: 0 !important">
       <GridParent tight id="recentwork">
         <ImageCard
@@ -62,16 +59,11 @@
           size="large"
           :style="work.bgcolor"
         />
-        
-   
       </GridParent>
     </GridContainer>
 
-   -->
-    
-   
-         <!-- Decorative Cards -->
-        <!-- <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />
+    <!-- Decorative Cards -->
+    <!-- <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />
         <ImageCard2
           alt="Avatar"
           class="hidemobile"
@@ -85,8 +77,6 @@
           title="Avatar"
         /> -->
     <!-- <MyForm/> -->
-
-
 
     <!-- 
     Get in touch banner -->
@@ -137,15 +127,15 @@
 </template>
 
 <script>
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import work from "@/assets/data/work.json";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import work from '@/assets/data/library.json';
 // import ProductCarousel from '../components/ProductCarousel.vue';
 // import TestimonialCarousel from "@/components/TestimonialCarousel.vue";
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
-  name: "HomePage",
+  name: 'HomePage',
   props: {
     // work: {
     //   type: Object,
@@ -160,47 +150,47 @@ export default {
         // "Full-stack Designer & Generalist",
         // "Front-end Designer exploring the intersection between design and development",
         // "I&#x2019;m a Sr. Product Design Developer",
-        "Staff Product Design Developer with a passion for cross-skill. Check out my work, and tools I use.",
+        'Staff Product Design Developer with a passion for cross-skill. Check out my work, and tools I use.',
         // "I&#x2019;m a Sr. Design Integration Manager",
         "I'm a Staff Product Design Developer with a passion for cross-skill. Check out my work, and tools I use.",
       ],
-      title: "",
+      title: '',
       featuredProducts: [
         {
           name: 'Modern Desk Lamp',
           description: 'Sleek LED desk lamp with adjustable brightness',
           image: 'https://source.unsplash.com/400x300/?lamp',
           category: 'Lighting',
-          price: '$89.99'
+          price: '$89.99',
         },
         {
           name: 'Ergonomic Chair',
           description: 'Premium office chair with lumbar support',
           image: 'https://source.unsplash.com/400x300/?chair',
           category: 'Furniture',
-          price: '$299.99'
+          price: '$299.99',
         },
         {
           name: 'Wireless Keyboard',
           description: 'Mechanical keyboard with customizable RGB',
           image: 'https://source.unsplash.com/400x300/?keyboard',
           category: 'Electronics',
-          price: '$129.99'
+          price: '$129.99',
         },
         {
           name: 'Smart Monitor',
           description: '27" 4K display with built-in speakers',
           image: 'https://source.unsplash.com/400x300/?monitor',
           category: 'Electronics',
-          price: '$449.99'
-        }
-      ]
+          price: '$449.99',
+        },
+      ],
     };
   },
   computed: {
     // Filter work entries to show only Work category (exclude Play)
     filteredWorkEntries() {
-      return this.work.entries.filter(entry => entry.category === "Work");
+      return this.work.entries.filter((entry) => entry.category === 'Work');
     },
   },
   created() {
@@ -217,71 +207,71 @@ export default {
   // },
   mounted() {
     // this.htmlContent = marked(content);
-    const fadeInUp = gsap.utils.toArray(".fadeInUp");
-    const fadeInDown = gsap.utils.toArray(".fadeInDown");
-    const fadeInRight = gsap.utils.toArray(".fadeInRight");
-    const fadeInLeft = gsap.utils.toArray(".fadeInLeft");
-    const parallaxBack = gsap.utils.toArray(".parallaxBack");
-    const parallaxFront = gsap.utils.toArray(".parallaxFront");
+    const fadeInUp = gsap.utils.toArray('.fadeInUp');
+    const fadeInDown = gsap.utils.toArray('.fadeInDown');
+    const fadeInRight = gsap.utils.toArray('.fadeInRight');
+    const fadeInLeft = gsap.utils.toArray('.fadeInLeft');
+    const parallaxBack = gsap.utils.toArray('.parallaxBack');
+    const parallaxFront = gsap.utils.toArray('.parallaxFront');
 
     fadeInUp.forEach((fadeInUp) => {
       gsap.from(fadeInUp, {
         scrollTrigger: {
           trigger: fadeInUp,
-          start: "top bottom",
-          end: "top 50%",
+          start: 'top bottom',
+          end: 'top 50%',
           scrub: 1,
-          toggleActions: "restart pause reverse pause",
+          toggleActions: 'restart pause reverse pause',
         },
         autoAlpha: 0,
         y: 100,
         duration: 3,
-        ease: "none",
+        ease: 'none',
       });
     });
     fadeInDown.forEach((fadeInDown) => {
       gsap.from(fadeInDown, {
         scrollTrigger: {
           trigger: fadeInDown,
-          start: "top bottom",
-          end: "top 50%",
+          start: 'top bottom',
+          end: 'top 50%',
           scrub: 1,
-          toggleActions: "restart pause reverse pause",
+          toggleActions: 'restart pause reverse pause',
         },
         autoAlpha: 0,
         y: -100,
         duration: 3,
-        ease: "none",
+        ease: 'none',
       });
     });
     fadeInRight.forEach((fadeInRight) => {
       gsap.from(fadeInRight, {
         scrollTrigger: {
           trigger: fadeInRight,
-          start: "top bottom",
-          end: "top 50%",
+          start: 'top bottom',
+          end: 'top 50%',
           scrub: 1,
-          toggleActions: "restart pause reverse pause",
+          toggleActions: 'restart pause reverse pause',
         },
         autoAlpha: 0,
         x: 100,
         duration: 3,
-        ease: "none",
+        ease: 'none',
       });
     });
     fadeInLeft.forEach((fadeInLeft) => {
       gsap.from(fadeInLeft, {
         scrollTrigger: {
           trigger: fadeInLeft,
-          start: "top bottom",
-          end: "top 50%",
+          start: 'top bottom',
+          end: 'top 50%',
           scrub: 1,
-          toggleActions: "restart pause reverse pause",
+          toggleActions: 'restart pause reverse pause',
         },
         autoAlpha: 0,
         x: -100,
         duration: 3,
-        ease: "none",
+        ease: 'none',
       });
     });
     parallaxBack.forEach((parallaxBack) => {
@@ -292,7 +282,7 @@ export default {
         },
         yPercent: 10,
         duration: 3,
-        ease: "none",
+        ease: 'none',
       });
     });
     parallaxFront.forEach((parallaxFront) => {
@@ -303,7 +293,7 @@ export default {
         },
         yPercent: -10,
         duration: 3,
-        ease: "none",
+        ease: 'none',
       });
     });
   },

@@ -50,13 +50,13 @@ transform: rotate(90deg);
     </transition>
 
     <transition name="slide">
-    <fullscreen-menu
+      <fullscreen-menu
         v-if="menuOpen"
-      :is-open="menuOpen"
-      @close="menuOpen = false"
-    ></fullscreen-menu>
+        :is-open="menuOpen"
+        @close="menuOpen = false"
+      ></fullscreen-menu>
     </transition>
-    
+
     <!-- <StickyNav v-if="!$route.meta.hideNav" :menu-open="menuOpen">
       <template v-slot:menu-button>
         <MyButton
@@ -90,26 +90,26 @@ transform: rotate(90deg);
 </template>
 
 <script lang="js">
-import MyButton from "./components/Button/Button.vue";
+import MyButton from './components/Button/Button.vue';
 
 // import NewsletterSubscription from "./components/form/NewsletterSubscription.vue";
-import FullscreenMenu from "./components/FullscreenMenu.vue";
-import StickyNav from "./components/StickyNav.vue";
-import HeaderNav from "./components/HeaderNav/HeaderNav.vue";
-import MainFooter from "./components/MainFooter.vue";
-import TextLink from "./components/text/TextLink.vue";
-import MobileTOCBar from "./components/MobileTOCBar.vue";
-import SimpleFooter from "./components/SimpleFooter.vue";
-import TheLogin from "./components/TheLogin.vue";
+import FullscreenMenu from './components/FullscreenMenu.vue';
+import StickyNav from './components/StickyNav.vue';
+import HeaderNav from './components/HeaderNav/HeaderNav.vue';
+import MainFooter from './components/MainFooter.vue';
+import TextLink from './components/text/TextLink.vue';
+import MobileTOCBar from './components/MobileTOCBar.vue';
+import SimpleFooter from './components/SimpleFooter.vue';
+import TheLogin from './components/TheLogin.vue';
 // import ThemeButton from "./components/ThemeButton.vue";
 // import BreadCrumb from "./components/BreadCrumb.vue";
-import SidebarNav from "./components/SidebarNav.vue";
-import CustomChatUI from "./components/CustomChatUI.vue";
+import SidebarNav from './components/SidebarNav.vue';
+import CustomChatUI from './components/CustomChatUI.vue';
 import { useRouter } from 'vue-router'; // Import Vue Router
 import { provide, ref } from 'vue';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     StickyNav,
     HeaderNav,
@@ -125,23 +125,23 @@ export default {
     // BreadCrumb,
     SidebarNav,
     CustomChatUI,
-},
-setup() {
+  },
+  setup() {
     const markdownHeadings = ref([]);
     const markdownActiveHeading = ref(null);
-    
+
     // Provide functions for markdown pages to update headings
     const updateMarkdownHeadings = (headings) => {
       markdownHeadings.value = headings;
     };
-    
+
     const updateMarkdownActiveHeading = (activeHeading) => {
       markdownActiveHeading.value = activeHeading;
     };
-    
+
     provide('updateMarkdownHeadings', updateMarkdownHeadings);
     provide('updateMarkdownActiveHeading', updateMarkdownActiveHeading);
-    
+
     return {
       markdownHeadings,
       markdownActiveHeading,
@@ -193,7 +193,7 @@ setup() {
 </script>
 
 <style lang="scss">
-@import "./assets/styles/css/all.css";
+@import './assets/styles/css/all.css';
 
 .slide-enter-from {
   transform: translateX(100%);
@@ -201,8 +201,9 @@ setup() {
 }
 
 .slide-enter-active {
-  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
-              opacity 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition:
+    transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    opacity 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 .slide-enter-to {
@@ -216,8 +217,9 @@ setup() {
 }
 
 .slide-leave-active {
-  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
-              opacity 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition:
+    transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    opacity 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 .slide-leave-to {
@@ -227,10 +229,10 @@ setup() {
 
 /* Safety: hide legacy n8nchatui inline widget if it ever loads */
 .n8n-chat-ui,
-[class^="n8n-chat-ui"],
-[class*=" n8n-chat-ui"],
-[id*="n8n-chat-ui"],
-[id*="n8nchatui"] {
+[class^='n8n-chat-ui'],
+[class*=' n8n-chat-ui'],
+[id*='n8n-chat-ui'],
+[id*='n8nchatui'] {
   display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;

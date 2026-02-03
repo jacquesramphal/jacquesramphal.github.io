@@ -19,55 +19,5 @@ export function uniqueTags(values: Array<string | undefined | null>): string[] {
   return Array.from(set).sort((a, b) => a.localeCompare(b));
 }
 
-export function getWorkLogoEntries() {
-  return [
-    {
-      id: "work-logo-dod",
-      title: "",
-      description: "",
-      alt: "Work logo",
-      filename1: "work/dod.svg",
-      // 2-wide card (spans 2 columns at >= 768px)
-      size: "large",
-      variant: "small",
-    },
-    {
-      id: "work-logo-j",
-      title: "",
-      description: "",
-      alt: "Work logo",
-      filename1: "work/j.svg",
-      size: "small",
-      variant: "small",
-    },
-    {
-      id: "work-logo-gob",
-      title: "",
-      description: "",
-      alt: "Work logo",
-      filename1: "work/gob.svg",
-      size: "small",
-      variant: "small",
-    },
-    {
-      id: "work-logo-glo",
-      title: "",
-      description: "",
-      alt: "Work logo",
-      filename1: "work/glo.svg",
-      size: "small",
-      variant: "small",
-    },
-    {
-      id: "work-logo-mailback",
-      title: "",
-      description: "",
-      alt: "Work logo",
-      filename1: "work/mailback.svg",
-      // 2-wide card (spans 2 columns at >= 768px)
-      size: "large",
-      variant: "small",
-    },
-  ];
-}
+// getWorkLogoEntries() removed - data migrated to library.json as design-project entries
 

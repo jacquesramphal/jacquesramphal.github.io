@@ -23,7 +23,7 @@
       <GridParent tight class="">
         <ArticleCard
           borderless
-          v-for="entry in filtered"
+          v-for="(entry, index) in filtered"
           :key="entry.id"
           :alt="entry.alt"
           :description="entry.description"
@@ -34,6 +34,7 @@
           :link="entry.link"
           :eyebrow="entry.eyebrow"
           :title="entry.title"
+          :index="index"
         />
       </GridParent>
     </GridContainer>

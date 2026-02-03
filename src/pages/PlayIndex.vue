@@ -46,32 +46,41 @@
 </template>
 
 <script>
-import work from "@/assets/data/work.json";
+import library from "@/assets/data/library.json";
 import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
 // import MyButton from "@/components/Button/Button.vue";
-import { getWorkLogoEntries, uniqueTags } from "@/utils/libraryData";
 
 export default {
   name: "PlayIndex",
   components: { ImageCard },
   data() {
     return {
-      work,
+      library,
       selectedTag: "All",
     };
   },
   computed: {
     entries() {
-      const logos = getWorkLogoEntries().map((e) => ({ ...e, tag: "Misc" }));
-      const play = this.work.entries.filter((e) => e.category === "Play");
-      return [...logos, ...play];
+      // Filter library for tools and design-projects (previously "Play" content)
+      return (this.library?.entries || []).filter((e) =>
+        e.type === "tool" || e.type === "design-project"
+      );
     },
     tags() {
-      return uniqueTags(this.entries.map((e) => e.tag));
+      // Extract unique tags from entries
+      const allTags = new Set();
+      this.entries.forEach((entry) => {
+        if (entry.tags && Array.isArray(entry.tags)) {
+          entry.tags.forEach((tag) => allTags.add(tag));
+        }
+      });
+      return Array.from(allTags).sort((a, b) => a.localeCompare(b));
     },
     filtered() {
       if (this.selectedTag === "All") return this.entries;
-      return this.entries.filter((e) => (e.tag || "").includes(this.selectedTag));
+      return this.entries.filter((e) =>
+        (e.tags || []).includes(this.selectedTag)
+      );
     },
   },
 };

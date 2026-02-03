@@ -7,22 +7,23 @@
       :is-svg="true"
       :size="`${iconsize}`"
     />
-    <DynamicText
-      v-if="eyebrow"
-      :text="eyebrow"
-      :attrs="{ class: 'eyebrow subtle' }"
-    />
-    <router-link
-      v-if="title && titleRoute"
-      :to="titleRoute"
+    <p v-if="tags && tags.length" class="tags eyebrow subtle">
+      <span v-for="tag in tags" :key="tag" class="tag" @click="$emit('tag-click', tag)">
+        <a>{{ tag }}</a>
+      </span>
+    </p>
+    <DynamicText v-else-if="eyebrow" :text="eyebrow" :attrs="{ class: 'eyebrow subtle' }" />
+    <a
+      v-if="title && titleRoute && isExternalTitleLink"
+      :href="titleRoute"
+      target="_blank"
+      rel="noopener noreferrer"
       class="title-link"
     >
-      <DynamicText
-        :as="as"
-        tabIndex="0"
-        :text="title"
-        :attrs="{ class: 'title' }"
-      />
+      <DynamicText :as="as" tabIndex="0" :text="title" :attrs="{ class: 'title' }" />
+    </a>
+    <router-link v-else-if="title && titleRoute" :to="titleRoute" class="title-link">
+      <DynamicText :as="as" tabIndex="0" :text="title" :attrs="{ class: 'title' }" />
     </router-link>
     <DynamicText
       v-else-if="title"
@@ -56,20 +57,20 @@
       :type="btntype"
       v-if="(route || btnroute || link) && label"
       :label="label"
-      :route="link ? undefined : (route || btnroute)"
+      :route="link ? undefined : route || btnroute"
       :link="link"
     />
   </div>
 </template>
 
 <script>
-import MyButton from "../../Button/Button.vue";
+import MyButton from '../../Button/Button.vue';
 // import TextLink from "../TextLink.vue";
-import DynamicText from "../DynamicText.vue";
-import MyIcon from "../../Icon.vue";
+import DynamicText from '../DynamicText.vue';
+import MyIcon from '../../Icon.vue';
 
 export default {
-  name: "TextBlock",
+  name: 'TextBlock',
   components: {
     MyButton,
     // TextLink,
@@ -82,7 +83,7 @@ export default {
     },
     iconsize: {
       type: String,
-      default: "64",
+      default: '64',
     },
     alt: {
       type: String,
@@ -92,23 +93,23 @@ export default {
       required: false,
     },
     as: {
-      default: "h3",
+      default: 'h3',
       type: String,
       required: false,
     },
-    btntype:{
+    btntype: {
       type: String,
     },
     title: {
       type: String,
-      default: "",
+      default: '',
       required: false,
     },
 
     description: {
       type: String,
       default:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       required: false,
     },
     // blockquote: {
@@ -124,9 +125,13 @@ export default {
       type: Boolean,
       default: false,
     },
+    reversed: {
+      type: Boolean,
+      default: false,
+    },
     label: {
       type: String,
-      default: "",
+      default: '',
       required: false,
     },
     route: {
@@ -138,11 +143,16 @@ export default {
       required: false,
     },
     link: {
-      default: "",
+      default: '',
       type: String,
     },
     titleRoute: {
       type: String,
+      required: false,
+    },
+    tags: {
+      type: Array,
+      default: () => [],
       required: false,
     },
   },
@@ -150,13 +160,21 @@ export default {
   computed: {
     classes() {
       return {
-        "textblock-align": true,
-        "textblock-align--center": this.center,
-        "textblock-align--left": !this.center,
+        'textblock-align': true,
+        'textblock-align--center': this.center,
+        'textblock-align--left': !this.center,
 
-        "textblock--clamped": this.clamped,
-        "textblock--normal": !this.clamped,
+        'textblock--clamped': this.clamped,
+        'textblock--normal': !this.clamped,
+
+        reversed: this.reversed,
       };
+    },
+    isExternalTitleLink() {
+      return (
+        this.titleRoute &&
+        (this.titleRoute.startsWith('http://') || this.titleRoute.startsWith('https://'))
+      );
     },
   },
 };
@@ -183,7 +201,7 @@ export default {
 .title-link {
   text-decoration: none;
   color: inherit;
-  
+
   &:hover {
     text-decoration: underline;
     text-underline-offset: 0.2em;
@@ -228,6 +246,26 @@ export default {
 }
 .textblock-align--center {
   text-align: center;
+}
+
+.tags {
+  margin-block-end: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.tag {
+  cursor: pointer;
+  padding: 0 var(--spacing-xs) 0 0;
+}
+.tag a {
+  text-decoration: none;
+  color: var(--color-text) !important;
+}
+
+.tag a:hover {
+  text-decoration: underline;
 }
 
 /* ------------ BREAKPOINT MD ------------ */

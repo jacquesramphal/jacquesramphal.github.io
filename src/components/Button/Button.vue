@@ -28,6 +28,13 @@
           <slot>{{ label }}</slot>
         </span>
         <slot v-else />
+        <MyIcon
+          class="button-icon-right"
+          v-if="iconRight"
+          :name="`${iconRight}`"
+          :is-svg="true"
+          size="16"
+        />
       </button>
     </router-link>
     <a v-else-if="link" id="btn" :href="`${link}`" target="blank">
@@ -53,6 +60,13 @@
           <slot>{{ label }}</slot>
         </span>
         <slot v-else />
+        <MyIcon
+          class="button-icon-right"
+          v-if="iconRight"
+          :name="`${iconRight}`"
+          :is-svg="true"
+          size="16"
+        />
       </button>
     </a>
     <button
@@ -135,6 +149,10 @@ export default {
         return ["none", "left", "right"].indexOf(value) !== -1;
       },
     },
+    iconRight: {
+      type: String,
+      required: false,
+    },
   },
 
   emits: ["click"],
@@ -149,6 +167,7 @@ export default {
         [`button--${props.type || "solid"}`]: true,
         [`button--${props.size || "large"}`]: true,
         [`button--${props.icon || "none"}`]: true,
+        'external': !!props.link,
 
         // "link-left": true,
         // "link-left--left": this.left,
@@ -171,9 +190,14 @@ export default {
   font-family: inherit;
 }
 .button-icon {
-  margin-inline-end: var(    --spacing-xxs  ); // Adjust spacing between icon and label
+  margin-inline-end: var(--spacing-xxs); // Adjust spacing between icon and label
   line-height: var(--lineHeight-none);
   // Add any other styling as needed for the icon
+}
+
+.button-icon-right {
+  margin-inline-start: var(--spacing-xxs); // Adjust spacing between label and icon
+  line-height: var(--lineHeight-none);
 }
 
 /* .button-label intentionally left unstyled */
@@ -195,9 +219,6 @@ export default {
     /* animation: animate-glow 1s;  */
     transform: scale(0.98);
     /* box-shadow: var(--shadow-text); */
-  }
-  @media only screen and (max-width: 768px) {
-    width: 100%;
   }
 }
 
@@ -298,6 +319,13 @@ export default {
   }
 }
 
+.button--external.button--textlink .button-label::after {
+  content: " ↗";
+  font-size: 0.85em;
+  margin-inline-start: 0.2em;
+  display: inline-block;
+}
+
 .actve-class {
   text-decoration: underline dashed !important;
 }
@@ -348,6 +376,19 @@ export default {
     &:after {
       color: var(--foreground) !important;
     }
+  }
+  .button--textlink {
+    color: var(--link-reversed) !important;
+    &:before,
+    &:after {
+      color: var(--link-reversed) !important;
+    }
+    &:hover {
+      color: var(--link-reversed) !important;
+    }
+  }
+  .button--external.button--textlink .button-label::after {
+    color: var(--link-reversed) !important;
   }
 }
 </style>
