@@ -68,6 +68,7 @@ export default {
 
 img {
   border-radius: 0 !important;
+  filter: var(--filter);
 }
 .icon {
   display: inline-flex;

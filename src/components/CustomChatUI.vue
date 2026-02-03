@@ -909,7 +909,14 @@ export default {
   width: 60%;
   height: 60%;
   object-fit: contain;
+}
+
+.chat-button img.chat-button-icon {
   filter: var(--filter);
+}
+
+.chat-button svg.chat-button-icon {
+  color: inherit;
 }
 
 /* Chat Window */
