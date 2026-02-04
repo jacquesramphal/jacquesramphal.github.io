@@ -229,7 +229,7 @@ export default {
 
       // Add index to prevent adjacent cards from having the same color
       // Add sessionSeed to randomize colors per session (changes on page refresh)
-      const finalHash = hash + (this.index * 3) + sessionSeed;
+      const finalHash = hash + this.index * 3 + sessionSeed;
 
       return colors[Math.abs(finalHash) % colors.length];
     },
@@ -257,7 +257,7 @@ export default {
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
-  box-shadow: var(--shadow-z1);
+  box-shadow: var(--shadow-z2);
 
   @media only screen and (max-width: 767px) {
     grid-column: 1 / 4;
@@ -465,10 +465,10 @@ img {
   .info {
     display: grid;
     flex: 1;
-    padding: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-md) calc(var(--spacing-md) + var(--spacing-xs));
     z-index: 100;
     align-content: end; //alignment
-    background: linear-gradient(15deg, var(--background) 25%, rgba(0, 0, 0, 0) 120%);
+    background: linear-gradient(15deg, var(--background) 45%, rgba(0, 0, 0, 0) 170%);
   }
   .textblock {
     background: transparent !important;

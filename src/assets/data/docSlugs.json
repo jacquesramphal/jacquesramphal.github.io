@@ -4,6 +4,26 @@
       "docId": 30,
       "slug": "ask-me-anything",
       "contentFile": "doc_30.md"
+    },
+    {
+      "docId": 36,
+      "slug": "colophon",
+      "contentFile": "doc_36.md"
+    },
+    {
+      "docId": 39,
+      "slug": "ai-ethics",
+      "contentFile": "doc_39.md"
+    },
+    {
+      "docId": 40,
+      "slug": "privacy",
+      "contentFile": "doc_40.md"
+    },
+    {
+      "docId": 41,
+      "slug": "accessibility",
+      "contentFile": "doc_41.md"
     }
   ]
 }

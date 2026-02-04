@@ -53,13 +53,11 @@
               <div id="links3">
                 <p class="subtle">More</p>
                 <ul>
-                  <!-- <li class="">
-                    <a>Privacy Policy</a>
-                  </li> -->
-                  <!-- <li>
-                    <TextLink label="Offerings" route="/doc/28" />
-                  </li> -->
-                  <!-- <NewsletterSubscription style="margin-block-start: var(--size-4);"/> -->
+                  <li v-for="(item, index) in menuItems3" :key="index">
+                    <router-link :to="item.route">
+                      <DynamicText as="p" tabIndex="0" :attrs="{ class: '' }" :text="item.text" />
+                    </router-link>
+                  </li>
                 </ul>
               </div>
             </GridParent>
@@ -162,6 +160,7 @@ import AnimatedComponent from './AnimatedComponent.vue';
 import TextLink from './text/TextLink.vue';
 import GridParent from './grid/GridParent.vue';
 import SelectorCta from './Button/SelectorCta.vue';
+import DynamicText from './text/DynamicText.vue';
 // import TextArea from "@/components/form/TextArea.vue";
 // import MyButton from "@/components/Button/Button.vue";
 
@@ -175,6 +174,7 @@ export default {
     TextLink,
     GridParent,
     SelectorCta,
+    DynamicText,
   },
   props: {
     title: {
@@ -187,9 +187,8 @@ export default {
       menuItems1: [
         { text: 'Home', route: '/' },
         { text: 'Library', route: '/library' },
-        // { text: "Resume", route: "/resume" },
-        // { text: "Design System", route: "/designsystem" },
-        // { text: "Useful Links", route: "/links" },
+        { text: 'Work', route: '/work' },
+        { text: 'Resume', route: '/resume' },
         { text: 'FAQs', route: '/doc/ask-me-anything' },
       ],
       menuItems2: [
@@ -200,6 +199,13 @@ export default {
         },
         { text: 'Github', url: 'https://github.com/jacquesramphal', icon: 'icon/github-mark.svg' },
         { text: 'Email', url: 'hmailto:jake@ramphal.design', icon: 'icon/j-logo.svg' },
+      ],
+      menuItems3: [
+        { text: 'AI Ethics', route: '/doc/ai-ethics' },
+        { text: 'Colophon', route: '/doc/colophon' },
+        { text: 'Design System', route: '/designsystem' },
+        { text: 'Privacy', route: '/doc/privacy' },
+        { text: 'Accessibility', route: '/doc/accessibility' },
       ],
 
       currentTheme: 'system',

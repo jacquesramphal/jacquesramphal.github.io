@@ -2,13 +2,19 @@
   <span>
     <span
       v-if="isSvg"
-      :class="['icon', `icon-${size}`]"
-      :style="{ inlineSize: size + 'px', blockSize: size + 'px' }">
+      :class="['icon', 'icon-svg', `icon-${size}`]"
+      :style="{
+        inlineSize: size + 'px',
+        blockSize: size + 'px',
+        '--icon-src': name ? `url(${require('../assets/images/' + name)})` : 'none'
+      }">
+      <!-- Hidden img for fallback -->
       <img
         v-if="name"
         draggable="false"
         :src="require(`../assets/images/${name}`)"
         :alt="name"
+        style="display: none;"
       />
       <!-- <img v-else="url" draggable="false" :src="url" :alt="name" /> -->
     </span>
@@ -68,13 +74,27 @@ export default {
 
 img {
   border-radius: 0 !important;
-  filter: var(--filter);
 }
+
 .icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   overflow: visible;
+  color: inherit;
+}
+
+/* Use CSS mask for SVG icons to recolor them with foreground */
+.icon-svg {
+  background-color: var(--foreground);
+  -webkit-mask-image: var(--icon-src);
+  mask-image: var(--icon-src);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
 }
 .icon-16 {
   /* 16px styles */

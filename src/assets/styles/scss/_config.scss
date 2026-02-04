@@ -306,6 +306,7 @@
 
   /* IMAGE FILTERS */
   --filter: brightness(1) saturate(1);
+  --icon-filter: none;
 }
 
 /* PADDING -- TBD */
@@ -346,6 +347,7 @@
 
   /* IMAGE FILTERS */
   --filter: brightness(0.8) saturate(1.25);
+  --icon-filter: none; /* Icons use CSS masks with foreground color */
 
   /* SPACING - testing calc */
   --letterSpacing-tight: -0.12rem;
@@ -475,6 +477,7 @@
 
   /* IMAGE FILTERS */
   --filter: brightness(1) saturate(1);
+  --icon-filter: none; /* Icons use CSS masks with foreground color */
 
   /* CODE (markdown + snippets) */
   --code-bg: var(--background-darker);

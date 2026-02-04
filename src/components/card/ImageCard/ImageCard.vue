@@ -570,6 +570,25 @@ img {
     }
   }
 }
+
+// Split variant with large size
+.thumbdetail.image-card--large {
+  @media only screen and (min-width: 768px) {
+    grid-column: 1 / 3;
+    .bg {
+      aspect-ratio: 16 / 8;
+      object-position: 0% 0%;
+    }
+  }
+
+  @media only screen and (min-width: 1201px) {
+    grid-column: 1 / 4;
+    .bg {
+      aspect-ratio: 5 / 4;
+      object-position: 0% 0%;
+    }
+  }
+}
 .bg {
   mix-blend-mode: normal;
   aspect-ratio: 3 / 4;

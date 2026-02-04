@@ -173,7 +173,8 @@
     {
       "id": "case-study-softchoice",
       "type": "case-study",
-      "variant": "small",
+      "variant": "split",
+      "size": "large",
       "title": "Softchoice Website Rebrand",
       "tag": "Brand Design, Motion Design, CMS Integration",
       "subtitle": "Polishing a Brand Identity in Motion",
@@ -253,8 +254,8 @@
     {
       "id": "case-study-kg",
       "type": "case-study",
-      "variant": "split",
-      "size": "small",
+ "variant": "split",
+      "size": "large",
       "title": "K&G Loyalty Platform",
       "tag": "Product Design, Design Systems, Development",
       "description": "Founded in 1959, Kum & Go redefines convenience with customer-centric offerings. Partnering with Orium, they launched a new digital experience featuring enhanced promotions, loyalty programs, and improved merchandising.",
@@ -333,7 +334,8 @@
     {
       "id": "case-study-fortune100",
       "type": "case-study",
-      "variant": "small",
+    "variant": "split",
+      "size": "large",
       "title": "Fortune 100 Planning Tool",
       "tag": "Product Design, Dashboard Design",
       "description": "A comprehensive planning tool designed for enterprise-level strategic planning, featuring intuitive dashboards and real-time analytics for data-driven decision making.",
@@ -412,8 +414,8 @@
     {
       "id": "case-study-onlogic",
       "type": "case-study",
-      "variant": "small",
-      "size": "small",
+ "variant": "split",
+      "size": "large",
       "title": "OnLogic Composable Commerce Platform",
       "tag": "E-commerce, Developer Friendly",
       "description": "Empowering technical users with precision, flexibility, and control for configuring industrial PC systems.",
@@ -488,50 +490,6 @@
           }
         }
       ]
-    },
-    {
-      "id": "work-logo-dod",
-      "type": "design-project",
-      "title": "",
-      "description": "",
-      "alt": "Work logo",
-      "filename1": "work/dod.svg",
-      "size": "small",
-      "variant": "small",
-      "tags": []
-    },
-    {
-      "id": "work-logo-j",
-      "type": "design-project",
-      "title": "",
-      "description": "",
-      "alt": "Work logo",
-      "filename1": "work/j.svg",
-      "size": "small",
-      "variant": "small",
-      "tags": []
-    },
-    {
-      "id": "work-logo-gob",
-      "type": "design-project",
-      "title": "",
-      "description": "",
-      "alt": "Work logo",
-      "filename1": "work/gob.svg",
-      "size": "small",
-      "variant": "small",
-      "tags": []
-    },
-    
-    {
-      "id": "work-logo-mailback",
-      "type": "design-project",
-      "title": "",
-      "description": "",
-      "alt": "Work logo",
-      "filename1": "work/mailback.svg",
-      "size": "small",
-      "tags": []
     }
   ]
 }

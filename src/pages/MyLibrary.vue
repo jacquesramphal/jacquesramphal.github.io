@@ -13,7 +13,31 @@ A curated collection of my writing, professional work, and personal projects."
       searchPlaceholder="Search title, description, tags…"
     />
 
-    <GridContainer>
+    <GridContainer style="padding-block-start: 0 !important">
+      <!-- HEADER COMPONENT START -->
+      <!-- <div
+        class="grid-parent"
+        style="
+          padding-block-start: var(--spacing-lg);
+
+          padding-block-end: var(--spacing-md);
+          align-items: center;
+          grid-template-columns: repeat(3, 1fr);
+        "
+      >
+        <TextBlock
+          style="grid-column: 1 / 3"
+          title="Library"
+          as="h2"
+          description="A curated collection of my writing, professional work, and personal projects."
+        />
+
+        <p class="justify-end" style="align-self: center">
+          <router-link v-if="viewAllTo" :to="viewAllTo">View All</router-link>
+        </p>
+      </div> -->
+
+      <!-- HEADER COMPONENT END -->
       <div class="library-filterbar">
         <div class="library-filterbar__row">
           <MyInput
@@ -81,50 +105,163 @@ A curated collection of my writing, professional work, and personal projects."
           <MyButton size="small" type="textlink" label="Clear filters" @click="clearFilters" />
         </div>
       </div>
-      <GridParent tight class="posts" v-if="filteredEntries.length">
-        <!-- Articles and Tools use ArticleCard -->
-        <ArticleCard
-          borderless
-          v-for="(entry, index) in filteredArticlesAndTools"
-          :key="entry.id"
-          :alt="entry.alt"
-          :description="entry.description"
-          :filename="entry.thumbnail"
-          :label="entry.label"
-          :route="entry.route"
-          :btnroute="entry.btnroute"
-          :link="entry.link"
-          :eyebrow="entry.eyebrow"
-          :title="entry.title"
-          :tags="entry.tags"
-          :index="index"
-          @tag-click="handleTagClick"
-        />
 
-        <ImageCard
-          v-for="entry in filteredCaseStudiesAndProjects"
-          :key="entry.id"
-          class="post"
-          :data-category="entry.tag"
-          :title="entry.title"
-          :description="entry.description"
-          :cta="entry.cta"
-          :route="entry.route || (entry.btnroute ? `/${entry.btnroute}` : '')"
-          :btnroute="entry.btnroute"
-          :link="entry.link"
-          :alt="entry.alt"
-          :filename1="entry.filename1"
-          :filename2="entry.filename2"
-          :filename3="entry.filename3"
-          :style="entry.bgcolor"
-          :variant="entry.variant"
-          :size="entry.size"
-          :tags="entry.tags"
-          @tag-click="handleTagClick"
+      <!-- No filters: Show sections with headers -->
+      <template v-if="!hasActiveFilters">
+        <!-- Writing Section -->
+        <TextBlock
+          style="
+            align-items: center;
+            grid-template-columns: repeat(3, 1fr);
+            padding-block-end: var(--spacing-md);
+          "
+          title="Writing"
+          as="h2"
+          description=""
+          class="section-header"
         />
-      </GridParent>
-      <p v-else class="subtle library-empty">No matches.</p>
+        <div v-if="filteredArticlesAndTools.length" class="library-section">
+          <GridParent tight class="posts">
+            <ArticleCard
+              cover
+              v-for="(entry, index) in filteredArticlesAndTools"
+              :key="entry.id"
+              :alt="entry.alt"
+              :description="entry.description"
+              :filename="entry.thumbnail"
+              :label="entry.label"
+              :route="entry.route"
+              :btnroute="entry.btnroute"
+              :link="entry.link"
+              :eyebrow="entry.eyebrow"
+              :title="entry.title"
+              :tags="entry.tags"
+              :index="index"
+              @tag-click="handleTagClick"
+            />
+          </GridParent>
+        </div>
+        <!-- Case Studies Section -->
+        <div v-if="filteredCaseStudiesAndProjects.length" class="library-section">
+          <TextBlock
+            style="
+              align-items: center;
+              grid-template-columns: repeat(3, 1fr);
+
+              padding-block-end: var(--spacing-md);
+            "
+            title="Case Studies & Projects"
+            as="h2"
+            description=""
+            class="section-header"
+          />
+          <GridParent tight class="posts">
+            <ArticleCard
+              cover
+              v-for="entry in filteredCaseStudiesAndProjects"
+              :key="entry.id"
+              :alt="entry.alt"
+              :description="entry.description"
+              :filename="entry.filename1"
+              :label="entry.label"
+              :route="entry.route"
+              :btnroute="entry.btnroute"
+              :link="entry.link"
+              :eyebrow="entry.eyebrow"
+              :title="entry.title"
+              :tags="entry.tags"
+              :index="index"
+              @tag-click="handleTagClick"
+            />
+            <ImageCard
+              v-for="entry in filteredCaseStudiesAndProjects"
+              :key="entry.id"
+              class="post"
+              :data-category="entry.tag"
+              :title="entry.title"
+              :description="entry.description"
+              :cta="entry.cta"
+              :route="entry.route || (entry.btnroute ? `/${entry.btnroute}` : '')"
+              :btnroute="entry.btnroute"
+              :link="entry.link"
+              :alt="entry.alt"
+              :filename1="entry.filename1"
+              :filename2="entry.filename2"
+              :filename3="entry.filename3"
+              :style="entry.bgcolor"
+              :variant="entry.variant"
+              :size="entry.size"
+              :tags="entry.tags"
+              @tag-click="handleTagClick"
+            />
+          </GridParent>
+        </div>
+      </template>
+
+      <!-- Filters active: Show all in one list -->
+      <template v-else>
+        <GridParent tight class="posts" v-if="filteredEntries.length">
+          <!-- Articles and Tools use ArticleCard -->
+          <ArticleCard
+            borderless
+            v-for="(entry, index) in filteredArticlesAndTools"
+            :key="entry.id"
+            :alt="entry.alt"
+            :description="entry.description"
+            :filename="entry.thumbnail"
+            :label="entry.label"
+            :route="entry.route"
+            :btnroute="entry.btnroute"
+            :link="entry.link"
+            :eyebrow="entry.eyebrow"
+            :title="entry.title"
+            :tags="entry.tags"
+            :index="index"
+            @tag-click="handleTagClick"
+          />
+
+          <ImageCard
+            v-for="entry in filteredCaseStudiesAndProjects"
+            :key="entry.id"
+            class="post"
+            :data-category="entry.tag"
+            :title="entry.title"
+            :description="entry.description"
+            :cta="entry.cta"
+            :route="entry.route || (entry.btnroute ? `/${entry.btnroute}` : '')"
+            :btnroute="entry.btnroute"
+            :link="entry.link"
+            :alt="entry.alt"
+            :filename1="entry.filename1"
+            :filename2="entry.filename2"
+            :filename3="entry.filename3"
+            :style="entry.bgcolor"
+            :variant="entry.variant"
+            :size="entry.size"
+            :tags="entry.tags"
+            @tag-click="handleTagClick"
+          />
+        </GridParent>
+
+        <p v-else class="subtle library-empty">No matches.</p>
+      </template>
     </GridContainer>
+    <!-- <GridParent rows tight class="posts" v-if="filteredEntries.length">
+      <TextImage
+        v-for="entry in filteredCaseStudiesAndProjects"
+        :key="`textimage-${entry.id}`"
+        :title="entry.title"
+        :description="entry.description"
+        :cta="entry.cta"
+        :route="entry.route || (entry.btnroute ? `/${entry.btnroute}` : '')"
+        :btnroute="entry.btnroute"
+        :link="entry.link"
+        :alt="entry.alt"
+        :filename="entry.filename1"
+        :tags="entry.tags"
+        @tag-click="handleTagClick"
+      />
+    </GridParent> -->
   </PageWrapper>
 </template>
 
@@ -136,6 +273,8 @@ import ArticleCard from '@/components/card/ArticleCard/ArticleCard.vue';
 import GridContainer from '@/components/grid/GridContainer.vue';
 import GridParent from '@/components/grid/GridParent.vue';
 import MyInput from '@/components/form/MyInput.vue';
+import TextBlock from '@/components/text/TextBlock/TextBlock.vue';
+import TextImage from '@/components/card/TextImage.vue';
 
 export default {
   name: 'MyLibrary',
@@ -146,6 +285,7 @@ export default {
     GridContainer,
     GridParent,
     MyInput,
+    TextBlock,
   },
   props: {},
   data() {
@@ -315,7 +455,12 @@ export default {
 }
 
 .library-section {
-  margin-block: var(--spacing-lg);
+  margin-block-end: var(--spacing-lg);
+  grid-column: 1 / -1;
+}
+
+.section-header {
+  grid-column: 1 / -1;
 }
 
 .library-section__header {

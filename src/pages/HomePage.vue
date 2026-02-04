@@ -12,33 +12,10 @@
       title="I’m Jacques—Design Lead at Orium turning systems, code, and AI into real products."
     />
     <!-- :title="title" -->
-
-    <!-- WRITING SECTION - MOVED UP FOR PROMINENCE -->
-    <AnimatedComponent>
-      <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
-    </AnimatedComponent>
-
-    <!-- ABOUT SECTION -->
-    <AnimatedComponent>
-      <TextGrid3
-        title="About"
-        as="h2"
-        description=""
-        eyebrow1=""
-        detail1="I’m a Senior Product Designer and design lead in Toronto, and for the last 15 years at Orium I’ve been obsessed with making design actually ship. <br/><br/>I architect token-based design systems and the workflows around them so designers and developers spend less time arguing over specs and more time shipping. Through Genie, our AI/AX platform, I’m exploring how humans and AI share work, not just chat. <br/><br/>I still code my own designs, mentor designers into developers, and care a lot about teams feeling calm, focused, and proud of what they put into production."
-      />
-    </AnimatedComponent>
-
     <!-- FEATURED WORK SECTION - SPLIT FROM PLAY -->
     <GridContainer style="padding-block-end: var(--spacing-md) !important">
       <div class="grid-parent" style="align-items: center; grid-template-columns: repeat(3, 1fr)">
-        <TextBlock
-          style="grid-column: 1 / 3"
-          flex="1"
-          title="Featured Work"
-          as="h2"
-          description=""
-        />
+        <TextBlock style="grid-column: 1 / 3" flex="1" title="Featured" as="h2" description="" />
 
         <p class="justify-end" style="align-self: center">
           <router-link :to="{ name: 'Library', hash: '#work' }">View All Work</router-link>
@@ -61,6 +38,22 @@
         />
       </GridParent>
     </GridContainer>
+
+    <!-- ABOUT SECTION -->
+    <AnimatedComponent>
+      <TextGrid3
+        title="About"
+        as="h2"
+        description=""
+        eyebrow1=""
+        detail1="I’m a Senior Product Designer and design lead in Toronto, and for the last 15 years at Orium I’ve been obsessed with making design actually ship. <br/><br/>I architect token-based design systems and the workflows around them so designers and developers spend less time arguing over specs and more time shipping. Through Genie, our AI/AX platform, I’m exploring how humans and AI share work, not just chat. <br/><br/>I still code my own designs, mentor designers into developers, and care a lot about teams feeling calm, focused, and proud of what they put into production."
+      />
+    </AnimatedComponent>
+
+    <!-- WRITING SECTION - MOVED UP FOR PROMINENCE -->
+    <AnimatedComponent>
+      <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
+    </AnimatedComponent>
 
     <!-- Decorative Cards -->
     <!-- <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />
