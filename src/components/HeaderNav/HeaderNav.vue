@@ -14,11 +14,7 @@
               text-decoration: none !important;
             "
           >
-            <router-link
-              to="/"
-              class="nav-avatar-link"
-              aria-label="View resume"
-            >
+            <router-link to="/" class="nav-avatar-link" aria-label="View resume">
               <img
                 class="nav-avatar"
                 src="@/assets/images/portrait.jpg"
@@ -32,8 +28,8 @@
                 alt="Jacques Ramphal"
               /> -->
             </router-link>
-            
-            <p>Jacques Ramphal </p>
+
+            <p>Jacques Ramphal</p>
             <!-- <TextLink label="Jake Ramphal" route="/" /> -->
             <!-- <BreadCrumb
               :isDesktopScreen="isDesktopScreen"
@@ -43,25 +39,18 @@
         </div>
 
         <ul class="links justify-end glow">
-          <li
-            class="glow animate delay-2"
-            v-if="!breadcrumb"
-            v-show="isDesktopScreen"
-          >
+          <li class="glow animate delay-2" v-if="!breadcrumb" v-show="isDesktopScreen">
             <TextLink label="Library" route="/library" />
           </li>
           <li class="glow animate delay-1-5" v-show="isDesktopScreen">
-            <TextLink
-              label="CV"
-              link="https://linkedin.com/in/ramphal-design"
-            />
+            <TextLink label="CV" link="https://linkedin.com/in/ramphal-design" />
           </li>
           <!-- <li  v-show="isMobileScreen && !menuOpen" class="nav-link" tabindex="0">
             <slot name="menu-button-mobile"></slot>
           </li> -->
-          <span class="glow animate delay-1">
+          <!-- <span class="glow animate delay-1">
             <slot name="menu-button"></slot
-          ></span>
+          ></span> -->
         </ul>
       </nav>
     </GridContainer>
@@ -69,14 +58,14 @@
 </template>
 
 <script>
-import GridContainer from "../grid/GridContainer.vue";
+import GridContainer from '../grid/GridContainer.vue';
 // import BreadCrumb from "../BreadCrumb.vue";
-import TextLink from "../text/TextLink.vue";
+import TextLink from '../text/TextLink.vue';
 // import ThemeButton from "../ThemeButton.vue";
 
 const OFFSET = 60;
 export default {
-  name: "HeaderNav",
+  name: 'HeaderNav',
   components: { GridContainer, TextLink },
   props: {
     breadcrumb: {
@@ -102,7 +91,7 @@ export default {
   },
   data() {
     return {
-      backgroundColor: "#ffffff", // Not in use - Replace with your hex color
+      backgroundColor: '#ffffff', // Not in use - Replace with your hex color
       showNavbar: true,
       lastScrollPosition: 0,
       scrollValue: 0,
@@ -112,7 +101,7 @@ export default {
   },
   computed: {
     isMarkdownPage() {
-      return this.$route?.path?.startsWith("/doc/");
+      return this.$route?.path?.startsWith('/doc/');
     },
     // not in use - start
     backgroundStyle() {
@@ -125,19 +114,19 @@ export default {
   // not in use - end
   mounted() {
     this.lastScrollPosition = window.pageYOffset;
-    window.addEventListener("scroll", this.onScroll);
-    window.addEventListener("resize", this.onWindowResize);
-    const viewportMeta = document.createElement("meta");
-    viewportMeta.name = "viewport";
-    viewportMeta.content = "width=device-width, initial-scale=1";
+    window.addEventListener('scroll', this.onScroll);
+    window.addEventListener('resize', this.onWindowResize);
+    const viewportMeta = document.createElement('meta');
+    viewportMeta.name = 'viewport';
+    viewportMeta.content = 'width=device-width, initial-scale=1';
     document.head.appendChild(viewportMeta);
 
     this.onWindowResize();
   },
 
   beforeUnmount() {
-    window.removeEventListener("scroll", this.onScroll);
-    window.removeEventListener("resize", this.onWindowResize);
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onWindowResize);
   },
 
   methods: {
@@ -172,7 +161,7 @@ export default {
     },
     setFont(font) {
       this.selectedFont = font;
-      this.$emit("update:font", font);
+      this.$emit('update:font', font);
     },
   },
   watch: {
@@ -257,7 +246,7 @@ button {
 }
 /* Adds extra background colour to account for bouncing effect */
 .navbar::after {
-  content: "";
+  content: '';
   position: absolute;
   inset-block-start: -100%;
   inset-block-end: 0; /* Adjust the value to control the width of the additional background */

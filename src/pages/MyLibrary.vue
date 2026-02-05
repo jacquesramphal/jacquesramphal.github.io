@@ -274,7 +274,6 @@ import GridContainer from '@/components/grid/GridContainer.vue';
 import GridParent from '@/components/grid/GridParent.vue';
 import MyInput from '@/components/form/MyInput.vue';
 import TextBlock from '@/components/text/TextBlock/TextBlock.vue';
-import TextImage from '@/components/card/TextImage.vue';
 
 export default {
   name: 'MyLibrary',
