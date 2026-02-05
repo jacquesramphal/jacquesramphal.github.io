@@ -124,5 +124,36 @@ export default {
         &::after
           content: '•'
           margin: 0 .5rem 0 .5rem
+
+// Print styles - compress spacing and hide blockquotes
+@media print
+  .resume-segment-entry
+    margin-block-end: 0.2rem // Further compressed
+    page-break-inside: avoid // Don't split entries across pages
+
+  .resume-segment-entry-information
+    margin-block-end: 0.1rem // Further compressed
+
+  .resume-segment-entry-information-date
+    margin-block-end: 0.1rem // Further compressed
+
+  .resume-segment-entry-information-location
+    margin-block-end: 0.1rem // Further compressed
+
+  .resume-segment-entry-title
+    margin-block-end: 0.1rem // Further compressed
+
+  // Hide callouts to save space
+  blockquote
+    display: none
+
+  // Prevent headings from being orphaned
+  h3
+    font-size: 0.6875rem // 11pt for job titles
+    font-weight: 700
+    page-break-after: avoid
+    margin: 0
+    line-height: 1.1
+
 //  >.resume-segment-entry-title
 </style>

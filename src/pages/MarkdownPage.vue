@@ -38,6 +38,12 @@
           @headings="updateHeadings"
         />
         <div class="markdown-share">
+          <button @click="handlePrint" class="print-button" aria-label="Print page">
+            <span class="print-button__icon">
+              <MyIcon name="icon/print.svg" :is-svg="true" :size="16" />
+            </span>
+            <span class="print-button__label">Print</span>
+          </button>
           <ShareWidget :title="shareTitle" />
         </div>
       </main>
@@ -70,6 +76,7 @@ import frontMatter from "front-matter";
 import MarkdownTOC from "@/components/MarkdownTOC.vue";
 import HeroBanner from "@/components/HeroBanner/HeroBanner.vue";
 import ShareWidget from "@/components/blog/ShareWidget.vue";
+import MyIcon from "@/components/Icon.vue";
 import {
   getDocRecordById,
   getDocRecordBySlug,
@@ -595,7 +602,13 @@ export default {
       return fallbackImage;
     });
 
+    // Print handler
+    const handlePrint = () => {
+      window.print();
+    };
+
     return {
+      handlePrint,
       pageData,
       markdownContent,
       processedMarkdown,
@@ -627,6 +640,7 @@ export default {
     MarkdownTOC,
     HeroBanner,
     ShareWidget,
+    MyIcon,
     // TextStats,
     GridContainer,
   },
@@ -960,7 +974,54 @@ export default {
 .markdown-share {
   margin-block-start: var(--spacing-lg);
   display: flex;
+  gap: var(--spacing-xs);
   justify-content: flex-end;
+  align-items: center;
+}
+
+.print-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  padding: 0.85rem 1.15rem;
+
+  color: var(--foreground);
+  background: var(--background);
+  border: var(--border);
+  border-radius: 999px;
+
+  box-shadow: var(--shadow-light);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease, transform 0.06s ease;
+
+  &:hover {
+    background: var(--background-darker);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--link) 35%, transparent), var(--shadow-light);
+  }
+}
+
+.print-button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 16px;
+  block-size: 16px;
+  flex: 0 0 16px;
+}
+
+.print-button__label {
+  font-size: var(--font-400);
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .markdown-main {

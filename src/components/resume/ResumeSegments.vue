@@ -1,12 +1,8 @@
 <template>
-  <div class="resume-segments" >
+  <div class="resume-segments">
     <div v-for="(segment, i) in segments" :key="i" class="resume-segment">
-      <div class=" resume-segment-title">
-        <DynamicText
-          v-if="segment.title"
-          :text="segment.title"
-          :attrs="{ class: 'subtle' }"
-        />
+      <div class="resume-segment-title">
+        <DynamicText v-if="segment.title" :text="segment.title" :attrs="{ class: 'subtle' }" />
       </div>
       <!-- <hr /> -->
 
@@ -28,9 +24,9 @@
 </template>
 
 <script>
-import ResumeSegmentEntry from "@/components/resume/ResumeSegmentEntry.vue";
+import ResumeSegmentEntry from '@/components/resume/ResumeSegmentEntry.vue';
 export default {
-  name: "ResumeSegments",
+  name: 'ResumeSegments',
   components: { ResumeSegmentEntry },
   props: {
     segments: {
@@ -54,7 +50,7 @@ export default {
   }
   // background-color: lightblue;
   margin: var(--spacing-md) 0;
-  
+
   @media only screen and (min-width: 768px) {
     margin-block-end: var(--spacing-lg);
   }

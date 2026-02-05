@@ -12,7 +12,7 @@
         
           <GridParent tight class="outer">
             <div class="" style="display: flex; flex-direction: row; gap: var(--spacing-xs);">
-            <router-link to="/resume"
+            <router-link to="/doc/cv"
               ><img
                 id="avatar"
                 class="justify-end"
@@ -32,7 +32,7 @@
                 <router-link to="/designsystem">Design System</router-link>
               </li>
               <li>
-                <router-link to="/resume">Resume</router-link>
+                <router-link to="/doc/cv">Resume</router-link>
               </li>
             </ul>
 

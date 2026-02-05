@@ -2,7 +2,7 @@
   <div class="author-bio-bar">
     <GridParent tight class="author-content">
       <div class="author-image">
-        <router-link to="/resume">
+        <router-link to="/doc/cv">
           <img
             src="@/assets/images/portrait.jpg"
             alt="Jacques Ramphal"

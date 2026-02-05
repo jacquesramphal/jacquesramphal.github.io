@@ -562,3 +562,147 @@ h1>a:hover {
 
 /* ------------ BREAKPOINT XXL ------------ */
 @media only screen and (min-width: 1680px) {}
+
+/* ------------ PRINT STYLES ------------ */
+@media print {
+  :root {
+    /* Further compressed line heights for one-page fit */
+    --lineHeight-taller: 1.2;   /* was 1.8 */
+    --lineHeight-tall: 1.15;    /* was 1.5 */
+    --lineHeight-base: 1.2;     /* was 1.4 */
+    --lineHeight-short: 1.1;    /* was 1.2 */
+    --lineHeight-shorter: 1.05; /* was 1.1 */
+  }
+
+  /* Use standard Arial/Helvetica for ATS */
+  * {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-variation-settings: normal !important;
+    -webkit-font-smoothing: auto !important;
+    -moz-osx-font-smoothing: auto !important;
+  }
+
+  p, blockquote {
+    line-height: 1.2;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  /* Remove letter spacing for tighter fit */
+  h1, h2, h3, h4, h5, h6, p {
+    letter-spacing: 0 !important;
+  }
+
+  /* Optimize bullet lists for print */
+  ul, ol {
+    margin: 0.2rem 0;
+    padding-inline-start: 1.2rem;
+    line-height: 1.2;
+
+    li {
+      margin-block-end: 0.1rem;
+      line-height: 1.2;
+      color: black !important;
+      font-size: 10pt !important;
+
+      a {
+        color: black !important;
+        text-decoration: none !important;
+      }
+
+      * {
+        color: black !important;
+      }
+    }
+  }
+
+  /* Force smaller headings in markdown/content areas */
+  .markdown-main, .content, #markdown-content-end {
+    h1 {
+      font-size: 14pt !important;
+      margin-block-end: 0.1rem !important;
+    }
+
+    h2 {
+      font-size: 11pt !important;
+      font-weight: 700 !important;
+      margin-block-end: 0.15rem !important;
+      margin-block-start: 0.25rem !important;
+    }
+
+    h3 {
+      font-size: 10pt !important;
+      font-weight: 700 !important;
+      margin-block-end: 0.1rem !important;
+      margin-block-start: 0.15rem !important;
+    }
+
+    p {
+      font-size: 10pt !important;
+      margin: 0.1rem 0 !important;
+      color: black !important;
+      line-height: 1.2 !important;
+    }
+
+    a {
+      font-size: 10pt !important;
+      color: black !important;
+      text-decoration: none !important;
+    }
+  }
+
+  /* Hide unnecessary UI components in print - specific selectors only */
+  .markdown-share,
+  .share-widget,
+  .toc-sidebar-wrap,
+  nav,
+  footer,
+  .hero-banner,
+  .hero-fullscreen-image,
+  .custom-chat-ui,
+  button,
+  .header-nav,
+  .main-footer,
+  .simple-footer,
+  .sticky-nav,
+  .author-bio-bar,
+  div#related-writing-section,
+  #related-writing-section,
+  #related-writing-section * {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Optimize markdown content for one-page fit */
+  .markdown-main,
+  .markdown-page-wrapper,
+  .content {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .markdown-layout {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* Compress all margins and padding globally */
+  section, article {
+    margin-block-end: 0.3rem;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+}

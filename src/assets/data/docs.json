@@ -6,6 +6,18 @@
   "label": "Feature Label",
   "entries": [
     {
+      "id": 15,
+      "docId": 42,
+      "slug": "cv",
+      "title": "Curriculum Vitae",
+      "eyebrow": "Resume",
+      "description": "ATS-optimized resume for Jacques Ramphal - Senior Product Designer & Design Lead specializing in design systems, AI/AX, and design-to-development integration.",
+      "route": "/doc/cv",
+      "contentFile": "doc_42.md",
+      "thumbnail": "article/jacques.jpg",
+      "alt": "Jacques Ramphal - Curriculum Vitae"
+    },
+    {
       "id": 11,
       "title": "Design Tokens: The Unseen Hero in a Changing Design Landscape",
       "eyebrow": "Design Systems",

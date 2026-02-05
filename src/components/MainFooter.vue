@@ -8,7 +8,7 @@
         >
           <div class="">
             <!-- Profile Picture -->
-            <router-link to="/resume"
+            <router-link to="/doc/cv"
               ><img
                 id="avatar"
                 class="justify-end"
@@ -188,7 +188,7 @@ export default {
         { text: 'Home', route: '/' },
         { text: 'Library', route: '/library' },
         { text: 'Work', route: '/work' },
-        { text: 'Resume', route: '/resume' },
+        { text: 'Resume', route: '/doc/cv' },
         { text: 'FAQs', route: '/doc/ask-me-anything' },
       ],
       menuItems2: [
