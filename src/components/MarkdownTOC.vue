@@ -1,5 +1,5 @@
 <template>
-  <aside ref="tocContainer" class="markdown-toc" >
+  <aside ref="tocContainer" class="markdown-toc">
     <nav v-if="h2h3Headings.length > 0">
       <ul class="toc-list">
         <li
@@ -12,7 +12,7 @@
             'animate',
             `toc-item--level-${heading.level}`,
             { 'toc-item--active': activeHeading === heading.slug },
-            getDelayClass(index)
+            getDelayClass(index),
           ]"
         >
           <a
@@ -33,7 +33,7 @@
 
 <script>
 export default {
-  name: "MarkdownTOC",
+  name: 'MarkdownTOC',
   props: {
     headings: {
       type: Array,
@@ -46,16 +46,16 @@ export default {
   },
   computed: {
     h2h3Headings() {
-      return this.headings.filter(heading => heading.level === 2);
+      return this.headings.filter((heading) => heading.level === 2);
     },
   },
   mounted() {
-    console.log("MarkdownTOC mounted with headings:", this.headings);
+    console.log('MarkdownTOC mounted with headings:', this.headings);
   },
   watch: {
     headings: {
       handler(newHeadings) {
-        console.log("MarkdownTOC headings updated:", newHeadings);
+        console.log('MarkdownTOC headings updated:', newHeadings);
       },
       immediate: true,
     },
@@ -84,10 +84,10 @@ export default {
     scrollToActiveItem(slug) {
       const tocContainer = this.$refs.tocContainer;
       if (!tocContainer) return;
-      
+
       // Find the active item by data-slug attribute
       const activeItem = tocContainer.querySelector(`[data-slug="${slug}"]`);
-      
+
       if (activeItem) {
         // Find the scrollable parent container (toc-drawer__content)
         let scrollContainer = tocContainer.closest('.toc-drawer__content');
@@ -102,28 +102,28 @@ export default {
             scrollContainer = scrollContainer.parentElement;
           }
         }
-        
+
         if (scrollContainer) {
           const itemRect = activeItem.getBoundingClientRect();
           const containerRect = scrollContainer.getBoundingClientRect();
           const scrollTop = scrollContainer.scrollTop;
-          
+
           // Calculate position relative to container
           const itemTop = itemRect.top - containerRect.top + scrollTop;
           const itemBottom = itemTop + itemRect.height;
           const containerHeight = containerRect.height;
           const currentScroll = scrollTop;
-          
+
           // Scroll to center the active item if it's not fully visible
           let targetScroll = currentScroll;
           if (itemTop < currentScroll) {
             // Item is above visible area
-            targetScroll = itemTop - (containerHeight / 4); // Scroll to show item with some padding
+            targetScroll = itemTop - containerHeight / 4; // Scroll to show item with some padding
           } else if (itemBottom > currentScroll + containerHeight) {
             // Item is below visible area
-            targetScroll = itemBottom - containerHeight + (containerHeight / 4);
+            targetScroll = itemBottom - containerHeight + containerHeight / 4;
           }
-          
+
           scrollContainer.scrollTo({
             top: targetScroll,
             behavior: 'smooth',
@@ -140,25 +140,25 @@ export default {
     },
     handleClick(e, slug) {
       e.preventDefault();
-      
+
       // Find the heading element by ID
       const element = document.getElementById(slug);
-      
+
       if (element) {
         // Get the element's position
         const rect = element.getBoundingClientRect();
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const elementTop = rect.top + scrollTop;
-        
+
         // Scroll to element with offset for any fixed headers
         const offset = 100;
         const targetPosition = Math.max(0, elementTop - offset);
-        
+
         window.scrollTo({
           top: targetPosition,
-          behavior: "smooth",
+          behavior: 'smooth',
         });
-        
+
         // Update URL hash
         if (window.history && window.history.pushState) {
           window.history.pushState(null, null, `#${slug}`);
@@ -173,17 +173,17 @@ export default {
           const rect = heading.getBoundingClientRect();
           const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
           const elementTop = rect.top + scrollTop;
-          
+
           window.scrollTo({
             top: Math.max(0, elementTop - 100),
-            behavior: "smooth",
+            behavior: 'smooth',
           });
-          
+
           if (window.history && window.history.pushState) {
             window.history.pushState(null, null, `#${slug}`);
           }
         } else {
-          console.warn("TOC: Could not find heading with id:", slug);
+          console.warn('TOC: Could not find heading with id:', slug);
         }
       }
     },
@@ -200,7 +200,6 @@ export default {
   padding: 0;
   position: relative;
   margin-block-start: 0;
-
 }
 
 .toc-list {
@@ -220,9 +219,8 @@ export default {
 
 .toc-item--level-1 {
   font-size: var(--font-xs);
-  font-weight: var(--font-weight-semibold);
   margin-block-start: var(--spacing-xs);
-  
+
   &:first-child {
     margin-block-start: 0;
   }
@@ -237,7 +235,6 @@ export default {
 .toc-item--level-3 {
   font-size: var(--font-xs);
   padding-inline-start: var(--spacing-md);
-  color: var(--foreground-subtle) !important;
 }
 
 .toc-item--level-4,
@@ -245,22 +242,23 @@ export default {
 .toc-item--level-6 {
   font-size: var(--font-xs);
   padding-inline-start: var(--spacing-lg);
-  color: var(--foreground-subtle) !important;
+  color: var(--foreground-subtle);
 }
 
 // Override global link styles - inactive items use muted color
 .markdown-toc .toc-item:not(.toc-item--active) a,
 .markdown-toc .toc-item a:not(.toc-link--active) {
-  color: var(--foreground-subtle) !important;
-  text-decoration: none !important;
+  opacity: 0.75;
+  text-decoration: none;
   transition: color 0.2s ease;
   display: block;
   padding: 0;
   font-size: inherit;
-  
+
   &:hover {
-    color: var(--foreground) !important;
-    text-decoration: underline !important;
+    color: var(--foreground);
+    opacity: 1;
+    text-decoration: underline;
     text-underline-offset: 0.2em;
     text-decoration-thickness: 1px;
   }
@@ -269,16 +267,17 @@ export default {
 // Active items use foreground color
 .markdown-toc .toc-link--active,
 .markdown-toc .toc-item--active a {
-  color: var(--foreground) !important;
-  font-size: var(--font-xs) !important;
-  font-weight: inherit;
-  text-decoration: underline !important;
+  color: var(--foreground);
+  font-size: var(--font-xs);
+  opacity: 1;
+
+  text-decoration: underline;
   text-underline-offset: 0.2em;
   text-decoration-thickness: 1px;
-  
+
   &:hover {
-    color: var(--foreground) !important;
-    text-decoration: underline !important;
+    color: var(--foreground);
+    text-decoration: underline;
     text-underline-offset: 0.2em;
     text-decoration-thickness: 1px;
   }
@@ -309,7 +308,7 @@ export default {
 .toc-empty {
   padding: var(--spacing-sm);
   font-size: var(--font-xs);
-  color: var(--foreground-subtle) !important;
+  color: var(--foreground-subtle);
 }
 
 .toc-debug {
@@ -317,4 +316,3 @@ export default {
   padding: 0;
 }
 </style>
-

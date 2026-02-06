@@ -596,10 +596,12 @@ img {
   object-fit: cover;
 }
 .thumbdetail {
+  display: grid;
   background-color: var(--background-darker) !important;
   grid-column: 1 / 4;
   grid-template-rows: 2, 1fr;
   text-decoration: none !important;
+  min-height: 400px;
 
   @media only screen and (min-width: 768px) {
     grid-gap: var(--spacing-md);
@@ -613,8 +615,21 @@ img {
   }
 }
 
+.thumbdetail2 {
+  display: grid;
+  background-color: var(--background-darker) !important;
+  grid-column: 1 / 4;
+  text-decoration: none !important;
+  min-height: 400px;
+}
+
 .text-container {
   padding: var(--spacing-md) var(--spacing-md) 0 var(--spacing-md) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 100% !important;
+  height: 100% !important;
+  block-size: 100% !important;
 
   @media only screen and (min-width: 768px) {
     padding: var(--spacing-sm) 0 var(--spacing-md) var(--spacing-md) !important;
@@ -626,15 +641,28 @@ img {
 }
 .text-container2 {
   padding: var(--spacing-md) var(--spacing-md) 0 var(--spacing-md) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 100% !important;
+  height: 100% !important;
+  block-size: 100% !important;
 }
 
 .textblock {
   text-decoration: none !important;
   text-decoration: none !important;
+  height: 100%;
 }
 
 .textblock:hover {
   text-decoration: none !important;
+}
+
+// Push eyebrow/title/description to bottom for cover and image card variants
+.thumbdetail .textblock .eyebrow,
+.thumbdetail2 .textblock .eyebrow,
+.defaultcard--cover .textblock .eyebrow {
+  margin-block-start: auto;
 }
 
 .title {
@@ -643,11 +671,21 @@ img {
 
 .text {
   // max-width: 60px;
-
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  height: 100% !important;
   overflow: visible !important;
   @media only screen and (min-width: 768px) {
     grid-column: 1 / 2;
   }
+}
+.text2 {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  height: 100% !important;
+  overflow: visible !important;
 }
 .wrap {
 }

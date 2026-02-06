@@ -157,7 +157,6 @@ A curated collection of my writing, professional work, and personal projects."
           />
           <GridParent tight class="posts">
             <ArticleCard
-              cover
               v-for="entry in filteredCaseStudiesAndProjects"
               :key="entry.id"
               :alt="entry.alt"
@@ -171,6 +170,26 @@ A curated collection of my writing, professional work, and personal projects."
               :title="entry.title"
               :tags="entry.tags"
               :index="index"
+              @tag-click="handleTagClick"
+            />
+            <ImageCard
+              v-for="entry in filteredCaseStudiesAndProjects"
+              :key="entry.id"
+              class="post"
+              :data-category="entry.tag"
+              :title="entry.title"
+              :description="entry.description"
+              :cta="entry.cta"
+              :route="entry.route || (entry.btnroute ? `/${entry.btnroute}` : '')"
+              :btnroute="entry.btnroute"
+              :link="entry.link"
+              :alt="entry.alt"
+              :filename1="entry.filename1"
+              :filename2="entry.filename2"
+              :filename3="entry.filename3"
+              :style="entry.bgcolor"
+              size="small"
+              :tags="entry.tags"
               @tag-click="handleTagClick"
             />
             <ImageCard

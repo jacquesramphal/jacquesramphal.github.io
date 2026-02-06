@@ -1,11 +1,11 @@
-<header>
+
 
 # Ask Me Anything
 
-#### I’m Jacques, a Senior Product Designer and design lead based in Toronto. I work at the intersection of design systems, code, and AI—designing experiences that actually ship.
+#### I'm Jacques, a Senior Product Designer and design lead based in Toronto. I work at the intersection of design systems, code, and AI—designing experiences that actually ship.
 
-</header>
 
+> **Need a quick answer?** Try the AI chatbot in the bottom right—it's trained on my entire site and can help you find specific information or answer questions about my work, experience, and approach.
 
 ## About Me
 

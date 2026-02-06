@@ -185,9 +185,7 @@ export default {
   data() {
     return {
       menuItems1: [
-        { text: 'Home', route: '/' },
         { text: 'Library', route: '/library' },
-        { text: 'Work', route: '/work' },
         { text: 'Resume', route: '/doc/cv' },
         { text: 'FAQs', route: '/doc/ask-me-anything' },
       ],
@@ -203,7 +201,7 @@ export default {
       menuItems3: [
         { text: 'AI Ethics', route: '/doc/ai-ethics' },
         { text: 'Colophon', route: '/doc/colophon' },
-        { text: 'Design System', route: '/designsystem' },
+        // { text: 'Design System', route: '/designsystem' },
         { text: 'Privacy', route: '/doc/privacy' },
         { text: 'Accessibility', route: '/doc/accessibility' },
       ],

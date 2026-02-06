@@ -149,16 +149,11 @@ setup(props, { emit }) {
 <style></style>
 
 <style lang="scss" scoped>
-* {
-  color: inherit;
-  // font-weight: var(--fontWeight-medium);
-}
-// #richlink {
-//   color: var(--link);
+// Links should inherit global link styles, not parent element colors
+// * {
+//   color: inherit;
 // }
-// a {
-//   text-decoration: underline !important;
-// }
+
 .link-size {
   /* background: var(--color-xlight); */
   display: flex;

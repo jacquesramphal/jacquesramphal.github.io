@@ -118,7 +118,7 @@
       />
     </div>
 
-    <CardRow2 title="Read the Docs" kind="writing" :viewAllTo="{ name: 'WritingIndex' }" />
+    <CardRow2 title="Read the Docs" kind="writing" :viewAllTo="{ name: 'Library' }" />
 
     <HeroBanner
       center

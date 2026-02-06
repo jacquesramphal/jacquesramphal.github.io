@@ -243,7 +243,7 @@ export default {
   background-color: transparent !important;
   color: var(--link) !important;
   border: 1px solid var(--link) !important;
-  font-weight: var(--fontWeight-normal);
+  font-weight: var(--fontWeight-medium);
 
   &:before,
   &:after {
@@ -263,7 +263,7 @@ export default {
   color: var(--text) !important;
   background-color: transparent;
   border: 1px solid transparent !important;
-  font-weight: var(--fontWeight-normal);
+  font-weight: var(--fontWeight-medium);
   &:before,
   &:after {
     color: var(--link) !important;
@@ -292,10 +292,9 @@ export default {
 }
 
 .button--textlink {
-  color: var(--foreground) !important;
-
   padding: 0 !important;
-  color: var(--link);
+  color: var(--link) !important;
+  font-weight: var(--fontWeight-medium);
   background-color: transparent;
   border: none;
   text-decoration: underline;

@@ -64,7 +64,7 @@
       </div>
     </GridContainer>
     <div id="related-writing-section" style="background: transparent !important;">
-      <CardRow2 title="Related Writing" kind="writing" :viewAllTo="{ name: 'WritingIndex' }" />
+      <CardRow2 title="Related Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
     </div>
   </PageWrapper>
 </template>

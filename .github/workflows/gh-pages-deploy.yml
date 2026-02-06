@@ -8,19 +8,35 @@
      name: Deploying to gh-pages
      runs-on: ubuntu-latest
      steps:
-       - name: Setup Node.js for use with actions
-         uses: actions/setup-node@v1.1.0
-         env:
-           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-         with:
-           version:  12.x
        - name: Checkout branch
-         uses: actions/checkout@v2
+         uses: actions/checkout@v3
 
-       - name: Clean install dependencies
-         run: npm ci
+       - name: Setup pnpm
+         uses: pnpm/action-setup@v2
+         with:
+           version: 8
 
-       - name: Run deploy script
-         run: |
-           git config user.name "jacquesramphal" && git config user.email "jacques.r@myplanet.com"
-           npm run gh-pages-deploy
+       - name: Setup Node.js
+         uses: actions/setup-node@v3
+         with:
+           node-version: 18
+           cache: 'pnpm'
+
+       - name: Install dependencies
+         run: pnpm install --frozen-lockfile
+
+       - name: Build main site
+         run: pnpm build
+
+       - name: Build Storybook
+         run: pnpm build-storybook
+
+       - name: Copy Storybook to dist
+         run: cp -r storybook-static dist/storybook
+
+       - name: Deploy to GitHub Pages
+         uses: peaceiris/actions-gh-pages@v3
+         with:
+           github_token: ${{ secrets.GITHUB_TOKEN }}
+           publish_dir: ./dist
+           publish_branch: gh-pages

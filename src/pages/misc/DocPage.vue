@@ -62,7 +62,7 @@
         />
       </GridContainer> -->
 
-    <CardRow2 title="Related Writing" kind="writing" :viewAllTo="{ name: 'WritingIndex' }" />
+    <CardRow2 title="Related Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
   </PageWrapper>
 </template>
 

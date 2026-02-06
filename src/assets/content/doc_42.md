@@ -1,115 +1,117 @@
 # Jacques Ramphal
 
-**Senior / Staff Product Designer · Design Systems & AI/AX**
+Senior / Staff Product Designer  
+Design Systems · AI / Agentic UX · Design-to-Development
 
-Toronto, ON
-[LinkedIn](https://linkedin.com/in/jacquesramphal-design) · [jacques@ramphal.design](mailto:jacques@ramphal.design) · [GitHub](https://github.com/jacquesramphal)
+Toronto, ON  
+LinkedIn: https://linkedin.com/in/jacquesramphal-design  
+Email: jacques@ramphal.design  
+GitHub: https://github.com/jacquesramphal  
 
 ---
 
 ## Professional Summary
 
-Senior Product Designer and Design Lead with 12+ years of experience designing and shipping enterprise digital products. Specializes in design systems, AI-enabled product experiences, and design-to-development integration. Proven ability to lead cross-functional teams, architect token-based systems, and deliver production-ready front-end solutions. Known for bridging product strategy, UX, and engineering to improve quality, speed, and scale.
+Senior Product Designer and Design Lead with 12+ years of experience delivering enterprise and consumer digital products. Deep expertise in design systems, AI-enabled product experiences, and design-to-development workflows. Proven track record partnering with product and engineering to scale token-based systems, improve delivery velocity, and ship production-ready interfaces. Strong cross-functional leader who bridges UX strategy, front-end development, and system architecture.
 
 ---
-## Core Skills
 
-- Product Design & UX Strategy
-- Design Systems Architecture
-- AI / Agentic Experience Design
-- Design Tokens & Component Libraries
-- Design-to-Development Workflows
-- Cross-Functional Leadership
-- Front-End Development (React, Vue)
-- Accessibility (WCAG 2.1)
-- Design Quality & QA Processes
-- Agile / Scrum Collaboration
+## Core Competencies
+
+- Product Design and UX Strategy  
+- Design Systems Architecture and Governance  
+- AI and Agentic Experience Design  
+- Design Tokens and Component Libraries  
+- Design-to-Development Integration  
+- Cross-Functional Leadership  
+- Front-End Development (React, Vue)  
+- Accessibility and WCAG 2.1 Compliance  
+- Design Quality and QA Operations  
+- Agile and Scrum Collaboration  
 
 ---
 
 ## Professional Experience
 
-### Senior Product Designer & Design Lead
-
+### Senior Product Designer and Design Lead  
 **Orium** · Toronto, ON · 2013 – Present
 
-- Lead design for enterprise and consumer products across retail, healthcare, and SaaS clients
-- Architect and govern token-based design systems adopted across multiple teams and platforms
-- Partner closely with engineering to ensure design fidelity from Figma to production
-- Design and implement production-ready React and Vue components
-- Define and operationalize design quality standards, reducing rework and QA cycles
-- Mentor designers and developers on systems thinking, front-end implementation, and collaboration
+- Lead product design across enterprise and consumer platforms in retail, healthcare, and SaaS.
+- Architect and govern token-based design systems used across multiple teams and codebases.
+- Partner with engineering to translate Figma designs into production-ready React and Vue components.
+- Design and implement UI components directly in code to ensure visual and functional fidelity.
+- Define and operationalize design quality standards, improving consistency and reducing rework.
+- Mentor designers and developers on systems thinking, accessibility, and front-end collaboration.
 
-**Selected Impact**
-
-- Reduced design-to-development friction by approximately 60% through systemization
-- Shipped customer-facing products used by millions of end users
-- Established repeatable design QA and review practices across delivery teams
+**Key Impact**
+- Reduced design-to-development friction by approximately 60 percent through systemization and shared tooling.
+- Shipped high-traffic, customer-facing products used by millions of end users.
+- Established repeatable design QA and review processes adopted across delivery teams.
 
 **Selected Projects**
+- **Genie (Internal AI Platform)**  
+  Designed an agentic workflow system that automates recurring design tasks and supports asynchronous collaboration using AI-driven tooling.
+- **K&G Mobile App**  
+  Lead designer for a React Native loyalty application supporting hundreds of thousands of active users.
+- **Softchoice Website Rebrand**  
+  Delivered a scalable design system integrated with a headless CMS and a production component library.
 
-- **Genie (Internal AI Platform)**: Designed an agentic workflow system that automates routine design tasks and supports asynchronous collaboration
-- **K&G Mobile App**: Lead designer on a React Native loyalty application supporting hundreds of thousands of users
-- **Softchoice Website Rebrand**: Delivered a scalable design system integrated with a headless CMS and component library
-
-**Tools & Technologies**: Figma, Design Tokens, Storybook, React, Vue, React Native, JavaScript, CSS/SCSS, Git, Contentful, n8n
+**Tools and Technologies**  
+Figma, Design Tokens, Storybook, React, Vue, React Native, JavaScript, TypeScript, CSS, SCSS, Git, Contentful, n8n
 
 ---
 
-### Mindfulness Facilitator & Culture Lead
-
+### Mindfulness Facilitator and Culture Lead  
 **Orium** · Toronto, ON · 2016 – Present
 
-- Lead mindfulness and emotional intelligence initiatives supporting team well-being and focus
-- Facilitate onboarding and group sessions for cross-functional teams
-- Contribute to a sustainable, human-centered team culture
+- Lead mindfulness and emotional intelligence initiatives to support team focus and well-being.
+- Facilitate onboarding and group sessions for cross-functional teams.
+- Contribute to a sustainable, human-centered team culture.
 
 ---
 
-### UX Designer
+### UX Designer (Contract)  
+**University Health Network** · Toronto, ON · 2013
 
-**University Health Network** · Toronto, ON · 2013 (Contract)
-
-- Designed accessible healthcare interfaces aligned with WCAG standards
-- Conducted usability testing with patients and clinicians
+- Designed accessible healthcare interfaces aligned with WCAG standards.
+- Conducted usability testing with patients and clinicians to inform design decisions.
 
 ---
 
-### UI Designer Fellow
-
+### UI Designer Fellow  
 **Orium** · Toronto, ON · 2013
 
-- Participated in a design fellowship focused on product design, collaboration, and client delivery
+- Completed a design fellowship focused on product design, collaboration, and client delivery.
 
 ---
 
 ## Education
 
-**Bachelor of Design (Graphic Design)**
-OCAD University · Toronto, ON · 2010 – 2014
+**Bachelor of Design (Graphic Design)**  
+OCAD University · Toronto, ON · 2014
 
 ---
 
 ## Technical Skills
 
-**Design & Prototyping**
+**Design and Prototyping**  
 Figma, FigJam, Adobe Creative Suite, Miro
 
-**Development**
-React, Vue.js, JavaScript, TypeScript, HTML, CSS, SCSS, Git, Node.js
+**Front-End Development**  
+React, Vue.js, JavaScript, TypeScript, HTML, CSS, SCSS, Node.js, Git
 
-**Design Systems**
+**Design Systems**  
 Design Tokens, Storybook, Component Libraries, Figma Variables, Style Dictionary
 
-**AI & Automation**
+**AI and Automation**  
 n8n, LLM-assisted workflows, Prompt Engineering, Agentic UX Patterns
 
-**Methods**
-Design Thinking, User-Centered Design, Atomic Design, Design QA, Accessibility Testing, Agile/Scrum
+**Methods and Practices**  
+User-Centered Design, Design Thinking, Atomic Design, Design QA, Accessibility Testing, Agile, Scrum
 
 ---
 
 ## Certifications
 
-- **n8n Certified Expert Partner** · n8n · 2024
-- **Introduction to Composable Commerce** · Contentful · 2023
+- n8n Certified Expert Partner · n8n · 2024  
+- Introduction to Composable Commerce · Contentful · 2023

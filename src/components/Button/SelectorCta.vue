@@ -220,9 +220,9 @@ export default {
 
 .selector-cta__label {
   font-size: var(--font-400);
+  font-weight: var(--fontWeight-medium);
   line-height: 1;
   white-space: nowrap;
-  // overflow: hidden;
   text-overflow: ellipsis;
 }
 
@@ -263,6 +263,7 @@ export default {
   cursor: pointer;
   text-align: left;
   font-size: var(--font-400);
+  font-weight: var(--fontWeight-medium);
   line-height: 1.2;
 }
 

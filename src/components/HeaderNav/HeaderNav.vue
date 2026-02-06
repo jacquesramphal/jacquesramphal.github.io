@@ -43,7 +43,12 @@
             <TextLink label="Library" route="/library" />
           </li>
           <li class="glow animate delay-1-5" v-show="isDesktopScreen">
-            <TextLink label="CV" link="https://linkedin.com/in/ramphal-design" />
+            <TextLink label="FAQ" route="/doc/ask-me-anything" />
+          </li>
+          <li class="glow animate delay-1-5" v-show="isDesktopScreen">
+            <a href="/storybook/" target="_blank" rel="noopener noreferrer" class="storybook-link">
+              Storybook
+            </a>
           </li>
           <!-- <li  v-show="isMobileScreen && !menuOpen" class="nav-link" tabindex="0">
             <slot name="menu-button-mobile"></slot>

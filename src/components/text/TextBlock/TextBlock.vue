@@ -180,9 +180,10 @@ export default {
 };
 </script>
 <style scoped>
-* {
+/* Links and text should inherit global styles, not force color inheritance */
+/* * {
   color: inherit;
-}
+} */
 #textblock {
   display: flex;
   flex-direction: column;
@@ -200,7 +201,6 @@ export default {
 
 .title-link {
   text-decoration: none;
-  color: inherit;
 
   &:hover {
     text-decoration: underline;

@@ -214,7 +214,7 @@
         title="Related Work"
         kind="work"
         :items="relatedWorkEntries"
-        :viewAllTo="{ name: 'WorkIndex' }"
+        :viewAllTo="{ name: 'Library' }"
         :limit="3"
       />
     </div>
