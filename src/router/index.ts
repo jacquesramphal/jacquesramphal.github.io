@@ -183,8 +183,19 @@ router.beforeEach((to, from, next) => {
   const hostname = window.location.hostname;
   const isLocalhost = hostname === "localhost" || hostname === "127.0.0.1" || hostname === "192.168.2.204";
 
-  if (isLocalhost) {
-    // If it's localhost or local network IP, disable maintenance mode
+  // Check for bypass query parameter or stored bypass
+  const bypassParam = to.query.bypass === "secret";
+  const bypassStored = localStorage.getItem("maintenanceBypass") === "true";
+
+  // Store bypass in localStorage if query param is present
+  if (bypassParam && !bypassStored) {
+    localStorage.setItem("maintenanceBypass", "true");
+  }
+
+  const canBypass = isLocalhost || bypassParam || bypassStored;
+
+  if (canBypass) {
+    // Allow access
     next();
   } else if (maintenanceMode && to.name !== "MaintenancePage") {
     // If maintenance mode is enabled and not on the maintenance page, redirect to maintenance page
