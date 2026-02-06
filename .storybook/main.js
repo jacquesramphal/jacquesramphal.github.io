@@ -28,6 +28,14 @@ module.exports = {
     autodocs: true,
   },
   webpackFinal: async (config) => {
+    const path = require("path");
+
+    // Add @ alias support
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@": path.resolve(__dirname, "../src"),
+    };
+
     config.module.rules.push({
       test: /\.mdx$/,
       use: [
