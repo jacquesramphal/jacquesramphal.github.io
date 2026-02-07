@@ -6,6 +6,12 @@
 import "../src/assets/styles/css/all.css";
 import { globalStyles } from './global-styles'; // Import the styles from global-font.ts
 
+// Add Google Fonts for Manrope
+const fontLink = document.createElement('link');
+fontLink.href = 'https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap';
+fontLink.rel = 'stylesheet';
+document.head.appendChild(fontLink);
+
 const global = `
   ${globalStyles}
 `;
