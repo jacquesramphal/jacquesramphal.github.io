@@ -33,7 +33,7 @@
       <!-- <transition class="" name="" mode="out-in"> -->
       <div :key="currentQuoteIndex" class="quote">
         <div class="quote-text">
-          <h1>{{ quotes[currentQuoteIndex].quote }}</h1>
+          <h2>{{ quotes[currentQuoteIndex].quote }}</h2>
         </div>
         <!-- <MyIcon
               :url="quotes[currentQuoteIndex].image"
@@ -41,11 +41,7 @@
               size="sm"
               /> -->
         <div class="author-info">
-          <a
-            :href="quotes[currentQuoteIndex].url"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a :href="quotes[currentQuoteIndex].url" target="_blank" rel="noopener noreferrer">
             <!-- <img
                 v-if="quotes[currentQuoteIndex].image"
                 :src="quotes[currentQuoteIndex].image"
@@ -76,10 +72,10 @@
 </template>
 
 <script>
-import quotesData from "@/assets/data/quotes.json";
+import quotesData from '@/assets/data/quotes.json';
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
@@ -98,8 +94,7 @@ export default {
     },
     nextQuote() {
       this.stopAutoTransition();
-      this.currentQuoteIndex =
-        (this.currentQuoteIndex + 1) % this.quotes.length;
+      this.currentQuoteIndex = (this.currentQuoteIndex + 1) % this.quotes.length;
     },
     startAutoTransition() {
       this.autoTransitionInterval = setInterval(this.nextQuote, 5000); // Transition every 5 seconds
@@ -113,71 +108,71 @@ export default {
     this.startAutoTransition();
 
     // this.htmlContent = marked(content);
-    const fadeInUp = gsap.utils.toArray(".fadeInUp");
-    const fadeInDown = gsap.utils.toArray(".fadeInDown");
-    const fadeInRight = gsap.utils.toArray(".fadeInRight");
-    const fadeInLeft = gsap.utils.toArray(".fadeInLeft");
-    const parallaxBack = gsap.utils.toArray(".parallaxBack");
-    const parallaxFront = gsap.utils.toArray(".parallaxFront");
+    const fadeInUp = gsap.utils.toArray('.fadeInUp');
+    const fadeInDown = gsap.utils.toArray('.fadeInDown');
+    const fadeInRight = gsap.utils.toArray('.fadeInRight');
+    const fadeInLeft = gsap.utils.toArray('.fadeInLeft');
+    const parallaxBack = gsap.utils.toArray('.parallaxBack');
+    const parallaxFront = gsap.utils.toArray('.parallaxFront');
 
     fadeInUp.forEach((fadeInUp) => {
       gsap.from(fadeInUp, {
         scrollTrigger: {
           trigger: fadeInUp,
-          start: "top bottom",
-          end: "top 50%",
+          start: 'top bottom',
+          end: 'top 50%',
           scrub: 1,
-          toggleActions: "restart pause reverse pause",
+          toggleActions: 'restart pause reverse pause',
         },
         autoAlpha: 0,
         y: 100,
         duration: 3,
-        ease: "none",
+        ease: 'none',
       });
     });
     fadeInDown.forEach((fadeInDown) => {
       gsap.from(fadeInDown, {
         scrollTrigger: {
           trigger: fadeInDown,
-          start: "top bottom",
-          end: "top 50%",
+          start: 'top bottom',
+          end: 'top 50%',
           scrub: 1,
-          toggleActions: "restart pause reverse pause",
+          toggleActions: 'restart pause reverse pause',
         },
         autoAlpha: 0,
         y: -100,
         duration: 3,
-        ease: "none",
+        ease: 'none',
       });
     });
     fadeInRight.forEach((fadeInRight) => {
       gsap.from(fadeInRight, {
         scrollTrigger: {
           trigger: fadeInRight,
-          start: "top bottom",
-          end: "top 50%",
+          start: 'top bottom',
+          end: 'top 50%',
           scrub: 1,
-          toggleActions: "restart pause reverse pause",
+          toggleActions: 'restart pause reverse pause',
         },
         autoAlpha: 0,
         x: 100,
         duration: 3,
-        ease: "none",
+        ease: 'none',
       });
     });
     fadeInLeft.forEach((fadeInLeft) => {
       gsap.from(fadeInLeft, {
         scrollTrigger: {
           trigger: fadeInLeft,
-          start: "top bottom",
-          end: "top 50%",
+          start: 'top bottom',
+          end: 'top 50%',
           scrub: 1,
-          toggleActions: "restart pause reverse pause",
+          toggleActions: 'restart pause reverse pause',
         },
         autoAlpha: 0,
         x: -100,
         duration: 3,
-        ease: "none",
+        ease: 'none',
       });
     });
     parallaxBack.forEach((parallaxBack) => {
@@ -188,7 +183,7 @@ export default {
         },
         yPercent: 10,
         duration: 3,
-        ease: "none",
+        ease: 'none',
       });
     });
     parallaxFront.forEach((parallaxFront) => {
@@ -199,7 +194,7 @@ export default {
         },
         yPercent: -10,
         duration: 3,
-        ease: "none",
+        ease: 'none',
       });
     });
   },
@@ -214,7 +209,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: left;
-  min-height: 60vh;
+  // min-height: 60vh;
   /* padding: 20px; */
   // background-color: var(--background-darker);
   // block-size: 100vh;
@@ -246,8 +241,8 @@ export default {
 }
 .quote-text {
   h2 {
-    font-family: var(--fontFamily-tertiary) !important;
-    font-weight: var(--font-normal) !important;
+    // font-family: var(--fontFamily-tertiary) !important;
+    // font-weight: var(--font-normal) !important;
     // font-weight: var(--font-reversed-normal) !important;
     // font-size: var(--font-lg) !important;
     // letter-spacing: var(--letterSpacing-reversed-tight);
