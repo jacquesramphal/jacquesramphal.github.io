@@ -50,6 +50,7 @@
       />
     </AnimatedComponent>
 
+    <TestimonialCarousel />
     <!-- WRITING SECTION - MOVED UP FOR PROMINENCE -->
     <AnimatedComponent>
       <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
@@ -124,7 +125,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import work from '@/assets/data/library.json';
 // import ProductCarousel from '../components/ProductCarousel.vue';
-// import TestimonialCarousel from "@/components/TestimonialCarousel.vue";
+import TestimonialCarousel from '@/components/TestimonialCarousel.vue';
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
@@ -195,9 +196,9 @@ export default {
       return this.titles[randomIndex];
     },
   },
-  // components: {
-  //   ProductCarousel
-  // },
+  components: {
+    TestimonialCarousel,
+  },
   mounted() {
     // this.htmlContent = marked(content);
     const fadeInUp = gsap.utils.toArray('.fadeInUp');

@@ -1,7 +1,7 @@
 # Jacques Ramphal
 
-Senior / Staff Product Designer  
-Design Systems · AI / Agentic UX · Design-to-Development
+Agentic Systems & AX Lead / Design Lead
+AI-Driven Workflows · Design Systems · Design-to-Development
 
 Toronto, ON  
 LinkedIn: https://linkedin.com/in/jacquesramphal-design  
@@ -12,7 +12,7 @@ GitHub: https://github.com/jacquesramphal
 
 ## Professional Summary
 
-Senior Product Designer and Design Lead with 12+ years of experience delivering enterprise and consumer digital products. Deep expertise in design systems, AI-enabled product experiences, and design-to-development workflows. Proven track record partnering with product and engineering to scale token-based systems, improve delivery velocity, and ship production-ready interfaces. Strong cross-functional leader who bridges UX strategy, front-end development, and system architecture.
+Agentic Systems & AX Lead and Design Lead with 12+ years of experience delivering enterprise and consumer digital products. Currently leading the design and integration of agentic systems (AX) within delivery workflows, bridging UX, AI automation, and development to enhance team efficiency and design quality. Deep expertise in design systems, AI-enabled product experiences, and design-to-development workflows. Proven track record partnering with product and engineering to scale token-based systems, improve delivery velocity, and ship production-ready interfaces. Strong cross-functional leader who bridges UX strategy, front-end development, and system architecture.
 
 ---
 
@@ -33,15 +33,30 @@ Senior Product Designer and Design Lead with 12+ years of experience delivering 
 
 ## Professional Experience
 
-### Senior Product Designer and Design Lead  
+### Agentic Systems & AX Lead / Design Lead
 **Orium** · Toronto, ON · 2013 – Present
 
+*Agentic Systems & AX Lead for Delivery (Sep 2024 – Present)*
+- Lead the design and integration of agentic systems (AX) within Orium's delivery workflow, bridging UX, AI automation, and development to enhance team efficiency and design quality.
+- Drive the evolution of agentic experience (AX) frameworks to accelerate delivery and support hybrid human–AI collaboration.
+- Lead cross-functional integration of GenAI and automation tools across design and development workflows.
+- Oversee design quality through scalable Design QA systems and front-end integration standards.
+- Mentor designers and developers on agentic workflows, AI tooling, and delivery alignment.
+- Partner with technical leads to ensure agent-driven systems deliver measurable value across projects.
+
+*Design Lead (Jan 2024 – Present)*
+- Lead the design and collaborate with teams on the development of Orium Accelerators, enabling brands to transition to composable commerce platforms.
+- Maintain and update design assets and contribute to front-end codebase for Accelerators.
+- Train and mentor designers on design systems, front-end collaboration, and delivery best practices.
+- Oversee sales discussions and demonstrate capabilities to prospective clients.
+- Ensure design quality standards are realized in both design and code.
+
+*Senior Product Designer (Sep 2013 – Present)*
 - Lead product design across enterprise and consumer platforms in retail, healthcare, and SaaS.
 - Architect and govern token-based design systems used across multiple teams and codebases.
 - Partner with engineering to translate Figma designs into production-ready React and Vue components.
 - Design and implement UI components directly in code to ensure visual and functional fidelity.
 - Define and operationalize design quality standards, improving consistency and reducing rework.
-- Mentor designers and developers on systems thinking, accessibility, and front-end collaboration.
 
 **Key Impact**
 - Reduced design-to-development friction by approximately 60 percent through systemization and shared tooling.
@@ -49,8 +64,8 @@ Senior Product Designer and Design Lead with 12+ years of experience delivering 
 - Established repeatable design QA and review processes adopted across delivery teams.
 
 **Selected Projects**
-- **Genie (Internal AI Platform)**  
-  Designed an agentic workflow system that automates recurring design tasks and supports asynchronous collaboration using AI-driven tooling.
+- **Genie (Internal AI Platform)**
+  Lead designer for an agentic workflow system that automates recurring design tasks and supports asynchronous collaboration using AI-driven tooling. Established AX patterns now used across delivery teams to accelerate design-to-development workflows and improve cross-functional alignment.
 - **K&G Mobile App**  
   Lead designer for a React Native loyalty application supporting hundreds of thousands of active users.
 - **Softchoice Website Rebrand**  
@@ -61,12 +76,13 @@ Figma, Design Tokens, Storybook, React, Vue, React Native, JavaScript, TypeScrip
 
 ---
 
-### Mindfulness Facilitator and Culture Lead  
-**Orium** · Toronto, ON · 2016 – Present
+### Mindfulness Lead
+**Orium** · Toronto, ON · 2013 – Present
 
-- Lead mindfulness and emotional intelligence initiatives to support team focus and well-being.
-- Facilitate onboarding and group sessions for cross-functional teams.
-- Contribute to a sustainable, human-centered team culture.
+- Facilitate and mentor others in mindfulness practices through guided meditation and onboarding sessions.
+- Lead optional mindful breaks that serve as reminders to support personal well-being.
+- Contribute to a sustainable, human-centered team culture grounded in self-awareness and empathy.
+- Foster healthier and more balanced workplace environments through reflection and emotional intelligence.
 
 ---
 
@@ -92,6 +108,13 @@ OCAD University · Toronto, ON · 2014
 
 ---
 
+## Licenses & certifications
+
+- n8n Certified Expert Partner · n8n · 2026  
+- Introduction to Composable Commerce · Composable.com · 2023
+
+---
+
 ## Technical Skills
 
 **Design and Prototyping**  
@@ -108,10 +131,3 @@ n8n, LLM-assisted workflows, Prompt Engineering, Agentic UX Patterns
 
 **Methods and Practices**  
 User-Centered Design, Design Thinking, Atomic Design, Design QA, Accessibility Testing, Agile, Scrum
-
----
-
-## Certifications
-
-- n8n Certified Expert Partner · n8n · 2024  
-- Introduction to Composable Commerce · Contentful · 2023

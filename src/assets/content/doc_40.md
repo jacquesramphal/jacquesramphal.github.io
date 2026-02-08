@@ -51,7 +51,7 @@ Use browser settings or extensions to block analytics if desired. The site funct
 
 ## Contact
 
-Questions about privacy? Reach out at [jake@ramphal.design](mailto:jake@ramphal.design).
+Questions about privacy? Reach out at [jacques@ramphal.design](mailto:jacques@ramphal.design).
 
 ---
 

@@ -89,7 +89,7 @@ h3 {
 
 h4 {
   font-size: var(--font-600);
-  font-weight: var(--fontWeight-medium);
+  font-weight: var(--fontWeight-medium) !important;
   line-height: var(--lineHeight-tall);
   font-variation-settings:
     'YAXS' 400,
@@ -389,7 +389,6 @@ figcaption {
   h5,
   h6 {
     line-height: 1.1;
-    font-weight: 700;
     margin: 0;
   }
 

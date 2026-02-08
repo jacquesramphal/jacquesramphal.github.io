@@ -29,8 +29,7 @@
               /> -->
             </router-link>
 
-            <p>Jacques Ramphal</p>
-            <!-- <TextLink label="Jake Ramphal" route="/" /> -->
+            <TextLink label="Jacques Ramphal" route="/" class="nav-wordmark-link" />
             <!-- <BreadCrumb
               :isDesktopScreen="isDesktopScreen"
               @toggle-menu="toggleFullscreenMenu"
@@ -355,6 +354,35 @@ nav {
   text-decoration: none !important;
 }
 
+::v-deep(.nav-wordmark-link) {
+  text-decoration: none !important;
+  color: inherit !important;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+}
+
+// Alternative deep selector syntax for different Vue versions
+:deep(.nav-wordmark-link) {
+  text-decoration: none !important;
+  color: inherit !important;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+}
+
 .nav-avatar {
   inline-size: var(--spacing-md);
   block-size: var(--spacing-md);
@@ -373,6 +401,31 @@ nav {
 }
 p {
   margin: 0;
+}
+
+.wordmark {
+  #richlink,
+  a,
+  router-link {
+    text-decoration: none !important;
+    color: inherit !important;
+
+    &:link,
+    &:visited,
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none !important;
+      color: inherit !important;
+    }
+  }
+
+  // Override router-link-exact-active for wordmark
+  .router-link-exact-active,
+  :deep(.router-link-exact-active) {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
 }
 // .wordmark::after {
 //   @media only screen and (min-width: 768px) {

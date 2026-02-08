@@ -3,7 +3,7 @@
     "author": "Leigh Bryant",
     "title": "Director, Brand and Content",
     "company": "Orium",
-    "quote": "Jacques is our invaluable Swiss army knife, seamlessly stepping up to any challenge with expertise and a can-do attitude. His cross-functional skills, boundless energy, and dedication to growth have a ripple effect, elevating the entire team. A privilege to work with, Jacques thrives even in chaos, embodying the spirit of excellence.",
+    "quote": "Jacques is our invaluable Swiss Army knife—seamlessly stepping up to any challenge with expertise and a can-do attitude. His cross-functional skills and boundless energy elevate the entire team, and he thrives even in chaos.",
     "url": "https://www.linkedin.com/in/leigh-bryant-canada/",
     "image": "https://media.licdn.com/dms/image/C5603AQEck23moVkctg/profile-displayphoto-shrink_400_400/0/1660922962566?e=1697673600&v=beta&t=qRiOlEPnlH4SqikQg7btzUyi6zku71TSmifHCbvbHss"
   },
@@ -11,17 +11,33 @@
     "author": "Abeiene Nejar",
     "title": "Founder, Head of Research & Strategy",
     "company": "No BS Insights",
-    "quote": "Jacques excelled in every aspect of this project. From his impeccable design skills to his adept leadership, he navigated client interactions with finesse, managed project management like a seasoned pro, and provided unwavering support to the team. Having him as a partner in this venture was truly a stroke of luck!"
+    "quote": "Jacques excelled in every aspect—from impeccable design to adept leadership. He navigated client interactions with finesse, managed the project like a seasoned pro, and provided unwavering team support. A stroke of luck as a partner!"
     ,
     "url": "https://www.linkedin.com/in/abeienenejar/",
     "image": "https://media.licdn.com/dms/image/C4E03AQGbeHjVXpxmMA/profile-displayphoto-shrink_400_400/0/1645198853038?e=1697673600&v=beta&t=esviDcJMqDJp9vaCsfZLVs-0dG_TLVTMw2bVu1DfI2g"
   },
   {
-  "author": "Jessie Chang",
-  "title": "Operations Manager, Product & Design Services",
-  "company": "Orium",
-  "url": "https://www.linkedin.com/in/jessiethechang/",
-  "quote": "Jacques wowed the team with an outstanding project presentation! He skillfully conveyed complex concepts with clarity and confidence, maintaining his signature composed demeanor. His representation of Orium's excellence in front of a sizable audience was commendable.",
-  "image": "https://media.licdn.com/dms/image/C4E03AQHzeA9MG_K5pg/profile-displayphoto-shrink_400_400/0/1516516686504?e=1697673600&v=beta&t=BbtMmvrq82WnYxmZRnp4LRIpjQx-KlQRnbfxeIX5hmQ"
-}
+    "author": "Jessie Chang",
+    "title": "Operations Manager, Product & Design Services",
+    "company": "Orium",
+    "url": "https://www.linkedin.com/in/jessiethechang/",
+    "quote": "Jacques wowed the team with an outstanding presentation—conveying complex concepts with clarity, confidence, and his signature composed demeanor. His representation of Orium's excellence before a sizable audience was exceptional.",
+    "image": "https://media.licdn.com/dms/image/C4E03AQHzeA9MG_K5pg/profile-displayphoto-shrink_400_400/0/1516516686504?e=1697673600&v=beta&t=BbtMmvrq82WnYxmZRnp4LRIpjQx-KlQRnbfxeIX5hmQ"
+  },
+  {
+    "author": "Jennifer Wright",
+    "title": "Strategic Professional Services Leader",
+    "company": "Orium",
+    "url": "",
+    "quote": "If Jacques doubts whether he belongs in the room, that’s often the clearest sign he’s in the right place — tackling the messy, undefined work that matters.",
+    "image": ""
+  },
+  {
+    "author": "Nik Shenoy",
+    "title": "Vice President of Software Development",
+    "company": "Orium",
+    "url": "",
+    "quote": "Jacques has a way of looking at problems from a system level and moving them forward in practical steps. Some of his work can feel uncomfortable at first, but that’s often because he’s operating a bit ahead of where the team is — and helping us see where we need to go.",
+    "image": ""
+  }
 ]

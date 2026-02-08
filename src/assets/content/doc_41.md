@@ -48,7 +48,7 @@ Accessibility is a continuous practice. I'm working on:
 
 If you encounter accessibility barriers, please let me know. I want to make this site better for everyone.
 
-Contact: [jake@ramphal.design](mailto:jake@ramphal.design)
+Contact: [jacques@ramphal.design](mailto:jacques@ramphal.design)
 
 ## Standards and Guidelines
 

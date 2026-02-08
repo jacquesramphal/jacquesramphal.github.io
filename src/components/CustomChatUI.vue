@@ -44,6 +44,8 @@
         >
           <!-- Floating actions (no header / no avatar / no title) -->
           <div class="chat-floating-actions">
+            <h3 class="chat-header-title">Jacques' Agent</h3>
+            <div class="chat-header-spacer"></div>
             <MyButton
               v-if="allowFullscreen"
               class="chat-floating-button"
@@ -601,7 +603,8 @@ export default {
       }
       this.syncFullscreenRootClass();
       this.$nextTick(() => {
-        if (this.autoFocus && this.$refs.inputRef) {
+        // Always focus the input when opening chat
+        if (this.$refs.inputRef) {
           this.$refs.inputRef.focus();
         }
       });
@@ -619,6 +622,10 @@ export default {
       this.syncFullscreenRootClass();
       this.$nextTick(() => {
         this.scrollToBottom();
+        // Focus input when entering fullscreen
+        if (this.isFullscreen && this.$refs.inputRef) {
+          this.$refs.inputRef.focus();
+        }
       });
     },
     handleInput() {
@@ -891,11 +898,6 @@ export default {
   transition: all 0.2s ease;
 }
 
-.chat-button .custom-btn:hover:not(:disabled) {
-  // transform: scale(1.05);
-  // box-shadow: var(--chat-shadow-hover);
-}
-
 .chat-button .custom-btn:active:not(:disabled) {
   transform: scale(0.95);
 }
@@ -930,6 +932,7 @@ export default {
   box-shadow: var(--chat-shadow);
   z-index: 9999;
   overflow: hidden;
+  overflow-x: hidden;
   color: var(--chat-ink);
   background: var(--chat-surface);
   border: var(--chat-border);
@@ -939,6 +942,11 @@ export default {
   max-height: min(76vh, 64rem);
   max-width: min(92vw, 44rem);
   transform-origin: bottom right;
+  box-sizing: border-box;
+
+  * {
+    box-sizing: border-box;
+  }
 
   &--fullscreen {
     /* Header nav is z-index: 100000; ensure chat overlays everything */
@@ -977,17 +985,39 @@ export default {
 
 /* Floating actions (headerless) */
 .chat-floating-actions {
-  position: absolute;
-  top: var(--spacing-sm);
-  right: var(--spacing-sm);
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 0.5rem;
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  background: var(--chat-surface);
+  border-bottom: var(--border);
   z-index: 2;
+  box-sizing: border-box;
+}
+
+.chat-header-title {
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-500);
+  font-weight: 600;
+  color: var(--foreground);
+  line-height: 1;
+}
+
+.chat-header-spacer {
+  flex: 1;
 }
 
 .chat-floating-button .custom-btn {
   /* Match existing bordered button treatment in this widget */
-  border: var(--border);
+  border: none;
+  background: transparent;
   cursor: pointer;
   padding: var(--spacing-xxs);
   display: inline-flex;
@@ -1005,8 +1035,8 @@ export default {
 }
 
 .chat-floating-button .custom-btn:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-z2);
+  background: var(--background-darker);
+  opacity: 0.8;
 }
 
 .chat-floating-button .custom-btn:active:not(:disabled) {
@@ -1026,8 +1056,8 @@ export default {
 .chat-messages {
   flex: 1;
   overflow-y: auto;
-  /* Leave room for floating action buttons */
-  padding: calc(var(--spacing-sm) + 44px) var(--spacing-sm) var(--spacing-sm);
+  overflow-x: hidden;
+  padding: var(--spacing-sm);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
@@ -1035,6 +1065,18 @@ export default {
   /* Match site default <p> scale */
   font-size: var(--font-500);
   line-height: var(--lineHeight-taller);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+
+  /* Max width for fullscreen on desktop */
+  .chat-window--fullscreen & {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+  }
 }
 
 .chat-welcome-text {
@@ -1051,6 +1093,7 @@ export default {
   flex-direction: column;
   gap: 0.75rem;
   margin-bottom: 1rem;
+  width: 100%;
 }
 
 .chat-starter-prompt .custom-btn {
@@ -1085,6 +1128,9 @@ export default {
   align-items: flex-start;
   width: 100%;
   max-width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 
   &--welcome {
     max-width: 100%;
@@ -1093,6 +1139,7 @@ export default {
 
   &--bot {
     align-self: flex-start;
+    justify-content: flex-start;
   }
 
   &--user {
@@ -1105,24 +1152,36 @@ export default {
   padding: var(--spacing-xxs) var(--spacing-xs);
   line-height: var(--lineHeight-taller);
   word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
   border: none;
   box-shadow: none;
   font-size: inherit;
   background: transparent;
-  max-width: 100%;
+  max-width: 80%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   :deep(a) {
     color: inherit !important;
     text-decoration-thickness: 0.1rem !important;
     text-underline-offset: 0.35rem;
+    word-break: break-all;
+  }
+
+  :deep(*) {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
   }
 }
 
 .chat-message-bubble--user {
   /* User: light grey bg, no border */
-  background: var(--chat-surface-2);
+  background: var(--background-darker) !important;
   color: var(--foreground);
-  margin-left: auto;
   text-align: left;
 }
 
@@ -1192,6 +1251,16 @@ export default {
   p {
     margin: 0;
   }
+
+  /* Max width for fullscreen on desktop */
+  .chat-window--fullscreen & {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+    box-sizing: border-box;
+  }
 }
 
 /* Chat Input */
@@ -1199,8 +1268,19 @@ export default {
   display: flex;
   gap: 0.5rem;
   padding: var(--spacing-xs) var(--spacing-sm);
-  border-top: var(--chat-border);
   background: var(--chat-surface);
+  box-sizing: border-box;
+
+  /* Max width for fullscreen on desktop - match conversation text */
+  .chat-window--fullscreen & {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+    box-sizing: border-box;
+    width: 100%;
+  }
 }
 
 .chat-input-wrapper {
@@ -1210,6 +1290,7 @@ export default {
 
 .chat-input {
   width: 100%;
+  max-width: 100%;
   border: var(--chat-border);
   padding: var(--spacing-xxs) var(--spacing-xs);
   outline: none;
@@ -1217,6 +1298,7 @@ export default {
   font-size: var(--font-500);
   line-height: var(--lineHeight-taller);
   min-height: 36px;
+  box-sizing: border-box;
 
   &:focus {
     border-color: var(--link);
