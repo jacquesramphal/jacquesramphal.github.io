@@ -35,23 +35,15 @@
         <div class="quote-text">
           <h2>{{ quotes[currentQuoteIndex].quote }}</h2>
         </div>
-        <!-- <MyIcon
-              :url="quotes[currentQuoteIndex].image"
-              is-svg="true"
-              size="sm"
-              /> -->
+        <MyIcon :url="quotes[currentQuoteIndex].image" is-svg="true" size="sm" />
         <div class="author-info">
           <a :href="quotes[currentQuoteIndex].url" target="_blank" rel="noopener noreferrer">
-            <!-- <img
-                v-if="quotes[currentQuoteIndex].image"
-                :src="quotes[currentQuoteIndex].image"
-                alt="Author"
-              />
-              <img
-                v-else
-                src="@/assets/images/work/placeholder.png"
-                alt="Author"
-              /> -->
+            <img
+              v-if="quotes[currentQuoteIndex].image"
+              :src="quotes[currentQuoteIndex].image"
+              alt="Author"
+            />
+            <img v-else src="@/assets/images/work/placeholder.png" alt="Author" />
           </a>
           <div class="author-details">
             <div class="author-name">
