@@ -7,12 +7,25 @@
       :is-svg="true"
       :size="`${iconsize}`"
     />
-    <p v-if="tags && tags.length" class="tags eyebrow subtle">
-      <span v-for="tag in tags" :key="tag" class="tag" @click="$emit('tag-click', tag)">
-        <a>{{ tag }}</a>
-      </span>
-    </p>
-    <DynamicText v-else-if="eyebrow" :text="eyebrow" :attrs="{ class: 'eyebrow subtle' }" />
+    <div v-if="shouldShowTags" class="tags">
+      <!-- Type badge (first tag, color-coded) -->
+      <MyButton
+        type="subtle"
+        size="xs"
+        :label="typeLabel"
+        :customBgColor="typeColorSubtle"
+        :customTextColor="typeColor"
+      />
+      <!-- Content tags (ghost style) -->
+      <MyButton
+        v-for="tag in tags"
+        :key="tag"
+        type="ghost"
+        size="xs"
+        :label="tag"
+        @click="$emit('tag-click', tag)"
+      />
+    </div>
     <a
       v-if="title && titleRoute && isExternalTitleLink"
       :href="titleRoute"
@@ -155,9 +168,18 @@ export default {
       default: () => [],
       required: false,
     },
+    cardType: {
+      type: String,
+      default: null,
+      required: false,
+    },
   },
 
   computed: {
+    shouldShowTags() {
+      // Show tags only when used in a card context (cardType is explicitly provided)
+      return this.cardType !== null;
+    },
     classes() {
       return {
         'textblock-align': true,
@@ -176,6 +198,33 @@ export default {
         (this.titleRoute.startsWith('http://') || this.titleRoute.startsWith('https://'))
       );
     },
+    typeColor() {
+      const typeColorMap = {
+        article: '#0066b3',
+        tool: '#1873cc',
+        'case-study': '#0a942b',
+        'design-project': '#5a15cc',
+      };
+      return typeColorMap[this.cardType] || '#0066b3';
+    },
+    typeColorSubtle() {
+      const subtleColorMap = {
+        article: 'rgba(0, 134, 230, 0.15)',
+        tool: 'rgba(30, 144, 255, 0.15)',
+        'case-study': 'rgba(13, 186, 56, 0.15)',
+        'design-project': 'rgba(100, 21, 255, 0.15)',
+      };
+      return subtleColorMap[this.cardType] || 'rgba(0, 134, 230, 0.15)';
+    },
+    typeLabel() {
+      const typeLabelMap = {
+        article: 'Writing',
+        tool: 'Writing',
+        'case-study': 'Case Study',
+        'design-project': 'Project',
+      };
+      return typeLabelMap[this.cardType] || 'Writing';
+    },
   },
 };
 </script>
@@ -192,6 +241,17 @@ export default {
 .eyebrow {
   word-spacing: 1rem;
   margin-block-end: 1em;
+}
+
+.eyebrow-badge {
+  display: inline-block;
+  padding: var(--spacing-xxxs) var(--spacing-xs);
+  border-radius: var(--spacing-xxxs);
+  font-size: var(--font-300);
+  font-weight: var(--fontWeight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-block-end: var(--spacing-xs);
 }
 .title {
   /* flex: 1; */
@@ -249,23 +309,10 @@ export default {
 }
 
 .tags {
-  margin-block-end: 1em;
+  margin-block-end: var(--spacing-xs);
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5em;
-}
-
-.tag {
-  cursor: pointer;
-  padding: 0 var(--spacing-xs) 0 0;
-}
-.tag a {
-  text-decoration: none;
-  color: var(--color-text) !important;
-}
-
-.tag a:hover {
-  text-decoration: underline;
+  gap: var(--spacing-xxs);
 }
 
 /* ------------ BREAKPOINT MD ------------ */

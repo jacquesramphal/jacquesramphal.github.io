@@ -1,15 +1,11 @@
 <template>
   <span>
-    <router-link
-      active-class="active-class"
-      v-if="route"
-      id="btn"
-      :to="`${route}`"
-    >
+    <router-link active-class="active-class" v-if="route" id="btn" :to="`${route}`">
       <button
         class="custom-btn"
         type="button"
         :class="classes"
+        :style="buttonStyles"
         @click="onClick"
         :disabled="disabled"
         :aria-disabled="disabled ? 'true' : 'false'"
@@ -17,13 +13,7 @@
       >
         <!-- <span v-if="icon" class="button-icon">{{ icon }}</span> -->
 
-        <MyIcon
-          class="button-icon"
-          v-if="icon"
-          :name="`${icon}`"
-          :is-svg="true"
-          size="16"
-        />
+        <MyIcon class="button-icon" v-if="icon" :name="`${icon}`" :is-svg="true" size="16" />
         <span v-if="!hideLabel" class="button-label">
           <slot>{{ label }}</slot>
         </span>
@@ -42,6 +32,7 @@
         class="custom-btn"
         type="button"
         :class="classes"
+        :style="buttonStyles"
         @click="onClick"
         :disabled="disabled"
         :aria-disabled="disabled ? 'true' : 'false'"
@@ -49,13 +40,7 @@
       >
         <!-- <span v-if="icon" class="button-icon">{{ icon }}</span> -->
 
-        <MyIcon
-          class="button-icon"
-          v-if="icon"
-          :name="`${icon}`"
-          :is-svg="true"
-          size="16"
-        />
+        <MyIcon class="button-icon" v-if="icon" :name="`${icon}`" :is-svg="true" size="16" />
         <span v-if="!hideLabel" class="button-label">
           <slot>{{ label }}</slot>
         </span>
@@ -74,6 +59,7 @@
       class="custom-btn"
       type="button"
       :class="classes"
+      :style="buttonStyles"
       @click="onClick"
       :disabled="disabled"
       :aria-disabled="disabled ? 'true' : 'false'"
@@ -81,13 +67,7 @@
     >
       <!-- <span v-if="icon" class="button-icon">{{ icon }}</span> -->
 
-      <MyIcon
-        class="button-icon"
-        v-if="icon"
-        :name="`${icon}`"
-        :is-svg="true"
-        size="16"
-      />
+      <MyIcon class="button-icon" v-if="icon" :name="`${icon}`" :is-svg="true" size="16" />
       <span v-if="!hideLabel" class="button-label">
         <slot>{{ label }}</slot>
       </span>
@@ -97,11 +77,11 @@
 </template>
 
 <script>
-import { reactive, computed } from "vue";
-import MyIcon from "../Icon.vue";
+import { reactive, computed } from 'vue';
+import MyIcon from '../Icon.vue';
 
 export default {
-  name: "my-button",
+  name: 'my-button',
   components: {
     MyIcon,
   },
@@ -109,11 +89,11 @@ export default {
     label: {
       type: String,
       required: false,
-      default: "Button Label",
+      default: 'Button Label',
     },
     ariaLabel: {
       type: String,
-      default: "",
+      default: '',
     },
     hideLabel: {
       type: Boolean,
@@ -134,28 +114,36 @@ export default {
     type: {
       type: String,
       validator: function (value) {
-        return ["solid", "outline", "ghost", "textlink"].indexOf(value) !== -1;
+        return ['solid', 'outline', 'ghost', 'subtle', 'textlink'].indexOf(value) !== -1;
       },
     },
     size: {
       type: String,
       validator: function (value) {
-        return ["small", "large"].indexOf(value) !== -1;
+        return ['xs', 'small', 'large'].indexOf(value) !== -1;
       },
     },
     icon: {
       type: String,
       validator: function (value) {
-        return ["none", "left", "right"].indexOf(value) !== -1;
+        return ['none', 'left', 'right'].indexOf(value) !== -1;
       },
     },
     iconRight: {
       type: String,
       required: false,
     },
+    customBgColor: {
+      type: String,
+      required: false,
+    },
+    customTextColor: {
+      type: String,
+      required: false,
+    },
   },
 
-  emits: ["click"],
+  emits: ['click'],
 
   setup(props, { emit }) {
     props = reactive(props);
@@ -164,10 +152,10 @@ export default {
         button: true,
         // "button--outline": props.outline,
         // "button--solid": !props.outline,
-        [`button--${props.type || "solid"}`]: true,
-        [`button--${props.size || "large"}`]: true,
-        [`button--${props.icon || "none"}`]: true,
-        'external': !!props.link,
+        [`button--${props.type || 'solid'}`]: true,
+        [`button--${props.size || 'large'}`]: true,
+        [`button--${props.icon || 'none'}`]: true,
+        external: !!props.link,
 
         // "link-left": true,
         // "link-left--left": this.left,
@@ -177,9 +165,19 @@ export default {
         // "link-right--right": this.right,
         // "link-right--default": !this.right,
       })),
+      buttonStyles: computed(() => {
+        const styles = {};
+        if (props.customBgColor) {
+          styles.backgroundColor = props.customBgColor;
+        }
+        if (props.customTextColor) {
+          styles.color = props.customTextColor;
+        }
+        return styles;
+      }),
       onClick() {
         if (props.disabled) return;
-        emit("click");
+        emit('click');
       },
     };
   },
@@ -224,10 +222,7 @@ export default {
 
 .button--solid {
   color: var(--color-offwhite) !important;
-  background: -webkit-linear-gradient(
-    var(--color-lightpurple),
-    var(--color-purple)
-  ) !important;
+  background: -webkit-linear-gradient(var(--color-lightpurple), var(--color-purple)) !important;
   border: 2px solid var(--link) !important;
   &:before,
   &:after {
@@ -235,7 +230,6 @@ export default {
   }
   &:hover {
     background: -webkit-linear-gradient(var(--link), var(--link)) !important;
-    
   }
 }
 
@@ -291,6 +285,21 @@ export default {
   }
 }
 
+.button--subtle {
+  color: var(--text);
+  background-color: transparent;
+  border: 1px solid transparent !important;
+  font-weight: var(--fontWeight-medium);
+  &:before,
+  &:after {
+    color: inherit;
+  }
+  &:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+  }
+}
+
 .button--textlink {
   padding: 0 !important;
   color: var(--link) !important;
@@ -319,7 +328,7 @@ export default {
 }
 
 .button--external.button--textlink .button-label::after {
-  content: " ↗";
+  content: ' ↗';
   font-size: 0.85em;
   margin-inline-start: 0.2em;
   display: inline-block;
@@ -329,6 +338,10 @@ export default {
   text-decoration: underline dashed !important;
 }
 
+.button--xs {
+  font-size: var(--font-400);
+  padding: var(--spacing-xxxs) var(--spacing-xxs);
+}
 .button--small {
   font-size: var(--font-2xs);
   // padding: var(--spacing-xxs);
@@ -344,14 +357,14 @@ export default {
 
 /* Icon Styles */
 .button--none:before {
-  content: "";
+  content: '';
 }
 .button--left:before {
-  content: "★ ";
+  content: '★ ';
   color: var(--link);
 }
 .button--right:after {
-  content: " ★";
+  content: ' ★';
   color: var(--link);
 }
 

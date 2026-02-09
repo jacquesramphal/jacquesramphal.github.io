@@ -123,7 +123,6 @@ A curated collection of my writing, professional work, and personal projects."
         <div v-if="filteredArticlesAndTools.length" class="library-section">
           <GridParent tight class="posts">
             <ArticleCard
-              cover
               v-for="(entry, index) in filteredArticlesAndTools"
               :key="entry.id"
               :alt="entry.alt"
@@ -136,6 +135,7 @@ A curated collection of my writing, professional work, and personal projects."
               :eyebrow="entry.eyebrow"
               :title="entry.title"
               :tags="entry.tags"
+              :type="entry.type"
               :index="index"
               @tag-click="handleTagClick"
             />
@@ -157,11 +157,13 @@ A curated collection of my writing, professional work, and personal projects."
           />
           <GridParent tight class="posts">
             <ArticleCard
-              v-for="entry in filteredCaseStudiesAndProjects"
+              v-for="(entry, index) in filteredCaseStudiesAndProjects"
               :key="entry.id"
               :alt="entry.alt"
               :description="entry.description"
-              :filename="entry.filename1"
+              :filename="entry.thumbnail"
+              :imageVariant="entry.imageVariant"
+              :bgcolor="entry.bgcolor"
               :label="entry.label"
               :route="entry.route"
               :btnroute="entry.btnroute"
@@ -169,30 +171,11 @@ A curated collection of my writing, professional work, and personal projects."
               :eyebrow="entry.eyebrow"
               :title="entry.title"
               :tags="entry.tags"
+              :type="entry.type"
               :index="index"
               @tag-click="handleTagClick"
             />
-            <ImageCard
-              v-for="entry in filteredCaseStudiesAndProjects"
-              :key="entry.id"
-              class="post"
-              :data-category="entry.tag"
-              :title="entry.title"
-              :description="entry.description"
-              :cta="entry.cta"
-              :route="entry.route || (entry.btnroute ? `/${entry.btnroute}` : '')"
-              :btnroute="entry.btnroute"
-              :link="entry.link"
-              :alt="entry.alt"
-              :filename1="entry.filename1"
-              :filename2="entry.filename2"
-              :filename3="entry.filename3"
-              :style="entry.bgcolor"
-              size="small"
-              :tags="entry.tags"
-              @tag-click="handleTagClick"
-            />
-            <ImageCard
+            <!-- <ImageCard
               v-for="entry in filteredCaseStudiesAndProjects"
               :key="entry.id"
               class="post"
@@ -212,7 +195,7 @@ A curated collection of my writing, professional work, and personal projects."
               :size="entry.size"
               :tags="entry.tags"
               @tag-click="handleTagClick"
-            />
+            /> -->
           </GridParent>
         </div>
       </template>
@@ -222,7 +205,6 @@ A curated collection of my writing, professional work, and personal projects."
         <GridParent tight class="posts" v-if="filteredEntries.length">
           <!-- Articles and Tools use ArticleCard -->
           <ArticleCard
-            borderless
             v-for="(entry, index) in filteredArticlesAndTools"
             :key="entry.id"
             :alt="entry.alt"
@@ -235,29 +217,28 @@ A curated collection of my writing, professional work, and personal projects."
             :eyebrow="entry.eyebrow"
             :title="entry.title"
             :tags="entry.tags"
+            :type="entry.type"
             :index="index"
             @tag-click="handleTagClick"
           />
 
-          <ImageCard
-            v-for="entry in filteredCaseStudiesAndProjects"
+          <ArticleCard
+            v-for="(entry, index) in filteredCaseStudiesAndProjects"
             :key="entry.id"
-            class="post"
-            :data-category="entry.tag"
-            :title="entry.title"
+            :alt="entry.alt"
             :description="entry.description"
-            :cta="entry.cta"
-            :route="entry.route || (entry.btnroute ? `/${entry.btnroute}` : '')"
+            :filename="entry.thumbnail"
+            :imageVariant="entry.imageVariant"
+            :bgcolor="entry.bgcolor"
+            :label="entry.label"
+            :route="entry.route"
             :btnroute="entry.btnroute"
             :link="entry.link"
-            :alt="entry.alt"
-            :filename1="entry.filename1"
-            :filename2="entry.filename2"
-            :filename3="entry.filename3"
-            :style="entry.bgcolor"
-            :variant="entry.variant"
-            :size="entry.size"
+            :eyebrow="entry.eyebrow"
+            :title="entry.title"
             :tags="entry.tags"
+            :type="entry.type"
+            :index="index"
             @tag-click="handleTagClick"
           />
         </GridParent>
@@ -287,7 +268,6 @@ A curated collection of my writing, professional work, and personal projects."
 <script>
 import library from '@/assets/data/library.json';
 import MyButton from '@/components/Button/Button.vue';
-import ImageCard from '@/components/card/ImageCard/ImageCard.vue';
 import ArticleCard from '@/components/card/ArticleCard/ArticleCard.vue';
 import GridContainer from '@/components/grid/GridContainer.vue';
 import GridParent from '@/components/grid/GridParent.vue';
@@ -298,7 +278,6 @@ export default {
   name: 'MyLibrary',
   components: {
     MyButton,
-    ImageCard,
     ArticleCard,
     GridContainer,
     GridParent,

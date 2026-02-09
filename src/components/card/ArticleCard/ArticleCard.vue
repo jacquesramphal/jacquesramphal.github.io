@@ -1,80 +1,43 @@
 <template :class="classes">
   <div class="default-card" :class="classes" :data-category="`${eyebrow}`">
-    <div v-if="alt" class="image">
-      <!-- Show placeholder when no image -->
-      <template v-if="!hasImage">
-        <router-link v-if="route && !link" :to="`${route}`">
-          <div class="placeholder" :style="{ backgroundColor: placeholderColor }">
-            <div class="placeholder-text">
-              <span
-                v-for="(word, index) in placeholderWords"
-                :key="index"
-                :style="{ animationDelay: `${index * 0.1}s` }"
-              >
-                {{ word }}
-              </span>
-            </div>
-          </div>
-        </router-link>
-        <a v-else-if="link" :href="link" target="_blank" rel="noopener noreferrer">
-          <div class="placeholder" :style="{ backgroundColor: placeholderColor }">
-            <div class="placeholder-text">
-              <span
-                v-for="(word, index) in placeholderWords"
-                :key="index"
-                :style="{ animationDelay: `${index * 0.1}s` }"
-              >
-                {{ word }}
-              </span>
-            </div>
-          </div>
-        </a>
-        <div v-else class="placeholder" :style="{ backgroundColor: placeholderColor }">
-          <div class="placeholder-text">
-            <span
-              v-for="(word, index) in placeholderWords"
-              :key="index"
-              :style="{ animationDelay: `${index * 0.1}s` }"
-            >
-              {{ word }}
-            </span>
-          </div>
-        </div>
-      </template>
-
+    <div v-if="hasImage" class="image" :style="bgcolor">
       <!-- Show images when available -->
-      <template v-else>
-        <router-link v-if="route && !link" :to="`${route}`">
-          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" />
+      <router-link v-if="(route || btnroute) && !link" :to="`${route || btnroute}`">
+          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" />
           <img
             draggable="false"
             v-if="filename"
+            :class="`image-${imageVariant}`"
             :src="require(`../../../assets/images/${filename}`)"
             :alt="`${alt}`"
           />
         </router-link>
         <a v-else-if="link" :href="link" target="_blank" rel="noopener noreferrer">
-          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" />
+          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" />
           <img
             draggable="false"
             v-if="filename"
+            :class="`image-${imageVariant}`"
             :src="require(`../../../assets/images/${filename}`)"
             :alt="`${alt}`"
           />
         </a>
         <div v-else>
-          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" />
+          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" />
           <img
             draggable="false"
             v-if="filename"
+            :class="`image-${imageVariant}`"
             :src="require(`../../../assets/images/${filename}`)"
             :alt="`${alt}`"
           />
         </div>
-      </template>
     </div>
 
     <div class="info">
+      <!-- Color bar at top when no image -->
+      <div v-if="!hasImage" class="color-bar" :style="{ backgroundColor: typeColorSubtle }"></div>
+
       <TextBlock
         clamped
         class="textblock"
@@ -83,28 +46,17 @@
         :icon="icon"
         :iconsize="iconsize"
         :title="title"
-        :titleRoute="route || link"
+        :titleRoute="route || btnroute || link"
         :description="description"
-        :label="label"
-        :route="route ? `${route}` : undefined"
-        :btnroute="btnroute ? `${btnroute}` : undefined"
-        :link="link ? `${link}` : undefined"
         :tags="tags"
-        btntype="textlink"
+        :cardType="type"
         @tag-click="$emit('tag-click', $event)"
       />
 
-      <!-- <TextBlock
-        v-else
-        clamped
-        class="textblock"
-        :eyebrow="tag"
-        :header4="title"
-        :description="description"
-        :btnroute="route"
-        :route="route"
-        :cta="label"
-      /> -->
+      <!-- Read more link -->
+      <div class="card-footer">
+        <TextLink :label="label || 'Read more'" :route="route || btnroute" :link="link" />
+      </div>
     </div>
     <!-- <MyButton style="" secondary :label="`${label}`" size="large" :route="`${route}`" /> -->
   </div>
@@ -112,20 +64,31 @@
 
 <script>
 import TextBlock from '../../text/TextBlock/TextBlock.vue';
-
-// Generate a random seed once per session (persists until page refresh)
-const sessionSeed = Math.floor(Math.random() * 10000);
+import TextLink from '../../text/TextLink.vue';
 
 export default {
   name: 'ArticleCard',
   components: {
     TextBlock,
+    TextLink,
   },
   props: {
     imgurl: {
       type: String,
     },
     filename: {
+      type: String,
+      required: false,
+    },
+    filename1: {
+      type: String,
+      required: false,
+    },
+    filename2: {
+      type: String,
+      required: false,
+    },
+    filename3: {
       type: String,
       required: false,
     },
@@ -196,6 +159,21 @@ export default {
       default: 0,
       required: false,
     },
+    type: {
+      type: String,
+      default: 'article',
+      required: false,
+    },
+    bgcolor: {
+      type: String,
+      required: false,
+    },
+    imageVariant: {
+      type: String,
+      default: 'full',
+      required: false,
+      validator: (value) => ['full', 'offset', 'angled'].includes(value),
+    },
   },
   computed: {
     classes() {
@@ -207,31 +185,33 @@ export default {
       };
     },
     hasImage() {
-      return !!(this.imgurl || this.filename);
+      return !!(this.imgurl || this.filename || this.filename1 || this.filename3);
+    },
+    typeColor() {
+      // Color mapping based on article type (darker variants for text)
+      const typeColorMap = {
+        article: '#0066b3',
+        tool: '#1873cc',
+        'case-study': '#0a942b',
+        'design-project': '#5a15cc',
+      };
+
+      return typeColorMap[this.type] || '#0066b3';
+    },
+    typeColorSubtle() {
+      // Create subtle/transparent variants for backgrounds
+      const subtleColorMap = {
+        article: 'rgba(0, 134, 230, 0.15)',
+        tool: 'rgba(30, 144, 255, 0.15)',
+        'case-study': 'rgba(13, 186, 56, 0.15)',
+        'design-project': 'rgba(100, 21, 255, 0.15)',
+      };
+
+      return subtleColorMap[this.type] || 'rgba(0, 134, 230, 0.15)';
     },
     placeholderColor() {
-      const colors = [
-        'var(--color-red)',
-        'var(--color-green)',
-        'var(--color-blue)',
-        'var(--color-dodgerblue)',
-        'var(--color-purple)',
-        'var(--color-lightpurple)',
-        'var(--color-yellow)',
-        'var(--color-lightyellow)',
-        'var(--color-brown)',
-        'var(--color-pink)',
-      ];
-
-      const hash = this.title.split('').reduce((acc, char) => {
-        return char.charCodeAt(0) + ((acc << 5) - acc);
-      }, 0);
-
-      // Add index to prevent adjacent cards from having the same color
-      // Add sessionSeed to randomize colors per session (changes on page refresh)
-      const finalHash = hash + this.index * 3 + sessionSeed;
-
-      return colors[Math.abs(finalHash) % colors.length];
+      // Use type-based color instead of random
+      return this.typeColor;
     },
     placeholderWords() {
       const words = this.title.split(' ');
@@ -257,6 +237,7 @@ export default {
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
   box-shadow: var(--shadow-z2);
   min-height: 400px;
 
@@ -270,8 +251,16 @@ export default {
     box-shadow: var(--shadow-z5);
     // transform: scale(1.01);
 
-    img {
+    img:not(.image-offset):not(.image-angled) {
       transform: scale(1.1);
+    }
+
+    .image-offset {
+      transform: scale(1.05) translateX(15%) translateY(10%);
+    }
+
+    .image-angled {
+      transform: scale(0.99) rotate(-7deg) translateX(18%) translateY(12%);
     }
   }
   // &:active {
@@ -284,11 +273,29 @@ export default {
   flex-direction: column;
   flex: 1;
   height: 100%;
-  padding: var(--spacing-sm) var(--spacing-md) calc(var(--spacing-md) + var(--spacing-xs));
+  padding: 0 var(--spacing-md) var(--spacing-md);
+  justify-content: space-between;
+
+  &:has(.color-bar) {
+    padding-block-start: 0;
+  }
+
+  &:not(:has(.color-bar)) {
+    padding-block-start: var(--spacing-sm);
+  }
 }
 
 .textblock {
-  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-footer {
+  margin-block-start: auto;
+  margin-block-end: var(--spacing-xxs);
+
+  padding-block-start: var(--spacing-sm);
 }
 
 img {
@@ -300,13 +307,59 @@ img {
   -moz-transition: transform 0.25s ease-in-out;
   -o-transition: transform 0.25s ease-in-out;
   -webkit-transition: transform 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out;
+}
+
+.filename2 {
+  z-index: 1;
+  inset-block-start: 14.75%;
+  inset-inline-end: -18%;
+  block-size: 100%;
+  border-radius: var(--spacing-xxs) 0 0 var(--spacing-xxs) !important;
+  box-shadow: var(--shadow-z5);
+  object-fit: cover !important;
+  object-position: 0% 0% !important;
+}
+
+.filename3 {
+  z-index: 1;
+  inset-inline-start: 20%;
+  inset-block-start: 15%;
+  block-size: 100%;
+  rotate: -7deg;
+  box-shadow: var(--shadow-z5);
+  border-radius: var(--spacing-xxs) 0 0 0 !important;
+  object-fit: cover !important;
+  object-position: 0% 0% !important;
+}
+
+.image-offset {
+  transform: scale(0.95) translateX(15%) translateY(10%);
+  box-shadow: var(--shadow-z5);
+  border-radius: var(--spacing-xxs) !important;
+  object-position: 0% 0% !important;
+}
+
+.image-angled {
+  transform: scale(0.9) rotate(-7deg) translateX(18%) translateY(12%);
+  box-shadow: var(--shadow-z5);
+  border-radius: var(--spacing-xxs) !important;
+  object-position: 0% 0% !important;
 }
 
 .image {
   overflow: hidden;
-  aspect-ratio: 5/4;
   border-radius: 0 !important;
   position: relative;
+
+  &:has(img) {
+    aspect-ratio: 5/4;
+  }
+
+  &:not(:has(img)) {
+    min-height: auto;
+    height: auto;
+  }
 }
 
 .image a,
@@ -314,93 +367,25 @@ img {
   text-decoration: none;
 }
 
-.placeholder {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  text-decoration: none;
-  -moz-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  -webkit-transition: all 0.25s ease-in-out;
+.color-bar {
+  width: calc(100% + var(--spacing-md) * 2);
+  height: var(--spacing-xxs);
+  margin-inline-start: calc(var(--spacing-md) * -1);
+  margin-block-start: 0;
+  margin-block-end: var(--spacing-sm);
+  -moz-transition: height 0.25s ease-in-out;
+  -o-transition: height 0.25s ease-in-out;
+  -webkit-transition: height 0.25s ease-in-out;
+  transition: height 0.25s ease-in-out;
 }
 
-.placeholder-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  padding: var(--spacing-md);
-  text-align: center;
-  transform: rotate(-5deg) scale(1.2);
-  -moz-transition: transform 0.25s ease-in-out;
-  -o-transition: transform 0.25s ease-in-out;
-  -webkit-transition: transform 0.25s ease-in-out;
-
-  span {
-    display: block;
-    font-size: clamp(2rem, 8vw, 5rem);
-    font-weight: 800;
-    line-height: 0.9;
-    color: rgba(255, 255, 255, 0.9);
-    text-transform: uppercase;
-    letter-spacing: -0.05em;
-    word-wrap: break-word;
-    opacity: 0.85;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
-    animation: fadeInUp 0.6s ease-out forwards;
-    opacity: 0;
-
-    &:nth-child(2) {
-      opacity: 0.7;
-      font-size: clamp(1.5rem, 6vw, 4rem);
-    }
-
-    &:nth-child(3) {
-      opacity: 0.5;
-      font-size: clamp(1rem, 4vw, 3rem);
-    }
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 0.85;
-    transform: translateY(0);
-  }
-}
-
-.placeholder-text span:nth-child(1) {
-  opacity: 0.85;
-}
-
-.placeholder-text span:nth-child(2) {
-  opacity: 0.7;
-}
-
-.placeholder-text span:nth-child(3) {
-  opacity: 0.5;
-}
-
-.default-card:hover .placeholder-text {
-  transform: rotate(-3deg) scale(1.3);
-}
 .defaultcard--list {
   border-radius: 0 !important;
   box-shadow: none !important;
   border: none;
   padding: var(--spacing-md) 0;
   display: grid !important;
+  min-height: auto;
 
   &:hover {
     background: transparent;
@@ -410,7 +395,18 @@ img {
     display: none;
   }
   .info {
-    padding: var(--spacing-xs) 0 0 0 !important;
+    padding: 0 0 0 0 !important;
+
+    &:not(:has(.color-bar)) {
+      padding-block-start: var(--spacing-xs) !important;
+    }
+  }
+  .card-footer {
+    padding-block-start: var(--spacing-xs);
+  }
+  .color-bar {
+    width: 100%;
+    margin-inline-start: 0;
   }
   @media only screen and (min-width: 1201px) {
     border-block-end: 1px solid var(--color-xlight) !important;
@@ -447,15 +443,28 @@ img {
   }
   @media only screen and (min-width: 1201px) {
     .info {
-      padding: var(--spacing-xs) 0 calc(var(--spacing-md) + var(--spacing-xs)) 0 !important;
+      padding: 0 0 var(--spacing-md) 0 !important;
+
+      &:not(:has(.color-bar)) {
+        padding-block-start: var(--spacing-xs) !important;
+      }
     }
   }
   .info {
-    padding: var(--spacing-sm) 0 calc(var(--spacing-md) + var(--spacing-xs)) 0 !important;
+    padding: 0 0 var(--spacing-md) 0 !important;
+
+    &:not(:has(.color-bar)) {
+      padding-block-start: var(--spacing-sm) !important;
+    }
   }
 
   .image {
     border-radius: var(--spacing-xxs) !important;
+  }
+
+  .color-bar {
+    width: 100%;
+    margin-inline-start: 0;
   }
 }
 .defaultcard--cover {
