@@ -87,7 +87,9 @@ export default {
       return this.$route?.path === '/library';
     },
     isLibraryOrDeeper() {
-      return this.$route?.path?.startsWith('/library');
+      // Show Library in breadcrumb for library page and all doc pages
+      return this.$route?.path?.startsWith('/library') ||
+             this.$route?.path?.startsWith('/doc/');
     },
     isProjectOrDoc() {
       return this.$route?.meta?.dynamicTitle;
