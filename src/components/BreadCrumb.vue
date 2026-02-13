@@ -37,18 +37,13 @@
       />
 
       <template v-if="isProjectOrDoc">
-        <DynamicText
+        
+        <TextLink
+          class="nav-item"
+          :label="pageTitle"
+          @click="$emit('toggle-menu')"
           v-show="isDesktopScreen"
-          :as="p"
-          text="/"
-          style="line-height: inherit"
         />
-        <span
-          class="nav-item active"
-          v-show="isDesktopScreen"
-        >
-          {{ pageTitle }}
-        </span>
       </template>
     </template>
   </div>
@@ -113,13 +108,18 @@ export default {
     }
   },
   methods: {
-    // Convert kebab-case to readable format with spaces
+    // Convert kebab-case to readable format with spaces and capitalize first word
     formatSlugToReadable(slug) {
       if (!slug) return '';
 
-      return slug
-        .split('-')
-        .join(' ');
+      const words = slug.split('-');
+
+      // Capitalize first letter of first word only
+      if (words.length > 0 && words[0]) {
+        words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1);
+      }
+
+      return words.join(' ');
     },
 
     async updatePageTitle() {
@@ -181,10 +181,8 @@ export default {
     opacity: 0.8;
   }
 
-  &.active {
-    opacity: 0.6;
-    cursor: default;
-    pointer-events: none;
-  }
+  // &.active {
+  //   text-decoration: underline dashed;
+  // }
 }
 </style>
