@@ -37,13 +37,21 @@
       />
 
       <template v-if="isProjectOrDoc">
-        
-        <TextLink
-          class="nav-item"
-          :label="pageTitle"
-          @click="$emit('toggle-menu')"
+        <DynamicText
           v-show="isDesktopScreen"
+          :as="p"
+          text="/"
+          style="line-height: inherit"
         />
+        <router-link
+          :to="$route.path"
+          class="nav-item"
+          active-class="active"
+          exact
+          v-show="isDesktopScreen"
+        >
+          {{ pageTitle }}
+        </router-link>
       </template>
     </template>
   </div>
@@ -177,12 +185,14 @@ export default {
   text-decoration: none;
   transition: opacity 0.2s ease;
 
-  &:hover {
+  &:hover:not(.active) {
     opacity: 0.8;
   }
 
-  // &.active {
-  //   text-decoration: underline dashed;
-  // }
+  &.active {
+    opacity: 0.6;
+    cursor: default;
+    pointer-events: none;
+  }
 }
 </style>
