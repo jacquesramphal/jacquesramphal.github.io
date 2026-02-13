@@ -1,6 +1,3 @@
-const path = require('path');
-const PrerenderSPAPlugin = require('prerender-spa-plugin');
-
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
   chainWebpack: (config) => {
@@ -21,30 +18,8 @@ module.exports = {
       .loader("markdown-loader")
       .end();
   },
-  configureWebpack: (config) => {
-    if (process.env.NODE_ENV === 'production') {
-      return {
-        plugins: [
-          new PrerenderSPAPlugin({
-            staticDir: path.join(__dirname, 'dist'),
-            routes: [
-              '/',
-              '/library',
-              '/writing',
-              '/work',
-              '/play',
-              '/resume',
-              '/info',
-              '/doc/building-genie-changed-me',
-            ],
-            renderer: new PrerenderSPAPlugin.PuppeteerRenderer({
-              renderAfterTime: 5000,
-              headless: true,
-              maxConcurrentRoutes: 4,
-            }),
-          }),
-        ],
-      };
-    }
-  },
+  // NOTE: Pre-rendering disabled due to Webpack 5 incompatibility
+  // The prerender-spa-plugin@3.0.0-beta.2 uses deprecated Webpack 4 API
+  // Alternative: Consider using @prerenderer/rollup-plugin or SSR/SSG framework
+  // For now, relying on dynamic meta tags via @vueuse/head for SEO
 };
