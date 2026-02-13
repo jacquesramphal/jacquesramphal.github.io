@@ -181,11 +181,14 @@ export default {
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
+  flex-wrap: wrap; // Allow wrapping instead of compressing
 }
 
 .nav-item {
   text-decoration: none;
   transition: opacity 0.2s ease;
+  white-space: nowrap; // Prevent individual links from breaking
+  flex-shrink: 0; // Prevent compression
 
   &:hover:not(.active) {
     opacity: 0.8;
