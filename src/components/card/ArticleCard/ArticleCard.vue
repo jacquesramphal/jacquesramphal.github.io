@@ -240,10 +240,13 @@ export default {
   transition: all 0.25s ease-in-out;
   box-shadow: var(--shadow-z2);
   min-height: 400px;
+  height: 100%;
 
   @media only screen and (max-width: 767px) {
     grid-column: 1 / 4;
     width: 100%;
+    height: auto;
+    min-height: 300px;
   }
 
   &:hover {

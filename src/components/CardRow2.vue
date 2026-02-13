@@ -1,11 +1,7 @@
 <template>
-  <div class="" style="overflow: visible !important; background: transparent !important;">
+  <div class="" style="overflow: visible !important; background: transparent !important">
     <!-- DESKTOP VIEW START -->
-    <GridContainer
-      v-if="isDesktopScreen"
-      id="cards"
-      style="overflow: visible !important"
-    >
+    <GridContainer v-if="isDesktopScreen" id="cards" style="overflow: visible !important">
       <!-- HEADER COMPONENT START -->
       <div
         class="grid-parent"
@@ -13,21 +9,15 @@
           padding-block-end: var(--spacing-md);
           align-items: center;
           grid-template-columns: repeat(3, 1fr);
-          
         "
       >
-        <TextBlock
-          style="grid-column: 1 / 3"
-          :title="title"
-          as="h2"
-          description=""
-        />
-        
-        <p class="justify-end" style="align-self: center">
-          <router-link v-if="viewAllTo" :to="viewAllTo">View All</router-link>
+        <TextBlock style="grid-column: 1 / 3" :title="title" as="h2" description="" />
+
+        <p class="justify-end" style="align-self: center; white-space: nowrap">
+          <router-link v-if="viewAllTo" :to="viewAllTo">See all</router-link>
         </p>
       </div>
-      
+
       <!-- HEADER COMPONENT END -->
 
       <GridParent tight>
@@ -60,11 +50,15 @@
             :btnroute="entry.btnroute"
             :link="entry.link"
             :alt="entry.alt"
-            :filename2="kind === 'work' ? null : (entry.filename2 || entry.images?.filename2)"
+            :filename2="kind === 'work' ? null : entry.filename2 || entry.images?.filename2"
             :filename3="
               kind === 'work'
-                ? (entry.filename3 || entry.filename2 || entry.filename1 || entry.images?.filename1 || entry.images?.filename3)
-                : (entry.filename3 || entry.images?.filename3)
+                ? entry.filename3 ||
+                  entry.filename2 ||
+                  entry.filename1 ||
+                  entry.images?.filename1 ||
+                  entry.images?.filename3
+                : entry.filename3 || entry.images?.filename3
             "
             :style="entry.bgcolor"
             size="small"
@@ -77,39 +71,19 @@
 
     <!-- MOBILE VIEW START -->
     <span v-else
-      ><GridContainer
-        style="padding-block-end: 0 !important; overflow: visible !important"
-      >
+      ><GridContainer style="padding-block-end: 0 !important; overflow: visible !important">
         <!-- HEADER COMPONENT START -->
-        <div
-          class="grid-parent"
-          style="
-            padding-block-end: var(--spacing-md);
-            align-items: center;
-            grid-template-columns: repeat(1fr);
-          "
-        >
-          <TextBlock
-            style="grid-column: 1 / 3"
-            :title="title"
-            description= ""
-          />
-          <p class="justify-start" style="grid-column: 3 / 3; align-self: flex-start">
-            <router-link v-if="viewAllTo" :to="viewAllTo">View All</router-link>
-          </p>
+        <div class="grid-parent" style="padding-block-end: var(--spacing-md)">
+          <TextBlock :title="title" as="h2" description="" />
         </div>
         <!-- HEADER COMPONENT END -->
       </GridContainer>
 
       <div class="scrolling-wrapper">
-        <GridParent
-          class="cardmobile"
-          v-for="entry in visibleItems"
-          :key="entry.id"
-        >
+        <GridParent class="cardmobile" v-for="entry in visibleItems" :key="entry.id">
           <ArticleCard
-            v-if="kind === 'writing'"
             borderless
+            v-if="kind === 'writing'"
             :key="`writing-${entry.id}`"
             :image="entry.image"
             :eyebrow="entry.eyebrow"
@@ -133,39 +107,53 @@
             :btnroute="entry.btnroute"
             :link="entry.link"
             :alt="entry.alt"
-            :filename1="kind === 'work' ? 'blank.svg' : (entry.filename1 || entry.filename3 || entry.images?.filename1)"
-            :filename2="kind === 'work' ? null : (entry.filename2 || entry.images?.filename2)"
+            :filename1="
+              kind === 'work'
+                ? 'blank.svg'
+                : entry.filename1 || entry.filename3 || entry.images?.filename1
+            "
+            :filename2="kind === 'work' ? null : entry.filename2 || entry.images?.filename2"
             :filename3="
               kind === 'work'
-                ? (entry.filename3 || entry.filename2 || entry.filename1 || entry.images?.filename1 || entry.images?.filename3)
-                : (entry.filename3 || entry.images?.filename3)
+                ? entry.filename3 ||
+                  entry.filename2 ||
+                  entry.filename1 ||
+                  entry.images?.filename1 ||
+                  entry.images?.filename3
+                : entry.filename3 || entry.images?.filename3
             "
             :style="entry.bgcolor"
             size="small"
           />
-        </GridParent></div
-    ></span>
+        </GridParent>
+      </div>
+
+      <GridContainer v-if="viewAllTo" class="mobile-button-container">
+        <MyButton type="outline" size="large" label="See all" :route="viewAllTo" />
+      </GridContainer>
+    </span>
     <!-- MOBILE VIEW END -->
   </div>
 </template>
 
 <script>
-import docs from "../assets/data/docs.json";
-import ArticleCard from "@/components/card/ArticleCard/ArticleCard.vue";
-import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
+import docs from '../assets/data/docs.json';
+import ArticleCard from '@/components/card/ArticleCard/ArticleCard.vue';
+import ImageCard from '@/components/card/ImageCard/ImageCard.vue';
+import MyButton from '@/components/Button/Button.vue';
 const OFFSET = 60;
 
 export default {
-  name: "CardRow2",
-  components: { ArticleCard, ImageCard },
+  name: 'CardRow2',
+  components: { ArticleCard, ImageCard, MyButton },
   props: {
     title: {
       type: String,
-      default: "Writing",
+      default: 'Writing',
     },
     kind: {
       type: String,
-      default: "writing",
+      default: 'writing',
     },
     items: {
       type: Array,
@@ -202,11 +190,11 @@ export default {
   },
   mounted() {
     this.lastScrollPosition = window.pageYOffset;
-    window.addEventListener("scroll", this.onScroll);
-    window.addEventListener("resize", this.onWindowResize);
-    const viewportMeta = document.createElement("meta");
-    viewportMeta.name = "viewport";
-    viewportMeta.content = "width=device-width, initial-scale=1";
+    window.addEventListener('scroll', this.onScroll);
+    window.addEventListener('resize', this.onWindowResize);
+    const viewportMeta = document.createElement('meta');
+    viewportMeta.name = 'viewport';
+    viewportMeta.content = 'width=device-width, initial-scale=1';
     document.head.appendChild(viewportMeta);
 
     // Call the resize method on initial mount to set the initial visibility
@@ -214,8 +202,8 @@ export default {
   },
 
   beforeUnmount() {
-    window.removeEventListener("scroll", this.onScroll);
-    window.removeEventListener("resize", this.onWindowResize);
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onWindowResize);
   },
 
   methods: {
@@ -238,6 +226,20 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+.mobile-button-container {
+  padding-block-start: 0 !important;
+  padding-block-end: var(--spacing-md) !important;
+
+  :deep(#btn) {
+    width: 100% !important;
+    display: block !important;
+  }
+
+  :deep(.custom-btn) {
+    width: 100% !important;
+  }
+}
+
 .scrolling-wrapper {
   overflow-x: scroll;
   overflow-y: hidden;
@@ -293,18 +295,18 @@ export default {
 
 /* FILTERING RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-[value="All"]:checked ~ .filters [for="All"],
-[value="CSS"]:checked ~ .filters [for="CSS"],
-[value="JavaScript"]:checked ~ .filters [for="JavaScript"],
-[value="Figma"]:checked ~ .filters [for="Figma"],
-[value="All"]:checked ~ .posts [data-category] {
+[value='All']:checked ~ .filters [for='All'],
+[value='CSS']:checked ~ .filters [for='CSS'],
+[value='JavaScript']:checked ~ .filters [for='JavaScript'],
+[value='Figma']:checked ~ .filters [for='Figma'],
+[value='All']:checked ~ .posts [data-category] {
   display: block;
 }
 
-[value="CSS"]:checked ~ .posts .post:not([data-category~="CSS"]),
-[value="JavaScript"]:checked ~ .posts .post:not([data-category~="JavaScript"]),
-[value="Typography"]:checked ~ .posts .post:not([data-category~="Typography"]),
-[value="Figma"]:checked ~ .posts .post:not([data-category~="Figma"]) {
+[value='CSS']:checked ~ .posts .post:not([data-category~='CSS']),
+[value='JavaScript']:checked ~ .posts .post:not([data-category~='JavaScript']),
+[value='Typography']:checked ~ .posts .post:not([data-category~='Typography']),
+[value='Figma']:checked ~ .posts .post:not([data-category~='Figma']) {
   display: none;
 }
 </style>

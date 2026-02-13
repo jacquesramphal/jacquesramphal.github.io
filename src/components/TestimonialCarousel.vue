@@ -33,7 +33,7 @@
       <!-- <transition class="" name="" mode="out-in"> -->
       <div :key="currentQuoteIndex" class="quote">
         <div class="quote-text">
-          <h2>{{ quotes[currentQuoteIndex].quote }}</h2>
+          <h1>{{ quotes[currentQuoteIndex].quote }}</h1>
         </div>
         <MyIcon :url="quotes[currentQuoteIndex].image" is-svg="true" size="sm" />
         <div class="author-info">

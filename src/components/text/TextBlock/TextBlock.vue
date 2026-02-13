@@ -26,6 +26,7 @@
         @click="$emit('tag-click', tag)"
       />
     </div>
+    <p v-else-if="eyebrow" class="eyebrow subtle">{{ eyebrow }}</p>
     <a
       v-if="title && titleRoute && isExternalTitleLink"
       :href="titleRoute"
