@@ -139,7 +139,7 @@ export default {
   },
   setup() {
     useHead({
-      title: 'Jacques Ramphal - Design Lead & AI UX Pioneer | Portfolio',
+      title: 'Jacques Ramphal - UX / AX Design Lead | Portfolio',
       meta: [
         {
           name: 'description',
@@ -147,7 +147,7 @@ export default {
         },
         {
           property: 'og:title',
-          content: 'Jacques Ramphal - Design Lead & AI UX Pioneer',
+          content: 'Jacques Ramphal - UX / AX Design Lead',
         },
         {
           property: 'og:description',
@@ -167,7 +167,7 @@ export default {
         },
         {
           property: 'twitter:title',
-          content: 'Jacques Ramphal - Design Lead & AI UX Pioneer',
+          content: 'Jacques Ramphal - UX / AX Design Lead',
         },
         {
           property: 'twitter:description',
