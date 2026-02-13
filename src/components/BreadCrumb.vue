@@ -108,6 +108,19 @@ export default {
     }
   },
   methods: {
+    // Convert kebab-case to camelCase for display
+    formatSlugToCamelCase(slug) {
+      if (!slug) return '';
+
+      return slug
+        .split('-')
+        .map((word, index) => {
+          if (index === 0) return word;
+          return word.charAt(0).toUpperCase() + word.slice(1);
+        })
+        .join('');
+    },
+
     async updatePageTitle() {
       if (!this.$route) {
         this.pageTitle = '';
@@ -138,10 +151,11 @@ export default {
           // For numeric IDs, try to get the slug from the record
           const docId = parseInt(param, 10);
           const record = getDocRecordById(docId);
-          this.pageTitle = record?.slug || `doc-${docId}`;
+          const slug = record?.slug || `doc-${docId}`;
+          this.pageTitle = this.formatSlugToCamelCase(slug);
         } else {
-          // Use the slug directly
-          this.pageTitle = param;
+          // Use the slug directly and convert to camelCase
+          this.pageTitle = this.formatSlugToCamelCase(param);
         }
       } else {
         this.pageTitle = '';
