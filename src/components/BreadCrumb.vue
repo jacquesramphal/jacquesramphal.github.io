@@ -37,13 +37,18 @@
       />
 
       <template v-if="isProjectOrDoc">
-        
-        <TextLink
-          class="nav-item"
-          :label="pageTitle"
-          @click="$emit('toggle-menu')"
+        <DynamicText
           v-show="isDesktopScreen"
+          :as="p"
+          text="/"
+          style="line-height: inherit"
         />
+        <span
+          class="nav-item active"
+          v-show="isDesktopScreen"
+        >
+          {{ pageTitle }}
+        </span>
       </template>
     </template>
   </div>
@@ -108,17 +113,13 @@ export default {
     }
   },
   methods: {
-    // Convert kebab-case to camelCase for display
-    formatSlugToCamelCase(slug) {
+    // Convert kebab-case to readable format with spaces
+    formatSlugToReadable(slug) {
       if (!slug) return '';
 
       return slug
         .split('-')
-        .map((word, index) => {
-          if (index === 0) return word;
-          return word.charAt(0).toUpperCase() + word.slice(1);
-        })
-        .join('');
+        .join(' ');
     },
 
     async updatePageTitle() {
@@ -151,11 +152,11 @@ export default {
           // For numeric IDs, try to get the slug from the record
           const docId = parseInt(param, 10);
           const record = getDocRecordById(docId);
-          const slug = record?.slug || `doc-${docId}`;
-          this.pageTitle = this.formatSlugToCamelCase(slug);
+          const slug = record?.slug || `doc ${docId}`;
+          this.pageTitle = this.formatSlugToReadable(slug);
         } else {
-          // Use the slug directly and convert to camelCase
-          this.pageTitle = this.formatSlugToCamelCase(param);
+          // Use the slug directly and format with spaces
+          this.pageTitle = this.formatSlugToReadable(param);
         }
       } else {
         this.pageTitle = '';
@@ -180,8 +181,10 @@ export default {
     opacity: 0.8;
   }
 
-  // &.active {
-  //   text-decoration: underline dashed;
-  // }
+  &.active {
+    opacity: 0.6;
+    cursor: default;
+    pointer-events: none;
+  }
 }
 </style>
