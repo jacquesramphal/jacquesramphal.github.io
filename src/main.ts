@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import hljs from "highlight.js";
 import store from "./store";
+import { createHead } from "@vueuse/head";
 // import { init, track, parameters } from "insights-js";
 import "./assets/js/gsap.js"; // Import your GSAP file
 
@@ -105,6 +106,7 @@ export const appear: Directive = {
 
 // Create the Vue app instance
 const app = createApp(App);
+const head = createHead();
 
 // Use the custom directives
 app.directive("appear", appear);
@@ -113,6 +115,7 @@ app.directive("highlightjs", highlightjsDirective);
 // Use plugins, components, and mount the app as before
 app.use(router); // Use Vue Router plugin
 app.use(store); // Use Vuex store plugin
+app.use(head); // Use VueUse Head for dynamic meta tags
 
 // Global Components
 app

@@ -123,6 +123,7 @@
 <script>
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useHead } from '@vueuse/head';
 import work from '@/assets/data/library.json';
 // import ProductCarousel from '../components/ProductCarousel.vue';
 import TestimonialCarousel from '@/components/TestimonialCarousel.vue';
@@ -135,6 +136,45 @@ export default {
     //   type: Object,
     //   required: true,
     // },
+  },
+  setup() {
+    useHead({
+      title: 'Jacques Ramphal - Design Lead & AI UX Pioneer | Portfolio',
+      meta: [
+        {
+          name: 'description',
+          content: 'Senior Product Designer at Orium with 15 years experience specializing in design systems, agentic AI, and bridging design-development workflows through code and tokens.',
+        },
+        {
+          property: 'og:title',
+          content: 'Jacques Ramphal - Design Lead & AI UX Pioneer',
+        },
+        {
+          property: 'og:description',
+          content: 'Senior Product Designer specializing in design systems, agentic AI, and design-development workflows. 15 years at Orium building token-based systems and AI platforms.',
+        },
+        {
+          property: 'og:type',
+          content: 'website',
+        },
+        {
+          property: 'og:url',
+          content: 'https://jacquesramphal.github.io/',
+        },
+        {
+          property: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          property: 'twitter:title',
+          content: 'Jacques Ramphal - Design Lead & AI UX Pioneer',
+        },
+        {
+          property: 'twitter:description',
+          content: 'Senior Product Designer specializing in design systems, agentic AI, and design-development workflows.',
+        },
+      ],
+    });
   },
   data() {
     return {

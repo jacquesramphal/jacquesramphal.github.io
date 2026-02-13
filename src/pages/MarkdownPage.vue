@@ -71,6 +71,7 @@
 
 <script>
 import { ref, onMounted, inject, watch, nextTick, computed } from "vue";
+import { useHead } from "@vueuse/head";
 import router from "@/router";
 import frontMatter from "front-matter";
 import MarkdownTOC from "@/components/MarkdownTOC.vue";
@@ -148,6 +149,75 @@ export default {
 
     const updateMarkdownHeadings = inject('updateMarkdownHeadings', () => {});
     const updateMarkdownActiveHeading = inject('updateMarkdownActiveHeading', () => {});
+
+    // Dynamic meta tags with structured data for SEO/AEO/GEO
+    useHead({
+      title: computed(() =>
+        heroTitle.value
+          ? `${heroTitle.value} | Jacques Ramphal`
+          : 'Jacques Ramphal - Portfolio'
+      ),
+      meta: computed(() => [
+        {
+          name: 'description',
+          content: heroSubtitle.value || 'Insights on design systems, agentic AI, and design engineering by Jacques Ramphal',
+        },
+        {
+          property: 'og:title',
+          content: heroTitle.value || 'Jacques Ramphal - Portfolio',
+        },
+        {
+          property: 'og:description',
+          content: heroSubtitle.value || 'Insights on design systems, agentic AI, and design engineering',
+        },
+        {
+          property: 'og:type',
+          content: 'article',
+        },
+        {
+          property: 'article:author',
+          content: 'Jacques Ramphal',
+        },
+        {
+          property: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          property: 'twitter:title',
+          content: heroTitle.value || 'Jacques Ramphal - Portfolio',
+        },
+        {
+          property: 'twitter:description',
+          content: heroSubtitle.value || 'Insights on design systems, agentic AI, and design engineering',
+        },
+      ]),
+      script: computed(() => heroTitle.value ? [
+        {
+          type: 'application/ld+json',
+          children: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: heroTitle.value,
+            description: heroSubtitle.value || '',
+            author: {
+              '@type': 'Person',
+              name: 'Jacques Ramphal',
+              jobTitle: 'Senior Product Designer & Design Lead',
+              worksFor: {
+                '@type': 'Organization',
+                name: 'Orium'
+              }
+            },
+            publisher: {
+              '@type': 'Person',
+              name: 'Jacques Ramphal'
+            },
+            datePublished: new Date().toISOString(),
+            keywords: heroTag.value || 'design systems, agentic AI, UX design',
+          }),
+        },
+      ] : []),
+    });
 
     // -------------------------------------------------------------
     // NEW extractHeroData — clean, predictable, and robust

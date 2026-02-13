@@ -1,0 +1,27 @@
+# robots.txt for jacquesramphal.github.io
+User-agent: *
+Allow: /
+
+# Disallow private/utility pages
+Disallow: /login
+Disallow: /menu
+Disallow: /brb
+
+# Allow AI crawlers for AEO/GEO optimization
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Sitemap
+Sitemap: https://jacquesramphal.github.io/sitemap.xml
