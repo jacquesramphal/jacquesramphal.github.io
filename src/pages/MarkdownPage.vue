@@ -192,6 +192,7 @@ export default {
         },
       ]),
       script: computed(() => heroTitle.value ? [
+        // Article Schema
         {
           type: 'application/ld+json',
           children: JSON.stringify({
@@ -214,6 +215,34 @@ export default {
             },
             datePublished: new Date().toISOString(),
             keywords: heroTag.value || 'design systems, agentic AI, UX design',
+          }),
+        },
+        // BreadcrumbList Schema for SEO
+        {
+          type: 'application/ld+json',
+          children: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': 'https://jacquesramphal.github.io/'
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Library',
+                'item': 'https://jacquesramphal.github.io/library'
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': heroTitle.value,
+                'item': typeof window !== 'undefined' ? window.location.href : `https://jacquesramphal.github.io${router.currentRoute.value.fullPath}`
+              }
+            ]
           }),
         },
       ] : []),

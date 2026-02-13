@@ -29,11 +29,10 @@
               /> -->
             </router-link>
 
-            <TextLink label="Jacques Ramphal" route="/" class="nav-wordmark-link" />
-            <!-- <BreadCrumb
+            <BreadCrumb
               :isDesktopScreen="isDesktopScreen"
               @toggle-menu="toggleFullscreenMenu"
-            /> -->
+            />
           </span>
         </div>
 
@@ -63,14 +62,14 @@
 
 <script>
 import GridContainer from '../grid/GridContainer.vue';
-// import BreadCrumb from "../BreadCrumb.vue";
+import BreadCrumb from "../BreadCrumb.vue";
 import TextLink from '../text/TextLink.vue';
 // import ThemeButton from "../ThemeButton.vue";
 
 const OFFSET = 60;
 export default {
   name: 'HeaderNav',
-  components: { GridContainer, TextLink },
+  components: { GridContainer, BreadCrumb, TextLink },
   props: {
     breadcrumb: {
       type: Boolean,
