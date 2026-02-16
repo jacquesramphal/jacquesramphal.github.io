@@ -12,7 +12,7 @@
     {
       "id": 11,
       "type": "article",
-      "title": "Design Tokens: The Unseen Hero in a Changing Design Landscape",
+      "title": "Design Tokens: The Unseen Hero",
       "eyebrow": "Design Systems",
       "description": "Why a shared design language is the most resilient investment teams can make as tools, roles, and workflows keep evolving. In a time when everything else in tech feels like shifting sand, design tokens are the bedrock—tiny pieces of your design's DNA that become a shared language everyone can speak, ensuring consistency and adaptability even as the design tools around them evolve.",
       "link": "https://composable.com/insights/design-tokens-shared-language-design-systems",
@@ -46,7 +46,7 @@
       "docId": 32,
       "slug": "building-genie-changed-me",
       "type": "article",
-      "title": "Building Genie didn't just change how we work. It changed me",
+      "title": "Building Genie changed me",
       "eyebrow": "Agentic AI Design",
       "description": "The story of building Genie—from personal experiment to organizational platform—and the three mental model problems we had to solve to design for agentic AI. A personal journey about reclaiming creative focus, learning new skills, and transforming routine work into strategic impact.",
       "route": "/doc/building-genie-changed-me",

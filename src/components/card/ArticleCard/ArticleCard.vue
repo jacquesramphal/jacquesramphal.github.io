@@ -3,35 +3,35 @@
     <div v-if="hasImage" class="image" :style="bgcolor">
       <!-- Show images when available -->
       <router-link v-if="(route || btnroute) && !link" :to="`${route || btnroute}`">
-          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" />
-          <img
-            draggable="false"
-            v-if="filename"
-            :class="`image-${imageVariant}`"
-            :src="require(`../../../assets/images/${filename}`)"
-            :alt="`${alt}`"
-          />
-        </router-link>
-        <a v-else-if="link" :href="link" target="_blank" rel="noopener noreferrer">
-          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" />
-          <img
-            draggable="false"
-            v-if="filename"
-            :class="`image-${imageVariant}`"
-            :src="require(`../../../assets/images/${filename}`)"
-            :alt="`${alt}`"
-          />
-        </a>
-        <div v-else>
-          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" />
-          <img
-            draggable="false"
-            v-if="filename"
-            :class="`image-${imageVariant}`"
-            :src="require(`../../../assets/images/${filename}`)"
-            :alt="`${alt}`"
-          />
-        </div>
+        <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" />
+        <img
+          draggable="false"
+          v-if="filename"
+          :class="`image-${imageVariant}`"
+          :src="require(`../../../assets/images/${filename}`)"
+          :alt="`${alt}`"
+        />
+      </router-link>
+      <a v-else-if="link" :href="link" target="_blank" rel="noopener noreferrer">
+        <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" />
+        <img
+          draggable="false"
+          v-if="filename"
+          :class="`image-${imageVariant}`"
+          :src="require(`../../../assets/images/${filename}`)"
+          :alt="`${alt}`"
+        />
+      </a>
+      <div v-else>
+        <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" />
+        <img
+          draggable="false"
+          v-if="filename"
+          :class="`image-${imageVariant}`"
+          :src="require(`../../../assets/images/${filename}`)"
+          :alt="`${alt}`"
+        />
+      </div>
     </div>
 
     <div class="info">
@@ -354,6 +354,8 @@ img {
   overflow: hidden;
   border-radius: 0 !important;
   position: relative;
+  margin: var(--spacing-xs);
+  border-radius: var(--spacing-xxxs) !important;
 
   &:has(img) {
     aspect-ratio: 5/4;

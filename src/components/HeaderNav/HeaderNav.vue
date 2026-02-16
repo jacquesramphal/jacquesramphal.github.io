@@ -1,11 +1,14 @@
 <template>
-  <div id="headernav" class="navbar" :class="{ 'hidden-navbar': !showNavbar }">
+  <div
+    id="headernav"
+    class="navbar"
+    :class="{ 'hidden-navbar': !showNavbar, 'menu-is-open': menuOpen }"
+  >
     <GridContainer class="bg">
       <nav class="">
         <div class="nav-left">
           <span
             class="glow animate delay-1 wordmark"
-            v-show="!menuOpen"
             style="
               display: flex;
               flex-direction: row;
@@ -29,10 +32,7 @@
               /> -->
             </router-link>
 
-            <BreadCrumb
-              :isDesktopScreen="isDesktopScreen"
-              @toggle-menu="toggleFullscreenMenu"
-            />
+            <BreadCrumb :isDesktopScreen="isDesktopScreen" @toggle-menu="toggleFullscreenMenu" />
           </span>
         </div>
 
@@ -48,12 +48,12 @@
               Storybook
             </a>
           </li>
-          <!-- <li  v-show="isMobileScreen && !menuOpen" class="nav-link" tabindex="0">
+          <!-- <li v-show="isMobileScreen && !menuOpen" class="nav-link" tabindex="0">
             <slot name="menu-button-mobile"></slot>
           </li> -->
-          <!-- <span class="glow animate delay-1">
+          <span v-show="isMobileScreen" class="glow animate delay-1">
             <slot name="menu-button"></slot
-          ></span> -->
+          ></span>
         </ul>
       </nav>
     </GridContainer>
@@ -62,7 +62,7 @@
 
 <script>
 import GridContainer from '../grid/GridContainer.vue';
-import BreadCrumb from "../BreadCrumb.vue";
+import BreadCrumb from '../BreadCrumb.vue';
 import TextLink from '../text/TextLink.vue';
 // import ThemeButton from "../ThemeButton.vue";
 
@@ -148,6 +148,11 @@ export default {
     // not in use - end
 
     onScroll() {
+      // Keep navbar visible when menu is open
+      if (this.menuOpen) {
+        this.showNavbar = true;
+        return;
+      }
       if (window.pageYOffset < 0) {
         return;
       }
@@ -260,7 +265,7 @@ button {
   opacity: 0.95;
   z-index: -1; /* Set the z-index to be behind the navbar */
   @media only screen and (min-width: 768px) {
-    background: transparent;
+    // background: transparent;
     inset-block-end: 0;
     inset-block-start: -100%;
   }
@@ -271,18 +276,22 @@ button {
     transform: translate3d(0, -150%, 0) !important;
   }
 }
+/* Keep navbar visible when menu is open */
+.navbar.menu-is-open {
+  transform: translate3d(0, 0, 0) !important;
+}
 .bg {
   background: var(--background);
   transition: 0.5s box-shadow ease-in-out !important;
   justify-self: flex-end;
   overflow: visible;
   position: relative;
-  padding-block: var(--spacing-xs) var(--spacing-sm) !important;
+  padding-block: var(--spacing-xs) !important;
   padding-inline-end: var(--spacing-sm) !important;
   inline-size: 100%;
-  // border-block-end: var(--border);
+  border-block-end: var(--border);
   @media only screen and (min-width: 768px) {
-    background: transparent;
+    // background: transparent;
 
     // padding-block: var(--size-12) var(--spacing-sm) !important;
     // padding-inline: var(--spacing-lg) !important;
@@ -307,7 +316,7 @@ ul {
     gap: var(--spacing-md);
     a,
     router-link {
-      mix-blend-mode: difference !important;
+      // mix-blend-mode: difference !important;
     }
   }
 }
@@ -324,7 +333,7 @@ li {
 }
 nav {
   overflow: visible;
-  align-items: flex-start;
+  align-items: center;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: var(--spacing-md);
@@ -341,7 +350,7 @@ nav {
   @media only screen and (min-width: 768px) {
     a,
     router-link {
-      mix-blend-mode: difference !important;
+      // mix-blend-mode: difference !important;
     }
   }
 }

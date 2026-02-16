@@ -1194,7 +1194,7 @@ summary {
   border-radius: 4px; /* Rounded corners */
   list-style: none; /* Hide default marker */
 
-  /* Custom chevron icon */
+  /* Custom plus icon */
   &::after {
     content: '';
     display: inline-flex;
@@ -1203,12 +1203,16 @@ summary {
     inline-size: 16px;
     block-size: 16px;
     flex-shrink: 0;
-    background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6.25L8 10.25L12 6.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    transition: transform 0.2s ease;
-    opacity: 0.85;
+    background-color: currentColor;
+    mask-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 3.5V12.5M3.5 8H12.5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 3.5V12.5M3.5 8H12.5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    transition: mask-image 0.2s ease, -webkit-mask-image 0.2s ease;
   }
 }
 
@@ -1221,9 +1225,10 @@ summary::marker {
 details[open] summary {
   color: var(--foreground-subtle);
 
-  /* Rotate chevron when open */
+  /* Change to minus icon when open */
   &::after {
-    transform: rotate(180deg);
+    mask-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 8H12.5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 8H12.5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
   }
 
   // font-weight: 600; /* Bolder font for active state */

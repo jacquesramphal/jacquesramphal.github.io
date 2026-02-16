@@ -137,6 +137,12 @@ blockquote {
     'opsz' 20;
 }
 
+strong,
+b {
+  color: rgba(var(--foreground-rgb), 1) !important;
+  font-weight: var(--fontWeight-bold) !important;
+}
+
 blockquote {
   background: var(--background-darker);
   border-inline-start: var(--spacing-xxxs) solid var(--link);
