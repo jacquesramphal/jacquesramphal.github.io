@@ -44,7 +44,7 @@
           <ShareWidget :title="shareTitle" />
         </div>
       </main>
-      <div v-if="headings && headings.length > 0" ref="tocSidebarWrap" class="toc-sidebar-wrap">
+      <div v-if="hasH2Headings" ref="tocSidebarWrap" class="toc-sidebar-wrap">
         <aside ref="tocSidebar" class="toc-sidebar">
           <MarkdownTOC :headings="headings" :active-heading="activeHeading" />
         </aside>
@@ -648,6 +648,10 @@ export default {
       return h1?.title || '';
     });
 
+    const hasH2Headings = computed(() => {
+      return headings.value && headings.value.some((h) => h.level === 2);
+    });
+
     // Computed property for hero image source
     const heroImageSrc = computed(() => {
       if (!heroImage.value) {
@@ -758,6 +762,7 @@ export default {
       fallbackImageSrc,
       shouldShowHero,
       shareTitle,
+      hasH2Headings,
       statsLabel1,
       statsValue1,
       statsLabel2,

@@ -189,8 +189,33 @@ export default {
       // Back-compat default: writing docs
       return this.docs.entries;
     },
+    filteredItems() {
+      // Filter out the current document if we're on a doc page
+      const currentRoute = this.$route;
+
+      // Check if we're on a doc page
+      if (currentRoute.name === 'Doc' || currentRoute.name === 'DocById') {
+        const currentSlug = currentRoute.params.slug;
+        const currentId = currentRoute.params.id;
+
+        return this.resolvedItems.filter(item => {
+          // Filter by slug if available
+          if (currentSlug && item.slug) {
+            return item.slug !== currentSlug;
+          }
+          // Filter by docId if numeric id route is used
+          if (currentId && item.docId) {
+            return item.docId !== parseInt(currentId, 10);
+          }
+          return true;
+        });
+      }
+
+      // If not on a doc page, return all items
+      return this.resolvedItems;
+    },
     visibleItems() {
-      return this.resolvedItems.slice(0, this.limit);
+      return this.filteredItems.slice(0, this.limit);
     },
   },
   mounted() {

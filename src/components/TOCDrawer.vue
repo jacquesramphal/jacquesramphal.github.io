@@ -1,6 +1,6 @@
 <template>
   <div>
-    <aside v-if="isOpen" class="toc-drawer">
+    <aside v-if="isOpen && hasH2Headings" class="toc-drawer">
       <div class="toc-drawer__content">
         <MarkdownTOC
           :headings="headings"
@@ -31,6 +31,11 @@ export default {
     activeHeading: {
       type: String,
       default: null,
+    },
+  },
+  computed: {
+    hasH2Headings() {
+      return this.headings && this.headings.some((h) => h.level === 2);
     },
   },
 };

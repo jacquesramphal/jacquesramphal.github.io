@@ -25,9 +25,6 @@
         </li>
       </ul>
     </nav>
-    <div v-else class="toc-empty">
-      <p class="toc-debug">TOC: {{ headings.length }} headings</p>
-    </div>
   </aside>
 </template>
 
@@ -303,16 +300,5 @@ export default {
 
 .markdown-toc::-webkit-scrollbar-thumb:hover {
   background: var(--foreground);
-}
-
-.toc-empty {
-  padding: var(--spacing-sm);
-  font-size: var(--font-xs);
-  color: var(--foreground-subtle);
-}
-
-.toc-debug {
-  margin: 0;
-  padding: 0;
 }
 </style>

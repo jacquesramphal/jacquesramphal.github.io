@@ -118,18 +118,19 @@ export default {
     }
   },
   methods: {
-    // Convert kebab-case to readable format with spaces and capitalize first word
+    // Convert kebab-case to readable format with spaces and capitalize all words (Title Case)
     formatSlugToReadable(slug) {
       if (!slug) return '';
 
       const words = slug.split('-');
 
-      // Capitalize first letter of first word only
-      if (words.length > 0 && words[0]) {
-        words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1);
-      }
+      // Capitalize first letter of each word (Title Case)
+      const capitalizedWords = words.map(word => {
+        if (!word) return word;
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      });
 
-      return words.join(' ');
+      return capitalizedWords.join(' ');
     },
 
     async updatePageTitle() {

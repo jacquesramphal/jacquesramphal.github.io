@@ -1,6 +1,6 @@
 <template>
-  <div 
-    v-if="isMarkdownPage && hasHeadings && headings && headings.length > 0"
+  <div
+    v-if="isMarkdownPage && h2Headings.length > 0"
     ref="tocBar"
     class="mobile-toc-bar"
   >
@@ -47,9 +47,6 @@ export default {
   computed: {
     isMarkdownPage() {
       return this.$route?.path?.startsWith('/doc/');
-    },
-    hasHeadings() {
-      return this.headings && this.headings.length > 0;
     },
     h2Headings() {
       return this.headings.filter(heading => heading.level === 2);
