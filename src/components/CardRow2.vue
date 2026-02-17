@@ -14,7 +14,7 @@
         <TextBlock style="grid-column: 1 / 3" :title="title" as="h2" description="" />
 
         <p class="justify-end" style="align-self: center; white-space: nowrap">
-          <router-link v-if="viewAllTo" :to="viewAllTo">See all</router-link>
+          <router-link v-if="viewAllTo" :to="viewAllTo">View All</router-link>
         </p>
       </div>
 
@@ -73,8 +73,18 @@
     <span v-else
       ><GridContainer style="padding-block-end: 0 !important; overflow: visible !important">
         <!-- HEADER COMPONENT START -->
-        <div class="grid-parent" style="padding-block-end: var(--spacing-md)">
-          <TextBlock :title="title" as="h2" description="" />
+        <div
+          class="grid-parent"
+          style="
+            padding-block-end: var(--spacing-md);
+            align-items: center;
+            grid-template-columns: repeat(1fr);
+          "
+        >
+          <TextBlock style="grid-column: 1 / 3" :title="title" as="h2" description="" />
+          <p class="justify-end" style="grid-column: 3 / 3; align-self: center">
+            <router-link v-if="viewAllTo" :to="viewAllTo">View All</router-link>
+          </p>
         </div>
         <!-- HEADER COMPONENT END -->
       </GridContainer>
@@ -127,10 +137,6 @@
           />
         </GridParent>
       </div>
-
-      <GridContainer v-if="viewAllTo" class="mobile-button-container">
-        <MyButton type="outline" size="large" label="See all" :route="viewAllTo" />
-      </GridContainer>
     </span>
     <!-- MOBILE VIEW END -->
   </div>
@@ -140,12 +146,11 @@
 import docs from '../assets/data/docs.json';
 import ArticleCard from '@/components/card/ArticleCard/ArticleCard.vue';
 import ImageCard from '@/components/card/ImageCard/ImageCard.vue';
-import MyButton from '@/components/Button/Button.vue';
 const OFFSET = 60;
 
 export default {
   name: 'CardRow2',
-  components: { ArticleCard, ImageCard, MyButton },
+  components: { ArticleCard, ImageCard },
   props: {
     title: {
       type: String,
@@ -226,20 +231,6 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-.mobile-button-container {
-  padding-block-start: 0 !important;
-  padding-block-end: var(--spacing-md) !important;
-
-  :deep(#btn) {
-    width: 100% !important;
-    display: block !important;
-  }
-
-  :deep(.custom-btn) {
-    width: 100% !important;
-  }
-}
-
 .scrolling-wrapper {
   overflow-x: scroll;
   overflow-y: hidden;
