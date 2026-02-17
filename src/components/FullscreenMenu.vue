@@ -1,6 +1,5 @@
 <template>
-  <transition name="" mode="out-in">
-    <!-- <transition name="slide" mode="out-in"> -->
+  <transition name="fade" mode="out-in">
     <div
       class="fullscreen-menu"
       v-if="isOpen"
@@ -15,7 +14,7 @@
               <nav class="">
                 <ul class="animate delay-2">
                   <li v-for="(item, index) in menuItems" :key="index">
-                    <router-link class="display" :to="item.route">
+                    <router-link :to="item.route" @click.prevent="handleMenuClick(item.route)">
                       <DynamicText as="h1" tabIndex="0" :attrs="{ class: '' }" :text="item.text" />
                     </router-link>
                   </li>
@@ -45,8 +44,9 @@ export default {
       menuItems: [
         { text: 'Home', route: '/' },
         { text: 'Library', route: '/library' },
-        { text: 'Resume', route: '/resume' },
-        { text: 'Design System', route: '/designsystem' },
+        { text: 'Resume', route: '/doc/cv' },
+        { text: 'FAQs', route: '/doc/ask-me-anything' },
+        { text: 'Storybook', route: '/storybook/' },
       ],
     };
   },
@@ -61,6 +61,15 @@ export default {
     },
     toggleMenu() {
       this.isMenuActive = !this.isMenuActive;
+    },
+    handleMenuClick(route) {
+      // Navigate first, then close menu after route changes
+      this.$router.push(route).then(() => {
+        // Close menu after navigation completes
+        setTimeout(() => {
+          this.closeMenu();
+        }, 50); // Small delay to ensure new page starts rendering
+      });
     },
   },
   // Register the event listener when the component is mounted
@@ -157,6 +166,8 @@ body.menu-open {
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
+  transition: none !important;
+  transform: none !important;
 
   @media only screen and (min-width: 1201px) {
     inline-size: 100vw;
@@ -173,11 +184,11 @@ body.menu-open {
     position: absolute;
     inset-block-start: 0;
     inset-block-end: 0;
-    inset-inline-start: 100%;
+    inset-inline-end: -100%;
     inline-size: 100%;
-    background-color: inherit;
+    background-color: var(--background);
     z-index: -1;
-    transition: inset-inline-start 0.3s ease;
+    transition: none;
   }
 }
 
@@ -206,6 +217,7 @@ body.menu-open {
         a {
           text-decoration: none;
           color: var(--foreground) !important;
+
           &:hover {
             color: var(--link) !important;
           }
@@ -215,30 +227,22 @@ body.menu-open {
   }
 }
 
-.slide-enter-active,
-.slide-leave-active {
-  animation: slide 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+// Fade transition for menu
+.fade-enter-active {
+  transition: opacity 0.3s ease-in;
 }
 
-@keyframes slide {
-  from {
-    transform: translateX(100%); /* Start off-screen to the left */
-  }
-  to {
-    transform: translateX(0); /* Slide to the original position */
-  }
+.fade-leave-active {
+  transition: opacity 0.45s ease-out;
 }
 
-.slide-leave-active {
-  animation: slide-out 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
-@keyframes slide-out {
-  from {
-    transform: translateX(0); /* Start at the original position */
-  }
-  to {
-    transform: translateX(100%); /* Slide out to the right */
-  }
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
 }
 </style>

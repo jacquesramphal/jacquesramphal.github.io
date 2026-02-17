@@ -29,7 +29,7 @@
         :url="iconurl"
         :unicode="unicode"
       />
-      {{ label }}
+      <span class="label-text">{{ label }}</span>
     </a>
     <a
       :class="classes"
@@ -183,4 +183,24 @@ setup(props, { emit }) {
 }
 
 /* ---- External Link ---- */
+.external {
+  text-decoration: none !important;
+
+  .label-text {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  &::after {
+    content: ' ↗';
+    text-decoration: none;
+    display: inline-block;
+    margin-inline-start: 0.2em;
+  }
+
+  &:hover .label-text {
+    text-decoration-thickness: 2px;
+  }
+}
 </style>

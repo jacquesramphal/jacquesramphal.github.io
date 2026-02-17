@@ -281,7 +281,7 @@ button {
   transform: translate3d(0, 0, 0) !important;
 }
 .bg {
-  background: var(--background);
+  background: linear-gradient(0deg, transparent 0%, var(--background) 100%);
   transition: 0.5s box-shadow ease-in-out !important;
   justify-self: flex-end;
   overflow: visible;

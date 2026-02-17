@@ -331,6 +331,25 @@ figcaption {
    RESPONSIVE BREAKPOINTS
    ========================================================================= */
 
+/* Mobile (XS) - Drop h3 and below for better hierarchy */
+@media only screen and (max-width: 767px) {
+  h2 {
+    font-size: var(--size-9);
+  }
+  h3 {
+    font-size: var(--size-7);
+  }
+  h4 {
+    font-size: var(--size-6);
+  }
+  h5 {
+    font-size: var(--size-5);
+  }
+  h6 {
+    font-size: var(--size-4);
+  }
+}
+
 /* Tablet (MD) */
 @media only screen and (min-width: 768px) {
   h1 {

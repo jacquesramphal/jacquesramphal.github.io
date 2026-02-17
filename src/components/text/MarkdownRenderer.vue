@@ -1185,14 +1185,14 @@ details[open] {
 
 summary {
   cursor: pointer;
-  font-size: var(--font-sm);
-  // font-weight: var(--fontWeight-semibold);
+  font-size: var(--font-xs);
+  font-weight: var(--fontWeight-medium);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 0; /* Spacing around the summary */
-  border-radius: 4px; /* Rounded corners */
+  padding: var(--spacing-sm) 0; /* Spacing around the summary */
   list-style: none; /* Hide default marker */
+  border-bottom: var(--border); /* Border below summary */
 
   /* Custom plus icon */
   &::after {
@@ -1212,7 +1212,9 @@ summary {
     -webkit-mask-position: center;
     mask-size: contain;
     -webkit-mask-size: contain;
-    transition: mask-image 0.2s ease, -webkit-mask-image 0.2s ease;
+    transition:
+      mask-image 0.2s ease,
+      -webkit-mask-image 0.2s ease;
   }
 }
 
@@ -1237,9 +1239,5 @@ details[open] summary {
 }
 
 details p {
-  padding-left: 1rem; /* Indentation for content */
-  font-size: var(--font-xs);
-  // color: #6b7280; /* Muted color for supporting text */
-  line-height: 1.5; /* Comfortable line spacing */
 }
 </style>

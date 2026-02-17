@@ -35,16 +35,16 @@
         <div class="quote-text">
           <h1>{{ quotes[currentQuoteIndex].quote }}</h1>
         </div>
-        <MyIcon :url="quotes[currentQuoteIndex].image" is-svg="true" size="sm" />
+        <!-- <MyIcon :url="quotes[currentQuoteIndex].image" is-svg="true" size="sm" /> -->
         <div class="author-info">
-          <a :href="quotes[currentQuoteIndex].url" target="_blank" rel="noopener noreferrer">
+          <!-- <a :href="quotes[currentQuoteIndex].url" target="_blank" rel="noopener noreferrer">
             <img
               v-if="quotes[currentQuoteIndex].image"
               :src="quotes[currentQuoteIndex].image"
               alt="Author"
             />
             <img v-else src="@/assets/images/work/placeholder.png" alt="Author" />
-          </a>
+          </a> -->
           <div class="author-details">
             <div class="author-name">
               <h5>{{ quotes[currentQuoteIndex].author }}</h5>
@@ -268,13 +268,18 @@ export default {
 }
 
 .author-info img {
+  display: block;
+  width: 64px;
+  height: 64px;
   inline-size: 64px;
   block-size: 64px;
   border-radius: var(--spacing-lg) !important;
   margin-block-end: var(--spacing-xs);
+  object-fit: cover;
+  flex-shrink: 0;
 
   @media only screen and (min-width: 768px) {
-    margin-block-end: none;
+    margin-block-end: 0;
     margin-inline-end: var(--spacing-sm);
   }
 }

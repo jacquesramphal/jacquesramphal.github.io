@@ -1,42 +1,85 @@
 <template :class="classes">
   <div class="default-card" :class="classes" :data-category="`${eyebrow}`">
-    <div v-if="hasImage" class="image" :style="bgcolor">
+    <div v-if="alt" class="image" :style="bgcolor">
+      <!-- Show placeholder when no image -->
+      <template v-if="!hasImage">
+        <router-link v-if="(route || btnroute) && !link" :to="`${route || btnroute}`">
+          <div class="placeholder" :style="{ backgroundColor: placeholderColor }">
+            <div class="placeholder-text">
+              <span
+                v-for="(word, index) in placeholderWords"
+                :key="index"
+                :style="{ animationDelay: `${index * 0.1}s` }"
+              >
+                {{ word }}
+              </span>
+            </div>
+          </div>
+        </router-link>
+        <a v-else-if="link" :href="link" target="_blank" rel="noopener noreferrer">
+          <div class="placeholder" :style="{ backgroundColor: placeholderColor }">
+            <div class="placeholder-text">
+              <span
+                v-for="(word, index) in placeholderWords"
+                :key="index"
+                :style="{ animationDelay: `${index * 0.1}s` }"
+              >
+                {{ word }}
+              </span>
+            </div>
+          </div>
+        </a>
+        <div v-else class="placeholder" :style="{ backgroundColor: placeholderColor }">
+          <div class="placeholder-text">
+            <span
+              v-for="(word, index) in placeholderWords"
+              :key="index"
+              :style="{ animationDelay: `${index * 0.1}s` }"
+            >
+              {{ word }}
+            </span>
+          </div>
+        </div>
+      </template>
+
       <!-- Show images when available -->
-      <router-link v-if="(route || btnroute) && !link" :to="`${route || btnroute}`">
-        <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" />
-        <img
-          draggable="false"
-          v-if="filename"
-          :class="`image-${imageVariant}`"
-          :src="require(`../../../assets/images/${filename}`)"
-          :alt="`${alt}`"
-        />
-      </router-link>
-      <a v-else-if="link" :href="link" target="_blank" rel="noopener noreferrer">
-        <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" />
-        <img
-          draggable="false"
-          v-if="filename"
-          :class="`image-${imageVariant}`"
-          :src="require(`../../../assets/images/${filename}`)"
-          :alt="`${alt}`"
-        />
-      </a>
-      <div v-else>
-        <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" />
-        <img
-          draggable="false"
-          v-if="filename"
-          :class="`image-${imageVariant}`"
-          :src="require(`../../../assets/images/${filename}`)"
-          :alt="`${alt}`"
-        />
-      </div>
+      <template v-else>
+        <router-link v-if="(route || btnroute) && !link" :to="`${route || btnroute}`">
+          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" />
+          <img
+            draggable="false"
+            v-if="filename"
+            :class="`image-${imageVariant}`"
+            :src="require(`../../../assets/images/${filename}`)"
+            :alt="`${alt}`"
+          />
+        </router-link>
+        <a v-else-if="link" :href="link" target="_blank" rel="noopener noreferrer">
+          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" />
+          <img
+            draggable="false"
+            v-if="filename"
+            :class="`image-${imageVariant}`"
+            :src="require(`../../../assets/images/${filename}`)"
+            :alt="`${alt}`"
+          />
+        </a>
+        <div v-else>
+          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" />
+          <img
+            draggable="false"
+            v-if="filename"
+            :class="`image-${imageVariant}`"
+            :src="require(`../../../assets/images/${filename}`)"
+            :alt="`${alt}`"
+          />
+        </div>
+      </template>
     </div>
 
     <div class="info">
-      <!-- Color bar at top when no image -->
-      <div v-if="!hasImage" class="color-bar" :style="{ backgroundColor: typeColorSubtle }"></div>
+      <!-- Color bar at top when no image (COMMENTED OUT - using placeholder images instead) -->
+      <!-- <div v-if="!hasImage" class="color-bar" :style="{ backgroundColor: typeColorSubtle }"></div> -->
 
       <TextBlock
         clamped
@@ -354,8 +397,8 @@ img {
   overflow: hidden;
   border-radius: 0 !important;
   position: relative;
-  margin: var(--spacing-xs);
   border-radius: var(--spacing-xxxs) !important;
+  margin: var(--spacing-xs);
 
   &:has(img) {
     aspect-ratio: 5/4;
@@ -370,6 +413,46 @@ img {
 .image a,
 .image router-link {
   text-decoration: none;
+}
+
+.placeholder {
+  aspect-ratio: 5/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.placeholder-text {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: var(--font-800);
+  font-weight: var(--fontWeight-bold);
+  line-height: var(--lineHeight-shorter);
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  padding: var(--spacing-md);
+  letter-spacing: var(--letterSpacing-tight);
+}
+
+.placeholder-text span {
+  display: inline-block;
+  animation: fadeInScale 0.6s ease-out forwards;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .color-bar {
@@ -465,6 +548,7 @@ img {
 
   .image {
     border-radius: var(--spacing-xxs) !important;
+    margin: 0 !important;
   }
 
   .color-bar {
@@ -512,6 +596,7 @@ img {
     inline-size: 100%;
     border-radius: 0 !important;
     position: absolute;
+    margin: 0 !important;
   }
 }
 </style>

@@ -123,6 +123,7 @@ A curated collection of my writing, professional work, and personal projects."
         <div v-if="filteredArticlesAndTools.length" class="library-section">
           <GridParent tight class="posts">
             <ArticleCard
+              borderless
               v-for="(entry, index) in filteredArticlesAndTools"
               :key="entry.id"
               :alt="entry.alt"
@@ -157,6 +158,7 @@ A curated collection of my writing, professional work, and personal projects."
           />
           <GridParent tight class="posts">
             <ArticleCard
+              borderless
               v-for="(entry, index) in filteredCaseStudiesAndProjects"
               :key="entry.id"
               :alt="entry.alt"
@@ -205,6 +207,7 @@ A curated collection of my writing, professional work, and personal projects."
         <GridParent tight class="posts" v-if="filteredEntries.length">
           <!-- Articles and Tools use ArticleCard -->
           <ArticleCard
+            borderless
             v-for="(entry, index) in filteredArticlesAndTools"
             :key="entry.id"
             :alt="entry.alt"

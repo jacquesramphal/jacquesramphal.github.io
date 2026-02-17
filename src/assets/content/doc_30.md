@@ -4,6 +4,7 @@
 
 #### I'm Jacques, a Senior Product Designer and design lead based in Toronto. I work at the intersection of design systems, code, and AI—designing experiences that actually ship.
 
+</br>
 
 > **Need a quick answer?** Try the AI chatbot in the bottom right—it's trained on my entire site and can help you find specific information or answer questions about my work, experience, and approach.
 
@@ -89,11 +90,11 @@ I’m especially interested in work that sits at the overlap of:
 If a problem requires both systems thinking and hands-on building, I’m probably interested.
 </details>
 
-<hr/>
+
 
 <!-- ![Image](../images/portrait.jpg) -->
 
-## Design Process (For the interviewers)
+## Design Process
 
 <span>
 <details>
@@ -137,7 +138,7 @@ I care a lot about strong opinions, loosely held—and a culture where critique 
 </details>
 </span>
 
-<hr>
+
 
 ## Working Together
 
