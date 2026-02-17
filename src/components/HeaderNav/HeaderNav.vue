@@ -37,7 +37,7 @@
         </div>
 
         <ul class="links justify-end glow">
-          <li class="glow animate delay-2" v-if="!breadcrumb" v-show="isDesktopScreen">
+          <!-- <li class="glow animate delay-2" v-if="!breadcrumb" v-show="isDesktopScreen">
             <TextLink label="Library" route="/library" />
           </li>
           <li class="glow animate delay-1-5" v-show="isDesktopScreen">
@@ -47,13 +47,11 @@
             <a href="/storybook/" target="_blank" rel="noopener noreferrer" class="storybook-link">
               Storybook
             </a>
-          </li>
+          </li> -->
           <!-- <li v-show="isMobileScreen && !menuOpen" class="nav-link" tabindex="0">
             <slot name="menu-button-mobile"></slot>
           </li> -->
-          <span v-show="isMobileScreen" class="glow animate delay-1">
-            <slot name="menu-button"></slot
-          ></span>
+          <span class="glow animate delay-1"> <slot name="menu-button"></slot></span>
         </ul>
       </nav>
     </GridContainer>
@@ -63,13 +61,13 @@
 <script>
 import GridContainer from '../grid/GridContainer.vue';
 import BreadCrumb from '../BreadCrumb.vue';
-import TextLink from '../text/TextLink.vue';
+// import TextLink from '../text/TextLink.vue';
 // import ThemeButton from "../ThemeButton.vue";
 
 const OFFSET = 60;
 export default {
   name: 'HeaderNav',
-  components: { GridContainer, BreadCrumb, TextLink },
+  components: { GridContainer, BreadCrumb },
   props: {
     breadcrumb: {
       type: Boolean,
