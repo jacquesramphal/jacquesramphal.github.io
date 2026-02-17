@@ -1,10 +1,6 @@
-<header>
-
 # Design Guard
 
 #### Catch hardcoded design values before they ship (npm package + CLI)
-
-</header>
 
 If you care about design consistency, you eventually end up caring about **what shouldn’t be allowed** in your codebase:
 

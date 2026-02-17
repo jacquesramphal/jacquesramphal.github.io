@@ -748,22 +748,41 @@ export default {
   img {
     margin-block: var(--spacing-xs) var(--spacing-xxxs);
 
-    @media only screen and (min-width: 1201px) {
-      margin-block: var(--spacing-lg) var(--spacing-md);
+    // Override global object-fit: cover to prevent cropping
+    object-fit: contain !important;
+    object-position: top center; // Pin images to top
+
+    // Smart max-height constraints
+    max-height: 50vh;
+    height: auto;
+    width: 100%;
+
+    @media only screen and (min-width: 768px) {
+      max-height: 60vh;
     }
 
-    // aspect-ratio: 16 / 8;
-    // max-width: 98rem !important;
-    // float: none;
-    // margin-inline-start: auto;
-    // margin-inline-end: auto;
+    @media only screen and (min-width: 1201px) {
+      margin-block: var(--spacing-lg) var(--spacing-md);
+      max-height: 70vh;
+    }
   }
 
-  // First image (hero image) - 4:3 aspect ratio
+  // First image (hero image) - Allow taller but still constrained
   p:has(> img):first-of-type img,
   img:first-of-type {
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+    max-height: 60vh;
+    object-fit: contain !important;
+    object-position: top center; // Pin hero image to top
+    aspect-ratio: auto; // Remove forced aspect ratio
+    margin-block-start: 0; // Remove top margin for hero image
+
+    @media only screen and (min-width: 768px) {
+      max-height: 70vh;
+    }
+
+    @media only screen and (min-width: 1201px) {
+      max-height: 75vh;
+    }
   }
 
   header {

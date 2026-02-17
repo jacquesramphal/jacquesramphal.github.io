@@ -1,6 +1,6 @@
 # Baselines Over Heroics
 
-#### Building sustainable quality through strong foundations
+## Building sustainable quality through strong foundations
 
 Many teams rely on hero designers and sharp engineers to "catch things."
 

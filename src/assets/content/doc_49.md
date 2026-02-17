@@ -1,6 +1,6 @@
 # Manual vs. Automated Is the Wrong Debate
 
-#### The complementary role of human and machine intelligence
+## The complementary role of human and machine intelligence
 
 The debate about automation misses the point.
 

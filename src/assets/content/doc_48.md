@@ -1,6 +1,6 @@
 # Object Thinking vs. Spaghetti Thinking
 
-#### Modular systems create scalable quality
+## Modular systems create scalable quality
 
 There are two ways to approach quality.
 

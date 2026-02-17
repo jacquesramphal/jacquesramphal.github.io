@@ -1,6 +1,6 @@
 # The Designer in the Age of AI
 
-#### Shifting from inspectors to system stewards
+## Shifting from inspectors to system stewards
 
 AI can review.
 AI can compare.

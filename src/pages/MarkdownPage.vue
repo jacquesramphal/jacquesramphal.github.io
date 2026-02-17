@@ -649,7 +649,9 @@ export default {
     });
 
     const hasH2Headings = computed(() => {
-      return headings.value && headings.value.some((h) => h.level === 2);
+      if (!headings.value) return false;
+      const h2Count = headings.value.filter((h) => h.level === 2).length;
+      return h2Count > 1;
     });
 
     // Computed property for hero image source

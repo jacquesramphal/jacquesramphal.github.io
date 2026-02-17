@@ -1,6 +1,6 @@
 # Quality Is Not Extra Scope
 
-#### Redefining quality as foundational, not additional
+## Redefining quality as foundational, not additional
 
 There's a persistent myth in product teams:
 Quality adds scope.

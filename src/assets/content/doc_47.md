@@ -1,6 +1,6 @@
 # QA Is a Signal of Team Maturity
 
-#### How quality processes reveal organizational health
+## How quality processes reveal organizational health
 
 The amount of QA a team needs is inversely related to its maturity.
 

@@ -24,6 +24,26 @@
       "docId": 41,
       "slug": "accessibility",
       "contentFile": "doc_41.md"
+    },
+    {
+      "docId": 53,
+      "slug": "kg-loyalty-platform",
+      "contentFile": "doc_53.md"
+    },
+    {
+      "docId": 54,
+      "slug": "softchoice-rebrand",
+      "contentFile": "doc_54.md"
+    },
+    {
+      "docId": 55,
+      "slug": "fortune-100-planning-tool",
+      "contentFile": "doc_55.md"
+    },
+    {
+      "docId": 56,
+      "slug": "onlogic-commerce-platform",
+      "contentFile": "doc_56.md"
     }
   ]
 }

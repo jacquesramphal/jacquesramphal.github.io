@@ -1,6 +1,6 @@
 # Designers as Final Checkpoint
 
-#### Maintaining authority through validation
+## Maintaining authority through validation
 
 Designers don't just create intent.
 We validate reality.

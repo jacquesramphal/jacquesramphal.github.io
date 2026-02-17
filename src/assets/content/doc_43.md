@@ -1,6 +1,6 @@
 # The Best QA Is the One That Doesn't Have to Happen
 
-#### Prevention over detection in quality assurance
+## Prevention over detection in quality assurance
 
 "The most effective QA process is one that prevents the need for QA in the first place."
 

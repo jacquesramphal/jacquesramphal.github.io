@@ -1,6 +1,6 @@
 # Delivering Fewer, More Complete Things
 
-#### True velocity through completion, not volume
+## True velocity through completion, not volume
 
 There's a hidden truth in sprint planning:
 

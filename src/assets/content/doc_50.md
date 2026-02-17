@@ -1,6 +1,6 @@
 # Quality Is a Cultural Choice
 
-#### Building teams that value quality as foundational
+## Building teams that value quality as foundational
 
 You can't bolt quality onto a team.
 
