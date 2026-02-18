@@ -143,6 +143,10 @@ b {
   font-weight: var(--fontWeight-bold) !important;
 }
 
+strong {
+  display: inline-block;
+  text-decoration: underline wavy var(--color-yellow) !important;
+}
 blockquote {
   background: var(--background-darker);
   border-inline-start: var(--spacing-xxxs) solid var(--link);
@@ -425,10 +429,6 @@ figcaption {
   h6,
   p {
     letter-spacing: 0 !important;
-  }
-
-  strong {
-    font-weight: 700;
   }
 
   a {
