@@ -27,29 +27,31 @@
       </div>
     </GridContainer>
 
-    <GridContainer :class="['markdown-layout', { 'markdown-layout--no-hero': !hasHeaderTag }]">
-      <main id="markdown-content-end" class="markdown-main">
-        <MarkdownRenderer
-          class="content"
-          :markdown="processedMarkdown"
-          @headings="updateHeadings"
-        />
-        <div class="markdown-share">
-          <button @click="handlePrint" class="print-button" aria-label="Print page">
-            <span class="print-button__icon">
-              <MyIcon name="icon/print.svg" :is-svg="true" :size="16" />
-            </span>
-            <span class="print-button__label">Print</span>
-          </button>
-          <ShareWidget :title="shareTitle" />
-        </div>
-      </main>
-      <div v-if="hasH2Headings" ref="tocSidebarWrap" class="toc-sidebar-wrap">
-        <aside ref="tocSidebar" class="toc-sidebar">
-          <MarkdownTOC :headings="headings" :active-heading="activeHeading" />
-        </aside>
-      </div>
-    </GridContainer>
+    <GridContainer
+      ><GridParent :class="['markdown-layout', { 'markdown-layout--no-hero': !hasHeaderTag }]">
+        <main id="markdown-content-end" class="markdown-main">
+          <MarkdownRenderer
+            class="content"
+            :markdown="processedMarkdown"
+            @headings="updateHeadings"
+          />
+          <div class="markdown-share">
+            <button @click="handlePrint" class="print-button" aria-label="Print page">
+              <span class="print-button__icon">
+                <MyIcon name="icon/print.svg" :is-svg="true" :size="16" />
+              </span>
+              <span class="print-button__label">Print</span>
+            </button>
+            <ShareWidget :title="shareTitle" />
+          </div>
+        </main>
+
+        <div v-if="hasH2Headings" ref="tocSidebarWrap" class="toc-sidebar-wrap">
+          <aside ref="tocSidebar" class="toc-sidebar">
+            <MarkdownTOC :headings="headings" :active-heading="activeHeading" />
+          </aside>
+        </div> </GridParent
+    ></GridContainer>
     <div id="related-writing-section" style="background: transparent !important">
       <CardRow2
         :title="relatedTitle"
@@ -762,9 +764,9 @@ export default {
     // Computed properties for related content
     const relatedTitle = computed(() => {
       const typeMap = {
-        'article': 'Related Articles',
+        article: 'Related Articles',
         'case-study': 'Related Case Studies',
-        'tool': 'Related Tools',
+        tool: 'Related Tools',
       };
       return typeMap[currentDocType.value] || 'Related Writing';
     });
@@ -1129,7 +1131,7 @@ export default {
 
   @media only screen and (min-width: 1201px) {
     grid-template-columns: 1fr 2fr;
-    grid-gap: var(--spacing-lg);
+    grid-gap: var(--spacing-md);
   }
 }
 
@@ -1201,7 +1203,7 @@ export default {
   grid-column: 1 / -1;
 
   @media only screen and (min-width: 1201px) {
-    grid-column: 2 / 3;
+    grid-column: 2 / 4;
   }
 }
 
