@@ -232,6 +232,18 @@
       "contentFile": "doc_38.md",
       "thumbnail": "article/cover1.png",
       "alt": "Doc: Design Guard"
+    },
+    {
+      "id": 25,
+      "docId": 57,
+      "slug": "design-learnings",
+      "title": "Design Learnings & Principles",
+      "eyebrow": "Design Wisdom",
+      "description": "A living collection of wisdom from opinionated mentors, teachers, and personal design observations. From foundational principles to leadership lessons, this is a journal of continuous learning in design, code, and craft.",
+      "route": "/doc/design-learnings",
+      "contentFile": "doc_57.md",
+      "thumbnail": "article/jacques.jpg",
+      "alt": "Design Learnings & Principles"
     }
   ]
 }

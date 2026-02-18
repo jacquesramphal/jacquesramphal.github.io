@@ -14,7 +14,14 @@
               <nav class="">
                 <ul class="animate delay-2">
                   <li v-for="(item, index) in menuItems" :key="index">
-                    <router-link :to="item.route" @click.prevent="handleMenuClick(item.route)">
+                    <a
+                      v-if="item.external"
+                      :href="item.route"
+                      @click.prevent="handleMenuClick(item.route, true)"
+                    >
+                      <DynamicText as="h1" tabIndex="0" :attrs="{ class: '' }" :text="item.text" />
+                    </a>
+                    <router-link v-else :to="item.route" @click.prevent="handleMenuClick(item.route)">
                       <DynamicText as="h1" tabIndex="0" :attrs="{ class: '' }" :text="item.text" />
                     </router-link>
                   </li>
@@ -46,7 +53,7 @@ export default {
         { text: 'Library', route: '/library' },
         { text: 'Resume', route: '/doc/cv' },
         { text: 'FAQs', route: '/doc/ask-me-anything' },
-        { text: 'Storybook', route: '/storybook/' },
+        { text: 'Storybook', route: 'https://ramphal.design/storybook/', external: true },
       ],
     };
   },
@@ -62,14 +69,19 @@ export default {
     toggleMenu() {
       this.isMenuActive = !this.isMenuActive;
     },
-    handleMenuClick(route) {
-      // Navigate first, then close menu after route changes
-      this.$router.push(route).then(() => {
-        // Close menu after navigation completes
-        setTimeout(() => {
-          this.closeMenu();
-        }, 50); // Small delay to ensure new page starts rendering
-      });
+    handleMenuClick(route, isExternal = false) {
+      if (isExternal) {
+        // For external/static links, use direct navigation
+        window.location.href = route;
+      } else {
+        // Navigate first, then close menu after route changes
+        this.$router.push(route).then(() => {
+          // Close menu after navigation completes
+          setTimeout(() => {
+            this.closeMenu();
+          }, 50); // Small delay to ensure new page starts rendering
+        });
+      }
     },
   },
   // Register the event listener when the component is mounted

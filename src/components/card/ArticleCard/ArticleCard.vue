@@ -5,13 +5,13 @@
       <template v-if="!hasImage">
         <router-link v-if="(route || btnroute) && !link" :to="`${route || btnroute}`">
           <div class="placeholder" :style="{ backgroundColor: placeholderColor }">
-            <div class="placeholder-text">
+            <div class="display placeholder-text">
               <span
                 v-for="(word, index) in placeholderWords"
                 :key="index"
                 :style="{ animationDelay: `${index * 0.1}s` }"
               >
-                {{ word }}
+                <h1>{{ word }}</h1>
               </span>
             </div>
           </div>
@@ -418,8 +418,8 @@ img {
 .placeholder {
   aspect-ratio: 5/4;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding: var(--spacing-md);
   position: relative;
   overflow: hidden;
@@ -427,18 +427,14 @@ img {
 
 .placeholder-text {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: var(--font-800);
-  font-weight: var(--fontWeight-bold);
-  line-height: var(--lineHeight-shorter);
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
   color: rgba(255, 255, 255, 0.95);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  padding: var(--spacing-md);
-  letter-spacing: var(--letterSpacing-tight);
+  padding: 0;
+  overflow: visible;
 }
 
 .placeholder-text span {

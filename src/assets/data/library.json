@@ -10,6 +10,25 @@
   "alt": "Genie - Agentic AI Platform",
   "entries": [
     {
+      "id": 25,
+      "docId": 57,
+      "slug": "design-learnings",
+      "type": "article",
+      "title": "Design Learnings & Principles",
+      "eyebrow": "Design Wisdom",
+      "description": "A living collection of wisdom from opinionated mentors, teachers, and personal design observations. From foundational principles to leadership lessons, this is a journal of continuous learning in design, code, and craft.",
+      "route": "/doc/design-learnings",
+      "contentFile": "doc_57.md",
+      "thumbnail": "article/jacques.jpg",
+      "alt": "Design Learnings & Principles",
+      "tags": [
+        "design",
+        "leadership",
+        "learning",
+        "philosophy"
+      ]
+    },
+    {
       "id": 11,
       "type": "article",
       "title": "Design Tokens: The Unseen Hero",
