@@ -5,7 +5,7 @@
       <template v-if="!hasImage">
         <router-link v-if="(route || btnroute) && !link" :to="`${route || btnroute}`">
           <div class="placeholder" :style="{ backgroundColor: placeholderColor }">
-            <div class="display placeholder-text">
+            <div class="display placeholder-text" :style="{ color: placeholderTextColor }">
               <span
                 v-for="(word, index) in placeholderWords"
                 :key="index"
@@ -18,7 +18,7 @@
         </router-link>
         <a v-else-if="link" :href="link" target="_blank" rel="noopener noreferrer">
           <div class="placeholder" :style="{ backgroundColor: placeholderColor }">
-            <div class="placeholder-text">
+            <div class="placeholder-text" :style="{ color: placeholderTextColor }">
               <span
                 v-for="(word, index) in placeholderWords"
                 :key="index"
@@ -30,7 +30,7 @@
           </div>
         </a>
         <div v-else class="placeholder" :style="{ backgroundColor: placeholderColor }">
-          <div class="placeholder-text">
+          <div class="placeholder-text" :style="{ color: placeholderTextColor }">
             <span
               v-for="(word, index) in placeholderWords"
               :key="index"
@@ -253,7 +253,11 @@ export default {
       return subtleColorMap[this.type] || 'rgba(0, 134, 230, 0.15)';
     },
     placeholderColor() {
-      // Use type-based color instead of random
+      // Use subtle background color to match tags
+      return this.typeColorSubtle;
+    },
+    placeholderTextColor() {
+      // Use darker text color to match tags
       return this.typeColor;
     },
     placeholderWords() {
@@ -432,7 +436,6 @@ img {
   justify-content: flex-start;
   align-items: flex-start;
   text-align: left;
-  color: rgba(255, 255, 255, 0.95);
   padding: 0;
   overflow: visible;
 }
