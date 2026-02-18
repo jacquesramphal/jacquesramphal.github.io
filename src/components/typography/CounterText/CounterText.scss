@@ -1,0 +1,51 @@
+/**
+ * CounterText Component Styles
+ *
+ * Styles for the counter-fill typography effect component
+ */
+
+.counter-text {
+  display: inline-block;
+  position: relative;
+  line-height: 1; // Prevent extra vertical spacing
+
+  // SVG container
+  &__svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible; // Allow strokes/effects to extend beyond bounds
+  }
+
+  // Fallback text (shown during loading or on error)
+  &__fallback {
+    font-weight: var(--fontWeight-bold);
+    color: var(--foreground);
+    display: inline-block;
+  }
+
+  // Counter paths group
+  &__counters {
+    // Counters are painted first (behind foreground)
+    // No additional styles needed - fill is set via prop
+  }
+
+  // Foreground text path
+  &__foreground {
+    // No additional styles needed - fill is set via prop
+  }
+}
+
+// Screen reader only utility
+// Visually hidden but accessible to screen readers
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

@@ -233,10 +233,10 @@ export default {
     typeColor() {
       // Color mapping based on article type (darker variants for text)
       const typeColorMap = {
-        article: '#0066b3',
-        tool: '#1873cc',
-        'case-study': '#0a942b',
-        'design-project': '#5a15cc',
+        article: 'var(--color-yellow)',
+        tool: 'var(--color-yellow)',
+        'case-study': 'var(--color-yellow)',
+        'design-project': 'var(--color-yellow)',
       };
 
       return typeColorMap[this.type] || '#0066b3';
@@ -244,10 +244,10 @@ export default {
     typeColorSubtle() {
       // Create subtle/transparent variants for backgrounds
       const subtleColorMap = {
-        article: 'rgba(0, 134, 230, 0.15)',
-        tool: 'rgba(30, 144, 255, 0.15)',
-        'case-study': 'rgba(13, 186, 56, 0.15)',
-        'design-project': 'rgba(100, 21, 255, 0.15)',
+        article: 'var(--color-lightyellow)',
+        tool: 'var(--color-lightyellow)',
+        'case-study': 'var(--color-lightyellow)',
+        'design-project': 'var(--color-lightyellow)',
       };
 
       return subtleColorMap[this.type] || 'rgba(0, 134, 230, 0.15)';
@@ -279,7 +279,7 @@ export default {
   flex-direction: column;
   border-radius: var(--spacing-xxs) !important;
   border: var(--border);
-  // background: var(--background-darker);
+  // background: var(--color-lightyellow);
   overflow: hidden;
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -445,6 +445,11 @@ img {
   animation: fadeInScale 0.6s ease-out forwards;
   opacity: 0;
   transform: scale(0.8);
+}
+
+.placeholder-text h1 {
+  color: inherit !important;
+  line-height: 1 !important;
 }
 
 @keyframes fadeInScale {

@@ -201,19 +201,19 @@ export default {
     },
     typeColor() {
       const typeColorMap = {
-        article: '#0066b3',
-        tool: '#1873cc',
-        'case-study': '#0a942b',
-        'design-project': '#5a15cc',
+        article: 'var(--text)',
+        tool: 'var(--text)',
+        'case-study': 'var(--text)',
+        'design-project': 'var(--text)',
       };
       return typeColorMap[this.cardType] || '#0066b3';
     },
     typeColorSubtle() {
       const subtleColorMap = {
-        article: 'rgba(0, 134, 230, 0.15)',
-        tool: 'rgba(30, 144, 255, 0.15)',
-        'case-study': 'rgba(13, 186, 56, 0.15)',
-        'design-project': 'rgba(100, 21, 255, 0.15)',
+        article: 'var(--background-darker)',
+        tool: 'var(--background-darker)',
+        'case-study': 'var(--background-darker)',
+        'design-project': 'var(--background-darker)',
       };
       return subtleColorMap[this.cardType] || 'rgba(0, 134, 230, 0.15)';
     },

@@ -2,7 +2,7 @@
 
 /** GLOBAL HIGHLIGHT COLOUR **/
 ::selection {
-  background: rgba(185, 141, 226, 0.4);
+  background: var(--color-accent);
 }
 
 ::-moz-selection {
@@ -113,7 +113,8 @@ select:required:focus:invalid {
 }
 
 /* SELECTORS */
-option:first {}
+option:first {
+}
 
 /* ------- Dark Form UI ------- */
 
@@ -154,8 +155,8 @@ option:first {}
   justify-items: center;
 }
 
-input[type="radio"],
-input[type="checkbox"] {
+input[type='radio'],
+input[type='checkbox'] {
   margin-inline-end: var(--size-2);
   /* Adjust the spacing between the input and label */
   inline-size: var(--size-5);
@@ -164,21 +165,24 @@ input[type="checkbox"] {
   /* Set the block size (height) of the radio/checkbox */
 }
 
-input[type="radio"]+label,
-input[type="checkbox"]+label {
+input[type='radio'] + label,
+input[type='checkbox'] + label {
   cursor: pointer;
   font-size: var(--font-500);
   margin-block-end: 0 !important;
 }
 
-.form-radio {}
+.form-radio {
+}
 
-.form-radio:checked::before {}
+.form-radio:checked::before {
+}
 
-.form-radio:hover {}
+.form-radio:hover {
+}
 
-.form-radio:checked {}
-
+.form-radio:checked {
+}
 
 /*TOOLTIPS*/
 [data-tooltip]:hover:after {

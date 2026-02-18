@@ -23,11 +23,15 @@
           /> -->
         </div>
       </GridContainer>
-      <GridContainer class="banner-container" v-if="title">
+      <GridContainer class="banner-container" v-if="title || $slots.title">
         <GridParent id="hero-text" class="animate fade delay-1">
           <span>
             <div class="hero-content">
-              <DynamicText :as="as" :text="title" isHtml :attrs="{ id: 'title' }" />
+              <!-- Support both slot and prop for title -->
+              <component :is="as" v-if="$slots.title" id="title">
+                <slot name="title" />
+              </component>
+              <DynamicText v-else :as="as" :text="title" isHtml :attrs="{ id: 'title' }" />
               <p id="tags" v-if="tag" v-text="tag" class="subtle" />
 
               <DynamicText

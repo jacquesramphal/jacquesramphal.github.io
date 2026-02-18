@@ -52,6 +52,7 @@ import NewsletterSubscription from "./components/form/NewsletterSubscription.vue
 
 import router from "./router";
 import { Directive, DirectiveBinding, VNode } from "vue";
+import { preloadFont } from "@/utils/fontLoader";
 
 // Define the custom directive
 const highlightjsDirective = {
@@ -159,6 +160,10 @@ app
 .component("MyForm", MyForm)
 .component("SidebarNav", SidebarNav)
 .component("SideNav", SideNav);
+
+// Preload Epilogue font for CounterText component
+// This ensures the font is cached before the component mounts
+preloadFont('assets/type/epilogue/epilogue-regular.ttf');
 
 // Mount the app
 app.mount("#app");

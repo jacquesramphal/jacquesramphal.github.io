@@ -10,13 +10,20 @@
       end
       id="hero"
       class="display"
-      title="I’m 
-      
-
- <strong data-text='Jacques'>Jacques</strong>—Design Lead at Orium turning systems, code, and AI into real products. 
-"
+      title="I’m <em data-text='Jacques'>Jacques</em>—Design Lead at Orium turning systems, code, and AI into real products."
     />
 
+    <!-- <HeroBanner fullvh end id="hero" class="display">
+      <template #title>
+        I'm
+        <CounterText
+          text="Jacques"
+          :fontSize="heroFontSize"
+          :counterColor="resolvedCounterColor"
+          :foregroundColor="resolvedForegroundColor"
+        />—Design Lead at Orium turning systems, code, and AI into real products.
+      </template>
+    </HeroBanner> -->
     <!-- :title="title" -->
     <!-- FEATURED WORK SECTION - SPLIT FROM PLAY -->
     <GridContainer style="padding-block-end: var(--spacing-md) !important">
