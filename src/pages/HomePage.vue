@@ -3,14 +3,20 @@
     <!-- <HeroAnimated2 /> -->
     <!-- <GridWrapper motif1> -->
     <!-- ^ motif not working -->
+    <!-- style="background: var(--color-yellow)" -->
 
     <HeroBanner
       fullvh
       end
       id="hero"
       class="display"
-      title="I’m Jacques—Design Lead at Orium turning systems, code, and AI into real products."
+      title="I’m 
+      
+
+ <strong data-text='Jacques'>Jacques</strong>—Design Lead at Orium turning systems, code, and AI into real products. 
+"
     />
+
     <!-- :title="title" -->
     <!-- FEATURED WORK SECTION - SPLIT FROM PLAY -->
     <GridContainer style="padding-block-end: var(--spacing-md) !important">
@@ -22,6 +28,7 @@
         </p> -->
       </div>
     </GridContainer>
+
     <GridContainer style="padding-block-start: 0 !important">
       <GridParent tight id="recentwork">
         <ImageCard
@@ -38,6 +45,10 @@
         />
       </GridParent>
     </GridContainer>
+    <!-- WRITING SECTION - MOVED UP FOR PROMINENCE -->
+    <AnimatedComponent>
+      <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
+    </AnimatedComponent>
 
     <!-- ABOUT SECTION -->
     <AnimatedComponent>
@@ -51,10 +62,6 @@
     </AnimatedComponent>
 
     <TestimonialCarousel />
-    <!-- WRITING SECTION - MOVED UP FOR PROMINENCE -->
-    <AnimatedComponent>
-      <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
-    </AnimatedComponent>
 
     <!-- Decorative Cards -->
     <!-- <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />
@@ -143,7 +150,8 @@ export default {
       meta: [
         {
           name: 'description',
-          content: 'Senior Product Designer at Orium with 15 years experience specializing in design systems, agentic AI, and bridging design-development workflows through code and tokens.',
+          content:
+            'Senior Product Designer at Orium with 15 years experience specializing in design systems, agentic AI, and bridging design-development workflows through code and tokens.',
         },
         {
           property: 'og:title',
@@ -151,7 +159,8 @@ export default {
         },
         {
           property: 'og:description',
-          content: 'Senior Product Designer specializing in design systems, agentic AI, and design-development workflows. 15 years at Orium building token-based systems and AI platforms.',
+          content:
+            'Senior Product Designer specializing in design systems, agentic AI, and design-development workflows. 15 years at Orium building token-based systems and AI platforms.',
         },
         {
           property: 'og:type',
@@ -171,7 +180,8 @@ export default {
         },
         {
           property: 'twitter:description',
-          content: 'Senior Product Designer specializing in design systems, agentic AI, and design-development workflows.',
+          content:
+            'Senior Product Designer specializing in design systems, agentic AI, and design-development workflows.',
         },
       ],
     });
