@@ -51,7 +51,12 @@
       </div>
     </GridContainer>
     <div id="related-writing-section" style="background: transparent !important">
-      <CardRow2 title="Related Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
+      <CardRow2
+        :title="relatedTitle"
+        kind="writing"
+        :viewAllTo="{ name: 'Library' }"
+        :filterByType="currentDocType"
+      />
     </div>
   </PageWrapper>
 </template>
@@ -69,6 +74,7 @@ import { getDocRecordById, getDocRecordBySlug, isNumericRouteParam } from '@/uti
 // import TextStats from "@/components/card/TextStats.vue";
 import GridContainer from '@/components/grid/GridContainer.vue';
 import fallbackImage from '@/assets/images/placeholder.png';
+import libraryData from '@/assets/data/library.json';
 // import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
 
 // Pre-load all images using require.context so webpack can bundle them
@@ -135,6 +141,7 @@ export default {
     const statsValue2 = ref('');
     const statsLabel3 = ref('');
     const statsValue3 = ref('');
+    const currentDocType = ref(null);
 
     const updateMarkdownHeadings = inject('updateMarkdownHeadings', () => {});
     const updateMarkdownActiveHeading = inject('updateMarkdownActiveHeading', () => {});
@@ -384,6 +391,12 @@ export default {
           router.push({ name: 'NotFound' });
           return;
         }
+
+        // Find current doc type from library data
+        const libraryEntry = libraryData.entries.find(
+          (entry) => entry.docId === record?.docId || entry.slug === record?.slug
+        );
+        currentDocType.value = libraryEntry?.type || null;
 
         // Import markdown - markdown-loader may convert to HTML.
         // We need to fetch the raw file for extraction, but use processed for rendering
@@ -746,6 +759,16 @@ export default {
       window.print();
     };
 
+    // Computed properties for related content
+    const relatedTitle = computed(() => {
+      const typeMap = {
+        'article': 'Related Articles',
+        'case-study': 'Related Case Studies',
+        'tool': 'Related Tools',
+      };
+      return typeMap[currentDocType.value] || 'Related Writing';
+    });
+
     return {
       handlePrint,
       pageData,
@@ -771,6 +794,8 @@ export default {
       statsValue2,
       statsLabel3,
       statsValue3,
+      currentDocType,
+      relatedTitle,
       updateMarkdownHeadings,
       updateMarkdownActiveHeading,
     };
@@ -1263,14 +1288,14 @@ export default {
     height: 100%;
     display: block;
     object-fit: cover;
-    object-position: center;
+    object-position: top center;
     position: absolute;
     top: 0;
     left: 0;
 
     @media only screen and (min-width: 768px) {
       object-fit: cover;
-      object-position: center;
+      object-position: top center;
     }
   }
 }

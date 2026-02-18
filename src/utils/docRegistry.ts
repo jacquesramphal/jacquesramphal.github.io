@@ -1,6 +1,5 @@
 import docsJson from "@/assets/data/docs.json";
 import chaptersJson from "@/assets/data/chapters.json";
-import docSlugsJson from "@/assets/data/docSlugs.json";
 
 export type DocRegistryRecord = {
   docId: number;
@@ -45,11 +44,9 @@ function collectRecords(): DocRegistryRecord[] {
 
   const docsEntries = (docsJson as any)?.entries || [];
   const chapterEntries = (chaptersJson as any)?.entries || [];
-  const slugEntries = (docSlugsJson as any)?.entries || [];
 
   for (const e of docsEntries) add(e);
   for (const e of chapterEntries) add(e);
-  for (const e of slugEntries) add(e);
 
   return out;
 }

@@ -2,7 +2,7 @@
 # K&G Loyalty Platform
 #### Product Design, Design Systems, Development
 </header>
-![K&G Loyalty Platform - Mobile App Hero](../images/casestudy/kg/kg-5.png)
+![K&G Loyalty Platform - Mobile App Hero](../images/casestudy/kg/kg-1.jpg)
 
 Founded in 1959, Kum & Go redefines convenience with customer-centric offerings. Partnering with Orium, they launched a new digital experience featuring enhanced promotions, loyalty programs, and improved merchandising.
 
@@ -44,6 +44,6 @@ The revamped Kum & Go mobile app launched with an upgraded rewards program and a
 
 Kum & Go plans to continue enhancing the mobile app and redesigning the web experience to match the new mobile app features.
 
-![K&G Mobile App Launch and Features](../images/casestudy/kg/kg-4.png)
+![K&G Mobile App Launch and Features](../images/casestudy/kg/kg-1.jpg)
 
 *Launched mobile app with enhanced loyalty program and ecommerce capabilities.*

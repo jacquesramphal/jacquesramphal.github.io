@@ -752,37 +752,21 @@ export default {
     object-fit: contain !important;
     object-position: top center; // Pin images to top
 
-    // Smart max-height constraints
-    max-height: 50vh;
+    // Scale to grid width with flexible height
     height: auto;
     width: 100%;
 
-    @media only screen and (min-width: 768px) {
-      max-height: 60vh;
-    }
-
     @media only screen and (min-width: 1201px) {
-      margin-block: var(--spacing-lg) var(--spacing-md);
-      max-height: 70vh;
+      margin-block: var(--spacing-md) 0;
     }
   }
 
-  // First image (hero image) - Allow taller but still constrained
+  // First image (hero image) - Scale to grid width with flexible height
   p:has(> img):first-of-type img,
   img:first-of-type {
-    max-height: 60vh;
     object-fit: contain !important;
     object-position: top center; // Pin hero image to top
     aspect-ratio: auto; // Remove forced aspect ratio
-    margin-block-start: 0; // Remove top margin for hero image
-
-    @media only screen and (min-width: 768px) {
-      max-height: 70vh;
-    }
-
-    @media only screen and (min-width: 1201px) {
-      max-height: 75vh;
-    }
   }
 
   header {

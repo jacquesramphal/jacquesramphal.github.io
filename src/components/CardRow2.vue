@@ -26,15 +26,18 @@
             borderless
             v-for="entry in visibleItems"
             :key="`writing-${entry.id}`"
-            :eyebrow="entry.eyebrow"
+            :eyebrow="entry.eyebrow || entry.tag"
             :filename="entry.thumbnail"
+            :imageVariant="entry.imageVariant"
+            :bgcolor="entry.bgcolor"
             :alt="entry.alt"
             :title="entry.title"
             :description="entry.description"
-            :btnroute="entry.btnroute"
-            :route="entry.route"
+            :route="entry.route || (entry.btnroute ? `/${entry.btnroute}` : '')"
             :link="entry.link"
             :label="entry.label"
+            :tags="entry.tags"
+            :type="entry.type"
           />
         </template>
         <template v-else>
@@ -96,15 +99,18 @@
             v-if="kind === 'writing'"
             :key="`writing-${entry.id}`"
             :image="entry.image"
-            :eyebrow="entry.eyebrow"
+            :eyebrow="entry.eyebrow || entry.tag"
             :filename="entry.thumbnail"
+            :imageVariant="entry.imageVariant"
+            :bgcolor="entry.bgcolor"
             :alt="entry.alt"
             :title="entry.title"
             :description="entry.description"
-            :route="entry.route"
-            :btnroute="entry.btnroute"
+            :route="entry.route || (entry.btnroute ? `/${entry.btnroute}` : '')"
             :link="entry.link"
             :label="entry.label"
+            :tags="entry.tags"
+            :type="entry.type"
           />
           <ImageCard
             v-else
@@ -144,6 +150,7 @@
 
 <script>
 import docs from '../assets/data/docs.json';
+import library from '../assets/data/library.json';
 import ArticleCard from '@/components/card/ArticleCard/ArticleCard.vue';
 import ImageCard from '@/components/card/ImageCard/ImageCard.vue';
 const OFFSET = 60;
@@ -173,10 +180,15 @@ export default {
       type: Number,
       default: 3,
     },
+    filterByType: {
+      type: String,
+      default: null,
+    },
   },
   data() {
     return {
       docs,
+      library,
       lastScrollPosition: 0,
       scrollValue: 0,
       showMobile: false, // Change to regular data property
@@ -186,19 +198,24 @@ export default {
   computed: {
     resolvedItems() {
       if (Array.isArray(this.items)) return this.items;
-      // Back-compat default: writing docs
-      return this.docs.entries;
+      // Use library data (which has type info) instead of docs
+      return this.library.entries;
     },
     filteredItems() {
-      // Filter out the current document if we're on a doc page
       const currentRoute = this.$route;
+      let items = this.resolvedItems;
 
-      // Check if we're on a doc page
+      // Filter by type if filterByType prop is provided
+      if (this.filterByType) {
+        items = items.filter(item => item.type === this.filterByType);
+      }
+
+      // Filter out the current document if we're on a doc page
       if (currentRoute.name === 'Doc' || currentRoute.name === 'DocById') {
         const currentSlug = currentRoute.params.slug;
         const currentId = currentRoute.params.id;
 
-        return this.resolvedItems.filter(item => {
+        items = items.filter(item => {
           // Filter by slug if available
           if (currentSlug && item.slug) {
             return item.slug !== currentSlug;
@@ -211,8 +228,7 @@ export default {
         });
       }
 
-      // If not on a doc page, return all items
-      return this.resolvedItems;
+      return items;
     },
     visibleItems() {
       return this.filteredItems.slice(0, this.limit);

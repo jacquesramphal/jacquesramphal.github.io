@@ -3,6 +3,7 @@
 
 #### This is the story of building Genie—from personal experiment to organizational platform—and the three mental model problems we had to solve to design for agentic AI.
 
+<br>
 
 ![Genie Core Functions Diagram](../images/casestudy/genie/genie.png)
 
