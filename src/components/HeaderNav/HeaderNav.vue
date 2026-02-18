@@ -258,7 +258,7 @@ button {
   inset-block-end: 0; /* Adjust the value to control the width of the additional background */
   inset-inline-end: 0;
   inline-size: 100%; /* Adjust the value to control the width of the additional background */
-  background: var(--background);
+  background: var(--color-yellow);
   /* Specify the color of the additional background */
   opacity: 0.95;
   z-index: -1; /* Set the z-index to be behind the navbar */
@@ -279,7 +279,7 @@ button {
   transform: translate3d(0, 0, 0) !important;
 }
 .bg {
-  background: linear-gradient(0deg, transparent 0%, var(--background) 100%);
+  background: var(--background);
   transition: 0.5s box-shadow ease-in-out !important;
   justify-self: flex-end;
   overflow: visible;
@@ -287,6 +287,8 @@ button {
   padding-block: var(--spacing-xs) !important;
   padding-inline-end: var(--spacing-sm) !important;
   inline-size: 100%;
+  border-block-start: var(--spacing-xxs) solid var(--color-yellow);
+
   border-block-end: var(--border);
   @media only screen and (min-width: 768px) {
     // background: transparent;
