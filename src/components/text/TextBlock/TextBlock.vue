@@ -266,7 +266,7 @@ export default {
   &:hover {
     text-decoration: underline;
     text-underline-offset: 0.2em;
-    text-decoration-thickness: 1px;
+    text-decoration-thickness: 0.15rem;
   }
 }
 .description {

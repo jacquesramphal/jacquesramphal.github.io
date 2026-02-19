@@ -860,7 +860,7 @@ export default {
     font-weight: var(--fontWeight-medium);
     text-decoration: underline;
     text-underline-offset: 0.2em;
-    text-decoration-thickness: 1px;
+    text-decoration-thickness: 0.15rem;
     transition:
       color 0.2s ease,
       text-decoration-thickness 0.2s ease;
@@ -868,7 +868,7 @@ export default {
     &:hover,
     &:focus {
       color: var(--color-action);
-      text-decoration-thickness: 1px;
+      text-decoration-thickness: 0.15rem;
       outline: 2px solid transparent;
       outline-offset: 2px;
     }

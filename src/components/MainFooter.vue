@@ -541,16 +541,16 @@ li.external::after {
   color: var(--foreground);
   text-decoration: underline;
   text-underline-offset: 0.625rem;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 0.15rem;
   transition: all 0.1s;
 
   &:hover {
-    text-decoration-thickness: 1px;
+    text-decoration-thickness: 0.15rem;
   }
 
   &:active {
     text-decoration: underline dashed;
-    text-decoration-thickness: 1px;
+    text-decoration-thickness: 0.15rem;
   }
 }
 

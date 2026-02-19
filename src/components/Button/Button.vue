@@ -308,7 +308,7 @@ export default {
   border: none;
   text-decoration: underline;
   text-underline-offset: 0.625rem;
-  text-decoration-thickness: 1px !important;
+  text-decoration-thickness: 0.2rem !important;
   &:before,
   &:after {
     color: inherit !important;
@@ -317,13 +317,13 @@ export default {
     color: var(--link);
     text-decoration: underline;
     text-underline-offset: 0.625rem;
-    text-decoration-thickness: 1px !important;
+    text-decoration-thickness: 0.2rem !important;
   }
   &:active,
   .router-link-exact-active {
     text-decoration: underline dashed !important;
     text-underline-offset: 0.625rem;
-    text-decoration-thickness: 1px !important;
+    text-decoration-thickness: 0.2rem !important;
   }
 }
 

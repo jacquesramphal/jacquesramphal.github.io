@@ -257,7 +257,7 @@ export default {
     opacity: 1;
     text-decoration: underline;
     text-underline-offset: 0.2em;
-    text-decoration-thickness: 1px;
+    text-decoration-thickness: 0.15rem;
   }
 }
 
@@ -270,13 +270,13 @@ export default {
 
   text-decoration: underline;
   text-underline-offset: 0.2em;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 0.15rem;
 
   &:hover {
     color: var(--foreground);
     text-decoration: underline;
     text-underline-offset: 0.2em;
-    text-decoration-thickness: 1px;
+    text-decoration-thickness: 0.15rem;
   }
 }
 

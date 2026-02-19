@@ -438,7 +438,6 @@ img {
 .placeholder-text {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
   justify-content: flex-start;
   align-items: flex-start;
   text-align: left;
@@ -574,7 +573,7 @@ img {
     padding: var(--spacing-xxs) 0 var(--spacing-sm) 0;
     display: grid !important;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: var(--spacing-sm);
+    grid-gap: var(--spacing-xs);
     min-height: auto;
     border-block-end: 1px solid var(--color-xlight) !important;
 
@@ -597,6 +596,12 @@ img {
         height: 100%;
         aspect-ratio: 1 / 1;
       }
+
+      .placeholder {
+        aspect-ratio: 1 / 1;
+        block-size: 100%;
+        inline-size: 100%;
+      }
     }
 
     .info {
@@ -613,7 +618,7 @@ img {
     }
 
     .card-footer {
-      padding-block-start: var(--spacing-xs);
+      padding-block-start: var(--spacing-xxs);
       margin-block-start: auto;
     }
 
@@ -628,7 +633,7 @@ img {
     }
 
     .textblock--mobile-list :deep(.description) {
-      margin-block-end: var(--spacing-xxs);
+      margin-block-end: 0;
       margin-block-start: 0;
     }
 
@@ -637,6 +642,7 @@ img {
       overflow: hidden;
       white-space: nowrap;
       max-width: 100%;
+      margin-block-end: var(--spacing-xxs);
 
       // Hide all tags except the first one (type badge)
       > *:not(:first-child) {

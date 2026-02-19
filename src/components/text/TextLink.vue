@@ -178,11 +178,10 @@ export default {
 /* ---- External Link ---- */
 .external {
   text-decoration: none !important;
-
   .label-text {
     text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.2em;
+    text-decoration-thickness: 0.15rem;
+    text-underline-offset: 0.75rem;
   }
 
   &::after {
@@ -194,7 +193,7 @@ export default {
 
   &:hover .label-text {
     text-decoration: underline wavy;
-    text-decoration-thickness: 2px;
+    text-decoration-thickness: 0.15rem;
   }
 }
 </style>
