@@ -84,13 +84,14 @@
       <TextBlock
         clamped
         class="textblock"
+        :class="{ 'textblock--mobile-list': mobileList }"
         :eyebrow="eyebrow"
         as="h4"
         :icon="icon"
         :iconsize="iconsize"
         :title="title"
         :titleRoute="route || btnroute || link"
-        :description="description"
+        :description="mobileList ? title : description"
         :tags="tags"
         :cardType="type"
         @tag-click="$emit('tag-click', $event)"
@@ -192,6 +193,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    mobileList: {
+      type: Boolean,
+      default: false,
+    },
     tags: {
       type: Array,
       default: () => [],
@@ -225,6 +230,7 @@ export default {
         'defaultcard--cover': this.cover,
         'defaultcard--borderless': this.borderless,
         'defaultcard--list': this.list,
+        'defaultcard--mobile-list': this.mobileList,
       };
     },
     hasImage() {
@@ -560,6 +566,86 @@ img {
     margin-inline-start: 0;
   }
 }
+.defaultcard--mobile-list {
+  @media only screen and (max-width: 767px) {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none;
+    padding: var(--spacing-xxs) 0 var(--spacing-sm) 0;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: var(--spacing-sm);
+    min-height: auto;
+    border-block-end: 1px solid var(--color-xlight) !important;
+
+    &:hover {
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .image {
+      grid-column: 1 / 2;
+      grid-row: 1;
+      margin: 0 !important;
+      aspect-ratio: 1 / 1 !important;
+      inline-size: 100% !important;
+      display: block !important;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+      }
+    }
+
+    .info {
+      grid-column: 2 / 4;
+      grid-row: 1;
+      padding: 0 !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      &:not(:has(.color-bar)) {
+        padding-block-start: 0 !important;
+      }
+    }
+
+    .card-footer {
+      padding-block-start: var(--spacing-xs);
+      margin-block-start: auto;
+    }
+
+    .color-bar {
+      width: 100%;
+      margin-inline-start: 0;
+    }
+
+    // Hide title and show description (which will contain title content)
+    .textblock--mobile-list :deep(.title) {
+      display: none !important;
+    }
+
+    .textblock--mobile-list :deep(.description) {
+      margin-block-end: var(--spacing-xxs);
+      margin-block-start: 0;
+    }
+
+    // Show only the type tag, hide content tags
+    .textblock--mobile-list :deep(.tags) {
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 100%;
+
+      // Hide all tags except the first one (type badge)
+      > *:not(:first-child) {
+        display: none !important;
+      }
+    }
+  }
+}
+
 .defaultcard--cover {
   background-color: transparent;
   &:hover {

@@ -124,6 +124,7 @@ A curated collection of my writing, professional work, and personal projects."
           <GridParent tight class="posts">
             <ArticleCard
               borderless
+              mobileList
               v-for="(entry, index) in filteredArticlesAndTools"
               :key="entry.id"
               :alt="entry.alt"
@@ -159,6 +160,7 @@ A curated collection of my writing, professional work, and personal projects."
           <GridParent tight class="posts">
             <ArticleCard
               borderless
+              mobileList
               v-for="(entry, index) in filteredCaseStudiesAndProjects"
               :key="entry.id"
               :alt="entry.alt"
@@ -208,6 +210,7 @@ A curated collection of my writing, professional work, and personal projects."
           <!-- Articles and Tools use ArticleCard -->
           <ArticleCard
             borderless
+            mobileList
             v-for="(entry, index) in filteredArticlesAndTools"
             :key="entry.id"
             :alt="entry.alt"
@@ -226,6 +229,7 @@ A curated collection of my writing, professional work, and personal projects."
           />
 
           <ArticleCard
+            mobileList
             v-for="(entry, index) in filteredCaseStudiesAndProjects"
             :key="entry.id"
             :alt="entry.alt"
