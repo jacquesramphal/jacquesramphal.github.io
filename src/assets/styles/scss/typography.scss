@@ -171,7 +171,7 @@ router-link {
   font-size: var(--font-500);
   text-decoration: underline;
   text-underline-offset: 0.75rem;
-  text-decoration-thickness: 0.1rem;
+  text-decoration-thickness: 1px;
   font-variation-settings: 'opsz' 19;
 }
 
@@ -199,16 +199,16 @@ router-link h6 {
 
 /* Link states */
 a:hover {
-  text-decoration: underline;
+  text-decoration: underline wavy !important;
   text-underline-offset: 0.75rem;
-  text-decoration-thickness: 0.2rem;
+  text-decoration-thickness: 1px;
 }
 
 a:active,
 .router-link-exact-active {
   text-decoration: underline dashed;
   text-underline-offset: 0.75rem;
-  text-decoration-thickness: 0.1rem;
+  text-decoration-thickness: 1px;
 }
 
 a:visited {

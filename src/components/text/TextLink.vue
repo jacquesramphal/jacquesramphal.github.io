@@ -31,12 +31,7 @@
       />
       <span class="label-text">{{ label }}</span>
     </a>
-    <a
-      :class="classes"
-      v-else
-      target="blank"
-      @click="onClick"
-    >
+    <a :class="classes" v-else target="blank" @click="onClick">
       <MyIcon
         v-if="icon || unicode"
         :style="{ 'margin-inline-end': iconsize / 2 + 'px' }"
@@ -61,11 +56,11 @@
 </template>
 
 <script>
-import MyIcon from "./../Icon.vue";
-import { reactive, computed } from "vue";
+import MyIcon from './../Icon.vue';
+import { reactive, computed } from 'vue';
 
 export default {
-  name: "TextLink",
+  name: 'TextLink',
   components: {
     MyIcon,
   },
@@ -73,7 +68,7 @@ export default {
     label: {
       type: String,
       required: true,
-      default: "Text Link Label",
+      default: 'Text Link Label',
     },
     route: {
       type: String,
@@ -93,7 +88,7 @@ export default {
     },
     iconsize: {
       type: String,
-      default: "64",
+      default: '64',
     },
     iconurl: {
       type: String,
@@ -115,35 +110,34 @@ export default {
       default: false,
       required: false,
     },
-    right:  {
+    right: {
       type: Boolean,
       default: false,
       required: false,
     },
   },
-  
-  emits: ["click"],
-setup(props, { emit }) {
-  const reactiveProps = reactive(props);
-  return {
-    classes: computed(() => ({
-      "link-size": true,
-      "link-size--large": reactiveProps.large,
 
-      "link-left": true,
-      "link-left--left": reactiveProps.left,
-      "link-left--default": !reactiveProps.left,
+  emits: ['click'],
+  setup(props, { emit }) {
+    const reactiveProps = reactive(props);
+    return {
+      classes: computed(() => ({
+        'link-size': true,
+        'link-size--large': reactiveProps.large,
 
-      "link-right": true,
-      "link-right--right": reactiveProps.right,
-      "link-right--default": !reactiveProps.right,
-    })),
-    onClick() {
-      emit("click");
-    },
-  };
-},
-  
+        'link-left': true,
+        'link-left--left': reactiveProps.left,
+        'link-left--default': !reactiveProps.left,
+
+        'link-right': true,
+        'link-right--right': reactiveProps.right,
+        'link-right--default': !reactiveProps.right,
+      })),
+      onClick() {
+        emit('click');
+      },
+    };
+  },
 };
 </script>
 <style></style>
@@ -158,7 +152,6 @@ setup(props, { emit }) {
   /* background: var(--color-xlight); */
   display: flex;
   align-items: center;
-
 }
 
 /* .link-size--default */
@@ -170,7 +163,7 @@ setup(props, { emit }) {
 /* .link-left */
 
 .link-left--left:before {
-  content: "★ ";
+  content: '★ ';
   color: var(--link);
   text-decoration: none;
 }
@@ -178,7 +171,7 @@ setup(props, { emit }) {
 /* .link-right */
 
 .link-right--right:after {
-  content: " ★";
+  content: ' ★';
   color: var(--link);
 }
 
@@ -200,6 +193,7 @@ setup(props, { emit }) {
   }
 
   &:hover .label-text {
+    text-decoration: underline wavy;
     text-decoration-thickness: 2px;
   }
 }

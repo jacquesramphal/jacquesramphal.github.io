@@ -868,7 +868,7 @@ export default {
     &:hover,
     &:focus {
       color: var(--color-action);
-      text-decoration-thickness: 2px;
+      text-decoration-thickness: 1px;
       outline: 2px solid transparent;
       outline-offset: 2px;
     }

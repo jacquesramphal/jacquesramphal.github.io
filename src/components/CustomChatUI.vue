@@ -1166,7 +1166,7 @@ export default {
 
   :deep(a) {
     color: inherit !important;
-    text-decoration-thickness: 0.1rem !important;
+    text-decoration-thickness: 1px !important;
     text-underline-offset: 0.35rem;
     word-break: break-all;
   }
