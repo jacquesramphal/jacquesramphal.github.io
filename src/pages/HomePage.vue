@@ -26,13 +26,10 @@
     </HeroBanner> -->
     <!-- :title="title" -->
     <!-- FEATURED WORK SECTION - SPLIT FROM PLAY -->
-    <GridContainer style="padding-block-end: var(--spacing-md) !important">
+    <!-- <GridContainer style="padding-block-end: var(--spacing-md) !important">
       <div class="grid-parent" style="align-items: center; grid-template-columns: repeat(3, 1fr)">
         <TextBlock style="grid-column: 1 / 3" flex="1" title="Featured" as="h2" description="" />
 
-        <!-- <p class="justify-end" style="align-self: center">
-          <router-link :to="{ name: 'Library', hash: '#work' }">View All Work</router-link>
-        </p> -->
       </div>
     </GridContainer>
 
@@ -51,7 +48,7 @@
           :style="work.bgcolor"
         />
       </GridParent>
-    </GridContainer>
+    </GridContainer> -->
     <!-- WRITING SECTION - MOVED UP FOR PROMINENCE -->
     <AnimatedComponent>
       <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />

@@ -289,7 +289,7 @@ button {
   inline-size: 100%;
   border-block-start: var(--spacing-xxs) solid var(--color-yellow);
 
-  border-block-end: var(--border);
+  // border-block-end: var(--border);
   @media only screen and (min-width: 768px) {
     // background: transparent;
 
