@@ -65,14 +65,13 @@
           <div class="footer-utility">
             <p class="footer" style="font-size: var(--font-400)">
               <span class="footer-copy footer-copy--full">
-                All rights reserved © Jacques Ramphal 2025 🇨🇦
+                Perpetually beta · {{ elapsed.years }}yr · {{ elapsed.days }}d ·
+                {{ elapsed.seconds }}s <br />
+                © {{ currentYear }} Jacques Ramphal 🇨🇦
               </span>
-              <span class="footer-copy footer-copy--short">© 2025 Jacques Ramphal</span>
-              <!-- © 2023 Jacques Ramphal — Built with
-              <a target="blank" href="https://v3.vuejs.org/">Vue3</a>.
-          
-              Deployed on
-              <a target="blank" href="https://www.netlify.com/">Netlify</a>. -->
+              <span class="footer-copy footer-copy--short"
+                >© {{ currentYear }} Jacques Ramphal 🇨🇦</span
+              >
             </p>
             <div class="utility-controls">
               <SelectorCta
@@ -206,6 +205,8 @@ export default {
         { text: 'Accessibility', route: '/doc/accessibility' },
       ],
 
+      now: new Date(),
+      ticker: null,
       currentTheme: 'system',
       showThemeMenu: false,
       themeOptions: [
@@ -219,6 +220,19 @@ export default {
     };
   },
   computed: {
+    currentYear() {
+      return this.now.getFullYear();
+    },
+    elapsed() {
+      const start = new Date(1991, 0, 4);
+      const now = this.now;
+      let years = now.getFullYear() - start.getFullYear();
+      const pastAnniversary = now.getMonth() > 0 || (now.getMonth() === 0 && now.getDate() >= 4);
+      if (!pastAnniversary) years--;
+      const lastAnniversary = new Date(now.getFullYear() - (pastAnniversary ? 0 : 1), 0, 4);
+      const days = Math.floor((now - lastAnniversary) / (1000 * 60 * 60 * 24));
+      return { years, days, seconds: now.getSeconds() };
+    },
     currentThemeLabel() {
       const option = this.themeOptions.find((opt) => opt.value === this.currentTheme);
       return option ? option.label : 'System';
@@ -242,6 +256,9 @@ export default {
     },
   },
   mounted() {
+    this.ticker = setInterval(() => {
+      this.now = new Date();
+    }, 1000);
     // Initialize theme from localStorage or system preference
     const savedTheme = localStorage.getItem('user-theme');
     if (savedTheme && ['light-theme', 'dark-theme', 'system'].includes(savedTheme)) {
@@ -275,6 +292,7 @@ export default {
     }
   },
   beforeUnmount() {
+    clearInterval(this.ticker);
     if (this.mediaQuery) {
       this.mediaQuery.removeEventListener('change', this.handleSystemThemeChange);
     }
@@ -326,6 +344,7 @@ $spacing-sm: var(--spacing-sm);
 
 #wrapper {
   // border-block-start: var(--border);
+  background: var(--background-darker);
   // padding-block-end: $spacing-lg;
   @media only screen and (min-width: 1201px) {
     padding-block-end: inherit;

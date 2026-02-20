@@ -867,7 +867,6 @@ export default {
   position: fixed;
   z-index: 9998;
   display: block;
-  border: var(--border);
   border-radius: var(--spacing-xxs);
 }
 
@@ -880,22 +879,24 @@ export default {
   justify-content: center;
   padding: 0;
 
-  /* Colors */
-  color: var(--chat-ink);
-  background: var(--chat-surface);
+  /* Colors — reversed tokens (theme-invariant contrast) */
+  color: var(--foreground-reversed);
+  background: var(--background-reversed);
 
   /* Borders */
-  border: var(--border);
+  border: none;
   border-radius: var(--spacing-xxs);
 
   /* Effects */
   box-shadow: var(--shadow-z4);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
 
   /* Interaction */
   cursor: pointer;
   transition: all 0.2s ease;
+}
+
+.chat-button .custom-btn:hover:not(:disabled) {
+  background: var(--background-reversed) !important;
 }
 
 .chat-button .custom-btn:active:not(:disabled) {
@@ -919,8 +920,8 @@ export default {
 }
 
 .chat-button svg.chat-button-icon {
-  /* For default inline SVG - use foreground color */
-  color: var(--foreground);
+  /* For default inline SVG - use reversed foreground to match button */
+  color: var(--foreground-reversed);
   stroke: currentColor;
 }
 
