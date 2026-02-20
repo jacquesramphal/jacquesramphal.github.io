@@ -24,31 +24,39 @@ Whether these two worlds fully converge or remain productively separate is an op
 
 The future of design isn't defined by a single breakthrough. It's a set of tensions being resolved in different ways by different practitioners and platforms. Each of these pairs represents a direction of travel—not a destination, but a vector:
 
-**Siloed → Integrated**
+#### Siloed → Integrated
 Design used to happen in isolation and then get handed off. The future is design embedded throughout the development process—not as a gate, but as a continuous presence. Integration isn't the loss of the discipline; it's the maturation of it.
 
-**Static → Dynamic**
+#### Static → Dynamic
+
 Deliverables used to be images. Increasingly, they're prototypes, tokens, components, and living documentation. Static outputs describe a moment. Dynamic systems persist and evolve.
 
-**Proprietary → Open-source**
+#### Proprietary → Open-source
+
 The tools that shaped the last decade are largely proprietary. The next decade may belong to open formats and community-maintained standards—design systems built on code that anyone can read and anyone can extend. What you can't own, you can't hold hostage.
 
-**Manual → Automated**
+#### Manual → Automated
+
 Repetitive design work is being automated. Pixel comparison, accessibility checks, regression detection, documentation generation—machines handle detection while humans provide judgment. The distinction that matters is not manual versus automated, but mechanical versus meaningful.
 
-**Rigid → Adaptive**
+#### Rigid → Adaptive
+
 Fixed layouts and static grids are giving way to systems that adapt—to content, to context, to user need. Design that works everywhere rather than looking perfect somewhere is harder and more valuable.
 
-**Developer-dependent → Code-savvy**
+#### Developer-dependent → Code-savvy
+
 The designer who can read and write code has more leverage. Not because design requires code, but because the fluency removes friction—fewer handoffs, more direct conversations, better outcomes. Fluency isn't the same as mastery.
 
-**Monolithic → Collaborative**
+#### Monolithic → Collaborative
+
 The lone genius designer is a myth that's finally being retired. The practice that works is distributed, multi-disciplinary, and openly iterative. Authorship matters less than outcome.
 
-**Narrow → User-focused**
+#### Narrow → User-focused
+
 Design that primarily serves the aesthetic preferences of the designer is design that doesn't work. The direction of travel has always been toward the actual user, but the tools and methods are finally catching up to that intention.
 
-**Resource-intensive → Sustainable**
+#### Resource-intensive → Sustainable
+
 The environmental cost of digital products is real. Performance, efficiency, and responsible design aren't nice-to-haves—they're part of what it means to do the work well.
 
 ---

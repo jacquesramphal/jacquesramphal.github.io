@@ -294,345 +294,73 @@
         "agentic-ai"
       ]
     },
+    
     {
-      "id": "case-study-softchoice",
+      "id": 54,
       "docId": 54,
       "slug": "softchoice-rebrand",
       "type": "case-study",
-      "variant": "split",
-      "size": "large",
       "title": "Softchoice Website Rebrand",
-      "tag": "Brand Design, Motion Design, CMS Integration",
-      "subtitle": "Polishing a Brand Identity in Motion",
+      "eyebrow": "Brand Design",
       "description": "When a brand launches a new identity, the website needs to reflect it—without breaking what already works. Redesigned Softchoice's website to reflect their new brand identity, working within their existing CMS structure. Enhanced modules, introduced motion design, and collaborated closely with development to ensure design fidelity.",
-      "btnroute": "doc/softchoice-rebrand",
-      "label": "Read Case Study",
+      "route": "/doc/softchoice-rebrand",
+      "contentFile": "doc_54.md",
       "thumbnail": "casestudy/softchoice/sc-desktop-1.png",
-      "imageVariant": "angled",
-      "bgcolor": "background-color: #7d00ff",
       "alt": "Softchoice Website Rebrand",
-      "filename1": "casestudy/softchoice/sc-desktop-1.png",
-      "filename2": "casestudy/softchoice/sc-blog-1.png",
-      "filename3": "casestudy/softchoice/sc-motion.gif",
-      "category": "Work",
-      "role": "Lead Product Designer",
-      "status": "Launched",
       "tags": [
         "rebrand",
         "motion-design"
-      ],
-      "images": {
-        "filename1": "casestudy/softchoice/sc-desktop-1.png",
-        "caption1": "Softchoice Desktop Homepage",
-        "filename2": "casestudy/softchoice/sc-blog-1.png",
-        "caption2": "Softchoice Blog Page",
-        "filename3": "casestudy/softchoice/sc-motion.gif",
-        "caption3": "Motion Design Elements"
-      },
-      "keypoints": [
-        {
-          "title": "Consistent Brand Identity",
-          "body": "The website now fully reflects Softchoice's new brand identity. Every module, every page, every interaction feels like it belongs to the same visual language. This consistency builds trust and reinforces brand recognition."
-        },
-        {
-          "title": "Enhanced User Experience",
-          "body": "The thoughtful module redesign and light animations created a more engaging and intuitive interface. Users don't notice the individual improvements—they just feel that the site is more polished, more professional, more aligned with what they expect from Softchoice."
-        },
-        {
-          "title": "Efficient Development Process",
-          "body": "Clear specifications and ongoing collaboration meant the development team could implement the design accurately without constant back-and-forth. The detailed guidelines reduced ambiguity and sped up the implementation phase."
-        },
-        {
-          "title": "Collaborative Success",
-          "body": "This project required coordination between multiple parties: the design partner, the branding agency that created the new identity, and Softchoice's internal IT team. The success came from everyone understanding their role and working together toward a shared vision."
-        }
-      ],
-      "entries": [
-        {
-          "eyebrow": "",
-          "title": "The Challenge",
-          "body": "In late 2020, Softchoice was preparing to launch a new brand identity in January. Their website, built on an interim design from August 2020, had incomplete design elements and wasn't ready to represent the new brand. The challenge wasn't just visual—it was about enhancing the experience while respecting the existing CMS architecture that was already serving the organization well.<br><br>The constraint: We couldn't rebuild the site. We had to work within the established module-driven CMS structure, enhancing and polishing without disrupting what was already functioning.<br><br>This is a common scenario in enterprise work: you're not starting from scratch. You're improving what exists while respecting the systems already in place.",
-          "images": {
-            "filename1": "casestudy/softchoice/sc-desktop-1.png",
-            "alt": "Softchoice Website Before Rebrand",
-            "caption": "The existing website needed to reflect the new brand without breaking what already worked."
-          }
-        },
-        {
-          "eyebrow": "",
-          "title": "The Approach",
-          "body": "Rather than tearing down and rebuilding, we took a surgical approach: redesign the modules, not the system.<br><br><strong>Brand Guidelines as the Foundation</strong><br>The new brand guidelines were comprehensive—colors, typography, spacing, imagery principles. Our first step was to understand how these guidelines could translate into the existing module structure.<br><br><strong>Module Redesign Strategy</strong><br>The CMS was built on a block model approach. Key modules included hero sections, page navigation, two-column layouts, callouts and stats, image quadrants, text quadrants, related content sections, and accordions. Each module needed to be redesigned to reflect the new brand while maintaining its functional purpose.<br><br><strong>Motion Design: Bringing Life to the Interface</strong><br>One of the most impactful additions was introducing light animations and motion design. This wasn't about flashy effects—it was about enhancing the user experience through thoughtful motion: navigation behavior with smooth transitions, module loading that feels intentional, text appearance on scroll, and interactive navigation buttons with responsive feedback.",
-          "images": {
-            "filename1": "casestudy/softchoice/sc-guide-1.png",
-            "alt": "Brand Guidelines and Module Design",
-            "caption": "Brand guidelines translated into module-driven design system."
-          }
-        },
-        {
-          "eyebrow": "",
-          "title": "The Outcome",
-          "body": "The rebrand wasn't just about new colors and fonts. It was about creating a cohesive experience that reflected Softchoice's new brand identity across every touchpoint.<br><br>Working within constraints—whether they're technical, timeline, or budget-related—forces you to be more creative, not less. We couldn't rebuild everything, so we had to be strategic about what to enhance and how to enhance it.<br><br>Sometimes the best design work happens when you're improving what exists rather than starting from scratch. It requires a different kind of creativity—one that sees potential in constraints and finds elegant solutions within established systems. This rebranding effort modernized Softchoice's online presence while respecting the foundation that was already working.",
-          "images": {
-            "filename1": "casestudy/softchoice/sc-motion.gif",
-            "alt": "Motion Design in Action",
-            "caption": "Thoughtful motion design enhances the user experience without calling attention to itself."
-          }
-        }
       ]
     },
     {
-      "id": "case-study-kg",
+      "id": 53,
       "docId": 53,
       "slug": "kg-loyalty-platform",
       "type": "case-study",
- "variant": "split",
-      "size": "large",
       "title": "K&G Loyalty Platform",
-      "tag": "Product Design, Design Systems, Development",
+      "eyebrow": "Product Design",
       "description": "Founded in 1959, Kum & Go redefines convenience with customer-centric offerings. Partnering with Orium, they launched a new digital experience featuring enhanced promotions, loyalty programs, and improved merchandising.",
-      "btnroute": "doc/kg-loyalty-platform",
-      "label": "Read More",
-      "alt": "K&G Loyalty Platform - Mobile App Experience",
-      "bgcolor": "background-color: #FFB81C",
-      "category": "Work",
+      "route": "/doc/kg-loyalty-platform",
+      "contentFile": "doc_53.md",
       "thumbnail": "casestudy/kg/kg-5.png",
-      "imageVariant": "angled",
-      "filename1": "casestudy/kg/kg-5.png",
-      "filename2": "casestudy/kg/kg-1.jpg",
-      "filename3": "casestudy/kg/kg-1.jpg",
-      "role": "Lead Product Designer, Developer",
-      "status": "Launched",
+      "alt": "K&G Loyalty Platform - Mobile App Experience",
       "tags": [
         "loyalty",
         "mobile"
-      ],
-      "images": {
-        "filename1": "casestudy/kg/kg-5.png",
-        "caption1": "K&G Loyalty Platform - Mobile App Hero",
-        "filename2": "casestudy/kg/kg-1.jpg",
-        "caption2": "K&G Mobile App Interface",
-        "filename3": "casestudy/kg/kg-1.jpg",
-        "caption3": "K&G Digital Experience"
-      },
-      "keypoints": [
-        {
-          "title": "Control Over Digital Experience",
-          "body": "Empowering Kum & Go to manage their search, merchandising, promotions, loyalty, and content independently."
-        },
-        {
-          "title": "Increased Customer Engagement",
-          "body": "Launching a robust loyalty program to engage a smallr segment of the consumer base."
-        },
-        {
-          "title": "More In-Store Purchases",
-          "body": "Enhancing the omnichannel experience to drive more in-store purchases."
-        },
-        {
-          "title": "Extensible and Maintainable Platform",
-          "body": "Moving off a costly legacy platform to a more efficient and innovative system."
-        }
-      ],
-      "entries": [
-        {
-          "eyebrow": "",
-          "title": "Problem",
-          "body": "Kum & Go aimed to redefine convenience for their customers by upgrading their digital experience. They sought to enhance their mobile app to include better search and merchandising, a new loyalty program, and support for modern shopping preferences. Additionally, the new app needed to be adaptable for future updates and improvements without causing any service disruptions.",
-          "images": {
-            "filename1": "casestudy/kg/kg-2.jpg",
-            "alt": "Kum & Go Digital Experience Challenges",
-            "caption": "Identifying opportunities to enhance the mobile app experience."
-          }
-        },
-        {
-          "eyebrow": "",
-          "title": "Solution",
-          "body": "To achieve these goals, Kum & Go partnered with Orium to implement a flexible and scalable platform focusing on four key objectives: control over digital experience, increased customer engagement, more in-store purchases, and an extensible platform. Orium worked with Kum & Go to develop a React Native framework, leveraging Orium's React Native Accelerator for a faster, more efficient development process. Contentful's composable content platform was implemented for easy content management, and Typesense was used for search and product indexing. Paytronix was chosen to manage the loyalty program, providing comprehensive loyalty, promotions, and ordering capabilities. Integration with P97 enhanced Mobile Fuel Pay, allowing for prepaying gas and redeeming points at the pump.",
-          "images": {
-            "filename1": "casestudy/kg/kg-3.jpg",
-            "alt": "React Native Framework and Composable Architecture",
-            "caption": "Modern mobile architecture with React Native and composable content management."
-          }
-        },
-        {
-          "eyebrow": "",
-          "title": "Outcome",
-          "body": "The revamped Kum & Go mobile app launched with an upgraded rewards program and an enhanced ecommerce experience. Key features included a personalized interface, home location selection, and customer history-based recommendations. The Mobile Fuel Pay feature was also improved, allowing customers to prepay for gas in selected increments. <br><br> Kum & Go plans to continue enhancing the mobile app and redesigning the web experience to match the new mobile app features.",
-          "images": {
-            "filename1": "casestudy/kg/kg-4.png",
-            "alt": "K&G Mobile App Launch and Features",
-            "caption": "Launched mobile app with enhanced loyalty program and ecommerce capabilities."
-          }
-        }
       ]
     },
     {
-      "id": "case-study-fortune100",
+      "id": 55,
       "docId": 55,
       "slug": "fortune-100-planning-tool",
       "type": "case-study",
-    "variant": "split",
-      "size": "large",
       "title": "Fortune 100 Planning Tool",
-      "tag": "Product Design, Dashboard Design",
+      "eyebrow": "Dashboard Design",
       "description": "A comprehensive planning tool designed for enterprise-level strategic planning, featuring intuitive dashboards and real-time analytics for data-driven decision making.",
-      "btnroute": "doc/fortune-100-planning-tool",
-      "label": "Read More",
-      "alt": "Fortune 100 Planning Tool Dashboard",
-      "bgcolor": "background-color: #47C8A6",
-      "category": "Work",
+      "route": "/doc/fortune-100-planning-tool",
+      "contentFile": "doc_55.md",
       "thumbnail": "casestudy/glo/planner.png",
-      "imageVariant": "angled",
-      "filename1": "casestudy/glo/planner.png",
-      "filename2": "casestudy/glo/insights.png",
-      "filename3": "casestudy/glo/details.png",
-      "role": "Product Designer",
-      "status": "Launched",
+      "alt": "Fortune 100 Planning Tool Dashboard",
       "tags": [
         "dashboard",
         "analytics"
-      ],
-      "images": {
-        "filename1": "work/glo.svg",
-        "caption1": "Planning dashboard interface",
-        "filename2": "casestudy/glo/insights.png",
-        "caption2": "Analytics and insights view",
-        "filename3": "casestudy/glo/details.png",
-        "caption3": "Detailed planning view"
-      },
-      "keypoints": [
-        {
-          "title": "Intuitive Dashboard Design",
-          "body": "Created an intuitive planning interface that simplifies complex enterprise data into actionable insights."
-        },
-        {
-          "title": "Real-Time Analytics",
-          "body": "Implemented real-time analytics capabilities to support data-driven decision making at scale."
-        },
-        {
-          "title": "Scalable Architecture",
-          "body": "Designed a flexible platform architecture that adapts to evolving enterprise planning needs."
-        },
-        {
-          "title": "Enhanced User Experience",
-          "body": "Improved workflow efficiency through thoughtful UX patterns and streamlined navigation."
-        }
-      ],
-      "entries": [
-        {
-          "eyebrow": "",
-          "title": "Planning Dashboard",
-          "body": "The main planning interface provides a comprehensive view of strategic planning data with intuitive navigation and real-time updates. The dashboard enables teams to visualize key metrics, track progress, and make informed decisions quickly.",
-          "images": {
-            "filename1": "casestudy/glo/planner.png",
-            "alt": "Planning dashboard interface",
-            "caption": "Planning dashboard interface"
-          }
-        },
-        {
-          "eyebrow": "",
-          "title": "Analytics & Insights",
-          "body": "Advanced analytics capabilities surface key insights and trends to support data-driven decision making at the enterprise level. The insights view helps identify patterns, forecast outcomes, and optimize planning strategies.",
-          "images": {
-            "filename1": "casestudy/glo/insights.png",
-            "alt": "Analytics and insights view",
-            "caption": "Analytics and insights view"
-          }
-        },
-        {
-          "eyebrow": "",
-          "title": "Detailed Planning View",
-          "body": "The detailed view allows for granular planning and analysis, enabling teams to drill down into specific metrics and projections. This level of detail supports comprehensive strategic planning and resource allocation.",
-          "images": {
-            "filename1": "casestudy/glo/details.png",
-            "alt": "Detailed planning view",
-            "caption": "Detailed planning view"
-          }
-        }
       ]
     },
     {
-      "id": "case-study-onlogic",
+      "id": 56,
       "docId": 56,
       "slug": "onlogic-commerce-platform",
       "type": "case-study",
- "variant": "split",
-      "size": "large",
       "title": "OnLogic Composable Commerce Platform",
-      "tag": "E-commerce, Developer Friendly",
+      "eyebrow": "Composable Commerce",
       "description": "Empowering technical users with precision, flexibility, and control for configuring industrial PC systems.",
-      "btnroute": "doc/onlogic-commerce-platform",
-      "label": "Read More",
-      "alt": "OnLogic Project Overview",
-      "bgcolor": "background-color: #0077C8",
-      "category": "Work",
+      "route": "/doc/onlogic-commerce-platform",
+      "contentFile": "doc_56.md",
       "thumbnail": "casestudy/onlogic/onlogic-1.png",
-      "imageVariant": "angled",
-      "filename1": "casestudy/onlogic/onlogic-1.png",
-      "filename2": "casestudy/onlogic/onlogic-2.png",
-      "filename3": "casestudy/onlogic/onlogic-3.png",
-      "role": "Product Design",
-      "status": "Launched",
+      "alt": "OnLogic Project Overview",
       "tags": [
         "commerce",
         "configurator"
-      ],
-      "images": {
-        "filename1": "casestudy/onlogic/onlogic-1.png",
-        "caption1": "OnLogic Composable Architecture Screenshot",
-        "filename2": "casestudy/onlogic/onlogic-2.png",
-        "caption2": "OnLogic Product Configuration Interface",
-        "filename3": "casestudy/onlogic/onlogic-3.png",
-        "caption3": "Custom PDP and Checkout Experience"
-      },
-      "keypoints": [
-        {
-          "title": "Empower Technical Users",
-          "body": "Designed an interface for IT professionals and developers, providing advanced customization options with usability in mind."
-        },
-        {
-          "title": "Facilitate Developer Implementation",
-          "body": "Created UI workflows developers could implement and extend, aligning with composable architecture principles."
-        },
-        {
-          "title": "Support High Customizability",
-          "body": "Enabled configuration and purchase of highly customizable products with seamless integration of pricing, tax rules, and global payment systems."
-        },
-        {
-          "title": "Provide Transparency and Control",
-          "body": "Delivered detailed product configuration workflows with real-time feedback and clear user-facing data."
-        }
-      ],
-      "entries": [
-        {
-          "eyebrow": "",
-          "title": "Problem",
-          "body": "OnLogic needed a platform tailored to technical users, including IT professionals, to handle the complexities of configuring customizable products. The existing legacy platform couldn't provide the precision, transparency, or scalability required to meet the needs of a global audience.",
-          "images": {
-            "filename1": "casestudy/onlogic/onlogic-1.png",
-            "alt": "Legacy Platform Challenges",
-            "caption": "Legacy platform lacked configurability and scalability."
-          }
-        },
-        {
-          "eyebrow": "",
-          "title": "Solution",
-          "body": "Migrated to a composable commerce architecture using commercetools, enabling OnLogic to scale and meet modern demands. Developed configurable PDPs with real-time price calculations, validation checks, and modular designs. Integrated content management (Contentful), search (Algolia), and custom payment/tax systems to meet global requirements.",
-          "images": {
-            "filename1": "casestudy/onlogic/onlogic-2.png",
-            "alt": "Composable Commerce Architecture",
-            "caption": "Composable architecture tailored for technical users."
-          }
-        },
-        {
-          "eyebrow": "",
-          "title": "Outcome",
-          "body": "The platform empowered OnLogic's technical users with advanced customization options, seamless workflows, and real-time validation. Developers benefited from detailed design handoffs and modular implementation strategies. The scalable platform allows OnLogic to evolve its offerings to meet future needs.",
-          "images": {
-            "filename1": "casestudy/onlogic/onlogic-3.png",
-            "alt": "Scalable and Modular Platform",
-            "caption": "Enhanced configurability and future-proof design."
-          }
-        }
       ]
     }
   ]
