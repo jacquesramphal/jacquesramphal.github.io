@@ -93,23 +93,6 @@
       ]
     },
     {
-      "id": 9,
-      "docId": 32,
-      "slug": "building-genie-changed-me",
-      "type": "article",
-      "title": "Building Genie Changed Me",
-      "eyebrow": "Agentic AI Design",
-      "description": "The story of building Genie—from personal experiment to organizational platform—and the three mental model problems we had to solve to design for agentic AI. A personal journey about reclaiming creative focus, learning new skills, and transforming routine work into strategic impact.",
-      "route": "/doc/building-genie-changed-me",
-      "contentFile": "doc_32.md",
-      "thumbnail": "casestudy/genie/genie.png",
-      "alt": "Genie - Agentic AI Platform",
-      "tags": [
-        "ai",
-        "agentic-ai"
-      ]
-    },
-    {
       "id": 1,
       "docId": 13,
       "slug": "the-shifting-design-landscape",
@@ -262,7 +245,7 @@
       "id": 12,
       "docId": 37,
       "slug": "smart-quotes-fixer",
-      "type": "tool",
+      "type": "design-project",
       "title": "Smart Quotes Fixer",
       "eyebrow": "CLI Package",
       "description": "A safe script that converts straight quotes to smart quotes in rendered content without touching code, bindings, or attribute delimiters.",
@@ -280,7 +263,7 @@
       "id": 13,
       "docId": 38,
       "slug": "design-guard",
-      "type": "tool",
+      "type": "design-project",
       "title": "Design Guard",
       "eyebrow": "CLI Package",
       "description": "A lightweight design guard that scans staged files for hardcoded lengths (px/rem/%/etc.) and colors, nudging code toward design tokens.",
@@ -292,6 +275,23 @@
       "tags": [
         "cli",
         "design-systems"
+      ]
+    },
+    {
+      "id": 9,
+      "docId": 32,
+      "slug": "building-genie-changed-me",
+      "type": "case-study",
+      "title": "Building Genie Changed Me",
+      "eyebrow": "Agentic AI Design",
+      "description": "The story of building Genie—from personal experiment to organizational platform—and the three mental model problems we had to solve to design for agentic AI. A personal journey about reclaiming creative focus, learning new skills, and transforming routine work into strategic impact.",
+      "route": "/doc/building-genie-changed-me",
+      "contentFile": "doc_32.md",
+      "thumbnail": "casestudy/genie/genie.png",
+      "alt": "Genie - Agentic AI Platform",
+      "tags": [
+        "ai",
+        "agentic-ai"
       ]
     },
     {

@@ -43,3 +43,11 @@ The detailed view allows for granular planning and analysis, enabling teams to d
 ![Detailed planning view](../images/casestudy/glo/details.png)
 
 *Detailed planning view*
+
+---
+
+## Reflection
+
+Enterprise planning tools succeed when they disappear into the workflow. The goal was never to impress with complexity — it was to make strategic planning feel inevitable, so teams could focus on decisions rather than navigation.
+
+When the interface stops being something people think about, the design has done its job.

@@ -43,3 +43,11 @@ The platform empowered OnLogic's technical users with advanced customization opt
 ![Scalable and Modular Platform](../images/casestudy/onlogic/onlogic-3.png)
 
 *Enhanced configurability and future-proof design.*
+
+---
+
+## Reflection
+
+Designing for technical users means earning trust through precision. Every real-time validation, every configuration state, every edge case accounted for was a signal that the platform understood its audience.
+
+The result was a commerce experience that felt less like a storefront and more like a professional tool — which, for OnLogic's customers, was exactly the point.

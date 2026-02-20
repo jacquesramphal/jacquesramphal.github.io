@@ -127,7 +127,20 @@
           </GridParent>
         </GridParent>
       </GridContainer>
-      
+
+      <GridContainer v-if="entry.description" class="fadeInUp" style="padding-block-start: var(--spacing-md) !important; padding-block-end: var(--spacing-md) !important;">
+        <TextBlock
+          left
+          eyebrow="Summary"
+          as="h2"
+          :title="entry.title"
+          :description="`${entry.description}`"
+          :label="entry.label || ''"
+          :link="entry.link || ''"
+          :btnroute="entry.btnroute || ''"
+        />
+      </GridContainer>
+
       <!-- <TextGrid3
         v-for="(section, j) in entry.entries"
         :key="j"
@@ -233,6 +246,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
 import CardRow2 from "@/components/CardRow2.vue";
+import TextBlock from "@/components/text/TextBlock/TextBlock.vue";
 // import TextImage from "@/components/card/TextImage.vue";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -281,6 +295,7 @@ export default {
     ImageCard,
     GridContainer,
     CardRow2,
+    TextBlock,
     // TextImage,
     FullscreenImage,
     // BreadCrumb,

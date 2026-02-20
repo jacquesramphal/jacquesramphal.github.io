@@ -63,3 +63,11 @@ Sometimes the best design work happens when you're improving what exists rather 
 ![Motion Design in Action](../images/casestudy/softchoice/sc-motion.gif)
 
 *Thoughtful motion design enhances the user experience without calling attention to itself.*
+
+---
+
+## Reflection
+
+The best outcome of this project wasn't the new visual language — it was the confidence Softchoice gained to own their digital presence going forward.
+
+Great design work often lives in the improvements no one notices: the constraint respected, the system preserved, the foundation quietly strengthened. Sometimes that's exactly the brief.

@@ -47,3 +47,11 @@ Kum & Go plans to continue enhancing the mobile app and redesigning the web expe
 ![K&G Mobile App Launch and Features](../images/casestudy/kg/kg-1.jpg)
 
 *Launched mobile app with enhanced loyalty program and ecommerce capabilities.*
+
+---
+
+## Reflection
+
+The K&G project wasn't just about shipping an app — it was about handing Kum & Go the controls to evolve their digital experience independently. The composable architecture meant that new features, promotions, and content could be managed without an external partner involved in every update.
+
+The real measure of success wasn't the launch itself. It was building a platform that didn't need us anymore.
