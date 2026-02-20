@@ -4,9 +4,9 @@ Agentic Systems & AX Lead / Design Lead
 AI-Driven Workflows · Design Systems · Design-to-Development
 
 - Toronto, ON
-- https://linkedin.com/in/jacquesramphal-design
-- jacques@ramphal.design
-- https://github.com/jacquesramphal
+- [Linkedin](https://linkedin.com/in/jacquesramphal-design)
+- [Website](jacques@ramphal.design)
+- [Github](https://github.com/jacquesramphal)
 
 ---
 
