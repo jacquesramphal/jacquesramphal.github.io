@@ -61,7 +61,9 @@
         as="h2"
         description=""
         eyebrow1=""
-        detail1="Senior Product Designer and Design Lead in Toronto. For 15 years at Orium, I’ve built the practices and systems that close the gap between design intent and implementation.<br/><br/>I architect token-based design systems, design agentic AI workflows, and write about quality, systems, and sustainable delivery. I still code my own designs and mentor designers into developers.<br/><br/><a href=’/resume’>Resume</a> · <a href=’/doc/ask-me-anything’>Ask me anything</a>"
+        detail1="Senior Product Designer and Design Lead in Toronto. For 15 years at Orium, I’ve built the practices and systems that close the gap between design intent and implementation.<br/><br/>I architect token-based design systems, design agentic AI workflows, and write about quality, systems, and sustainable delivery. I still code my own designs and mentor designers into developers."
+        route="/doc/ask-me-anything"
+        label="Learn More"
       />
     </AnimatedComponent>
 
