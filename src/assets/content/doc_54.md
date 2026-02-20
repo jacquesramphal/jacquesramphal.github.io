@@ -1,6 +1,9 @@
 <header>
+
 # Softchoice Website Rebrand
+
 #### Brand Design, Motion Design, CMS Integration
+
 </header>
 ![Softchoice Desktop Homepage](../images/casestudy/softchoice/sc-desktop-1.png)
 

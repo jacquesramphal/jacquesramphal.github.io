@@ -1,6 +1,9 @@
 <header>
+
 # OnLogic Composable Commerce Platform
+
 #### E-commerce, Developer Friendly
+
 </header>
 ![OnLogic Composable Architecture Screenshot](../images/casestudy/onlogic/onlogic-1.png)
 

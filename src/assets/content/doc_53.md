@@ -1,6 +1,9 @@
 <header>
+
 # K&G Loyalty Platform
+
 #### Product Design, Design Systems, Development
+
 </header>
 ![K&G Loyalty Platform - Mobile App Hero](../images/casestudy/kg/kg-1.jpg)
 

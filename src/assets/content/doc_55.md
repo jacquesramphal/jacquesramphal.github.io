@@ -1,6 +1,9 @@
 <header>
+
 # Fortune 100 Planning Tool
+
 #### Product Design, Dashboard Design
+
 </header>
 ![Planning dashboard interface](../images/casestudy/glo/planner.png)
 
