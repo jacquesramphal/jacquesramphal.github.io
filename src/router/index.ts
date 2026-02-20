@@ -177,7 +177,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   // Determine if maintenance mode is enabled by default
-  const maintenanceMode = true; // Set this to true by default
+  const maintenanceMode = false; // Set this to true to enable maintenance mode (bypass: ?bypass=secret)
 
   // Check if the application is running on localhost or local network IP
   const hostname = window.location.hostname;
