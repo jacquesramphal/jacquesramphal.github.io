@@ -412,13 +412,9 @@ img {
   border-radius: var(--spacing-xxxs) !important;
   margin: var(--spacing-xs);
 
-  &:has(img) {
+  &:has(img),
+  &:has(.placeholder) {
     aspect-ratio: 5/4;
-  }
-
-  &:not(:has(img)) {
-    min-height: auto;
-    height: auto;
   }
 }
 

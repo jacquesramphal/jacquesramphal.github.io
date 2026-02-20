@@ -306,6 +306,19 @@
       "route": "/doc/softchoice-rebrand",
       "contentFile": "doc_54.md",
       "thumbnail": "casestudy/softchoice/sc-desktop-1.png",
+      "imageVariant": "angled",
+      "bgcolor": "background-color: #7d00ff",
+      "filename1": "casestudy/softchoice/sc-desktop-1.png",
+      "filename2": "casestudy/softchoice/sc-blog-1.png",
+      "filename3": "casestudy/softchoice/sc-motion.gif",
+      "images": {
+        "filename1": "casestudy/softchoice/sc-desktop-1.png",
+        "caption1": "Softchoice Desktop Homepage",
+        "filename2": "casestudy/softchoice/sc-blog-1.png",
+        "caption2": "Softchoice Blog Page",
+        "filename3": "casestudy/softchoice/sc-motion.gif",
+        "caption3": "Motion Design Elements"
+      },
       "alt": "Softchoice Website Rebrand",
       "tags": [
         "rebrand",
@@ -323,6 +336,19 @@
       "route": "/doc/kg-loyalty-platform",
       "contentFile": "doc_53.md",
       "thumbnail": "casestudy/kg/kg-5.png",
+      "imageVariant": "angled",
+      "bgcolor": "background-color: #FFB81C",
+      "filename1": "casestudy/kg/kg-5.png",
+      "filename2": "casestudy/kg/kg-1.jpg",
+      "filename3": "casestudy/kg/kg-1.jpg",
+      "images": {
+        "filename1": "casestudy/kg/kg-5.png",
+        "caption1": "K&G Loyalty Platform - Mobile App Hero",
+        "filename2": "casestudy/kg/kg-1.jpg",
+        "caption2": "K&G Mobile App Interface",
+        "filename3": "casestudy/kg/kg-1.jpg",
+        "caption3": "K&G Digital Experience"
+      },
       "alt": "K&G Loyalty Platform - Mobile App Experience",
       "tags": [
         "loyalty",
@@ -340,6 +366,19 @@
       "route": "/doc/fortune-100-planning-tool",
       "contentFile": "doc_55.md",
       "thumbnail": "casestudy/glo/planner.png",
+      "imageVariant": "angled",
+      "bgcolor": "background-color: #47C8A6",
+      "filename1": "casestudy/glo/planner.png",
+      "filename2": "casestudy/glo/insights.png",
+      "filename3": "casestudy/glo/details.png",
+      "images": {
+        "filename1": "work/glo.svg",
+        "caption1": "Planning dashboard interface",
+        "filename2": "casestudy/glo/insights.png",
+        "caption2": "Analytics and insights view",
+        "filename3": "casestudy/glo/details.png",
+        "caption3": "Detailed planning view"
+      },
       "alt": "Fortune 100 Planning Tool Dashboard",
       "tags": [
         "dashboard",
@@ -357,6 +396,19 @@
       "route": "/doc/onlogic-commerce-platform",
       "contentFile": "doc_56.md",
       "thumbnail": "casestudy/onlogic/onlogic-1.png",
+      "imageVariant": "angled",
+      "bgcolor": "background-color: #0077C8",
+      "filename1": "casestudy/onlogic/onlogic-1.png",
+      "filename2": "casestudy/onlogic/onlogic-2.png",
+      "filename3": "casestudy/onlogic/onlogic-3.png",
+      "images": {
+        "filename1": "casestudy/onlogic/onlogic-1.png",
+        "caption1": "OnLogic Composable Architecture Screenshot",
+        "filename2": "casestudy/onlogic/onlogic-2.png",
+        "caption2": "OnLogic Product Configuration Interface",
+        "filename3": "casestudy/onlogic/onlogic-3.png",
+        "caption3": "Custom PDP and Checkout Experience"
+      },
       "alt": "OnLogic Project Overview",
       "tags": [
         "commerce",
