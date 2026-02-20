@@ -10,6 +10,42 @@
   "alt": "Genie - Agentic AI Platform",
   "entries": [
     {
+      "id": 27,
+      "docId": 59,
+      "slug": "the-future-of-design",
+      "type": "article",
+      "title": "The Future of Design",
+      "eyebrow": "Design Speculation",
+      "description": "Speculation on where design is heading. From siloed to integrated, static to dynamic, proprietary to open-source—the future of design is defined by tensions, not destinations.",
+      "route": "/doc/the-future-of-design",
+      "contentFile": "doc_59.md",
+      "thumbnail": "article/cover2.png",
+      "alt": "Article: The Future of Design",
+      "tags": [
+        "design",
+        "future",
+        "philosophy"
+      ]
+    },
+    {
+      "id": 26,
+      "docId": 58,
+      "slug": "the-ramstack",
+      "type": "article",
+      "title": "The Ramstack: Design Tools, Complexity, and the Case for Interoperability",
+      "eyebrow": "Design Philosophy",
+      "description": "A future-proof approach to front-end design isn't about specific tools—it's about the principles beneath them. On headless complexity, tech debt, and why interoperability should be the core of your design practice.",
+      "route": "/doc/the-ramstack",
+      "contentFile": "doc_58.md",
+      "thumbnail": "article/cover3.png",
+      "alt": "Article: The Ramstack",
+      "tags": [
+        "design-tools",
+        "front-end",
+        "philosophy"
+      ]
+    },
+    {
       "id": 25,
       "docId": 57,
       "slug": "design-learnings",
