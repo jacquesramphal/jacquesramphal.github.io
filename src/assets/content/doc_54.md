@@ -2,6 +2,8 @@
 
 #### Brand Design, Motion Design, CMS Integration
 
+<br>
+
 ![Softchoice Desktop Homepage](../images/casestudy/softchoice/sc-desktop-1.png)
 
 When a brand launches a new identity, the website needs to reflect it—without breaking what already works. Redesigned Softchoice's website to reflect their new brand identity, working within their existing CMS structure. Enhanced modules, introduced motion design, and collaborated closely with development to ensure design fidelity.

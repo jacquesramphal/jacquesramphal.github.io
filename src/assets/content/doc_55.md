@@ -4,7 +4,8 @@
 
 #### Product Design, Dashboard Design
 
-</header>
+<br>
+
 ![Planning dashboard interface](../images/casestudy/glo/planner.png)
 
 A comprehensive planning tool designed for enterprise-level strategic planning, featuring intuitive dashboards and real-time analytics for data-driven decision making.

@@ -1,10 +1,9 @@
-<header>
-
 # OnLogic Composable Commerce Platform
 
 #### E-commerce, Developer Friendly
 
-</header>
+<br>
+
 ![OnLogic Composable Architecture Screenshot](../images/casestudy/onlogic/onlogic-1.png)
 
 Empowering technical users with precision, flexibility, and control for configuring industrial PC systems.
