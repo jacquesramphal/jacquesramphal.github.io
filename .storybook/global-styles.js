@@ -9,4 +9,27 @@ export const globalStyles = `
     text-rendering: optimizeLegibility;
 }
 
+/* Match the app's html base (rem calculations depend on this) */
+html {
+    font-size: 10px !important;
+}
+
+/* In the app, color is set on #app — that element doesn't exist in Storybook.
+   Set it on body so headings and other elements using color:inherit
+   correctly pick up the themed foreground token. */
+body {
+    color: var(--foreground) !important;
+    background-color: var(--background) !important;
+}
+
+/* Storybook docs mode wraps content in .sbdocs-wrapper / .sbdocs-content.
+   These are styled directly by the Storybook theme object (not CSS variables),
+   so they don't respond to our :root theme class. Override them here so the
+   docs page background and text honour the active design tokens. */
+.sbdocs-wrapper,
+.sbdocs-content,
+.docs-story {
+    background-color: var(--background) !important;
+    color: var(--foreground) !important;
+}
 `

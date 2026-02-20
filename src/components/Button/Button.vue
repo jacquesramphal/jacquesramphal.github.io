@@ -205,7 +205,7 @@ export default {
   cursor: pointer;
   display: inline-block;
   font-size: inherit;
-  // font-weight: var(--fontWeight-medium);
+  font-weight: var(--fontWeight-bold);
   // padding: 0.5rem 1rem 0.5rem 1rem;
   text-decoration: none;
   transition: all 0.1s ease-in-out;
@@ -218,49 +218,55 @@ export default {
     transform: scale(0.98);
     /* box-shadow: var(--shadow-text); */
   }
+  &:disabled,
+  &[aria-disabled="true"] {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
 }
 
 .button--solid {
-  color: var(--color-offwhite) !important;
-  background: -webkit-linear-gradient(var(--color-lightpurple), var(--color-purple)) !important;
-  border: 2px solid var(--link) !important;
+  color: var(--foreground-reversed) !important;
+  background: var(--background-reversed) !important;
+  border: 2px solid var(--background-reversed) !important;
   &:before,
   &:after {
-    color: var(--color-offwhite) !important;
+    color: var(--foreground-reversed) !important;
   }
   &:hover {
-    background: -webkit-linear-gradient(var(--link), var(--link)) !important;
+    opacity: 0.85;
   }
 }
 
 .button--outline {
   background-color: transparent !important;
-  color: var(--link) !important;
-  border: 1px solid var(--link) !important;
-  font-weight: var(--fontWeight-medium);
+  color: var(--foreground) !important;
+  border: 1px solid var(--foreground) !important;
+  font-weight: var(--fontWeight-bold);
 
   &:before,
   &:after {
-    color: var(--link) !important;
+    color: var(--foreground) !important;
   }
   &:hover {
-    color: var(--foreground-reversed) !important;
-    background-color: var(--link) !important;
+    color: var(--background) !important;
+    background-color: var(--foreground) !important;
     &:before,
     &:after {
-      color: var(--foreground) !important;
+      color: var(--background) !important;
     }
   }
 }
 
 .button--ghost {
-  color: var(--text) !important;
+  color: var(--foreground) !important;
   background-color: transparent;
   border: 1px solid transparent !important;
-  font-weight: var(--fontWeight-medium);
+  font-weight: var(--fontWeight-bold);
   &:before,
   &:after {
-    color: var(--link) !important;
+    color: var(--foreground) !important;
   }
   &:hover {
     background-color: var(--background-darker) !important;
@@ -271,13 +277,13 @@ export default {
   // }
 }
 .reversed .button--ghost {
-  color: var(--link-reversed) !important;
+  color: var(--foreground-reversed) !important;
   &:hover {
-    border: 1px solid var(--link-reversed) !important;
+    border: 1px solid var(--foreground-reversed) !important;
   }
   &:before,
   &:after {
-    color: var(--link-reversed) !important;
+    color: var(--foreground-reversed) !important;
   }
   &:active {
     // border: dashed !important;
@@ -286,10 +292,10 @@ export default {
 }
 
 .button--subtle {
-  color: var(--text);
+  color: var(--foreground);
   background-color: transparent;
   border: 1px solid transparent !important;
-  font-weight: var(--fontWeight-medium);
+  font-weight: var(--fontWeight-bold);
   &:before,
   &:after {
     color: inherit;
@@ -302,8 +308,8 @@ export default {
 
 .button--textlink {
   padding: 0 !important;
-  color: var(--link) !important;
-  font-weight: var(--fontWeight-medium);
+  color: var(--foreground) !important;
+  font-weight: var(--fontWeight-bold);
   background-color: transparent;
   border: none;
   text-decoration: underline;
@@ -314,7 +320,7 @@ export default {
     color: inherit !important;
   }
   &:hover {
-    color: var(--link);
+    color: var(--foreground);
     text-decoration: underline;
     text-underline-offset: 0.625rem;
     text-decoration-thickness: 0.2rem !important;
@@ -361,46 +367,46 @@ export default {
 }
 .button--left:before {
   content: '★ ';
-  color: var(--link);
+  color: var(--foreground);
 }
 .button--right:after {
   content: ' ★';
-  color: var(--link);
+  color: var(--foreground);
 }
 
 .reversed {
   &:before,
   &:after {
-    color: var(--link-reversed);
+    color: var(--foreground-reversed);
   }
   .button--outline {
-    color: var(--link-reversed) !important;
-    border: 1px solid var(--link-reversed) !important;
+    color: var(--foreground-reversed) !important;
+    border: 1px solid var(--foreground-reversed) !important;
     &:before,
     &:after {
-      color: var(--link-reversed) !important;
+      color: var(--foreground-reversed) !important;
     }
   }
   .button--outline:hover {
     color: var(--foreground) !important;
-    background-color: var(--link-reversed) !important;
+    background-color: var(--foreground-reversed) !important;
     &:before,
     &:after {
       color: var(--foreground) !important;
     }
   }
   .button--textlink {
-    color: var(--link-reversed) !important;
+    color: var(--foreground-reversed) !important;
     &:before,
     &:after {
-      color: var(--link-reversed) !important;
+      color: var(--foreground-reversed) !important;
     }
     &:hover {
-      color: var(--link-reversed) !important;
+      color: var(--foreground-reversed) !important;
     }
   }
   .button--external.button--textlink .button-label::after {
-    color: var(--link-reversed) !important;
+    color: var(--foreground-reversed) !important;
   }
 }
 </style>

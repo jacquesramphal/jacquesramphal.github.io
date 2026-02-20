@@ -1070,10 +1070,13 @@ table {
 
 /* Table Header */
 th {
-  color: var(--foreground-subtle) !important;
-  // opacity: var(--foreground-subtle) !important;
-  font-weight: var(--font-bold);
-  background-color: var(--background-darker); /* Background color for table headers */
+  color: var(--foreground) !important;
+  font-size: var(--font-400);
+  font-weight: var(--fontWeight-medium);
+  letter-spacing: var(--letterSpacing-loose);
+  text-transform: uppercase;
+  font-variation-settings: 'YAXS' 400, 'wdth' 115, 'opsz' 48;
+  background-color: var(--background-darker);
 }
 
 /* Table Padding */

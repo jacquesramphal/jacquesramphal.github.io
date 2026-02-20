@@ -97,7 +97,7 @@
       "docId": 32,
       "slug": "building-genie-changed-me",
       "type": "article",
-      "title": "Building Genie changed me",
+      "title": "Building Genie Changed Me",
       "eyebrow": "Agentic AI Design",
       "description": "The story of building Genie—from personal experiment to organizational platform—and the three mental model problems we had to solve to design for agentic AI. A personal journey about reclaiming creative focus, learning new skills, and transforming routine work into strategic impact.",
       "route": "/doc/building-genie-changed-me",
@@ -124,23 +124,6 @@
       "tags": [
         "design",
         "ai"
-      ]
-    },
-    {
-      "id": 2,
-      "docId": 1,
-      "slug": "baselines-design-qa",
-      "type": "article",
-      "title": "Baselines & Design QA: Setting the Foundation for Quality",
-      "eyebrow": "Quality Process",
-      "description": "How early baselines make Design QA effortless. When you set design baselines before implementation begins, you prevent problems from taking root. The result? Less testing needed later, fewer discrepancies to catch, and a shared understanding of what 'done' looks like.",
-      "route": "/doc/baselines-design-qa",
-      "contentFile": "doc_1.md",
-      "thumbnail": "article/cover1.png",
-      "alt": "Article: Baselines & Design QA",
-      "tags": [
-        "quality",
-        "qa"
       ]
     },
     {
@@ -178,34 +161,21 @@
     },
     {
       "id": 15,
-      "docId": 43,
+      "docId": 44,
       "slug": "best-qa-doesnt-have-to-happen",
       "type": "article",
       "title": "The Best QA Is the One That Doesn't Have to Happen",
-      "eyebrow": "Quality Systems",
-      "description": "Prevention over detection in quality assurance. The highest form of QA is prevention—quality baked into baselines, components, and shared standards so that QA shifts from inspection to confirmation.",
+      "eyebrow": "Quality Process",
+      "description": "Strong baselines. Early DQA. Less testing later. When quality is built into the baseline from the start, QA shifts from discovery to confirmation — and the best QA process is one that doesn't have to happen.",
       "route": "/doc/best-qa-doesnt-have-to-happen",
-      "contentFile": "doc_43.md",
+      "contentFile": "doc_44.md",
+      "thumbnail": "article/cover1.png",
       "alt": "Article: The Best QA Is the One That Doesn't Have to Happen",
       "tags": [
         "quality",
+        "process",
+        "culture",
         "qa"
-      ]
-    },
-    {
-      "id": 16,
-      "docId": 44,
-      "slug": "quality-not-extra-scope",
-      "type": "article",
-      "title": "Quality Is Not Extra Scope",
-      "eyebrow": "Quality Process",
-      "description": "Redefining quality as foundational, not additional. What adds scope is discovering misalignment late. When quality is built into the definition of done from the beginning, it becomes foundational.",
-      "route": "/doc/quality-not-extra-scope",
-      "contentFile": "doc_44.md",
-      "alt": "Article: Quality Is Not Extra Scope",
-      "tags": [
-        "quality",
-        "process"
       ]
     },
     {
@@ -222,38 +192,6 @@
       "tags": [
         "design",
         "qa"
-      ]
-    },
-    {
-      "id": 18,
-      "docId": 46,
-      "slug": "baselines-over-heroics",
-      "type": "article",
-      "title": "Baselines Over Heroics",
-      "eyebrow": "Design Systems",
-      "description": "Building sustainable quality through strong foundations. When your baseline is strong, quality becomes automatic. Mature teams invest in systems that make errors harder to produce.",
-      "route": "/doc/baselines-over-heroics",
-      "contentFile": "doc_46.md",
-      "alt": "Article: Baselines Over Heroics",
-      "tags": [
-        "design-systems",
-        "quality"
-      ]
-    },
-    {
-      "id": 19,
-      "docId": 47,
-      "slug": "qa-signal-team-maturity",
-      "type": "article",
-      "title": "QA Is a Signal of Team Maturity",
-      "eyebrow": "Team Culture",
-      "description": "How quality processes reveal organizational health. The amount of QA a team needs is inversely related to its maturity. QA reveals where friction lives.",
-      "route": "/doc/qa-signal-team-maturity",
-      "contentFile": "doc_47.md",
-      "alt": "Article: QA Is a Signal of Team Maturity",
-      "tags": [
-        "quality",
-        "culture"
       ]
     },
     {
@@ -286,22 +224,6 @@
       "tags": [
         "quality",
         "automation"
-      ]
-    },
-    {
-      "id": 22,
-      "docId": 50,
-      "slug": "quality-cultural-choice",
-      "type": "article",
-      "title": "Quality Is a Cultural Choice",
-      "eyebrow": "Team Culture",
-      "description": "Building teams that value quality as foundational. Quality requires cross-functional respect, shared vocabulary, and willingness to slow down briefly to move faster later.",
-      "route": "/doc/quality-cultural-choice",
-      "contentFile": "doc_50.md",
-      "alt": "Article: Quality Is a Cultural Choice",
-      "tags": [
-        "quality",
-        "culture"
       ]
     },
     {
@@ -635,7 +557,7 @@
       "type": "case-study",
  "variant": "split",
       "size": "large",
-      "title": "OnLogic Composable Commerce Platform test",
+      "title": "OnLogic Composable Commerce Platform",
       "tag": "E-commerce, Developer Friendly",
       "description": "Empowering technical users with precision, flexibility, and control for configuring industrial PC systems.",
       "btnroute": "doc/onlogic-commerce-platform",

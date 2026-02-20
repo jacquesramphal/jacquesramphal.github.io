@@ -1,9 +1,10 @@
-// ./storybook/manager.ts
-import { addons } from '@storybook/addons'
-import { themes } from '@storybook/theming'
-// import tokens from '@oriuminc/chakra/src/figma-tokens/transformedTokens.json'
+import { addons } from '@storybook/addons';
+import { darkTheme, lightTheme } from './themes';
 
+// Match system preference for the initial manager chrome.
+// The toolbar toggle (sun/moon) will switch both chrome and canvas together.
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 addons.setConfig({
-  theme: themes.dark,
+  theme: prefersDark ? darkTheme : lightTheme,
 });

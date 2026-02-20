@@ -1,4 +1,8 @@
 import TextImage from "../components/card/TextImage.vue";
+import TextBlock from "../components/text/TextBlock/TextBlock.vue";
+import GridWrapper from "../components/grid/GridWrapper.vue";
+import GridContainer from "../components/grid/GridContainer.vue";
+import GridParent from "../components/grid/GridParent.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {
@@ -18,7 +22,7 @@ export default {
 };
 
 const Template = (args) => ({
-  components: { TextImage },
+  components: { TextImage, TextBlock, GridWrapper, GridContainer, GridParent },
   setup() {
     return { args };
   },
