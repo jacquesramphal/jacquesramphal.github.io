@@ -1,5 +1,3 @@
-<header>
-
 # Fortune 100 Planning Tool
 
 #### Product Design, Dashboard Design
