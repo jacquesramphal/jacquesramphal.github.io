@@ -16,15 +16,6 @@
         :customBgColor="typeColorSubtle"
         :customTextColor="typeColor"
       />
-      <!-- Content tags (ghost style) -->
-      <MyButton
-        v-for="tag in tags"
-        :key="tag"
-        type="ghost"
-        size="xs"
-        :label="tag"
-        @click="$emit('tag-click', tag)"
-      />
     </div>
     <p v-else-if="eyebrow" class="eyebrow subtle">{{ eyebrow }}</p>
     <a
@@ -53,6 +44,12 @@
       :text="description"
       :attrs="{ class: 'description' }"
     />
+    <!-- Content tags at bottom -->
+    <div v-if="shouldShowTags && tags && tags.length" class="tags tags--content">
+      <span v-for="tag in tags" :key="tag" class="tag-label subtle" @click="$emit('tag-click', tag)"
+        ><p style="font-size: var(--font-2xs)">{{ tag }}</p></span
+      >
+    </div>
     <!-- <TextLink
       v-if="route"
       :label="label"
@@ -313,8 +310,34 @@ export default {
   margin-block-end: var(--spacing-xs);
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-xxs);
+  gap: var(--spacing-xs);
 }
+
+.tags--content {
+  margin-block-start: auto;
+  margin-block-end: 0;
+  padding-block-start: var(--spacing-xs);
+}
+
+.tag-label {
+  display: inline;
+  cursor: pointer;
+}
+
+.tag-label p {
+  display: inline;
+  font-size: var(--font-2xs);
+}
+
+/* .tag-label::after {
+  content: '•';
+  margin-inline-start: var(--spacing-xxs);
+  color: var(--text-subtle);
+}
+.tag-label:last-child::after {
+  content: '';
+  margin: 0;
+} */
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 768px) {

@@ -91,16 +91,18 @@
         :iconsize="iconsize"
         :title="title"
         :titleRoute="route || btnroute || link"
-        :description="mobileList ? title : description"
+        :description="description"
         :tags="tags"
         :cardType="type"
         @tag-click="$emit('tag-click', $event)"
       />
 
+      <!-- :description="mobileList ? title : description" -->
+
       <!-- Read more link -->
-      <div class="card-footer">
+      <!-- <div class="card-footer">
         <TextLink :label="label || 'Read more'" :route="route || btnroute" :link="link" />
-      </div>
+      </div> -->
     </div>
     <!-- <MyButton style="" secondary :label="`${label}`" size="large" :route="`${route}`" /> -->
   </div>
@@ -108,13 +110,13 @@
 
 <script>
 import TextBlock from '../../text/TextBlock/TextBlock.vue';
-import TextLink from '../../text/TextLink.vue';
+// import TextLink from '../../text/TextLink.vue';
 
 export default {
   name: 'ArticleCard',
   components: {
     TextBlock,
-    TextLink,
+    //TextLink,
   },
   props: {
     imgurl: {
@@ -570,12 +572,12 @@ img {
     border-radius: 0 !important;
     box-shadow: none !important;
     border: none;
-    padding: var(--spacing-xxs) 0 var(--spacing-sm) 0;
+    padding-block-start: var(--spacing-sm);
     display: grid !important;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: var(--spacing-xs);
     min-height: auto;
-    border-block-end: 1px solid var(--color-xlight) !important;
+    border-block-start: 1px solid var(--color-xlight) !important;
 
     &:hover {
       background: transparent;
@@ -583,12 +585,12 @@ img {
     }
 
     .image {
-      grid-column: 1 / 2;
+      grid-column: 3 / 4;
       grid-row: 1;
       margin: 0 !important;
       aspect-ratio: 1 / 1 !important;
       inline-size: 100% !important;
-      display: block !important;
+      display: none !important;
 
       img {
         object-fit: cover;
@@ -605,7 +607,7 @@ img {
     }
 
     .info {
-      grid-column: 2 / 4;
+      grid-column: 1 / 4;
       grid-row: 1;
       padding: 0 !important;
       display: flex;
@@ -629,25 +631,17 @@ img {
 
     // Hide title and show description (which will contain title content)
     .textblock--mobile-list :deep(.title) {
-      display: none !important;
+      // display: none !important;
+      // font-size: var(--font-size-sm) !important;
     }
 
     .textblock--mobile-list :deep(.description) {
-      margin-block-end: 0;
-      margin-block-start: 0;
+      // margin-block-end: 0;
+      // margin-block-start: 0;
     }
 
-    // Show only the type tag, hide content tags
     .textblock--mobile-list :deep(.tags) {
-      overflow: hidden;
-      white-space: nowrap;
-      max-width: 100%;
-      margin-block-end: var(--spacing-xxs);
-
-      // Hide all tags except the first one (type badge)
-      > *:not(:first-child) {
-        display: none !important;
-      }
+      // margin-block-end: var(--spacing-xxs);
     }
   }
 }

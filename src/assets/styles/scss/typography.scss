@@ -146,6 +146,9 @@ b {
 em {
   font-style: normal;
   display: inline-block;
+}
+
+h1 em {
   text-decoration: underline wavy var(--color-yellow) !important;
 }
 blockquote {

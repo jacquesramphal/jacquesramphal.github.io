@@ -124,9 +124,9 @@ A curated collection of my writing, professional work, and personal projects."
           <GridParent tight class="posts">
             <ArticleCard
               borderless
-              mobileList
               v-for="(entry, index) in filteredArticlesAndTools"
               :key="entry.id"
+              :mobileList="index !== 0"
               :alt="entry.alt"
               :description="entry.description"
               :filename="entry.thumbnail"
@@ -160,9 +160,9 @@ A curated collection of my writing, professional work, and personal projects."
           <GridParent tight class="posts">
             <ArticleCard
               borderless
-              mobileList
               v-for="(entry, index) in filteredCaseStudiesAndProjects"
               :key="entry.id"
+              :mobileList="index !== 0"
               :alt="entry.alt"
               :description="entry.description"
               :filename="entry.thumbnail"
@@ -461,6 +461,10 @@ export default {
 .library-section {
   margin-block-end: var(--spacing-lg);
   grid-column: 1 / -1;
+}
+
+.library-section .posts > *:nth-child(2) {
+  border-block-start: var(--border);
 }
 
 .section-header {

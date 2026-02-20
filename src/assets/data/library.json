@@ -23,9 +23,7 @@
       "alt": "Design Learnings & Principles",
       "tags": [
         "design",
-        "leadership",
-        "learning",
-        "philosophy"
+        "leadership"
       ]
     },
     {
@@ -40,8 +38,7 @@
       "label": "Read on Composable.com",
       "tags": [
         "design-systems",
-        "tokens",
-        "process"
+        "tokens"
       ]
     },
     {
@@ -56,8 +53,7 @@
       "label": "Read on Orium",
       "tags": [
         "ai",
-        "agentic-ai",
-        "workflow"
+        "agentic-ai"
       ]
     },
     {
@@ -74,8 +70,7 @@
       "alt": "Genie - Agentic AI Platform",
       "tags": [
         "ai",
-        "agentic-ai",
-        "personal"
+        "agentic-ai"
       ]
     },
     {
@@ -92,8 +87,7 @@
       "alt": "Article: The Shifting Landscape of Design",
       "tags": [
         "design",
-        "ai",
-        "evolution"
+        "ai"
       ]
     },
     {
@@ -110,8 +104,7 @@
       "alt": "Article: Baselines & Design QA",
       "tags": [
         "quality",
-        "qa",
-        "design-systems"
+        "qa"
       ]
     },
     {
@@ -128,8 +121,7 @@
       "alt": "Article: Writing for Non-Writers",
       "tags": [
         "writing",
-        "philosophy",
-        "personal"
+        "philosophy"
       ]
     },
     {
@@ -144,11 +136,8 @@
       "contentFile": "doc_29.md",
       "alt": "Article: Leading Design Innovation",
       "tags": [
-        "writing",
         "design",
-        "leadership",
-        "ai",
-        "strategy"
+        "leadership"
       ]
     },
     {
@@ -164,8 +153,7 @@
       "alt": "Article: The Best QA Is the One That Doesn't Have to Happen",
       "tags": [
         "quality",
-        "qa",
-        "process"
+        "qa"
       ]
     },
     {
@@ -181,8 +169,7 @@
       "alt": "Article: Quality Is Not Extra Scope",
       "tags": [
         "quality",
-        "process",
-        "strategy"
+        "process"
       ]
     },
     {
@@ -198,8 +185,7 @@
       "alt": "Article: Designers as Final Checkpoint",
       "tags": [
         "design",
-        "qa",
-        "ownership"
+        "qa"
       ]
     },
     {
@@ -215,8 +201,7 @@
       "alt": "Article: Baselines Over Heroics",
       "tags": [
         "design-systems",
-        "quality",
-        "process"
+        "quality"
       ]
     },
     {
@@ -232,8 +217,7 @@
       "alt": "Article: QA Is a Signal of Team Maturity",
       "tags": [
         "quality",
-        "culture",
-        "process"
+        "culture"
       ]
     },
     {
@@ -249,8 +233,7 @@
       "alt": "Article: Object Thinking vs. Spaghetti Thinking",
       "tags": [
         "design-systems",
-        "quality",
-        "architecture"
+        "quality"
       ]
     },
     {
@@ -266,8 +249,7 @@
       "alt": "Article: Manual vs. Automated Is the Wrong Debate",
       "tags": [
         "quality",
-        "automation",
-        "process"
+        "automation"
       ]
     },
     {
@@ -283,8 +265,7 @@
       "alt": "Article: Quality Is a Cultural Choice",
       "tags": [
         "quality",
-        "culture",
-        "leadership"
+        "culture"
       ]
     },
     {
@@ -300,8 +281,7 @@
       "alt": "Article: The Designer in the Age of AI",
       "tags": [
         "ai",
-        "design",
-        "evolution"
+        "design"
       ]
     },
     {
@@ -317,7 +297,6 @@
       "alt": "Article: Delivering Fewer, More Complete Things",
       "tags": [
         "velocity",
-        "process",
         "strategy"
       ]
     },
@@ -336,8 +315,7 @@
       "npm": "@jacquesramphal/smart-quotes",
       "tags": [
         "cli",
-        "npm",
-        "vue"
+        "npm"
       ]
     },
     {
@@ -355,7 +333,6 @@
       "npm": "@jacquesramphal/design-guard",
       "tags": [
         "cli",
-        "npm",
         "design-systems"
       ]
     },
@@ -384,7 +361,6 @@
       "status": "Launched",
       "tags": [
         "rebrand",
-        "cms",
         "motion-design"
       ],
       "images": {
@@ -470,8 +446,7 @@
       "status": "Launched",
       "tags": [
         "loyalty",
-        "mobile",
-        "react-native"
+        "mobile"
       ],
       "images": {
         "filename1": "casestudy/kg/kg-5.png",
@@ -556,8 +531,7 @@
       "status": "Launched",
       "tags": [
         "dashboard",
-        "analytics",
-        "planning"
+        "analytics"
       ],
       "images": {
         "filename1": "work/glo.svg",
@@ -642,8 +616,7 @@
       "status": "Launched",
       "tags": [
         "commerce",
-        "configurator",
-        "composable"
+        "configurator"
       ],
       "images": {
         "filename1": "casestudy/onlogic/onlogic-1.png",
