@@ -2,13 +2,18 @@
 
 #### Product Design, Design Systems, Development
 
+<br>
+
+<table>
+  <tr><td><strong>Role</strong></td><td>Lead Product Designer, Developer</td></tr>
+  <tr><td><strong>Status</strong></td><td>Launched</td></tr>
+</table>
+
+
 ![K&G Loyalty Platform - Mobile App Hero](../images/casestudy/kg/kg-1.jpg)
 
 Founded in 1959, Kum & Go redefines convenience with customer-centric offerings. Partnering with Orium, they launched a new digital experience featuring enhanced promotions, loyalty programs, and improved merchandising.
 
-- **Role:** Lead Product Designer, Developer
-
-- **Status:** Launched
 
 ## Key Focus Areas
 

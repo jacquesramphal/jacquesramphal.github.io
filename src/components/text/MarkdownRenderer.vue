@@ -140,6 +140,13 @@ export default {
       // Re-setup animations when content changes
       this.$nextTick(() => {
         this.setupAnimations();
+        this.$el?.querySelectorAll?.('table').forEach((table) => {
+          if (table.parentElement?.classList?.contains('table-scroll')) return;
+          const wrapper = document.createElement('div');
+          wrapper.className = 'table-scroll';
+          table.parentNode.insertBefore(wrapper, table);
+          wrapper.appendChild(table);
+        });
       });
     },
   },
@@ -1051,20 +1058,26 @@ export default {
 }
 
 /* -------- TABLES -------- */
+/* Scroll wrapper handles overflow; table stays as display: table */
+.table-scroll {
+  overflow-x: auto;
+  inline-size: 100%;
+  @media only screen and (max-width: 768px) {
+    overflow-x: scroll;
+  }
+}
+
 /* Basic Container Styles */
 table {
   inline-size: 100%;
+  min-inline-size: 100%; /* ensures tr spans full width so row borders extend edge to edge */
   border-collapse: collapse;
   margin-block-end: 3rem; /* Adjust the spacing between tables */
   font-size: var(--font-xs);
   line-height: 1.5;
-  font-weight: var(--font-normal);
   border: var(--border); /* Add a border to all table rows */
   @media only screen and (max-width: 768px) {
-    display: block; /* Display as a block element to allow for horizontal scrolling */
-    overflow-x: scroll; /* Enable horizontal scrolling */
     white-space: nowrap; /* Prevent table cells from wrapping */
-    inline-size: 100%; /* Ensure the table spans the full width of the viewport */
   }
 }
 
@@ -1075,7 +1088,10 @@ th {
   font-weight: var(--fontWeight-medium);
   letter-spacing: var(--letterSpacing-loose);
   text-transform: uppercase;
-  font-variation-settings: 'YAXS' 400, 'wdth' 115, 'opsz' 48;
+  font-variation-settings:
+    'YAXS' 400,
+    'wdth' 115,
+    'opsz' 48;
   background-color: var(--background-darker);
 }
 

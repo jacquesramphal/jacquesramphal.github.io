@@ -532,9 +532,17 @@ img {
 .defaultcard--borderless {
   border: none !important ;
   box-shadow: none !important;
+
   &:hover {
     background: transparent;
     box-shadow: none;
+  }
+  .info {
+    padding: 0 !important;
+
+    &:not(:has(.color-bar)) {
+      padding-block-start: var(--spacing-sm) !important;
+    }
   }
   @media only screen and (min-width: 1201px) {
     .info {
@@ -543,13 +551,6 @@ img {
       &:not(:has(.color-bar)) {
         padding-block-start: var(--spacing-xs) !important;
       }
-    }
-  }
-  .info {
-    padding: 0 0 var(--spacing-md) 0 !important;
-
-    &:not(:has(.color-bar)) {
-      padding-block-start: var(--spacing-sm) !important;
     }
   }
 

@@ -242,6 +242,23 @@
       ]
     },
     {
+      "id": 9,
+      "docId": 32,
+      "slug": "building-genie-changed-me",
+      "type": "case-study",
+      "title": "Building Genie Changed Me",
+      "eyebrow": "Agentic AI Design",
+      "description": "The story of building Genie—from personal experiment to organizational platform—and the three mental model problems we had to solve to design for agentic AI. A personal journey about reclaiming creative focus, learning new skills, and transforming routine work into strategic impact.",
+      "route": "/doc/building-genie-changed-me",
+      "contentFile": "doc_32.md",
+      "thumbnail": "casestudy/genie/genie.png",
+      "alt": "Genie - Agentic AI Platform",
+      "tags": [
+        "ai",
+        "agentic-ai"
+      ]
+    },
+    {
       "id": 12,
       "docId": 37,
       "slug": "smart-quotes-fixer",
@@ -277,23 +294,7 @@
         "design-systems"
       ]
     },
-    {
-      "id": 9,
-      "docId": 32,
-      "slug": "building-genie-changed-me",
-      "type": "case-study",
-      "title": "Building Genie Changed Me",
-      "eyebrow": "Agentic AI Design",
-      "description": "The story of building Genie—from personal experiment to organizational platform—and the three mental model problems we had to solve to design for agentic AI. A personal journey about reclaiming creative focus, learning new skills, and transforming routine work into strategic impact.",
-      "route": "/doc/building-genie-changed-me",
-      "contentFile": "doc_32.md",
-      "thumbnail": "casestudy/genie/genie.png",
-      "alt": "Genie - Agentic AI Platform",
-      "tags": [
-        "ai",
-        "agentic-ai"
-      ]
-    },
+    
     
     {
       "id": 54,

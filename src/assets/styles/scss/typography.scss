@@ -127,7 +127,8 @@ h6 {
 
 p,
 li,
-blockquote {
+blockquote,
+td {
   font-weight: var(--fontWeight-medium) !important;
   font-size: var(--font-500);
   line-height: var(--lineHeight-taller);

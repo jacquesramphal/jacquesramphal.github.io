@@ -4,13 +4,14 @@
 
 <br>
 
-![OnLogic Composable Architecture Screenshot](../images/casestudy/onlogic/onlogic-1.png)
+<table>
+  <tr><td><strong>Role</strong></td><td>Product Design</td></tr>
+  <tr><td><strong>Status</strong></td><td>Launched</td></tr>
+</table>
 
 Empowering technical users with precision, flexibility, and control for configuring industrial PC systems.
 
-- **Role:** Product Design
 
-- **Status:** Launched
 
 ## Key Focus Areas
 
@@ -25,10 +26,6 @@ Empowering technical users with precision, flexibility, and control for configur
 ## Problem
 
 OnLogic needed a platform tailored to technical users, including IT professionals, to handle the complexities of configuring customizable products. The existing legacy platform couldn't provide the precision, transparency, or scalability required to meet the needs of a global audience.
-
-![Legacy Platform Challenges](../images/casestudy/onlogic/onlogic-1.png)
-
-*Legacy platform lacked configurability and scalability.*
 
 ## Solution
 

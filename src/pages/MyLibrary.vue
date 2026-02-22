@@ -134,10 +134,9 @@ A curated collection of my writing, professional work, and personal projects."
               :route="entry.route"
               :btnroute="entry.btnroute"
               :link="entry.link"
-              :eyebrow="entry.eyebrow"
+              eyebrow=""
               :title="entry.title"
               :tags="entry.tags"
-              :type="entry.type"
               :index="index"
               @tag-click="handleTagClick"
             />
@@ -172,34 +171,12 @@ A curated collection of my writing, professional work, and personal projects."
               :route="entry.route"
               :btnroute="entry.btnroute"
               :link="entry.link"
-              :eyebrow="entry.eyebrow"
+              eyebrow=""
               :title="entry.title"
               :tags="entry.tags"
-              :type="entry.type"
               :index="index"
               @tag-click="handleTagClick"
             />
-            <!-- <ImageCard
-              v-for="entry in filteredCaseStudiesAndProjects"
-              :key="entry.id"
-              class="post"
-              :data-category="entry.tag"
-              :title="entry.title"
-              :description="entry.description"
-              :cta="entry.cta"
-              :route="entry.route || (entry.btnroute ? `/${entry.btnroute}` : '')"
-              :btnroute="entry.btnroute"
-              :link="entry.link"
-              :alt="entry.alt"
-              :filename1="entry.filename1"
-              :filename2="entry.filename2"
-              :filename3="entry.filename3"
-              :style="entry.bgcolor"
-              :variant="entry.variant"
-              :size="entry.size"
-              :tags="entry.tags"
-              @tag-click="handleTagClick"
-            /> -->
           </GridParent>
         </div>
       </template>
@@ -220,7 +197,7 @@ A curated collection of my writing, professional work, and personal projects."
             :route="entry.route"
             :btnroute="entry.btnroute"
             :link="entry.link"
-            :eyebrow="entry.eyebrow"
+            eyebrow=""
             :title="entry.title"
             :tags="entry.tags"
             :type="entry.type"
@@ -229,6 +206,7 @@ A curated collection of my writing, professional work, and personal projects."
           />
 
           <ArticleCard
+            borderless
             mobileList
             v-for="(entry, index) in filteredCaseStudiesAndProjects"
             :key="entry.id"
@@ -241,7 +219,7 @@ A curated collection of my writing, professional work, and personal projects."
             :route="entry.route"
             :btnroute="entry.btnroute"
             :link="entry.link"
-            :eyebrow="entry.eyebrow"
+            eyebrow=""
             :title="entry.title"
             :tags="entry.tags"
             :type="entry.type"
@@ -253,22 +231,6 @@ A curated collection of my writing, professional work, and personal projects."
         <p v-else class="subtle library-empty">No matches.</p>
       </template>
     </GridContainer>
-    <!-- <GridParent rows tight class="posts" v-if="filteredEntries.length">
-      <TextImage
-        v-for="entry in filteredCaseStudiesAndProjects"
-        :key="`textimage-${entry.id}`"
-        :title="entry.title"
-        :description="entry.description"
-        :cta="entry.cta"
-        :route="entry.route || (entry.btnroute ? `/${entry.btnroute}` : '')"
-        :btnroute="entry.btnroute"
-        :link="entry.link"
-        :alt="entry.alt"
-        :filename="entry.filename1"
-        :tags="entry.tags"
-        @tag-click="handleTagClick"
-      />
-    </GridParent> -->
   </PageWrapper>
 </template>
 
@@ -377,22 +339,24 @@ export default {
         const next = this.selectedTypes.filter((t) => t !== type);
         // Allow empty selection (shows no results)
         this.selectedTypes = next;
-        return;
+      } else {
+        this.selectedTypes = [...this.selectedTypes, type];
       }
-      this.selectedTypes = [...this.selectedTypes, type];
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     },
     toggleTag(tag) {
       if (this.selectedTags.includes(tag)) {
         this.selectedTags = this.selectedTags.filter((t) => t !== tag);
-        return;
+      } else {
+        this.selectedTags = [...this.selectedTags, tag];
       }
-      this.selectedTags = [...this.selectedTags, tag];
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     },
     handleTagClick(tag) {
-      // Add the clicked tag to selectedTags if not already selected
       if (!this.selectedTags.includes(tag)) {
         this.selectedTags = [...this.selectedTags, tag];
       }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     },
   },
 };

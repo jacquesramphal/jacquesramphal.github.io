@@ -4,13 +4,16 @@
 
 <br>
 
+<table>
+  <tr><td><strong>Role</strong></td><td>Lead Product Designer</td></tr>
+  <tr><td><strong>Status</strong></td><td>Launched</td></tr>
+</table>
+
 ![Softchoice Desktop Homepage](../images/casestudy/softchoice/sc-desktop-1.png)
 
 When a brand launches a new identity, the website needs to reflect it—without breaking what already works. Redesigned Softchoice's website to reflect their new brand identity, working within their existing CMS structure. Enhanced modules, introduced motion design, and collaborated closely with development to ensure design fidelity.
 
-- **Role:** Lead Product Designer
 
-- **Status:** Launched
 
 ## Key Outcomes
 

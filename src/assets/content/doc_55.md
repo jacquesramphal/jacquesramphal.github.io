@@ -4,13 +4,16 @@
 
 <br>
 
+<table>
+  <tr><td><strong>Role</strong></td><td>Product Designer</td></tr>
+  <tr><td><strong>Status</strong></td><td>Launched</td></tr>
+</table>
+
 ![Planning dashboard interface](../images/casestudy/glo/planner.png)
 
 A comprehensive planning tool designed for enterprise-level strategic planning, featuring intuitive dashboards and real-time analytics for data-driven decision making.
 
-- **Role:** Product Designer
 
-- **Status:** Launched
 
 ## Key Focus Areas
 

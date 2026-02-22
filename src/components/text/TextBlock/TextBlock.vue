@@ -7,8 +7,8 @@
       :is-svg="true"
       :size="`${iconsize}`"
     />
-    <div v-if="shouldShowTags" class="tags">
-      <!-- Type badge (first tag, color-coded) -->
+    <!-- Type badge hidden temporarily -->
+    <!-- <div v-if="shouldShowTags" class="tags">
       <MyButton
         type="subtle"
         size="xs"
@@ -16,7 +16,7 @@
         :customBgColor="typeColorSubtle"
         :customTextColor="typeColor"
       />
-    </div>
+    </div> -->
     <p v-else-if="eyebrow" class="eyebrow subtle">{{ eyebrow }}</p>
     <a
       v-if="title && titleRoute && isExternalTitleLink"
