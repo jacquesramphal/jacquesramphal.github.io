@@ -539,6 +539,7 @@ img {
   }
   .info {
     padding: 0 !important;
+    margin-block-start: 0;
 
     &:not(:has(.color-bar)) {
       padding-block-start: var(--spacing-sm) !important;
@@ -547,6 +548,7 @@ img {
   @media only screen and (min-width: 1201px) {
     .info {
       padding: 0 0 var(--spacing-md) 0 !important;
+      margin-block-start: var(--spacing-xxs);
 
       &:not(:has(.color-bar)) {
         padding-block-start: var(--spacing-xs) !important;

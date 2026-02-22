@@ -55,7 +55,7 @@
       "description": "A living collection of wisdom from opinionated mentors, teachers, and personal design observations. From foundational principles to leadership lessons, this is a journal of continuous learning in design, code, and craft.",
       "route": "/doc/design-learnings",
       "contentFile": "doc_57.md",
-      "thumbnail": "article/jacques.jpg",
+      "thumbnail": "placeholders/placeholder-19.svg",
       "alt": "Design Learnings & Principles",
       "tags": [
         "design",
@@ -119,7 +119,8 @@
       "description": "What am I trying to say? Do I even have a point?",
       "route": "/doc/the-value-of-writing",
       "contentFile": "doc_27.md",
-      "thumbnail": "article/jacques.jpg",
+            "thumbnail": "placeholders/placeholder-22.svg",
+
       "alt": "Article: Writing for Non-Writers",
       "tags": [
         "writing",
@@ -134,6 +135,8 @@
       "title": "Leading Design Innovation",
       "eyebrow": "Design Leadership",
       "description": "How I focus on aligning design with broader company goals, ensuring it serves as a strategic, value-driving function rather than merely an aesthetic service. Exploring vision, technology, team strategy, and the evolution of design through AI, automation, and data-driven thinking.",
+                        "thumbnail": "placeholders/placeholder-23.svg",
+
       "route": "/doc/leading-design-innovation",
       "contentFile": "doc_29.md",
       "alt": "Article: Leading Design Innovation",
@@ -171,6 +174,8 @@
       "description": "Maintaining authority through validation. When designers act as the final checkpoint before release, they protect the integrity of interaction, communication, accessibility, and system coherence.",
       "route": "/doc/designers-final-checkpoint",
       "contentFile": "doc_45.md",
+            "thumbnail": "placeholders/placeholder-02.svg",
+
       "alt": "Article: Designers as Final Checkpoint",
       "tags": [
         "design",
@@ -187,6 +192,8 @@
       "description": "Modular systems create scalable quality. When systems are modular and reusable, quality scales. Reusable thinking creates reusable quality.",
       "route": "/doc/object-thinking-vs-spaghetti",
       "contentFile": "doc_48.md",
+                        "thumbnail": "placeholders/placeholder-04.svg",
+
       "alt": "Article: Object Thinking vs. Spaghetti Thinking",
       "tags": [
         "design-systems",
@@ -203,6 +210,8 @@
       "description": "The complementary role of human and machine intelligence. Automation is acceleration, not intelligence. The future of quality is machines for detection, humans for discernment.",
       "route": "/doc/manual-vs-automated-wrong-debate",
       "contentFile": "doc_49.md",
+                  "thumbnail": "placeholders/placeholder-07.svg",
+
       "alt": "Article: Manual vs. Automated Is the Wrong Debate",
       "tags": [
         "quality",
@@ -217,6 +226,8 @@
       "title": "The Designer in the Age of AI",
       "eyebrow": "Design Evolution AI",
       "description": "Shifting from inspectors to system stewards. As tools automate comparison and regression, designers become orchestrators who define baselines, set standards, and protect coherence.",
+                        "thumbnail": "placeholders/placeholder-12.svg",
+
       "route": "/doc/designer-age-of-ai",
       "contentFile": "doc_51.md",
       "alt": "Article: The Designer in the Age of AI",
@@ -235,6 +246,8 @@
       "description": "True velocity through completion, not volume. It's better to deliver fewer tickets that are truly done than more tickets that will be reopened. Rework is invisible drag.",
       "route": "/doc/delivering-fewer-complete-things",
       "contentFile": "doc_52.md",
+                  "thumbnail": "placeholders/placeholder-05.svg",
+
       "alt": "Article: Delivering Fewer, More Complete Things",
       "tags": [
         "velocity",
