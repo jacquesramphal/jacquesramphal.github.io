@@ -54,7 +54,7 @@
                     alt="Jacques Ramphal"
                   />
                 </router-link> -->
-                <h5 class="chat-header-title">Gennifer</h5>
+                <h5 class="subtle chat-header-title">Let's Chat</h5>
               </div>
               <ul class="chat-nav-links">
                 <li v-if="allowFullscreen && !isMobile">
@@ -1021,6 +1021,8 @@ export default {
   padding: 0;
   color: var(--foreground);
   line-height: var(--lineHeight-normal);
+  font-weight: var(--fontWeight-medium);
+  color: var(--text-muted);
 }
 
 .chat-nav-links {
@@ -1143,7 +1145,6 @@ export default {
   box-shadow: none;
   font-size: inherit;
   background: transparent;
-  max-width: 80%; /* design-guard:ignore */
   min-width: 0;
   box-sizing: border-box;
   overflow: hidden;
@@ -1254,7 +1255,7 @@ export default {
 /* Chat Input */
 .chat-input-container {
   display: flex;
-  padding: var(--spacing-sm);
+  padding: var(--spacing-xxs);
   background: var(--chat-surface);
   box-sizing: border-box;
 

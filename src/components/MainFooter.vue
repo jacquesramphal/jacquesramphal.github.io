@@ -65,9 +65,10 @@
           <div class="footer-utility">
             <p class="footer" style="font-size: var(--font-400)">
               <span class="footer-copy footer-copy--full">
-                Perpetually beta · {{ elapsed.years }}yr · {{ elapsed.days }}d ·
-                {{ elapsed.seconds }}s <br />
                 © {{ currentYear }} Jacques Ramphal 🇨🇦
+
+                <!-- © {{ currentYear }} Jacques Ramphal 🇨🇦 Perpetually beta · {{ elapsed.years }}yr · 
+                {{ elapsed.days }}d · {{ elapsed.seconds }}s-->
               </span>
               <span class="footer-copy footer-copy--short"
                 >© {{ currentYear }} Jacques Ramphal 🇨🇦</span
