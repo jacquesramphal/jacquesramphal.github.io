@@ -128,7 +128,9 @@ h6 {
 p,
 li,
 blockquote,
-td {
+td,
+label,
+input {
   font-weight: var(--fontWeight-medium) !important;
   font-size: var(--font-500);
   line-height: var(--lineHeight-taller);
@@ -136,6 +138,10 @@ td {
   font-variation-settings:
     'wdth' 102,
     'opsz' 20;
+}
+
+input {
+  color: var(--foreground) !important;
 }
 
 strong,

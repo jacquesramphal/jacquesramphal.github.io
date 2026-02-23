@@ -33,7 +33,7 @@
 /* -------- FORM INPUT -------- */
 
 label {
-  font-size: 1.6rem;
+  font-size: var(--font-500);
   display: inline-block;
   margin-block-end: 2rem !important;
 }
@@ -69,7 +69,7 @@ input:focus,
 textarea:focus,
 select:focus {
   background: inherit;
-  border-color: var(--color-action) !important;
+  outline: 2px solid var(--color-action) !important;
   outline-offset: 0;
   -moz-transition: outline 0.1s ease-out;
   -o-transition: outline 0.1s ease-out;
@@ -96,7 +96,7 @@ select:required:invalid {
   /* border-color: red; */
 }
 
-input:required:focus:valid,
+/* input:required:focus:valid,
 textarea:required:focus:valid,
 select:required:focus:valid {
   background: url(../../images/emoji/emoji-wink.png) no-repeat 97% 12px;
@@ -109,8 +109,8 @@ textarea:required:focus:invalid,
 select:required:focus:invalid {
   background: url(../../images/emoji/emoji-think.png) no-repeat 97% 12px;
   background-size: 28px;
-  /* border: 2px solid var(--color-danger) !important; */
-}
+  border: 2px solid var(--color-danger) !important;
+} */
 
 /* SELECTORS */
 option:first {

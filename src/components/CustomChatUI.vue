@@ -44,7 +44,7 @@
         >
           <!-- Floating actions (no header / no avatar / no title) -->
           <div class="chat-floating-actions">
-            <h3 class="chat-header-title">Jacques' Agent</h3>
+            <h5 class="chat-header-title">Jacques' Agent</h5>
             <div class="chat-header-spacer"></div>
             <MyButton
               v-if="allowFullscreen"
@@ -174,18 +174,12 @@
               :maxlength="maxChars || undefined"
               inputClass="chat-input"
               :style="inputStyle"
+              :submitButton="true"
+              :submitDisabled="!canSend || isLoading"
               @keyup.enter="handleSend"
               @input="handleInput"
+              @submit="handleSend"
               ref="inputRef"
-            />
-            <MyButton
-              class="chat-send-button"
-              type="ghost"
-              size="small"
-              label="Send"
-              @click="handleSend"
-              :disabled="!canSend || isLoading"
-              aria-label="Send message"
             />
           </div>
 
@@ -368,11 +362,11 @@ export default {
     },
     maxChars: {
       type: Number,
-      default: 50,
+      default: null,
     },
     maxCharsWarningMessage: {
       type: String,
-      default: 'You exceeded the characters limit. Please input less than 50 characters.',
+      default: 'You exceeded the character limit.',
     },
     autoFocus: {
       type: Boolean,
@@ -995,7 +989,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
-  padding: var(--spacing-xxs) var(--spacing-xs);
+  padding: var(--spacing-xxs) var(--spacing-xxs) var(--spacing-xxs) var(--spacing-sm);
   background: var(--chat-surface);
   border-bottom: var(--border);
   z-index: 2;
@@ -1005,8 +999,6 @@ export default {
 .chat-header-title {
   margin: 0;
   padding: 0;
-  font-size: var(--font-500);
-  font-weight: 600;
   color: var(--foreground);
   line-height: 1;
 }
@@ -1164,6 +1156,7 @@ export default {
   box-sizing: border-box;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: var(--fontWeight-medium);
 
   :deep(a) {
     color: inherit !important;
@@ -1189,6 +1182,7 @@ export default {
 .chat-message-bubble--bot {
   /* Bot: no bg, no border */
   background: transparent;
+  padding: 0;
 }
 
 .chat-loading {
@@ -1267,8 +1261,7 @@ export default {
 /* Chat Input */
 .chat-input-container {
   display: flex;
-  gap: 0.5rem;
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-sm);
   background: var(--chat-surface);
   box-sizing: border-box;
 
@@ -1287,19 +1280,12 @@ export default {
 .chat-input-wrapper {
   flex: 1;
   min-width: 0;
+  width: 100%;
 }
 
 .chat-input {
   width: 100%;
   max-width: 100%;
-  border: var(--chat-border);
-  padding: var(--spacing-xxs) var(--spacing-xs);
-  outline: none;
-  font-family: inherit;
-  font-size: var(--font-500);
-  line-height: var(--lineHeight-taller);
-  min-height: 36px;
-  box-sizing: border-box;
 
   &:focus {
     border-color: var(--link);
@@ -1312,36 +1298,6 @@ export default {
   &::placeholder {
     opacity: 0.6;
   }
-}
-
-/* MyButton renders a wrapper element around the internal <button> */
-.chat-send-button .custom-btn {
-  background: var(--chat-surface-2);
-  border: var(--chat-border);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition:
-    opacity 0.2s,
-    transform 0.2s,
-    box-shadow 0.2s;
-  min-width: 44px;
-}
-
-.chat-send-button .custom-btn:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-z2);
-}
-
-.chat-send-button .custom-btn:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-
-.chat-send-button .custom-btn:focus-visible {
-  outline: none;
-  box-shadow: var(--shadow-z2), var(--chat-ring);
 }
 
 :root.chat-fullscreen-open #headernav {

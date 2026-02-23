@@ -2,22 +2,54 @@
   <div id="input" class="">
     <label v-if="!hideLabel && label" :for="id">{{ label }}</label
     ><br v-if="!hideLabel && label" />
-    <input
+
+    <!-- Text / email / password — optionally with inline submit button -->
+    <div
       v-if="type === 'text' || type === 'password' || type === 'email'"
-      ref="inputEl"
-      :id="id"
-      :type="type"
-      :name="name"
-      :placeholder="placeholder"
-      :class="inputClass"
-      :disabled="disabled"
-      :required="required"
-      :maxlength="maxlength || undefined"
-      :autocomplete="autocomplete || undefined"
-      :value="modelValue === undefined ? undefined : modelValue"
-      v-bind="$attrs"
-      @input="onTextInput"
-    />
+      class="input-wrap"
+      :class="{
+        'input-wrap--with-submit': submitButton,
+        'input-wrap--small': size === 'small',
+      }"
+    >
+      <input
+        ref="inputEl"
+        :id="id"
+        :type="type"
+        :name="name"
+        :placeholder="placeholder"
+        :class="[inputClass, { 'input-field--has-submit': submitButton }]"
+        :disabled="disabled"
+        :required="required"
+        :maxlength="maxlength || undefined"
+        :autocomplete="autocomplete || undefined"
+        :value="modelValue === undefined ? undefined : modelValue"
+        v-bind="$attrs"
+        @input="onTextInput"
+      />
+      <button
+        v-if="submitButton"
+        class="input-submit-btn"
+        type="button"
+        :disabled="submitDisabled"
+        @click="$emit('submit')"
+        aria-label="Submit"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          width="16"
+          height="16"
+        >
+          <path d="M12 19V5M5 12l7-7 7 7" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Checkbox / radio -->
     <input
       v-else-if="type === 'checkbox' || type === 'radio'"
       ref="inputEl"
@@ -36,34 +68,33 @@
 
 <script>
 export default {
-  name: "MyInput",
+  name: 'MyInput',
   inheritAttrs: false,
-  emits: ["update:modelValue", "input", "change"],
+  emits: ['update:modelValue', 'input', 'change', 'submit'],
   props: {
     id: {
       type: String,
-      default: "id",
+      default: 'id',
     },
     modelValue: {
-      // Only used when parent binds v-model
       type: [String, Boolean, Number],
       default: undefined,
     },
     type: {
       type: String,
-      default: "text",
+      default: 'text',
     },
     name: {
       type: String,
-      default: "name",
+      default: 'name',
     },
     label: {
       type: String,
-      default: "This is a label",
+      default: 'This is a label',
     },
     placeholder: {
       type: String,
-      default: "This is a placeholder",
+      default: 'This is a placeholder',
     },
     hideLabel: {
       type: Boolean,
@@ -71,7 +102,7 @@ export default {
     },
     inputClass: {
       type: [String, Array, Object],
-      default: "",
+      default: '',
     },
     disabled: {
       type: Boolean,
@@ -87,25 +118,132 @@ export default {
     },
     autocomplete: {
       type: String,
-      default: "",
+      default: '',
+    },
+    size: {
+      type: String,
+      default: 'default', // 'default' | 'small'
+    },
+    submitButton: {
+      type: Boolean,
+      default: false,
+    },
+    submitDisabled: {
+      type: Boolean,
+      default: false,
     },
   },
   methods: {
     focus() {
-      if (this.$refs.inputEl && typeof this.$refs.inputEl.focus === "function") {
+      if (this.$refs.inputEl && typeof this.$refs.inputEl.focus === 'function') {
         this.$refs.inputEl.focus();
       }
     },
     onTextInput(e) {
-      const value = e?.target?.value ?? "";
-      this.$emit("update:modelValue", value);
-      this.$emit("input", e);
+      const value = e?.target?.value ?? '';
+      this.$emit('update:modelValue', value);
+      this.$emit('input', e);
     },
     onToggleChange(e) {
       const checked = !!e?.target?.checked;
-      this.$emit("update:modelValue", checked);
-      this.$emit("change", e);
+      this.$emit('update:modelValue', checked);
+      this.$emit('change', e);
     },
   },
 };
 </script>
+
+<style scoped>
+#input {
+  width: 100%;
+}
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: calc(var(--spacing-md) * 2);
+  padding: 0 var(--spacing-xs) 0 0;
+}
+
+/* When submit button is present, the wrap becomes the visual "field" */
+.input-wrap--with-submit {
+  border: transparent;
+  border-radius: 4px;
+  background-color: var(--background-darker);
+  box-sizing: border-box;
+}
+
+.input-wrap--with-submit:focus-within {
+  outline: 2px solid var(--foreground);
+  outline-offset: 0;
+  background: inherit;
+}
+
+/* Strip the input of its own visual styles — the wrapper is the field now */
+.input-wrap--with-submit input {
+  flex: 1;
+  min-width: 0;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  margin: 0 !important;
+}
+
+.input-submit-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--spacing-md);
+  height: var(--spacing-md);
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--background-reversed, #000);
+  color: var(--foreground-reversed, #fff);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.input-submit-btn svg {
+  stroke: var(--foreground-reversed, #fff);
+  display: block;
+}
+
+.input-submit-btn:hover:not(:disabled) {
+  opacity: 0.8;
+}
+
+.input-submit-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.input-submit-btn:focus-visible {
+  outline: 2px solid var(--foreground, #6415ff);
+  outline-offset: 2px;
+}
+
+/* Small variant */
+.input-wrap--small {
+  height: auto;
+}
+
+.input-wrap--small input {
+  padding: var(--spacing-xxs) var(--spacing-xxxs) var(--spacing-xxs) var(--spacing-xs);
+  font-size: var(--font-400);
+  height: auto;
+}
+
+.input-wrap--small .input-submit-btn {
+  width: 22px;
+  height: 22px;
+}
+
+.input-wrap--small .input-submit-btn svg {
+  width: 12px;
+  height: 12px;
+}
+</style>
