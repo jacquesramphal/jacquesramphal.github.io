@@ -504,7 +504,7 @@ img {
     margin-inline-start: 0;
   }
   @media only screen and (min-width: 1201px) {
-    border-block-end: 1px solid var(--color-xlight) !important;
+    border-block-end: var(--border) !important;
   }
   // &:last-child {
   //   border-block-end: none !important;
@@ -576,7 +576,7 @@ img {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: var(--spacing-xs);
     min-height: auto;
-    border-block-start: 1px solid var(--color-xlight) !important;
+    border-block-start: var(--border) !important;
 
     &:hover {
       background: transparent;

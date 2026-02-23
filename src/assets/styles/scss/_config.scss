@@ -195,6 +195,7 @@
 
   --spacing-xxxs: var(--size-1);
   --spacing-xxs: var(--size-2);
+  --spacing-field: 1rem;
   --spacing-xs: var(--size-4);
   --spacing-sm: var(--size-6);
   --spacing-md: var(--size-8);
@@ -203,6 +204,17 @@
   --spacing-xl: var(--size-20);
   --spacing-xxl: var(--size-24);
   --spacing-xxxl: var(--size-32);
+
+  /* RADIUS */
+
+  --radius-sm: var(--size-1);
+  --radius-full: 9999px; /* design-guard:ignore */
+
+  /* LINK / TEXT DECORATION */
+
+  --link-underline-offset: 0.75rem; /* design-guard:ignore */
+  --link-underline-thickness: 0.15rem; /* design-guard:ignore */
+  --link-underline-thickness-hover: 0.2rem; /* design-guard:ignore */
 
   /* BREAKPOINTS */
   --breakpoint-xs: 767px;

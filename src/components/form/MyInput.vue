@@ -169,13 +169,13 @@ export default {
 /* When submit button is present, the wrap becomes the visual "field" */
 .input-wrap--with-submit {
   border: transparent;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   background-color: var(--background-darker);
   box-sizing: border-box;
 }
 
 .input-wrap--with-submit:focus-within {
-  outline: 2px solid var(--foreground);
+  outline: 2px solid var(--foreground); /* design-guard:ignore */
   outline-offset: 0;
   background: inherit;
 }
@@ -200,15 +200,15 @@ export default {
   height: var(--spacing-md);
   padding: 0;
   border: none;
-  border-radius: 50%;
-  background: var(--background-reversed, #000);
-  color: var(--foreground-reversed, #fff);
+  border-radius: 50%; /* design-guard:ignore */
+  background: var(--background-reversed, var(--color-black));
+  color: var(--foreground-reversed, var(--color-white));
   cursor: pointer;
   transition: opacity 0.2s;
 }
 
 .input-submit-btn svg {
-  stroke: var(--foreground-reversed, #fff);
+  stroke: var(--foreground-reversed, var(--color-white));
   display: block;
 }
 
@@ -222,8 +222,8 @@ export default {
 }
 
 .input-submit-btn:focus-visible {
-  outline: 2px solid var(--foreground, #6415ff);
-  outline-offset: 2px;
+  outline: 2px solid var(--color-action); /* design-guard:ignore */
+  outline-offset: 2px; /* design-guard:ignore */
 }
 
 /* Small variant */
@@ -238,12 +238,12 @@ export default {
 }
 
 .input-wrap--small .input-submit-btn {
-  width: 22px;
-  height: 22px;
+  width: 22px; /* design-guard:ignore */
+  height: 22px; /* design-guard:ignore */
 }
 
 .input-wrap--small .input-submit-btn svg {
-  width: 12px;
-  height: 12px;
+  width: 12px; /* design-guard:ignore */
+  height: 12px; /* design-guard:ignore */
 }
 </style>

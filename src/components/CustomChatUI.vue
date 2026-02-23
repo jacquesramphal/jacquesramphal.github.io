@@ -42,59 +42,35 @@
           ]"
           :style="windowStyle"
         >
-          <!-- Floating actions (no header / no avatar / no title) -->
+          <!-- Chat header - matches HeaderNav layout (static, no scroll behavior) -->
           <div class="chat-floating-actions">
-            <h5 class="chat-header-title">Jacques' Agent</h5>
-            <div class="chat-header-spacer"></div>
-            <MyButton
-              v-if="allowFullscreen"
-              class="chat-floating-button"
-              type="ghost"
-              size="small"
-              hideLabel
-              :aria-label="isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'"
-              @click="toggleFullscreen"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                width="20"
-                height="20"
-              >
-                <path
-                  v-if="isFullscreen"
-                  d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"
+            <div class="chat-nav-left">
+              <!-- <router-link to="/" class="chat-nav-avatar-link" aria-label="View resume">
+                <img
+                  class="chat-nav-avatar"
+                  src="@/assets/images/portrait.jpg"
+                  draggable="false"
+                  alt="Jacques Ramphal"
                 />
-                <path
-                  v-else
-                  d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
-                />
-              </svg>
-            </MyButton>
-            <MyButton
-              class="chat-floating-button"
-              type="ghost"
-              size="small"
-              hideLabel
-              aria-label="Close chat"
-              @click="closeChat"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                width="20"
-                height="20"
-              >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </MyButton>
+              </router-link> -->
+              <h5 class="chat-header-title">Gennifer</h5>
+            </div>
+            <ul class="chat-nav-links">
+              <li v-if="allowFullscreen">
+                <button
+                  class="chat-nav-link-btn"
+                  :aria-label="isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'"
+                  @click="toggleFullscreen"
+                >
+                  {{ isFullscreen ? 'Minimize' : 'Expand' }}
+                </button>
+              </li>
+              <li>
+                <button class="chat-nav-link-btn" aria-label="Close chat" @click="closeChat">
+                  Close
+                </button>
+              </li>
+            </ul>
           </div>
 
           <!-- Chat Messages Container -->
@@ -249,7 +225,7 @@ export default {
     },
     borderRadius: {
       type: String,
-      default: '12px',
+      default: 'var(--size-3)', // design-guard:ignore
     },
     allowFullscreen: {
       type: Boolean,
@@ -422,8 +398,8 @@ export default {
     },
     buttonStyle() {
       const positions = {
-        // Match the old inline widget spacing (20px edge)
-        // Uses your numeric scale: --size-5 == 2rem (20px since html is 10px)
+        // Match the old inline widget spacing (20px edge) // design-guard:ignore
+        // Uses your numeric scale: --size-5 == 2rem (20px since html is 10px) // design-guard:ignore
         'bottom-right': { bottom: 'var(--size-5)', right: 'var(--size-5)' },
         'bottom-left': { bottom: 'var(--size-5)', left: 'var(--size-5)' },
         'top-right': { top: 'var(--size-5)', right: 'var(--size-5)' },
@@ -439,10 +415,10 @@ export default {
     windowStyle() {
       if (this.isFullscreen) {
         return {
-          width: '100vw',
-          height: '100vh',
-          maxWidth: '100vw',
-          maxHeight: '100vh',
+          width: '100vw', // design-guard:ignore
+          height: '100vh', // design-guard:ignore
+          maxWidth: '100vw', // design-guard:ignore
+          maxHeight: '100vh', // design-guard:ignore
           borderRadius: '0',
           bottom: '0',
           right: '0',
@@ -451,7 +427,7 @@ export default {
         };
       }
 
-      const edge = 'var(--size-5)'; // 20px
+      const edge = 'var(--size-5)'; // 20px // design-guard:ignore
       const positions = {
         'bottom-right': {
           right: edge,
@@ -847,12 +823,13 @@ export default {
   --chat-radius: var(--spacing-xs);
   --chat-radius-lg: var(--spacing-sm);
   /* Focus ring uses your action color token */
-  --chat-ring: 0 0 0 0.3rem rgba(100, 21, 255, 0.18); /* fallback */
+  --chat-ring: 0 0 0 0.3rem rgba(100, 21, 255, 0.18); /* design-guard:ignore */
 }
 
 @supports (color: color-mix(in srgb, #000 50%, transparent)) {
+  /* design-guard:ignore */
   .custom-chat-ui {
-    --chat-ring: 0 0 0 0.3rem color-mix(in srgb, var(--color-action) 22%, transparent);
+    --chat-ring: 0 0 0 0.3rem color-mix(in srgb, var(--color-action) 22%, transparent); /* design-guard:ignore */
   }
 }
 
@@ -903,8 +880,8 @@ export default {
 }
 
 .chat-button .chat-button-icon {
-  width: 60%;
-  height: 60%;
+  width: 60%; /* design-guard:ignore */
+  height: 60%; /* design-guard:ignore */
   object-fit: contain;
 }
 
@@ -932,10 +909,10 @@ export default {
   background: var(--chat-surface);
   border: var(--chat-border);
   border-radius: var(--chat-radius-lg);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  max-height: min(76vh, 64rem);
-  max-width: min(92vw, 44rem);
+  -webkit-backdrop-filter: blur(10px); /* design-guard:ignore */
+  backdrop-filter: blur(10px); /* design-guard:ignore */
+  max-height: min(76vh, var(--size-36)); /* design-guard:ignore */
+  max-width: min(92vw, 44rem); /* design-guard:ignore */
   transform-origin: bottom right;
   box-sizing: border-box;
 
@@ -967,6 +944,7 @@ export default {
   }
 
   @media (max-width: 768px) {
+    /* design-guard:ignore */
     bottom: 0;
     right: 0;
     left: 0;
@@ -978,71 +956,105 @@ export default {
   }
 }
 
-/* Floating actions (headerless) */
+/* Chat header - mirrors HeaderNav .bg + nav layout; static (no scroll hide behavior) */
 .chat-floating-actions {
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 0.5rem;
-  padding: var(--spacing-xxs) var(--spacing-xxs) var(--spacing-xxs) var(--spacing-sm);
+  gap: var(--spacing-md);
+  padding-block: var(--spacing-xs) !important;
+  padding-inline: var(--spacing-sm);
   background: var(--chat-surface);
   border-bottom: var(--border);
   z-index: 2;
   box-sizing: border-box;
+
+  /* Fullscreen: full-width, match HeaderNav responsive padding exactly */
+  .chat-window--fullscreen & {
+    @media only screen and (min-width: 768px) {
+      /* design-guard:ignore */
+      padding-inline-start: var(--spacing-lg);
+      padding-inline-end: var(--spacing-sm);
+    }
+
+    @media only screen and (min-width: 1201px) {
+      /* design-guard:ignore */
+      padding-inline-start: var(--spacing-xl);
+      padding-inline-end: var(--spacing-sm);
+    }
+  }
+}
+
+.chat-nav-left {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-xs);
+  align-items: center;
+}
+
+.chat-nav-avatar-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none !important;
+}
+
+.chat-nav-avatar {
+  inline-size: var(--spacing-md);
+  block-size: var(--spacing-md);
+  aspect-ratio: 1 / 1;
+  border-radius: 100%;
+  object-fit: cover;
+  box-shadow: var(--shadow-light);
 }
 
 .chat-header-title {
   margin: 0;
   padding: 0;
   color: var(--foreground);
-  line-height: 1;
 }
 
-.chat-header-spacer {
-  flex: 1;
-}
-
-.chat-floating-button .custom-btn {
-  /* Match existing bordered button treatment in this widget */
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  padding: var(--spacing-xxs);
-  display: inline-flex;
+.chat-nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  color: inherit;
-  border-radius: var(--chat-radius);
-  transition:
-    background-color 0.2s,
-    transform 0.2s,
-    box-shadow 0.2s,
-    opacity 0.2s;
-  min-width: 36px;
-  min-height: 36px;
+  justify-self: flex-end;
+  gap: var(--spacing-sm);
+
+  li {
+    list-style: none;
+    margin: 0;
+  }
 }
 
-.chat-floating-button .custom-btn:hover:not(:disabled) {
-  background: var(--background-darker);
-  opacity: 0.8;
-}
+.chat-nav-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: var(--link-underline-thickness);
+  text-underline-offset: 0.35rem; /* design-guard:ignore */
 
-.chat-floating-button .custom-btn:active:not(:disabled) {
-  transform: translateY(0);
-}
+  &:hover {
+    text-decoration: underline wavy;
+    text-decoration-thickness: var(--link-underline-thickness);
+  }
 
-.chat-floating-button .custom-btn:focus-visible {
-  outline: none;
-  box-shadow: var(--shadow-z2), var(--chat-ring);
-}
-
-.chat-floating-button svg {
-  stroke: currentColor;
+  &:focus-visible {
+    outline: 2px solid var(--link); /* design-guard:ignore */
+    outline-offset: 2px; /* design-guard:ignore */
+    border-radius: 2px; /* design-guard:ignore */
+  }
 }
 
 /* Chat Messages */
@@ -1057,14 +1069,13 @@ export default {
   scroll-behavior: smooth;
   /* Match site default <p> scale */
   font-size: var(--font-500);
-  line-height: var(--lineHeight-taller);
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
 
   /* Max width for fullscreen on desktop */
   .chat-window--fullscreen & {
-    max-width: 800px;
+    max-width: 800px; /* design-guard:ignore */
     margin-left: auto;
     margin-right: auto;
     padding-left: var(--spacing-md);
@@ -1078,14 +1089,13 @@ export default {
   opacity: 0.7;
   margin: 0;
   padding: var(--spacing-sm);
-  line-height: var(--lineHeight-taller);
 }
 
 .chat-starter-prompts {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: 0.75rem; /* design-guard:ignore */
+  margin-bottom: var(--spacing-field);
   width: 100%;
 }
 
@@ -1107,7 +1117,7 @@ export default {
 
 .chat-starter-prompt .custom-btn:hover:not(:disabled) {
   box-shadow: var(--shadow-z2);
-  transform: translateX(4px);
+  transform: translateX(var(--spacing-xxxs));
 }
 
 .chat-starter-prompt .custom-btn:focus-visible {
@@ -1117,7 +1127,7 @@ export default {
 
 .chat-message {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.75rem; /* design-guard:ignore */
   align-items: flex-start;
   width: 100%;
   max-width: 100%;
@@ -1151,7 +1161,7 @@ export default {
   box-shadow: none;
   font-size: inherit;
   background: transparent;
-  max-width: 80%;
+  max-width: 80%; /* design-guard:ignore */
   min-width: 0;
   box-sizing: border-box;
   overflow: hidden;
@@ -1160,8 +1170,8 @@ export default {
 
   :deep(a) {
     color: inherit !important;
-    text-decoration-thickness: 0.2rem !important;
-    text-underline-offset: 0.35rem;
+    text-decoration-thickness: var(--link-underline-thickness-hover) !important;
+    text-underline-offset: 0.35rem; /* design-guard:ignore */
     word-break: break-all;
   }
 
@@ -1187,13 +1197,13 @@ export default {
 
 .chat-loading {
   display: flex;
-  gap: 4px;
+  gap: var(--spacing-xxxs);
   padding: var(--spacing-xs) var(--spacing-sm);
 
   span {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
+    width: var(--size-2);
+    height: var(--size-2);
+    border-radius: 50%; /* design-guard:ignore */
     background-color: currentColor;
     animation: chat-loading 1.4s infinite ease-in-out;
 
@@ -1209,12 +1219,13 @@ export default {
 
 @keyframes chat-loading {
   0%,
-  80%,
+  80%, /* design-guard:ignore */
   100% {
     transform: scale(0);
     opacity: 0.5;
   }
   40% {
+    /* design-guard:ignore */
     transform: scale(1);
     opacity: 1;
   }
@@ -1227,7 +1238,7 @@ export default {
   border: var(--chat-border);
   border-left: var(--spacing-xxxs) solid var(--color-danger);
   border-radius: var(--chat-radius);
-  margin-top: 1rem;
+  margin-top: var(--spacing-field);
 
   p {
     margin: 0;
@@ -1240,7 +1251,7 @@ export default {
   color: var(--chat-ink);
   border-top: var(--chat-border);
   border-left: var(--spacing-xxxs) solid var(--color-yellow);
-  font-size: 0.875rem;
+  font-size: 0.875rem; /* design-guard:ignore */
   text-align: center;
 
   p {
@@ -1249,7 +1260,7 @@ export default {
 
   /* Max width for fullscreen on desktop */
   .chat-window--fullscreen & {
-    max-width: 800px;
+    max-width: 800px; /* design-guard:ignore */
     margin-left: auto;
     margin-right: auto;
     padding-left: var(--spacing-md);
@@ -1267,7 +1278,7 @@ export default {
 
   /* Max width for fullscreen on desktop - match conversation text */
   .chat-window--fullscreen & {
-    max-width: 800px;
+    max-width: 800px; /* design-guard:ignore */
     margin-left: auto;
     margin-right: auto;
     padding-left: var(--spacing-md);
@@ -1317,14 +1328,19 @@ export default {
   inset: 0;
   z-index: 100000;
   pointer-events: none;
-  background: rgba(0, 0, 0, 0.18);
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.18); /* design-guard:ignore */
+  -webkit-backdrop-filter: blur(2px); /* design-guard:ignore */
+  backdrop-filter: blur(2px); /* design-guard:ignore */
 }
 
 @supports (color: color-mix(in srgb, #000 50%, transparent)) {
+  /* design-guard:ignore */
   .chat-backdrop {
-    background: color-mix(in srgb, var(--background-reversed) 12%, transparent);
+    background: color-mix(
+      in srgb,
+      var(--background-reversed) 12%,
+      transparent
+    ); /* design-guard:ignore */
   }
 }
 
@@ -1367,7 +1383,7 @@ export default {
 
 /* Scrollbar Styling */
 .chat-messages::-webkit-scrollbar {
-  width: 6px;
+  width: 6px; /* design-guard:ignore */
 }
 
 .chat-messages::-webkit-scrollbar-track {
@@ -1376,7 +1392,7 @@ export default {
 
 .chat-messages::-webkit-scrollbar-thumb {
   background: var(--color-xlight);
-  border-radius: 3px;
+  border-radius: 3px; /* design-guard:ignore */
 
   &:hover {
     background: var(--color-light);

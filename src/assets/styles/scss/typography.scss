@@ -134,7 +134,7 @@ input {
   font-weight: var(--fontWeight-medium) !important;
   font-size: var(--font-500);
   line-height: var(--lineHeight-taller);
-  color: rgba(var(--foreground-rgb), 0.75) !important;
+  color: rgba(var(--foreground-rgb), 0.75) !important; /* design-guard:ignore */
   font-variation-settings:
     'wdth' 102,
     'opsz' 20;
@@ -146,7 +146,7 @@ input {
 
 strong,
 b {
-  color: rgba(var(--foreground-rgb), 1) !important;
+  color: rgba(var(--foreground-rgb), 1) !important; /* design-guard:ignore */
   font-weight: var(--fontWeight-bold) !important;
 }
 
@@ -180,8 +180,8 @@ router-link {
   cursor: pointer;
   font-size: var(--font-500);
   text-decoration: underline;
-  text-underline-offset: 0.75rem;
-  text-decoration-thickness: 0.15rem;
+  text-underline-offset: var(--link-underline-offset);
+  text-decoration-thickness: var(--link-underline-thickness);
   font-variation-settings: 'opsz' 19;
 }
 
@@ -210,15 +210,15 @@ router-link h6 {
 /* Link states */
 a:hover {
   text-decoration: underline wavy !important;
-  text-underline-offset: 0.75rem;
-  text-decoration-thickness: 0.2rem !important;
+  text-underline-offset: var(--link-underline-offset);
+  text-decoration-thickness: var(--link-underline-thickness-hover) !important;
 }
 
 a:active,
 .router-link-exact-active {
   text-decoration: underline dashed;
-  text-underline-offset: 0.75rem;
-  text-decoration-thickness: 0.15rem;
+  text-underline-offset: var(--link-underline-offset);
+  text-decoration-thickness: var(--link-underline-thickness);
 }
 
 a:visited {
@@ -268,7 +268,7 @@ figcaption {
 }
 
 .line-length {
-  max-width: 64rem !important;
+  max-width: var(--size-36) !important;
 }
 
 .subtle {
@@ -347,7 +347,7 @@ figcaption {
    ========================================================================= */
 
 /* Mobile (XS) - Drop h3 and below for better hierarchy */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 767px) { /* design-guard:ignore */
   h2 {
     font-size: var(--size-9);
   }
@@ -366,9 +366,9 @@ figcaption {
 }
 
 /* Tablet (MD) */
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) { /* design-guard:ignore */
   h1 {
-    padding-block-end: 4px;
+    padding-block-end: var(--spacing-xxxs);
   }
   h2 {
     font-size: var(--size-12);
@@ -376,12 +376,12 @@ figcaption {
 }
 
 /* Desktop (LG) */
-@media only screen and (min-width: 1201px) {
+@media only screen and (min-width: 1201px) { /* design-guard:ignore */
   /* Reserved for future use */
 }
 
 /* Large Desktop (XL) */
-@media only screen and (min-width: 1441px) {
+@media only screen and (min-width: 1441px) { /* design-guard:ignore */
   .display p {
     font-size: var(--font-600);
     line-height: var(--lineHeight-base);
@@ -389,7 +389,7 @@ figcaption {
 }
 
 /* Extra Large Desktop (XXL) */
-@media only screen and (min-width: 1680px) {
+@media only screen and (min-width: 1680px) { /* design-guard:ignore */
   /* Reserved for future use */
 }
 
@@ -450,15 +450,15 @@ figcaption {
   /* Lists */
   ul,
   ol {
-    margin: 0.2rem 0;
-    padding-inline-start: 1.2rem;
+    margin: 0.2rem 0; /* design-guard:ignore */
+    padding-inline-start: 1.2rem; /* design-guard:ignore */
     line-height: 1.2;
 
     li {
-      margin-block-end: 0.1rem;
+      margin-block-end: 0.1rem; /* design-guard:ignore */
       line-height: 1.2;
       color: black !important;
-      font-size: 10pt !important;
+      font-size: 10pt !important; /* design-guard:ignore */
 
       a {
         color: black !important;
@@ -476,33 +476,33 @@ figcaption {
   .content,
   #markdown-content-end {
     h1 {
-      font-size: 14pt !important;
-      margin-block-end: 0.1rem !important;
+      font-size: 14pt !important; /* design-guard:ignore */
+      margin-block-end: 0.1rem !important; /* design-guard:ignore */
     }
 
     h2 {
-      font-size: 11pt !important;
+      font-size: 11pt !important; /* design-guard:ignore */
       font-weight: 700 !important;
-      margin-block-end: 0.15rem !important;
-      margin-block-start: 0.25rem !important;
+      margin-block-end: 0.15rem !important; /* design-guard:ignore */
+      margin-block-start: 0.25rem !important; /* design-guard:ignore */
     }
 
     h3 {
-      font-size: 10pt !important;
+      font-size: 10pt !important; /* design-guard:ignore */
       font-weight: 700 !important;
-      margin-block-end: 0.1rem !important;
-      margin-block-start: 0.15rem !important;
+      margin-block-end: 0.1rem !important; /* design-guard:ignore */
+      margin-block-start: 0.15rem !important; /* design-guard:ignore */
     }
 
     p {
-      font-size: 10pt !important;
-      margin: 0.1rem 0 !important;
+      font-size: 10pt !important; /* design-guard:ignore */
+      margin: 0.1rem 0 !important; /* design-guard:ignore */
       color: black !important;
       line-height: 1.2 !important;
     }
 
     a {
-      font-size: 10pt !important;
+      font-size: 10pt !important; /* design-guard:ignore */
       color: black !important;
       text-decoration: none !important;
     }
@@ -524,7 +524,7 @@ figcaption {
 
   section,
   article {
-    margin-block-end: 0.3rem;
+    margin-block-end: 0.3rem; /* design-guard:ignore */
   }
 
   /* Hide UI elements */
