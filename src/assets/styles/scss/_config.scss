@@ -11,7 +11,7 @@
   --foreground-opacity: 0.75;
   --foreground: var(--color-darktext);
   --foreground-rgb: var(--color-darktext-rgb);
-  --foreground-muted: rgba(var(--color-darktext), var(--foreground-opacity));
+  --foreground-muted: rgba(var(--color-darktext-rgb), var(--foreground-opacity));
   --text-muted: var(--foreground-muted);
   --foreground-subtle: rgba(43, 61, 79, var(--foreground-opacity));
   /* Use the RGB values for --color-darktext */

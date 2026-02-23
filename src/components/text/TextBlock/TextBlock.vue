@@ -45,13 +45,13 @@
       :attrs="{ class: 'description' }"
     />
     <!-- Content tags at bottom -->
-    <div v-if="shouldShowTags && (tags && tags.length || readTime)" class="tags tags--content">
-      <span v-for="tag in tags" :key="tag" class="tag-label subtle" @click="$emit('tag-click', tag)"
-        ><p style="font-size: var(--font-2xs)">{{ tag }}</p></span
-      >
-      <span v-if="readTime" class="tag-label tag-label--read-time subtle">
+    <div v-if="shouldShowTags && ((tags && tags.length) || readTime)" class="tags tags--content">
+      <span v-if="readTime" class="tag-label tag-label--read-time">
         <p style="font-size: var(--font-2xs)">{{ readTime }}</p>
       </span>
+      <span v-for="tag in tags" :key="tag" class="tag-label" @click="$emit('tag-click', tag)"
+        ><p style="font-size: var(--font-2xs)">{{ tag }}</p></span
+      >
     </div>
     <!-- <TextLink
       v-if="route"
@@ -234,7 +234,7 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style scoped lang="scss">
 /* Links and text should inherit global styles, not force color inheritance */
 /* * {
   color: inherit;
@@ -331,6 +331,7 @@ export default {
 .tag-label {
   display: inline;
   cursor: pointer;
+  color: var(--foreground-muted);
 }
 
 .tag-label p {
@@ -340,7 +341,33 @@ export default {
 
 .tag-label--read-time {
   cursor: default;
-  opacity: 0.65;
+  color: var(--foreground-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  // &::after {
+  //   content: '|';
+  //   color: var(--foreground-muted);
+
+  //   margin-inline-start: var(--spacing-xxs);
+  // }
+
+  // &::before {
+  //   content: '';
+  //   display: inline-block;
+  //   width: 16px;
+  //   height: 16px;
+  //   flex-shrink: 0;
+  //   background-color: var(--foreground-muted);
+  //   mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="black" stroke-width="1.2"/><path d="M6 3v3l1.8 1.3" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  //   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="black" stroke-width="1.2"/><path d="M6 3v3l1.8 1.3" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  //   mask-repeat: no-repeat;
+  //   -webkit-mask-repeat: no-repeat;
+  //   mask-size: contain;
+  //   -webkit-mask-size: contain;
+  //   mask-position: center;
+  //   -webkit-mask-position: center;
+  // }
 }
 
 /* .tag-label::after {
