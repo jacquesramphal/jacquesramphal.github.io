@@ -2,6 +2,8 @@
 
 A living collection of wisdom from opinionated mentors, teachers, and personal design observations accumulated over the years.
 
+![Design Learnings & Principles](../images/placeholders/placeholder-19.svg)
+
 ---
 
 ## Foundational Principles

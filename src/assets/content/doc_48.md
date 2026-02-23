@@ -2,6 +2,8 @@
 
 ## Modular systems create scalable quality
 
+![Object Thinking vs. Spaghetti Thinking](../images/placeholders/placeholder-04.svg)
+
 There are two ways to approach quality.
 
 One is holistic inspection: review everything at the end and hope cohesion emerges.

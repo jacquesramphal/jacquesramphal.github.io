@@ -10,6 +10,24 @@
   "alt": "Genie - Agentic AI Platform",
   "entries": [
     {
+      "id": 28,
+      "docId": 60,
+      "slug": "designing-your-own-relevance",
+      "type": "article",
+      "title": "I almost lost my job. Instead, I found my lane.",
+      "eyebrow": "Career & Growth",
+      "description": "How pressure, curiosity, and transferable skills created a career path no one handed me. On finding your niche, navigating identity shifts, and building relevance by staying grounded in what's true about how you work.",
+      "route": "/doc/designing-your-own-relevance",
+      "contentFile": "doc_60.md",
+      "thumbnail": "placeholders/placeholder-24.svg",
+      "alt": "Article: Designing Your Own Relevance",
+      "tags": [
+        "career",
+        "growth",
+        "leadership"
+      ]
+    },
+    {
       "id": 27,
       "docId": 59,
       "slug": "the-future-of-design",
@@ -428,6 +446,15 @@
         "commerce",
         "configurator"
       ]
-    }
+    },
+   
+
+
+    { "docId": 15, "slug": "cv", "contentFile": "doc_42.md" },
+    { "docId": 30, "slug": "ask-me-anything", "contentFile": "doc_30.md" },
+    { "docId": 36, "slug": "colophon", "contentFile": "doc_36.md" },
+    { "docId": 39, "slug": "ai-ethics", "contentFile": "doc_39.md" },
+    { "docId": 40, "slug": "privacy", "contentFile": "doc_40.md" },
+    { "docId": 41, "slug": "accessibility", "contentFile": "doc_41.md" }
   ]
 }

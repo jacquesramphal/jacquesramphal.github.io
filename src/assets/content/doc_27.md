@@ -2,6 +2,8 @@
 
 ## What am I trying to say?
 
+![The Value of Writing](../images/placeholders/placeholder-22.svg)
+
 I&#x2019;m no scholar. Half the time, I&#x2019;m not even sure I know what I&#x2019;m trying to say. Sometimes I just need to get things out—to express my thoughts, to see them take shape on the page. By the end of writing those thoughts out, I can stand back and ask: “What am I trying to say? Do I even have a point? Has this point already been made?”
 
 Writing gives me a new perspective on my own thoughts. Maybe I don&#x2019;t have a clear point at the start, but the very act of writing means there was something that needed to be expressed. The process itself becomes the purpose.

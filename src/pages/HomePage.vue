@@ -61,7 +61,7 @@
         as="h2"
         description=""
         eyebrow1=""
-        detail1="Senior Product Designer and Design Lead in Toronto. For 15 years at Orium, I’ve built the practices and systems that close the gap between design intent and implementation.<br/><br/>I architect token-based design systems, design agentic AI workflows, and write about quality, systems, and sustainable delivery. I still code my own designs and mentor designers into developers."
+        :detail1="`Senior Product Designer and Design Lead in Toronto. For ${careerYears} years at Orium, I’ve built the practices and systems that close the gap between design intent and implementation.<br/><br/>I architect token-based design systems, design agentic AI workflows, and write about quality, systems, and sustainable delivery. I still code my own designs and mentor designers into developers.`"
         route="/doc/ask-me-anything"
         label="Learn More"
       />
@@ -157,7 +157,7 @@ export default {
         {
           name: 'description',
           content:
-            'Senior Product Designer at Orium with 15 years experience specializing in design systems, agentic AI, and bridging design-development workflows through code and tokens.',
+            `Senior Product Designer at Orium with ${new Date().getFullYear() - 2013} years experience specializing in design systems, agentic AI, and bridging design-development workflows through code and tokens.`,
         },
         {
           property: 'og:title',
@@ -166,7 +166,7 @@ export default {
         {
           property: 'og:description',
           content:
-            'Senior Product Designer specializing in design systems, agentic AI, and design-development workflows. 15 years at Orium building token-based systems and AI platforms.',
+            `Senior Product Designer specializing in design systems, agentic AI, and design-development workflows. ${new Date().getFullYear() - 2013} years at Orium building token-based systems and AI platforms.`,
         },
         {
           property: 'og:type',
@@ -238,6 +238,9 @@ export default {
     };
   },
   computed: {
+    careerYears() {
+      return new Date().getFullYear() - 2013;
+    },
     // Filter work entries to show only Work category (exclude Play)
     filteredWorkEntries() {
       return this.work.entries.filter((entry) => entry.category === 'Work');

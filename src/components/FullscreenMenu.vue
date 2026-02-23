@@ -19,10 +19,26 @@
                       :href="item.route"
                       @click.prevent="handleMenuClick(item.route, true)"
                     >
-                      <DynamicText as="h1" tabIndex="0" :attrs="{ class: '' }" :text="item.text" />
+                      <DynamicText
+                        class="text"
+                        as="h1"
+                        tabIndex="0"
+                        :attrs="{ class: '' }"
+                        :text="item.text"
+                      />
                     </a>
-                    <router-link v-else :to="item.route" @click.prevent="handleMenuClick(item.route)">
-                      <DynamicText as="h1" tabIndex="0" :attrs="{ class: '' }" :text="item.text" />
+                    <router-link
+                      v-else
+                      :to="item.route"
+                      @click.prevent="handleMenuClick(item.route)"
+                    >
+                      <DynamicText
+                        class="text"
+                        as="h1"
+                        tabIndex="0"
+                        :attrs="{ class: '' }"
+                        :text="item.text"
+                      />
                     </router-link>
                   </li>
                 </ul>
@@ -160,7 +176,9 @@ body.menu-open {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
-
+.text {
+  font-weight: var(--fontWeight-bold) !important;
+}
 .fullscreen-menu {
   position: fixed;
   top: 0;

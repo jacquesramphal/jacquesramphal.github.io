@@ -34,6 +34,9 @@
           :link="entry.link"
           :eyebrow="entry.eyebrow"
           :title="entry.title"
+          :tags="entry.tags"
+          :type="entry.type"
+          :contentFile="entry.contentFile"
           :index="index"
         />
       </GridParent>
@@ -42,7 +45,7 @@
 </template>
 
 <script>
-import docs from "@/assets/data/docs.json";
+import library from "@/assets/data/library.json";
 import ArticleCard from "@/components/card/ArticleCard/ArticleCard.vue";
 import MyButton from "@/components/Button/Button.vue";
 import { uniqueTags } from "@/utils/libraryData";
@@ -52,17 +55,20 @@ export default {
   components: { ArticleCard, MyButton },
   data() {
     return {
-      docs,
+      library,
       selectedTag: "All",
     };
   },
   computed: {
+    writingEntries() {
+      return this.library.entries.filter((e) => e.title && e.type !== "case-study");
+    },
     tags() {
-      return uniqueTags(this.docs.entries.map((e) => e.eyebrow));
+      return uniqueTags(this.writingEntries.map((e) => e.eyebrow));
     },
     filtered() {
-      if (this.selectedTag === "All") return this.docs.entries;
-      return this.docs.entries.filter((e) => (e.eyebrow || "").includes(this.selectedTag));
+      if (this.selectedTag === "All") return this.writingEntries;
+      return this.writingEntries.filter((e) => (e.eyebrow || "").includes(this.selectedTag));
     },
   },
 };

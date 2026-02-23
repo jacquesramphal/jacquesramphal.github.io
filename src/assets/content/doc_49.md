@@ -2,6 +2,8 @@
 
 ## The complementary role of human and machine intelligence
 
+![Manual vs. Automated Is the Wrong Debate](../images/placeholders/placeholder-07.svg)
+
 The debate about automation misses the point.
 
 Automation is acceleration, not intelligence.

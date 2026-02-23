@@ -45,10 +45,13 @@
       :attrs="{ class: 'description' }"
     />
     <!-- Content tags at bottom -->
-    <div v-if="shouldShowTags && tags && tags.length" class="tags tags--content">
+    <div v-if="shouldShowTags && (tags && tags.length || readTime)" class="tags tags--content">
       <span v-for="tag in tags" :key="tag" class="tag-label subtle" @click="$emit('tag-click', tag)"
         ><p style="font-size: var(--font-2xs)">{{ tag }}</p></span
       >
+      <span v-if="readTime" class="tag-label tag-label--read-time subtle">
+        <p style="font-size: var(--font-2xs)">{{ readTime }}</p>
+      </span>
     </div>
     <!-- <TextLink
       v-if="route"
@@ -171,6 +174,11 @@ export default {
       default: null,
       required: false,
     },
+    readTime: {
+      type: String,
+      default: '',
+      required: false,
+    },
   },
 
   computed: {
@@ -255,6 +263,7 @@ export default {
   /* flex: 1; */
   inline-size: 100%;
   white-space: normal;
+  font-weight: var(--fontWeight-bold) !important;
 }
 
 .title-link {
@@ -327,6 +336,11 @@ export default {
 .tag-label p {
   display: inline;
   font-size: var(--font-2xs);
+}
+
+.tag-label--read-time {
+  cursor: default;
+  opacity: 0.65;
 }
 
 /* .tag-label::after {

@@ -89,7 +89,7 @@ h3 {
 
 h4 {
   font-size: var(--font-600);
-  font-weight: var(--fontWeight-medium) !important;
+  font-weight: var(--fontWeight-bold) !important;
   line-height: var(--lineHeight-tall);
   font-variation-settings:
     'YAXS' 400,
@@ -347,7 +347,8 @@ figcaption {
    ========================================================================= */
 
 /* Mobile (XS) - Drop h3 and below for better hierarchy */
-@media only screen and (max-width: 767px) { /* design-guard:ignore */
+@media only screen and (max-width: 767px) {
+  /* design-guard:ignore */
   h2 {
     font-size: var(--size-9);
   }
@@ -366,7 +367,8 @@ figcaption {
 }
 
 /* Tablet (MD) */
-@media only screen and (min-width: 768px) { /* design-guard:ignore */
+@media only screen and (min-width: 768px) {
+  /* design-guard:ignore */
   h1 {
     padding-block-end: var(--spacing-xxxs);
   }
@@ -376,12 +378,14 @@ figcaption {
 }
 
 /* Desktop (LG) */
-@media only screen and (min-width: 1201px) { /* design-guard:ignore */
+@media only screen and (min-width: 1201px) {
+  /* design-guard:ignore */
   /* Reserved for future use */
 }
 
 /* Large Desktop (XL) */
-@media only screen and (min-width: 1441px) { /* design-guard:ignore */
+@media only screen and (min-width: 1441px) {
+  /* design-guard:ignore */
   .display p {
     font-size: var(--font-600);
     line-height: var(--lineHeight-base);
@@ -389,7 +393,8 @@ figcaption {
 }
 
 /* Extra Large Desktop (XXL) */
-@media only screen and (min-width: 1680px) { /* design-guard:ignore */
+@media only screen and (min-width: 1680px) {
+  /* design-guard:ignore */
   /* Reserved for future use */
 }
 

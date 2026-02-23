@@ -3,6 +3,8 @@
 
 #### In my work, I focus on aligning design with broader company goals, ensuring it serves as a strategic, value-driving function rather than merely an aesthetic service.
 
+![Leading Design Innovation](../images/placeholders/placeholder-23.svg)
+
 ## Aligning Vision, Technology, and Team Strategy
  I believe design has the potential to deliver measurable business impact and drive success for both companies and clients. To achieve this, I steer my team toward thinking deeply about complex issues and adopting future-facing technologies and workflows.
 

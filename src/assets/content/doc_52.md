@@ -2,6 +2,8 @@
 
 ## True velocity through completion, not volume
 
+![Delivering Fewer, More Complete Things](../images/placeholders/placeholder-05.svg)
+
 There's a hidden truth in sprint planning:
 
 It's better to deliver fewer tickets that are truly done than more tickets that will be reopened.

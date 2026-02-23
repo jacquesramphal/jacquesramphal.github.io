@@ -2,6 +2,8 @@
 
 ## Maintaining authority through validation
 
+![Designers as Final Checkpoint](../images/placeholders/placeholder-02.svg)
+
 Designers don't just create intent.
 We validate reality.
 

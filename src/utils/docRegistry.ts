@@ -1,5 +1,5 @@
-import docsJson from "@/assets/data/docs.json";
 import chaptersJson from "@/assets/data/chapters.json";
+import libraryJson from "@/assets/data/library.json";
 
 export type DocRegistryRecord = {
   docId: number;
@@ -42,11 +42,11 @@ function collectRecords(): DocRegistryRecord[] {
     out.push({ docId, slug, contentFile });
   };
 
-  const docsEntries = (docsJson as any)?.entries || [];
   const chapterEntries = (chaptersJson as any)?.entries || [];
+  const libraryEntries = (libraryJson as any)?.entries || [];
 
-  for (const e of docsEntries) add(e);
   for (const e of chapterEntries) add(e);
+  for (const e of libraryEntries) add(e);
 
   return out;
 }

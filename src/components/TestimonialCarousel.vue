@@ -205,7 +205,7 @@ export default {
   /* padding: 20px; */
   // background-color: var(--background-darker);
   // block-size: 100vh;
-  padding-block-start: var(--spacing-lg);
+  padding-block: var(--spacing-lg);
   justify-content: start;
   // background: yellow;
   // border-block-start: var(--border);

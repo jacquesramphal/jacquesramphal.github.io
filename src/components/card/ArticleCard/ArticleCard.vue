@@ -94,6 +94,7 @@
         :description="description"
         :tags="tags"
         :cardType="type"
+        :readTime="readTime"
         @tag-click="$emit('tag-click', $event)"
       />
 
@@ -110,6 +111,7 @@
 
 <script>
 import TextBlock from '../../text/TextBlock/TextBlock.vue';
+import { getReadTime } from '../../../utils/readTime';
 // import TextLink from '../../text/TextLink.vue';
 
 export default {
@@ -224,6 +226,11 @@ export default {
       required: false,
       validator: (value) => ['full', 'offset', 'angled'].includes(value),
     },
+    contentFile: {
+      type: String,
+      default: '',
+      required: false,
+    },
   },
   computed: {
     classes() {
@@ -271,6 +278,9 @@ export default {
     placeholderWords() {
       const words = this.title.split(' ');
       return words.slice(0, 3);
+    },
+    readTime() {
+      return getReadTime(this.contentFile);
     },
   },
 };

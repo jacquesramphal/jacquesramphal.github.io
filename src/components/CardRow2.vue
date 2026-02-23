@@ -26,7 +26,7 @@
             borderless
             v-for="entry in visibleItems"
             :key="`writing-${entry.id}`"
-            :eyebrow="entry.eyebrow || entry.tag"
+            eyebrow=""
             :filename="entry.thumbnail"
             :imageVariant="entry.imageVariant"
             :bgcolor="entry.bgcolor"
@@ -38,6 +38,7 @@
             :label="entry.label"
             :tags="entry.tags"
             :type="entry.type"
+            :contentFile="entry.contentFile"
           />
         </template>
         <template v-else>
@@ -111,6 +112,7 @@
             :label="entry.label"
             :tags="entry.tags"
             :type="entry.type"
+            :contentFile="entry.contentFile"
           />
           <ImageCard
             v-else
@@ -149,7 +151,6 @@
 </template>
 
 <script>
-import docs from '../assets/data/docs.json';
 import library from '../assets/data/library.json';
 import ArticleCard from '@/components/card/ArticleCard/ArticleCard.vue';
 import ImageCard from '@/components/card/ImageCard/ImageCard.vue';
@@ -187,7 +188,6 @@ export default {
   },
   data() {
     return {
-      docs,
       library,
       lastScrollPosition: 0,
       scrollValue: 0,
@@ -207,7 +207,7 @@ export default {
 
       // Filter by type if filterByType prop is provided
       if (this.filterByType) {
-        items = items.filter(item => item.type === this.filterByType);
+        items = items.filter((item) => item.type === this.filterByType);
       }
 
       // Filter out the current document if we're on a doc page
@@ -215,7 +215,7 @@ export default {
         const currentSlug = currentRoute.params.slug;
         const currentId = currentRoute.params.id;
 
-        items = items.filter(item => {
+        items = items.filter((item) => {
           // Filter by slug if available
           if (currentSlug && item.slug) {
             return item.slug !== currentSlug;
