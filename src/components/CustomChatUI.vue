@@ -42,35 +42,33 @@
           ]"
           :style="windowStyle"
         >
-          <!-- Chat header - matches HeaderNav layout (static, no scroll behavior) -->
+          <!-- Chat header — mirrors HeaderNav: .bg (padding) > nav (grid) > .nav-left + ul -->
           <div class="chat-floating-actions">
-            <div class="chat-nav-left">
-              <!-- <router-link to="/" class="chat-nav-avatar-link" aria-label="View resume">
-                <img
-                  class="chat-nav-avatar"
-                  src="@/assets/images/portrait.jpg"
-                  draggable="false"
-                  alt="Jacques Ramphal"
-                />
-              </router-link> -->
-              <h5 class="chat-header-title">Gennifer</h5>
-            </div>
-            <ul class="chat-nav-links">
-              <li v-if="allowFullscreen">
-                <button
-                  class="chat-nav-link-btn"
-                  :aria-label="isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'"
-                  @click="toggleFullscreen"
-                >
-                  {{ isFullscreen ? 'Minimize' : 'Expand' }}
-                </button>
-              </li>
-              <li>
-                <button class="chat-nav-link-btn" aria-label="Close chat" @click="closeChat">
-                  Close
-                </button>
-              </li>
-            </ul>
+            <nav class="chat-nav">
+              <div class="chat-nav-left">
+                <!-- <router-link to="/" class="chat-nav-avatar-link" aria-label="View resume">
+                  <img
+                    class="chat-nav-avatar"
+                    src="@/assets/images/portrait.jpg"
+                    draggable="false"
+                    alt="Jacques Ramphal"
+                  />
+                </router-link> -->
+                <h5 class="chat-header-title">Gennifer</h5>
+              </div>
+              <ul class="chat-nav-links">
+                <li v-if="allowFullscreen && !isMobile">
+                  <TextLink
+                    :label="isFullscreen ? 'Minimize' : 'Expand'"
+                    :aria-label="isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'"
+                    @click="toggleFullscreen"
+                  />
+                </li>
+                <li>
+                  <TextLink label="Close" aria-label="Close chat" @click="closeChat" />
+                </li>
+              </ul>
+            </nav>
           </div>
 
           <!-- Chat Messages Container -->
@@ -172,10 +170,11 @@
 <script>
 import MyButton from './Button/Button.vue';
 import MyInput from './form/MyInput.vue';
+import TextLink from './text/TextLink.vue';
 
 export default {
   name: 'CustomChatUI',
-  components: { MyButton, MyInput },
+  components: { MyButton, MyInput, TextLink },
   props: {
     // Webhook Configuration
     webhookUrl: {
@@ -956,17 +955,13 @@ export default {
   }
 }
 
-/* Chat header - mirrors HeaderNav .bg + nav layout; static (no scroll hide behavior) */
+/* Chat header — outer wrapper mirrors HeaderNav .bg (padding only) */
 .chat-floating-actions {
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: var(--spacing-md);
   padding-block: var(--spacing-xs) !important;
   padding-inline: var(--spacing-sm);
   background: var(--chat-surface);
@@ -974,7 +969,7 @@ export default {
   z-index: 2;
   box-sizing: border-box;
 
-  /* Fullscreen: full-width, match HeaderNav responsive padding exactly */
+  /* Fullscreen: match HeaderNav responsive padding exactly */
   .chat-window--fullscreen & {
     @media only screen and (min-width: 768px) {
       /* design-guard:ignore */
@@ -988,6 +983,14 @@ export default {
       padding-inline-end: var(--spacing-sm);
     }
   }
+}
+
+/* Chat header — inner nav mirrors HeaderNav nav (grid only) */
+.chat-nav {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--spacing-md);
 }
 
 .chat-nav-left {
@@ -1017,6 +1020,7 @@ export default {
   margin: 0;
   padding: 0;
   color: var(--foreground);
+  line-height: var(--lineHeight-normal);
 }
 
 .chat-nav-links {
@@ -1031,29 +1035,7 @@ export default {
   li {
     list-style: none;
     margin: 0;
-  }
-}
-
-.chat-nav-link-btn {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  font: inherit;
-  color: var(--link);
-  text-decoration: underline;
-  text-decoration-thickness: var(--link-underline-thickness);
-  text-underline-offset: 0.35rem; /* design-guard:ignore */
-
-  &:hover {
-    text-decoration: underline wavy;
-    text-decoration-thickness: var(--link-underline-thickness);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--link); /* design-guard:ignore */
-    outline-offset: 2px; /* design-guard:ignore */
-    border-radius: 2px; /* design-guard:ignore */
+    line-height: var(--lineHeight-normal);
   }
 }
 
@@ -1078,8 +1060,8 @@ export default {
     max-width: 800px; /* design-guard:ignore */
     margin-left: auto;
     margin-right: auto;
-    padding-left: var(--spacing-md);
-    padding-right: var(--spacing-md);
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
   }
 }
 
@@ -1281,8 +1263,8 @@ export default {
     max-width: 800px; /* design-guard:ignore */
     margin-left: auto;
     margin-right: auto;
-    padding-left: var(--spacing-md);
-    padding-right: var(--spacing-md);
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
     box-sizing: border-box;
     width: 100%;
   }
