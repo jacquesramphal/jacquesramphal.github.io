@@ -2,7 +2,7 @@
   <div
     id="headernav"
     class="navbar"
-    :class="{ 'hidden-navbar': !showNavbar, 'menu-is-open': menuOpen }"
+    :class="{ 'hidden-navbar': !showNavbar, 'menu-is-open': menuOpen, 'is-scrolled': isScrolled }"
   >
     <GridContainer class="bg">
       <nav class="">
@@ -17,20 +17,20 @@
               text-decoration: none !important;
             "
           >
-            <router-link to="/" class="nav-avatar-link" aria-label="View resume">
+            <!-- <router-link to="/" class="nav-avatar-link" aria-label="View resume">
               <img
                 class="nav-avatar"
                 src="@/assets/images/portrait.jpg"
                 draggable="false"
                 alt="Jacques Ramphal"
               />
-              <!-- <img
+              <img
                 class="nav-avatar"
                 src="@/assets/images/avatar/avatar.svg"
                 draggable="false"
                 alt="Jacques Ramphal"
-              /> -->
-            </router-link>
+              />
+            </router-link> -->
 
             <BreadCrumb :isDesktopScreen="isDesktopScreen" @toggle-menu="toggleFullscreenMenu" />
           </span>
@@ -96,6 +96,7 @@ export default {
       showNavbar: true,
       lastScrollPosition: 0,
       scrollValue: 0,
+      isScrolled: false,
       isMobileScreen: false,
       isDesktopScreen: false,
     };
@@ -151,9 +152,11 @@ export default {
         this.showNavbar = true;
         return;
       }
-      if (window.pageYOffset < 0) {
+      if (window.pageYOffset <= 0) {
+        this.isScrolled = false;
         return;
       }
+      this.isScrolled = true;
       if (Math.abs(window.pageYOffset - this.lastScrollPosition) < OFFSET) {
         return;
       }
@@ -278,6 +281,9 @@ button {
 /* Keep navbar visible when menu is open */
 .navbar.menu-is-open {
   transform: translate3d(0, 0, 0) !important;
+}
+.navbar.is-scrolled .bg {
+  border-block-end: var(--border);
 }
 .bg {
   background: var(--background);
