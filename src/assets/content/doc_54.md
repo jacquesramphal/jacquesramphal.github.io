@@ -33,7 +33,6 @@ The constraint: We couldn't rebuild the site. We had to work within the establis
 
 This is a common scenario in enterprise work: you're not starting from scratch. You're improving what exists while respecting the systems already in place.
 
-![Softchoice Website Before Rebrand](../images/casestudy/softchoice/sc-desktop-1.png)
 
 *The existing website needed to reflect the new brand without breaking what already worked.*
 

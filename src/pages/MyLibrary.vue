@@ -153,7 +153,7 @@ A curated collection of my writing, professional work, and personal projects."
 
               padding-block-end: var(--spacing-md);
             "
-            title="Case Studies & Projects"
+            title="Select Work"
             as="h2"
             description=""
             class="section-header"
@@ -296,6 +296,9 @@ export default {
       const entries = this.library?.entries || [];
 
       return entries.filter((e) => {
+        // Skip unpublished entries
+        if (e.published === false) return false;
+
         // Filter by type
         if (this.selectedTypes.length > 0 && !this.selectedTypes.includes(e.type)) {
           return false;

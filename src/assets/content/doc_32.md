@@ -8,7 +8,7 @@
 ![Genie Core Functions Diagram](../images/casestudy/genie/genie.png)
 
 
-## What is Genie?
+## What (or who)to is Genie?
 For the past year or so, I’ve been working on [an internal tool at Orium, called Genie](https://orium.com/blog/orium-genie-agentic-ai-design), that is redefining how we approach our projects and client work. But before I tell you the story of why we built Genie, what the journey was like, and how it has impacted not just my day-to-day workflows, but my perception of work, you need to understand what Genie actually is.
 
 Genie is an agentic orchestration layer for delivery operations. It connects to live project systems like Jira, Slack, Mavenlink, and internal project databases, continuously synthesizing context, surfacing insights, and automating workflows without manual intervention.
@@ -59,6 +59,9 @@ I became an AI developer. A workflow orchestration practitioner. A product think
 But most importantly, I stayed a designer. Genie didn’t pull me away from what I love. It gave me back the time and creative energy to focus on it.
 
 That’s the real story of Genie. Not just what I built, but what building it made me capable of. And what it enabled us to do as a team.
+
+![Genie Core Functions Diagram](../images/genie.png)
+Complexity followed with time.
 
 ## Building a Product, Rebuilding Yourself
 Building Genie from a personal tool into an organizational platform reinforced something I believe deeply now. The fastest way to grow is to solve real problems at scale.
