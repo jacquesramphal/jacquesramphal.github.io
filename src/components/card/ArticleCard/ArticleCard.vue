@@ -45,33 +45,36 @@
       <!-- Show images when available -->
       <template v-else>
         <router-link v-if="(route || btnroute) && !link" :to="`${route || btnroute}`">
-          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" />
+          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" loading="lazy" />
           <img
             draggable="false"
             v-if="filename"
             :class="`image-${imageVariant}`"
             :src="require(`../../../assets/images/${filename}`)"
             :alt="`${alt}`"
+            loading="lazy"
           />
         </router-link>
         <a v-else-if="link" :href="link" target="_blank" rel="noopener noreferrer">
-          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" />
+          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" loading="lazy" />
           <img
             draggable="false"
             v-if="filename"
             :class="`image-${imageVariant}`"
             :src="require(`../../../assets/images/${filename}`)"
             :alt="`${alt}`"
+            loading="lazy"
           />
         </a>
         <div v-else>
-          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" />
+          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" loading="lazy" />
           <img
             draggable="false"
             v-if="filename"
             :class="`image-${imageVariant}`"
             :src="require(`../../../assets/images/${filename}`)"
             :alt="`${alt}`"
+            loading="lazy"
           />
         </div>
       </template>
