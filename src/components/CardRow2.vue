@@ -94,7 +94,7 @@
       </GridContainer>
 
       <div class="scrolling-wrapper">
-        <GridParent class="cardmobile" v-for="entry in visibleItems" :key="entry.id">
+        <GridParent class="cardmobile" v-for="entry in visibleItemsMobile" :key="entry.id">
           <ArticleCard
             borderless
             v-if="kind === 'writing'"
@@ -181,6 +181,10 @@ export default {
       type: Number,
       default: 3,
     },
+    limitMobile: {
+      type: Number,
+      default: 10,
+    },
     filterByType: {
       type: String,
       default: null,
@@ -232,6 +236,9 @@ export default {
     },
     visibleItems() {
       return this.filteredItems.slice(0, this.limit);
+    },
+    visibleItemsMobile() {
+      return this.filteredItems.slice(0, this.limitMobile);
     },
   },
   mounted() {
