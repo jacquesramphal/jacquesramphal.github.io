@@ -10,6 +10,24 @@
   "alt": "Genie - Agentic AI Platform",
   "entries": [
     {
+      "id": 29,
+      "docId": 61,
+      "slug": "hmi-design-token-pipeline",
+      "type": "case-study",
+      "title": "Token Pipeline for a Multi-Brand HMI Platform",
+      "eyebrow": "Design Systems",
+      "description": "How I built a unified token architecture, an AI-guarded lint pipeline, and a one-command dev loop that kept Figma, code, and AI tooling in sync across four brands, two themes, and two modalities — for a multi-display vehicle Human-Machine Interface platform.",
+      "route": "/doc/hmi-design-token-pipeline",
+      "contentFile": "doc_61.md",
+      "thumbnail": "placeholders/placeholder-25.svg",
+      "alt": "Case Study: Design Token Pipeline for a Multi-Brand HMI Platform",
+      "tags": [
+        "design-systems",
+        "tokens",
+        "ai"
+      ]
+    },
+    {
       "id": 28,
       "docId": 60,
       "slug": "designing-your-own-relevance",
@@ -298,6 +316,7 @@
       "eyebrow": "CLI Package",
       "description": "A safe script that converts straight quotes to smart quotes in rendered content without touching code, bindings, or attribute delimiters.",
       "route": "/doc/smart-quotes-fixer",
+      "thumbnail": "placeholders/placeholder-27.svg",
       "contentFile": "doc_37.md",
       "alt": "Doc: Smart Quotes Fixer",
       "github": "https://github.com/jacquesramphal/smart-quotes",
@@ -316,6 +335,7 @@
       "eyebrow": "CLI Package",
       "description": "A lightweight design guard that scans staged files for hardcoded lengths (px/rem/%/etc.) and colors, nudging code toward design tokens.",
       "route": "/doc/design-guard",
+      "thumbnail": "placeholders/placeholder-26.svg",
       "contentFile": "doc_38.md",
       "alt": "Doc: Design Guard",
       "github": "https://github.com/jacquesramphal/design-guard",

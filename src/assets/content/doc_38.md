@@ -2,6 +2,8 @@
 
 #### Catch hardcoded design values before they ship (npm package + CLI)
 
+![Image](../images/placeholders/placeholder-26.svg)
+
 If you care about design consistency, you eventually end up caring about **what shouldn’t be allowed** in your codebase:
 
 - `12px` that should have been `var(--spacing-sm)`

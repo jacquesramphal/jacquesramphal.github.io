@@ -1,10 +1,10 @@
-<header>
 
 # Smart Quotes Fixer
 
 #### A tiny typography fix that prevents broken markup (freebie)
 
-</header>
+![Image](../images/placeholders/placeholder-27.svg)
+
 
 I have a soft spot for the kind of “tooling hygiene” that feels slightly over‑crafted… right up until the day it saves you from shipping a broken page.
 
