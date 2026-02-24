@@ -100,7 +100,7 @@
             v-if="kind === 'writing'"
             :key="`writing-${entry.id}`"
             :image="entry.image"
-            :eyebrow="entry.eyebrow || entry.tag"
+            eyebrow=""
             :filename="entry.thumbnail"
             :imageVariant="entry.imageVariant"
             :bgcolor="entry.bgcolor"
