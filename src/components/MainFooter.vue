@@ -31,8 +31,21 @@
                 <p class="subtle">Useful Links</p>
 
                 <ul>
-                  <li v-for="(item, index) in menuItems1" :key="index">
-                    <router-link :to="item.route">
+                  <li
+                    v-for="(item, index) in menuItems1"
+                    :key="index"
+                    :class="{ external: item.external }"
+                  >
+                    <a
+                      v-if="item.external"
+                      :href="item.route"
+                      :aria-label="item.text"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <DynamicText as="p" tabIndex="0" :attrs="{ class: '' }" :text="item.text" />
+                    </a>
+                    <router-link v-else :to="item.route">
                       <DynamicText as="p" tabIndex="0" :attrs="{ class: '' }" :text="item.text" />
                     </router-link>
                   </li>
@@ -188,6 +201,7 @@ export default {
         { text: 'Library', route: '/library' },
         { text: 'Resume', route: '/doc/cv' },
         { text: 'FAQs', route: '/doc/ask-me-anything' },
+        // { text: 'Storybook', route: '/storybook/' },
       ],
       menuItems2: [
         {
@@ -197,6 +211,7 @@ export default {
         },
         { text: 'Github', url: 'https://github.com/jacquesramphal', icon: 'icon/github-mark.svg' },
         { text: 'Email', url: 'hmailto:jacques@ramphal.design', icon: 'icon/j-logo.svg' },
+        { text: 'Storybook', url: 'https://ramphal.design/storybook/', external: true },
       ],
       menuItems3: [
         { text: 'AI Ethics', route: '/doc/ai-ethics' },
@@ -379,8 +394,18 @@ li {
   text-decoration: none;
 }
 
-li.external::after {
-  content: ' ↗';
+li.external a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+li.external a p {
+  display: inline;
+}
+
+li.external a::after {
+  content: '↗';
   color: var(--link);
 }
 
