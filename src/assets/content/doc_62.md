@@ -1,168 +1,43 @@
 # When UX Becomes AX: How Designers Adapt in the Age of Agentic Systems
 
-![intro image ux to ax overlap](../images/placeholders/placeholder-29.svg)
+If you think AI makes design less relevant, I get it — but you’re probably looking at the wrong layer.
 
-
-There’s a moment many designers are feeling right now.
-
-AI conversations are happening everywhere — in product, in operations, in boardrooms. The language shifts quickly: agents, orchestration, autonomy, governance, change management.
-
-And suddenly, it can feel like the work is less about “design.”
-
-Less about screens.
-Less about flows.
-Less about pixels.
-
-But here’s what I’ve learned: this moment doesn’t reduce the relevance of design. It expands it.
+I keep hearing this from people I interact with: “Now it’s about agents, orchestration, automation… this isn’t really design anymore. What’s the point?” On the surface, it makes sense. When systems can decide and act on their own, it feels like design moves out of the picture. But I actually think that’s where design becomes more critical, not less.
 
 ## UX Doesn’t Disappear. It Evolves.
 
-Traditional UX focused on helping people move through interfaces — clarifying intent, reducing friction, shaping flows.
-
-Agentic systems change the surface area.
-
-Instead of designing what a person clicks next, we’re designing:
-
-* What an AI system is allowed to decide.
-* When it should act.
-* How it signals confidence.
-* Where humans stay in control.
-* What happens when it fails.
-
-That shift — from interface design to decision design — is what I call the move from UX to AX (Agentic Experience).
-
-And it turns out, designers are uniquely suited for it.
-
-
-
-## A Hybrid Workshop: Design Thinking Applied to Autonomy
-
-Recently, I helped run an Agentic Experience Studio for a client exploring AI across marketing, operations, and delivery.
-
-We didn’t start with tools.
-We didn’t start with models.
-
-We started with a design habit: **map reality first.**
-
-Using a lightweight process mapping method (inspired by event storming), teams laid out real workflows in swimlanes — customer, system, ops, engineering.
-
-![The workflow mapping](../images/casestudy/ax-workshop/workflow.png)
-
-
-Orange stickies for events.
-Pink for friction.
-Blue for actors.
-
-Then we did what designers have always done well: rapid, structured ideation.
-
-Two rounds of sketching.
-One-minute pitches.
-Critique framed around outcomes, not preference.
-
-But here’s what was different.
-
-Instead of sketching screens, teams sketched **agent behavior**:
-
-* What decision would this agent make?
-* What action would it take?
-* What guardrails would constrain it?
-
-Finally, each group captured the concept in a one-page Agent Card:
-
-![agent card example](../images/casestudy/ax-workshop/agent-card.png)
-
-* Mission
-* Trigger
-* Decision(s)
-* Action(s)
-* Human oversight
-* Success metric
-* Owner
-
-It was still design thinking.
-Just applied to autonomy instead of UI.
-
-
-
-## The Transferable Skills of Designers
-
-When things feel “less about design,” that’s usually when design thinking is most needed.
-
-Designers are trained to:
-
-* Frame ambiguous problems.
-* Reduce complexity into shared visual language.
-* Facilitate cross-functional alignment.
-* Make tradeoffs explicit.
-* Define guardrails.
-* Prototype before committing.
-* Focus on measurable outcomes, not features.
-
-Those skills don’t disappear in an agentic world.
-
-They become the scaffolding for responsible AI.
-
-In fact, when AI systems can act, the cost of bad decision design is higher than the cost of bad visual design.
-
-Guardrails matter.
-Oversight matters.
-Clarity of ownership matters.
-
-Designers already think this way.
-
-
+In a recent Agentic Experience Studio, we didn’t just design screens. We designed what an agent is allowed to decide, when it should act, when it shouldn’t, how it signals confidence, where humans approve or override, and what success and failure actually look like. That’s not traditional UI or UX design. It’s decision design. It’s decision architecture. The shift isn’t from UX to no UX — it’s from interface design to behavior design.
 
 ## From Screens to Systems
 
-What changed for me wasn’t abandoning UX.
+UX has always been about systems; we just focused mostly on the visible layer. Now the invisible layer matters just as much: how work flows across tools, where decisions bottleneck, where coordination breaks down, and where trust erodes. Designing agents means designing behavior inside those systems.
 
-It was realizing that UX was always about systems — we just saw the visible layer.
+When systems can act autonomously, the cost of bad decision design is higher than the cost of bad visual design. Guardrails, oversight, and clarity of ownership aren’t secondary considerations — they’re core design concerns. This isn’t design disappearing. It’s design expanding.
 
-Now the invisible layer matters just as much:
+## The Skills Already Transfer
 
-* How work flows across tools.
-* Where decisions bottleneck.
-* Where coordination breaks.
-* Where trust erodes.
+What excites me most is how directly our existing skills apply. Designers are trained to frame ambiguous problems, make invisible systems visible, facilitate cross-functional alignment, surface tradeoffs, prototype before committing, and focus on measurable outcomes instead of just features. We already think in guardrails. We already work in ambiguity. In an agentic world, those instincts don’t become obsolete — they become foundational.
 
-Designing agents is designing behavior inside those systems.
+## Designing Autonomy in Practice
 
-And the optimism for me comes from this:
+In the workshop, we combined lightweight process mapping, inspired by event storming, with design studio sketching. We mapped real workflows across customer, system, ops, and engineering lanes, identified friction points, and then translated those into agent behavior using simple agent cards.
 
-Designers don’t need to become data scientists.
-We don’t need to lead with model architecture.
+![The workflow mapping](../images/casestudy/ax-workshop/workflow.png)
 
-We need to do what we’ve always done:
-Make complexity understandable.
-Make risk visible.
-Make value measurable.
-And design for humans — even when the “user” is partially autonomous software.
+![agent card example](../images/casestudy/ax-workshop/agent-card.png)
+
+We weren’t debating models, APIs, or data structures. We were clarifying decisions, defining actions, setting guardrails, identifying human oversight, and agreeing on success metrics and ownership. It was still design thinking — just applied to autonomy instead of UI.
 
 
 
-## The Bigger Shift
+## Where Design Becomes Strategy
 
-The workshop surfaced something powerful.
+When the client asked, “What do we actually do with this?” or “How do we implement it?”, that wasn’t a breakdown in the process. It was the moment design became strategy. The hardest part isn’t generating AI ideas. It’s deciding what should be automated, what shouldn’t, who owns it, and how you measure whether it worked. That’s not just a tooling challenge. It’s a design problem.
 
-The hardest part for organizations isn’t coming up with AI ideas.
+## Why I’m Optimistic
 
-It’s knowing how to:
+I think a lot about how UX extends into AX, and why that shift is bigger than tooling. After 15 years in this field, I don’t see AI reducing our role. I see it moving us up a layer.
 
-* Operationalize them.
-* Govern them.
-* Roll them out responsibly.
-* Measure whether they worked.
+Designers don’t need to become data scientists or lead with model architecture. We need to keep doing what we’ve always done: make complexity understandable, make risk visible, make value measurable, and design for humans — even when part of the system is autonomous.
 
-That’s not a tooling gap.
-That’s a design gap.
-
-And it’s an opportunity.
-
-The move from UX to AX isn’t about abandoning craft.
-It’s about expanding our craft into behavior, autonomy, and organizational change.
-
-Designers have always adapted — from print to web, from web to mobile, from mobile to systems.
-
-This is just the next surface.
-
-And it might be the most interesting one yet.
+There’s a lot of room for us here.
