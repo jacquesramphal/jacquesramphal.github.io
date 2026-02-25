@@ -28,6 +28,24 @@
       ]
     },
     {
+      "id": 29,
+      "docId": 62,
+      "slug": "when-ux-becomes-ax",
+      "type": "article",
+      "title": "When UX Becomes AX",
+      "eyebrow": "Agentic AI Design",
+      "description": "If you think AI makes design less relevant, you’re looking at the wrong layer",
+      "route": "/doc/when-ux-becomes-ax",
+      "contentFile": "doc_62.md",
+      "thumbnail": "placeholders/placeholder-25.svg",
+      "alt": "Article: When UX Becomes AX",
+      "tags": [
+        "ai",
+        "agentic-ai",
+        "design"
+      ]
+    },
+    {
       "id": 28,
       "docId": 60,
       "slug": "designing-your-own-relevance",

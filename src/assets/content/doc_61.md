@@ -76,11 +76,32 @@ document.documentElement.dataset.platform = 'tap';
 
 The semantic color layer was especially important. We formalized three tiers:
 
-| Layer | Purpose | Direct use in components |
-||||
-| `color-primitives` | Raw values — never used directly | ✗ |
-| `color` | Brand accents | ✓ |
-| `surface` / `onsurface` | Semantic theme surfaces | ✓ |
+<table>
+  <thead>
+    <tr>
+      <th>Layer</th>
+      <th>Purpose</th>
+      <th>Direct use in components</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>color-primitives</code></td>
+      <td>Raw values — never used directly</td>
+      <td>✗</td>
+    </tr>
+    <tr>
+      <td><code>color</code></td>
+      <td>Brand accents</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td><code>surface</code> / <code>onsurface</code></td>
+      <td>Semantic theme surfaces</td>
+      <td>✓</td>
+    </tr>
+  </tbody>
+</table>
 
 This is what made day/night switching automatic:
 
@@ -303,12 +324,32 @@ The client had two worlds: **Tap** (automotive touch-first HMI) and **Click** (d
 
 What's shared:
 
-| Shared | Platform-specific |
-|||
-| Color primitives | Spacing scale |
-| Brand accents | Typography ramp |
-| Motion vocabulary | Hit target size |
-| Radius (mostly) | Hover vs. press states |
+<table>
+  <thead>
+    <tr>
+      <th>Shared</th>
+      <th>Platform-specific</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Color primitives</td>
+      <td>Spacing scale</td>
+    </tr>
+    <tr>
+      <td>Brand accents</td>
+      <td>Typography ramp</td>
+    </tr>
+    <tr>
+      <td>Motion vocabulary</td>
+      <td>Hit target size</td>
+    </tr>
+    <tr>
+      <td>Radius (mostly)</td>
+      <td>Hover vs. press states</td>
+    </tr>
+  </tbody>
+</table>
 
 Runtime model:
 
