@@ -166,12 +166,3 @@ Designers have always adapted — from print to web, from web to mobile, from mo
 This is just the next surface.
 
 And it might be the most interesting one yet.
-
-
-
-If you’d like, I can:
-
-* Tighten this into a sharper 800-word post.
-* Make it more personal (first-person narrative, your voice).
-* Add a subtle call-to-action for consulting/workshops.
-* Or make a LinkedIn-length version (~350–450 words).
