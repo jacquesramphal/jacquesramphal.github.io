@@ -1,5 +1,8 @@
 # When UX Becomes AX: How Designers Adapt in the Age of Agentic Systems
 
+![intro image ux to ax overlap](../images/placeholders/placeholder-29.svg)
+
+
 There’s a moment many designers are feeling right now.
 
 AI conversations are happening everywhere — in product, in operations, in boardrooms. The language shifts quickly: agents, orchestration, autonomy, governance, change management.
