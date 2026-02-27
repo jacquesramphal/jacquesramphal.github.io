@@ -9,7 +9,7 @@
 ![DevopsDays Toronto](../images/work/1-dod/dod.svg)
 DevopsDays Toronto Identity
 
-![Mailback](../images/work/mailback.svg)
+![Mailback](../images/work/4-mailback/mailback.svg)
 Mailback Concept Identity
 
 ![GiftBook](../images/work/gob.svg)

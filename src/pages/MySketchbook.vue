@@ -176,9 +176,10 @@ export default {
 
   &--full {
     column-span: all;
+    margin-block-start: var(--spacing-sm);
   }
   margin: 0;
-  margin-block-end: var(--spacing-sm);
+  padding-block-end: var(--spacing-sm);
   cursor: zoom-in;
 
   :deep(.grid-card) {
