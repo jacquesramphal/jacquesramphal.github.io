@@ -1,6 +1,6 @@
 # Jacques Ramphal
 
-Agentic Systems & AX Lead / Design Lead
+UX/AX Design Lead
 AI-Driven Workflows · Design Systems · Design-to-Development
 
 Toronto, ON
@@ -12,7 +12,7 @@ GitHub: https://github.com/jacquesramphal
 
 ## Professional Summary
 
-Agentic Systems & AX Lead and Design Lead with 12+ years of experience delivering enterprise and consumer digital products. Currently leading the design and integration of agentic systems (AX) within delivery workflows, bridging UX, AI automation, and development to enhance team efficiency and design quality. Deep expertise in design systems, AI-enabled product experiences, and design-to-development workflows. Proven track record partnering with product and engineering to scale token-based systems, improve delivery velocity, and ship production-ready interfaces. Strong cross-functional leader who bridges UX strategy, front-end development, and system architecture.
+UX & AX Design Leader with 12+ years of experience delivering enterprise and consumer digital products. Currently leading the design and integration of agentic systems (AX) within delivery workflows, bridging UX, AI automation, and development to enhance team efficiency and design quality. Deep expertise in design systems, AI-enabled product experiences, and design-to-development workflows. Proven track record partnering with product and engineering to scale token-based systems, improve delivery velocity, and ship production-ready interfaces. Strong cross-functional leader who bridges UX strategy, front-end development, and system architecture.
 
 ---
 

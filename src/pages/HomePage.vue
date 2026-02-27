@@ -156,8 +156,7 @@ export default {
       meta: [
         {
           name: 'description',
-          content:
-            `Senior Product Designer at Orium with ${new Date().getFullYear() - 2013} years experience specializing in design systems, agentic AI, and bridging design-development workflows through code and tokens.`,
+          content: `Senior Product Designer at Orium with ${new Date().getFullYear() - 2013} years experience specializing in design systems, agentic AI, and bridging design-development workflows through code and tokens.`,
         },
         {
           property: 'og:title',
@@ -165,8 +164,7 @@ export default {
         },
         {
           property: 'og:description',
-          content:
-            `Senior Product Designer specializing in design systems, agentic AI, and design-development workflows. ${new Date().getFullYear() - 2013} years at Orium building token-based systems and AI platforms.`,
+          content: `Senior Product Designer specializing in design systems, agentic AI, and design-development workflows. ${new Date().getFullYear() - 2013} years at Orium building token-based systems and AI platforms.`,
         },
         {
           property: 'og:type',

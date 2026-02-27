@@ -26,15 +26,22 @@
         />
       </div>
     </GridContainer>
-
+    <!-- :full="isFullWidth" -->
     <GridContainer
-      ><GridParent :class="['markdown-layout', { 'markdown-layout--no-hero': !hasHeaderTag }]">
+      ><GridParent
+        :class="[
+          'markdown-layout',
+          { 'markdown-layout--no-hero': !hasHeaderTag, 'markdown-layout--full-width': isFullWidth },
+        ]"
+      >
         <main id="markdown-content-end" class="markdown-main">
           <MarkdownRenderer
             class="content"
             :markdown="processedMarkdown"
             @headings="updateHeadings"
+            @image-click="(src) => { lightboxSrc = src; lightboxOpen = true; }"
           />
+          <FullscreenImage v-if="lightboxOpen" :isOpen="lightboxOpen" :imageSrc="lightboxSrc" @close="lightboxOpen = false" />
           <div class="markdown-share">
             <button @click="handlePrint" class="print-button" aria-label="Print page">
               <span class="print-button__icon">
@@ -75,6 +82,7 @@ import MyIcon from '@/components/Icon.vue';
 import { getDocRecordById, getDocRecordBySlug, isNumericRouteParam } from '@/utils/docRegistry';
 // import TextStats from "@/components/card/TextStats.vue";
 import GridContainer from '@/components/grid/GridContainer.vue';
+import FullscreenImage from '@/components/FullscreenImage.vue';
 import fallbackImage from '@/assets/images/placeholder.png';
 import libraryData from '@/assets/data/library.json';
 // import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
@@ -144,6 +152,9 @@ export default {
     const statsLabel3 = ref('');
     const statsValue3 = ref('');
     const currentDocType = ref(null);
+    const isFullWidth = ref(false);
+    const lightboxOpen = ref(false);
+    const lightboxSrc = ref('');
 
     const updateMarkdownHeadings = inject('updateMarkdownHeadings', () => {});
     const updateMarkdownActiveHeading = inject('updateMarkdownActiveHeading', () => {});
@@ -381,6 +392,7 @@ export default {
         heroSubtitle.value = '';
         heroImage.value = '';
         hasHeaderTag.value = false;
+        isFullWidth.value = false;
 
         // Resolve route param -> content file.
         const param = (routeParam || '').toString().trim();
@@ -499,6 +511,7 @@ export default {
           // If there is no <header> block in the doc, we should not render the hero at all.
           // This flag is the single source of truth for hero rendering.
           hasHeaderTag.value = /<header[^>]*>/i.test(markdownToExtract || '');
+          isFullWidth.value = /<!--\s*full-width\s*-->/i.test(markdownToExtract || '');
 
           heroData = extractHeroData(markdownToExtract);
           console.log('MarkdownPage: Extracted hero data:', heroData);
@@ -798,6 +811,9 @@ export default {
       statsValue3,
       currentDocType,
       relatedTitle,
+      isFullWidth,
+      lightboxOpen,
+      lightboxSrc,
       updateMarkdownHeadings,
       updateMarkdownActiveHeading,
     };
@@ -810,6 +826,7 @@ export default {
     MyIcon,
     // TextStats,
     GridContainer,
+    FullscreenImage,
   },
   computed: {
     showStats() {
@@ -1137,6 +1154,14 @@ export default {
 
 .markdown-layout--no-hero {
   margin-block-start: var(--spacing-xl);
+}
+
+.markdown-layout--full-width {
+  .markdown-main {
+    @media only screen and (min-width: 1201px) {
+      grid-column: 1 / -1;
+    }
+  }
 }
 
 .markdown-share {

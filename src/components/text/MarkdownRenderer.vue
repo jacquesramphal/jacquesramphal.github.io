@@ -121,6 +121,7 @@ export default {
       default: '',
     },
   },
+  emits: ['headings', 'image-click'],
   data() {
     return {
       pageData: {},
@@ -688,15 +689,19 @@ export default {
 
     this.$el?.addEventListener?.('click', this._onMarkdownClick);
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && this.isImageOpen) {
-        this.closeImage();
-      }
-    });
+    this._onImageClick = (e) => {
+      const img = e?.target?.closest?.('img');
+      if (!img) return;
+      this.$emit('image-click', img.src);
+    };
+    this.$el?.addEventListener?.('click', this._onImageClick);
   },
   beforeUnmount() {
     if (this._onMarkdownClick) {
       this.$el?.removeEventListener?.('click', this._onMarkdownClick);
+    }
+    if (this._onImageClick) {
+      this.$el?.removeEventListener?.('click', this._onImageClick);
     }
     // Clean up ScrollTriggers (only if ScrollTrigger was enabled)
     if (this.enableScrollTrigger) {
@@ -753,6 +758,7 @@ export default {
   }
 
   img {
+    cursor: zoom-in;
     margin-block: var(--spacing-xs) var(--spacing-xxxs);
 
     // Override global object-fit: cover to prevent cropping

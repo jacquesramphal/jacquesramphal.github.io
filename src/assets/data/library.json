@@ -491,6 +491,22 @@
    
 
 
+    {
+      "id": 70,
+      "type": "design-project",
+      "title": "Visual Sketchbook",
+      "eyebrow": "Visual Design",
+      "description": "A running collection of visual design explorations, UI experiments, and work-in-progress screenshots from across projects.",
+      "route": "/MySketchbook",
+      "thumbnail": "avatar/avatar.svg",
+      "filename1": "avatar/avatar.svg",
+      "alt": "Visual Sketchbook — Design explorations and experiments",
+      "tags": [
+        "visual-design",
+        "sketchbook"
+      ]
+    },
+{ "docId": 63, "slug": "sketchbook", "contentFile": "doc_63.md" },
     { "docId": 15, "slug": "cv", "contentFile": "doc_42.md" },
     { "docId": 30, "slug": "ask-me-anything", "contentFile": "doc_30.md" },
     { "docId": 36, "slug": "colophon", "contentFile": "doc_36.md" },
