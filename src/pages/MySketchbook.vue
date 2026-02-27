@@ -176,7 +176,6 @@ export default {
 
   &--full {
     column-span: all;
-    margin-block-start: var(--spacing-sm);
   }
   margin: 0;
   padding-block-end: var(--spacing-sm);
