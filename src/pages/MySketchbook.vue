@@ -1,13 +1,13 @@
 <template>
   <PageWrapper>
-    <!-- <HeroBanner
+    <HeroBanner
       id="hero"
       title="My Sketchbook"
       subtitle="Visual explorations, UI experiments, and work-in-progress from across projects."
       as="h1"
-    /> -->
+    />
 
-    <GridContainer>
+    <GridContainer style="padding-top: 0 !important">
       <div class="gallery">
         <div
           v-for="project in projects"
