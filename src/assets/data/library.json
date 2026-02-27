@@ -497,7 +497,7 @@
       "title": "Visual Sketchbook",
       "eyebrow": "Visual Design",
       "description": "A running collection of visual design explorations, UI experiments, and work-in-progress screenshots from across projects.",
-      "route": "/MySketchbook",
+      "route": "/Sketchbook",
       "thumbnail": "avatar/avatar.svg",
       "filename1": "avatar/avatar.svg",
       "alt": "Visual Sketchbook — Design explorations and experiments",

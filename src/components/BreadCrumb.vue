@@ -38,6 +38,7 @@
 
       <template v-if="isProjectOrDoc">
         <DynamicText
+          v-if="isLibraryOrDeeper"
           v-show="isDesktopScreen"
           :as="p"
           text="/"
@@ -92,7 +93,7 @@ export default {
              this.$route?.path?.startsWith('/doc/');
     },
     isProjectOrDoc() {
-      return this.$route?.meta?.dynamicTitle;
+      return this.$route?.meta?.dynamicTitle || !!this.$route?.meta?.title;
     }
   },
   async created() {
@@ -142,7 +143,9 @@ export default {
       // Reset title first
       this.pageTitle = '';
 
-      if (this.$route.path.startsWith('/work/')) {
+      if (this.$route.meta?.title) {
+        this.pageTitle = this.$route.meta.title;
+      } else if (this.$route.path.startsWith('/work/')) {
         const workId = parseInt(this.$route.params.id);
         const work = workData.entries.find(entry => entry.id === workId);
         this.pageTitle = work ? work.title : 'Work';

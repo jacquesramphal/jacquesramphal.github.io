@@ -112,8 +112,11 @@ const routes = [
   },
   {
     name: 'MySketchbook',
-    path: '/MySketchbook',
+    path: '/sketchbook',
     component: MySketchbook,
+    meta: {
+      title: 'Sketchbook',
+    },
   },
   {
     name: 'Product',

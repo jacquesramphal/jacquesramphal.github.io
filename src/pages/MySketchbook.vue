@@ -1,10 +1,11 @@
 <template>
   <PageWrapper>
-    <HeroBanner
+    <!-- <HeroBanner
       id="hero"
       title="My Sketchbook"
       subtitle="Visual explorations, UI experiments, and work-in-progress from across projects."
-    />
+      as="h1"
+    /> -->
 
     <GridContainer>
       <div class="gallery">
