@@ -6,7 +6,7 @@
 
 <br>
 
-![DevopsDays Toronto](../images/work/dod.svg)
+![DevopsDays Toronto](../images/work/1-dod/dod.svg)
 DevopsDays Toronto Identity
 
 ![Mailback](../images/work/mailback.svg)

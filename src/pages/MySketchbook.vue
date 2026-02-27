@@ -9,23 +9,52 @@
     <GridContainer>
       <div class="gallery">
         <div
-          v-for="(item, index) in images"
-          :key="index"
-          :class="['gallery__item', { 'gallery__item--full': item.fullWidth }]"
-          @click="openLightbox(item)"
+          v-for="project in projects"
+          :key="project.name"
+          :class="['gallery__item', { 'gallery__item--full': project.fullWidth }]"
+          @click="openProject(project)"
           tabindex="0"
-          @keydown.enter="openLightbox(item)"
-          @keydown.space.prevent="openLightbox(item)"
+          @keydown.enter="openProject(project)"
+          @keydown.space.prevent="openProject(project)"
           role="button"
-          :aria-label="`View ${item.caption}`"
+          :aria-label="`View ${project.caption}`"
         >
-          <ImageCard :filename1="item.src" :alt="item.caption" />
-          <p class="gallery__caption subtle">{{ item.caption }}</p>
+          <ImageCard
+            :filename1="project.mainRelative"
+            :alt="project.caption"
+            :size="project.size"
+          />
+          <p class="gallery__caption subtle">{{ project.caption }}</p>
         </div>
       </div>
     </GridContainer>
 
+    <!-- Single-image lightbox (projects with no process images) -->
     <FullscreenImage :isOpen="lightboxOpen" :imageSrc="activeSrc" @close="closeLightbox" />
+
+    <!-- Process gallery modal -->
+    <Teleport to="body">
+      <transition name="fade">
+        <div
+          v-if="activeProject"
+          class="process-modal"
+          role="dialog"
+          aria-modal="true"
+          @click.self="closeProcess"
+        >
+          <TextLink @click="closeProcess" label="Close" class="process-modal__close" />
+          <div class="process-modal__grid">
+            <img
+              v-for="(src, i) in activeProject.process"
+              :key="i"
+              :src="src"
+              :alt="`${activeProject.caption} — step ${i + 1}`"
+              draggable="false"
+            />
+          </div>
+        </div>
+      </transition>
+    </Teleport>
   </PageWrapper>
 </template>
 
@@ -33,50 +62,100 @@
 import FullscreenImage from '@/components/FullscreenImage.vue';
 import ImageCard from '@/components/card/ImageCard/ImageCard.vue';
 
+function buildProjects() {
+  // Scans assets/images/work/ recursively.
+  // Convention:
+  //   work/<project>/config.json     → optional props (caption, fullWidth, size, …)
+  //   work/<project>/<image>         → main image for that project
+  //   work/<project>/<folder>/<img>  → process images shown in modal
+  const imgCtx = require.context('@/assets/images/work', true, /\.(png|jpe?g|svg|gif|webp)$/i);
+  const cfgCtx = require.context('@/assets/images/work', true, /config\.json$/);
+  const map = {};
+
+  // Load config files first so image keys can merge into them
+  cfgCtx.keys().forEach((key) => {
+    const folder = key.replace(/^\.\//, '').split('/')[0];
+    map[folder] = {
+      name: folder,
+      caption: folder.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
+      mainRelative: null,
+      process: [],
+      ...cfgCtx(key), // spread config.json props (caption, fullWidth, size, etc.)
+    };
+  });
+
+  imgCtx.keys().forEach((key) => {
+    const rel = key.replace(/^\.\//, '');
+    const parts = rel.split('/');
+    if (parts.length < 2) return; // skip root-level flat files
+
+    const folder = parts[0];
+    if (!map[folder]) {
+      map[folder] = {
+        name: folder,
+        caption: folder.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
+        mainRelative: null,
+        process: [],
+      };
+    }
+
+    if (parts.length === 2) {
+      if (!map[folder].mainRelative) {
+        map[folder].mainRelative = `work/${rel}`;
+      }
+    } else {
+      map[folder].process.push(imgCtx(key));
+    }
+  });
+
+  return Object.values(map).filter((p) => p.mainRelative);
+}
+
 export default {
   name: 'MySketchbook',
   components: { FullscreenImage, ImageCard },
   data() {
     return {
+      projects: buildProjects(),
+      // single-image lightbox
       lightboxOpen: false,
       activeSrc: '',
-      images: [
-        { src: 'work/gob.svg', caption: 'GiftBook Concept Identity' },
-        { src: 'work/j.svg', caption: 'Personal Logo Concepts' },
-        { src: 'avatar/avatar.svg', caption: 'Avatar' },
-
-        { src: 'work/dod.svg', fullWidth: true, caption: 'DevopsDays Toronto Identity' },
-        { src: 'work/gob-sketches2.jpg', caption: 'GiftBook Sketches Identity' },
-        { src: 'work/gob-sketches4.jpg', caption: 'GiftBook Sketches Identity' },
-        { src: 'work/gob-sketches.jpg', caption: 'GiftBook Sketches Identity' },
-
-        // {
-        //   src: 'work/dod-program.png',
-        //   fullWidth: true,
-        //   caption: 'DevopsDays Toronto Program 2014',
-        // },
-        { src: 'work/mailback.svg', fullWidth: true, caption: 'Mailback Concept Identity' },
-
-        { src: 'work/send-mail.svg', caption: 'Send Mail' },
-        { src: 'work/find-me.svg', caption: 'Find Me' },
-        { src: 'work/r-face.svg', caption: 'R Face' },
-        { src: 'work/r-eye.svg', fullWidth: true, caption: 'R Eye' },
-        { src: 'work/scope.svg', caption: 'Scope' },
-        { src: 'work/a-logo.svg', caption: 'A Logo Concepts' },
-        { src: 'work/wireframe-lib.png', fullWidth: true, caption: 'Wireframe Library' },
-      ],
+      // process gallery modal
+      activeProject: null,
     };
   },
-  methods: {
-    resolveImage(filename) {
-      return require(`@/assets/images/${filename}`);
+  watch: {
+    activeProject(val) {
+      if (val) {
+        document.addEventListener('keydown', this.onKeydown);
+      } else {
+        document.removeEventListener('keydown', this.onKeydown);
+      }
     },
-    openLightbox(item) {
-      this.activeSrc = this.resolveImage(item.src);
-      this.lightboxOpen = true;
+  },
+  beforeUnmount() {
+    document.removeEventListener('keydown', this.onKeydown);
+    document.body.style.overflow = '';
+  },
+  methods: {
+    onKeydown(e) {
+      if (e.key === 'Escape') this.closeProcess();
+    },
+    openProject(project) {
+      if (project.process.length > 0) {
+        this.activeProject = project;
+        document.body.style.overflow = 'hidden';
+      } else {
+        this.activeSrc = require(`@/assets/images/${project.mainRelative}`);
+        this.lightboxOpen = true;
+      }
     },
     closeLightbox() {
       this.lightboxOpen = false;
+    },
+    closeProcess() {
+      this.activeProject = null;
+      document.body.style.overflow = '';
     },
   },
 };
@@ -133,6 +212,45 @@ export default {
 .gallery__caption {
   display: block;
   padding-block-start: var(--spacing-xxs);
+}
+
+// Process gallery modal
+.process-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200000;
+  background: var(--background);
+  overflow-y: auto;
+  padding: var(--spacing-xl) var(--spacing-md) var(--spacing-md);
+}
+
+.process-modal__close {
+  position: fixed;
+  top: var(--spacing-xs);
+  left: var(--spacing-xs);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.process-modal__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-sm);
+
+  img {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 @media (max-width: 768px) {
