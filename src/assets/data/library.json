@@ -9,24 +9,7 @@
 
   "alt": "Genie - Agentic AI Platform",
   "entries": [
-    {
-      "id": 29,
-      "docId": 61,
-      "slug": "hmi-design-token-pipeline",
-      "type": "case-study",
-      "title": "Token Pipeline for a Multi-Brand HMI Platform",
-      "eyebrow": "Design Systems",
-      "description": "How I built a unified token architecture, an AI-guarded lint pipeline, and a one-command dev loop that kept Figma, code, and AI tooling in sync across four brands, two themes, and two modalities — for a multi-display vehicle Human-Machine Interface platform.",
-      "route": "/doc/hmi-design-token-pipeline",
-      "contentFile": "doc_61.md",
-      "thumbnail": "placeholders/placeholder-25.svg",
-      "alt": "Case Study: Design Token Pipeline for a Multi-Brand HMI Platform",
-      "tags": [
-        "design-systems",
-        "tokens",
-        "ai"
-      ]
-    },
+    
     {
       "id": 29,
       "docId": 62,
@@ -363,7 +346,24 @@
         "design-systems"
       ]
     },
-    
+    {
+      "id": 29,
+      "docId": 61,
+      "slug": "hmi-design-token-pipeline",
+      "type": "case-study",
+      "title": "Token Pipeline for a Multi-Brand HMI Platform",
+      "eyebrow": "Design Systems",
+      "description": "How I built a unified token architecture, an AI-guarded lint pipeline, and a one-command dev loop that kept Figma, code, and AI tooling in sync across four brands, two themes, and two modalities — for a multi-display vehicle Human-Machine Interface platform.",
+      "route": "/doc/hmi-design-token-pipeline",
+      "contentFile": "doc_61.md",
+      "thumbnail": "placeholders/placeholder-25.svg",
+      "alt": "Case Study: Design Token Pipeline for a Multi-Brand HMI Platform",
+      "tags": [
+        "design-systems",
+        "tokens",
+        "ai"
+      ]
+    },
     
     {
 

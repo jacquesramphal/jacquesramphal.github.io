@@ -6,7 +6,7 @@
 
 <br>
 
-![DevopsDays Toronto](../images/work/1-dod/dod.svg)
+![DevopsDays Toronto](../images/work/4-dod/dod.svg)
 DevopsDays Toronto Identity
 
 ![Mailback](../images/work/4-mailback/mailback.svg)
@@ -15,5 +15,5 @@ Mailback Concept Identity
 ![GiftBook](../images/work/gob.svg)
 GiftBook Concept Identity
 
-![Personal Logo](../images/work/j.svg)
+![Personal Logo](../images/work/1-j-logo/j.svg)
 Personal Logo Concepts
