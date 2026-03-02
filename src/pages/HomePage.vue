@@ -50,9 +50,7 @@
       </GridParent>
     </GridContainer> -->
     <!-- WRITING SECTION - MOVED UP FOR PROMINENCE -->
-    <AnimatedComponent>
-      <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
-    </AnimatedComponent>
+    <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
 
     <!-- ABOUT SECTION -->
     <AnimatedComponent>

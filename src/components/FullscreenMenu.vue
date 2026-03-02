@@ -69,7 +69,7 @@ export default {
         { text: 'Library', route: '/library' },
         { text: 'Resume', route: '/doc/cv' },
         { text: 'FAQs', route: '/doc/ask-me-anything' },
-        { text: 'Storybook', route: 'https://ramphal.design/storybook/', external: true },
+        { text: 'Storybook', route: '/storybook/', external: true },
       ],
     };
   },

@@ -211,7 +211,7 @@ export default {
         },
         { text: 'Github', url: 'https://github.com/jacquesramphal', icon: 'icon/github-mark.svg' },
         { text: 'Email', url: 'hmailto:jacques@ramphal.design', icon: 'icon/j-logo.svg' },
-        { text: 'Storybook', url: 'https://ramphal.design/storybook/', external: true },
+        { text: 'Storybook', url: '/storybook/', external: true },
       ],
       menuItems3: [
         { text: 'AI Ethics', route: '/doc/ai-ethics' },
