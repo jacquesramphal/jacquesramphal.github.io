@@ -10,7 +10,7 @@
       end
       id="hero"
       class="display"
-      title="I’m <em data-text=’Jacques’>Jacques</em>—Design Lead at Orium, working where systems, code, and AI meet."
+      title="I design systems, <br> write the code, and ship the thing."
     />
 
     <!-- <HeroBanner fullvh end id="hero" class="display">
@@ -21,7 +21,7 @@
           :fontSize="heroFontSize"
           :counterColor="resolvedCounterColor"
           :foregroundColor="resolvedForegroundColor"
-        />—Design Lead at Orium turning systems, code, and AI into real products.
+        />—Full Stack Design Lead at Orium turning systems, code, and AI into real products.
       </template>
     </HeroBanner> -->
     <!-- :title="title" -->
@@ -61,7 +61,7 @@
         as="h2"
         description=""
         eyebrow1=""
-        :detail1="`Design Lead in Toronto. For ${careerYears} years at Orium, I’ve built the practices and systems that close the gap between design intent and implementation.<br/><br/>I architect token-based design systems, design agentic AI workflows, and write about quality, systems, and sustainable delivery. I still code my own designs and mentor designers into developers.`"
+        :detail1="`Full Stack Design Lead in Toronto. For ${careerYears} years at Orium, I’ve built the practices and systems that close the gap between design intent and implementation.<br/><br/>I architect token-based design systems, design agentic AI workflows, and write about quality, systems, and sustainable delivery. I still code my own designs and mentor designers into developers.`"
         route="/doc/ask-me-anything"
         label="Learn More"
       />
@@ -152,7 +152,7 @@ export default {
   },
   setup() {
     useHead({
-      title: 'Jacques Ramphal - UX / AX Design Lead | Portfolio',
+      title: 'Jacques Ramphal - UX / AX Full Stack Design Lead | Portfolio',
       meta: [
         {
           name: 'description',

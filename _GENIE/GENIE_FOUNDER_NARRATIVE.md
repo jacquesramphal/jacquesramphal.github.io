@@ -17,12 +17,14 @@ This is a **fundamental difference** in how your story gets told and how it posi
 ### 1. **Origin Story** - NOW YOUR PERSONAL JOURNEY
 
 **Before:**
+
 - Team was drowning in repetitive work
 - A designer had an idea about automation
 - Team experimented with prototypes
 - You were brought in to lead design
 
 **After:**
+
 - YOU were stretched too thin
 - YOU identified the problem from personal experience
 - YOU started experimenting with solutions on your own time
@@ -31,6 +33,7 @@ This is a **fundamental difference** in how your story gets told and how it posi
 - Team joined YOUR vision
 
 **Why this matters:**
+
 - You’re not “a designer hired to solve a problem”
 - You’re “the founder who saw a need and built the solution”
 - This is YOUR product, YOUR vision, YOUR platform
@@ -44,6 +47,7 @@ This is a **fundamental difference** in how your story gets told and how it posi
 “As the person who envisioned Genie and owned its design, I discovered three core problems...”
 
 **Added context:**
+
 - You knew your own problems first
 - You built to solve them
 - Then discovered they were universal
@@ -57,6 +61,7 @@ This is a **fundamental difference** in how your story gets told and how it posi
 The framework I built came from solving my own problems first, then extending those solutions to work for the entire organization.”
 
 This positions you as:
+
 - Someone who lives the problem
 - Someone who codes/designs her own solutions
 - Someone who tests in real conditions
@@ -97,14 +102,17 @@ The first narrative is **infinitely more compelling** because you took initiativ
 ## Key Positioning Statements (Now Updated)
 
 ### “Who I Am”
+
 - NOT: “Designer hired to lead Genie”
 - YES: **”Founder of Genie, an agentic AI platform that started as a personal productivity tool and became an organizational transformation”**
 
 ### “What Genie Is”
+
 - NOT: “An internal tool we built”
 - YES: **”My solution to being stretched too thin, evolved into a platform that transforms how we deliver fixed-cost engagements”**
 
 ### “What This Shows”
+
 - NOT: “I can design complex systems”
 - YES: **”I identify problems, build solutions, and scale what works. I lead by example and get others to join my vision”**
 
@@ -117,6 +125,7 @@ When sharing this case study, lead with:
 **”Genie started because I was drowning.”**
 
 🧵 I was wearing too many hats at Orium:
+
 - Leading design systems
 - Shipping client work
 - Mentoring designers
@@ -135,24 +144,28 @@ What started as a passion project became a platform that transformed our entire 
 ## The Founder Narrative Advantages
 
 ### In Job Conversations
+
 - Shows you take initiative, not just follow direction
 - Shows you can identify problems AND build solutions
 - Shows you can get buy-in from leadership
 - Shows you can scale from idea to organization
 
 ### In Speaking/Writing
+
 - You have the founder’s credibility
 - Your case study is “I built this” not “I designed this”
 - You’re not competing with other designers, you’re sharing your creation
 - You can speak about the full journey, not just the design
 
 ### In Positioning
+
 - **Design Systems Architect**? You have that + you founded a platform
 - **AI/AX Pioneer**? Yes, and you initiated it
 - **Design-Dev Bridge**? Yes, you built it end-to-end
 - **Leader**? You led the vision, not just the execution
 
 ### In your Portfolio
+
 This isn’t just “project work.” This is **entrepreneurial work within an organization**.
 
 ---
@@ -172,6 +185,7 @@ This is **way more powerful** than generic design frameworks.
 ## How to Tell the Story (Refined Narrative)
 
 ### At a Conference
+
 “I’m going to tell you the story of how a personal productivity problem became a product.
 
 I was drowning. Too many projects, too much manual work, not enough clarity. So I built Genie to solve MY problem.
@@ -181,6 +195,7 @@ But then I realized: everyone was drowning in the same way. What I built for mys
 That’s when I led the design to make it work for everyone. And that process—going from personal tool to organizational capability—taught me everything about agentic UX design.”
 
 ### On LinkedIn
+
 “Genie started because I was stretched too thin.
 
 As a Staff Designer leading design systems and shipping client work, I was doing the same repetitive setup work on every project. So I started experimenting with AI tools to solve my own problem.
@@ -192,6 +207,7 @@ What started as a passion project became the foundation for how Orium now delive
 The lesson: your best ideas often come from solving your own problems. Then the hard part is designing so others want to use them too.”
 
 ### In This Case Study
+
 ✅ “Genie is my idea”
 ✅ “It started with me being stretched too thin”
 ✅ “Personal tool to organizational platform”
@@ -208,6 +224,7 @@ Don’t hide that this started as a side project. **Highlight it.**
 “I wasn’t thinking about building a company product. I was thinking about solving my own problem. I started experimenting—nothing fancy. Just small automations. Custom GPTs that could summarize meetings.”
 
 This shows:
+
 - You work on things you believe in, even in your own time
 - You experiment and iterate
 - You don’t wait for permission to solve problems
@@ -219,7 +236,7 @@ This shows:
 
 Update your title/description:
 
-NOT: “Design Lead for Genie”
+NOT: “Full Stack Design Lead for Genie”
 YES: **”Founder & Design Lead, Genie”** or **”Product Owner & Design Lead, Genie”**
 
 You didn’t just design this. You initiated it, envisioned it, own it.
@@ -233,4 +250,3 @@ This narrative transforms the case study from “here’s how I designed a compl
 That’s the founder story.
 
 Tell it.
-

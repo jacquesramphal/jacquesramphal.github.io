@@ -7,8 +7,8 @@
 # Designing Genie: Pioneering UX Patterns for Agentic AI
 
 **By Jacques Ramphal**  
-*Design Lead & Product Owner, Orium*  
-*November 2025*
+_Full Stack Design Lead & Product Owner, Orium_  
+_November 2025_
 
 ---
 
@@ -55,6 +55,7 @@ That’s Genie. It’s a multiplier. It’s leverage.
 I was wearing multiple hats at Orium: leading design systems, shipping client work, mentoring designers, trying to maintain quality across 50+ concurrent projects.
 
 At the start of every project, the same work repeated:
+
 - Synthesizing information from 10 different sources (sales notes, scope docs, design files, Slack conversations, interview transcripts)
 - Building requirements from scratch, even though we’d done similar projects hundreds of times
 - Manually flagging risks I’d seen before in other engagements
@@ -123,24 +124,31 @@ It’s not just what I built. It’s what building it made me. And more importan
 ## Key Improvements Made
 
 ### ✅ Clear Definition
+
 Readers immediately understand what Genie IS before getting the personal story.
 
 ### ✅ Powerful Framing
+
 “Multiply impact” is stronger and less defensive than “It’s my idea.”
 
 ### ✅ Strategic Context
+
 Shows you responded to real constraints, not random inspiration.
 
 ### ✅ Personal + Organizational
+
 Shows how personal problem became organizational solution.
 
 ### ✅ Transformation Arc
+
 Complete story from idea → experiment → scaling → personal growth.
 
 ### ✅ Humility
+
 Shows you learned, asked for help, grew through the process.
 
 ### ✅ Impact Focus
+
 Always connects back to what it enabled (team, impact, leverage).
 
 ---
@@ -148,6 +156,7 @@ Always connects back to what it enabled (team, impact, leverage).
 ## Ready to Use
 
 This opening is now:
+
 - ✅ Clear about what Genie is
 - ✅ Compelling about why it exists
 - ✅ Honest about personal motivation
@@ -155,6 +164,7 @@ This opening is now:
 - ✅ Sets up the design/technical story perfectly
 
 **You can now:**
+
 1. Review for final authenticity check
 2. Gather visuals
 3. Publish on your blog
@@ -179,4 +189,3 @@ This opening is now:
 **Your case study is complete and ready to publish.**
 
 Execute.
-

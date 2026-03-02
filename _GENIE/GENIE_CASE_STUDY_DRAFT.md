@@ -1,8 +1,8 @@
 # Designing Genie: Pioneering UX Patterns for Agentic AI
 
 **By Jacques Ramphal**  
-*Design Lead & Product Owner, Orium*  
-*November 2025*
+_Full Stack Design Lead & Product Owner, Orium_  
+_November 2025_
 
 ---
 
@@ -59,6 +59,7 @@ I was wearing multiple hats at Orium, but they were all design-related hats:
 This was all **necessary work**. But it was repetitive work. Work where the patterns were predictable. Work that consumed my creative energy on routine tasks instead of the novel challenges.
 
 At the start of every project, the same routine played out:
+
 - Synthesizing information from 10 different sources (sales notes, scope docs, design files, Slack conversations, interview transcripts) to build a coherent user story
 - Generating requirements from scratch, even though we’d done similar projects hundreds of times with similar user patterns
 - Running audits and manually flagging risks I’d seen before in other engagements
@@ -134,7 +135,7 @@ When I was brought in to lead the UX design for Genie, I faced a fundamental que
 
 This wasn’t like designing a typical app interface. This was about designing **mental models for collaboration with AI**.
 
-The design patterns for chatbots, assistants, and conversational interfaces were well-established. But **agentic AI is different**. 
+The design patterns for chatbots, assistants, and conversational interfaces were well-established. But **agentic AI is different**.
 
 An agent isn’t just responsive to user input—it’s proactive. It reasons about problems, orchestrates workflows across systems, and takes autonomous action. The mental model users need to develop for this is fundamentally different from anything we’d designed before.
 
@@ -145,6 +146,7 @@ This meant we couldn’t just apply existing design patterns. We had to pioneer 
 Here’s what we were grappling with:
 
 **How do you design for an intelligence that:**
+
 - Works across live systems (Jira, Slack, Mavenlink, internal databases)?
 - Makes decisions with real consequences (creating tickets, assigning work, generating reports)?
 - Operates partly autonomously and partly on user request?
@@ -169,6 +171,7 @@ When I shared my initial experiments with the team, I quickly realized: **people
 I had built tools to solve MY specific problems. But other team members had slightly different workflows. They weren’t sure if Genie could help them, or what to ask for.
 
 **The Real Problem:**
+
 - Project leads asking: “Can it draft requirements differently than I would?”
 - Delivery managers: “Does it understand our estimation patterns?”
 - Designers: “Can it surface what’s missing from scope?”
@@ -187,6 +190,7 @@ This was the hardest problem to solve because it goes to the heart of working wi
 Agentic systems make decisions with consequences. When Genie generates a backlog, identifies a project risk, or creates a Jira ticket, **someone has to decide whether to trust that output and act on it.**
 
 **The Real Problem We Saw:**
+
 - A project manager receives a risk alert from Genie. Do they act on it? Escalate? Dismiss it?
 - An agent drafts a 20-ticket Jira backlog. Do they approve it as-is or rework it?
 - A scope summary is auto-generated. What if it misses critical details? What if it hallucinates?
@@ -202,6 +206,7 @@ This is the one that kept me up at night.
 Genie operates across multiple modes: sometimes it answers questions, sometimes it surfaces insights without being asked, sometimes it executes workflows, sometimes it generates artifacts. **The danger is when users don’t know which mode they’re in.**
 
 **The Real Scenarios We Had to Design For:**
+
 - User asks: “What should our backlog be?” → Genie drafts it
 - Project hits a risk indicator → Genie automatically alerts the team
 - Genie sees a pattern → It recommends a decision (but doesn’t execute)
@@ -226,14 +231,17 @@ The framework I built came from solving my own problems first, then extending th
 Instead of a generic “What can I do?” menu, we embedded capability hints directly into the user’s workflow context.
 
 **In Slack:**
+
 - When a meeting ends, Genie offers: “Want me to summarize that and draft Jira tickets?”
 - When reviewing a backlog, Genie offers: “I noticed missing requirements based on your scope. Should I flag these?”
 
 **In Jira:**
+
 - When viewing a project, Genie offers: “I can generate an executive summary of this sprint”
 - When seeing incomplete tasks, Genie offers: “I can surface dependencies you might have missed”
 
-**The Design Pattern:** *Contextual Capability Hints*
+**The Design Pattern:** _Contextual Capability Hints_
+
 - Appears in the moment when it’s most relevant
 - Positions Genie as helpful, not intrusive
 - Educates users about capabilities through use, not documentation
@@ -258,7 +266,8 @@ Every output from Genie includes three things:
    - Medium confidence (75-95%): Yellow indicator, review before using
    - Low confidence (<75%): Red indicator, Genie asks for context before proceeding
 
-**The Design Pattern:** *Transparent Output*
+**The Design Pattern:** _Transparent Output_
+
 - Sources are always visible (not hidden in a footnote)
 - Reasoning is explained in plain language
 - Confidence levels help users calibrate trust
@@ -293,6 +302,7 @@ We designed Genie to communicate clearly about what mode it’s operating in at 
    - Signal: “I’m executing an approved workflow”
 
 **Visual Indicators:**
+
 - Mode is always visible (not buried in settings)
 - Transitions between modes are explicit
 - Users can adjust mode permissions per task/project
@@ -324,6 +334,7 @@ We designed “Skill Cards” to help users understand what Genie can do:
 ```
 
 Each card shows:
+
 - What the skill does (plain language)
 - Proven quality metric
 - Time/effort saved
@@ -338,13 +349,13 @@ For every output, we show a visual source chain:
 ```
 GENERATED FROM:
 ↓
-[Scope Doc v3, Oct 15] 
+[Scope Doc v3, Oct 15]
     (12 requirements, 3 acceptance criteria)
 ↓
 [7 Related Jira Tickets]
     (completed similar work, patterns applied)
 ↓
-[3 RAID Logs] 
+[3 RAID Logs]
     (risks & decisions, factored into prioritization)
 ↓
 = YOUR BACKLOG (ready to review)
@@ -353,6 +364,7 @@ Confidence: 98% | Sources: 22 data points | Time saved: ~4 hours
 ```
 
 This chain shows:
+
 - Exactly what Genie drew from
 - How many data points were considered
 - Transparency about the thinking
@@ -383,6 +395,7 @@ ABOUT TO EXECUTE:
 ```
 
 Each confirmation shows:
+
 - Exactly what will happen (not vague)
 - Why Genie made these choices (sources)
 - What needs human review
@@ -411,6 +424,7 @@ But the metric our project leads care most about? **Time freed up for higher-val
 What matters most isn’t the efficiency metric. It’s what we do with the time we’ve gained.
 
 Previously, project leads spent 3-4 days per engagement doing setup work:
+
 - Collecting documents and synthesizing information
 - Building static spreadsheets and sending Slack messages
 - Manually creating Jira tickets and requirements documentation
@@ -457,7 +471,7 @@ Can users see what the agent is working with and why?
 → How: Source citations, reasoning breadcrumbs, confidence levels
 → Question: "Can I trace this decision back to real data?"
 
-LAYER 2: CAPABILITY CLARITY  
+LAYER 2: CAPABILITY CLARITY
 Do users understand what the agent can and can't do?
 → How: Contextual hints, skill cards, clear mode signals
 → Question: "Do I know when and how to ask for help?"
@@ -467,10 +481,10 @@ Do users feel in control even when the agent is autonomous?
 → How: Explicit mode indicators, action confirmations, easy overrides
 → Question: "Can I stop this if it goes wrong?"
 
-Only when all three layers are present—in this order—can you create 
+Only when all three layers are present—in this order—can you create
 genuinely trusting agentic experiences.
 
-Most people design for capability first (features), then add safety 
+Most people design for capability first (features), then add safety
 (controls), then hope transparency follows. That's backwards.
 
 Start with transparency. Everything else builds from there.
@@ -486,16 +500,16 @@ If you’re designing agentic experiences, here are the patterns we validated:
 
 ### Pattern Library for AI/AX Design
 
-| Challenge | Pattern | How It Works |
-|-----------|---------|--------------|
-| **Users don’t know what agent can do** | Contextual Capability Hints | Offer agent help at the moment it’s most relevant |
-| **Users don’t trust agent outputs** | Transparent Reasoning + Source Citation | Show sources, confidence, reasoning in every output |
-| **Users confused about autonomy level** | Explicit Mode Indicators | Always show if user is in control or agent is |
-| **User anxiety about autonomous actions** | Pre-Approval Workflows | Get explicit approval before autonomous execution |
-| **Complex agent reasoning seems like magic** | Reasoning Breadcrumbs | Explain decisions in plain language |
-| **Users over-rely on agent without scrutiny** | Confidence Indicators | Show how confident agent is about each decision |
-| **Unclear where agent gets its data** | Source Chains | Visualize all inputs considered |
-| **User wants to adjust without reconfiguring** | Progressive Disclosure | Simple defaults, power settings for advanced users |
+| Challenge                                      | Pattern                                 | How It Works                                        |
+| ---------------------------------------------- | --------------------------------------- | --------------------------------------------------- |
+| **Users don’t know what agent can do**         | Contextual Capability Hints             | Offer agent help at the moment it’s most relevant   |
+| **Users don’t trust agent outputs**            | Transparent Reasoning + Source Citation | Show sources, confidence, reasoning in every output |
+| **Users confused about autonomy level**        | Explicit Mode Indicators                | Always show if user is in control or agent is       |
+| **User anxiety about autonomous actions**      | Pre-Approval Workflows                  | Get explicit approval before autonomous execution   |
+| **Complex agent reasoning seems like magic**   | Reasoning Breadcrumbs                   | Explain decisions in plain language                 |
+| **Users over-rely on agent without scrutiny**  | Confidence Indicators                   | Show how confident agent is about each decision     |
+| **Unclear where agent gets its data**          | Source Chains                           | Visualize all inputs considered                     |
+| **User wants to adjust without reconfiguring** | Progressive Disclosure                  | Simple defaults, power settings for advanced users  |
 
 ---
 
@@ -510,22 +524,26 @@ This isn’t a side project anymore. This is core to how we deliver.
 What started as an internal tool is evolving into a **core platform capability**. The roadmap for 2026 includes:
 
 **1. Risk Prediction (Not Just Risk Detection)**
+
 - Today: Genie surfaces risks based on what’s already happened
-- Next: Predictive risk modeling—simulating what *could* happen and recommending preventative actions
+- Next: Predictive risk modeling—simulating what _could_ happen and recommending preventative actions
 - Why it matters: Teams can make better decisions before problems emerge
 
 **2. Pre-Sales Integration**
+
 - Today: Genie helps with delivery
 - Next: Genie assists with discovery, estimation, and pre-sales scoping
 - Why it matters: Better scope clarity earlier = fewer surprises during delivery
 
 **3. Client-Facing Access**
+
 - Today: Genie is Orium-internal
 - Next: Clients can interact with Genie alongside our team
 - Why it matters: Clients see real-time insights and reporting, increasing confidence in fixed-cost engagements
 - Technical note: We’re evaluating platforms (n8n, LangChain, and emerging tools) to ensure we can provide client access while respecting licensing
 
 **4. Smarter Recommendations**
+
 - Today: Genie generates backlogs based on Orium’s practices
 - Next: Recommendations are customized to each client’s data, analytics, personas, product catalog, and competitive set
 - Why it matters: Generic best practices → personalized strategy
@@ -577,18 +595,23 @@ You don’t become a product manager by reading frameworks. You become one by ma
 Here’s what I’d tell anyone thinking about building their own products:
 
 ### 1. **Your Best Growth Comes From Real Problems**
+
 Don’t wait for permission to learn. If you have a problem, experiment. I learned n8n deeply, workflow orchestration, and AI development because I had to solve my own problem. That’s more effective than any course. Real constraints force real learning.
 
 ### 2. **Stay Close to the Work While Leading**
+
 You can be a high-performing individual contributor AND a leader. You don’t have to choose. I remained hands-on in design and development while learning to manage complexity, gather feedback, and guide the vision. That proximity to the work made me a better leader, and staying hands-on kept me sharp.
 
 ### 3. **Know When to Go Deep and When to Step Back**
+
 Building at scale requires knowing the difference. Deep knowledge on design patterns, n8n configuration, workflow orchestration. But also knowing when to say: “This is unfamiliar territory. I need help thinking about this differently.” The best builders are comfortable with that tension.
 
 ### 4. **Serve Your Team While Serving Your Own Growth**
+
 You don’t have to choose between shipping for your team and developing yourself. Look for projects that do both. Genie served Orium’s needs AND forced me to become a better technologist, a product thinker, a leader. That’s the sweet spot. That’s where real transformation happens.
 
 ### 5. **Building Products Changes You More Than Courses Ever Will**
+
 Whether you’re scaling to 10 teams or 1000, the principles are the same. Real feedback. Iteration. Hard tradeoffs. Navigating ups and downs. Learning from what doesn’t work as much as what does. You become a different technologist by doing. By shipping. By iterating.
 
 ---
@@ -699,6 +722,7 @@ Thank you for trusting me to lead design on something this experimental. The pat
 ## Questions I’m Exploring
 
 If you’re interested in this space, I’m exploring:
+
 - How do we design for agent confidence and failure modes?
 - What does agentic UX look like in high-stakes industries?
 - How do we teach users to work effectively with agents?
@@ -709,7 +733,7 @@ Feel free to reach out if you’re thinking about similar challenges.
 ---
 
 **Jacques Ramphal**  
-Staff Product Designer, Design Lead for Genie  
+Staff Product Designer, Full Stack Design Lead for Genie  
 Orium  
 [@jacques_ramphal](https://twitter.com/jacques_ramphal)
 
@@ -717,7 +741,7 @@ Orium
 
 ## Appendix: Design System Artifacts
 
-*[If publishing on blog, you might include:]*
+_[If publishing on blog, you might include:]_
 
 - Figma file: Agentic UX Patterns Library
 - Pattern: Skill Cards (with variations)
@@ -732,4 +756,3 @@ Orium
 - n8n: [https://n8n.io](https://n8n.io) (The orchestration platform Genie runs on)
 - Orium Case Study: [https://orium.com/case-study-genie](https://orium.com/case-study-genie)
 - Related Reading: “Designing for AI” by Josh Lovejoy, “AI for Everyone” by Andrew Ng
-

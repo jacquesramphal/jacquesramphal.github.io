@@ -3,24 +3,12 @@
     <GridParent tight class="author-content">
       <div class="author-image">
         <router-link to="/doc/cv">
-          <img
-            src="@/assets/images/portrait.jpg"
-            alt="Jacques Ramphal"
-            draggable="false"
-          />
+          <img src="@/assets/images/portrait.jpg" alt="Jacques Ramphal" draggable="false" />
         </router-link>
       </div>
       <div class="author-info">
-        <DynamicText
-          as="h4"
-          :text="name"
-          :attrs="{ class: 'author-name' }"
-        />
-        <DynamicText
-          v-if="title"
-          :text="title"
-          :attrs="{ class: 'subtle author-title' }"
-        />
+        <DynamicText as="h4" :text="name" :attrs="{ class: 'author-name' }" />
+        <DynamicText v-if="title" :text="title" :attrs="{ class: 'subtle author-title' }" />
         <DynamicText
           v-if="description"
           :text="description"
@@ -32,11 +20,11 @@
 </template>
 
 <script>
-import GridParent from "./grid/GridParent.vue";
-import DynamicText from "./text/DynamicText.vue";
+import GridParent from './grid/GridParent.vue';
+import DynamicText from './text/DynamicText.vue';
 
 export default {
-  name: "AuthorBioBar",
+  name: 'AuthorBioBar',
   components: {
     GridParent,
     DynamicText,
@@ -44,15 +32,15 @@ export default {
   props: {
     name: {
       type: String,
-      default: "Jacques Ramphal",
+      default: 'Jacques Ramphal',
     },
     title: {
       type: String,
-      default: "Staff Product Designer, Design Lead for Genie | Orium",
+      default: 'Staff Product Designer, Full Stack Design Lead for Genie | Orium',
     },
     description: {
       type: String,
-      default: "",
+      default: '',
     },
   },
 };
@@ -136,4 +124,3 @@ export default {
   margin-block-start: var(--spacing-xs);
 }
 </style>
-

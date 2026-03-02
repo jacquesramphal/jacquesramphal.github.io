@@ -24,7 +24,7 @@
         />
         <DynamicText
           class="resume-summary"
-          text="Design Lead with 12+ years of experience designing and shipping enterprise digital products. Specializes in design systems, AI-enabled product experiences, and design-to-development integration. Proven ability to lead cross-functional teams, architect token-based systems, and deliver production-ready front-end solutions."
+          text="Full Stack Design Lead with 12+ years of experience designing and shipping enterprise digital products. Specializes in design systems, AI-enabled product experiences, and design-to-development integration. Proven ability to lead cross-functional teams, architect token-based systems, and deliver production-ready front-end solutions."
         />
       </div>
 

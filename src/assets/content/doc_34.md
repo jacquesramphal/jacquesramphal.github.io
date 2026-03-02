@@ -6,7 +6,7 @@ showHero: true
 
 # About
 
-I’m a Design lead based in Toronto with around 15 years of experience scaling design at Orium. My work lives where **design systems, code, and AI** overlap—and most of what I care about is making sure the things we design are things we can actually ship.
+I’m a Full Stack Design Lead based in Toronto with around 15 years of experience scaling design at Orium. My work lives where **design systems, code, and AI** overlap—and most of what I care about is making sure the things we design are things we can actually ship.
 
 ## Design Systems & Infrastructure
 

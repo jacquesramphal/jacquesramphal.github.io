@@ -8,8 +8,8 @@
         "location": "Orium (formerly Myplanet)",
         "from": "2013",
         "to": "Present",
-        "description": "Design lead working at the intersection of design systems, code, and AI. Over more than a decade at Orium, I’ve helped scale design across enterprise clients by architecting design systems, pairing closely with engineering, and driving design quality from concept through implementation. Recent focus includes leading UX for Genie, an agentic AI/AX platform, and strengthening design–dev integration so the things we design are the things we actually ship.",
-        "callout": "Senior Product Designer & Design Lead focusing on design systems, Genie (AI/AX), and design–dev integration across enterprise products."
+        "description": "Full Stack Design Lead working at the intersection of design systems, code, and AI. Over more than a decade at Orium, I’ve helped scale design across enterprise clients by architecting design systems, pairing closely with engineering, and driving design quality from concept through implementation. Recent focus includes leading UX for Genie, an agentic AI/AX platform, and strengthening design–dev integration so the things we design are the things we actually ship.",
+        "callout": "Senior Product Designer & Full Stack Design Lead focusing on design systems, Genie (AI/AX), and design–dev integration across enterprise products."
       },
       {
         "title": "Mindfulness Facilitator",
@@ -93,7 +93,7 @@
     "entries": [
       "K&G Loyalty Platform – Lead product design and front-end implementation for a mobile loyalty experience (React Native + partner platforms).",
       "OnLogic Composable Commerce – Product and systems design for a configurable commerce experience serving technical users at scale.",
-      "Genie AI/AX Platform – Design lead for agentic AI experiences, defining UX patterns for how teams collaborate with AI agents."
+      "Genie AI/AX Platform – Full Stack Design Lead for agentic AI experiences, defining UX patterns for how teams collaborate with AI agents."
     ]
   }
 ]

@@ -12,7 +12,7 @@ AI-Driven Workflows · Design Systems · Design-to-Development
 
 ## Professional Summary 
 
-Agentic Systems & AX Lead and Design Lead with 12+ years of experience delivering enterprise and consumer digital products. Currently leading the design and integration of agentic systems (AX) within delivery workflows, bridging UX, AI automation, and development to enhance team efficiency and design quality. Deep expertise in design systems, AI-enabled product experiences, and design-to-development workflows. Proven track record partnering with product and engineering to scale token-based systems, improve delivery velocity, and ship production-ready interfaces. Strong cross-functional leader who bridges UX strategy, front-end development, and system architecture.
+Agentic Systems & AX Lead and Full Stack Design Lead with 12+ years of experience delivering enterprise and consumer digital products. Currently leading the design and integration of agentic systems (AX) within delivery workflows, bridging UX, AI automation, and development to enhance team efficiency and design quality. Deep expertise in design systems, AI-enabled product experiences, and design-to-development workflows. Proven track record partnering with product and engineering to scale token-based systems, improve delivery velocity, and ship production-ready interfaces. Strong cross-functional leader who bridges UX strategy, front-end development, and system architecture.
 
 ---
 
@@ -44,7 +44,7 @@ Agentic Systems & AX Lead and Design Lead with 12+ years of experience deliverin
 - Mentor designers and developers on agentic workflows, AI tooling, and delivery alignment.
 - Partner with technical leads to ensure agent-driven systems deliver measurable value across projects.
 
-*Design Lead (Jan 2024 – Present)*
+*Full Stack Design Lead (Jan 2024 – Present)*
 - Lead the design and collaborate with teams on the development of Orium Accelerators, enabling brands to transition to composable commerce platforms.
 - Maintain and update design assets and contribute to front-end codebase for Accelerators.
 - Train and mentor designers on design systems, front-end collaboration, and delivery best practices.

@@ -7,7 +7,7 @@
 # Designing Genie: Pioneering UX Patterns for Agentic AI
 
 **By Jacques Ramphal**  
-*Design Lead & Product Owner, Orium*  
+_Full Stack Design Lead & Product Owner, Orium_
 
 ---
 
@@ -18,7 +18,7 @@
 At its core, Genie does four things:
 
 1. **Consolidates Context** — One unified understanding across 10+ systems
-2. **Generates Requirements** — Auto-generates from historical patterns  
+2. **Generates Requirements** — Auto-generates from historical patterns
 3. **Surfaces Risks** — Identifies emerging problems before they’re catastrophic
 4. **Automates Workflows** — Takes action: creates tickets, sends reminders, generates decks
 
@@ -144,7 +144,7 @@ But I know it’s worth it.
 ✅ **Empathetic** — Shows respect for team concerns  
 ✅ **Complete** — Technical + human + growth  
 ✅ **Relatable** — Others will see themselves in this  
-✅ **Honest** — You don’t have all the answers yet  
+✅ **Honest** — You don’t have all the answers yet
 
 ---
 
@@ -157,4 +157,3 @@ That’s thought leadership.
 ---
 
 **This is ready to publish.**
-

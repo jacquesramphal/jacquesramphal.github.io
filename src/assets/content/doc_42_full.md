@@ -44,7 +44,7 @@ UX & AX Design Leader with 12+ years of experience delivering enterprise and con
 - Mentor designers and developers on agentic workflows, AI tooling, and delivery alignment.
 - Partner with technical leads to ensure agent-driven systems deliver measurable value across projects.
 
-*Design Lead (Jan 2024 – Present)*
+*Full Stack Design Lead (Jan 2024 – Present)*
 - Lead the design and collaborate with teams on the development of Orium Accelerators, enabling brands to transition to composable commerce platforms.
 - Maintain and update design assets and contribute to front-end codebase for Accelerators.
 - Train and mentor designers on design systems, front-end collaboration, and delivery best practices.
