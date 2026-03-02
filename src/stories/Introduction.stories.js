@@ -385,8 +385,8 @@ export const Welcome = () => ({
           built by the same person who drew the designs.
         </p>
         <div class="intro-links">
-          <a class="intro-link" href="https://jacquesramphal.github.io" target="_blank">
-            jacquesramphal.github.io ↗
+          <a class="intro-link" href="https://ramphal.design" target="_blank">
+            ramphal.design ↗
           </a>
           <a class="intro-link" href="https://github.com/jacquesramphal" target="_blank">
             github.com/jacquesramphal ↗

@@ -16,7 +16,7 @@
       :class="classes"
       class="external"
       v-else-if="link"
-      target="blank"
+      target="_blank"
       :href="`${link}`"
       @click="onClick"
     >
@@ -31,7 +31,7 @@
       />
       <span class="label-text">{{ label }}</span>
     </a>
-    <a :class="classes" v-else target="blank" @click="onClick">
+    <a :class="classes" v-else target="_blank" @click="onClick">
       <MyIcon
         v-if="icon || unicode"
         :style="{ 'margin-inline-end': iconsize / 2 + 'px' }"
