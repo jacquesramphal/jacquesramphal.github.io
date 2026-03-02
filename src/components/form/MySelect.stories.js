@@ -1,7 +1,7 @@
 import MySelect from "./MySelect.vue";
 
 export default {
-  title: "Components/Forms/MySelect",
+  title: "Components/Forms/Select",
   component: MySelect,
   argTypes: {
     id: { control: "text" },

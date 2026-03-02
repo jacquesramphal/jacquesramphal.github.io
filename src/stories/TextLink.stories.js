@@ -1,7 +1,7 @@
 import TextLink from "../components/text/TextLink.vue";
 
 export default {
-  title: "Components/Text/TextLink",
+  title: "Components/Primitives/TextLink",
   component: TextLink,
   argTypes: {
     label: { control: "text" },

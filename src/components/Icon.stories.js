@@ -1,7 +1,7 @@
 import MyIcon from "./Icon.vue";
 
 export default {
-  title: "Components/Icon",
+  title: "Components/Primitives/Icon",
   component: MyIcon,
   argTypes: {
     size: {

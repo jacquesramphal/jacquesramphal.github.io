@@ -1,7 +1,7 @@
 import TextHeader from "./TextHeader.vue";
 
 export default {
-  title: "Components/text/TextHeader",
+  title: "Components/Primitives/TextHeader",
   component: TextHeader,
   argTypes: {
     title: { control: "text" },

@@ -3,7 +3,7 @@ import GridContainer from "../components/grid/GridContainer.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {
-  title: "Components/Card/TextStats",
+  title: "Components/Cards/TextStats",
   component: TextStats,
   decorators: [withDesign],
   argTypes: {

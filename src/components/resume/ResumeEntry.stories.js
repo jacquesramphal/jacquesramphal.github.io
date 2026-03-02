@@ -1,7 +1,7 @@
 import ResumeEntry from "./ResumeEntry.vue";
 
 export default {
-  title: "Components/Resume/ResumeEntry",
+  title: "Components/Resume/Entry",
   component: ResumeEntry,
   argTypes: {
     title: { control: "text" },

@@ -1,7 +1,7 @@
 import DynamicText from "./DynamicText.vue";
 
 export default {
-  title: "Components/text/DynamicText",
+  title: "Components/Primitives/DynamicText",
   component: DynamicText,
   argTypes: {
     as: {

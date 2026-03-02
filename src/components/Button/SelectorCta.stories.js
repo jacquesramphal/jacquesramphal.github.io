@@ -1,7 +1,7 @@
 import SelectorCta from "./SelectorCta.vue";
 
 export default {
-  title: "Components/Forms/SelectorCta",
+  title: "Components/Primitives/SelectorCta",
   component: SelectorCta,
   argTypes: {
     align: {

@@ -7,7 +7,11 @@
         inlineSize: size + 'px',
         blockSize: size + 'px',
         '--icon-src': name ? `url(${require('../assets/images/' + name)})` : 'none'
-      }">
+      }"
+      :role="ariaLabel ? 'img' : undefined"
+      :aria-label="ariaLabel || undefined"
+      :aria-hidden="ariaLabel ? undefined : 'true'"
+    >
       <!-- Hidden img for fallback -->
       <img
         v-if="name"
@@ -16,12 +20,14 @@
         :alt="name"
         style="display: none;"
       />
-      <!-- <img v-else="url" draggable="false" :src="url" :alt="name" /> -->
     </span>
     <span
       v-else
       :class="['icon', `icon-${size}`]"
       :style="{ fontSize: size + 'px' }"
+      :role="ariaLabel ? 'img' : undefined"
+      :aria-label="ariaLabel || undefined"
+      :aria-hidden="ariaLabel ? undefined : 'true'"
     >
       {{ unicode }}
     </span>
@@ -51,10 +57,10 @@ export default {
     url: {
       type: String,
     },
-    // alt: {
-    //   type: String,
-    //   required: true
-    // },
+    ariaLabel: {
+      type: String,
+      default: '',
+    },
     unicode: {
       type: String,
     },

@@ -1,7 +1,7 @@
 import TextBlock from "./TextBlock";
 
 export default {
-  title: "Components/text/TextBlock",
+  title: "Components/Layout/TextBlock",
   component: TextBlock,
   argTypes: {
     alt: { control: "text" },

@@ -5,7 +5,7 @@ import GridParent from "./grid/GridParent.vue";
 import AnimatedComponent from "./AnimatedComponent.vue";
 
 export default {
-  title: "Components/SimpleFooter",
+  title: "Components/Navigation/SimpleFooter",
   component: SimpleFooter,
   parameters: {
     layout: "fullscreen",

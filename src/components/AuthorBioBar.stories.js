@@ -3,7 +3,7 @@ import GridParent from "./grid/GridParent.vue";
 import DynamicText from "./text/DynamicText.vue";
 
 export default {
-  title: "Components/AuthorBioBar",
+  title: "Components/Blog/AuthorBioBar",
   component: AuthorBioBar,
   argTypes: {
     name: { control: "text" },

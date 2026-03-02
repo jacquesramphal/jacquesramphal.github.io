@@ -52,6 +52,17 @@ const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
+  options: {
+    storySort: {
+      order: [
+        'Introduction',
+        'Foundation',
+        'Components',
+        ['Primitives', 'Forms', 'Navigation', 'Layout', 'Cards', 'Blog', 'Resume'],
+        'Patterns',
+      ],
+    },
+  },
   controls: {
     matchers: {
       color: /(background|color)$/i,

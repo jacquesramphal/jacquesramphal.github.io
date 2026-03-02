@@ -2,7 +2,7 @@ import TextGrid2 from "../components/card/TextGrid2.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {
-  title: "Components/Text/TextGrid2",
+  title: "Components/Layout/TextGrid2",
   component: TextGrid2,
   decorators: [withDesign],
   argTypes: {

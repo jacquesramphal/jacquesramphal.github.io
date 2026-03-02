@@ -6,7 +6,7 @@ import GridParent from "../components/grid/GridParent.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {
-  title: "Components/Card/TextImage",
+  title: "Components/Layout/TextImage",
   component: TextImage,
   decorators: [withDesign],
   argTypes: {

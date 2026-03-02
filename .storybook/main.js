@@ -25,7 +25,9 @@ module.exports = {
     options: {},
   },
   docs: {
-    autodocs: true,
+    // 'tag' mode: only generate a Docs page for stories that explicitly
+    // opt in with tags: ['autodocs']. Introduction stays docs-free.
+    autodocs: 'tag',
   },
   webpackFinal: async (config) => {
     const path = require("path");

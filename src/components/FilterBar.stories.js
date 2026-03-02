@@ -1,7 +1,7 @@
 import FilterBar from "./FilterBar.vue";
 
 export default {
-  title: "Components/FilterBar",
+  title: "Components/Blog/FilterBar",
   component: FilterBar,
   argTypes: {
     groupName: { control: "text" },

@@ -2,7 +2,7 @@ import ArticleCard from "./ArticleCard.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {
-  title: "Components/Card/ArticleCard",
+  title: "Components/Cards/ArticleCard",
   component: ArticleCard,
   decorators: [withDesign],
   argTypes: {},

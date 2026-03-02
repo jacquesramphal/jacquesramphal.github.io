@@ -1,7 +1,7 @@
 import HeaderNav from './HeaderNav.vue';
 
 export default {
-  title: 'Components/HeaderNav',
+  title: 'Components/Navigation/HeaderNav',
   component: HeaderNav,
   parameters: {
     layout: 'fullscreen',

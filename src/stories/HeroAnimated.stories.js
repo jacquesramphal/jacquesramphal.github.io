@@ -1,20 +1,25 @@
-import HeroAnimated from "../components/HeroAnimated.vue";
-import { withDesign } from "storybook-addon-designs";
+import HeroAnimated from '../components/HeroAnimated.vue';
+import { withDesign } from 'storybook-addon-designs';
 
 export default {
-  title: "Components/Misc./HeroAnimated",
+  title: 'Components/Layout/HeroAnimated',
   component: HeroAnimated,
   decorators: [withDesign],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Animated hero section with text reveal. Used on the home page. ' +
+          'No configurable props — the animation and content are baked in.',
+      },
+    },
+  },
   argTypes: {},
 };
 
-const Template = (args) => ({
+export const Default = () => ({
   components: { HeroAnimated },
-  setup() {
-    return { args };
-  },
-  template: '<HeroAnimated v-bind="args" />',
+  template: '<HeroAnimated />',
 });
-
-export const Default = Template.bind({});
-Default.args = {};
+Default.storyName = 'Default';

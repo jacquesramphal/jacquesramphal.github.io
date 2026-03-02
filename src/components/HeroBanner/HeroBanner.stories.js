@@ -2,7 +2,7 @@ import HeroBanner from "./HeroBanner.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {
-  title: "Components/HeroBanner",
+  title: "Components/Layout/HeroBanner",
   component: HeroBanner,
   decorators: [withDesign],
   argTypes: {

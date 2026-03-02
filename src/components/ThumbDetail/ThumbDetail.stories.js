@@ -2,7 +2,7 @@ import ThumbDetail from "./ThumbDetail.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {
-  title: 'Components/Card/ThumbDetail',
+  title: 'Components/Cards/ThumbDetail',
   decorators: [withDesign],
   component: ThumbDetail,
   argTypes: {

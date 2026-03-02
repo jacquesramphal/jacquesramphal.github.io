@@ -2,7 +2,7 @@ import MyButton from "./Button.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {
-  title: "Components/Forms/Button",
+  title: "Components/Primitives/Button",
   component: MyButton,
   decorators: [withDesign],
   argTypes: {

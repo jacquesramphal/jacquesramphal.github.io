@@ -20,6 +20,7 @@
   <MyButton
     type="ghost"
     label="Toggle Theme"
+    :ariaLabel="userTheme === 'dark-theme' ? 'Switch to light theme' : 'Switch to dark theme'"
     @click="toggleTheme"
     class="animate glow delay-2"
     size="small"

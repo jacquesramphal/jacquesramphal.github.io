@@ -1,7 +1,7 @@
 import TextArea from "./TextArea.vue";
 
 export default {
-  title: "Components/Forms/TextArea",
+  title: "Components/Forms/Textarea",
   component: TextArea,
   argTypes: {
     id: { control: "text" },

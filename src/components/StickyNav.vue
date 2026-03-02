@@ -1,7 +1,7 @@
 <template>
   <GridContainer id="stickynav" class="navbar" :class="{ 'hidden-navbar': !showNavbar }">
     <div class="bg" style="background-color: var(--background)">
-      <nav class="">
+      <nav class="" aria-label="Main navigation">
         <li class="wordmark">
           <MyButton
             label="Jacques Ramphal"
