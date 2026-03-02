@@ -2,7 +2,7 @@
 
 # Ask Me Anything
 
-#### I'm Jacques, a Senior Product Designer and design lead based in Toronto. I work at the intersection of design systems, code, and AI—designing experiences that actually ship.
+#### I'm Jacques, a Design lead based in Toronto. I work at the intersection of design systems, code, and AI—designing experiences that actually ship.
 
 </br>
 
