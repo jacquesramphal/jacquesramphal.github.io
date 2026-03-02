@@ -11,6 +11,40 @@
 ## About Me
 
 <details>
+<summary>Who is Jacques Ramphal?</summary>
+
+I'm a Full Stack Design Lead based in Toronto, currently at Orium. For over a decade I've worked at the seam between design and engineering—designing systems, writing code, and lately, building with AI.
+
+What distinguishes me isn't a single skill. It's that I hold the full stack: sketch a concept, build it in Figma, implement it in React, document it in Storybook. I care about quality at every layer.
+
+Outside of work: a designer who thinks seriously about craft, sustainable pacing, and what it means to do good work without burning out.
+</details>
+
+<details>
+<summary>What does Jacques work on?</summary>
+
+My work lives in three overlapping areas:
+
+* **Design systems** — I architect token-based systems for enterprise teams. The goal is always the same: make it easier to do the right thing than the wrong thing.
+* **Agentic AI** — I led design on Genie, an internal orchestration platform at Orium that uses AI agents to automate routine work, surface risks, and consolidate context. That work forced me to think carefully about trust, transparency, and when automation helps vs. gets in the way.
+* **Design-to-development bridging** — I pair with engineers on implementation, write production code myself, and run design QA operations to close the gap between design intent and what actually ships.
+</details>
+
+<details>
+<summary>What does Jacques write about?</summary>
+
+I write about the edges where design gets complicated:
+
+* How AI changes the role of designers — *When UX Becomes AX*
+* Why design tokens are an underrated organizational strategy — *Design Tokens: The Unseen Hero*
+* What it looks like to find your niche without a map — *Finding My Lane in a Year of Uncertainty*
+* The future of design as a set of tensions, not destinations — *The Future of Design*
+* How strong quality baselines make QA less necessary — *The Best QA Is the One That Doesn't Have to Happen*
+
+I write to think clearly, not to perform authority.
+</details>
+
+<details>
 <summary>What kind of work do you actually do day to day?</summary>
 
 I lead design on projects where systems, code, and AI all have to line up.  

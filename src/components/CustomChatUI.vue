@@ -261,8 +261,8 @@ export default {
       type: Array,
       default: () => [
         'Who is Jacques Ramphal?',
-        "What is Jacques Ramphal's work?",
-        "What is Jacques Ramphal's writing?",
+        'What does Jacques work on?',
+        'What does Jacques write about?',
       ],
     },
     starterPromptFontSize: {
