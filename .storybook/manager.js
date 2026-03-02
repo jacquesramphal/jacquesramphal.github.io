@@ -10,10 +10,13 @@ addons.setConfig({
 });
 
 // Redirect to the Introduction story when no story path is set in the URL.
-// This makes the Intro page the effective "home" of the Storybook.
+// Uses URL() to stay on the current pathname so this works at any deploy path
+// (e.g. ramphal.design/storybook/ or localhost:6006/).
 if (typeof window !== 'undefined') {
   const params = new URLSearchParams(window.location.search);
   if (!params.has('path')) {
-    window.location.replace('/?path=/story/introduction--welcome');
+    const url = new URL(window.location.href);
+    url.searchParams.set('path', '/story/introduction--welcome');
+    window.location.replace(url.toString());
   }
 }
