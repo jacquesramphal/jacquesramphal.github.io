@@ -571,12 +571,17 @@ export default {
         this.fullscreenForcedByMobile = false;
       }
       this.syncFullscreenRootClass();
-      this.$nextTick(() => {
-        // Always focus the input when opening chat
-        if (this.$refs.inputRef) {
-          this.$refs.inputRef.focus();
-        }
-      });
+      if (!this.isMobile) {
+        this.$nextTick(() => {
+          try {
+            if (this.$refs.inputRef) {
+              this.$refs.inputRef.focus();
+            }
+          } catch (e) {
+            // iOS Safari blocks programmatic focus outside a synchronous gesture
+          }
+        });
+      }
     },
     closeChat() {
       this.isOpen = false;
@@ -591,9 +596,13 @@ export default {
       this.syncFullscreenRootClass();
       this.$nextTick(() => {
         this.scrollToBottom();
-        // Focus input when entering fullscreen
-        if (this.isFullscreen && this.$refs.inputRef) {
-          this.$refs.inputRef.focus();
+        // Focus input when entering fullscreen (desktop only — iOS blocks async focus)
+        if (this.isFullscreen && !this.isMobile && this.$refs.inputRef) {
+          try {
+            this.$refs.inputRef.focus();
+          } catch (e) {
+            // ignore
+          }
         }
       });
     },
