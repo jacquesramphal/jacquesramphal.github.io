@@ -109,7 +109,6 @@ import CustomChatUI from './components/CustomChatUI.vue';
 // import UnderConstructionBar from './components/UnderConstructionBar.vue';
 import { useRouter } from 'vue-router'; // Import Vue Router
 import { provide, ref } from 'vue';
-
 export default {
   name: 'App',
   components: {

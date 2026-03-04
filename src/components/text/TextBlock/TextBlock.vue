@@ -25,10 +25,10 @@
       rel="noopener noreferrer"
       class="title-link"
     >
-      <DynamicText :as="as" tabIndex="0" :text="title" :attrs="{ class: 'title' }" />
+      <DynamicText :as="as" :text="title" :attrs="{ class: 'title' }" />
     </a>
     <router-link v-else-if="title && titleRoute" :to="titleRoute" class="title-link">
-      <DynamicText :as="as" tabIndex="0" :text="title" :attrs="{ class: 'title' }" />
+      <DynamicText :as="as" :text="title" :attrs="{ class: 'title' }" />
     </router-link>
     <DynamicText
       v-else-if="title"
@@ -82,7 +82,6 @@ import MyButton from '../../Button/Button.vue';
 // import TextLink from "../TextLink.vue";
 import DynamicText from '../DynamicText.vue';
 import MyIcon from '../../Icon.vue';
-
 export default {
   name: 'TextBlock',
   components: {

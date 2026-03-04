@@ -44,6 +44,7 @@
     "markdown-loader": "^8.0.0",
     "marked": "^5.1.1",
     "marked-highlight": "^2.0.1",
+    "tactus": "^0.0.3",
     "vue": "^3.0.0",
     "vue-animate-transitions": "^1.1.2",
     "vue-burger-menu": "^2.0.5",

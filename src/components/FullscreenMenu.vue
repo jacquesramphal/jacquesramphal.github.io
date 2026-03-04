@@ -22,7 +22,6 @@
                       <DynamicText
                         class="text"
                         as="h1"
-                        tabIndex="0"
                         :attrs="{ class: '' }"
                         :text="item.text"
                       />
@@ -35,7 +34,6 @@
                       <DynamicText
                         class="text"
                         as="h1"
-                        tabIndex="0"
                         :attrs="{ class: '' }"
                         :text="item.text"
                       />

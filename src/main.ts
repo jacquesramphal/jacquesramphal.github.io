@@ -52,6 +52,15 @@ import NewsletterSubscription from "./components/form/NewsletterSubscription.vue
 
 import router from "./router";
 import { Directive, DirectiveBinding, VNode } from "vue";
+import { triggerHaptic } from "tactus";
+
+// Global haptic feedback on all interactive elements
+document.addEventListener("click", (e) => {
+  const target = (e.target as HTMLElement).closest("a, button");
+  if (target && !target.hasAttribute("disabled") && target.getAttribute("aria-disabled") !== "true") {
+    triggerHaptic();
+  }
+});
 
 // Define the custom directive
 const highlightjsDirective = {
