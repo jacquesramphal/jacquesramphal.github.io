@@ -17,7 +17,7 @@ function help() {
       "  smart-quotes [paths...] --check       # check only (exit 1 if changes needed)",
       "",
       "Options:",
-      "  --ext .vue,.md,.mdx                   # extensions to scan (default: .vue,.md,.mdx)",
+      "  --ext .vue,.md,.mdx,.json             # extensions to scan (default: .vue,.md,.mdx,.json)",
       "  --paths src,content                   # comma-separated roots (alternative to positional paths)",
       "  --stdin                               # read from stdin → stdout (string transform mode)",
       "  --attr                                # (stdin mode) preserve outer attribute quotes",
@@ -290,6 +290,37 @@ function processVueFile(filePath, source) {
   return { changed: output !== source, output, changeCount: edits.length };
 }
 
+function processJsonFile(source) {
+  let data;
+  try {
+    data = JSON.parse(source);
+  } catch {
+    return { changed: false, output: source, changeCount: 0 };
+  }
+
+  let changeCount = 0;
+
+  function walkValue(val) {
+    if (typeof val === "string") {
+      if (/^https?:\/\//.test(val)) return val;
+      const next = toSmartQuotes(val);
+      if (next !== val) changeCount += 1;
+      return next;
+    }
+    if (Array.isArray(val)) return val.map(walkValue);
+    if (val !== null && typeof val === "object") {
+      const out = {};
+      for (const [k, v] of Object.entries(val)) out[k] = walkValue(v);
+      return out;
+    }
+    return val;
+  }
+
+  const transformed = walkValue(data);
+  const output = JSON.stringify(transformed, null, 2) + "\n";
+  return { changed: output !== source, output, changeCount };
+}
+
 function walkFiles(startPath, opts) {
   const results = [];
   const stack = [startPath];
@@ -327,7 +358,7 @@ function runScanner() {
 
   const extArg = parseArgValue(argv, "--ext");
   const exts = new Set(
-    (extArg ? extArg.split(",") : [".vue", ".md", ".mdx"]).map((e) => e.trim().toLowerCase()).filter(Boolean)
+    (extArg ? extArg.split(",") : [".vue", ".md", ".mdx", ".json"]).map((e) => e.trim().toLowerCase()).filter(Boolean)
   );
 
   const pathsArg = parseArgValue(argv, "--paths");
@@ -359,7 +390,9 @@ function runScanner() {
         ? processVueFile(filePath, text)
         : ext === ".md" || ext === ".mdx"
           ? processMarkdownText(text)
-          : { changed: false, output: text, changeCount: 0 };
+          : ext === ".json"
+            ? processJsonFile(text)
+            : { changed: false, output: text, changeCount: 0 };
 
     if (!res.changed) continue;
 

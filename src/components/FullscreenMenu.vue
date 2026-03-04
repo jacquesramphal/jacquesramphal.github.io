@@ -188,7 +188,6 @@ body.menu-open {
   width: 100vw;
   height: 100vh;
   background-color: var(--background);
-  border-left: var(--border);
   box-shadow: var(--shadow-heavy);
   z-index: 1000;
   border-block-end: var(--border);
