@@ -10,7 +10,7 @@
           grid-template-columns: repeat(3, 1fr);
         "
       >
-        <TextBlock style="grid-column: 1 / 3" title="✰ Testimonials" as="h2" description="" />
+        <TextBlock style="grid-column: 1 / 3" title="✰ Kudos" as="h2" description="" />
 
         <div class="justify-end controls" style="align-self: end">
           <MyButton type="ghost" size="large" label="←" @click="prevQuote" route="" />

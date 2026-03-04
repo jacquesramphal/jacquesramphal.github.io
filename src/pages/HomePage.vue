@@ -60,12 +60,12 @@
       </GridParent>
     </GridContainer> -->
     <!-- WRITING SECTION - MOVED UP FOR PROMINENCE -->
-    <CardRow2 title="✐ Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
+    <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
 
     <!-- ABOUT SECTION -->
     <AnimatedComponent>
       <TextGrid3
-        title="➩ About"
+        title="About"
         as="h2"
         description=""
         eyebrow1=""
@@ -138,6 +138,7 @@
       title="Featured Products" 
       :products="featuredProducts"
     /> -->
+    <div class="vertical-wordmark" aria-hidden="true">Jacques Ramphal</div>
   </PageWrapper>
 </template>
 
@@ -391,5 +392,25 @@ export default {
 
 <style lang="scss">
 @media only screen and (min-width: 1201px) {
+}
+
+.vertical-wordmark {
+  position: fixed;
+  display: none;
+  inset-inline-start: var(--spacing-xs);
+  inset-block-start: var(--spacing-sm);
+  writing-mode: vertical-rl;
+  transform: rotate(270deg);
+  font-size: 2em;
+  font-weight: var(--fontWeight-normal, 400);
+  color: var(--foreground);
+  letter-spacing: 0.05em;
+  z-index: 10;
+  pointer-events: none;
+  user-select: none;
+
+  @media only screen and (max-width: 767px) {
+    display: none;
+  }
 }
 </style>
