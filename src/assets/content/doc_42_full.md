@@ -37,7 +37,7 @@ UX & AX Design Leader with 12+ years of experience delivering enterprise and con
 **Orium** · Toronto, ON · 2013 – Present
 
 *Agentic Systems & AX Lead for Delivery (Sep 2024 – Present)*
-- Lead the design and integration of agentic systems (AX) within Orium's delivery workflow, bridging UX, AI automation, and development to enhance team efficiency and design quality.
+- Lead the design and integration of agentic systems (AX) within Orium’s delivery workflow, bridging UX, AI automation, and development to enhance team efficiency and design quality.
 - Drive the evolution of agentic experience (AX) frameworks to accelerate delivery and support hybrid human–AI collaboration.
 - Lead cross-functional integration of GenAI and automation tools across design and development workflows.
 - Oversee design quality through scalable Design QA systems and front-end integration standards.

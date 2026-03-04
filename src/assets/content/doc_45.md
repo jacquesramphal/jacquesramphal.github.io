@@ -4,14 +4,14 @@
 
 ![Designers as Final Checkpoint](../images/placeholders/placeholder-02.svg)
 
-Designers don't just create intent.
+Designers don’t just create intent.
 We validate reality.
 
-There's a critical moment in every product cycle when something moves from concept to implementation. That moment is where design either maintains authority — or loses it.
+There’s a critical moment in every product cycle when something moves from concept to implementation. That moment is where design either maintains authority — or loses it.
 
-When designers act as the final checkpoint before release, they're not nitpicking pixels.
+When designers act as the final checkpoint before release, they’re not nitpicking pixels.
 
-They're protecting:
+They’re protecting:
 
 * The integrity of interaction.
 * The clarity of communication.
@@ -19,8 +19,8 @@ They're protecting:
 * The coherence of the system.
 
 Design approval is not aesthetic validation.
-It's experiential validation.
+It’s experiential validation.
 
 If design defines the experience, then design must confirm the experience.
 
-Ownership doesn't end at handoff.
+Ownership doesn’t end at handoff.

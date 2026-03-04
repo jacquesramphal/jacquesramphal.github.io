@@ -83,10 +83,10 @@ Add a new entry to the `entries` array with the following structure:
 ```
 
 **Valid `type` values:**
-- `"article"` - Writing/articles
-- `"tool"` - CLI tools/packages
-- `"case-study"` - Case studies (use full case study structure)
-- `"design-project"` - Design projects
+- `“article”` - Writing/articles
+- `“tool”` - CLI tools/packages
+- `“case-study”` - Case studies (use full case study structure)
+- `“design-project”` - Design projects
 
 **Additional fields for library.json:**
 - `tags` - Array of tag strings for filtering
@@ -117,8 +117,8 @@ If creating course/chapter content, add to `src/assets/data/chapters.json` inste
 
 #### Case Studies in Library
 Case studies in library.json use an extended structure with additional fields:
-- `variant` - Display variant (e.g., `"split"`)
-- `size` - Card size (e.g., `"large"`)
+- `variant` - Display variant (e.g., `“split”`)
+- `size` - Card size (e.g., `“large”`)
 - `bgcolor` - Background color
 - `imageVariant` - Image display style
 - `keypoints` - Array of key points
@@ -143,7 +143,7 @@ When creating a new doc page, Claude must:
 
 ## Example: Complete New Doc Creation
 
-**User Request:** "Create a new article about design principles"
+**User Request:** “Create a new article about design principles”
 
 **Claude Response:**
 

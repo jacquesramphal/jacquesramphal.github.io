@@ -1,15 +1,7 @@
 <template>
   <GridWrapper class="testimonial-carousel">
     <GridContainer class="quote-container">
-      <div class="controls">
-        <MyButton type="outline" size="small" label="←" @click="prevQuote" route=""></MyButton>
-        <MyButton type="outline" size="small" label="→" @click="nextQuote" route=""></MyButton>
-        <!-- <button @click="nextQuote">Next</button> -->
-        <!-- <div class="arrow left" @click="prevQuote">←</div>
-            <div class="arrow right" @click="nextQuote">→</div> -->
-      </div>
       <!-- HEADER COMPONENT START -->
-
       <div
         class="grid-parent"
         style="
@@ -18,16 +10,14 @@
           grid-template-columns: repeat(3, 1fr);
         "
       >
-        <!-- <TextBlock
-          eyebrow="Eyebrow"
-          style="grid-column: 1 / 3"
-          header="Testimonials"
-          description=""
-        /> -->
-        <!-- <p class="external justify-end" style="align-self: flex-end">
-          <router-link :to="{ name: 'Library' }">View All</router-link>
-        </p> -->
+        <TextBlock style="grid-column: 1 / 3" title="✰ Testimonials" as="h2" description="" />
+
+        <div class="justify-end controls" style="align-self: end">
+          <MyButton type="ghost" size="large" label="←" @click="prevQuote" route="" />
+          <MyButton type="ghost" size="large" label="→" @click="nextQuote" route="" />
+        </div>
       </div>
+
       <!-- HEADER COMPONENT END -->
 
       <!-- <transition class="" name="" mode="out-in"> -->

@@ -14,7 +14,7 @@
 
 
 
-This project wasn't a redesign. It was a systems problem — and it needed a systems solution.
+This project wasn’t a redesign. It was a systems problem — and it needed a systems solution.
 
 The client had a multi-display vehicle Human-Machine Interface (HMI) prototype that needed to scale across four brands, two themes, two modalities (touch and desktop), and three displays. The visual design existed in Figma. The code existed in React. And the two were drifting further apart every sprint — accelerated by AI tools generating whatever values they felt like.
 
@@ -28,7 +28,7 @@ My job was to build the bridge and enforce it.
 
 **Multi-brand duplication.** Four brand files. ~80% of the values identical across all of them. Updating a shared spacing value meant editing five files and hoping nothing was missed.
 
-**AI-generated "vibe code."** Cursor and Claude are fast. They're also happy to write `color: #ffffff` or `transition: all 0.3s ease` the moment you give them a component task. Without guardrails, AI development actively widens the design–code gap.
+**AI-generated “vibe code.”** Cursor and Claude are fast. They’re also happy to write `color: #ffffff` or `transition: all 0.3s ease` the moment you give them a component task. Without guardrails, AI development actively widens the design–code gap.
 
 **No persistent state.** The HMI reset on refresh. Every restart meant manually reconfiguring brand, theme, and display. It felt like a demo, not a platform.
 
@@ -38,7 +38,7 @@ The common thread: **no single source of truth, and no enforcement at the points
 
 ## Tokens as a Contract
 
-Design tokens are often treated as a designer's concern — a way to organize colors in Figma. I treated them differently: as the **contract** between Figma, code, and AI tooling.
+Design tokens are often treated as a designer’s concern — a way to organize colors in Figma. I treated them differently: as the **contract** between Figma, code, and AI tooling.
 
 The architecture:
 
@@ -274,8 +274,8 @@ for (const prop of expr.properties ?? []) {
 
 - Never use hex, px, or raw time values
 - Never add `var()` fallbacks
-- If a token doesn't exist for your use case, **stop** and use `TOKEN_REQUEST_TEMPLATE.md`
-- If a component doesn't exist, **stop** and use `COMPONENT_REQUEST_TEMPLATE.md`
+- If a token doesn’t exist for your use case, **stop** and use `TOKEN_REQUEST_TEMPLATE.md`
+- If a component doesn’t exist, **stop** and use `COMPONENT_REQUEST_TEMPLATE.md`
 
 The goal: AI generates token-compliant code by default, not by accident.
 
@@ -322,7 +322,7 @@ npm run lint:strict   # same, fails on any finding
 
 The client had two worlds: **Tap** (automotive touch-first HMI) and **Click** (desktop pointer). Different density, different states, different hit targets — but the same brand and motion vocabulary.
 
-What's shared:
+What’s shared:
 
 <table>
   <thead>
@@ -366,7 +366,7 @@ npm run tokens:audit:secondary -- \
   --out "/path/report.md"
 ```
 
-Output: a Markdown report showing "Already covered" vs "Missing — candidate to add." This gave us a defensible consolidation plan instead of a gut-feel merge.
+Output: a Markdown report showing “Already covered” vs “Missing — candidate to add.” This gave us a defensible consolidation plan instead of a gut-feel merge.
 
 
 
@@ -488,11 +488,11 @@ This made the system behave like a platform. State survived restarts. Demos stop
 
 
 
-> "Your influence on the team has been huge. We need someone who works the way you do — someone who loves designing enterprise interfaces in Cursor or Claude."
+> “Your influence on the team has been huge. We need someone who works the way you do — someone who loves designing enterprise interfaces in Cursor or Claude.”
 
-That sentiment landed differently when I heard it echoed by designers on the team. Several told me that working through this project had shifted how they approached their own work — that they could now open Claude or Cursor and feel confident contributing in ways they couldn't before. Not just using AI tools, but knowing when and how to direct them.
+That sentiment landed differently when I heard it echoed by designers on the team. Several told me that working through this project had shifted how they approached their own work — that they could now open Claude or Cursor and feel confident contributing in ways they couldn’t before. Not just using AI tools, but knowing when and how to direct them.
 
-That's what good systems work is supposed to do. The pipeline runs itself. The guardrails hold. And the people who worked alongside it leave with new instincts.
+That’s what good systems work is supposed to do. The pipeline runs itself. The guardrails hold. And the people who worked alongside it leave with new instincts.
 
 Build it right, and the team carries it forward — without you in the room.
 

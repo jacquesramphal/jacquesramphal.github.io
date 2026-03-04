@@ -25,7 +25,7 @@ Empowering technical users with precision, flexibility, and control for configur
 
 ## Problem
 
-OnLogic needed a platform tailored to technical users, including IT professionals, to handle the complexities of configuring customizable products. The existing legacy platform couldn't provide the precision, transparency, or scalability required to meet the needs of a global audience.
+OnLogic needed a platform tailored to technical users, including IT professionals, to handle the complexities of configuring customizable products. The existing legacy platform couldn’t provide the precision, transparency, or scalability required to meet the needs of a global audience.
 
 ## Solution
 
@@ -37,7 +37,7 @@ Migrated to a composable commerce architecture using commercetools, enabling OnL
 
 ## Outcome
 
-The platform empowered OnLogic's technical users with advanced customization options, seamless workflows, and real-time validation. Developers benefited from detailed design handoffs and modular implementation strategies. The scalable platform allows OnLogic to evolve its offerings to meet future needs.
+The platform empowered OnLogic’s technical users with advanced customization options, seamless workflows, and real-time validation. Developers benefited from detailed design handoffs and modular implementation strategies. The scalable platform allows OnLogic to evolve its offerings to meet future needs.
 
 ![Scalable and Modular Platform](../images/casestudy/onlogic/onlogic-3.png)
 
@@ -49,4 +49,4 @@ The platform empowered OnLogic's technical users with advanced customization opt
 
 Designing for technical users means earning trust through precision. Every real-time validation, every configuration state, every edge case accounted for was a signal that the platform understood its audience.
 
-The result was a commerce experience that felt less like a storefront and more like a professional tool — which, for OnLogic's customers, was exactly the point.
+The result was a commerce experience that felt less like a storefront and more like a professional tool — which, for OnLogic’s customers, was exactly the point.

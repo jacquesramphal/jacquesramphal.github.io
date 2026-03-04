@@ -37,7 +37,7 @@ Kum & Go aimed to redefine convenience for their customers by upgrading their di
 
 To achieve these goals, Kum & Go partnered with Orium to implement a flexible and scalable platform focusing on four key objectives: control over digital experience, increased customer engagement, more in-store purchases, and an extensible platform.
 
-Orium worked with Kum & Go to develop a React Native framework, leveraging Orium's React Native Accelerator for a faster, more efficient development process. Contentful's composable content platform was implemented for easy content management, and Typesense was used for search and product indexing. Paytronix was chosen to manage the loyalty program, providing comprehensive loyalty, promotions, and ordering capabilities. Integration with P97 enhanced Mobile Fuel Pay, allowing for prepaying gas and redeeming points at the pump.
+Orium worked with Kum & Go to develop a React Native framework, leveraging Orium’s React Native Accelerator for a faster, more efficient development process. Contentful’s composable content platform was implemented for easy content management, and Typesense was used for search and product indexing. Paytronix was chosen to manage the loyalty program, providing comprehensive loyalty, promotions, and ordering capabilities. Integration with P97 enhanced Mobile Fuel Pay, allowing for prepaying gas and redeeming points at the pump.
 
 ![React Native Framework and Composable Architecture](../images/casestudy/kg/kg-3.jpg)
 
@@ -57,6 +57,6 @@ Kum & Go plans to continue enhancing the mobile app and redesigning the web expe
 
 ## Reflection
 
-The K&G project wasn't just about shipping an app — it was about handing Kum & Go the controls to evolve their digital experience independently. The composable architecture meant that new features, promotions, and content could be managed without an external partner involved in every update.
+The K&G project wasn’t just about shipping an app — it was about handing Kum & Go the controls to evolve their digital experience independently. The composable architecture meant that new features, promotions, and content could be managed without an external partner involved in every update.
 
-The real measure of success wasn't the launch itself. It was building a platform that didn't need us anymore.
+The real measure of success wasn’t the launch itself. It was building a platform that didn’t need us anymore.

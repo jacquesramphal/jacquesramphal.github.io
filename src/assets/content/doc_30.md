@@ -2,20 +2,20 @@
 
 # Ask Me Anything
 
-#### I'm Jacques, a Full Stack Design Lead based in Toronto. I work at the intersection of design systems, code, and AI—designing experiences that actually ship.
+#### I’m Jacques, a Full Stack Design Lead based in Toronto. I work at the intersection of design systems, code, and AI—designing experiences that actually ship.
 
 </br>
 
-> **Need a quick answer?** Try the AI chatbot in the bottom right—it's trained on my entire site and can help you find specific information or answer questions about my work, experience, and approach.
+> **Need a quick answer?** Try the AI chatbot in the bottom right—it’s trained on my entire site and can help you find specific information or answer questions about my work, experience, and approach.
 
 ## About Me
 
 <details>
 <summary>Who is Jacques Ramphal?</summary>
 
-I'm a Full Stack Design Lead based in Toronto, currently at Orium. For over a decade I've worked at the seam between design and engineering—designing systems, writing code, and lately, building with AI.
+I’m a Full Stack Design Lead based in Toronto, currently at Orium. For over a decade I’ve worked at the seam between design and engineering—designing systems, writing code, and lately, building with AI.
 
-What distinguishes me isn't a single skill. It's that I hold the full stack: sketch a concept, build it in Figma, implement it in React, document it in Storybook. I care about quality at every layer.
+What distinguishes me isn’t a single skill. It’s that I hold the full stack: sketch a concept, build it in Figma, implement it in React, document it in Storybook. I care about quality at every layer.
 
 Outside of work: a designer who thinks seriously about craft, sustainable pacing, and what it means to do good work without burning out.
 </details>
@@ -39,7 +39,7 @@ I write about the edges where design gets complicated:
 * Why design tokens are an underrated organizational strategy — *Design Tokens: The Unseen Hero*
 * What it looks like to find your niche without a map — *Finding My Lane in a Year of Uncertainty*
 * The future of design as a set of tensions, not destinations — *The Future of Design*
-* How strong quality baselines make QA less necessary — *The Best QA Is the One That Doesn't Have to Happen*
+* How strong quality baselines make QA less necessary — *The Best QA Is the One That Doesn’t Have to Happen*
 
 I write to think clearly, not to perform authority.
 </details>

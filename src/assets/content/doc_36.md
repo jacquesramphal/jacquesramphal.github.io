@@ -24,7 +24,7 @@ This site demonstrates design system thinking in practice:
 
 - **Markdown Renderer**: Write in markdown, deploy with Git. The renderer handles hero images, syntax highlighting, tables, and responsive layouts automatically.
 - **Theme System**: CSS custom properties enable instant switching between light, dark, and system themes without rebuilding components.
-- **Variable Typography**: Single font file with contextual variations—wider for headings, optimized for body text, all from Epilogue's variable font axes.
+- **Variable Typography**: Single font file with contextual variations—wider for headings, optimized for body text, all from Epilogue’s variable font axes.
 - **AI Assistant**: Content-aware chatbot trained on site content, providing conversational navigation and contextual help.
 
 ---

@@ -1,17 +1,27 @@
 <template>
   <PageWrapper>
+    <HeroBanner end id="hero" class="display" :title="title" />
     <!-- <HeroAnimated2 /> -->
     <!-- <GridWrapper motif1> -->
     <!-- ^ motif not working -->
     <!-- style="background: var(--color-yellow)" -->
 
-    <HeroBanner
+    <!-- <HeroBanner
       fullvh
       end
       id="hero"
       class="display"
       title="I design systems, <br> write the code, and ship the thing."
     />
+    <HeroBanner
+      fullvh
+      end
+      id="hero"
+      class="display"
+      title="I’m <em data-text=’Jacques’>Jacques</em>—I design systems, write the code, and ship it."
+    /> -->
+
+    <!-- title="Head of Design. I build AI agents, turn designers into unicorns, and ship the thing. Call me <em>Jake</em>." -->
 
     <!-- <HeroBanner fullvh end id="hero" class="display">
       <template #title>
@@ -50,16 +60,16 @@
       </GridParent>
     </GridContainer> -->
     <!-- WRITING SECTION - MOVED UP FOR PROMINENCE -->
-    <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
+    <CardRow2 title="✐ Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
 
     <!-- ABOUT SECTION -->
     <AnimatedComponent>
       <TextGrid3
-        title="About"
+        title="➩ About"
         as="h2"
         description=""
         eyebrow1=""
-        :detail1="`Full Stack Design Lead in Toronto. For ${careerYears} years at Orium, I’ve built the practices and systems that close the gap between design intent and implementation.<br/><br/>I architect token-based design systems, design agentic AI workflows, and write about quality, systems, and sustainable delivery. I still code my own designs and mentor designers into developers.`"
+        :detail1="`Head of Design at Orium, Toronto. For ${careerYears} years I’ve been closing the gap between design and engineering—building token-based design systems, shipping production code, and designing AI-native products from scratch.<br/><br/>I build AI agents and lead workshops on Agentic Experience (AX) Design, helping companies move past AI hype and into real, user-centred AI products. I also turn designers into unicorns—people who think in systems, write production code, and own the full delivery stack.`"
         route="/doc/ask-me-anything"
         label="Learn More"
       />
@@ -193,12 +203,36 @@ export default {
       work,
       // contentful: [],
       titles: [
-        // "Full-stack Designer & Generalist",
-        // "Front-end Designer exploring the intersection between design and development",
-        // "I&#x2019;m a Sr. Product Design Developer",
-        'Staff Product Design Developer with a passion for cross-skill. Check out my work, and tools I use.',
-        // "I&#x2019;m a Sr. Design Integration Manager",
-        "I'm a Staff Product Design Developer with a passion for cross-skill. Check out my work, and tools I use.",
+        'Head of Design. I design, code, and ship before the meeting ends.',
+        'Full-stack Designer. Recovering Generalist. Still relapses into CSS at 11pm.',
+        'I turned the design-dev gap into a job description. Then I hired myself.',
+        'I speak Designer and Developer. Fluently. Simultaneously.',
+        'Exploring the intersection of design and dev. I live there now.',
+        'I build AI agents so I have someone to delegate to.',
+        'Companies say \u201cAI-first.\u201d I ask \u201cAI for what?\u201d Then we build the actual thing.',
+        'I turn designers into developers. They\u2019re still mad about it.',
+        'My keyboard lagged. I had a moment. We\u2019re both fine.',
+        'Designer? Developer? My business card just says \u201cyes.\u201d',
+        'HR doesn\u2019t know what to call me. I\u2019ve stopped explaining.',
+        'I filed a bug against my own design. Fixed it before standup.',
+        'My Figma file has a \u201cfor devs\u201d section. I wrote both sides.',
+        'I have 47 browser tabs open. Two of them are me.',
+        'Part designer. Part developer. Part therapist for both teams.',
+        'I shipped the thing and then redesigned it. Twice.',
+        'I Figma by day. I git push by night. My sleep schedule is a design decision.',
+        'I once argued with a developer about spacing. I was both of us.',
+        'I write the ticket, design the solution, and close the PR.',
+        'I built AI tools to handle the boring parts of design. It\u2019s better at them than I was.',
+        'I have strong opinions about design tokens. You\u2019ve been warned.',
+        'I attend the design sync and the sprint planning. I bring snacks to both.',
+        'My standup answer depends on which hat I\u2019m wearing.',
+        'I review my own PRs. It\u2019s a whole thing.',
+        'I ship the design and the code in the same PR. The commit message is always too honest.',
+        'I once redesigned something mid-sprint. No regrets.',
+        'I made a design system. Then I made it again, better.',
+        'I asked \u201cbut does it scale?\u201d in the design review. The developers stared. I stared back.',
+        'I wrote the component. Then critiqued my own spacing.',
+        'I closed the gap between design and dev. Now I am the gap.',
       ],
       title: '',
       featuredProducts: [
@@ -243,12 +277,18 @@ export default {
     },
   },
   created() {
-    this.title = this.getRandomTitle();
+    this.title = this.getNextTitle();
   },
   methods: {
-    getRandomTitle() {
-      const randomIndex = Math.floor(Math.random() * this.titles.length);
-      return this.titles[randomIndex];
+    getNextTitle() {
+      const lastIndex = parseInt(localStorage.getItem('lastTitleIndex') ?? '-1');
+      const nextIndex = (lastIndex + 1) % this.titles.length;
+      localStorage.setItem('lastTitleIndex', nextIndex);
+      return this.preventOrphans(this.titles[nextIndex]);
+    },
+    preventOrphans(text) {
+      // Bind single-char words (I, A) to the next word so they never strand alone at line end
+      return text.replace(/\b([IA])\s(?=[A-Za-z])/g, '$1\u00A0');
     },
   },
   components: {

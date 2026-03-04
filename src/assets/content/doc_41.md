@@ -4,7 +4,7 @@
 ## Designed for Everyone
 
 
-This site is built with accessibility in mind. While no site is perfect, I'm committed to making this portfolio usable by as many people as possible.
+This site is built with accessibility in mind. While no site is perfect, I’m committed to making this portfolio usable by as many people as possible.
 
 ## Current Features
 
@@ -31,7 +31,7 @@ Content adapts to different screen sizes, zoom levels, and device types without 
 
 ## Ongoing Improvements
 
-Accessibility is a continuous practice. I'm working on:
+Accessibility is a continuous practice. I’m working on:
 - Enhanced ARIA labels and descriptions
 - Improved color contrast in all themes
 - Better image alt text
@@ -52,7 +52,7 @@ Contact: [jacques@ramphal.design](mailto:jacques@ramphal.design)
 
 ## Standards and Guidelines
 
-This site aims to meet WCAG 2.1 Level AA standards. Accessibility is an evolving practice, and I'm committed to continuous improvement.
+This site aims to meet WCAG 2.1 Level AA standards. Accessibility is an evolving practice, and I’m committed to continuous improvement.
 
 ---
 

@@ -3,7 +3,7 @@
 ## Context
 
 The portfolio site currently uses Vue CLI with Webpack 5, which has several limitations:
-- **Build Performance**: Slower than Vite's instant HMR and faster builds
+- **Build Performance**: Slower than Vite’s instant HMR and faster builds
 - **Plugin Compatibility**: Already encountered issues with prerender-spa-plugin
 - **Developer Experience**: Vite offers superior DX with near-instant server start
 - **Modern Tooling**: Vite is the recommended build tool for Vue 3 projects
@@ -109,7 +109,7 @@ export function getImageUrl(path) {
 
 **Vite Solution:**
 - Markdown: Use `vite-plugin-md` or `@vueuse/markdown`
-- SVG: Use `vite-svg-loader` or Vite's native SVG handling
+- SVG: Use `vite-svg-loader` or Vite’s native SVG handling
 
 ---
 
@@ -144,7 +144,7 @@ Global search/replace + `.env` file update
 ```
 
 **Vite Solution:**
-Replace with absolute path or use Vite's asset handling:
+Replace with absolute path or use Vite’s asset handling:
 ```html
 <link rel="icon" href="/fav-dynamic.svg" />
 ```
@@ -214,7 +214,7 @@ Replace with absolute path or use Vite's asset handling:
 **Steps:**
 1. Install Vite and core plugins
 2. Create basic `vite.config.ts`
-3. Add Vite dev script: `"dev:vite": "vite"`
+3. Add Vite dev script: `“dev:vite”: “vite”`
 4. Test basic Vue 3 + Router functionality
 5. Keep existing Webpack setup intact
 
@@ -405,13 +405,13 @@ resolve: {
 
 ### **1. All Dynamic Image Loading (19+ instances)**
 - **Current:** `require(\`../images/${filename}\`)`
-- **Breaks:** Vite doesn't support dynamic require()
+- **Breaks:** Vite doesn’t support dynamic require()
 - **Fix:** Refactor to `import.meta.glob()` with mapping function
 
 ### **2. Markdown File Loading (2 files)**
 - **Current:** `require.context()` for .md files
 - **Breaks:** Webpack API not available
-- **Fix:** Use `import.meta.glob()` with `{ as: 'raw' }`
+- **Fix:** Use `import.meta.glob()` with `{ as: ‘raw’ }`
 
 ### **3. SVG Inline Processing**
 - **Current:** `vue-svg-inline-loader` in webpack config
@@ -420,7 +420,7 @@ resolve: {
 
 ### **4. Build Scripts**
 - **Current:** `vue-cli-service serve/build`
-- **Breaks:** Vue CLI commands won't exist
+- **Breaks:** Vue CLI commands won’t exist
 - **Fix:** Update to `vite` and `vite build`
 
 ### **5. Environment Variables**
@@ -430,7 +430,7 @@ resolve: {
 
 ### **6. BASE_URL in Templates**
 - **Current:** `<%= BASE_URL %>` (EJS syntax)
-- **Breaks:** Vite doesn't use EJS templating
+- **Breaks:** Vite doesn’t use EJS templating
 - **Fix:** Use plain `/` or environment variable
 
 ---
@@ -638,7 +638,7 @@ pnpm build-storybook
 
 ## Final Migration Strategy
 
-Based on your preferences, here's the **incremental, low-risk migration plan**:
+Based on your preferences, here’s the **incremental, low-risk migration plan**:
 
 ### **Step 1: Create Migration Branch**
 ```bash
@@ -737,7 +737,7 @@ export default defineConfig({
 
 **Validation:**
 - Run `pnpm dev:vite`
-- Check if basic pages load (may have broken images initially - that's expected)
+- Check if basic pages load (may have broken images initially - that’s expected)
 - Verify no compilation errors
 
 ---
@@ -1135,4 +1135,4 @@ This migration is **definitely achievable** but requires careful execution due t
 - Roll back easily if issues arise
 - Learn Vite patterns gradually
 
-**Total effort:** 3-4 focused days when you're ready to execute.
+**Total effort:** 3-4 focused days when you’re ready to execute.

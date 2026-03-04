@@ -24,7 +24,7 @@ Human oversight remains essential — not because tools are weak, but because ju
 
 The future of quality is not manual vs. automated.
 
-It's:
+It’s:
 
 * Machines for detection.
 * Humans for discernment.

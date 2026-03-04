@@ -54,7 +54,7 @@
                     alt="Jacques Ramphal"
                   />
                 </router-link> -->
-                <h5 class="subtle chat-header-title">Let's Chat</h5>
+                <h5 class="subtle chat-header-title">Let’s Chat</h5>
               </div>
               <ul class="chat-nav-links">
                 <li v-if="allowFullscreen && !isMobile">

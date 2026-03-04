@@ -359,8 +359,8 @@ $spacing-lg: var(--spacing-lg);
 $spacing-sm: var(--spacing-sm);
 
 #wrapper {
-  // border-block-start: var(--border);
-  background: var(--background-darker);
+  border-block-start: var(--border);
+  //  background: var(--background-darker);
   // padding-block-end: $spacing-lg;
   @media only screen and (min-width: 1201px) {
     padding-block-end: inherit;

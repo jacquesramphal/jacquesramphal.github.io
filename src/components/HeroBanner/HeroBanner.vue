@@ -256,7 +256,7 @@ img {
   z-index: 1000;
   @media only screen and (min-width: 1201px) {
     margin-block-start: none;
-    max-width: 75vw;
+    max-width: 85vw;
   }
   span {
     grid-column: span 3;
