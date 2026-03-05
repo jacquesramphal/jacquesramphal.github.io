@@ -1,5 +1,12 @@
 <template>
   <AnimatedComponent>
+    <Teleport to="body">
+      <Transition name="toast">
+        <div v-if="toast.visible" class="app-toast" role="status" aria-live="polite">
+          <p class="reversed">{{ toast.message }}</p>
+        </div>
+      </Transition>
+    </Teleport>
     <GridWrapper id="wrapper" class="">
       <GridContainer>
         <GridParent
@@ -88,47 +95,46 @@
               >
             </p>
             <div class="utility-controls">
-              <SelectorCta
-                v-model="showThemeMenu"
-                class="theme-selector"
-                :label="currentThemeLabel"
-                align="end"
-                placement="top-end"
+              <button
+                class="config-btn"
+                :class="{ 'is-active': true }"
+                @click="cycleTheme"
+                :aria-label="`Theme: ${currentThemeLabel}`"
+                :title="`Theme: ${currentThemeLabel}`"
               >
-                <template #icon>
-                  <span class="theme-icon" v-html="themeIconSvg"></span>
-                </template>
-                <template #menu="{ close }">
-                  <button
-                    v-for="option in themeOptions"
-                    :key="option.value"
-                    class="selector-item theme-option"
-                    :class="{ active: currentTheme === option.value }"
-                    @click.stop="
-                      selectTheme(option.value);
-                      close();
-                    "
-                  >
-                    <span
-                      class="theme-dot"
-                      :class="{ active: currentTheme === option.value }"
-                      aria-hidden="true"
-                    />
-                    {{ option.label }}
-                  </button>
-                </template>
-              </SelectorCta>
-              <!-- <div class="font-selector" @click.stop>
-                <button
-                  class="font-button"
-                  @click.stop="toggleFont"
-                  :aria-pressed="isSerifFont"
-                  aria-label="Toggle font"
-                >
-                  <span class="font-icon"><strong>Aa</strong></span>
-                  <span class="font-label">Font</span>
-                </button>
-              </div> -->
+                <span class="config-btn__icon" v-html="themeIconSvg"></span>
+              </button>
+              <button
+                class="config-btn"
+                :class="{ 'is-active': isSerifFont }"
+                @click="toggleFont"
+                :aria-pressed="String(isSerifFont)"
+                aria-label="Toggle font"
+                title="Font"
+              >
+                <span class="config-btn__icon config-btn__icon--text">Aa</span>
+              </button>
+              <button
+                v-if="isTouchDevice"
+                class="config-btn"
+                :class="{ 'is-active': hapticEnabled }"
+                @click="toggleHaptic"
+                :aria-pressed="String(hapticEnabled)"
+                aria-label="Toggle haptic feedback"
+                title="Haptic"
+              >
+                <span class="config-btn__icon" v-html="hapticIconSvg"></span>
+              </button>
+              <button
+                class="config-btn"
+                :class="{ 'is-active': soundEnabled }"
+                @click="toggleSound"
+                :aria-pressed="String(soundEnabled)"
+                aria-label="Toggle sound"
+                title="Sound"
+              >
+                <span class="config-btn__icon" v-html="soundIconSvg"></span>
+              </button>
             </div>
           </div>
         </GridParent>
@@ -172,7 +178,6 @@ import TextBlock from './text/TextBlock/TextBlock.vue';
 import AnimatedComponent from './AnimatedComponent.vue';
 import TextLink from './text/TextLink.vue';
 import GridParent from './grid/GridParent.vue';
-import SelectorCta from './Button/SelectorCta.vue';
 import DynamicText from './text/DynamicText.vue';
 // import TextArea from "@/components/form/TextArea.vue";
 // import MyButton from "@/components/Button/Button.vue";
@@ -186,7 +191,6 @@ export default {
     AnimatedComponent,
     TextLink,
     GridParent,
-    SelectorCta,
     DynamicText,
   },
   props: {
@@ -223,19 +227,24 @@ export default {
 
       now: new Date(),
       ticker: null,
+      toast: { message: '', visible: false, timer: null },
       currentTheme: 'system',
-      showThemeMenu: false,
       themeOptions: [
         { label: 'Light', value: 'light-theme' },
         { label: 'Dark', value: 'dark-theme' },
         { label: 'System', value: 'system' },
       ],
       isSerifFont: false,
+      hapticEnabled: true,
+      soundEnabled: false,
       mediaQuery: null,
       fontCheckbox: null,
     };
   },
   computed: {
+    isTouchDevice() {
+      return navigator.maxTouchPoints > 0;
+    },
     currentYear() {
       return this.now.getFullYear();
     },
@@ -269,6 +278,27 @@ export default {
         return systemSvg;
       }
       return this.currentTheme === 'dark-theme' ? darkSvg : lightSvg;
+    },
+    hapticIconSvg() {
+      return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4.75" y="2.75" width="6.5" height="10.5" rx="1.25" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="1.75" y1="5" x2="1.75" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="14.25" y1="5" x2="14.25" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>`;
+    },
+    soundIconSvg() {
+      if (this.soundEnabled) {
+        return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 6.25H4.75L8.75 3.25v9.5L4.75 9.75H2V6.25Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M11 5.5c1.2 0.9 1.2 4.1 0 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M12.5 3.5c2.2 1.8 2.2 7.2 0 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>`;
+      }
+      return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 6.25H4.75L8.75 3.25v9.5L4.75 9.75H2V6.25Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        <line x1="11" y1="5.5" x2="14.5" y2="10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="14.5" y1="5.5" x2="11" y2="10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>`;
     },
   },
   mounted() {
@@ -306,6 +336,9 @@ export default {
       this.isSerifFont = true;
       this.fontCheckbox.checked = true;
     }
+
+    this.hapticEnabled = localStorage.getItem('user-haptic') !== 'off';
+    this.soundEnabled = localStorage.getItem('user-sound') === 'on';
   },
   beforeUnmount() {
     clearInterval(this.ticker);
@@ -318,10 +351,61 @@ export default {
     }
   },
   methods: {
+    playConfigSound() {
+      if (localStorage.getItem('user-sound') !== 'on') return;
+      try {
+        const AudioCtx = window.AudioContext || window['webkitAudioContext'];
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.type = 'sine';
+        osc.frequency.value = 600;
+        gain.gain.setValueAtTime(0.04, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.08);
+        osc.onended = () => ctx.close();
+      } catch (e) {
+        // ignore AudioContext errors
+      }
+    },
+    showToast(message) {
+      clearTimeout(this.toast.timer);
+      this.toast.message = message;
+      this.toast.visible = true;
+      this.playConfigSound();
+      this.toast.timer = setTimeout(() => {
+        this.toast.visible = false;
+      }, 2000);
+    },
+    cycleTheme() {
+      const order = ['system', 'light-theme', 'dark-theme'];
+      const next = order[(order.indexOf(this.currentTheme) + 1) % order.length];
+      this.selectTheme(next);
+    },
     selectTheme(theme) {
       this.currentTheme = theme;
       localStorage.setItem('user-theme', theme);
       this.applyTheme();
+      const labels = {
+        'light-theme': 'Light mode',
+        'dark-theme': 'Dark mode',
+        system: 'System theme',
+      };
+      this.showToast(labels[theme]);
+    },
+    toggleHaptic() {
+      this.hapticEnabled = !this.hapticEnabled;
+      localStorage.setItem('user-haptic', this.hapticEnabled ? 'on' : 'off');
+      this.showToast(this.hapticEnabled ? 'Haptics on' : 'Haptics off');
+    },
+    toggleSound() {
+      this.soundEnabled = !this.soundEnabled;
+      localStorage.setItem('user-sound', this.soundEnabled ? 'on' : 'off');
+      this.showToast(this.soundEnabled ? 'Sound on' : 'Sound off');
     },
     applyTheme() {
       if (this.currentTheme === 'system') {
@@ -345,8 +429,8 @@ export default {
       if (this.fontCheckbox) {
         this.fontCheckbox.checked = this.isSerifFont;
       }
-      // Save preference
       localStorage.setItem('user-font', this.isSerifFont ? 'serif' : 'sans');
+      this.showToast(this.isSerifFont ? 'Serif font' : 'Sans-serif font');
     },
   },
 };
@@ -362,6 +446,9 @@ $spacing-sm: var(--spacing-sm);
   border-block-start: var(--border);
   //  background: var(--background-darker);
   // padding-block-end: $spacing-lg;
+  @media only screen and (max-width: 768px) {
+    padding-block-end: var(--spacing-lg);
+  }
   @media only screen and (min-width: 1201px) {
     padding-block-end: inherit;
   }
@@ -415,11 +502,13 @@ li.external a::after {
   }
 }
 #content {
+  grid-template-columns: repeat(2, 1fr);
   @media only screen and (min-width: 768px) {
     padding-inline-end: var(--spacing-lg);
   }
   @media only screen and (min-width: 1201px) {
     grid-column: span 2;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 .footer-utility {
@@ -463,79 +552,63 @@ li.external a::after {
 .utility-controls {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
-  flex-wrap: wrap;
+  gap: var(--spacing-xxs);
   flex: 0 0 auto;
-  margin-inline-start: 0;
-  padding-inline-start: 0;
-
-  @media only screen and (max-width: 767px) {
-    margin-inline-start: 0;
-    padding-inline-start: 0;
-  }
 }
 
-.theme-selector {
-  position: relative;
-  display: inline-block;
-  margin-inline-start: 0;
-  padding-inline-start: 0;
-
-  @media only screen and (max-width: 767px) {
-    margin-inline-start: 0;
-    padding-inline-start: 0;
-  }
-}
-
-.theme-icon {
-  width: 16px;
-  height: 16px;
+.config-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-
-  svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-}
-
-.theme-option {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  width: 100%;
-  padding: var(--spacing-xs) var(--spacing-sm);
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
   background: transparent;
-  border: none;
-  text-align: start;
-  cursor: pointer;
-  font-size: var(--font-400);
+  border: 1px solid transparent;
+  border-radius: var(--spacing-xxs);
   color: var(--foreground);
-  transition: background 0.1s;
+  cursor: pointer;
+  opacity: 0.35;
+  transition:
+    opacity 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
 
   &:hover {
+    opacity: 1;
     background: var(--background-darker);
+    border-color: transparent;
   }
 
-  &.active {
-    background: var(--background-darker);
+  &:active {
+    transform: scale(0.92);
+  }
+
+  &.is-active {
+    opacity: 1;
   }
 }
 
-.theme-dot {
-  inline-size: 6px;
-  block-size: 6px;
-  border-radius: 999px;
-  background: var(--link);
-  opacity: 0;
-  flex: 0 0 6px;
-}
+.config-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
 
-.theme-dot.active {
-  opacity: 1;
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &--text {
+    font-size: var(--font-400);
+    font-weight: var(--fontWeight-bold);
+    width: auto;
+    height: auto;
+    font-style: normal;
+  }
 }
 
 // #avatar {
@@ -619,5 +692,50 @@ li.external a::after {
 
 .font-label {
   font-size: var(--font-400);
+}
+</style>
+
+<style lang="scss">
+.app-toast {
+  position: fixed;
+  top: var(--spacing-md);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  background: var(--foreground);
+  color: var(--background);
+  font-size: var(--font-400);
+  padding: var(--spacing-xxs) var(--spacing-sm);
+  border-radius: var(--spacing-xxs);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+.toast-enter-active,
+.toast-leave-active {
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.toast-enter-from {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-6px);
+}
+
+.toast-enter-to {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast-leave-from {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast-leave-to {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-6px);
 }
 </style>

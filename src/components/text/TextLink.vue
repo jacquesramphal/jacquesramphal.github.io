@@ -10,7 +10,7 @@
         :url="iconurl"
         :unicode="unicode"
       />
-      {{ label }}
+      <component :is="as">{{ label }}</component>
     </router-link>
     <a
       :class="classes"
@@ -29,7 +29,7 @@
         :url="iconurl"
         :unicode="unicode"
       />
-      <span class="label-text">{{ label }}</span>
+      <component :is="as" class="label-text">{{ label }}</component>
     </a>
     <a :class="classes" v-else target="_blank" @click="onClick">
       <MyIcon
@@ -41,7 +41,7 @@
         :url="iconurl"
         :unicode="unicode"
       />
-      {{ label }}
+      <component :is="as">{{ label }}</component>
       <MyIcon
         v-if="iconRight || unicodeRight"
         :style="{ 'margin-inline-start': iconsize / 2 + 'px' }"
@@ -98,6 +98,10 @@ export default {
     },
     unicodeRight: {
       type: String,
+    },
+    as: {
+      type: String,
+      default: 'p',
     },
     // Override props
     large: {

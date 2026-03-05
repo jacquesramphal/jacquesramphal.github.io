@@ -39,9 +39,19 @@
             class="content"
             :markdown="processedMarkdown"
             @headings="updateHeadings"
-            @image-click="(src) => { lightboxSrc = src; lightboxOpen = true; }"
+            @image-click="
+              (src) => {
+                lightboxSrc = src;
+                lightboxOpen = true;
+              }
+            "
           />
-          <FullscreenImage v-if="lightboxOpen" :isOpen="lightboxOpen" :imageSrc="lightboxSrc" @close="lightboxOpen = false" />
+          <FullscreenImage
+            v-if="lightboxOpen"
+            :isOpen="lightboxOpen"
+            :imageSrc="lightboxSrc"
+            @close="lightboxOpen = false"
+          />
           <div class="markdown-share">
             <button @click="handlePrint" class="print-button" aria-label="Print page">
               <span class="print-button__icon">
@@ -777,8 +787,8 @@ export default {
     // Computed properties for related content
     const relatedTitle = computed(() => {
       const typeMap = {
-        article: 'Related Articles',
-        'case-study': 'Related Case Studies',
+        article: 'Related',
+        'case-study': 'Related',
         tool: 'Related Tools',
       };
       return typeMap[currentDocType.value] || 'Related Writing';

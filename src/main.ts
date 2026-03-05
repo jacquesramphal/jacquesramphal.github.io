@@ -54,11 +54,47 @@ import router from "./router";
 import { Directive, DirectiveBinding, VNode } from "vue";
 import { triggerHaptic } from "tactus";
 
-// Global haptic feedback on all interactive elements
+const isTouchDevice = () => navigator.maxTouchPoints > 0;
+
+// Global haptic feedback — mobile only, respects user toggle
 document.addEventListener("click", (e) => {
+  if (!isTouchDevice()) return;
+  if (localStorage.getItem("user-haptic") === "off") return;
   const target = (e.target as HTMLElement).closest("a, button");
   if (target && !target.hasAttribute("disabled") && target.getAttribute("aria-disabled") !== "true") {
     triggerHaptic();
+  }
+});
+
+// Global sound feedback — respects user toggle
+const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+let audioCtx: AudioContext | null = null;
+
+const playClickSound = () => {
+  try {
+    if (!AudioCtx) return;
+    if (!audioCtx) audioCtx = new AudioCtx();
+    if (audioCtx.state === "suspended") audioCtx.resume();
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.type = "sine";
+    osc.frequency.value = 600;
+    gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.08);
+  } catch (e) {
+    // ignore AudioContext errors
+  }
+};
+
+document.addEventListener("click", (e) => {
+  if (localStorage.getItem("user-sound") !== "on") return;
+  const target = (e.target as HTMLElement).closest("a, button");
+  if (target && !target.hasAttribute("disabled") && target.getAttribute("aria-disabled") !== "true") {
+    playClickSound();
   }
 });
 

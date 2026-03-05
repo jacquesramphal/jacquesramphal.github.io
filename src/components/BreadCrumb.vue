@@ -3,7 +3,7 @@
     <!-- Home Link -->
     <TextLink
       class="nav-item"
-      :class="{ 'active': isHome }"
+      :class="{ active: isHome }"
       label="Jacques Ramphal"
       route="/"
       :isSvg="false"
@@ -21,12 +21,7 @@
 
     <!-- Dynamic Breadcrumb Trail -->
     <template v-if="!isHome">
-      <DynamicText
-        v-show="isDesktopScreen"
-        :as="p"
-        text="/"
-        style="line-height: inherit"
-      />
+      <DynamicText v-show="isDesktopScreen" :as="p" text="/" style="line-height: inherit" />
 
       <TextLink
         v-if="isLibraryOrDeeper"
@@ -62,22 +57,19 @@
 import workData from '../assets/data/work.json';
 import DynamicText from '../components/text/DynamicText.vue';
 import TextLink from '../components/text/TextLink.vue';
-import {
-  getDocRecordById,
-  isNumericRouteParam,
-} from "@/utils/docRegistry";
+import { getDocRecordById, isNumericRouteParam } from '@/utils/docRegistry';
 export default {
-  name: "BreadCrumb",
+  name: 'BreadCrumb',
   components: { DynamicText, TextLink },
   props: {
     isDesktopScreen: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
-      pageTitle: ''
+      pageTitle: '',
     };
   },
   computed: {
@@ -89,12 +81,11 @@ export default {
     },
     isLibraryOrDeeper() {
       // Show Library in breadcrumb for library page and all doc pages
-      return this.$route?.path?.startsWith('/library') ||
-             this.$route?.path?.startsWith('/doc/');
+      return this.$route?.path?.startsWith('/library') || this.$route?.path?.startsWith('/doc/');
     },
     isProjectOrDoc() {
       return this.$route?.meta?.dynamicTitle || !!this.$route?.meta?.title;
-    }
+    },
   },
   async created() {
     if (this.$route) {
@@ -102,21 +93,24 @@ export default {
     }
   },
   watch: {
-    '$route': {
+    $route: {
       immediate: true,
       deep: true,
       async handler(newRoute, oldRoute) {
         if (newRoute) {
           // Only update if route path or params changed
-          if (!oldRoute || newRoute.path !== oldRoute.path || 
-              JSON.stringify(newRoute.params) !== JSON.stringify(oldRoute?.params)) {
+          if (
+            !oldRoute ||
+            newRoute.path !== oldRoute.path ||
+            JSON.stringify(newRoute.params) !== JSON.stringify(oldRoute?.params)
+          ) {
             // Wait for route to be fully updated
             await this.$nextTick();
             await this.updatePageTitle();
           }
         }
-      }
-    }
+      },
+    },
   },
   methods: {
     // Convert kebab-case to readable format with spaces and capitalize all words (Title Case)
@@ -126,7 +120,7 @@ export default {
       const words = slug.split('-');
 
       // Capitalize first letter of each word (Title Case)
-      const capitalizedWords = words.map(word => {
+      const capitalizedWords = words.map((word) => {
         if (!word) return word;
         return word.charAt(0).toUpperCase() + word.slice(1);
       });
@@ -147,13 +141,11 @@ export default {
         this.pageTitle = this.$route.meta.title;
       } else if (this.$route.path.startsWith('/work/')) {
         const workId = parseInt(this.$route.params.id);
-        const work = workData.entries.find(entry => entry.id === workId);
+        const work = workData.entries.find((entry) => entry.id === workId);
         this.pageTitle = work ? work.title : 'Work';
       } else if (this.$route.path.startsWith('/doc/')) {
         // Use the slug directly from the route for cleaner breadcrumbs
-        const param = (this.$route.params.slug || this.$route.params.id || "")
-          .toString()
-          .trim();
+        const param = (this.$route.params.slug || this.$route.params.id || '').toString().trim();
 
         if (!param) {
           this.pageTitle = 'document';
@@ -175,8 +167,8 @@ export default {
       } else {
         this.pageTitle = '';
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

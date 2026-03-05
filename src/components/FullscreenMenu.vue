@@ -224,11 +224,11 @@ body.menu-open {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
-// Content container that aligns to bottom when short, scrolls when tall
+// Content container
 .menu-content {
-  margin-top: auto;
   width: 100%;
 
   nav {

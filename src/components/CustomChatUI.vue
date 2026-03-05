@@ -2,34 +2,49 @@
   <teleport to="body">
     <div class="custom-chat-ui">
       <!-- Floating Chat Button -->
-      <MyButton
-        v-if="!isOpen"
-        class="chat-button"
-        type="ghost"
-        size="small"
-        hideLabel
-        :style="buttonStyle"
-        :aria-label="buttonLabel"
-        @click="openChat"
-      >
-        <img
-          v-if="buttonIconSrc"
-          :src="buttonIconSrc"
-          :alt="buttonLabel"
-          class="chat-button-icon"
+      <template v-if="!isOpen">
+        <div class="chat-mobile-gradient" aria-hidden="true" />
+        <!-- Mobile button: standard MyButton -->
+        <MyButton
+          v-if="isMobile"
+          class="chat-button chat-button--mobile"
+          :class="{ 'chat-button--hidden': !mobileButtonVisible }"
+          label="Let's chat"
+          type="solid"
+          size="large"
+          :aria-label="buttonLabel"
+          @click="openChat"
         />
-        <svg
+        <!-- Desktop button: icon-only floating FAB -->
+        <MyButton
           v-else
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          class="chat-button-icon"
+          class="chat-button"
+          type="ghost"
+          size="small"
+          hideLabel
+          :style="buttonStyle"
+          :aria-label="buttonLabel"
+          @click="openChat"
         >
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-        </svg>
-      </MyButton>
+          <img
+            v-if="buttonIconSrc"
+            :src="buttonIconSrc"
+            :alt="buttonLabel"
+            class="chat-button-icon"
+          />
+          <svg
+            v-else
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            class="chat-button-icon"
+          >
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+        </MyButton>
+      </template>
 
       <!-- Chat Window -->
       <div v-if="isOpen">
@@ -362,6 +377,8 @@ export default {
       sessionId: null,
       bodyScrollLocked: false,
       scrollLockY: 0,
+      atBottomOfPage: false,
+      menuIsOpen: false,
     };
   },
   created() {
@@ -373,6 +390,9 @@ export default {
     },
     isMobile() {
       return this.viewportWidth <= this.mobileFullscreenBreakpoint;
+    },
+    mobileButtonVisible() {
+      return this.atBottomOfPage || this.menuIsOpen;
     },
     resolvedMetadata() {
       const safeLocation =
@@ -396,6 +416,9 @@ export default {
       };
     },
     buttonStyle() {
+      if (this.isMobile) {
+        return {};
+      }
       const positions = {
         // Match the old inline widget spacing (20px edge) // design-guard:ignore
         // Uses your numeric scale: --size-5 == 2rem (20px since html is 10px) // design-guard:ignore
@@ -496,7 +519,7 @@ export default {
   },
   methods: {
     generateSessionId() {
-      return Date.now().toString(36) + Math.random().toString(36).substr(2, 9);
+      return Date.now().toString(36) + Math.random().toString(36).slice(2, 11);
     },
     lockBodyScroll() {
       if (this.bodyScrollLocked) return;
@@ -755,6 +778,11 @@ export default {
       }
       // Desktop: do not auto-enter fullscreen on resize.
     },
+    handleMobileScroll() {
+      const threshold = 80;
+      this.atBottomOfPage =
+        window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - threshold;
+    },
     handleEscapeKey(event) {
       if (event.key === 'Escape' && this.isOpen) {
         // On mobile we treat fullscreen as the default state, so Escape should close.
@@ -777,6 +805,20 @@ export default {
     this.viewportWidth = window.innerWidth;
     window.addEventListener('resize', this.handleResize);
     window.addEventListener('keydown', this.handleEscapeKey);
+    window.addEventListener('scroll', this.handleMobileScroll, { passive: true });
+
+    // Sync initial bottom-of-page state
+    this.handleMobileScroll();
+
+    // Watch for menu-open class set by FullscreenMenu
+    this.menuIsOpen = document.documentElement.classList.contains('menu-open');
+    this._menuObserver = new MutationObserver(() => {
+      this.menuIsOpen = document.documentElement.classList.contains('menu-open');
+    });
+    this._menuObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
 
     // Load messages from localStorage if not clearing on reload
     if (!this.clearChatOnReload) {
@@ -795,6 +837,8 @@ export default {
   beforeUnmount() {
     window.removeEventListener('resize', this.handleResize);
     window.removeEventListener('keydown', this.handleEscapeKey);
+    window.removeEventListener('scroll', this.handleMobileScroll);
+    if (this._menuObserver) this._menuObserver.disconnect();
     // Clean up just in case
     if (typeof document !== 'undefined') {
       document.documentElement.classList.remove('chat-fullscreen-open');
@@ -849,7 +893,56 @@ export default {
   border-radius: var(--spacing-xxs);
 }
 
-.chat-button .custom-btn {
+.chat-button-bar-label {
+  display: none;
+}
+
+.chat-mobile-gradient {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* design-guard:ignore */
+  .chat-button--mobile {
+    position: fixed;
+    bottom: var(--spacing-xxs);
+    left: var(--spacing-xxs);
+    right: var(--spacing-xxs);
+    width: calc(100% - var(--spacing-xxs) * 2);
+    height: auto;
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+    z-index: 9998;
+    display: block;
+  }
+
+  .chat-button--mobile > span,
+  .chat-button--mobile .custom-btn {
+    display: block;
+    width: 100%;
+  }
+
+  .chat-button--hidden {
+    opacity: 0;
+    transform: translateY(calc(100% + var(--spacing-md)));
+    pointer-events: none;
+  }
+
+  .chat-mobile-gradient {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 9rem; /* design-guard:ignore */
+    background: linear-gradient(to top, var(--background) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 9997;
+  }
+}
+
+.chat-button:not(.chat-button--mobile) .custom-btn {
   /* Layout */
   width: 100%;
   height: 100%;
@@ -1264,17 +1357,21 @@ export default {
 /* Chat Input */
 .chat-input-container {
   display: flex;
-  padding: var(--spacing-xxs);
+  padding-block: var(--spacing-xxs);
+  border-block-start: var(--border);
   background: var(--chat-surface);
   box-sizing: border-box;
+  @media only screen and (min-width: 768px) {
+    padding-inline: var(--spacing-xxs);
+  }
 
   /* Max width for fullscreen on desktop - match conversation text */
   .chat-window--fullscreen & {
     max-width: 800px; /* design-guard:ignore */
     margin-left: auto;
     margin-right: auto;
-    padding-left: var(--spacing-sm);
-    padding-right: var(--spacing-sm);
+    padding-left: var(--spacing-xxs);
+    padding-right: var(--spacing-xxs);
     box-sizing: border-box;
     width: 100%;
   }
