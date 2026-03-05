@@ -701,7 +701,7 @@ li.external a::after {
   top: var(--spacing-md);
   left: 50%;
   transform: translateX(-50%);
-  z-index: 9999;
+  z-index: 100001;
   background: var(--foreground);
   color: var(--background);
   font-size: var(--font-400);
