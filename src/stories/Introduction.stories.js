@@ -355,8 +355,8 @@ export const Welcome = () => ({
         body: 'Every value — color, size, spacing, shadow — is a CSS custom property. Components inherit theme and respond to light/dark mode without a line of JS.',
       },
       {
-        heading: 'Coded by the designer',
-        body: 'No handoff gap. These components were designed and built by the same person. Design intent is preserved because the designer held the keyboard.',
+        heading: 'One person, both hats',
+        body: 'There\'s no separate design file and component file. These were built in the same sitting, so what\'s in Figma is what\'s in the code — because it\'s the same person.',
       },
       {
         heading: 'Accessible from the start',
@@ -375,14 +375,13 @@ export const Welcome = () => ({
 
       <!-- ── Hero ── -->
       <section class="intro-hero">
-        <p class="intro-eyebrow">Ramphal Component Library</p>
+        <p class="intro-eyebrow">Component Library</p>
         <h1 class="intro-headline">
-          Built by a<br/><em>full stack designer.</em>
+          A working<br/><em>component index.</em>
         </h1>
         <p class="intro-tagline">
-          Every component in this library was designed and coded from scratch in Vue 3.
-          Token-based theming, accessible patterns, and production-quality code —
-          built by the same person who drew the designs.
+          Vue 3 components, design tokens, and patterns I've built and use in production.
+          Primarily here for me — but feel free to look around.
         </p>
         <div class="intro-links">
           <a class="intro-link" href="https://ramphal.design" target="_blank">
@@ -428,7 +427,7 @@ export const Welcome = () => ({
 
       <!-- ── Principles ── -->
       <section class="intro-principles">
-        <p class="intro-principles-title">Design principles</p>
+        <p class="intro-principles-title">How it's built</p>
         <div class="intro-principles-grid">
           <div class="intro-principle" v-for="p in principles" :key="p.heading">
             <h3 class="intro-principle-heading">{{ p.heading }}</h3>

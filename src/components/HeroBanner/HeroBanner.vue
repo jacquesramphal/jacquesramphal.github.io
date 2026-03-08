@@ -24,7 +24,7 @@
         </div>
       </GridContainer>
       <GridContainer class="banner-container" v-if="title || $slots.title">
-        <GridParent id="hero-text" class="animate fade delay-1">
+        <GridParent :cols="12" id="hero-text" class="animate fade delay-1">
           <span>
             <div class="hero-content">
               <!-- Support both slot and prop for title -->
@@ -256,10 +256,10 @@ img {
   z-index: 1000;
   @media only screen and (min-width: 1201px) {
     margin-block-start: none;
-    max-width: 85vw;
+    // max-width: 65vw;
   }
   span {
-    grid-column: span 3;
+    grid-column: span 10;
   }
 
   .hero-content {

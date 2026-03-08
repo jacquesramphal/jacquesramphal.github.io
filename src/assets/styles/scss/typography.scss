@@ -64,6 +64,17 @@ h1 {
     'wdth' 100,
     'opsz' 48;
 }
+.poster h1 {
+  font-size: var(--size-32);
+  font-family: var(--fontFamily-displaySans);
+  font-weight: var(--fontWeight-bold);
+  letter-spacing: var(--letterSpacing-tight) !important;
+  line-height: 1;
+  font-variation-settings:
+    'YAXS' 400,
+    'wdth' 100,
+    'opsz' 48;
+}
 
 h2 {
   font-size: var(--size-9);

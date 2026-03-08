@@ -18,6 +18,11 @@ export default {
       type: Boolean,
       default: false,
     },
+    cols: {
+      type: Number,
+      default: null,
+      validator: (v) => [3, 6, 9, 12].includes(v),
+    },
   },
   // mounted() {
   //   this.$nextTick(function () {
@@ -31,6 +36,7 @@ export default {
         'grid-template': true,
         'grid-template--rows': this.rows,
         'grid-template--tight': this.tight,
+        [`grid-template--cols-${this.cols}`]: !!this.cols,
       };
     },
   },
@@ -80,6 +86,21 @@ export default {
   &--tight {
     @media only screen and (min-width: 1201px) {
       grid-gap: var(--spacing-md);
+    }
+  }
+  &--cols-6 {
+    @media only screen and (min-width: 1201px) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+  &--cols-9 {
+    @media only screen and (min-width: 1201px) {
+      grid-template-columns: repeat(9, 1fr);
+    }
+  }
+  &--cols-12 {
+    @media only screen and (min-width: 1201px) {
+      grid-template-columns: repeat(12, 1fr);
     }
   }
 }

@@ -225,6 +225,8 @@
 
   /* FLUID FONT SIZES */
 
+  /* H1 Poster*/
+  --font-1100: clamp(var(--size-12), 7vw, var(--size-20));
   /* H1 Display*/
   --font-1000: clamp(var(--size-12), 7vw, var(--size-20));
   /* H1 */

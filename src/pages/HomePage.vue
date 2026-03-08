@@ -1,6 +1,10 @@
 <template>
   <PageWrapper>
-    <HeroBanner fullvh end id="hero" class="display" :title="title" />
+    <HeroBanner
+      id="hero"
+      title="Head of Design at Orium. This is my index — work, writing, and thinking on design systems, AI, and the design–dev gap."
+    />
+    <!-- <HeroBanner fullvh end id="hero" class="display" :title="title" /> -->
     <!-- <HeroAnimated2 /> -->
     <!-- <GridWrapper motif1> -->
     <!-- ^ motif not working -->
