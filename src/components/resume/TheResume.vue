@@ -24,7 +24,7 @@
         />
         <DynamicText
           class="resume-summary"
-          text="Full Stack Design Lead with 12+ years of experience designing and shipping enterprise digital products. Specializes in design systems, AI-enabled product experiences, and design-to-development integration. Proven ability to lead cross-functional teams, architect token-based systems, and deliver production-ready front-end solutions."
+          text="Agentic Systems & AX Lead and Full Stack Design Lead with 12+ years of experience delivering enterprise and consumer digital products. Currently leading the design and integration of agentic systems (AX) within delivery workflows, bridging UX, AI automation, and development to enhance team efficiency and design quality. Deep expertise in design systems, AI-enabled product experiences, and design-to-development workflows."
         />
       </div>
 

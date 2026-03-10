@@ -1,8 +1,10 @@
 <template>
   <PageWrapper>
     <HeroBanner
+      fullvh
+      end
       id="hero"
-      title="Head of Design at Orium. This is my index — work, writing, and thinking on design systems, AI, and the design–dev gap."
+      title="Head of Design at Orium. This is my index — work, writing, and thinking on design systems, AI, and helping clients imagine what agentic experiences can become."
     />
     <!-- <HeroBanner fullvh end id="hero" class="display" :title="title" /> -->
     <!-- <HeroAnimated2 /> -->
@@ -73,7 +75,7 @@
         as="h2"
         description=""
         eyebrow1=""
-        :detail1="`Head of Design at Orium, Toronto. For ${careerYears} years I’ve been closing the gap between design and engineering—building token-based design systems, shipping production code, and designing AI-native products from scratch.<br/><br/>I build AI agents and lead workshops on Agentic Experience (AX) Design, helping companies move past AI hype and into real, user-centred AI products. I coach designers into unicorns—people who think in systems, write production code, and own the full delivery stack.`"
+        :detail1="`Head of Design at Orium, Toronto. For ${careerYears} years I’ve been closing the gap between design and engineering—building token-based design systems, shipping production code, and designing AI-native products from scratch.<br/><br/>I build AI agents and partner with clients to explore and realize agentic experience (AX) possibilities—helping teams move past AI hype into real, user-centred AI products. I coach designers into unicorns—people who think in systems, write production code, and own the full delivery stack.`"
         route="/doc/ask-me-anything"
         label="Learn More"
       />
@@ -165,19 +167,19 @@ export default {
   },
   setup() {
     useHead({
-      title: 'Jacques Ramphal - UX / AX Full Stack Design Lead | Portfolio',
+      title: 'Jacques Ramphal - Head of Design & AX Lead | Orium',
       meta: [
         {
           name: 'description',
-          content: `Senior Product Designer at Orium with ${new Date().getFullYear() - 2013} years experience specializing in design systems, agentic AI, and bridging design-development workflows through code and tokens.`,
+          content: `Head of Design at Orium with ${new Date().getFullYear() - 2013} years experience leading agentic systems (AX) design, design systems, and AI-driven delivery workflows.`,
         },
         {
           property: 'og:title',
-          content: 'Jacques Ramphal - UX / AX Design Lead',
+          content: 'Jacques Ramphal - Head of Design & AX Lead | Orium',
         },
         {
           property: 'og:description',
-          content: `Senior Product Designer specializing in design systems, agentic AI, and design-development workflows. ${new Date().getFullYear() - 2013} years at Orium building token-based systems and AI platforms.`,
+          content: `Head of Design at Orium, leading agentic systems (AX) design, design systems, and AI-driven delivery workflows. ${new Date().getFullYear() - 2013} years bridging UX, AI, and development.`,
         },
         {
           property: 'og:type',
@@ -193,12 +195,12 @@ export default {
         },
         {
           property: 'twitter:title',
-          content: 'Jacques Ramphal - UX / AX Design Lead',
+          content: 'Jacques Ramphal - Head of Design & AX Lead | Orium',
         },
         {
           property: 'twitter:description',
           content:
-            'Senior Product Designer specializing in design systems, agentic AI, and design-development workflows.',
+            'Head of Design at Orium, leading agentic systems (AX) design, design systems, and AI-driven delivery workflows.',
         },
       ],
     });

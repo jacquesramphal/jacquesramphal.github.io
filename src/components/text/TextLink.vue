@@ -184,6 +184,7 @@ export default {
   text-decoration: none !important;
   .label-text {
     text-decoration: underline;
+    text-decoration-color: var(--color-text);
     text-decoration-thickness: 0.15rem;
     text-underline-offset: 0.75rem;
   }
@@ -196,8 +197,9 @@ export default {
   }
 
   &:hover .label-text {
-    text-decoration: underline wavy;
-    text-decoration-thickness: 0.15rem;
+    text-decoration: underline wavy var(--color-yellow);
+    text-decoration-thickness: 0.2rem;
+    text-underline-offset: 0.75rem;
   }
 }
 </style>

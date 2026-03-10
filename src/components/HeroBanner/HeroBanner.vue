@@ -324,6 +324,22 @@ img {
     min-height: 60vh;
     padding-block-end: var(--spacing-sm);
   }
+  &::after {
+    content: '';
+    position: absolute;
+    inset-block-end: -10%;
+    inset-inline-end: -5%;
+    width: clamp(30rem, 50vw, 70rem);
+    height: clamp(30rem, 50vw, 70rem);
+    // background-image: url('../../assets/images/icon/j-logo.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right bottom;
+    opacity: 0.06;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
 }
 .herobanner--background {
   img {

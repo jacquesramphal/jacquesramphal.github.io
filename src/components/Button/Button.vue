@@ -312,7 +312,7 @@ export default {
   font-weight: var(--fontWeight-bold);
   background-color: transparent;
   border: none;
-  text-decoration: underline;
+  text-decoration: underline var(--color-yellow);
   text-underline-offset: 0.625rem;
   text-decoration-thickness: 0.2rem !important;
   &:before,
@@ -321,7 +321,7 @@ export default {
   }
   &:hover {
     color: var(--foreground);
-    text-decoration: underline;
+    text-decoration: underline wavy var(--color-yellow) !important;
     text-underline-offset: 0.625rem;
     text-decoration-thickness: 0.2rem !important;
   }

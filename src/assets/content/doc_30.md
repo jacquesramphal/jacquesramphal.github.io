@@ -2,7 +2,7 @@
 
 # Ask Me Anything
 
-#### I’m Jacques, a Full Stack Design Lead based in Toronto. I work at the intersection of design systems, code, and AI—designing experiences that actually ship.
+#### I’m Jacques, Head of Design at Orium, based in Toronto. I lead design work where systems, code, and AI meet—building the practices and platforms that let teams deliver meaningful products efficiently and sustainably.
 
 </br>
 
@@ -13,7 +13,7 @@
 <details>
 <summary>Who is Jacques Ramphal?</summary>
 
-I’m a Full Stack Design Lead based in Toronto, currently at Orium. For over a decade I’ve worked at the seam between design and engineering—designing systems, writing code, and lately, building with AI.
+I’m Head of Design at Orium, based in Toronto. For over a decade I’ve worked at the seam between design and engineering—designing systems, writing code, and lately, building with AI.
 
 What distinguishes me isn’t a single skill. It’s that I hold the full stack: sketch a concept, build it in Figma, implement it in React, document it in Storybook. I care about quality at every layer.
 

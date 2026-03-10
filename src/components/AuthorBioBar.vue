@@ -36,7 +36,7 @@ export default {
     },
     title: {
       type: String,
-      default: 'Staff Product Designer, Full Stack Design Lead for Genie | Orium',
+      default: 'Head of Design, Agentic Systems & AX Lead | Orium',
     },
     description: {
       type: String,

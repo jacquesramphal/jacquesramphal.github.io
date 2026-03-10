@@ -13,8 +13,8 @@
         <TextBlock style="grid-column: 1 / 3" title="✰ Kudos" as="h2" description="" />
 
         <div class="justify-end controls" style="align-self: end">
-          <MyButton type="ghost" size="large" label="←" @click="prevQuote" route="" />
-          <MyButton type="ghost" size="large" label="→" @click="nextQuote" route="" />
+          <MyButton type="ghost" size="large" label="←" ariaLabel="Previous testimonial" @click="prevQuote" route="" />
+          <MyButton type="ghost" size="large" label="→" ariaLabel="Next testimonial" @click="nextQuote" route="" />
         </div>
       </div>
 
@@ -223,30 +223,9 @@ export default {
 }
 .quote-text {
   h2 {
-    // font-family: var(--fontFamily-tertiary) !important;
-    // font-weight: var(--font-normal) !important;
-    // font-weight: var(--font-reversed-normal) !important;
-    // font-size: var(--font-lg) !important;
-    // letter-spacing: var(--letterSpacing-reversed-tight);
-    // line-height: var(--lineHeight-base);
+    position: relative;
     z-index: 1;
   }
-  // &::before {
-  //   content: "“";
-  //   font-family: var(--fontFamily-secondary);
-  //   font-weight: bold;
-  //   font-size: 96rem;
-  //   position: absolute;
-  //   color: var(--background-reversed-darker);
-  //   opacity: 0.05;
-  //   z-index: 0;
-  //   inset-inline-start:  -100px;
-  //   inset-block-start:  -150px;
-  //   @media only screen and (min-width: 768px) {
-  //     font-size: 120rem;
-  //     inset-block-start:  -150px;
-  //   }
-  // }
 }
 
 .author-info {

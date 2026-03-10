@@ -27,8 +27,7 @@
           style="margin-block-end: var(--spacing-xs)"
         />
         <DynamicText
-          text="My work explores the intersection between design and development and seeks to embrace emerging technologies for a more efficient and inclusive future.
-"
+          text="I lead design work where systems, code, and AI meet—building the practices and platforms that let cross-functional teams deliver meaningful products efficiently and sustainably."
         />
       </div>
 
