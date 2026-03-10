@@ -19,24 +19,16 @@
                       :href="item.route"
                       @click.prevent="handleMenuClick(item.route, true)"
                     >
-                      <DynamicText
-                        class="text"
-                        as="h1"
-                        :attrs="{ class: '' }"
-                        :text="item.text"
-                      />
+                      <DynamicText class="text" as="h1" :attrs="{ class: '' }" :text="item.text" />
                     </a>
                     <router-link
                       v-else
                       :to="item.route"
+                      active-class="is-active"
+                      exact-active-class="is-active"
                       @click.prevent="handleMenuClick(item.route)"
                     >
-                      <DynamicText
-                        class="text"
-                        as="h1"
-                        :attrs="{ class: '' }"
-                        :text="item.text"
-                      />
+                      <DynamicText class="text" as="h1" :attrs="{ class: '' }" :text="item.text" />
                     </router-link>
                   </li>
                 </ul>
@@ -90,10 +82,11 @@ export default {
       } else {
         // Navigate first, then close menu after route changes
         this.$router.push(route).then(() => {
-          // Close menu after navigation completes
-          setTimeout(() => {
-            this.closeMenu();
-          }, 50); // Small delay to ensure new page starts rendering
+          this.$nextTick(() => {
+            requestAnimationFrame(() => {
+              this.closeMenu();
+            });
+          });
         });
       }
     },
@@ -224,7 +217,7 @@ body.menu-open {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: end;
 }
 
 // Content container
@@ -232,8 +225,12 @@ body.menu-open {
   width: 100%;
 
   nav {
-    padding-block-end: var(--spacing-lg);
     grid-column: span 3;
+
+    padding-block-end: var(--spacing-xl);
+    @media only screen and (min-width: 1201px) {
+      padding-block-end: var(--spacing-lg);
+    }
 
     ul {
       list-style: none;
@@ -248,6 +245,10 @@ body.menu-open {
           &:hover {
             color: var(--link) !important;
           }
+
+          &.is-active h1::before {
+            content: '— ';
+          }
         }
       }
     }
@@ -260,16 +261,22 @@ body.menu-open {
 }
 
 .fade-leave-active {
-  transition: opacity 0.45s ease-out;
+  transition: transform 0.2s ease-in;
 }
 
-.fade-enter-from,
+.fade-leave-from {
+  transform: translateY(0);
+}
+
 .fade-leave-to {
+  transform: translateY(-100%);
+}
+
+.fade-enter-from {
   opacity: 0;
 }
 
-.fade-enter-to,
-.fade-leave-from {
+.fade-enter-to {
   opacity: 1;
 }
 </style>

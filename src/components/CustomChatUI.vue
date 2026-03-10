@@ -32,17 +32,39 @@
             :alt="buttonLabel"
             class="chat-button-icon"
           />
-          <svg
-            v-else
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            class="chat-button-icon"
-          >
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-          </svg>
+          <template v-else>
+            <!-- Default: bottom-row R 1 — no eye, horizontal line -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="805 568 122 142"
+              fill="currentColor"
+              class="chat-button-icon chat-button-icon--default"
+            >
+              <path d="M900,670.74c10.65-10.01,17.32-24.25,17.32-40.02,0-30.35-24.6-54.95-54.96-54.96h-49.89c-1.33,0-2.64,.54-3.58,1.48-.94,.94-1.48,2.25-1.48,3.58v124.73c0,1.33,.54,2.64,1.48,3.58,.94,.94,2.25,1.48,3.58,1.48h37.42c1.33,0,2.64-.54,3.58-1.48s1.48-2.25,1.48-3.58v-19.88h1.59l7.47,21.54c.71,2.04,2.63,3.41,4.79,3.41h37.4c1.63,0,3.16-.78,4.11-2.1,.95-1.32,1.21-3.02,.7-4.56l-11.02-33.22Zm-27.59,29.74l-7.47-21.54c-.71-2.04-2.63-3.41-4.79-3.41h-10.27c-1.33,0-2.64,.54-3.58,1.48-.94,.94-1.48,2.25-1.48,3.58v19.88h-27.28v-114.59h44.82c12.39,0,23.57,5.01,31.69,13.13,8.12,8.13,13.13,19.3,13.13,31.69,0,13.92-6.32,26.31-16.27,34.55-1.61,1.34-2.24,3.51-1.58,5.5l9.86,29.72h-26.78Z"/>
+              <line x1="838.16" y1="630.72" x2="887.16" y2="630.72" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-miterlimit="10" fill="none"/>
+            </svg>
+            <!-- Hover: bottom-row R 2 — small eye (r=9), horizontal line -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="941 568 122 142"
+              fill="currentColor"
+              class="chat-button-icon chat-button-icon--hover"
+            >
+              <circle cx="995.94" cy="630.78" r="9"/>
+              <path d="M1035.78,670.74c10.65-10.01,17.32-24.25,17.32-40.02,0-30.35-24.6-54.95-54.96-54.96h-49.89c-1.33,0-2.64,.54-3.58,1.48-.94,.94-1.48,2.25-1.48,3.58v124.73c0,1.33,.54,2.64,1.48,3.58,.94,.94,2.25,1.48,3.58,1.48h37.42c1.33,0,2.64-.54,3.58-1.48s1.48-2.25,1.48-3.58v-19.88h1.59l7.47,21.54c.71,2.04,2.63,3.41,4.79,3.41h37.4c1.63,0,3.16-.78,4.11-2.1,.95-1.32,1.21-3.02,.7-4.56l-11.02-33.22Zm-27.59,29.74l-7.47-21.54c-.71-2.04-2.63-3.41-4.79-3.41h-10.27c-1.33,0-2.64,.54-3.58,1.48-.94,.94-1.48,2.25-1.48,3.58v19.88h-27.28v-114.59h44.82c12.39,0,23.57,5.01,31.69,13.13,8.12,8.13,13.13,19.3,13.13,31.69,0,13.92-6.32,26.31-16.27,34.55-1.61,1.34-2.24,3.51-1.58,5.5l9.86,29.72h-26.78Z"/>
+              <line x1="966.94" y1="620.72" x2="1023.94" y2="620.72" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-miterlimit="10" fill="none"/>
+            </svg>
+            <!-- Pressed: bottom-row R 3 — large eye (r=14.5), no line -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="1077 568 122 142"
+              fill="currentColor"
+              class="chat-button-icon chat-button-icon--active"
+            >
+              <circle cx="1133.21" cy="630.78" r="9"/>
+              <path d="M1171.55,670.74c10.65-10.01,17.32-24.25,17.32-40.02,0-30.35-24.6-54.95-54.96-54.96h-49.89c-1.33,0-2.64,.54-3.58,1.48-.94,.94-1.48,2.25-1.48,3.58v124.73c0,1.33,.54,2.64,1.48,3.58,.94,.94,2.25,1.48,3.58,1.48h37.42c1.33,0,2.64-.54,3.58-1.48s1.48-2.25,1.48-3.58v-19.88h1.59l7.47,21.54c.71,2.04,2.63,3.41,4.79,3.41h37.4c1.63,0,3.16-.78,4.11-2.1,.95-1.32,1.21-3.02,.7-4.56l-11.02-33.22Zm-27.59,29.74l-7.47-21.54c-.71-2.04-2.63-3.41-4.79-3.41h-10.27c-1.33,0-2.64,.54-3.58,1.48-.94,.94-1.48,2.25-1.48,3.58v19.88h-27.28v-114.59h44.82c12.39,0,23.57,5.01,31.69,13.13,8.12,8.13,13.13,19.3,13.13,31.69,0,13.92-6.32,26.31-16.27,34.55-1.61,1.34-2.24,3.51-1.58,5.5l9.86,29.72h-26.78Z"/>
+            </svg>
+          </template>
         </MyButton>
       </template>
 
@@ -314,7 +336,7 @@ export default {
     // User Message Styling
     userMessageBackgroundColor: {
       type: String,
-      default: 'var(--background-reversed)',
+      default: 'var(--background)',
     },
     userMessageTextColor: {
       type: String,
@@ -952,8 +974,8 @@ export default {
   padding: 0;
 
   /* Colors — reversed tokens (theme-invariant contrast) */
-  color: var(--foreground-reversed);
-  background: var(--background-reversed);
+  color: var(--foreground);
+  background: var(--background);
 
   /* Borders */
   border: none;
@@ -968,11 +990,11 @@ export default {
 }
 
 .chat-button .custom-btn:hover:not(:disabled) {
-  background: var(--background-reversed) !important;
+  background: var(--background) !important;
 }
 
 .chat-button .custom-btn:active:not(:disabled) {
-  transform: scale(0.95);
+  transform: none;
 }
 
 .chat-button .custom-btn:focus-visible {
@@ -993,9 +1015,17 @@ export default {
 
 .chat-button svg.chat-button-icon {
   /* For default inline SVG - use reversed foreground to match button */
-  color: var(--foreground-reversed);
+  color: var(--foreground);
   stroke: currentColor;
 }
+
+.chat-button-icon--hover { display: none; }
+.chat-button-icon--active { display: none; }
+.chat-button:hover .chat-button-icon--default { display: none; }
+.chat-button:hover .chat-button-icon--hover { display: block; }
+.chat-button:active .chat-button-icon--default { display: none; }
+.chat-button:active .chat-button-icon--hover { display: none; }
+.chat-button:active .chat-button-icon--active { display: block; }
 
 /* Chat Window */
 .chat-window {
@@ -1425,11 +1455,7 @@ export default {
 @supports (color: color-mix(in srgb, #000 50%, transparent)) {
   /* design-guard:ignore */
   .chat-backdrop {
-    background: color-mix(
-      in srgb,
-      var(--background-reversed) 12%,
-      transparent
-    ); /* design-guard:ignore */
+    background: color-mix(in srgb, var(--background) 12%, transparent); /* design-guard:ignore */
   }
 }
 
