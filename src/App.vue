@@ -70,7 +70,7 @@ transform: rotate(90deg);
     <MainFooter v-if="!$route.meta.hideFooter" />
     <!-- <SimpleFooter v-if="!$route.meta.hideFooter" /> -->
     <!-- <UnderConstructionBar /> -->
-    <!-- <CustomChatUI /> -->
+    <CustomChatUI />
     <!-- Chat with Jacques's agent button and sidebar -->
     <!-- <div class="fixed-chat-entry" @click="toggleChatSidebar">
       <span class="vertical-text">chat with Jacques's agent</span>
