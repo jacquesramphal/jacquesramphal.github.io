@@ -12,8 +12,15 @@
       "
     >
       <div><p>Ramphal—Design</p></div>
-      <div style="background: none"><h1 class="display">Jacques Ramphal</h1></div>
-      <div style="text-align: right; grid-row: 3 / 4">
+
+      <TextBlock
+        as="h1"
+        title="Jacques Ramphal"
+        description="I lead design work where systems, code, and AI meet—building the practices and platforms that let cross-functional teams deliver meaningful products efficiently and sustainably."
+      />
+
+      <!-- <div style="background: none"><h1 class="display">Jacques Ramphal</h1></div> -->
+      <div style="text-align: left; grid-row: 3 / 4">
         <ul>
           <li>
             <p>hello@ramphal.design</p>
@@ -72,6 +79,7 @@
 import GridContainer from '@/components/grid/GridContainer.vue';
 // import GridWrapper from '@/components/grid/GridWrapper.vue';
 import GridParent from '@/components/grid/GridParent.vue';
+import TextBlock from '@/components/text/TextBlock/TextBlock.vue';
 // import TextBlock from '@/components/text/TextBlock/TextBlock.vue';
 // import TextLink from '@/components/text/TextLink.vue';
 // import AnimatedComponent from '@/components/AnimatedComponent.vue';
@@ -82,7 +90,7 @@ export default {
     GridContainer,
     // GridWrapper,
     GridParent,
-    // TextBlock,
+    TextBlock,
     // TextLink,
     // AnimatedComponent,
     // MainFooter,
