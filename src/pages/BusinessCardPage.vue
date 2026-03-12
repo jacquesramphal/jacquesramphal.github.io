@@ -1,18 +1,18 @@
 <template>
-  <GridContainer style="background: blue" fullvh id="wrapper" align-items="center">
+  <GridContainer style="background: none" fullvh id="wrapper" align-items="center">
     <GridParent
       tight
       rows
       style="
         grid-template-columns: none !important;
         grid-template-rows: repeat(6, auto);
-        background: red;
+        background: none;
         block-size: 100%;
         justify-content: space-between;
       "
     >
       <div><p>Ramphal—Design</p></div>
-      <div style="background: red"><h1 class="display">Jacques Ramphal</h1></div>
+      <div style="background: none"><h1 class="display">Jacques Ramphal</h1></div>
       <div style="text-align: right; grid-row: 3 / 4">
         <ul>
           <li>
