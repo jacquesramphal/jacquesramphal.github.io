@@ -70,7 +70,15 @@ transform: rotate(90deg);
     <MainFooter v-if="!$route.meta.hideFooter" />
     <!-- <SimpleFooter v-if="!$route.meta.hideFooter" /> -->
     <!-- <UnderConstructionBar /> -->
-    <CustomChatUI />
+
+    <!-- <img
+      src="./assets/images/work/3-avatar/sketches/avatar-standing.png"
+      alt=""
+      aria-hidden="true"
+      class="avatar-standing"
+    />-->
+
+    <!-- <CustomChatUI /> -->
     <!-- Chat with Jacques's agent button and sidebar -->
     <!-- <div class="fixed-chat-entry" @click="toggleChatSidebar">
       <span class="vertical-text">chat with Jacques's agent</span>
@@ -227,6 +235,15 @@ export default {
 .slide-leave-to {
   transform: translateX(100%);
   opacity: 0;
+}
+
+.avatar-standing {
+  position: fixed;
+  bottom: 0;
+  right: -10rem;
+  width: clamp(12rem, 35vw, 120rem); /* design-guard:ignore */
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Safety: hide legacy n8nchatui inline widget if it ever loads */

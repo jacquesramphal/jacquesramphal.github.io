@@ -468,6 +468,9 @@ img {
 .herobanner--end {
   #hero-text {
     align-items: end !important;
+    @media only screen and (min-width: 768px) {
+      padding-block-end: var(--spacing-lg);
+    }
   }
 }
 .display #hero-text {

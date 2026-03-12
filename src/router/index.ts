@@ -18,6 +18,7 @@ import WorkIndex from '@/pages/WorkIndex.vue';
 import PlayIndex from '@/pages/PlayIndex.vue';
 import UsefulLinks from '@/pages/UsefulLinks.vue';
 import CoursePage from '@/pages/CoursePage.vue';
+import BusinessCardPage from '@/pages/BusinessCardPage.vue';
 import FullscreenMenu from '../components/FullscreenMenu.vue';
 import { getDocRecordById } from '@/utils/docRegistry';
 
@@ -176,6 +177,15 @@ const routes = [
     name: 'Course',
     path: '/Course',
     component: CoursePage,
+  },
+  {
+    name: 'BusinessCard',
+    path: '/card',
+    component: BusinessCardPage,
+    meta: {
+      hideFooter: true,
+      hideNav: true,
+    },
   },
 ];
 
