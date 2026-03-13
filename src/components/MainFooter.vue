@@ -1,5 +1,5 @@
 <template>
-  <AnimatedComponent>
+  <div>
     <Teleport to="body">
       <Transition name="toast">
         <div v-if="toast.visible" class="app-toast" role="status" aria-live="polite">
@@ -71,12 +71,39 @@
                 </ul>
               </div>
               <div id="links3">
-                <p class="subtle">More</p>
+                <p class="subtle">Config</p>
                 <ul>
-                  <li v-for="(item, index) in menuItems3" :key="index">
-                    <router-link :to="item.route">
-                      <DynamicText as="p" tabIndex="0" :attrs="{ class: '' }" :text="item.text" />
-                    </router-link>
+                  <li>
+                    <TextLink
+                      :label="currentThemeLabel"
+                      :aria-label="`Theme: ${currentThemeLabel}`"
+                      @click="cycleTheme"
+                    />
+                  </li>
+                  <li>
+                    <TextLink
+                      :label="isSerifFont ? 'Serif' : 'Sans-serif'"
+                      :aria-label="
+                        isSerifFont ? 'Switch to sans-serif font' : 'Switch to serif font'
+                      "
+                      @click="toggleFont"
+                    />
+                  </li>
+                  <li>
+                    <TextLink
+                      :label="soundEnabled ? 'Sound on' : 'Sound off'"
+                      :aria-label="soundEnabled ? 'Disable sounds' : 'Enable sounds'"
+                      @click="toggleSound"
+                    />
+                  </li>
+                  <li v-if="isTouchDevice">
+                    <TextLink
+                      :label="hapticEnabled ? 'Haptics On' : 'Haptics Off'"
+                      :aria-label="
+                        hapticEnabled ? 'Disable haptic feedback' : 'Enable haptic feedback'
+                      "
+                      @click="toggleHaptic"
+                    />
                   </li>
                 </ul>
               </div>
@@ -94,48 +121,6 @@
                 >© {{ currentYear }} Jacques Ramphal 🇨🇦</span
               >
             </p>
-            <div class="utility-controls">
-              <button
-                class="config-btn"
-                :class="{ 'is-active': true }"
-                @click="cycleTheme"
-                :aria-label="`Theme: ${currentThemeLabel}`"
-                :title="`Theme: ${currentThemeLabel}`"
-              >
-                <span class="config-btn__icon" v-html="themeIconSvg"></span>
-              </button>
-              <button
-                class="config-btn"
-                :class="{ 'is-active': isSerifFont }"
-                @click="toggleFont"
-                :aria-pressed="String(isSerifFont)"
-                aria-label="Toggle font"
-                title="Font"
-              >
-                <span class="config-btn__icon config-btn__icon--text">Aa</span>
-              </button>
-              <button
-                v-if="isTouchDevice"
-                class="config-btn"
-                :class="{ 'is-active': hapticEnabled }"
-                @click="toggleHaptic"
-                :aria-pressed="String(hapticEnabled)"
-                aria-label="Toggle haptic feedback"
-                title="Haptic"
-              >
-                <span class="config-btn__icon" v-html="hapticIconSvg"></span>
-              </button>
-              <button
-                class="config-btn"
-                :class="{ 'is-active': soundEnabled }"
-                @click="toggleSound"
-                :aria-pressed="String(soundEnabled)"
-                aria-label="Toggle sound"
-                title="Sound"
-              >
-                <span class="config-btn__icon" v-html="soundIconSvg"></span>
-              </button>
-            </div>
           </div>
         </GridParent>
       </GridContainer>
@@ -146,7 +131,7 @@
           </p>
       </GridContainer> -->
     </GridWrapper>
-  </AnimatedComponent>
+  </div>
 </template>
 <!-- <form
             @submit.prevent="sendEmail"
@@ -175,7 +160,6 @@
 import GridContainer from './grid/GridContainer.vue';
 import GridWrapper from './grid/GridWrapper.vue';
 import TextBlock from './text/TextBlock/TextBlock.vue';
-import AnimatedComponent from './AnimatedComponent.vue';
 import TextLink from './text/TextLink.vue';
 import GridParent from './grid/GridParent.vue';
 import DynamicText from './text/DynamicText.vue';
@@ -188,7 +172,6 @@ export default {
     GridContainer,
     GridWrapper,
     TextBlock,
-    AnimatedComponent,
     TextLink,
     GridParent,
     DynamicText,
@@ -215,7 +198,6 @@ export default {
         },
         { text: 'Github', url: 'https://github.com/jacquesramphal', icon: 'icon/github-mark.svg' },
         { text: 'Email', url: 'hmailto:jacques@ramphal.design', icon: 'icon/j-logo.svg' },
-        { text: 'Storybook', url: '/storybook/', external: true },
       ],
       menuItems3: [
         { text: 'AI Ethics', route: '/doc/ai-ethics' },
@@ -230,9 +212,9 @@ export default {
       toast: { message: '', visible: false, timer: null },
       currentTheme: 'system',
       themeOptions: [
-        { label: 'Light', value: 'light-theme' },
-        { label: 'Dark', value: 'dark-theme' },
-        { label: 'System', value: 'system' },
+        { label: 'Light Mode', value: 'light-theme' },
+        { label: 'Dark Mode', value: 'dark-theme' },
+        { label: 'System Theme', value: 'system' },
       ],
       isSerifFont: false,
       hapticEnabled: true,
@@ -243,7 +225,7 @@ export default {
   },
   computed: {
     isTouchDevice() {
-      return navigator.maxTouchPoints > 0;
+      return navigator.maxTouchPoints > 0 || 'ontouchstart' in window;
     },
     currentYear() {
       return this.now.getFullYear();
@@ -261,44 +243,6 @@ export default {
     currentThemeLabel() {
       const option = this.themeOptions.find((opt) => opt.value === this.currentTheme);
       return option ? option.label : 'System';
-    },
-    themeIconSvg() {
-      const lightSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-  <circle cx="8" cy="8" r="7" stroke="var(--foreground)" stroke-width="1.5" fill="none"/>
-</svg>`;
-      const darkSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-  <circle cx="8" cy="8" r="7" stroke="var(--foreground)" stroke-width="1.5" fill="var(--foreground)"/>
-</svg>`;
-      const systemSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-  <circle cx="8" cy="8" r="7" stroke="var(--foreground)" stroke-width="1.5" fill="none"/>
-  <path d="M 8 1 A 7 7 0 0 1 8 15 Z" fill="var(--foreground)"/>
-</svg>`;
-
-      if (this.currentTheme === 'system') {
-        return systemSvg;
-      }
-      return this.currentTheme === 'dark-theme' ? darkSvg : lightSvg;
-    },
-    hapticIconSvg() {
-      return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="4.75" y="2.75" width="6.5" height="10.5" rx="1.25" stroke="currentColor" stroke-width="1.5"/>
-        <line x1="1.75" y1="5" x2="1.75" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="14.25" y1="5" x2="14.25" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>`;
-    },
-    soundIconSvg() {
-      if (this.soundEnabled) {
-        return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 6.25H4.75L8.75 3.25v9.5L4.75 9.75H2V6.25Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-          <path d="M11 5.5c1.2 0.9 1.2 4.1 0 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M12.5 3.5c2.2 1.8 2.2 7.2 0 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>`;
-      }
-      return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2 6.25H4.75L8.75 3.25v9.5L4.75 9.75H2V6.25Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-        <line x1="11" y1="5.5" x2="14.5" y2="10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="14.5" y1="5.5" x2="11" y2="10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>`;
     },
   },
   mounted() {
@@ -514,13 +458,11 @@ li.external a::after {
 .footer-utility {
   margin-block-start: var(--spacing-md);
   padding-block-start: var(--spacing-sm);
-  border-block-start: var(--border);
+  // border-block-start: var(--border);
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: var(--spacing-sm);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-xxs);
 
   @media only screen and (min-width: 768px) {
     margin-block-start: var(--spacing-lg);
@@ -528,6 +470,7 @@ li.external a::after {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: var(--spacing-sm);
   }
 }
 
@@ -552,62 +495,11 @@ li.external a::after {
 .utility-controls {
   display: flex;
   align-items: center;
-  gap: var(--spacing-xxs);
+  gap: var(--spacing-sm);
   flex: 0 0 auto;
-}
 
-.config-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.4rem;
-  height: 2.4rem;
-  padding: 0;
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: var(--spacing-xxs);
-  color: var(--foreground);
-  cursor: pointer;
-  opacity: 0.35;
-  transition:
-    opacity 0.15s ease,
-    background 0.15s ease,
-    border-color 0.15s ease;
-
-  &:hover {
-    opacity: 1;
-    background: var(--background-darker);
-    border-color: transparent;
-  }
-
-  &:active {
-    transform: scale(0.92);
-  }
-
-  &.is-active {
-    opacity: 1;
-  }
-}
-
-.config-btn__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 16px;
-  height: 16px;
-
-  svg {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
-  &--text {
+  :deep(p) {
     font-size: var(--font-400);
-    font-weight: var(--fontWeight-bold);
-    width: auto;
-    height: auto;
-    font-style: normal;
   }
 }
 
@@ -640,58 +532,6 @@ li.external a::after {
   to {
     stroke-dashoffset: 1000;
   }
-}
-
-.font-selector {
-  position: relative;
-  display: inline-block;
-}
-
-.font-button {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xxs);
-  padding: var(--spacing-xxs) var(--spacing-xs);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: var(--font-400);
-  color: var(--foreground);
-  text-decoration: underline;
-  text-underline-offset: 0.625rem;
-  text-decoration-thickness: 0.15rem;
-  transition: all 0.1s;
-
-  &:hover {
-    text-decoration-thickness: 0.15rem;
-  }
-
-  &:active {
-    text-decoration: underline dashed;
-    text-decoration-thickness: 0.15rem;
-  }
-}
-
-.font-icon {
-  width: 16px;
-  height: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: var(--font-400);
-  line-height: 1;
-  text-decoration: none !important;
-
-  strong {
-    font-weight: var(--fontWeight-bold);
-    color: var(--foreground);
-    text-decoration: none !important;
-  }
-}
-
-.font-label {
-  font-size: var(--font-400);
 }
 </style>
 
