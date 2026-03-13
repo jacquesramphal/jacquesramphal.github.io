@@ -14,9 +14,37 @@
           :aria-label="buttonLabel"
           @click="openChat"
         />
-        <!-- Desktop button: fixed corner container, button rotated inside -->
-        <!-- Icon FAB commented out: <MyButton v-else class="chat-button" type="ghost" size="small" hideLabel ... /> -->
-        <div v-else class="chat-button-desktop-wrapper">
+        <!-- Desktop button: icon-only floating FAB (chat bubble) -->
+        <MyButton
+          v-else
+          class="chat-button"
+          type="ghost"
+          size="small"
+          hideLabel
+          :style="buttonStyle"
+          :aria-label="buttonLabel"
+          @click="openChat"
+        >
+          <img
+            v-if="buttonIconSrc"
+            :src="buttonIconSrc"
+            :alt="buttonLabel"
+            class="chat-button-icon"
+          />
+          <svg
+            v-else
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            class="chat-button-icon"
+          >
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+        </MyButton>
+        <!-- Desktop text button (rotated) — saved for reference:
+        <div class="chat-button-desktop-wrapper">
           <MyButton
             class="chat-button--desktop"
             label="Let's chat"
@@ -26,6 +54,7 @@
             @click="openChat"
           />
         </div>
+        -->
       </template>
 
       <!-- Chat Window -->
@@ -949,8 +978,43 @@ export default {
   opacity: 1;
 }
 
-/* Legacy icon FAB overrides — kept in case icon button is restored */
-/* .chat-button:not(.chat-button--mobile):not(.chat-button--desktop) .custom-btn { ... } */
+.chat-button:not(.chat-button--mobile) .custom-btn {
+  /* Layout */
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+
+  /* Colors — reversed tokens (theme-invariant contrast) */
+  color: var(--foreground-reversed);
+  background: var(--background-reversed);
+
+  /* Borders */
+  border: none;
+  border-radius: var(--spacing-xxs);
+
+  /* Effects */
+  box-shadow: var(--shadow-z4);
+
+  /* Interaction */
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chat-button .custom-btn:hover:not(:disabled) {
+  background: var(--background-reversed) !important;
+}
+
+.chat-button .custom-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.chat-button .custom-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-z4), var(--chat-ring);
+}
 
 .chat-button .chat-button-icon {
   width: 60%; /* design-guard:ignore */
@@ -965,7 +1029,7 @@ export default {
 
 .chat-button svg.chat-button-icon {
   /* For default inline SVG - use reversed foreground to match button */
-  color: var(--foreground);
+  color: var(--foreground-reversed);
   stroke: currentColor;
 }
 
