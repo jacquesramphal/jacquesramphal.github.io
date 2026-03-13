@@ -265,6 +265,11 @@ export default {
   font-weight: var(--fontWeight-bold) !important;
 }
 
+h1.title {
+  margin-block-end: var(--spacing-xs);
+}
+
+
 .title-link {
   text-decoration: none;
 

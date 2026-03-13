@@ -1,6 +1,6 @@
 # Jacques Ramphal
 
-Agentic Systems & AX Lead / Design Lead
+Head of Design · AX Lead
 AI-Driven Workflows · Design Systems · Design-to-Development
 
 - Toronto, ON
@@ -10,9 +10,9 @@ AI-Driven Workflows · Design Systems · Design-to-Development
 
 ---
 
-## Professional Summary 
+## Professional Summary
 
-Agentic Systems & AX Lead and Full Stack Design Lead with 12+ years of experience delivering enterprise and consumer digital products. Currently leading the design and integration of agentic systems (AX) within delivery workflows, bridging UX, AI automation, and development to enhance team efficiency and design quality. Deep expertise in design systems, AI-enabled product experiences, and design-to-development workflows. Proven track record partnering with product and engineering to scale token-based systems, improve delivery velocity, and ship production-ready interfaces. Strong cross-functional leader who bridges UX strategy, front-end development, and system architecture.
+Founding-caliber design engineer with 12+ years shipping enterprise and consumer products — currently leading agentic experience (AX) design at Orium, where I built Genie: an AI orchestration layer that automates recurring design tasks and establishes agent-safe UX patterns for hybrid human–AI workflows. I work at the intersection of design systems, AI-augmented tooling, and front-end development — owning the full arc from concept to production-ready component. Deep expertise in token-based design systems, design-to-development integration, and accessible, high-fidelity UI. I don't just design screens — I ship the systems behind them.
 
 ---
 
@@ -33,30 +33,26 @@ Agentic Systems & AX Lead and Full Stack Design Lead with 12+ years of experienc
 
 ## Professional Experience
 
-### Agentic Systems & AX Lead / Design Lead
+### Head of Design
 **Orium** · Toronto, ON · 2013 – Present
 
-*Agentic Systems & AX Lead for Delivery (Sep 2024 – Present)*
-- Lead the design and integration of agentic systems (AX) within Orium’s delivery workflow, bridging UX, AI automation, and development to enhance team efficiency and design quality.
-- Drive the evolution of agentic experience (AX) frameworks to accelerate delivery and support hybrid human–AI collaboration.
-- Lead cross-functional integration of GenAI and automation tools across design and development workflows.
+*Head of Design & AX Lead (Sep 2024 – Present)*
+- Set direction for UX, agentic experience (AX), and design-to-development integration across delivery.
+- Remain hands-on: primary designer and developer of Genie — an internal AI orchestration platform built from the ground up, including architecture, UX patterns, and front-end implementation.
+- Drive integration of GenAI and automation tools across design and development workflows.
 - Oversee design quality through scalable Design QA systems and front-end integration standards.
 - Mentor designers and developers on agentic workflows, AI tooling, and delivery alignment.
-- Partner with technical leads to ensure agent-driven systems deliver measurable value across projects.
 
-*Full Stack Design Lead (Jan 2024 – Present)*
-- Lead the design and collaborate with teams on the development of Orium Accelerators, enabling brands to transition to composable commerce platforms.
-- Maintain and update design assets and contribute to front-end codebase for Accelerators.
-- Train and mentor designers on design systems, front-end collaboration, and delivery best practices.
-- Oversee sales discussions and demonstrate capabilities to prospective clients.
-- Ensure design quality standards are realized in both design and code.
+*Full Stack Design Lead (Jan 2024 – Sep 2024)*
+- Led design and contributed directly to front-end development of Orium Accelerators for composable commerce platforms.
+- Maintained design assets and front-end codebase; trained designers on systems, code collaboration, and delivery standards.
+- Supported sales discussions and demonstrated capabilities to prospective clients.
 
-*Senior Product Designer (Sep 2013 – Present)*
-- Lead product design across enterprise and consumer platforms in retail, healthcare, and SaaS.
-- Architect and govern token-based design systems used across multiple teams and codebases.
-- Partner with engineering to translate Figma designs into production-ready React and Vue components.
-- Design and implement UI components directly in code to ensure visual and functional fidelity.
-- Define and operationalize design quality standards, improving consistency and reducing rework.
+*Senior Product Designer (Sep 2013 – Jan 2024)*
+- Led product design across enterprise and consumer platforms in retail, healthcare, and SaaS.
+- Architected and governed token-based design systems across multiple teams and codebases.
+- Designed and implemented UI components directly in code (React, Vue) to ensure visual and functional fidelity.
+- Defined design quality standards, improving consistency and reducing rework across delivery teams.
 
 **Key Impact**
 - Reduced design-to-development friction by approximately 60 percent through systemization and shared tooling.
@@ -64,12 +60,10 @@ Agentic Systems & AX Lead and Full Stack Design Lead with 12+ years of experienc
 - Established repeatable design QA and review processes adopted across delivery teams.
 
 **Selected Projects**
-- **Genie (Internal AI Platform)**
-  Lead designer for an agentic workflow system that automates recurring design tasks and supports asynchronous collaboration using AI-driven tooling. Established AX patterns now used across delivery teams to accelerate design-to-development workflows and improve cross-functional alignment.
-- **K&G Mobile App**
-  Lead designer for a React Native loyalty application supporting hundreds of thousands of active users.
-- **Softchoice Website Rebrand**
-  Delivered a scalable design system integrated with a headless CMS and a production component library.
+- **Genie (Internal AI Platform):** Primary designer and developer of an agentic workflow platform built from scratch — architecture, UX patterns, n8n automation flows, and front-end. Established AX patterns now used across delivery teams.
+- **K&G Mobile App:** Lead designer for a React Native loyalty application supporting hundreds of thousands of active users.
+- **The /design Command Suite:** Built an isolated, AI-powered Storybook environment designers can spin up with a single command — connected to real components and tokens, independent from the dev workflow. Closed the gap between design intent and production reality.
+- **Softchoice Website Rebrand:** Delivered a scalable design system integrated with a headless CMS and a production component library. Introduced motion design using CSS keyframes and spring-physics transitions to enhance comprehension without calling attention to themselves.
 
 **Tools and Technologies**
 Figma, Design Tokens, Storybook, React, Vue, React Native, JavaScript, TypeScript, CSS, SCSS, Git, Contentful, n8n
@@ -117,17 +111,8 @@ OCAD University · Toronto, ON · 2014
 
 ## Technical Skills
 
-**Design and Prototyping**
-Figma, FigJam, Adobe Creative Suite, Miro
-
-**Front-End Development**
-React, Vue.js, JavaScript, TypeScript, HTML, CSS, SCSS, Node.js, Git
-
-**Design Systems**
-Design Tokens, Storybook, Component Libraries, Figma Variables, Style Dictionary
-
-**AI and Automation**
-n8n, LLM-assisted workflows, Prompt Engineering, Agentic UX Patterns
-
-**Methods and Practices**
-User-Centered Design, Design Thinking, Atomic Design, Design QA, Accessibility Testing, Agile, Scrum
+- **Design and Prototyping:** Figma, FigJam, Adobe Creative Suite, Miro
+- **Front-End Development:** React, Vue.js, JavaScript, TypeScript, HTML, CSS, SCSS, Node.js, Git, Radix UI, shadcn/ui
+- **Design Systems:** Design Tokens, Storybook, Component Libraries, Figma Variables, Style Dictionary
+- **AI and Automation:** n8n, LLM-assisted workflows, Prompt Engineering, Agentic UX Patterns
+- **Methods and Practices:** User-Centered Design, Design Thinking, Atomic Design, Design QA, Accessibility Testing, Agile, Scrum

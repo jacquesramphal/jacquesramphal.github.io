@@ -238,6 +238,8 @@
   --font-700: clamp(var(--size-7), 7vw, var(--size-9));
   /* H4 */
   --font-600: var(--size-7);
+  /* Lead Paragraph (p under H1) */
+  --font-p-lead: clamp(var(--size-5), 2.5vw, var(--size-7));
   /* H5 + Paragraph */
   --font-500: var(--size-5);
   /* H6 + Paragraph Small*/

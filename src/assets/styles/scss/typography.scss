@@ -411,6 +411,10 @@ figcaption {
   }
 }
 
+h1 ~ p {
+  font-size: var(--font-p-lead);
+}
+
 /* Tablet (MD) */
 @media only screen and (min-width: 768px) {
   /* design-guard:ignore */
@@ -447,14 +451,19 @@ figcaption {
    PRINT STYLES
    ========================================================================= */
 
+@page {
+  size: letter;
+  margin: 0.5in;
+}
+
 @media print {
   :root {
     /* Compressed line heights for one-page fit */
-    --lineHeight-taller: 1.2;
-    --lineHeight-tall: 1.15;
-    --lineHeight-base: 1.2;
-    --lineHeight-short: 1.1;
-    --lineHeight-shorter: 1.05;
+    --lineHeight-taller: 1.15;
+    --lineHeight-tall: 1.1;
+    --lineHeight-base: 1.1;
+    --lineHeight-short: 1.05;
+    --lineHeight-shorter: 1;
   }
 
   /* Use standard Arial/Helvetica for ATS compatibility */
@@ -526,33 +535,33 @@ figcaption {
   .content,
   #markdown-content-end {
     h1 {
-      font-size: 14pt !important; /* design-guard:ignore */
+      font-size: 13pt !important; /* design-guard:ignore */
       margin-block-end: 0.1rem !important; /* design-guard:ignore */
     }
 
     h2 {
-      font-size: 11pt !important; /* design-guard:ignore */
-      font-weight: 700 !important;
-      margin-block-end: 0.15rem !important; /* design-guard:ignore */
-      margin-block-start: 0.25rem !important; /* design-guard:ignore */
-    }
-
-    h3 {
       font-size: 10pt !important; /* design-guard:ignore */
       font-weight: 700 !important;
       margin-block-end: 0.1rem !important; /* design-guard:ignore */
-      margin-block-start: 0.15rem !important; /* design-guard:ignore */
+      margin-block-start: 0.2rem !important; /* design-guard:ignore */
+    }
+
+    h3 {
+      font-size: 9.5pt !important; /* design-guard:ignore */
+      font-weight: 700 !important;
+      margin-block-end: 0.08rem !important; /* design-guard:ignore */
+      margin-block-start: 0.12rem !important; /* design-guard:ignore */
     }
 
     p {
-      font-size: 10pt !important; /* design-guard:ignore */
-      margin: 0.1rem 0 !important; /* design-guard:ignore */
+      font-size: 9pt !important; /* design-guard:ignore */
+      margin: 0.05rem 0 !important; /* design-guard:ignore */
       color: black !important;
       line-height: 1.2 !important;
     }
 
     a {
-      font-size: 10pt !important; /* design-guard:ignore */
+      font-size: 9pt !important; /* design-guard:ignore */
       color: black !important;
       text-decoration: none !important;
     }
