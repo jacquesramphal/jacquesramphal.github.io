@@ -3,7 +3,6 @@
     <div class="custom-chat-ui">
       <!-- Floating Chat Button -->
       <template v-if="!isOpen">
-        <div class="chat-mobile-gradient" aria-hidden="true" />
         <!-- Mobile button: standard MyButton -->
         <MyButton
           v-if="isMobile"
@@ -919,10 +918,6 @@ export default {
   display: none;
 }
 
-.chat-mobile-gradient {
-  display: none;
-}
-
 @media (max-width: 768px) {
   /* design-guard:ignore */
   .chat-button--mobile {
@@ -951,17 +946,6 @@ export default {
     pointer-events: none;
   }
 
-  .chat-mobile-gradient {
-    display: block;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 9rem; /* design-guard:ignore */
-    background: linear-gradient(to top, var(--background) 0%, transparent 100%);
-    pointer-events: none;
-    z-index: 9997;
-  }
 }
 
 .chat-button:not(.chat-button--mobile) .custom-btn {

@@ -28,19 +28,27 @@
           <span>
             <div class="hero-content">
               <!-- Support both slot and prop for title -->
-              <component :is="as" v-if="$slots.title" id="title">
+              <!-- <component :is="as" v-if="$slots.title" id="title">
                 <slot name="title" />
-              </component>
-              <DynamicText v-else :as="as" :text="title" isHtml :attrs="{ id: 'title' }" />
+              </component> -->
+              <TextBlock
+                :as="as"
+                :title="title"
+                :description="subtitle"
+                :attrs="{ id: 'title' }"
+                :isHtml="isHtml"
+              />
+
+              <!-- <DynamicText v-else :as="as" :title="title" isHtml :attrs="{ id: 'title' }" /> -->
               <p id="tags" v-if="tag" v-text="tag" class="subtle" />
 
-              <DynamicText
+              <!-- <DynamicText
                 v-if="subtitle"
                 as="h4"
                 :text="subtitle"
                 :isHtml="false"
                 :attrs="{ id: 'subtitle' }"
-              />
+              /> -->
 
               <div id="hero-cta" v-if="label" :class="{ 'with-gap': label && labeltwo }">
                 <MyButton
@@ -111,6 +119,7 @@ import MyButton from '../Button/Button.vue';
 import MyInput from '../form/MyInput.vue';
 import AnimatedComponent from '../AnimatedComponent.vue';
 import DynamicText from '../text/DynamicText.vue';
+import TextBlock from '../text/TextBlock/TextBlock.vue';
 
 export default {
   name: 'HeroBanner',
@@ -120,6 +129,7 @@ export default {
     GridParent,
     MyButton,
     MyInput,
+    TextBlock,
     AnimatedComponent,
     // TextLink,
     DynamicText,
@@ -217,6 +227,10 @@ export default {
     searchPlaceholder: {
       type: String,
       default: 'Search...',
+    },
+    isHtml: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {
@@ -473,10 +487,18 @@ img {
     }
   }
 }
+.display .herobanner--end {
+  #hero-text {
+    @media only screen and (min-width: 768px) {
+      padding-block-end: var(--spacing-md);
+    }
+  }
+}
 .display #hero-text {
   align-items: end;
+
   span {
-    grid-column: 1 / 4 !important;
+    grid-column: 1 / 12 !important;
   }
 }
 

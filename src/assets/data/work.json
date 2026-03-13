@@ -84,6 +84,23 @@
       ]
     },
     {
+      "id": 5,
+      "variant": "small",
+      "title": "The /design Command Suite",
+      "tag": "Design Engineering, AI-Augmented Workflow, Storybook",
+      "subtitle": "Collapsing the Handoff Gap",
+      "description": "Design and development can't share the same working environment — but they can share the same source of truth. Built an isolated, AI-powered Storybook environment that designers can spin up with a single command, connected to real components and tokens but independent from the dev workflow.",
+      "btnroute": "doc/the-design-command-suite",
+      "label": "Read Case Study",
+      "alt": "The /design Command Suite — AI-Powered Storybook Design Environment",
+      "bgcolor": "background-color: #0f1117",
+      "category": "Work",
+      "filename3": "placeholders/placeholder-25.svg",
+      "role": "Design Lead, Design Engineer",
+      "type": "Internal Tooling",
+      "status": "In Progress"
+    },
+    {
       "id": 2,
       "variant": "small",
       "title": "Softchoice Website Rebrand",
@@ -149,7 +166,7 @@
         {
           "eyebrow": "",
           "title": "The Outcome",
-          "body": "The rebrand wasn’t just about new colors and fonts. It was about creating a cohesive experience that reflected Softchoice’s new brand identity across every touchpoint.<br><br>Working within constraints—whether they’re technical, timeline, or budget-related—forces you to be more creative, not less. We couldn’t rebuild everything, so we had to be strategic about what to enhance and how to enhance it.<br><br>Sometimes the best design work happens when you’re improving what exists rather than starting from scratch. It requires a different kind of creativity—one that sees potential in constraints and finds elegant solutions within established systems. This rebranding effort modernized Softchoice’s online presence while respecting the foundation that was already working.",
+          "body": "We redesigned the modules — hero sections, navigation, two-column layouts, callouts, accordions — and introduced motion throughout: scroll animations, navigation transitions, interactive states. Everything fit within the existing CMS block structure. That constraint made the work harder, and the result better. The site felt like a new brand while the CMS stayed exactly where the organization needed it.",
           "images": {
             "filename1": "casestudy/softchoice/sc-motion.gif",
             "alt": "Motion Design in Action",
@@ -163,7 +180,7 @@
       "variant": "small",
       "title": "Fortune 100 Planning Tool",
       "tag": "Product Design, Dashboard Design",
-      "description": "A comprehensive planning tool designed for enterprise-level strategic planning, featuring intuitive dashboards and real-time analytics for data-driven decision making.",
+      "description": "A strategic planning tool for a Fortune 100 company — making complex organizational data across business units, budgets, and initiatives navigable without flattening it.",
       "btnroute": "work/4",
       "label": "Read More",
       "alt": "Fortune 100 Planning Tool Dashboard",
@@ -238,7 +255,7 @@
       "size": "small",
       "title": "OnLogic Composable Commerce Platform test",
       "tag": "E-commerce, Developer Friendly",
-      "description": "Empowering technical users with precision, flexibility, and control for configuring industrial PC systems.",
+      "description": "OnLogic's customers are IT professionals configuring industrial PCs with specific hardware requirements — where a wrong choice has real consequences. Migrated from a legacy platform to composable commerce, with a configuration flow built around real dependencies.",
       "btnroute": "work/12",
       "label": "Read More",
       "alt": "OnLogic Project Overview",

@@ -20,7 +20,7 @@
           /> -->
 
     <!-- Dynamic Breadcrumb Trail -->
-    <template v-if="!isHome">
+    <template v-if="false">
       <DynamicText v-show="isDesktopScreen" :as="p" text="/" style="line-height: inherit" />
 
       <TextLink

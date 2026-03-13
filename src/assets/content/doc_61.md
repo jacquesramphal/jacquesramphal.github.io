@@ -14,9 +14,7 @@
 
 
 
-This project wasn’t a redesign. It was a systems problem — and it needed a systems solution.
-
-The client had a multi-display vehicle Human-Machine Interface (HMI) prototype that needed to scale across four brands, two themes, two modalities (touch and desktop), and three displays. The visual design existed in Figma. The code existed in React. And the two were drifting further apart every sprint — accelerated by AI tools generating whatever values they felt like.
+The client had a multi-display vehicle Human-Machine Interface (HMI) prototype that needed to scale across four brands, two themes, two modalities (touch and desktop), and three displays. The visual design existed in Figma. The code existed in React. The two were drifting further apart every sprint — accelerated by AI tools generating whatever values they felt like.
 
 My job was to build the bridge and enforce it.
 

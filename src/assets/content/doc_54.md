@@ -58,11 +58,7 @@ One of the most impactful additions was introducing light animations and motion 
 
 ## Outcome
 
-The rebrand wasn’t just about new colors and fonts. It was about creating a cohesive experience that reflected Softchoice’s new brand identity across every touchpoint.
-
-Working within constraints—whether they’re technical, timeline, or budget-related—forces you to be more creative, not less. We couldn’t rebuild everything, so we had to be strategic about what to enhance and how to enhance it.
-
-Sometimes the best design work happens when you’re improving what exists rather than starting from scratch. It requires a different kind of creativity—one that sees potential in constraints and finds elegant solutions within established systems. This rebranding effort modernized Softchoice’s online presence while respecting the foundation that was already working.
+We redesigned the modules — hero sections, navigation, two-column layouts, callouts, accordions — and introduced motion throughout: scroll animations, navigation transitions, interactive states. Everything fit within the existing CMS block structure. That constraint made the work harder, and the result better. The site felt like a new brand while the CMS stayed exactly where the organization needed it.
 
 ![Motion Design in Action](../images/casestudy/softchoice/sc-motion.gif)
 
@@ -72,6 +68,4 @@ Sometimes the best design work happens when you’re improving what exists rathe
 
 ## Reflection
 
-The best outcome of this project wasn’t the new visual language — it was the confidence Softchoice gained to own their digital presence going forward.
-
-Great design work often lives in the improvements no one notices: the constraint respected, the system preserved, the foundation quietly strengthened. Sometimes that’s exactly the brief.
+Softchoice came out of it with a consistent visual language and the documentation to maintain it without us. The improvements no one notices — the constraint respected, the system preserved, the foundation quietly strengthened — are usually the ones that last.

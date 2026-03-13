@@ -35,6 +35,7 @@
       :as="as"
       tabIndex="0"
       :text="title"
+      :isHtml="isHtml"
       :attrs="{ class: 'title' }"
     />
     <DynamicText
@@ -121,8 +122,7 @@ export default {
 
     description: {
       type: String,
-      default:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      default: '',
       required: false,
     },
     // blockquote: {
@@ -177,6 +177,10 @@ export default {
       type: String,
       default: '',
       required: false,
+    },
+    isHtml: {
+      type: Boolean,
+      default: false,
     },
   },
 
@@ -266,9 +270,8 @@ export default {
 }
 
 h1.title {
-  margin-block-end: var(--spacing-xs);
+  margin-block-end: var(--spacing-sm);
 }
-
 
 .title-link {
   text-decoration: none;

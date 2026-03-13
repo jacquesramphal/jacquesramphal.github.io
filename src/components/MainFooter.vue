@@ -443,7 +443,7 @@ $spacing-lg: var(--spacing-lg);
 $spacing-sm: var(--spacing-sm);
 
 #wrapper {
-  border-block-start: var(--border);
+  // border-block-start: var(--border);
   //  background: var(--background-darker);
   // padding-block-end: $spacing-lg;
   @media only screen and (max-width: 768px) {

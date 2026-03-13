@@ -69,7 +69,11 @@
           </aside>
         </div> </GridParent
     ></GridContainer>
-    <div id="related-writing-section" style="background: transparent !important">
+    <div
+      v-if="currentSlug !== 'cv'"
+      id="related-writing-section"
+      style="background: transparent !important"
+    >
       <CardRow2
         :title="relatedTitle"
         kind="writing"
@@ -791,7 +795,7 @@ export default {
         'case-study': 'Related',
         tool: 'Related Tools',
       };
-      return typeMap[currentDocType.value] || 'Related Writing';
+      return typeMap[currentDocType.value] || 'Related';
     });
 
     return {
@@ -822,6 +826,9 @@ export default {
       currentDocType,
       relatedTitle,
       isFullWidth,
+      currentSlug: computed(
+        () => router.currentRoute.value.params.slug ?? router.currentRoute.value.params.id
+      ),
       lightboxOpen,
       lightboxSrc,
       updateMarkdownHeadings,

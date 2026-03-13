@@ -8,7 +8,7 @@
 ![Genie Core Functions Diagram](../images/casestudy/genie/genie.png)
 
 
-## What (or who)to is Genie?
+## What is Genie?
 For the past year or so, I’ve been working on [an internal tool at Orium, called Genie](https://orium.com/blog/orium-genie-agentic-ai-design), that is redefining how we approach our projects and client work. But before I tell you the story of why we built Genie, what the journey was like, and how it has impacted not just my day-to-day workflows, but my perception of work, you need to understand what Genie actually is.
 
 Genie is an agentic orchestration layer for delivery operations. It connects to live project systems like Jira, Slack, Mavenlink, and internal project databases, continuously synthesizing context, surfacing insights, and automating workflows without manual intervention.
@@ -68,13 +68,9 @@ Building Genie from a personal tool into an organizational platform reinforced s
 
 You don’t become an AI developer by taking courses, you become one by building something that forces you to understand how agents actually work. You don’t become a product manager by reading frameworks, you become one by making hard tradeoffs and listening to real feedback.
 
-For me, a few lessons stand out:
+What surprised me was that leading from the IC level isn’t a compromise — being close to the work made me a better advocate for it. The harder adjustment was scale: knowing when to go deep on a problem versus when to step back and let others carry it. That tension doesn’t go away. You just get better at reading it.
 
-1. Real growth comes from real problems. If something frustrates you enough, experiment. Constraints force learning in a way theory never will.
-2. You can lead while staying close to the work. Being a strong individual contributor doesn’t disqualify you from leadership. It often makes you better at it.
-3. Building at scale requires knowing when to go deep and when to step back. That tension never goes away, and learning to live with it is part of the job.
-
-The most meaningful projects serve your team and your own growth at the same time. That overlap is rare, but it’s where real transformation happens.
+The projects worth doing tend to serve the team and your own growth at the same time. That overlap is rare. When you find it, move fast.
 
 ## The Hardest Part: Building for Others
 The simple truth most people won’t admit: Having a good idea is actually the easy part. Convincing exhausted teams to adopt something new is what’s hard.
@@ -91,7 +87,7 @@ And then other days a team tells me Genie saved them hours, helped them catch so
 
 And both of those kinds of days—and all the ones in between—are the messy reality of building something real. It’s never all one or the other.
 
-Real impact isn’t about being right. It’s about understanding why people resist, what they’re afraid of, and creating something that actually addresses those fears. Building something meaningful changes not just your work, but your role, your expectations, and the way others engage with you.
+Real impact isn’t about being right. It’s about understanding why people resist, what they’re afraid of, and creating something that actually addresses those fears.
 
 ## When Serious Questions Are a Privilege
 I get a lot of feedback now about product management. Do you have a vision document? A roadmap? Success metrics? Artifacts?
@@ -109,5 +105,5 @@ When someone asks for a vision or a roadmap, they’re saying this matters enoug
 
 That’s what Genie is teaching me. Building something meaningful changes not just your work, but your role, your expectations, and the way others engage with you.
 
-And that’s uncomfortable. And humbling. And exactly where growth happens.
+That’s uncomfortable, and humbling, and exactly where growth happens.
 Building Genie didn’t just change how we work. It changed what I’m capable of building next.

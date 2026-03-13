@@ -6,13 +6,13 @@ I keep hearing this from people I interact with: “Now it’s about agents, orc
 
 ## UX Doesn’t Disappear. It Evolves.
 
-In a recent Agentic Experience Studio, we didn’t just design screens. We designed what an agent is allowed to decide, when it should act, when it shouldn’t, how it signals confidence, where humans approve or override, and what success and failure actually look like. That’s not traditional UI or UX design. It’s decision design. It’s decision architecture. The shift isn’t from UX to no UX — it’s from interface design to behavior design.
+In a recent Agentic Experience Studio, we designed what an agent is allowed to decide, when it should act, when it shouldn’t, how it signals confidence, where humans approve or override, and what success and failure actually look like — the boundary conditions of autonomous work, not its interface.
 
 ## From Screens to Systems
 
 UX has always been about systems; we just focused mostly on the visible layer. Now the invisible layer matters just as much: how work flows across tools, where decisions bottleneck, where coordination breaks down, and where trust erodes. Designing agents means designing behavior inside those systems.
 
-When systems can act autonomously, the cost of bad decision design is higher than the cost of bad visual design. Guardrails, oversight, and clarity of ownership aren’t secondary considerations — they’re core design concerns. This isn’t design disappearing. It’s design expanding.
+When systems can act autonomously, the cost of bad decision design is higher than the cost of bad visual design. Guardrails, oversight, and clarity of ownership aren’t secondary considerations — they’re core design concerns.
 
 ## The Skills Already Transfer
 
@@ -32,7 +32,7 @@ We weren’t debating models, APIs, or data structures. We were clarifying decis
 
 ## Where Design Becomes Strategy
 
-When the client asked, “What do we actually do with this?” or “How do we implement it?”, that wasn’t a breakdown in the process. It was the moment design became strategy. The hardest part isn’t generating AI ideas. It’s deciding what should be automated, what shouldn’t, who owns it, and how you measure whether it worked. That’s not just a tooling challenge. It’s a design problem.
+When the client asked “What do we actually do with this?” — that’s design doing its job. The hardest part isn’t generating AI ideas. It’s deciding what should be automated, what shouldn’t, who owns it, and how you measure whether it worked.
 
 ## Why I’m Optimistic
 

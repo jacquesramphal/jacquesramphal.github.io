@@ -72,20 +72,20 @@
 </template>
 
 <script>
-import docData from "../assets/data/docs.json";
-import libraryData from "../assets/data/library.json";
+import docData from '../assets/data/docs.json';
+import libraryData from '../assets/data/library.json';
 // import pageContent from "../assets/content/content.md";
-import PageWrapper from "../components/grid/PageWrapper.vue";
-import GridContainer from "../components/grid/GridContainer.vue";
-import GridWrapper from "../components/grid/GridWrapper.vue";
-import TextBlock from "../components/text/TextBlock/TextBlock.vue";
-import AnimatedComponent from "../components/AnimatedComponent.vue";
-import ImageCard from "../components/card/ImageCard.vue";
-import CardRow2 from "../components/CardRow2.vue";
+import PageWrapper from '../components/grid/PageWrapper.vue';
+import GridContainer from '../components/grid/GridContainer.vue';
+import GridWrapper from '../components/grid/GridWrapper.vue';
+import TextBlock from '../components/text/TextBlock/TextBlock.vue';
+import AnimatedComponent from '../components/AnimatedComponent.vue';
+import ImageCard from '../components/card/ImageCard.vue';
+import CardRow2 from '../components/CardRow2.vue';
 // import ButtonRow from "../components/ButtonRow.vue";
 
 export default {
-  name: "DocPage",
+  name: 'DocPage',
   components: {
     GridContainer,
     GridWrapper,
@@ -118,11 +118,11 @@ export default {
     relatedTitle() {
       // Generate title based on document type
       const typeMap = {
-        'article': 'Related Articles',
+        article: 'Related Articles',
         'case-study': 'Related Case Studies',
-        'tool': 'Related Tools',
+        tool: 'Related Tools',
       };
-      return typeMap[this.currentDocType] || 'Related Writing';
+      return typeMap[this.currentDocType] || 'Related';
     },
   },
   mounted() {
@@ -130,9 +130,9 @@ export default {
     if (!this.$route.params) {
       // Handle the case when $route.params is undefined
       // You can redirect to an error page or display an error message
-      console.error("Invalid route parameters");
+      console.error('Invalid route parameters');
       // Example: Redirect to the homepage
-      this.$router.push("/brb");
+      this.$router.push('/brb');
     }
   },
 };

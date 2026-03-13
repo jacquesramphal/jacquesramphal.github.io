@@ -283,7 +283,7 @@ button {
   transform: translate3d(0, 0, 0) !important;
 }
 .navbar.is-scrolled .bg {
-  border-block-end: var(--border);
+  border-block-end: none;
 }
 .bg {
   background: var(--background);

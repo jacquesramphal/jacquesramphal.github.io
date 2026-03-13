@@ -57,6 +57,4 @@ Kum & Go plans to continue enhancing the mobile app and redesigning the web expe
 
 ## Reflection
 
-The K&G project wasn’t just about shipping an app — it was about handing Kum & Go the controls to evolve their digital experience independently. The composable architecture meant that new features, promotions, and content could be managed without an external partner involved in every update.
-
-The real measure of success wasn’t the launch itself. It was building a platform that didn’t need us anymore.
+The composable architecture meant Kum & Go could manage new features, promotions, and content without routing every change through an external partner. They had the controls from day one.

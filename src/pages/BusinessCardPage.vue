@@ -16,21 +16,31 @@
       <TextBlock
         as="h1"
         title="Jacques Ramphal"
-        description="I lead design work where systems, code, and AI meet—building the practices and platforms that let cross-functional teams deliver meaningful products efficiently and sustainably."
+        description=" I lead design work where systems, code, and AI meet—building the practices and platforms
+            that let cross-functional teams deliver meaningful products efficiently and sustainably."
       />
 
-      <!-- <div style="background: none"><h1 class="display">Jacques Ramphal</h1></div> -->
-      <div style="text-align: left; grid-row: 3 / 4">
-        <ul>
-          <li>
-            <p>hello@ramphal.design</p>
-
-            <p>github</p>
-
-            <p>linkedin</p>
-          </li>
-        </ul>
-      </div>
+      <!-- <div style="background: none"><h1 class="display">Jacques Ramphal</h1></div> -->\
+      <GridParent tight cols="12" class="bottom-grid" style="background: none">
+        <div class="bottom-col" style="grid-column: 1 / 5; text-align: left">
+          <ul>
+            <li v-for="(item, index) in contactLinks" :key="index">
+              <a :href="item.url">{{ item.text }}</a>
+            </li>
+          </ul>
+          <!-- <p>
+            I lead design work where systems, code, and AI meet—building the practices and platforms
+            that let cross-functional teams deliver meaningful products efficiently and sustainably.
+          </p> -->
+        </div>
+        <div class="bottom-col" style="grid-column: 6 / 12; text-align: left">
+          <ul>
+            <li v-for="(item, index) in contactLinks" :key="index">
+              <a :href="item.url">{{ item.text }}</a>
+            </li>
+          </ul>
+        </div>
+      </GridParent>
     </GridParent>
   </GridContainer>
   <!-- <MainFooter />
@@ -128,6 +138,16 @@ export default {
 #maindetails {
   @media only screen and (min-width: 768px) {
     padding-inline-end: var(--spacing-md);
+  }
+}
+
+.bottom-grid {
+  padding-block-end: var(--spacing-md);
+}
+
+.bottom-col {
+  @media only screen and (max-width: 767px) {
+    grid-column: span 12 !important;
   }
 }
 
