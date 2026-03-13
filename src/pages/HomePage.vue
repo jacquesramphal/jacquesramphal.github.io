@@ -65,8 +65,13 @@
         />
       </GridParent>
     </GridContainer> -->
-    <!-- WRITING SECTION - MOVED UP FOR PROMINENCE -->
-    <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
+    <!-- WORK SECTION -->
+    <CardRow2
+      title="Select Work"
+      kind="work"
+      filterByType="case-study"
+      :viewAllTo="{ name: 'Library' }"
+    />
 
     <!-- ABOUT SECTION -->
     <AnimatedComponent>
@@ -80,7 +85,8 @@
         label="Learn More"
       />
     </AnimatedComponent>
-
+    <!-- WRITING SECTION -->
+    <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
     <TestimonialCarousel />
 
     <!-- Decorative Cards -->

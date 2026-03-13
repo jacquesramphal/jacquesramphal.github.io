@@ -21,7 +21,7 @@
       <!-- HEADER COMPONENT END -->
 
       <GridParent tight>
-        <template v-if="kind === 'writing'">
+        <template v-if="kind === 'writing' || kind === 'work'">
           <ArticleCard
             borderless
             v-for="entry in visibleItems"
@@ -97,7 +97,7 @@
         <GridParent class="cardmobile" v-for="entry in visibleItemsMobile" :key="entry.id">
           <ArticleCard
             borderless
-            v-if="kind === 'writing'"
+            v-if="kind === 'writing' || kind === 'work'"
             :key="`writing-${entry.id}`"
             :image="entry.image"
             eyebrow=""

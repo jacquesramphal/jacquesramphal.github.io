@@ -108,6 +108,44 @@ A curated collection of my writing, professional work, and personal projects."
 
       <!-- No filters: Show sections with headers -->
       <template v-if="!hasActiveFilters">
+        <!-- Case Studies Section -->
+        <div v-if="filteredCaseStudiesAndProjects.length" class="library-section">
+          <TextBlock
+            style="
+              align-items: center;
+              grid-template-columns: repeat(3, 1fr);
+              padding-block-end: var(--spacing-md);
+            "
+            title="Select Work"
+            as="h2"
+            description=""
+            class="section-header"
+          />
+          <GridParent tight class="posts">
+            <ArticleCard
+              borderless
+              v-for="(entry, index) in filteredCaseStudiesAndProjects"
+              :key="entry.id"
+              :mobileList="index !== 0"
+              :alt="entry.alt"
+              :description="entry.description"
+              :filename="entry.thumbnail"
+              :imageVariant="entry.imageVariant"
+              :bgcolor="entry.bgcolor"
+              :label="entry.label"
+              :route="entry.route"
+              :btnroute="entry.btnroute"
+              :link="entry.link"
+              eyebrow=""
+              :title="entry.title"
+              :tags="entry.tags"
+              :type="entry.type"
+              :contentFile="entry.contentFile"
+              :index="index"
+              @tag-click="handleTagClick"
+            />
+          </GridParent>
+        </div>
         <!-- Writing Section -->
         <TextBlock
           style="
@@ -130,45 +168,6 @@ A curated collection of my writing, professional work, and personal projects."
               :alt="entry.alt"
               :description="entry.description"
               :filename="entry.thumbnail"
-              :label="entry.label"
-              :route="entry.route"
-              :btnroute="entry.btnroute"
-              :link="entry.link"
-              eyebrow=""
-              :title="entry.title"
-              :tags="entry.tags"
-              :type="entry.type"
-              :contentFile="entry.contentFile"
-              :index="index"
-              @tag-click="handleTagClick"
-            />
-          </GridParent>
-        </div>
-        <!-- Case Studies Section -->
-        <div v-if="filteredCaseStudiesAndProjects.length" class="library-section">
-          <TextBlock
-            style="
-              align-items: center;
-              grid-template-columns: repeat(3, 1fr);
-
-              padding-block-end: var(--spacing-md);
-            "
-            title="Select Work"
-            as="h2"
-            description=""
-            class="section-header"
-          />
-          <GridParent tight class="posts">
-            <ArticleCard
-              borderless
-              v-for="(entry, index) in filteredCaseStudiesAndProjects"
-              :key="entry.id"
-              :mobileList="index !== 0"
-              :alt="entry.alt"
-              :description="entry.description"
-              :filename="entry.thumbnail"
-              :imageVariant="entry.imageVariant"
-              :bgcolor="entry.bgcolor"
               :label="entry.label"
               :route="entry.route"
               :btnroute="entry.btnroute"
