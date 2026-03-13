@@ -3,6 +3,17 @@ import SelectorCta from "./SelectorCta.vue";
 export default {
   title: "Components/Primitives/SelectorCta",
   component: SelectorCta,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A dropdown trigger button that reveals a menu slot. ' +
+          'The `#menu` slot accepts any list of action items. ' +
+          'Used in article pages for copy/share actions. Toggle `modelValue` to see the open state.',
+      },
+    },
+  },
   argTypes: {
     align: {
       control: { type: "select" },

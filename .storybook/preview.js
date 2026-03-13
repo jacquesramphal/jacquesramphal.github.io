@@ -3,6 +3,10 @@ import { setup } from '@storybook/vue3';
 import "../src/assets/styles/css/all.css";
 import { globalStyles } from './global-styles';
 import { darkTheme, lightTheme } from './themes';
+import GridWrapper from '../src/components/grid/GridWrapper.vue';
+import GridContainer from '../src/components/grid/GridContainer.vue';
+import GridParent from '../src/components/grid/GridParent.vue';
+import PageWrapper from '../src/components/grid/PageWrapper.vue';
 
 // Register global stubs needed by components
 setup((app) => {
@@ -15,6 +19,11 @@ setup((app) => {
     props: ['to'],
     template: '<a :href="typeof to === \'string\' ? to : \'#\'"><slot /></a>',
   });
+  // Register grid layout components globally (mirrors main.ts registration)
+  app.component('GridWrapper', GridWrapper);
+  app.component('GridContainer', GridContainer);
+  app.component('GridParent', GridParent);
+  app.component('PageWrapper', PageWrapper);
 });
 
 // Add Google Fonts for Manrope
@@ -58,7 +67,7 @@ export const parameters = {
         'Introduction',
         'Foundation',
         'Components',
-        ['Primitives', 'Forms', 'Navigation', 'Layout', 'Cards', 'Blog', 'Resume'],
+        ['Primitives', 'Forms', 'Navigation', 'Layout', 'Cards', 'Resume'],
         'Patterns',
       ],
     },

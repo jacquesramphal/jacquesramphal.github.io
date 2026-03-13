@@ -3,9 +3,20 @@ import { withDesign } from "storybook-addon-designs";
 import { ref } from "vue";
 
 export default {
-  title: "Components/Forms/MyInput",
+  title: "Components/Forms/Input",
   component: MyInput,
+  tags: ['autodocs'],
   decorators: [withDesign],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Labelled text input with support for `text`, `email`, and `password` types. ' +
+          'The `small` size variant includes an optional inline submit button — used in the newsletter and chat UI. ' +
+          'Emits a `submit` event when the button is pressed or Enter is hit.',
+      },
+    },
+  },
   argTypes: {
     type: {
       control: { type: "select" },

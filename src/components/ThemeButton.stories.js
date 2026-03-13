@@ -3,6 +3,7 @@ import ThemeButton from './ThemeButton.vue';
 export default {
   title: 'Components/Primitives/ThemeButton',
   component: ThemeButton,
+  tags: ['autodocs'],
   argTypes: {},
   parameters: {
     docs: {

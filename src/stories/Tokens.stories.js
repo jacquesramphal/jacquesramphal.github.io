@@ -225,6 +225,7 @@ function injectTokenStyles() {
 // ---------------------------------------------------------------------------
 export default {
   title: 'Foundation/Tokens',
+  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
     options: { showPanel: false },

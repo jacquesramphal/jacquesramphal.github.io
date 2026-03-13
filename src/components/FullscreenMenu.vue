@@ -57,7 +57,7 @@ export default {
       menuItems: [
         { text: 'Home', route: '/' },
         { text: 'Library', route: '/library' },
-        { text: 'Resume', route: '/doc/cv' },
+        { text: 'Resume', route: '/resume.html', external: true },
         { text: 'FAQs', route: '/doc/ask-me-anything' },
         { text: 'Storybook', route: '/storybook/', external: true },
       ],
@@ -131,13 +131,13 @@ export default {
           const scrollY = this.scrollPosition;
           document.documentElement.classList.remove('menu-open');
           document.body.classList.remove('menu-open');
+          // Restore scroll synchronously before paint to avoid 1-frame jump
+          document.documentElement.scrollTop = scrollY;
+          document.body.scrollTop = scrollY;
           document.body.style.position = '';
           document.body.style.top = '';
           document.body.style.width = '';
           document.body.style.overflowY = '';
-
-          // Restore scroll position
-          window.scrollTo(0, scrollY);
         }
       },
     },

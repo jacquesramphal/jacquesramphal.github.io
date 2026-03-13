@@ -3,6 +3,16 @@ import DynamicText from "./DynamicText.vue";
 export default {
   title: "Components/Primitives/DynamicText",
   component: DynamicText,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A renderless-style wrapper that renders any heading or text element via the `as` prop (`p`, `h1`–`h6`, `span`). ' +
+          'Set `isHtml: true` to render raw HTML — use with trusted content only.',
+      },
+    },
+  },
   argTypes: {
     as: {
       control: { type: "select" },

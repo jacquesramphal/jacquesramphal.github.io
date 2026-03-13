@@ -4,6 +4,7 @@ import { withDesign } from 'storybook-addon-designs';
 export default {
   title: 'Components/Navigation/MainFooter',
   component: MainFooter,
+  tags: ['autodocs'],
   decorators: [withDesign],
   parameters: {
     layout: 'fullscreen',

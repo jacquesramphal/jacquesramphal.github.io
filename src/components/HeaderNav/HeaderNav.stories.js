@@ -3,13 +3,17 @@ import HeaderNav from './HeaderNav.vue';
 export default {
   title: 'Components/Navigation/HeaderNav',
   component: HeaderNav,
+  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'The main navigation header component that handles responsive navigation and menu toggling.'
-      }
-    }
+        component:
+          'Primary site header with responsive navigation, scroll-hide behaviour, and a mobile menu toggle. ' +
+          'The `#menu-button` and `#menu-button-mobile` slots accept custom trigger elements. ' +
+          'Pass `showNavbar: false` to simulate the hidden state.',
+      },
+    },
   },
   decorators: [
     () => ({

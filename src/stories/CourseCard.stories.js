@@ -4,7 +4,18 @@ import { withDesign } from 'storybook-addon-designs';
 export default {
   title: 'Components/Cards/CourseCard',
   component: CourseCard,
+  tags: ['autodocs'],
   decorators: [withDesign],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A compact list-style card for reading lists, courses, or resources. ' +
+          'The `read` prop shows a checkmark to indicate the item has been consumed. ' +
+          'Designed for dense lists — no image.',
+      },
+    },
+  },
   argTypes: {
     id: { control: 'text', description: 'Unique identifier for read tracking' },
     tag: { control: 'text', description: 'Category or date tag' },

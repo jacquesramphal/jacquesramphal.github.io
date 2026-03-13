@@ -3,6 +3,16 @@ import ResumeEntry from "./ResumeEntry.vue";
 export default {
   title: "Components/Resume/Entry",
   component: ResumeEntry,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A single resume list item with role title, company/position, location, and date range. ' +
+          'Renders as an `<li>` — wrap in a `<ul>` in the consuming component.',
+      },
+    },
+  },
   argTypes: {
     title: { control: "text" },
     description: { control: "text" },

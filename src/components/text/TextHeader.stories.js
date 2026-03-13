@@ -3,6 +3,16 @@ import TextHeader from "./TextHeader.vue";
 export default {
   title: "Components/Primitives/TextHeader",
   component: TextHeader,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Section or article header with a title, optional category tag, read-time indicator, and description. ' +
+          'Used at the top of article pages and case study sections.',
+      },
+    },
+  },
   argTypes: {
     title: { control: "text" },
     tag1: { control: "text" },

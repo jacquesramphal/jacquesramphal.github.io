@@ -8,7 +8,7 @@
           :link="`${link}`"
           :route="`${route}`"
           class="textblock"
-          :cta="`${cta}`"
+          :label="`${cta}`"
         />
       </GridWrapper>
     </GridContainer>
@@ -91,8 +91,9 @@ img {
 .thumbdetail {
   background-color: var(--background-darker) !important;
   /* background-color: #35363a !important; */
+  display: grid;
   grid-column: 1 / 4;
-  grid-template-rows: 2, 1fr;
+  grid-template-rows: auto 1fr;
   text-decoration: none !important;
 
   @media only screen and (min-width: 768px) {

@@ -4,7 +4,17 @@ import { withDesign } from "storybook-addon-designs";
 export default {
   title: "Components/Layout/TextGrid2",
   component: TextGrid2,
+  tags: ['autodocs'],
   decorators: [withDesign],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A metadata summary block with up to three label/value pairs and an optional subtitle and description. ' +
+          'Used in case study and work pages to surface key project details at a glance.',
+      },
+    },
+  },
   argTypes: {
     label1: { control: "text" },
     label2: { control: "text" },

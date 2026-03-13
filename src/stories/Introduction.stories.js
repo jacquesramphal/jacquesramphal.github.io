@@ -55,7 +55,6 @@ const STYLES = `
   }
   .intro-headline em {
     font-style: normal;
-    color: var(--color-blue);
   }
   .intro-tagline {
     font-size: var(--font-500);
@@ -165,7 +164,7 @@ const STYLES = `
     font-weight: var(--fontWeight-bold);
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--color-blue);
+    color: var(--foreground-muted);
   }
   .intro-section-card-title {
     font-size: var(--font-2xs);
@@ -269,6 +268,7 @@ function injectIntroStyles() {
 
 export default {
   title: 'Introduction',
+  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
     options: { showPanel: false },

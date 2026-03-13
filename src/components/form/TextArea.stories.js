@@ -3,6 +3,14 @@ import TextArea from "./TextArea.vue";
 export default {
   title: "Components/Forms/Textarea",
   component: TextArea,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'Multi-line text input with a visible label and placeholder. Used in contact and feedback forms.',
+      },
+    },
+  },
   argTypes: {
     id: { control: "text" },
     name: { control: "text" },

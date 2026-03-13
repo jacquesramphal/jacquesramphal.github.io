@@ -3,6 +3,14 @@ import MySelect from "./MySelect.vue";
 export default {
   title: "Components/Forms/Select",
   component: MySelect,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'Styled select dropdown with a visible label. Options are passed via the default slot.',
+      },
+    },
+  },
   argTypes: {
     id: { control: "text" },
     name: { control: "text" },

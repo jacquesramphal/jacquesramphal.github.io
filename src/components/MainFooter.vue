@@ -15,7 +15,7 @@
         >
           <div class="">
             <!-- Profile Picture -->
-            <router-link to="/doc/cv"
+            <a href="/resume.html"
               ><img
                 id="avatar"
                 class="justify-end"
@@ -23,7 +23,7 @@
                 draggable="false"
                 alt="logo.svg"
                 style="width: 120px; aspect-ratio: 1 / 1"
-            /></router-link>
+            /></a>
           </div>
           <GridParent tight class="outer">
             <div id="maindetails">
@@ -186,9 +186,9 @@ export default {
     return {
       menuItems1: [
         { text: 'Library', route: '/library' },
-        { text: 'Resume', route: '/doc/cv' },
+        { text: 'Resume', route: '/resume.html' },
         { text: 'FAQs', route: '/doc/ask-me-anything' },
-        // { text: 'Storybook', route: '/storybook/' },
+        { text: 'Storybook', route: '/storybook/' },
       ],
       menuItems2: [
         {
@@ -423,21 +423,6 @@ li {
   float: left;
   list-style-type: none;
   text-decoration: none;
-}
-
-li.external a {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 2px;
-}
-
-li.external a p {
-  display: inline;
-}
-
-li.external a::after {
-  content: '↗';
-  color: var(--link);
 }
 
 #maindetails {

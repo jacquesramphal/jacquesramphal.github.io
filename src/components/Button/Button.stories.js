@@ -4,7 +4,17 @@ import { withDesign } from "storybook-addon-designs";
 export default {
   title: "Components/Primitives/Button",
   component: MyButton,
+  tags: ['autodocs'],
   decorators: [withDesign],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Primary interactive element. Five visual types: `solid`, `outline`, `ghost`, `subtle`, `textlink`. ' +
+          'Three sizes: `xs`, `small`, `large`. Renders an `<a>` when `link` or `route` is provided, otherwise a `<button>`.',
+      },
+    },
+  },
   argTypes: {
     type: {
       control: { type: "select" },

@@ -4,8 +4,30 @@ import { withDesign } from "storybook-addon-designs";
 export default {
   title: "Components/Layout/TextGrid",
   component: TextGrid,
+  tags: ['autodocs'],
   decorators: [withDesign],
-  argTypes: {},
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A feature grid with a section heading and up to four labelled detail items. ' +
+          'Used for "what I do" / "key features" sections. Items are laid out in a responsive CSS grid.',
+      },
+    },
+  },
+  argTypes: {
+    title: { control: 'text', description: 'Section heading' },
+    as: { control: 'text', description: 'Heading element level (e.g. h2)' },
+    description: { control: 'text', description: 'Section sub-heading or summary' },
+    eyebrow1: { control: 'text' },
+    detail1: { control: 'text' },
+    eyebrow2: { control: 'text' },
+    detail2: { control: 'text' },
+    eyebrow3: { control: 'text' },
+    detail3: { control: 'text' },
+    eyebrow4: { control: 'text' },
+    detail4: { control: 'text' },
+  },
 };
 
 const Template = (args) => ({

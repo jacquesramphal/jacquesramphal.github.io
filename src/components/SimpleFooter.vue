@@ -12,7 +12,7 @@
         
           <GridParent tight class="outer">
             <div class="" style="display: flex; flex-direction: row; gap: var(--spacing-xs);">
-            <router-link to="/doc/cv"
+            <a href="/resume.html"
               ><img
                 id="avatar"
                 class="justify-end"
@@ -20,7 +20,7 @@
                 draggable="false"
                 alt="logo.svg"
                 style="width: 40px; aspect-ratio: 1 / 1"
-            /></router-link>
+            /></a>
             <p class="footer">All rights reserved © Jacques Ramphal 2025 🇨🇦</p>
 
           </div>
@@ -32,7 +32,7 @@
                 <router-link to="/designsystem">Design System</router-link>
               </li>
               <li>
-                <router-link to="/doc/cv">Resume</router-link>
+                <a href="/resume.html">Resume</a>
               </li>
             </ul>
 

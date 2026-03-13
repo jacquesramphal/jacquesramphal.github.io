@@ -1,22 +1,26 @@
 import SimpleFooter from "./SimpleFooter.vue";
-import GridContainer from "./grid/GridContainer.vue";
-import GridWrapper from "./grid/GridWrapper.vue";
-import GridParent from "./grid/GridParent.vue";
-import AnimatedComponent from "./AnimatedComponent.vue";
 
 export default {
   title: "Components/Navigation/SimpleFooter",
   component: SimpleFooter,
+  tags: ['autodocs'],
   parameters: {
     layout: "fullscreen",
+    docs: {
+      description: {
+        component:
+          'Minimal footer bar with a site name label. ' +
+          'Used inside the Artboard pattern and on pages that don\'t need full nav links.',
+      },
+    },
   },
   argTypes: {
-    title: { control: "text" },
+    title: { control: "text", description: "Site name or copyright label" },
   },
 };
 
 const Template = (args) => ({
-  components: { SimpleFooter, GridContainer, GridWrapper, GridParent, AnimatedComponent },
+  components: { SimpleFooter },
   setup() {
     return { args };
   },

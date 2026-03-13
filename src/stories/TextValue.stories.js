@@ -4,7 +4,18 @@ import { withDesign } from 'storybook-addon-designs';
 export default {
   title: 'Components/Primitives/TextValue',
   component: TextValue,
+  tags: ['autodocs'],
   decorators: [withDesign],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A label/value pair used for stats, metadata, and key facts. ' +
+          'The value is displayed large; the label is shown smaller above it. ' +
+          'Compose multiple instances in a flex row to create a stats bar.',
+      },
+    },
+  },
   argTypes: {
     label: { control: 'text', description: 'The label shown above the value' },
     value: { control: 'text', description: 'The value displayed prominently' },

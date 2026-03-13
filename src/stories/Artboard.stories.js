@@ -16,6 +16,7 @@ import MyButton from '../components/Button/Button.vue';
 
 export default {
   title: 'Patterns/Artboard',
+  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
     options: { showPanel: false },

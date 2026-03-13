@@ -2,8 +2,19 @@ import ShareWidget from "./ShareWidget.vue";
 import SelectorCta from "../Button/SelectorCta.vue";
 
 export default {
-  title: "Components/Blog/ShareWidget",
+  title: "Components/Primitives/SelectorCta/ShareWidget",
   component: ShareWidget,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A share button that opens a dropdown with copy/share options. ' +
+          'Pass `title` and `url` to pre-populate the share target. ' +
+          'Built on top of SelectorCta — see that story for slot/menu documentation.',
+      },
+    },
+  },
   argTypes: {
     label: { control: "text" },
     title: { control: "text" },
