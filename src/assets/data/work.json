@@ -87,7 +87,7 @@
       "id": 5,
       "variant": "small",
       "title": "The /design Command Suite",
-      "tag": "Design Engineering, AI-Augmented Workflow, Storybook",
+      "tag": "Design Engineering, Storybook",
       "subtitle": "Collapsing the Handoff Gap",
       "description": "Design and development can't share the same working environment — but they can share the same source of truth. Built an isolated, AI-powered Storybook environment that designers can spin up with a single command, connected to real components and tokens but independent from the dev workflow.",
       "btnroute": "doc/the-design-command-suite",

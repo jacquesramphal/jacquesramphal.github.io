@@ -8,15 +8,9 @@
 
 ## The Problem
 
-Design and development have always had a translation problem. Designers produce specs. Developers interpret them. Somewhere in the middle — across shared files, handoff notes, and async reviews — things drift. Spacing shifts. States get missed. Components get rebuilt instead of reused.
+We tried Storybook as a shared environment — same repository, both design and development contributing. The idea was right. The process around it wasn't mature enough: merge conflicts, blocked PRs, unclear ownership. It created friction for everyone and didn't stick.
 
-We tried to fix this with Storybook. The idea: a shared component environment both sides could reference and work from. It made sense in theory. In practice, having designers touch the dev repository directly caused merge conflicts, blocked pull requests, and put developers in the position of babysitting work they didn't own.
-
-## The Shift
-
-For most of its history, design tooling has been about describing what should be built. Figma, Sketch, InVision — all producing a representation that someone else turns into code.
-
-AI-assisted tools change that. Designers can work *in* the product, not alongside it — real components, real tokens, real layouts that behave like production. The gap where interpretation happens is where things go wrong.
+AI-assisted tooling changes the frame. Designers can work *in* the product rather than alongside it — real components, real tokens, real layouts that behave like production. The gap where interpretation happens is where things go wrong, and a shared working environment is still the right answer. It just needs the right structure.
 
 ## What I Built
 
