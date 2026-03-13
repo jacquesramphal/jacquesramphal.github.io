@@ -14,7 +14,7 @@ Founding-caliber design engineer with 12+ years shipping enterprise and consumer
 
 **Head of Design · Agentic Experience Lead** — Orium, Toronto · Sep 2024 - Present
 - Set strategic direction for UX, agentic experience design, and design-to-development integration.
-- Primary designer and developer of Genie — architecture, UX patterns, n8n automation flows, and front-end implementation.
+- Primary designer and developer of Genie — architecture, UX patterns, n8n automation, and front-end.
 - Oversee design quality through scalable Design QA systems and front-end integration standards.
 
 **Full Stack Design Lead** — Orium · Jan 2024 - Sep 2024
@@ -33,15 +33,6 @@ Founding-caliber design engineer with 12+ years shipping enterprise and consumer
 
 ---
 
-## Key Projects
-
-- **Genie** — Agentic workflow platform built from scratch: architecture, UX patterns, n8n automation, front-end. Established AX design patterns now used across delivery.
-- **K&G Mobile App** — Lead designer, React Native loyalty app with hundreds of thousands of active users.
-- **The /design Command Suite** — AI-powered Storybook environment connected to real components and tokens, spun up with a single command.
-- **Softchoice Rebrand** — Design system, headless CMS integration, and production component library with CSS motion.
-
----
-
 ## Skills
 
 **Design & Prototyping** — Figma, FigJam, Adobe Creative Suite, Miro
@@ -52,11 +43,4 @@ Founding-caliber design engineer with 12+ years shipping enterprise and consumer
 
 ---
 
-## Education
-
-**Bachelor of Design (BDes), Graphic Design** — OCAD University · 2014
-
-## Certifications
-
-- n8n Certified Expert Partner · 2026
-- Composable Commerce · Composable.com · 2023
+**Education:** Bachelor of Design (BDes), Graphic Design — OCAD University · 2014 · **Certifications:** n8n Certified Expert Partner · 2026 · Composable Commerce · 2023
