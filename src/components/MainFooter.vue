@@ -38,23 +38,12 @@
                 <p class="subtle">Useful Links</p>
 
                 <ul>
-                  <li
-                    v-for="(item, index) in menuItems1"
-                    :key="index"
-                    :class="{ external: item.external }"
-                  >
-                    <a
-                      v-if="item.external"
-                      :href="item.route"
-                      :aria-label="item.text"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <DynamicText as="p" tabIndex="0" :attrs="{ class: '' }" :text="item.text" />
-                    </a>
-                    <router-link v-else :to="item.route">
-                      <DynamicText as="p" tabIndex="0" :attrs="{ class: '' }" :text="item.text" />
-                    </router-link>
+                  <li v-for="(item, index) in menuItems1" :key="index">
+                    <TextLink
+                      :label="item.text"
+                      :route="!item.external ? item.route : undefined"
+                      :link="item.external ? item.route : undefined"
+                    />
                   </li>
                 </ul>
               </div>
@@ -162,7 +151,6 @@ import GridWrapper from './grid/GridWrapper.vue';
 import TextBlock from './text/TextBlock/TextBlock.vue';
 import TextLink from './text/TextLink.vue';
 import GridParent from './grid/GridParent.vue';
-import DynamicText from './text/DynamicText.vue';
 // import TextArea from "@/components/form/TextArea.vue";
 // import MyButton from "@/components/Button/Button.vue";
 
@@ -174,7 +162,6 @@ export default {
     TextBlock,
     TextLink,
     GridParent,
-    DynamicText,
   },
   props: {
     title: {
@@ -186,9 +173,9 @@ export default {
     return {
       menuItems1: [
         { text: 'Library', route: '/library' },
-        { text: 'Resume', route: '/resume.html' },
         { text: 'FAQs', route: '/doc/ask-me-anything' },
-        { text: 'Storybook', route: '/storybook/' },
+        { text: 'Resume', route: '/resume.html', external: true },
+        { text: 'Storybook', route: '/storybook/', external: true },
       ],
       menuItems2: [
         {
