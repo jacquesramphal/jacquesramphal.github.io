@@ -184,12 +184,14 @@ blockquote {
 }
 
 blockquote::before {
-  content: "\201C";
+  content: '\201C';
   position: absolute;
   inset-inline-end: -0.05em;
   inset-block-start: -0.25em;
   font-size: 8em;
-  font-variation-settings: 'wdth' 115, 'opsz' 72;
+  font-variation-settings:
+    'wdth' 115,
+    'opsz' 72;
   line-height: 1;
   color: var(--link);
   opacity: 0.06;
@@ -213,7 +215,9 @@ router-link {
   text-decoration: underline;
   text-underline-offset: var(--link-underline-offset);
   text-decoration-thickness: var(--link-underline-thickness);
-  font-variation-settings: 'wdth' 100, 'opsz' 19;
+  font-variation-settings:
+    'wdth' 100,
+    'opsz' 19;
   transition: font-variation-settings 0.2s ease;
 }
 
@@ -244,7 +248,9 @@ a:hover {
   text-decoration: underline wavy var(--color-yellow) !important;
   text-underline-offset: var(--link-underline-offset);
   text-decoration-thickness: var(--link-underline-thickness-hover) !important;
-  font-variation-settings: 'wdth' 112, 'opsz' 19;
+  font-variation-settings:
+    'wdth' 112,
+    'opsz' 19;
 }
 
 a:active,
@@ -326,7 +332,7 @@ figcaption {
 
 /* Section divider with typographic dingbat */
 .section-divider::before {
-  content: "· · ·";
+  content: '· · ·';
   display: block;
   text-align: center;
   letter-spacing: 1.5em;
@@ -380,7 +386,6 @@ figcaption {
   color: inherit !important;
   font-weight: var(--font-reversed-normal) !important;
 }
-
 
 .reversed .external:after {
   content: ' ↗';

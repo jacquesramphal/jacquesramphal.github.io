@@ -291,7 +291,7 @@ h1.title {
   grid-column: 1 / 4;
 }
 .description {
-  margin: 1rem 0 0 0;
+  margin: var(--spacing-xs) 0 0 0;
 }
 .textblock--clamped p {
   overflow: hidden;
@@ -326,7 +326,8 @@ h1.title {
   margin-block-end: var(--spacing-xs);
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-xs);
+  column-gap: var(--spacing-xs);
+  row-gap: 0;
 }
 
 .tags--content {
