@@ -1,5 +1,5 @@
-import ImageCard from "./ImageCard.vue";
-import { withDesign } from "storybook-addon-designs";
+import ImageCard from './ImageCard.vue';
+import { withDesign } from 'storybook-addon-designs';
 
 export default {
   title: 'Components/Cards/ImageCard',
@@ -17,12 +17,12 @@ export default {
     },
   },
   argTypes: {
-    title: { control: "text" },
-    description: { control: "text" },
-    caption: { control: "text" },
+    title: { control: 'text' },
+    description: { control: 'text' },
+    caption: { control: 'text' },
     size: {
-      control: { type: "select" },
-      options: ["small", "large"],
+      control: { type: 'select' },
+      options: ['small', 'large'],
     },
   },
 };
@@ -33,7 +33,7 @@ const Template = (args) => ({
     return { args };
   },
   template: `
-    <div>
+    <div style="background-color: var(--background); color: var(--foreground); max-width: 36rem;">
       <ImageCard v-bind="args" />
     </div>
   `,
@@ -41,27 +41,27 @@ const Template = (args) => ({
 
 export const Small = Template.bind({});
 Small.args = {
-  title: "Title",
-  description: "Description",
-  caption: "Caption",
-  filename1: "jacques.jpg",
-  alt: "Portrait photo",
+  title: 'Title',
+  description: 'Description',
+  caption: 'Caption',
+  filename1: 'jacques.jpg',
+  alt: 'Portrait photo',
 };
 export const Large = Template.bind({});
 Large.args = {
-  title: "Title",
-  description: "Description",
-  caption: "Caption",
-  filename1: "jacques.jpg",
-  alt: "Portrait photo",
-  size: "large",
+  title: 'Title',
+  description: 'Description',
+  caption: 'Caption',
+  filename1: 'jacques.jpg',
+  alt: 'Portrait photo',
+  size: 'large',
 };
 export const Split = Template.bind({});
 Split.args = {
-  title: "Title",
-  description: "Description",
-  caption: "Caption",
-  filename1: "jacques.jpg",
-  alt: "Portrait photo",
-  size: "split",
+  title: 'Title',
+  description: 'Description',
+  caption: 'Caption',
+  filename1: 'jacques.jpg',
+  alt: 'Portrait photo',
+  variant: 'split',
 };
