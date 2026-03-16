@@ -1,5 +1,9 @@
 <template>
-  <PageWrapper id="doc" class="markdown-page-wrapper" :overflow-visible="true">
+  <PageWrapper
+    id="doc"
+    :class="['markdown-page-wrapper', { 'presenter-mode': presenterMode }]"
+    :overflow-visible="true"
+  >
     <!-- v-if="shouldShowHero" -->
     <!-- :tag="heroTag" -->
 
@@ -53,6 +57,13 @@
             @close="lightboxOpen = false"
           />
           <div class="markdown-share">
+            <button
+              @click="togglePresenter"
+              class="print-button"
+              :aria-label="presenterMode ? 'Exit presenter mode' : 'Enter presenter mode'"
+            >
+              <span class="print-button__label">{{ presenterMode ? 'Exit' : 'Present' }}</span>
+            </button>
             <button @click="handlePrint" class="print-button" aria-label="Print page">
               <span class="print-button__icon">
                 <MyIcon name="icon/print.svg" :is-svg="true" :size="16" />
@@ -81,11 +92,21 @@
         :filterByType="currentDocType"
       />
     </div>
+
+    <Teleport to="body">
+      <PresenterBar
+        v-if="presenterMode"
+        :current-index="currentSectionIndex"
+        :total="sectionEls.length"
+        @navigate="navigateToSection"
+        @exit="togglePresenter"
+      />
+    </Teleport>
   </PageWrapper>
 </template>
 
 <script>
-import { ref, onMounted, inject, watch, nextTick, computed } from 'vue';
+import { ref, onMounted, onUnmounted, inject, watch, nextTick, computed } from 'vue';
 import { useHead } from '@vueuse/head';
 import router from '@/router';
 import frontMatter from 'front-matter';
@@ -93,6 +114,7 @@ import MarkdownTOC from '@/components/MarkdownTOC.vue';
 import HeroBanner from '@/components/HeroBanner/HeroBanner.vue';
 import ShareWidget from '@/components/blog/ShareWidget.vue';
 import MyIcon from '@/components/Icon.vue';
+import PresenterBar from '@/components/PresenterBar/PresenterBar.vue';
 import { getDocRecordById, getDocRecordBySlug, isNumericRouteParam } from '@/utils/docRegistry';
 // import TextStats from "@/components/card/TextStats.vue";
 import GridContainer from '@/components/grid/GridContainer.vue';
@@ -169,6 +191,9 @@ export default {
     const isFullWidth = ref(false);
     const lightboxOpen = ref(false);
     const lightboxSrc = ref('');
+    const presenterMode = ref(false);
+    const currentSectionIndex = ref(0);
+    const sectionEls = ref([]);
 
     const updateMarkdownHeadings = inject('updateMarkdownHeadings', () => {});
     const updateMarkdownActiveHeading = inject('updateMarkdownActiveHeading', () => {});
@@ -646,9 +671,22 @@ export default {
       }
     };
 
+    const handlePresenterShortcut = (e) => {
+      const tag = document.activeElement?.tagName;
+      const isEditable = tag === 'INPUT' || tag === 'TEXTAREA' || document.activeElement?.isContentEditable;
+      if (!isEditable && e.key === 'p' && !e.metaKey && !e.ctrlKey) {
+        togglePresenter();
+      }
+    };
+
     onMounted(() => {
       const param = router.currentRoute.value.params.slug ?? router.currentRoute.value.params.id;
       loadMarkdownContent(param);
+      window.addEventListener('keydown', handlePresenterShortcut);
+    });
+
+    onUnmounted(() => {
+      window.removeEventListener('keydown', handlePresenterShortcut);
     });
 
     watch(
@@ -788,6 +826,43 @@ export default {
       window.print();
     };
 
+    // Presenter mode
+    const navigateToSection = (index) => {
+      const sections = sectionEls.value;
+      if (!sections.length) return;
+      const clamped = Math.max(0, Math.min(index, sections.length - 1));
+      currentSectionIndex.value = clamped;
+      sections[clamped]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    const handlePresenterKey = (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        e.preventDefault();
+        navigateToSection(currentSectionIndex.value + 1);
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        navigateToSection(currentSectionIndex.value - 1);
+      } else if (e.key === 'Escape') {
+        togglePresenter();
+      }
+    };
+
+    const togglePresenter = () => {
+      presenterMode.value = !presenterMode.value;
+      currentSectionIndex.value = 0;
+      document.body.classList.toggle('presenter-mode-body', presenterMode.value);
+      if (presenterMode.value) {
+        nextTick(() => {
+          sectionEls.value = Array.from(document.querySelectorAll('.markdown-section'));
+          navigateToSection(0);
+          window.addEventListener('keydown', handlePresenterKey);
+        });
+      } else {
+        window.removeEventListener('keydown', handlePresenterKey);
+        sectionEls.value = [];
+      }
+    };
+
     // Computed properties for related content
     const relatedTitle = computed(() => {
       const typeMap = {
@@ -831,6 +906,11 @@ export default {
       ),
       lightboxOpen,
       lightboxSrc,
+      presenterMode,
+      currentSectionIndex,
+      sectionEls,
+      togglePresenter,
+      navigateToSection,
       updateMarkdownHeadings,
       updateMarkdownActiveHeading,
     };
@@ -841,6 +921,7 @@ export default {
     HeroBanner,
     ShareWidget,
     MyIcon,
+    PresenterBar,
     // TextStats,
     GridContainer,
     FullscreenImage,
@@ -881,6 +962,7 @@ export default {
     if (this.resizeHandler) {
       window.removeEventListener('resize', this.resizeHandler);
     }
+    document.body.classList.remove('presenter-mode-body');
   },
   watch: {
     headings(newHeadings) {
@@ -1343,4 +1425,46 @@ export default {
     }
   }
 }
+</style>
+
+<style lang="scss">
+// ---- PRESENTER MODE ----
+.presenter-mode-body {
+  scroll-snap-type: y proximity;
+
+  nav,
+  header.site-header,
+  footer,
+  #wrapper,
+  .custom-chat-ui {
+    display: none !important;
+  }
+}
+
+.presenter-mode {
+  .toc-sidebar-wrap,
+  .markdown-share,
+  #related-writing-section,
+  #hero-banner,
+  .hero-fullscreen-image {
+    display: none !important;
+  }
+
+  .markdown-section {
+    min-height: 100vh;
+    padding-block: var(--spacing-xl);
+    scroll-snap-align: start;
+  }
+
+  .markdown-layout {
+    grid-template-columns: 1fr 9fr 1fr !important;
+  }
+
+  .markdown-main {
+    zoom: 1.2;
+    grid-column: 2 / 3 !important;
+  }
+}
+
+
 </style>
