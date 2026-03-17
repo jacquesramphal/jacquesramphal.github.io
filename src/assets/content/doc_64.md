@@ -41,6 +41,15 @@ A separate repo per client, scaffolded in minutes, connected to the same tokens 
 ![/design help output in Claude Code terminal](../images/article/design-help.png)
 *The /design command suite — seven commands covering setup, sync, diff, push, and screenshot capture.*
 
+![Foundations — Color palette rendered as living swatches](../images/casestudy/storybook/sb-foundations-colors.png)
+*Foundations: color tokens rendered as living swatches — primary, secondary, tertiary, and semantic scales with hex values.*
+
+![Foundations — Container max-width and margin presets](../images/casestudy/storybook/sb-foundations-container.png)
+*Foundations: container presets with visual bars showing max-width and margin at each breakpoint — token values mapped to layout behaviour.*
+
+![Button component — all variants and states](../images/casestudy/storybook/sb-component-button.png)
+*A component in the isolated workspace — all variants rendered live, props table with controls, stories for each state.*
+
 ## Outcome
 
 The full command suite runs on real client projects today:
@@ -64,8 +73,14 @@ The full command suite runs on real client projects today:
 
 Designers work in real components against real tokens, with no risk of blocking the dev team. Client feedback happens in Miro from full-page screenshots rather than Figma approximations. The handoff artifact is a structured diff — specific files, specific changes — not a document of annotations someone has to interpret.
 
-![The /design Agent workspace overview](../images/placeholders/placeholder-30.svg)
-*Isolated Storybook workspace with live token pages and component stories per client.*
+![UiContainer component — CMS-editable props](../images/casestudy/storybook/sb-component-uicontainer.png)
+*UiContainer with CMS-editable props — size, margin-top, margin-bottom — each mapped to spacing tokens. This is what "connected to production" means: props that match CMS fields exactly.*
+
+![Pagination component — variants and controls](../images/casestudy/storybook/sb-component-pagination.png)
+*Pagination with three variants, live controls, and prop descriptions — what QA and developers use to verify behaviour before it hits a CMS environment.*
+
+![Contributing guide — story rules and naming conventions](../images/casestudy/storybook/sb-guide-contributing.png)
+*The Contributing guide inside the workspace — naming conventions, story rules, and the checklist for sharing a component with QA or a client.*
 
 ## What I Learned
 
