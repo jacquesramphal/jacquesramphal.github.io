@@ -39,12 +39,12 @@ The brand guidelines gave clear direction on color, typography, and spacing. Tra
 ![Brand Guidelines and Module Design](../images/casestudy/softchoice/sc-guide-1.png)
 *The module redesign process — brand guidelines mapped to existing CMS block types.*
 
-## Testing Motion
+## Design System
 
-Motion was validated against a before/after comparison — the goal was to confirm that animations enhanced comprehension without introducing visual noise or competing with content hierarchy.
+The module redesigns needed to hold together as a system — color, typography, spacing, and motion defined consistently enough that the content team could extend them without coming back to design for every new page.
 
-![Motion Before and After](../images/casestudy/softchoice/sc-guide-2.png)
-*Before/after diff showing scroll animations and transition states — verifying motion felt purposeful, not decorative.*
+![Softchoice Design System](../images/casestudy/softchoice/sc-guide-2.png)
+*Component and token documentation — brand values mapped to reusable decisions so the team could maintain consistency independently.*
 
 ## Outcome
 

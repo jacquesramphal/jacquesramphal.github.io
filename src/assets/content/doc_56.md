@@ -37,8 +37,8 @@ Working with OnLogic's engineering team, I mapped the dependency graph for the k
 ![OnLogic PDP — hardware options with pricing deltas and availability states](../images/casestudy/onlogic/onlogic-pdp-config.png)
 *The configurator — storage options cascade with per-option pricing deltas, out-of-stock states, and spec detail inline. The sticky sidebar updates the total in real time.*
 
-![OnLogic Component Library](../images/casestudy/onlogic/onlogic-4.png)
-*The component system — buttons, inputs, selectors, alerts, and states built to cover the full range of the configurator.*
+![OnLogic Design System](../images/casestudy/onlogic/onlogic-4.png)
+*Design system — components, tokens, and interaction states defined once and shared across the configurator, PDP, and checkout. Built for a development team that would extend it beyond the initial scope.*
 
 ## Outcome
 
