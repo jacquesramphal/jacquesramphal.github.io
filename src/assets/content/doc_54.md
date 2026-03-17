@@ -1,71 +1,53 @@
-# Softchoice Website Rebrand
-
-#### Brand Design, Motion Design, CMS Integration
-
-<br>
-
-<table>
-  <tr><td><strong>Role</strong></td><td>Lead Product Designer</td></tr>
-  <tr><td><strong>Status</strong></td><td>Launched</td></tr>
-</table>
-
 ![Softchoice Desktop Homepage](../images/casestudy/softchoice/sc-desktop-1.png)
 
-When a brand launches a new identity, the website needs to reflect it—without breaking what already works. Redesigned Softchoice’s website to reflect their new brand identity, working within their existing CMS structure. Enhanced modules, introduced motion design, and collaborated closely with development to ensure design fidelity.
+# Softchoice Website Replatform
+A full brand refresh inside an existing CMS — without touching the platform.
 
+| | |
+|---|---|
+| **Role** | Lead Product Designer |
+| **Client** | Softchoice |
+| **Status** | Launched · 2021 |
+| **Tags** | brand-design · motion · cms |
 
+## Overview
 
-## Key Outcomes
+Softchoice was launching a new brand identity in January, and their website wasn't ready to represent it — the brief was to get it there without rebuilding anything.
 
-- **Consistent Brand Identity:** The website now fully reflects Softchoice’s new brand identity. Every module, every page, every interaction feels like it belongs to the same visual language. This consistency builds trust and reinforces brand recognition.
+The CMS was already serving the organization well: block-driven, extensible, familiar to the content team. The constraint was working within the existing module structure rather than replacing it — same architecture, different visual language, with motion added as a layer on top.
 
-- **Enhanced User Experience:** The thoughtful module redesign and light animations created a more engaging and intuitive interface. Users don’t notice the individual improvements—they just feel that the site is more polished, more professional, more aligned with what they expect from Softchoice.
+## My Role
 
-- **Efficient Development Process:** Clear specifications and ongoing collaboration meant the development team could implement the design accurately without constant back-and-forth. The detailed guidelines reduced ambiguity and sped up the implementation phase.
+I led the design across all modules — translating the new brand guidelines into the existing CMS structure — and worked directly with the development team on implementation.
 
-- **Collaborative Success:** This project required coordination between multiple parties: the design partner, the branding agency that created the new identity, and Softchoice’s internal IT team. The success came from everyone understanding their role and working together toward a shared vision.
+The project involved coordinating between a branding agency, Softchoice's internal IT team, and the development team. I owned the module redesigns, the motion specifications, and the design-to-development handoff.
 
-## Challenge
+## The Constraint
 
-In late 2020, Softchoice was preparing to launch a new brand identity in January. Their website, built on an interim design from August 2020, had incomplete design elements and wasn’t ready to represent the new brand. The challenge wasn’t just visual—it was about enhancing the experience while respecting the existing CMS architecture that was already serving the organization well.
+The brand guidelines were comprehensive. The CMS was fixed. Every change had to fit within what the existing block structure could already do.
 
-The constraint: We couldn’t rebuild the site. We had to work within the established module-driven CMS structure, enhancing and polishing without disrupting what was already functioning.
-
-This is a common scenario in enterprise work: you’re not starting from scratch. You’re improving what exists while respecting the systems already in place.
-
-
-*The existing website needed to reflect the new brand without breaking what already worked.*
+The modules covered the full range of the site: hero sections, navigation, two-column layouts, callouts, stats, image quadrants, accordions. Each needed to carry the new brand identity while staying functionally identical to what it replaced. Any deviation would have required development work the timeline didn't allow.
 
 ## Approach
 
-Rather than tearing down and rebuilding, we took a surgical approach: redesign the modules, not the system.
+Redesign the modules, not the system.
 
-### Brand Guidelines as Foundation
-
-The new brand guidelines were comprehensive—colors, typography, spacing, imagery principles. Our first step was to understand how these guidelines could translate into the existing module structure.
-
-### Module Redesign Strategy
-
-The CMS was built on a block model approach. Key modules included hero sections, page navigation, two-column layouts, callouts and stats, image quadrants, text quadrants, related content sections, and accordions. Each module needed to be redesigned to reflect the new brand while maintaining its functional purpose.
-
-### Motion Design: Bringing Life to the Interface
-
-One of the most impactful additions was introducing light animations and motion design. This wasn’t about flashy effects—it was about enhancing the user experience through thoughtful motion: navigation behavior with smooth transitions, module loading that feels intentional, text appearance on scroll, and interactive navigation buttons with responsive feedback.
+The brand guidelines gave clear direction on color, typography, and spacing. Translating that into modules meant working through each block type systematically — not just updating colors and fonts, but reconsidering how content was arranged within the existing constraints. Motion was added as a final layer: scroll animations that made content feel intentional, navigation transitions that gave the site continuity, interactive states that responded without calling attention to themselves.
 
 ![Brand Guidelines and Module Design](../images/casestudy/softchoice/sc-guide-1.png)
-
-*Brand guidelines translated into module-driven design system.*
+*The module redesign process — brand guidelines mapped to existing CMS block types.*
 
 ## Outcome
 
-We redesigned the modules — hero sections, navigation, two-column layouts, callouts, accordions — and introduced motion throughout: scroll animations, navigation transitions, interactive states. Everything fit within the existing CMS block structure. That constraint made the work harder, and the result better. The site felt like a new brand while the CMS stayed exactly where the organization needed it.
+Every module now carries the new visual language, the CMS stayed exactly where the organization needed it, and Softchoice came out with a style guide for maintaining consistency without coming back to us.
+
+The motion layer elevated the perceived quality of the experience without pulling attention from the content. The improvements no one notices are usually the ones that last.
 
 ![Motion Design in Action](../images/casestudy/softchoice/sc-motion.gif)
+*Scroll animations and navigation transitions — motion as a layer on top of the existing structure.*
 
-*Thoughtful motion design enhances the user experience without calling attention to itself.*
+## What I Learned
 
----
+The best constraints are the ones that force precision — working inside a fixed module structure meant every decision had to earn its place.
 
-## Reflection
-
-Softchoice came out of it with a consistent visual language and the documentation to maintain it without us. The improvements no one notices — the constraint respected, the system preserved, the foundation quietly strengthened — are usually the ones that last.
+There's a kind of design work that feels more like craft than strategy: iterating on spacing, animation timing, typographic rhythm within given boundaries. What I came away with is a clearer appreciation for how much is possible when the structure doesn't change and the only variable is the quality of execution.

@@ -1,60 +1,53 @@
-# K&G Loyalty Platform
-
-#### Product Design, Design Systems, Development
-
-<br>
-
-<table>
-  <tr><td><strong>Role</strong></td><td>Lead Product Designer, Developer</td></tr>
-  <tr><td><strong>Status</strong></td><td>Launched</td></tr>
-</table>
-
-
 ![K&G Loyalty Platform - Mobile App Hero](../images/casestudy/kg/kg-1.jpg)
 
-Founded in 1959, Kum & Go redefines convenience with customer-centric offerings. Partnering with Orium, they launched a new digital experience featuring enhanced promotions, loyalty programs, and improved merchandising.
+# Kum & Go Mobile Loyalty App
+A composable mobile app with loyalty, fuel pay, and promotions for a convenience retailer ready to own its digital experience.
 
+| | |
+|---|---|
+| **Role** | Lead Product Designer · Developer |
+| **Client** | Kum & Go / Orium |
+| **Status** | Launched · 2022 |
+| **Tags** | product-design · mobile · loyalty |
 
-## Key Focus Areas
+## Overview
 
-- **Control Over Digital Experience:** Empowering Kum & Go to manage their search, merchandising, promotions, loyalty, and content independently.
+Kum & Go wanted to own their digital experience — not just run it.
 
-- **Increased Customer Engagement:** Launching a robust loyalty program to engage a larger segment of the consumer base.
+That meant moving off a legacy platform onto something their team could manage, extend, and evolve without routing every change through an external partner. The existing app was limited with promotions, couldn't surface personalized offers, and didn't connect the in-store experience to the mobile one in any meaningful way. The goal was to rebuild it on a composable foundation and launch a loyalty program that could anchor a longer-term relationship with their customers.
 
-- **More In-Store Purchases:** Enhancing the omnichannel experience to drive more in-store purchases.
+## My Role
 
-- **Extensible and Maintainable Platform:** Moving off a costly legacy platform to a more efficient and innovative system.
+I led design across the app — loyalty program flows, merchandising, Mobile Fuel Pay, and the component system — and contributed to front-end development alongside the build team.
 
-## Problem
+I owned the design from early concepts through handoff and QA, working directly in code on components and integration points. The loyalty and fuel pay flows required close collaboration with the Paytronix and P97 integration teams.
 
-Kum & Go aimed to redefine convenience for their customers by upgrading their digital experience. They sought to enhance their mobile app to include better search and merchandising, a new loyalty program, and support for modern shopping preferences. Additionally, the new app needed to be adaptable for future updates and improvements without causing any service disruptions.
+## The Constraint
 
-![Kum & Go Digital Experience Challenges](../images/casestudy/kg/kg-2.jpg)
+The app needed to feel like a genuine loyalty platform, not a points counter bolted onto a fuel app — and it needed to launch without disrupting a service customers already relied on.
 
-*Identifying opportunities to enhance the mobile app experience.*
+Kum & Go's customers use the app at the pump, often quickly, often in bad weather. Every additional step in a flow has a real cost. The loyalty program had to reward behavior customers were already doing without requiring them to learn a new mental model. And the architecture needed to be extensible enough that Kum & Go could add features independently after launch.
 
-## Solution
+## Approach
 
-To achieve these goals, Kum & Go partnered with Orium to implement a flexible and scalable platform focusing on four key objectives: control over digital experience, increased customer engagement, more in-store purchases, and an extensible platform.
+Building the loyalty program around the physical experience first — the pump, the store, the moment of transaction.
 
-Orium worked with Kum & Go to develop a React Native framework, leveraging Orium’s React Native Accelerator for a faster, more efficient development process. Contentful’s composable content platform was implemented for easy content management, and Typesense was used for search and product indexing. Paytronix was chosen to manage the loyalty program, providing comprehensive loyalty, promotions, and ordering capabilities. Integration with P97 enhanced Mobile Fuel Pay, allowing for prepaying gas and redeeming points at the pump.
+The personalized feed surfaced offers based on purchase history. Home location selection made the app feel contextually aware. Mobile Fuel Pay, integrated with P97, let customers prepay for gas and redeem points without leaving the app — closing the loop between digital and physical that most retail loyalty programs treat as separate concerns. Contentful handled content management so Kum & Go's marketing team could update promotions independently.
 
 ![React Native Framework and Composable Architecture](../images/casestudy/kg/kg-3.jpg)
-
-*Modern mobile architecture with React Native and composable content management.*
+*Mobile Fuel Pay and loyalty program integration — the core of the in-store digital experience.*
 
 ## Outcome
 
-The revamped Kum & Go mobile app launched with an upgraded rewards program and an enhanced ecommerce experience. Key features included a personalized interface, home location selection, and customer history-based recommendations. The Mobile Fuel Pay feature was also improved, allowing customers to prepay for gas in selected increments.
+The app launched with the loyalty program, Mobile Fuel Pay, and a personalized experience Kum & Go's team could manage and extend on their own.
 
-Kum & Go plans to continue enhancing the mobile app and redesigning the web experience to match the new mobile app features.
+Rewards enrollment, personalized offers, pump-side redemption — all live at launch. Kum & Go moved off the legacy platform without service disruption and came out with a codebase they owned.
 
 ![K&G Mobile App Launch and Features](../images/casestudy/kg/kg-1.jpg)
+*Launched app with upgraded rewards program and enhanced ecommerce capabilities.*
 
-*Launched mobile app with enhanced loyalty program and ecommerce capabilities.*
+## What I Learned
 
----
+Designing for the pump is designing for a constrained moment — a customer outside, possibly cold, with a car that needs fuel. Every extra tap matters.
 
-## Reflection
-
-The composable architecture meant Kum & Go could manage new features, promotions, and content without routing every change through an external partner. They had the controls from day one.
+What I came away with is a stronger instinct for flow economy in transactional contexts: fewer decisions, faster paths, feedback that confirms without demanding attention. The design decisions that matter most are the ones that respect the user's time at the point of transaction.

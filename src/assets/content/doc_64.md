@@ -1,78 +1,57 @@
-# Collapsing the Handoff Gap
-
-#### A Storybook design environment powered by AI — one command to start.
-
-<br>
-
 ![The /design command suite running in terminal](../images/placeholders/placeholder-30.svg)
 
-## The Problem
+# The /design Agent
+An isolated Storybook environment powered by AI — one command to start.
 
-We tried Storybook as a shared environment — same repository, both design and development contributing. The idea was right. The process around it wasn't mature enough: merge conflicts, blocked PRs, unclear ownership. It created friction for everyone and didn't stick.
+| | |
+|---|---|
+| **Role** | Design Lead · Design Engineer |
+| **Client** | Internal / Orium |
+| **Status** | In Progress · 2024 |
+| **Tags** | design-engineering · storybook · ai |
 
-AI-assisted tooling changes the frame. Designers can work *in* the product rather than alongside it — real components, real tokens, real layouts that behave like production. The gap where interpretation happens is where things go wrong, and a shared working environment is still the right answer. It just needs the right structure.
+## Key Learning
 
-## What I Built
+In a service company, the goal isn't to eliminate handoff — it's to make it more precise. Clients have existing teams, existing tools, and reasonable skepticism about adding complexity to a delivery workflow. Someone has to build the infrastructure before the team decides to adopt it.
 
-A design layer on top of an existing agentic development framework. In practice: a set of AI-powered commands, a design agent, and an isolated Storybook environment that a designer can spin up with one command.
+## Overview
 
-```bash
-/design setup acme-retail
-```
+In client work, the gap between design intent and production reality lives in interpretation — and the only way to close it is to give designers access to the real environment, not a simulation of it.
 
-That scaffolds a complete design environment — real production UI components, live token pages that hot-reload from a JSON source, full-width page templates, and editor links from every editable block. It lives in its own repository, separate from the dev codebase, with minimal dependencies so it's easy to spin up per project.
+Storybook got tried as a shared environment early on. The idea was right; the structure wasn't. Merge conflicts, blocked PRs, unclear ownership — neither side had a clean working context. This project is the rethink: an isolated environment per client, one command to spin up, connected to the same components and tokens as production but completely independent from the dev repo.
 
-The full command suite:
+## My Role
 
-```
-/design setup [client-name]     Start a new Storybook workspace for a client
-/design add [ComponentName]     Add a new story file for a UI component
-/design sync                    Pull the latest components from composable-pro
-/design diff                    See what you've changed vs the baseline template
-/design push                    Push your token changes to GitHub
-/design screenshots [--filter]  Capture full-page screenshots of all stories
-/design watch                   Auto-sync components whenever composable-pro changes
-```
+I designed and built the full command suite, the AI agent behind it, and made the core architectural decision: isolated repo, not shared branch.
 
-Each workspace is a full clone of the design system, so changes stay sandboxed until you explicitly push them. Token Studio compatibility is built in — the `.env.tokens` config matches Figma's Token Studio GitHub sync settings exactly (same repo, branch, and file path), so there's no manual wiring.
+Design Lead and Design Engineer. I owned the decisions — diff-based handoff versus annotated specs, Token Studio sync versus manual export — built the tooling, and wrote the agent instructions. The system runs on real client projects today.
 
-![/design help output in Claude Code terminal](../images//article/design-help.png)
+## The Constraint
 
+The design environment and the dev environment need to share a source of truth, but in client delivery work, they can't share a codebase.
 
-## How It Connects to Developer Workflows
+When designers join the dev repo, they create friction at the point where development velocity matters most. A fully separate environment risks drift — if the two codebases diverge, design intent no longer maps to production reality. The constraint was building isolation without disconnection.
 
-Isolation is the point. Designers work in their own repo — connected to the same components and tokens as production, but completely independent from the dev workflow. No merge conflicts. No blocked PRs. No one waiting on anyone else.
+## Approach
 
-The connection points are explicit rather than implicit:
+A separate repo per client, scaffolded in minutes, connected to the same tokens and components as production through a structured sync rather than a shared branch.
 
-| Design output | Dev input |
-|---------------|-----------|
-| `/design diff` change list | PR with specific file changes |
-| Token edits in `tokens.json` | Theme updates via existing token pipeline |
-| Screenshots in `screenshots/` | Client feedback in Miro/Figma |
-| Proposed story variants | CMS schema discussion, not a blocker |
+`/design setup acme-retail` scaffolds a complete workspace: real production UI components, live token pages that hot-reload from JSON, full-width page templates. When it's time to hand off, `/design diff` outputs a change list that developers action as a PR — nothing auto-applies, developers control what merges. Token Studio compatibility is built in, so there's no manual wiring between Figma and the Storybook environment.
 
-When a designer is ready to hand off, `/design diff` outputs a structured change list that developers action as a pull request. Nothing auto-applies. Developers stay in control of what merges. The handoff is concrete, not a PDF of annotations.
+![/design help output in Claude Code terminal](../images/article/design-help.png)
+*The /design command suite — seven commands covering setup, sync, diff, push, and screenshot capture.*
 
-## What This Unlocks
+## Outcome
 
-- **UX baseline polishing** — Nail spacing, states, and responsive behavior directly in real components before dev picks it up. Catch the drift early.
-- **Rapid prototyping** — Test ideas against actual component behavior, not Figma's approximation of it.
-- **Design audits** — Surface drift between design intent and production reality in the actual environment, not a separate review tool.
-- **Client sharing** — Full-page screenshot capture for Miro and Figma reviews, without Figma needing to be the source of truth.
+The full command suite runs on real client projects today: setup, add, sync, diff, push, screenshots, watch.
 
-## Key Principles
+Designers work in real components against real tokens, with no risk of blocking the dev team. Client feedback happens in Miro from full-page screenshots rather than Figma approximations. The handoff artifact is a structured diff — specific files, specific changes — not a document of annotations someone has to interpret.
 
-- **Isolation for safety** — Design environments separate from dev repos eliminate conflict without eliminating connection.
-- **Shared source of truth** — Same components, same tokens, different working environments.
-- **Structured handoff** — Diffs replace interpretive specs. Developers review changes, not someone's annotations.
-- **One command to start** — Low friction entry, expandable as the workflow matures.
-- **Built on shared infrastructure** — The design layer extends an org-wide agentic framework rather than introducing a parallel tool.
+![The /design Agent workspace overview](../images/placeholders/placeholder-30.svg)
+*Isolated Storybook workspace with live token pages and component stories per client.*
 
-## Building Ahead of the Team
+## What I Learned
 
-This is a working system, not a shipped product. The `/design` environment runs today — real components, real tokens, real handoffs. What isn't resolved is the organizational side: how this becomes a team practice rather than something one person uses.
+Building the infrastructure before the team adopts it is a deliberate choice — someone has to lay the track before anyone can board the train.
 
-That's intentional. Infrastructure should exist before there's consensus about using it. Someone has to build the bridge before the team decides to cross it.
-
-The harder problem now isn't implementation — it's adoption. Introducing a new way of working to a team with existing habits, existing tools, and reasonable skepticism about adding complexity.
+The technical side is solved. Getting a team with established delivery habits to change how they work is slower and not something you can engineer around. Adoption follows evidence, not argument. The designers who've worked inside the environment understand it immediately. The challenge is creating enough of those moments that it stops being something one person uses.

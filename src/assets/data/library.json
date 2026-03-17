@@ -94,7 +94,7 @@
       "docId": 58,
       "slug": "the-ramstack",
       "type": "article",
-      "title": "The Ramstack: Design Tools, Complexity, and the Case for Interoperability",
+      "title": "The Ramstack",
       "eyebrow": "Design Philosophy",
       "description": "A future-proof approach to front-end design isn't about specific tools—it's about the principles beneath them. On headless complexity, tech debt, and why interoperability should be the core of your design practice.",
       "route": "/doc/the-ramstack",
@@ -115,7 +115,7 @@
       "contentFile": "doc_44.md",
       "thumbnail": "article/cover1.png",
       "alt": "Article: The Best QA Is the One That Doesn't Have to Happen",
-      "tags": ["quality", "process", "culture", "qa"]
+      "tags": ["quality", "process", "qa"]
     },
     {
       "id": 17,
@@ -178,7 +178,7 @@
       "docId": 60,
       "slug": "designing-your-own-relevance",
       "type": "article",
-      "title": "Finding My Lane in a Year of Uncertainty",
+      "title": "Designing Your Own Relevance",
       "eyebrow": "Career-Growth",
       "description": "How pressure, curiosity, and transferable skills created a career path no one handed me. On finding your niche, navigating identity shifts, and building relevance by staying grounded in what's true about how you work.",
       "route": "/doc/designing-your-own-relevance",
@@ -193,27 +193,41 @@
       "docId": 64,
       "slug": "the-design-command-suite",
       "type": "case-study",
-      "title": "Collapsing the Handoff Gap",
+      "title": "The /design Agent",
       "eyebrow": "Design Engineering",
-      "description": "A Storybook design environment powered by AI — one command to start. How I built an isolated design layer on top of an agentic framework to close the gap between design intent and production reality.",
+      "description": "An isolated Storybook environment powered by AI — one command to start. How I built a design layer on top of an agentic framework, and what I learned about operationalizing change in a service company where the best handoff is still a handoff.",
       "route": "/doc/the-design-command-suite",
       "contentFile": "doc_64.md",
       "thumbnail": "placeholders/placeholder-30.svg",
-      "alt": "Case Study: The /design Command Suite",
+      "alt": "Case Study: The /design Agent",
       "tags": ["design-engineering", "storybook", "ai"]
     },
     {
       "id": 9,
       "docId": 32,
-      "slug": "building-genie-changed-me",
+      "slug": "designing-genie",
       "type": "case-study",
+      "title": "Designing Genie",
+      "eyebrow": "Agentic AI Design",
+      "description": "How a personal automation experiment became a shared platform for the delivery team, and the three mental model problems that had to be solved to design for agentic AI.",
+      "route": "/doc/designing-genie",
+      "contentFile": "doc_32.md",
+      "thumbnail": "genie.png",
+      "alt": "Genie - Agentic AI Platform",
+      "tags": ["ai", "agentic-ai"]
+    },
+    {
+      "id": 66,
+      "docId": 66,
+      "slug": "building-genie-changed-me",
+      "type": "article",
       "title": "Building Genie Changed Me",
       "eyebrow": "Agentic AI Design",
-      "description": "The story of building Genie—from personal experiment to organizational platform—and the three mental model problems we had to solve to design for agentic AI. A personal journey about reclaiming creative focus, learning new skills, and transforming routine work into strategic impact.",
+      "description": "The story of building Genie — from personal experiment to organizational platform — and what building it changed about how I work, what I'm capable of, and how others engage with me.",
       "route": "/doc/building-genie-changed-me",
-      "contentFile": "doc_32.md",
+      "contentFile": "doc_66.md",
       "thumbnail": "casestudy/genie/genie.png",
-      "alt": "Genie - Agentic AI Platform",
+      "alt": "Article: Building Genie Changed Me",
       "tags": ["ai", "agentic-ai"]
     },
     {
@@ -286,7 +300,7 @@
         "filename3": "casestudy/softchoice/sc-motion.gif",
         "caption3": "Motion Design Elements"
       },
-      "alt": "Softchoice Website Rebrand",
+      "alt": "Softchoice Website Replatform",
       "tags": ["rebrand", "motion-design"]
     },
     {
@@ -294,7 +308,7 @@
       "docId": 53,
       "slug": "kg-loyalty-platform",
       "type": "case-study",
-      "title": "K&G Loyalty Platform",
+      "title": "Kum & Go Mobile Loyalty App",
       "eyebrow": "Product Design",
       "description": "Founded in 1959, Kum & Go redefines convenience with customer-centric offerings. Partnering with Orium, they launched a new digital experience featuring enhanced promotions, loyalty programs, and improved merchandising.",
       "route": "/doc/kg-loyalty-platform",
@@ -313,7 +327,7 @@
         "filename3": "casestudy/kg/kg-1.jpg",
         "caption3": "K&G Digital Experience"
       },
-      "alt": "K&G Loyalty Platform - Mobile App Experience",
+      "alt": "Kum & Go Mobile Loyalty App",
       "tags": ["loyalty", "mobile"]
     },
     {
@@ -348,7 +362,7 @@
       "docId": 56,
       "slug": "onlogic-commerce-platform",
       "type": "case-study",
-      "title": "OnLogic Composable Commerce Platform",
+      "title": "OnLogic Product Configurator",
       "eyebrow": "Composable Commerce",
       "description": "OnLogic's customers are IT professionals configuring industrial PCs with specific hardware requirements — where a wrong choice has real consequences. Migrated from a legacy platform to composable commerce, with a configuration flow built around real dependencies.",
       "route": "/doc/onlogic-commerce-platform",
@@ -367,7 +381,7 @@
         "filename3": "casestudy/onlogic/onlogic-3.png",
         "caption3": "Custom PDP and Checkout Experience"
       },
-      "alt": "OnLogic Project Overview",
+      "alt": "OnLogic Product Configurator",
       "tags": ["commerce", "configurator"]
     },
     {
@@ -383,6 +397,16 @@
       "tags": ["visual-design", "sketchbook"]
     },
 
+    {
+      "docId": 65,
+      "slug": "template",
+      "type": "case-study",
+      "title": "Case Study Template",
+      "eyebrow": "Template",
+      "description": "Format reference for portfolio case studies. Demonstrates metadata block, section structure, blockquote talking points, and captioned images.",
+      "route": "/doc/template",
+      "contentFile": "doc_template.md"
+    },
     {
       "docId": 63,
       "slug": "sketchbook",

@@ -1266,6 +1266,4 @@ details[open] summary {
   // background-color: var(--background-darker); /* Light hover effect */
 }
 
-details p {
-}
 </style>

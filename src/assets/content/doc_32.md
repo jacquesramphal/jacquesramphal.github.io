@@ -1,109 +1,60 @@
+![Genie n8n Workflow](../images/genie.png)
 
-# Building Genie didn’t just change how we work. It changed me.
+# Designing Genie
+An agentic orchestration layer for design delivery — built to automate routine work so the team could focus on the kind that actually requires a person.
 
-#### This is the story of building Genie—from personal experiment to organizational platform—and the three mental model problems we had to solve to design for agentic AI.
+| | |
+|---|---|
+| **Role** | Lead Designer · Product |
+| **Client** | Internal / Orium |
+| **Status** | In Progress · 2024 |
+| **Tags** | ai · agentic-ai · product |
 
-<br>
+## Overview
 
-![Genie Core Functions Diagram](../images/casestudy/genie/genie.png)
+Routine delivery work — user stories, audits, component mapping, requirements — was consuming the time and energy that should have gone toward design problems worth solving.
 
+Every project at Orium moved through the same sequence of mechanical tasks: gather context from scattered sources, shape it into user stories, run audits in the same form as every previous project, assemble backlogs that would shift once the work got moving anyway. None of it was wasted, but all of it consumed hours that could have gone elsewhere. The question I started with was small — could the predictable parts be automated? The answer turned out to be large.
 
-## What is Genie?
-For the past year or so, I’ve been working on [an internal tool at Orium, called Genie](https://orium.com/blog/orium-genie-agentic-ai-design), that is redefining how we approach our projects and client work. But before I tell you the story of why we built Genie, what the journey was like, and how it has impacted not just my day-to-day workflows, but my perception of work, you need to understand what Genie actually is.
+## A Personal Experiment
 
-Genie is an agentic orchestration layer for delivery operations. It connects to live project systems like Jira, Slack, Mavenlink, and internal project databases, continuously synthesizing context, surfacing insights, and automating workflows without manual intervention.
+I started in small pockets of time. Thirty minutes between design reviews, an hour on a Friday evening, playing with automations, custom GPTs, and scripts that could run audits and generate user stories.
 
-The simplest way to think about it is this: **Genie is what happens when you give an agent access to your operational data, and the ability to take action.**
+I was learning tools I'd never touched before — n8n, workflow orchestration, agentic AI patterns — to solve problems I'd never encountered before. It became an education I hadn't planned on. When I showed some of the experiments to the team, the questions came quickly: Could Genie run this audit for us? Could it generate user stories for our scope? It turned out my problems weren't unique. Every designer was spending creative energy on routine tasks. What started as personal reclamation could become organizational reclamation.
 
-But Genie didn’t start as a platform. It started as a way for me to protect the part of my work I cared about most.
+## My Role
 
+I designed Genie from the ground up and built the first version — which meant becoming an AI developer, a workflow orchestration practitioner, and a product thinker in real time, while staying a designer.
 
-## Reclaiming Creative Focus
-My work was evolving, and so was the industry around me. I found myself moving constantly between design systems, audits, requirements, and component mapping. Across projects, the pattern was always the same: gather information from a dozen places, shape it into user stories, rebuild requirements I’d written versions of before, run familiar audits, and assemble design backlogs that would inevitably shift once the project got moving.
+Building for other designers, not just myself, required learning product thinking by doing it: leading without formal authority, championing a vision while remaining an individual contributor, making decisions that affected people with very different workflows. I had to learn when to admit I didn't know enough and ask for help, and when to accept that some problems were bigger than my current expertise.
 
-None of that work was wasted, but it consumed energy I wanted to spend elsewhere. Every hour spent on routine, mechanical tasks was an hour not spent on judgment, insight, or problem-solving— the creative core of design.
+## The Constraint
 
-So my thinking shifted. What if the predictable parts of the work could be automated? Could I reclaim space for the work that actually moves projects forward?
+Designing for an AI agent means designing for a system that can't guarantee the same result twice — and getting users to trust something that can't promise the same output is a different problem than any conventional UX I'd worked on.
 
-The challenge wasn’t about working harder or improving time management or trying to do more work. It was about protecting creative focus so I could do better work.
+The design challenge was making Genie's reasoning legible — showing enough of how it arrived at an output that a designer could validate, override, or redirect it without needing to understand the underlying model. Adoption was a second constraint: teams were already stretched, and asking them to change deeply ingrained delivery habits required evidence, not argument.
 
-## A Personal Experiment That Got Out of Hand
-I started experimenting in small pockets of time. Thirty minutes between design reviews or an hour on a Friday evening playing with small automations, custom GPTs, and scripts that could run audits, generate user stories, and map components.
+## Approach
 
-![Genie Core Functions Diagram](../images/gennifer.png)
+Three problems worth naming — trust, transparency, and task ownership — each requiring a different design response.
 
-I was learning tools I’d never touched before—[N8n](https://n8n.io/), workflow orchestration, agentic AI patterns—to solve problems I’d never encountered before. I had to learn AI development properly and truly understand how agents work, because I was building one to solve real design problems. Curiosity turned into a passion project, and an education I hadn’t planned on.
+The trust problem required outputs that showed their work. The transparency problem required the right level of context: enough to understand, not so much that it buried what mattered. The task ownership problem was the most subtle: making sure Genie handled the routine work without users feeling like the design judgment had been taken from them. Genie connects to Jira, Slack, Mavenlink, and internal project databases, synthesizing context and acting on it: generating requirements, running audits, mapping components, flagging risks.
 
-I showed some of the experiments to the team and the questions came quickly. Could Genie run this audit for us? Could it generate user stories for our scope? Could it help with component mapping?
+![Genie n8n Workflow](../images/genie.png)
+*The n8n workflow behind Genie — context synthesis, requirements generation, audit automation, risk surfacing.*
 
-It turned out my problems weren’t unique. Every designer was spending creative energy on routine tasks when they could be solving novel challenges. What started as personal reclamation could become organizational reclamation.
+## Outcome
 
-## From Personal Tool to Product
-Building Genie as an experiment for myself was one thing. Scaling it for an entire team was something else entirely— and it meant not only that Genie had to become something new, but that I did, too.
+Genie moved from a personal experiment to an organizational platform used across delivery projects at Orium — covered in an official post on the company blog and adopted by designers across the team.
 
-Not entirely new— I didn’t stop being a designer. I was still in the trenches, shipping features, gathering feedback, making tradeoffs. But I had to learn product thinking by building for other designers, not just myself. I had to learn how to lead without formal authority. How to champion a vision while remaining an individual contributor. How to collaborate, distribute work, and make decisions that affected people with very different workflows and concerns.
+The hours it saves are real, but the more significant shift is what those hours get redirected toward: the judgment calls, the design decisions, the problems that actually require a person in the room.
 
-When I brought Genie to leadership, they saw what I was beginning to understand: this wasn’t just a productivity tool, it could change what kind of work we focus on. Instead of spending time on routine and mechanical tasks, we could invest energy in the novel, strategic work our clients actually value.
+## What I Learned
 
-So I pitched the vision. A supervisor agent with access to design and project data. An orchestration layer capable of running audits, generating requirements, recognizing design patterns, surfacing insights in real time. A system that freed designers to focus on user problems that actually require human judgment.
+When you're deep in the work, questions about vision documents and roadmaps and success metrics can feel jarring. The perspective shift that helped: you don't get asked those questions unless what you've built matters. They're not criticism — they're signals that you crossed a threshold.
 
-Building toward that vision meant going deep into things I didn’t fully understand. Complex integrations and hard decisions about what should be automated and what should remain human-centered. It was all new technical territory that designers aren’t usually expected to navigate.
+Building for others meant slowing down and accepting that usefulness isn't universal by default. Some days are hard — adoption is slow, nobody seems to get it. Other days a team tells you Genie saved them hours, helped them catch something they would have missed, or gave them space to focus on what they care about. Both kinds of days are the reality of building something real. Real impact isn't about being right. It's about understanding why people resist, what they're afraid of, and creating something that actually addresses those fears.
 
-I had to learn when to admit I didn’t know enough and ask for help, and when to accept that some problems were bigger than my current expertise.
+---
 
-Building Genie at scale taught me that the best builders are comfortable not knowing everything. They know when to wrestle with hard problems, and when to say, “This needs a different way of thinking.”
-
-I was rebuilding my own skillset in real time.
-
-I became an AI developer. A workflow orchestration practitioner. A product thinker. A designer who builds agent systems and understands the intersection of design, development, and AI.
-But most importantly, I stayed a designer. Genie didn’t pull me away from what I love. It gave me back the time and creative energy to focus on it.
-
-That’s the real story of Genie. Not just what I built, but what building it made me capable of. And what it enabled us to do as a team.
-
-![Genie Core Functions Diagram](../images/genie.png)
-Complexity followed with time.
-
-## Building a Product, Rebuilding Yourself
-Building Genie from a personal tool into an organizational platform reinforced something I believe deeply now. The fastest way to grow is to solve real problems at scale.
-
-You don’t become an AI developer by taking courses, you become one by building something that forces you to understand how agents actually work. You don’t become a product manager by reading frameworks, you become one by making hard tradeoffs and listening to real feedback.
-
-What surprised me was that leading from the IC level isn’t a compromise — being close to the work made me a better advocate for it. The harder adjustment was scale: knowing when to go deep on a problem versus when to step back and let others carry it. That tension doesn’t go away. You just get better at reading it.
-
-The projects worth doing tend to serve the team and your own growth at the same time. That overlap is rare. When you find it, move fast.
-
-## The Hardest Part: Building for Others
-The simple truth most people won’t admit: Having a good idea is actually the easy part. Convincing exhausted teams to adopt something new is what’s hard.
-
-Teams are already stretched, and when we ask them to learn new tools, change workflows, and trust an agent with requirements they used to own, some people are curious, but as many or more are skeptical or simply too tired.
-
-That means not everyone will adopt a new solution immediately. Worries about losing human connection to the work, or trusting an agent understands what’s needed, or fears of what automation implies hold people back. And it’s important that we understand these as legitimate concerns, coming directly from the people doing the hard work.
-
-When I built Genie for myself, I could move fast. Building for others meant listening, slowing down, and accepting that usefulness isn’t universal by default. It has to be earned.
-
-Some days are hard, when it feels like nobody gets it and adoption is painfully slow. 
-
-And then other days a team tells me Genie saved them hours, helped them catch something they would have missed, or gave them space to focus on what they care about.
-
-And both of those kinds of days—and all the ones in between—are the messy reality of building something real. It’s never all one or the other.
-
-Real impact isn’t about being right. It’s about understanding why people resist, what they’re afraid of, and creating something that actually addresses those fears.
-
-## When Serious Questions Are a Privilege
-I get a lot of feedback now about product management. Do you have a vision document? A roadmap? Success metrics? Artifacts?
-
-When you’re deep in the work, unblocking issues and shipping features, those questions can feel jarring. You’re making real progress. Why does this stuff matter right now?
-The perspective shift that helped me was simple.
-
-You don’t get asked those questions unless what you’ve built matters.
-
-Those are questions for serious tools, not side projects. They’re not criticism. They’re signals that you crossed a threshold.
-
-The irony isn’t lost on me. I might be a strong designer and a capable developer, but I’m a junior product manager. And that’s actually a compliment. It means Genie outgrew me as a personal tool and became something that requires product thinking.
-
-When someone asks for a vision or a roadmap, they’re saying this matters enough to think about strategically.
-
-That’s what Genie is teaching me. Building something meaningful changes not just your work, but your role, your expectations, and the way others engage with you.
-
-That’s uncomfortable, and humbling, and exactly where growth happens.
-Building Genie didn’t just change how we work. It changed what I’m capable of building next.
+*The full story — from personal experiment to rebuilding my own skillset — [Building Genie Changed Me →](/doc/building-genie-changed-me)*

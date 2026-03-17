@@ -87,6 +87,9 @@ export default {
 
   &--fullvw {
     padding: 0 !important;
+    margin-inline: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
     // span {
     //   border-radius: none !important;
     // }
