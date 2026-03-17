@@ -17,8 +17,8 @@
           :title="`${eyebrow1}`"
           eyebrow=""
           :description="`${detail1}`"
-          :route="route ? `${route}` : undefined"
-          :label="label ? `${label}` : undefined"
+          :route="`${route}`"
+          :label="`${label}`"
           btntype="outline"
         />
         

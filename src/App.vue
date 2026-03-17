@@ -1,62 +1,47 @@
 <template id="app">
   <!-- <router-view v-if="isLoggedIn" v-slot="{ Component }"> -->
-
   <router-view v-slot="{ Component }">
     <!-- <BreadCrumb v-if="!$route.meta.hideBreadCrumb" /> -->
-    <!-- <SidebarNav/> -->
-    <!-- <TextLink
-            style="    position: absolute !important;
-left: 0; top: 0;
-z-index: 1000;
-writing-mode: vertical-rl;
-transform: rotate(90deg);
-"
-            label="Jacques Ramphal"
-            route="/"
-            v-show="isDesktopScreen && !menuOpen"
-          /> -->
-    <!-- <MobileTOCBar
-      :headings="markdownHeadings || []"
-      :active-heading="markdownActiveHeading"
-    /> -->
     <HeaderNav
       :toggle-menu="toggleMenu"
       v-if="!$route.meta.hideNav"
       :menu-open="menuOpen"
-      :has-headings="markdownHeadings && markdownHeadings.length > 0"
-      :headings="markdownHeadings || []"
-      :active-heading="markdownActiveHeading"
     >
-      <template v-slot:menu-button>
+      <!-- BREADCRUMB NAV START-->
+
+      <!-- <template v-slot:menu-button>
         <TextLink
-          style="border: 0 !important; line-height: inherit"
-          type="textlink"
-          :label="menuOpen ? 'Close' : 'Menu'"
+          style="text-decoration: none"
+          :label="menuOpen ? $route.name : $route.name"
           @click="toggleMenu"
+          :unicodeRight="menuOpen ? '⏶' : '⏷'"
+          :isSvg="false"
+          iconsize="16"
+          
         />
-      </template>
+
+      </template> -->
+            <!-- BREADCRUMB NAV END-->
+
       <template v-slot:menu-button-mobile>
         <TextLink
           style="border: 0 !important; line-height: inherit"
           type="textlink"
           :label="menuOpen ? 'Close' : 'Menu'"
           @click="toggleMenu"
+          
         />
       </template>
     </HeaderNav>
     <!-- <ThemeButton v-if="!$route.meta.hideThemeButton" /> -->
     <transition name="fade" mode="out-in">
-      <component :is="Component" :key="$route.path" />
+      <component :is="Component" />
     </transition>
 
-    <transition name="slide">
-      <fullscreen-menu
-        v-if="menuOpen"
-        :is-open="menuOpen"
-        @close="menuOpen = false"
-      ></fullscreen-menu>
-    </transition>
-
+    <fullscreen-menu
+      :is-open="menuOpen"
+      @close="menuOpen = false"
+    ></fullscreen-menu>
     <!-- <StickyNav v-if="!$route.meta.hideNav" :menu-open="menuOpen">
       <template v-slot:menu-button>
         <MyButton
@@ -69,95 +54,39 @@ transform: rotate(90deg);
     <!-- <NewsletterSubscription /> -->
     <MainFooter v-if="!$route.meta.hideFooter" />
     <!-- <SimpleFooter v-if="!$route.meta.hideFooter" /> -->
-    <!-- <UnderConstructionBar /> -->
-
-    <!-- <img
-      src="./assets/images/work/3-avatar/sketches/avatar-standing.png"
-      alt=""
-      aria-hidden="true"
-      class="avatar-standing"
-    />-->
-
-    <CustomChatUI />
-    <!-- Chat with Jacques's agent button and sidebar -->
-    <!-- <div class="fixed-chat-entry" @click="toggleChatSidebar">
-      <span class="vertical-text">chat with Jacques's agent</span>
-    </div>
-    <transition name="slide">
-      <div v-if="showChatSidebar" class="chat-sidebar">
-        <div class="chat-sidebar-header">
-          <span>AI Chat (n8n agent)</span>
-          <button class="close-btn" @click.stop="toggleChatSidebar">&times;</button>
-        </div>
-        <div class="chat-sidebar-content">
-          <p>This is a placeholder for the n8n chat agent UI.</p>
-        </div>
-      </div>
-    </transition> -->
   </router-view>
   <!-- <TheLogin v-else @TheLogin::loginResult="handleLoginResult" /> -->
 </template>
 
 <script lang="js">
-import MyButton from './components/Button/Button.vue';
+import MyButton from "./components/Button/Button.vue";
 
 // import NewsletterSubscription from "./components/form/NewsletterSubscription.vue";
-import FullscreenMenu from './components/FullscreenMenu.vue';
-import StickyNav from './components/StickyNav.vue';
-import HeaderNav from './components/HeaderNav/HeaderNav.vue';
-import MainFooter from './components/MainFooter.vue';
-import TextLink from './components/text/TextLink.vue';
-import MobileTOCBar from './components/MobileTOCBar.vue';
-import SimpleFooter from './components/SimpleFooter.vue';
-import TheLogin from './components/TheLogin.vue';
+import FullscreenMenu from "./components/FullscreenMenu.vue";
+// import StickyNav from "./components/StickyNav.vue";
+import HeaderNav from "./components/HeaderNav.vue";
+import MainFooter from "./components/MainFooter.vue";
+// import SimpleFooter from "./components/SimpleFooter.vue";
+import TheLogin from "./components/TheLogin.vue";
 // import ThemeButton from "./components/ThemeButton.vue";
 // import BreadCrumb from "./components/BreadCrumb.vue";
-import SidebarNav from './components/SidebarNav.vue';
-import CustomChatUI from './components/CustomChatUI.vue';
-// import UnderConstructionBar from './components/UnderConstructionBar.vue';
 import { useRouter } from 'vue-router'; // Import Vue Router
-import { provide, ref } from 'vue';
+
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    StickyNav,
+    // StickyNav,
     HeaderNav,
     MainFooter,
-    TextLink,
-    MobileTOCBar,
-    SimpleFooter,
+    // SimpleFooter,
     // ThemeButton,
     TheLogin,
     FullscreenMenu,
     MyButton,
     // NewsletterSubscription,
     // BreadCrumb,
-    SidebarNav,
-    CustomChatUI,
-    // UnderConstructionBar,
-  },
-  setup() {
-    const markdownHeadings = ref([]);
-    const markdownActiveHeading = ref(null);
-
-    // Provide functions for markdown pages to update headings
-    const updateMarkdownHeadings = (headings) => {
-      markdownHeadings.value = headings;
-    };
-
-    const updateMarkdownActiveHeading = (activeHeading) => {
-      markdownActiveHeading.value = activeHeading;
-    };
-
-    provide('updateMarkdownHeadings', updateMarkdownHeadings);
-    provide('updateMarkdownActiveHeading', updateMarkdownActiveHeading);
-
-    return {
-      markdownHeadings,
-      markdownActiveHeading,
-    };
-  },
-  data() {
+},
+data() {
     return {
       menuOpen: false,
     };
@@ -174,13 +103,8 @@ export default {
     const router = useRouter();
 
     // Use Vue Router's afterEach hook to close the menu on route change
-    router.afterEach((to) => {
+    router.afterEach(() => {
       this.closeMenu();
-      // Clear headings when navigating away from markdown pages
-      if (!to.path.startsWith('/doc/')) {
-        this.markdownHeadings = [];
-        this.markdownActiveHeading = null;
-      }
     });
   },
 
@@ -202,58 +126,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import './assets/styles/css/all.css';
-
-.slide-enter-from {
-  transform: translateX(100%);
-  opacity: 0;
-}
-
-.slide-enter-active {
-  transition:
-    transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
-    opacity 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-
-.slide-enter-to {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-.slide-leave-from {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-.slide-leave-active {
-  transition:
-    transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
-    opacity 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-
-.slide-leave-to {
-  transform: translateX(100%);
-  opacity: 0;
-}
-
-.avatar-standing {
-  position: fixed;
-  bottom: 0;
-  right: -10rem;
-  width: clamp(12rem, 35vw, 120rem); /* design-guard:ignore */
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Safety: hide legacy n8nchatui inline widget if it ever loads */
-.n8n-chat-ui,
-[class^='n8n-chat-ui'],
-[class*=' n8n-chat-ui'],
-[id*='n8n-chat-ui'],
-[id*='n8nchatui'] {
-  display: none !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
+<style lang="sass">
+@import "./assets/styles/css/all.css"
 </style>

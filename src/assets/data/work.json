@@ -1,62 +1,77 @@
 {
-  "featEyebrow": "Agentic AI Design",
-  "featTitle": "Designing Genie: Pioneering UX Patterns for Agentic AI",
-  "featDescription": "Built an agentic orchestration layer that transformed how teams reclaim creative focus. Learned n8n, AI development, and product thinking while automating routine design work to free the team for novel problems.",
-  "btnroute": "doc/building-genie-changed-me",
-  "label": "Read Case Study",
-  "bgcolor": "background-color: #0D47A1",
-  "featImage": "casestudy/genie/genie.png",
-  "alt": "Genie - Agentic AI Platform",
+  "featEyebrow": "Design AI Tools",
+  "featTitle": "VS Code Visual IDE Plugin",
+  "featDescription": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
+  "btnroute": "work/10",
+  "label": "Feature Label",
+  "bgcolor": "background-color: #7D00FF",
+  "featImage": "casestudy/ide/temp-ide.png",
+
+  "alt": "Alt Test",
   "entries": [
     {
       "id": 1,
-      "variant": "small",
-      "size": "large",
+      "variant": "borderless",
       "title": "K&G Loyalty Platform",
       "tag": "Product Design, Design Systems, Development",
-      "description": "Founded in 1959, Kum & Go redefines convenience with customer-centric offerings. Partnering with Orium, they launched a new digital experience featuring enhanced promotions, loyalty programs, and improved merchandising.",
+      "description": "Founded in 1959, Kum & Go redefines convenience with customer-centric offerings.",
       "btnroute": "work/1",
       "label": "Read More",
-      "alt": "K&G Loyalty Platform - Mobile App Experience",
-      "bgcolor": "background-color: #FFB81C",
-      "category": "Work",
-      "filename2": "casestudy/kg/kg-5.png",
+      "alt": "Alt Test",
+      "bgcolor": "background-color: var(--background-darker)",
+
+      "filename3": "casestudy/kg/kg-5.png",
       "role": "Lead Product Designer, Developer",
       "type": "Work Type",
       "status": "Launched",
       "images": {
         "filename1": "casestudy/kg/kg-5.png",
-        "caption1": "K&G Loyalty Platform - Mobile App Hero",
+        "caption1": "This is a Caption1",
         "filename2": "casestudy/kg/kg-1.jpg",
-        "caption2": "K&G Mobile App Interface",
+        "caption2": "This is a Caption2",
         "filename3": "casestudy/kg/kg-1.jpg",
-        "caption3": "K&G Digital Experience"
+        "caption3": "This is a Caption3"
       },
-      "keyTakeaways": [
-        "Kum & Go manages their own search, promotions, loyalty, and content without going through a third party.",
-        "The loyalty program lets customers earn rewards and redeem them at the pump.",
-        "React Native Accelerator and Contentful cut build time without touching existing infrastructure.",
-        "Mobile Fuel Pay connects the app to the physical store — prepay gas, redeem points at the pump."
+      "keypoints": [
+        {
+          "title": "Key Point 1",
+          "body": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer."
+        },
+        {
+          "title": "Key Point 2",
+          "body": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer."
+        },
+        {
+          "title": "Key Point 3",
+          "body": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer."
+        },
+        {
+          "title": "Key Point 4",
+          "body": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer."
+        }
+
       ],
       "entries": [
         {
           "eyebrow": "",
+
           "title": "Problem",
           "body": "Kum & Go aimed to redefine convenience for their customers by upgrading their digital experience. They sought to enhance their mobile app to include better search and merchandising, a new loyalty program, and support for modern shopping preferences. Additionally, the new app needed to be adaptable for future updates and improvements without causing any service disruptions.",
           "images": {
-            "filename1": "casestudy/kg/kg-2.jpg",
-            "alt": "Kum & Go Digital Experience Challenges",
-            "caption": "Identifying opportunities to enhance the mobile app experience."
+            "filename1": "casestudy/kg/kg-1.jpg",
+            "alt": "This is Alt 1",
+            "caption": "This is Caption 1"
           }
         },
+        
         {
           "eyebrow": "",
           "title": "Solution",
-          "body": "To achieve these goals, Kum & Go partnered with Orium to implement a flexible and scalable platform focusing on four key objectives: control over digital experience, increased customer engagement, more in-store purchases, and an extensible platform. Orium worked with Kum & Go to develop a React Native framework, leveraging Orium’s React Native Accelerator for a faster, more efficient development process. Contentful’s composable content platform was implemented for easy content management, and Typesense was used for search and product indexing. Paytronix was chosen to manage the loyalty program, providing comprehensive loyalty, promotions, and ordering capabilities. Integration with P97 enhanced Mobile Fuel Pay, allowing for prepaying gas and redeeming points at the pump.",
+          "body": "Orium worked with Kum & Go to develop a React Native framework, leveraging Orium’s React Native Accelerator for a faster, more efficient development process. Contentful’s composable content platform was implemented for easy content management, and Typesense was used for search and product indexing. Paytronix was chosen to manage the loyalty program, providing comprehensive loyalty, promotions, and ordering capabilities. Integration with P97 enhanced Mobile Fuel Pay, allowing for prepaying gas and redeeming points at the pump.",
           "images": {
-            "filename1": "casestudy/kg/kg-3.jpg",
-            "alt": "React Native Framework and Composable Architecture",
-            "caption": "Modern mobile architecture with React Native and composable content management."
+            "filename1": "casestudy/kg/kg-1.jpg",
+            "alt": "This is Alt 3",
+            "caption": "This is Caption 3"
           }
         },
         {
@@ -64,222 +79,267 @@
           "title": "Outcome",
           "body": "The revamped Kum & Go mobile app launched with an upgraded rewards program and an enhanced ecommerce experience. Key features included a personalized interface, home location selection, and customer history-based recommendations. The Mobile Fuel Pay feature was also improved, allowing customers to prepay for gas in selected increments. <br><br> Kum & Go plans to continue enhancing the mobile app and redesigning the web experience to match the new mobile app features.",
           "images": {
-            "filename1": "casestudy/kg/kg-4.png",
-            "alt": "K&G Mobile App Launch and Features",
-            "caption": "Launched mobile app with enhanced loyalty program and ecommerce capabilities."
+            "filename1": "casestudy/kg/kg-1.jpg",
+            "alt": "This is Alt 3",
+            "caption": "This is Caption 3"
           }
         }
       ]
-    },
-    {
-      "id": 5,
-      "variant": "small",
-      "title": "The /design Agent",
-      "tag": "Design Engineering, Storybook, AI",
-      "subtitle": "Collapsing the Handoff Gap",
-      "description": "An isolated Storybook environment powered by AI — one command to start. Designers work against real components and tokens, independent from the dev repo, with structured handoff instead of annotated specs.",
-      "btnroute": "doc/the-design-command-suite",
-      "label": "Read Case Study",
-      "alt": "The /design Agent — AI-Powered Storybook Design Environment",
-      "keyTakeaways": [
-        "In client work, the goal is reducing interpretation layers, not merging workflows — a service company still needs handoff, just a more precise version.",
-        "Designers work in a separate repo connected to the same tokens and components as production.",
-        "The infrastructure was built before the team adopted it.",
-        "Adoption across a team with established habits is what remains unresolved."
-      ],
-      "bgcolor": "background-color: #0f1117",
-      "category": "Work",
-      "filename3": "placeholders/placeholder-25.svg",
-      "role": "Design Lead, Design Engineer",
-      "type": "Internal Tooling",
-      "status": "In Progress"
     },
     {
       "id": 2,
-      "variant": "small",
-      "title": "Softchoice Website Rebrand",
-      "tag": "Brand Design, Motion Design, CMS Integration",
-      "subtitle": "Polishing a Brand Identity in Motion",
-      "description": "When a brand launches a new identity, the website needs to reflect it—without breaking what already works. Redesigned Softchoice’s website to reflect their new brand identity, working within their existing CMS structure. Enhanced modules, introduced motion design, and collaborated closely with development to ensure design fidelity.",
+      "variant": "borderless",
+      "title": "Softchoice Site & Motion Design",
+      "tag": "Tag1 Tag4 Tag5",
+      "subtitle": "This is a subtitle 2",
+      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
       "btnroute": "work/2",
-      "label": "Read Case Study",
-      "filename3": "casestudy/softchoice/sc-desktop-1.png",
+      "label": "Read More",
+      "filename2": "casestudy/softchoice/sc-blog-1.png",
       "bgcolor": "background-color: var(--background-darker)",
-      "alt": "Softchoice Website Rebrand",
-      "category": "Work",
-      "role": "Lead Product Designer",
-      "type": "Brand Design, Web Design",
-      "status": "Launched",
+
+      "alt": "Alt Test",
+      "role": "Designer/Developer",
+      "type": "Work Type",
+      "status": "In Development",
       "images": {
-        "filename1": "casestudy/softchoice/sc-desktop-1.png",
-        "caption1": "Softchoice Desktop Homepage",
-        "filename2": "casestudy/softchoice/sc-blog-1.png",
-        "caption2": "Softchoice Blog Page",
-        "filename3": "casestudy/softchoice/sc-motion.gif",
-        "caption3": "Motion Design Elements"
-      },
-      "keyTakeaways": [
-        "Every module was redesigned within the existing CMS block structure — same system, updated visual language.",
-        "Scroll animations, navigation transitions, and hover states added polish without pulling focus from content.",
-        "Redesigning modules inside the existing system meant no CMS migration and no disruption to content operations.",
-        "Three parties — a design agency, a branding firm, and the client’s IT team — all needed to land at the same place at the same time."
-      ],
-      "entries": [
-        {
-          "eyebrow": "",
-          "title": "The Challenge",
-          "body": "In late 2020, Softchoice was preparing to launch a new brand identity in January. Their website, built on an interim design from August 2020, had incomplete design elements and wasn’t ready to represent the new brand. The challenge wasn’t just visual—it was about enhancing the experience while respecting the existing CMS architecture that was already serving the organization well.<br><br>The constraint: We couldn’t rebuild the site. We had to work within the established module-driven CMS structure, enhancing and polishing without disrupting what was already functioning.<br><br>This is a common scenario in enterprise work: you’re not starting from scratch. You’re improving what exists while respecting the systems already in place.",
-          "images": {
-            "filename1": "casestudy/softchoice/sc-desktop-1.png",
-            "alt": "Softchoice Website Before Rebrand",
-            "caption": "The existing website needed to reflect the new brand without breaking what already worked."
-          }
-        },
-        {
-          "eyebrow": "",
-          "title": "The Approach",
-          "body": "Rather than tearing down and rebuilding, we took a surgical approach: redesign the modules, not the system.<br><br><strong>Brand Guidelines as the Foundation</strong><br>The new brand guidelines were comprehensive—colors, typography, spacing, imagery principles. Our first step was to understand how these guidelines could translate into the existing module structure.<br><br><strong>Module Redesign Strategy</strong><br>The CMS was built on a block model approach. Key modules included hero sections, page navigation, two-column layouts, callouts and stats, image quadrants, text quadrants, related content sections, and accordions. Each module needed to be redesigned to reflect the new brand while maintaining its functional purpose.<br><br><strong>Motion Design: Bringing Life to the Interface</strong><br>One of the most impactful additions was introducing light animations and motion design. This wasn’t about flashy effects—it was about enhancing the user experience through thoughtful motion: navigation behavior with smooth transitions, module loading that feels intentional, text appearance on scroll, and interactive navigation buttons with responsive feedback.",
-          "images": {
-            "filename1": "casestudy/softchoice/sc-guide-1.png",
-            "alt": "Brand Guidelines and Module Design",
-            "caption": "Brand guidelines translated into module-driven design system."
-          }
-        },
-        {
-          "eyebrow": "",
-          "title": "The Outcome",
-          "body": "We redesigned the modules — hero sections, navigation, two-column layouts, callouts, accordions — and introduced motion throughout: scroll animations, navigation transitions, interactive states. Everything fit within the existing CMS block structure. That constraint made the work harder, and the result better. The site felt like a new brand while the CMS stayed exactly where the organization needed it.",
-          "images": {
-            "filename1": "casestudy/softchoice/sc-motion.gif",
-            "alt": "Motion Design in Action",
-            "caption": "Thoughtful motion design enhances the user experience without calling attention to itself."
-          }
-        }
-      ]
+        "filename1": "casestudy/softchoice/sc-blog-1.png",
+        "caption1": "This is a Caption1",
+        "filename2": "casestudy/softchoice/sc-desktop-1.png",
+        "filename3": "work/dod.svg"
+      }
+    },
+    {
+      "id": 3,
+      "variant": "borderless",
+      "title": "Fortune 100 Dashboard",
+      "tag": "Tag1 Tag4 Tag5",
+      "subtitle": "This is a subtitle 2",
+      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
+      "btnroute": "work/3",
+      "label": "Read More",
+      "filename3": "casestudy/eqx/eqx-2.png",
+      "alt": "Alt Test",
+      "bgcolor": "background-color: #40475A",
+      "role": "Designer/Developer",
+      "type": "Work Type",
+      "status": "In Development",
+      "images": {
+        "filename1": "casestudy/eqx/eqx-2.png",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "filename3": "work/dod.svg"
+      }
     },
     {
       "id": 4,
       "variant": "small",
       "title": "Fortune 100 Planning Tool",
-      "tag": "Product Design, Dashboard Design",
-      "description": "A strategic planning tool for a Fortune 100 company — making complex organizational data across business units, budgets, and initiatives navigable without flattening it.",
+      "tag": "Tag1 Tag4 Tag5",
+      "subtitle": "This is a subtitle 2",
+      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
       "btnroute": "work/4",
       "label": "Read More",
-      "alt": "Fortune 100 Planning Tool Dashboard",
+      "filename3": "casestudy/glo/insights.png",
+      "alt": "Alt Test",
       "bgcolor": "background-color: #47C8A6",
-      "category": "Work",
-      "filename3": "casestudy/glo/planner.png",
-      "role": "Product Designer",
-      "type": "Dashboard Design",
-      "status": "Launched",
+      "role": "Designer/Developer",
+      "type": "Work Type",
+      "status": "In Development",
+      "images": {
+        "filename1": "casestudy/glo/planner.png",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "filename3": "work/dod.svg"
+      }
+    },
+    {
+      "id": 5,
+      "variant": "split",
+      "title": "PD Toolkit",
+      "tag": "Tag1 Tag4 Tag5",
+      "subtitle": "Professional Development Spreadsheet",
+      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
+      "btnroute": "work/5",
+      "label": "Read More",
+      "filename3": "casestudy/pd-dash/pd-dash.png",
+      "alt": "Alt Test",
+      "bgcolor": "background-color: #2656C9",
+      "role": "Designer/Developer",
+      "type": "Work Type",
+      "status": "In Development",
+      "images": {
+        "filename1": "casestudy/pd-dash/pd-dash.png",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "filename3": "work/dod.svg"
+      }
+    },
+    {
+      "id": 6,
+      "variant": "borderless",
+      "title": "Dashboard UI Starter",
+      "tag": "Tag1 Tag4 Tag5",
+      "subtitle": "This is a subtitle 2",
+      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
+      "btnroute": "work/6",
+      "label": "Read More",
+      "filename3": "casestudy/ui-lib/datagrid.png",
+      "alt": "Alt Test",
+      "bgcolor": "background-color: var(--background-darker)",
+      "role": "Designer/Developer",
+      "type": "Work Type",
+      "status": "In Development",
+      "images": {
+        "filename1": "casestudy/ui-lib/datagrid.png",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "filename3": "work/dod.svg"
+      }
+    },
+    {
+      "id": 10,
+      "variant": "small",
+      "title": "VS Code Visual IDE Plugin",
+      "tag": "Tag1 Tag4 Tag5",
+      "subtitle": "This is a subtitle 2",
+      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
+      "btnroute": "work/10",
+      "label": "Read More",
+      "filename3": "casestudy/ide/temp-ide.png",
+      "alt": "Alt Test",
+      "bgcolor": "background-color: #7D00FF",
+      "role": "Designer/Developer",
+      "type": "Work Type",
+      "status": "In Development",
+      "images": {
+        "filename1": "casestudy/ide/temp-ide.png",
+        "caption1": "This is a Caption1",
+        "filename2": "casestudy/ide/temp-ide.png",
+        "filename3": "casestudy/ide/temp-ide.png"
+      }
+    },
+
+    {
+      "id": 6,
+      "variant": "small",
+      "title": "Designing Quality",
+      "tag": "Course EBook",
+      "description": "Enhance your design process and deliver exceptional user experiences with this comprehensive resource.",
+      "btnroute": "course",
+      "label": "View Ebook",
+      "filename3": "casestudy/kg/kg-5.png",
+      "alt": "Alt Test",
+      "bgcolor": "background-color: var(--background-darker)",
+      "images": {
+        "filename1": "casestudy/ide/temp-ide.png",
+        "caption1": "This is a Caption1",
+        "filename2": "casestudy/ide/temp-ide.png",
+        "filename3": "casestudy/ide/temp-ide.png"
+      }
+    },
+    {
+      "id": 7,
+      "variant": "small",
+      "title": "Work Name 4",
+      "tag": "Tag2",
+      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
+      "btnroute": "work/1",
+      "label": "Read More",
+      "filename2": "casestudy/kg/kg-5.png",
+      "alt": "Alt Test",
+      "bgcolor": "background-color: #FFB81C",
+      "role": "Designer/Developer",
+      "type": "Work Type",
+      "status": "In Development",
       "images": {
         "filename1": "work/glo.svg",
-        "caption1": "Planning dashboard interface",
-        "filename2": "casestudy/glo/insights.png",
-        "caption2": "Analytics and insights view",
-        "filename3": "casestudy/glo/details.png",
-        "caption3": "Detailed planning view"
+        "alt1": "This is Alt1",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "caption2": "This is a Caption2",
+        "alt2": "This is Alt2",
+        "filename3": "work/dod.svg",
+        "caption3": "This is a Caption3",
+        "alt3": "This is Alt3"
+      }
+    },
+    {
+      "id": 8,
+      "variant": "cover",
+      "title": "Work Name 4",
+      "tag": "Tag2",
+      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
+      "btnroute": "work/1",
+      "label": "Read More",
+      "filename1": "about.jpg",
+      "alt": "Alt Test",
+      "role": "Designer/Developer",
+      "type": "Work Type",
+      "status": "In Development",
+      "images": {
+        "filename1": "work/glo.svg",
+        "alt1": "This is Alt1",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "caption2": "This is a Caption2",
+        "alt2": "This is Alt2",
+        "filename3": "work/dod.svg",
+        "caption3": "This is a Caption3",
+        "alt3": "This is Alt3"
       },
-      "keyTakeaways": [
-        "The data spanned business units, budgets, and initiatives — the work was making it navigable without flattening it.",
-        "What information surfaces by default, and what requires a tap, was most of the design work.",
-        "Users were executives making resourcing decisions on tight timelines."
-      ],
+
       "entries": [
         {
-          "eyebrow": "",
-          "title": "Planning Dashboard",
-          "body": "The main planning interface provides a comprehensive view of strategic planning data with intuitive navigation and real-time updates. The dashboard enables teams to visualize key metrics, track progress, and make informed decisions quickly.",
+          "title": "Sub Section 1",
+          "body": "Body 1 - This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer.",
           "images": {
-            "filename1": "casestudy/glo/planner.png",
-            "alt": "Planning dashboard interface",
-            "caption": "Planning dashboard interface"
+            "filename1": "work/glo.svg",
+            "alt": "This is Alt!",
+            "caption": "This is a Caption!"
           }
         },
         {
-          "eyebrow": "",
-          "title": "Analytics & Insights",
-          "body": "Advanced analytics capabilities surface key insights and trends to support data-driven decision making at the enterprise level. The insights view helps identify patterns, forecast outcomes, and optimize planning strategies.",
+          "title": "Sub Section 2",
+          "body": "Body 2 - This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer.",
           "images": {
-            "filename1": "casestudy/glo/insights.png",
-            "alt": "Analytics and insights view",
-            "caption": "Analytics and insights view"
+            "filename1": "work/glo.svg",
+            "alt": "This is Alt!",
+            "caption": "This is a Caption!"
           }
         },
         {
-          "eyebrow": "",
-          "title": "Detailed Planning View",
-          "body": "The detailed view allows for granular planning and analysis, enabling teams to drill down into specific metrics and projections. This level of detail supports comprehensive strategic planning and resource allocation.",
+          "title": "Sub Section 3",
+          "body": "Body 3 - This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer. This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer.",
           "images": {
-            "filename1": "casestudy/glo/details.png",
-            "alt": "Detailed planning view",
-            "caption": "Detailed planning view"
+            "filename1": "work/glo.svg",
+            "alt": "This is Alt!",
+            "caption": "This is a Caption!"
           }
         }
       ]
     },
     {
-      "id": 12,
+      "id": 9,
       "variant": "small",
-      "size": "small",
-      "title": "OnLogic Product Configurator",
-      "tag": "E-commerce, Composable Commerce, B2B",
-      "description": "OnLogic's customers are IT professionals configuring industrial PCs with specific hardware requirements — where a wrong choice has real consequences. Migrated from a legacy platform to composable commerce, with a configuration flow built around real dependencies.",
-      "btnroute": "work/12",
+      "title": "Fortune 100 Dashboard",
+      "tag": "Tag1 Tag4 Tag5",
+      "subtitle": "This is a subtitle 2",
+      "description": "This is a short description taken from the work and will get clamped at 3 lines for the thumbnail and intro text. The full description will be longer",
+      "btnroute": "work/2",
       "label": "Read More",
-      "alt": "OnLogic Project Overview",
-      "bgcolor": "background-color: #0077C8",
-      "category": "Work",
-      "filename3": "casestudy/onlogic/onlogic-1.png",
-      "role": "Product Design",
+      "filename2": "casestudy/eqx/eqx-2.png",
+      "alt": "Alt Test",
+      "bgcolor": "background-color: #40475A",
+      "role": "Designer/Developer",
       "type": "Work Type",
-      "status": "Launched",
+      "status": "In Development",
       "images": {
-        "filename1": "casestudy/onlogic/onlogic-1.png",
-        "caption1": "OnLogic Composable Architecture Screenshot",
-        "filename2": "casestudy/onlogic/onlogic-2.png",
-        "caption2": "OnLogic Product Configuration Interface",
-        "filename3": "casestudy/onlogic/onlogic-3.png",
-        "caption3": "Custom PDP and Checkout Experience"
-      },
-      "keyTakeaways": [
-        "OnLogic's customers configure industrial hardware where a wrong component choice can mean shipping the wrong product.",
-        "Product options cascade based on real hardware compatibility constraints.",
-        "commercetools, Contentful, and Algolia each own a distinct layer and can evolve independently.",
-        "The design specs were built to be extended by the dev team, not just reviewed by stakeholders."
-      ],
-      "entries": [
-        {
-          "eyebrow": "",
-          "title": "Problem",
-          "body": "OnLogic needed a platform tailored to technical users, including IT professionals, to handle the complexities of configuring customizable products. The existing legacy platform couldn’t provide the precision, transparency, or scalability required to meet the needs of a global audience.",
-          "images": {
-            "filename1": "casestudy/onlogic/onlogic-1.png",
-            "alt": "Legacy Platform Challenges",
-            "caption": "Legacy platform lacked configurability and scalability."
-          }
-        },
-        {
-          "eyebrow": "",
-          "title": "Solution",
-          "body": "Migrated to a composable commerce architecture using commercetools, enabling OnLogic to scale and meet modern demands. Developed configurable PDPs with real-time price calculations, validation checks, and modular designs. Integrated content management (Contentful), search (Algolia), and custom payment/tax systems to meet global requirements.",
-          "images": {
-            "filename1": "casestudy/onlogic/onlogic-2.png",
-            "alt": "Composable Commerce Architecture",
-            "caption": "Composable architecture tailored for technical users."
-          }
-        },
-        {
-          "eyebrow": "",
-          "title": "Outcome",
-          "body": "The platform empowered OnLogic’s technical users with advanced customization options, seamless workflows, and real-time validation. Developers benefited from detailed design handoffs and modular implementation strategies. The scalable platform allows OnLogic to evolve its offerings to meet future needs.",
-          "images": {
-            "filename1": "casestudy/onlogic/onlogic-3.png",
-            "alt": "Scalable and Modular Platform",
-            "caption": "Enhanced configurability and future-proof design."
-          }
-        }
-      ]
+        "filename1": "casestudy/eqx/eqx-2.png",
+        "caption1": "This is a Caption1",
+        "filename2": "work/glo.svg",
+        "filename3": "work/dod.svg"
+      }
     }
   ]
 }

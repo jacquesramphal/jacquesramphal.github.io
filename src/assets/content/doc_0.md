@@ -3,17 +3,12 @@ title: My Page
 date: 2023-09-17
 --- -->
 
-<header>
-
 # Markdown Basics
 Tags Tags Tags
 
-[Avatar] Jacques Ramphal  
+[Avatar] Jake Ramphal  
 July 15, 2023  
 X min read
-</header>
-
-<!-- <main> -->
 
 ![Responsive Breakpoints](https://miro.medium.com/max/1400/0*QuR2HZPsD6O5fyjb)
 
@@ -26,7 +21,6 @@ Markdown is a lightweight markup language that allows you to format plain text e
 ## Headers
 
 You can create headers using hash symbols (#). The number of hash symbols determines the header level. For example:
-
 # Heading 1
 ## Heading 2
 ### Heading 3
@@ -171,4 +165,4 @@ function greet(name) {
 </body>
 </html>
 ```
-<!-- </main> -->
+<hr>

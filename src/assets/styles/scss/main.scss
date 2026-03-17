@@ -1,30 +1,27 @@
-@media screen and (prefers-reduced-motion: reduce),
-(update: slow) {
+@media screen and
+  (prefers-reduced-motion: reduce), 
+  (update: slow) {
   * {
     animation: none !important;
     animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important; 
     transition-duration: 0.001ms !important;
   }
 }
-
 * {
   margin: 0;
   padding: 0;
   writing-mode: horizontal-tb !important;
-
 }
 
 html {
   font-size: 10px !important;
 }
-
 body {
   background: var(--background);
 }
-
 #app {
-  color: var(--foreground) !important;
+   color: var(--foreground) !important;
   /*color: var(--background-reversed) !important; */
   background: var(--background);
   font-size: 10px !important;
@@ -35,3 +32,5 @@ body {
   position: relative;
   inline-size: 100%;
 }
+
+

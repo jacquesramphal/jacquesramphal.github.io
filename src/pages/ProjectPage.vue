@@ -4,11 +4,9 @@
       style="scroll-snap-align: start"
       :key="entry.id"
       :title="`${entry.title}`"
+      :subtitle="`${entry.description}`"
       :filename="`${entry.images.filename1}`"
-
     />
-    <!-- :filename3="`${entry.images.filename1}`" -->
-
     <!-- <TestimonialCarousel /> -->
 
     <GridContainer style="padding-block-start: var(--spacing-sm) !important">
@@ -23,29 +21,32 @@
 
     <GridContainer
       style="scroll-snap-align: start"
-      class="animate glow delay-1"
       tight
+      class="animate glow delay-1"
     >
       <ImageCard
         size="large"
         title=""
-        :filename1="`${entry.images.filename1}`"
+        :filename3="`${entry.images.filename1}`"
         :alt="`${entry.alt}`"
         route=""
         :style="`${entry.bgcolor}`"
-      />
-    </GridContainer>
+    /></GridContainer>
 
     <div class="section">
       <!-- <MarkdownRenderer :markdown="pageContent" /> -->
       <!-- <TextGrid2 /> -->
 
-      <!-- <TextGrid
+
+
+      <TextGrid
       :key="entry.id"
+
       title= "Key Focus Areas"
       as="h2"
         description=""
         :eyebrow1="`${entry.keypoints.title}`"
+
         detail1="Empowering Kum & Go to manage their search, merchandising, promotions, loyalty, and content independently."
         eyebrow2="Increased Customer Engagement"
         detail2="Launching a robust loyalty program to engage a larger segment of the consumer base."
@@ -53,142 +54,22 @@
         detail3="Enhancing the omnichannel experience to drive more in-store purchases."
         eyebrow4="Extensible and Maintainable Platform"
         detail4="Moving off a costly legacy platform to a more efficient and innovative system."
-      /> -->
-
-      <!-- make label and route conditionally rendered -->
-
-      <!-- V1 -->
-
-      <!-- <TextGrid3
-        v-for="(section, j) in entry.entries"
-        :key="j"
-        :title="section.title"
-        description=""
-        as="h2"
-        eyebrow1=""
-        :detail1="section.body"
-        label=""
-        route=""
-      /> -->
-      <!-- <GridParent rows>
-        <GridParent
-          tight
-          style="margin-block-end: var(--spacing-md) !important"
-          v-for="(section, j) in entry.entries"
-          :key="j"
-        >
-          <TextBlock
-            class="offset fadeInUp"
-            left
-            as="h2"
-            :title="`${entry.description}`"
-            :description="`${entry.description}`"
-
-           
-          />
-         
-        </GridParent>
-      </GridParent> -->
-
-      <GridContainer>
-        <GridParent rows>
-        
-          <GridParent
-            tight
-            style="margin-block-end: var(--spacing-md) !important"
-            v-for="(section, j) in entry.entries"
-            :key="j"
-          >
-            <TextBlock
-              class="offset fadeInUp"
-              left
-              as="h3"
-              eyebrow=""
-              :title="section.title"
-              :description="section.body"
-              :blockquote="section.blockquote"
-              style="margin-block-end: var(--spacing-md) !important"
-            />
-            <GridWrapper
-              tight
-              class="offset fadeInUp"
-              v-if="section.images.filename1"
-              id=""
-            >
-              <ImageCard
-                size="large"
-                class=""
-                title=""
-                :filename1="section.images.filename1"
-                :alt="section.images.alt"
-                :caption="section.images.caption"
-              />
-            </GridWrapper>
-          </GridParent>
-        </GridParent>
-      </GridContainer>
-
-      <GridContainer v-if="entry.description" class="fadeInUp" style="padding-block-start: var(--spacing-md) !important; padding-block-end: var(--spacing-md) !important;">
-        <TextBlock
-          left
-          eyebrow="Summary"
-          as="h2"
-          :title="entry.title"
-          :description="`${entry.description}`"
-          :label="entry.label || ''"
-          :link="entry.link || ''"
-          :btnroute="entry.btnroute || ''"
-        />
-      </GridContainer>
-
-      <!-- <TextGrid3
-        v-for="(section, j) in entry.entries"
-        :key="j"
-        :title="section.title"
-        description=""
-        as="h2"
-        eyebrow1=""
-        :detail1="section.body"
-        label=""
-        route=""
       />
-      <GridContainer>
-        <GridParent rows>
-        
-          <GridParent
-            tight
-            style="margin-block-end: var(--spacing-md) !important"
-            v-for="(section, j) in entry.entries"
-            :key="j"
-          >
-            <TextBlock
-              class="offset fadeInUp"
-              left
-              as="h3"
-              eyebrow=""
-              :title="section.title"
-              :description="section.body"
-              :blockquote="section.blockquote"
-              style="margin-block-end: var(--spacing-md) !important"
-            />
-            <GridWrapper
-              tight
-              class="offset fadeInUp"
-              v-if="section.images.filename1"
-              id=""
-            >
-              <ImageCard
-                size="large"
-                class=""
-                title=""
-                :filename1="section.images.filename1"
-                :alt="section.images.alt"
-                :caption="section.images.caption"
-              />
-            </GridWrapper>
-          </GridParent>
-        </GridParent>
-      </GridContainer> 
+
+      <TextGrid
+      title= "Key Focus Areas"
+      as="h2"
+        description=""
+        eyebrow1="Control Over Digital Experience"
+        detail1="Empowering Kum & Go to manage their search, merchandising, promotions, loyalty, and content independently."
+        eyebrow2="Increased Customer Engagement"
+        detail2="Launching a robust loyalty program to engage a larger segment of the consumer base."
+        eyebrow3="More In-Store Purchases"
+        detail3="Enhancing the omnichannel experience to drive more in-store purchases."
+        eyebrow4="Extensible and Maintainable Platform"
+        detail4="Moving off a costly legacy platform to a more efficient and innovative system."
+      />
+
 
       <TextImage
         v-for="(section, j) in entry.entries"
@@ -202,35 +83,52 @@
         :filename="section.images.filename1"
         :alt="section.images.alt"
         as="h2"
-      /> -->
+      />
+
+      <GridContainer>
+        <GridParent rows >
+          <GridParent tight
+            style="
+              margin-block-end: var(--spacing-md) !important;
+            "
+            v-for="(section, j) in entry.entries"
+            :key="j"
+          >
+            <TextBlock
+              class="offset fadeInUp"
+              left
+              eyebrow=""
+              :title="section.title"
+              :description="section.body"
+              :blockquote="section.blockquote"
+            />
+            <GridWrapper
+              tight
+              class="offset fadeInUp"
+              v-if="section.images.filename1"
+              id=""
+            >
+              <ImageCard
+                size="large"
+                class=""
+                title=""
+                :filename1="section.images.filename1"
+                :alt="section.images.alt"
+                :caption="section.images.caption"
+              />
+            </GridWrapper> </GridParent
+        ></GridParent>
+      </GridContainer>
     </div>
 
-    <!-- <iframe
-              v-bind:style="{
-                width: '100%',
-                height: '900px',
-                outline: 'var(--border)',
-                border: '0',
-                borderRadius: 'var(--spacing-xs)',
-                marginBottom: '16px',
-                zIndex: '100'
-              }"
-              src="https://codesandbox.io/p/sandbox/react-new?file=/src/index.js"
-            ></iframe> -->
+    <!-- class="fullvh fadeInUp" -->
+
+  
     <FullscreenImage
       :isOpen="isImageOpen"
       :imageSrc="selectedImage"
       @close="closeImage"
     />
-    <div id="related-work-section" style="background: transparent !important;">
-      <CardRow2
-        title="Related Work"
-        kind="work"
-        :items="relatedWorkEntries"
-        :viewAllTo="{ name: 'Library' }"
-        :limit="3"
-      />
-    </div>
   </PageWrapper>
 </template>
 
@@ -245,9 +143,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
-import CardRow2 from "@/components/CardRow2.vue";
-import TextBlock from "@/components/text/TextBlock/TextBlock.vue";
-// import TextImage from "@/components/card/TextImage.vue";
+import TextImage from "@/components/card/TextImage.vue";
 
 gsap.registerPlugin(ScrollTrigger);
 document.addEventListener("DOMContentLoaded", () => {
@@ -294,9 +190,8 @@ export default {
   components: {
     ImageCard,
     GridContainer,
-    CardRow2,
-    TextBlock,
-    // TextImage,
+    // CardRow2,
+    TextImage,
     FullscreenImage,
     // BreadCrumb,
     // HeaderNav,
@@ -310,14 +205,18 @@ export default {
   },
   methods: {
     openImage(image) {
-      this.selectedImage = require(`@/assets/images/${image}`);
+      this.selectedImage = image;
       this.isImageOpen = true;
     },
     closeImage() {
       this.isImageOpen = false;
-      this.selectedImage = null; // Clear the selected image when closing
     },
   },
+  // data() {
+  //   return {
+  //     htmlContent: "",
+  //   };
+  // },
 
   computed: {
     workId() {
@@ -325,11 +224,6 @@ export default {
     },
     entry() {
       return workData.entries.find((entry) => entry.id == this.workId);
-    },
-    relatedWorkEntries() {
-      return workData.entries
-        .filter((e) => e.category === "Work" && e.id != this.workId)
-        .slice(0, 6);
     },
   },
   mounted() {
@@ -422,12 +316,6 @@ export default {
         duration: 3,
         ease: "none",
       });
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && this.isImageOpen) {
-        this.closeImage();
-      }
     });
   },
 };

@@ -42,8 +42,7 @@ export default {
   props: {
     contentful: {
       type: Array,
-      required: false,
-      default: () => [],
+      required: true,
     },
     value1: {
       type: String,

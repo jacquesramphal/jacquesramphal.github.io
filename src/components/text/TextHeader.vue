@@ -40,8 +40,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-* {
-  color: inherit;
-}
+<style lang="sass" scoped>
+*
+  color: inherit
+#textheader
+  @media only screen and (min-width: 768px)
+  @media only screen and (min-width: 1201px)
 </style>

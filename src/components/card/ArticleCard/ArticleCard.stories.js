@@ -2,32 +2,10 @@ import ArticleCard from "./ArticleCard.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {
-  title: "Components/Cards/ArticleCard",
+  title: "Components/Card/ArticleCard",
   component: ArticleCard,
-  tags: ['autodocs'],
   decorators: [withDesign],
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'A writing or work card with image, eyebrow, title, description, and a CTA link. ' +
-          'Four display variants: `default` (image top), `cover` (image fills card), `borderless`, and `list` (horizontal).',
-      },
-    },
-  },
-  argTypes: {
-    eyebrow: { control: 'text', description: 'Category label above the title' },
-    title: { control: 'text' },
-    description: { control: 'text' },
-    tag: { control: 'text' },
-    filename: { control: 'text', description: 'Image filename from assets/images/' },
-    alt: { control: 'text' },
-    route: { control: 'text' },
-    label: { control: 'text', description: 'CTA button label' },
-    cover: { control: 'boolean', description: 'Image fills the full card' },
-    borderless: { control: 'boolean', description: 'Remove card border' },
-    list: { control: 'boolean', description: 'Horizontal list layout' },
-  },
+  argTypes: {},
 };
 
 const Template = (args) => ({
@@ -36,7 +14,7 @@ const Template = (args) => ({
     return { args };
   },
   template: `
-    <div style="max-width: 36rem;">
+    <div>
       <ArticleCard v-bind="args" />
     </div>
   `,

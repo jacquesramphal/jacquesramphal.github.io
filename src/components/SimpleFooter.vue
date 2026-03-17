@@ -9,10 +9,8 @@
             grid-template-rows: repeat(2, auto);
           "
         >
-        
-          <GridParent tight class="outer">
-            <div class="" style="display: flex; flex-direction: row; gap: var(--spacing-xs);">
-            <a href="/resume.html"
+          <!-- <div class="">
+            <router-link to="/resume"
               ><img
                 id="avatar"
                 class="justify-end"
@@ -20,10 +18,11 @@
                 draggable="false"
                 alt="logo.svg"
                 style="width: 40px; aspect-ratio: 1 / 1"
-            /></a>
-            <p class="footer">All rights reserved © Jacques Ramphal 2025 🇨🇦</p>
+            /></router-link>
 
-          </div>
+          </div> -->
+          <GridParent tight class="outer">
+            <p class="footer">All rights reserved © Jake Ramphal 2024</p>
             <ul>
               <li>
                 <router-link to="/library">Library</router-link>
@@ -32,11 +31,46 @@
                 <router-link to="/designsystem">Design System</router-link>
               </li>
               <li>
-                <a href="/resume.html">Resume</a>
+                <router-link to="/resume">Resume</router-link>
               </li>
             </ul>
 
-          
+            <!-- <div id="links2">
+                <p class="subtle">Let's Connect</p>
+                <ul>
+                  <li>
+                    <TextLink
+                      label="LinkedIn"
+                      link="https://www.linkedin.com/in/jake-ramphal"
+                    />
+                  </li>
+
+                  <li>
+                    <TextLink
+                      label="Github"
+                      link="https://github.com/jacquesramphal"
+                    />
+                  </li>
+                  <li>
+                    <TextLink
+                      label="Email"
+                      link="mailto:jacques@ramphal.design"
+                    />
+                  </li>
+                  
+                </ul>
+              </div>
+              <div id="links3">
+                <p class="subtle">More</p>
+                <ul>
+                  <li class="">
+                    <a>Privacy Policy</a>
+                  </li>
+                  <li>
+                    <TextLink label="Offerings" route="/doc/28" />
+                  </li>
+                </ul>
+              </div> -->
           </GridParent>
         </GridParent>
       </GridContainer>
@@ -61,7 +95,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Jacques Ramphal",
+      default: "Jake Ramphal",
     },
   },
 };
@@ -79,8 +113,7 @@ $spacing-sm: var(--spacing-sm);
   }
 }
 .footer-container {
-  padding-block-start: var(--spacing-md) !important;
-  padding-block-end: 0 !important;
+  padding-block: var(--spacing-sm) !important;
 }
 .outer {
   grid-template-columns: repeat(1, 1fr);

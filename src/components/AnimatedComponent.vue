@@ -1,8 +1,10 @@
 <template>
   <div ref="target">
-    <div class="animated-component">
-      <slot />
-    </div>
+    <transition :name="animationType">
+      <div v-appear="animate" class="animated-component">
+        <slot />
+      </div>
+    </transition>
   </div>
 </template>
 
