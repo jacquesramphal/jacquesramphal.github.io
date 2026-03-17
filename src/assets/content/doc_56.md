@@ -1,5 +1,3 @@
-![OnLogic Composable Architecture Screenshot](../images/casestudy/onlogic/onlogic-1.png)
-
 # OnLogic Product Configurator
 A hardware configuration experience for IT professionals where a wrong choice has real consequences.
 
@@ -9,6 +7,8 @@ A hardware configuration experience for IT professionals where a wrong choice ha
 | **Client** | OnLogic / Orium |
 | **Status** | Launched |
 | **Tags** | commerce · configurator · b2b |
+
+
 
 ## Overview
 
@@ -34,8 +34,8 @@ Designing the configuration flow around the actual hardware constraints — opti
 
 Working with OnLogic's engineering team, I mapped the dependency graph for the key product categories: what depends on what, where the configuration forks, what a user needs at each step. The PDP became a staged experience where each selection narrows the valid options downstream. Real-time price calculations updated as selections were made. The composable architecture — commercetools, Contentful, Algolia — gave each layer room to evolve independently.
 
-![OnLogic Product Configuration Interface](../images/casestudy/onlogic/onlogic-2.png)
-*The configuration flow — hardware options cascading based on compatibility constraints.*
+![OnLogic PDP — hardware options with pricing deltas and availability states](../images/casestudy/onlogic/onlogic-pdp-config.png)
+*The configurator — storage options cascade with per-option pricing deltas, out-of-stock states, and spec detail inline. The sticky sidebar updates the total in real time.*
 
 ![OnLogic Component Library](../images/casestudy/onlogic/onlogic-4.png)
 *The component system — buttons, inputs, selectors, alerts, and states built to cover the full range of the configurator.*
@@ -46,8 +46,11 @@ The platform launched with a configuration experience that matched the precision
 
 Real-time validation, compatibility-driven option filtering, global payment and tax integration. The design specs were built with extensibility in mind so the development team could add new product categories without restructuring the interface.
 
-![Scalable and Modular Platform](../images/casestudy/onlogic/onlogic-3.png)
-*The completed configuration and checkout experience — built to be extended by the dev team.*
+![OnLogic Shopping Cart — configured items with expandable detail](../images/casestudy/onlogic/onlogic-cart.png)
+*The cart — configured items with expandable hardware specs, volume quote option, and order summary. The configuration follows the user through to purchase.*
+
+![OnLogic Product Comparison — side-by-side spec comparison across models](../images/casestudy/onlogic/onlogic-comparison.png)
+*Product comparison — key specs across models in a single view, so customers can validate the right configuration before committing.*
 
 ## What I Learned
 
