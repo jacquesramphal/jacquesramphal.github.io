@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Jacques Ramphal</title>
+    <script>
+      // SPA redirect for GitHub Pages
+      // https://github.com/rafgraph/spa-github-pages
+      // Encodes the path into a query string and redirects to index.html,
+      // which decodes it and uses history.replaceState to restore the URL.
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        '/?/' +
+        l.pathname.slice(1).replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -19,12 +19,12 @@
 ---
 
 #### Introduction
-- Provide an overview of the chapter's topic and its significance in the context of QA for designers.
+- Provide an overview of the chapter’s topic and its significance in the context of QA for designers.
 - Set the context and explain the objectives of the chapter.
-- Capture the reader's interest and highlight the relevance of the topic.
+- Capture the reader’s interest and highlight the relevance of the topic.
 
 #### Details
-- Dive deep into the core concepts, techniques, and best practices related to the chapter's topic.
+- Dive deep into the core concepts, techniques, and best practices related to the chapter’s topic.
 - Provide detailed explanations, examples, and case studies to enhance understanding.
 - Include relevant diagrams, visuals, or code snippets to illustrate key points.
 - Cover any tools or methodologies specific to the topic, explaining how they can be applied effectively.
@@ -32,11 +32,11 @@
 #### Takeaways
 - Summarize the key insights, lessons, and principles discussed in the chapter.
 - Highlight the main points that designers should remember and apply in their QA processes.
-- Emphasize the benefits and potential impact of implementing the chapter's teachings.
+- Emphasize the benefits and potential impact of implementing the chapter’s teachings.
 
 #### Tips
 - Provide practical tips, recommendations, or actionable advice for designers to improve their QA practices.
-- Share industry best practices or expert insights related to the chapter's topic.
+- Share industry best practices or expert insights related to the chapter’s topic.
 - Address common challenges or pitfalls and suggest ways to overcome them.
 - Encourage continuous learning and experimentation to enhance QA skills and knowledge.
 

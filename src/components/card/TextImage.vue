@@ -2,15 +2,7 @@
   <GridWrapper>
     <GridContainer>
       <GridParent :class="classes">
-        <!-- <GridContainer class="imgcontainer parallaxBack fadeInUp"> -->
-        <GridWrapper class="imgcontainer">
-          <img
-            class="splitimg"
-            draggable="false"
-            :src="require(`../../assets/images/${filename}`)"
-            :alt="`${alt}`"
-          />
-        </GridWrapper>
+        
         <!-- <GridWrapper class="textcontainer parallaxFront fadeInUp"> -->
 
         <GridWrapper class="textcontainer">
@@ -22,6 +14,15 @@
             :route="route ? `${route}` : undefined"
             :btnroute="btnroute ? `${btnroute}` : undefined"
             :description="`${description}`"
+          />
+        </GridWrapper>
+        <!-- <GridContainer class="imgcontainer parallaxBack fadeInUp"> -->
+          <GridWrapper class="imgcontainer">
+          <img
+            class="splitimg"
+            draggable="false"
+            :src="require(`../../assets/images/${filename}`)"
+            :alt="`${alt}`"
           />
         </GridWrapper>
       </GridParent>
@@ -134,6 +135,7 @@ export default {
   }
 
   img {
+    cursor: zoom-in;
     inline-size: 100%;
     block-size: 100%;
     object-fit: cover !important;

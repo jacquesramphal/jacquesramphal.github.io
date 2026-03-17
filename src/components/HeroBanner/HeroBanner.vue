@@ -11,7 +11,8 @@
       />
       <GridContainer id="eyebrow" v-if="eyebrow" style="z-index: 10000">
         <div class="animate fade delay-3">
-          <component
+          <DynamicText as="p" :text="eyebrow" isHtml :attrs="{ id: 'eyebrow' }" class="subtle" />
+          <!-- <component
             :is="breadcrumb ? 'TextLink' : 'p'"
             class="subtle"
             v-if="eyebrow"
@@ -19,43 +20,53 @@
             :label="breadcrumb ? eyebrow : undefined"
             :route="breadcrumb ? breadcrumb : undefined"
             style="scroll-snap-align: start"
-          />
+          /> -->
         </div>
       </GridContainer>
-      <GridContainer class="banner-container" v-if="title">
-        <GridParent id="hero-text" class="animate fade delay-1">
-          <span
-            >
-            <DynamicText
-              :as="as"
-              :text="title"
-              isHtml
-              :attrs="{ id: 'title' }"
-            />
-            <p id="tags" v-if="tag" v-text="tag" class="subtle" />
-
-            <p v-if="subtitle" v-text="subtitle" id="subtitle" />
-
-            <div
-              id="hero-cta"
-              v-if="label"
-              :class="{ 'with-gap': label && labeltwo }"
-            >
-              <MyButton
-                v-if="label"
-                size="large"
-                :label="`${label}`"
-                :route="`${route}`"
-                :link="`${link}`"
+      <GridContainer class="banner-container" v-if="title || $slots.title">
+        <GridParent :cols="12" id="hero-text" class="animate fade delay-1">
+          <span>
+            <div class="hero-content">
+              <!-- Support both slot and prop for title -->
+              <!-- <component :is="as" v-if="$slots.title" id="title">
+                <slot name="title" />
+              </component> -->
+              <TextBlock
+                :as="as"
+                :title="title"
+                :description="subtitle"
+                :attrs="{ id: 'title' }"
+                :isHtml="isHtml"
               />
-              <MyButton
-                v-if="labeltwo"
-                type="outline"
-                size="large"
-                :label="`${labeltwo}`"
-                :route="`${routetwo}`"
-                :link="`${linktwo}`"
-              />
+
+              <!-- <DynamicText v-else :as="as" :title="title" isHtml :attrs="{ id: 'title' }" /> -->
+              <p id="tags" v-if="tag" v-text="tag" class="subtle" />
+
+              <!-- <DynamicText
+                v-if="subtitle"
+                as="h4"
+                :text="subtitle"
+                :isHtml="false"
+                :attrs="{ id: 'subtitle' }"
+              /> -->
+
+              <div id="hero-cta" v-if="label" :class="{ 'with-gap': label && labeltwo }">
+                <MyButton
+                  v-if="label"
+                  size="large"
+                  :label="`${label}`"
+                  :route="`${route}`"
+                  :link="`${link}`"
+                />
+                <MyButton
+                  v-if="labeltwo"
+                  type="outline"
+                  size="large"
+                  :label="`${labeltwo}`"
+                  :route="`${routetwo}`"
+                  :link="`${linktwo}`"
+                />
+              </div>
             </div>
             <!-- <ButtonRow v-if="buttonsData" :buttons="`${buttonsData}`" /> -->
 
@@ -68,6 +79,31 @@
             /> -->
           </span>
         </GridParent>
+        <GridParent v-if="showSearch" tight class="hero-search-container">
+          <div class="hero-search-wrapper">
+            <MyInput
+              id="hero-search"
+              :value="searchValue"
+              @input="$emit('update:searchValue', $event.target.value)"
+              type="text"
+              name="search"
+              label=""
+              :hideLabel="true"
+              :placeholder="searchPlaceholder"
+              autocomplete="off"
+              :required="false"
+              inputClass="hero-search__input"
+            />
+            <MyButton
+              v-if="searchValue"
+              size="small"
+              type="ghost"
+              label="Clear"
+              class="hero-search-clear"
+              @click="$emit('clear-search')"
+            />
+          </div>
+        </GridParent>
       </GridContainer>
       <div class="overlay" />
     </GridWrapper>
@@ -75,27 +111,34 @@
 </template>
 
 <script>
-import GridContainer from "../grid/GridContainer.vue";
-import GridWrapper from "../grid/GridWrapper.vue";
-import TextLink from "../text/TextLink.vue";
-// import MyButton from "./Button/Button.vue";
-import AnimatedComponent from "../AnimatedComponent.vue";
-import DynamicText from "../text/DynamicText.vue";
+import GridContainer from '../grid/GridContainer.vue';
+import GridWrapper from '../grid/GridWrapper.vue';
+import GridParent from '../grid/GridParent.vue';
+// import TextLink from "../text/TextLink.vue";
+import MyButton from '../Button/Button.vue';
+import MyInput from '../form/MyInput.vue';
+import AnimatedComponent from '../AnimatedComponent.vue';
+import DynamicText from '../text/DynamicText.vue';
+import TextBlock from '../text/TextBlock/TextBlock.vue';
 
 export default {
-  name: "HeroBanner",
+  name: 'HeroBanner',
   components: {
     GridContainer,
     GridWrapper,
-    // MyButton,
+    GridParent,
+    MyButton,
+    MyInput,
+    TextBlock,
     AnimatedComponent,
-    TextLink,
-    DynamicText
+    // TextLink,
+    DynamicText,
   },
   props: {
     contentful: {
       type: Array,
-      required: true,
+      required: false,
+      default: () => [],
       // TODO: add validation
     },
 
@@ -109,17 +152,17 @@ export default {
     },
     title: {
       type: String,
-      default: "Banner Title",
+      default: 'Banner Title',
     },
     as: {
-      default: "h1",
+      default: 'h1',
       type: String,
       required: false,
     },
     tag: {
       type: String,
       required: false,
-      default: "",
+      default: '',
     },
     subtitle: {
       type: String,
@@ -171,17 +214,35 @@ export default {
       type: Boolean,
       default: false,
     },
+
+    // Search props
+    showSearch: {
+      type: Boolean,
+      default: false,
+    },
+    searchValue: {
+      type: String,
+      default: '',
+    },
+    searchPlaceholder: {
+      type: String,
+      default: 'Search...',
+    },
+    isHtml: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     classes() {
       return {
         herobanner: true,
-        "herobanner--normal": !this.background,
-        "herobanner--background": this.background,
-        "herobanner--center": this.center,
-        "herobanner--overlap": this.overlap,
-        "herobanner--fullvh": this.fullvh,
-        "herobanner--end": this.end,
+        'herobanner--normal': !this.background,
+        'herobanner--background': this.background,
+        'herobanner--center': this.center,
+        'herobanner--overlap': this.overlap,
+        'herobanner--fullvh': this.fullvh,
+        'herobanner--end': this.end,
       };
     },
   },
@@ -208,11 +269,15 @@ img {
   text-align: left;
   z-index: 1000;
   @media only screen and (min-width: 1201px) {
-    max-width: 75vw;
     margin-block-start: none;
+    // max-width: 65vw;
   }
   span {
-    grid-column: span 2;
+    grid-column: span 10;
+  }
+
+  .hero-content {
+    display: contents;
   }
 
   // #eyebrow
@@ -227,7 +292,7 @@ img {
 
   #subtitle {
     margin-block-start: 2rem;
-    max-width: 86.4rem;
+    // max-width: 86.4rem;
     inline-size: 100%;
     @media only screen and (min-width: 768px) {
       margin-block-start: 3.2rem;
@@ -265,11 +330,29 @@ img {
   overflow: hidden !important;
   position: relative;
   block-size: auto;
+  padding-block-end: var(--spacing-xs);
   @media only screen and (min-width: 768px) {
     background-position: 100% 100%;
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 60vh;
+    padding-block-end: var(--spacing-sm);
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    inset-block-end: -10%;
+    inset-inline-end: -5%;
+    width: clamp(30rem, 50vw, 70rem);
+    height: clamp(30rem, 50vw, 70rem);
+    // background-image: url('../../assets/images/icon/j-logo.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right bottom;
+    opacity: 0.06;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
   }
 }
 .herobanner--background {
@@ -290,11 +373,7 @@ img {
     inline-size: -moz-available;
     inline-size: -webkit-fill-available;
     block-size: 100%;
-    background: linear-gradient(
-      0deg,
-      var(--background) 0%,
-      rgba(255, 255, 255, 0) 200%
-    );
+    background: linear-gradient(0deg, var(--background) 0%, rgba(255, 255, 255, 0) 200%);
   }
 }
 
@@ -383,7 +462,7 @@ img {
     float: none;
     margin-inline-start: auto;
     margin-inline-end: auto;
-    max-width: 86.4rem !important;
+    // max-width: 86.4rem !important;
     justify-self: center;
   }
 }
@@ -403,12 +482,47 @@ img {
 .herobanner--end {
   #hero-text {
     align-items: end !important;
+    @media only screen and (min-width: 768px) {
+      padding-block-end: var(--spacing-lg);
+    }
+  }
+}
+.display .herobanner--end {
+  #hero-text {
+    @media only screen and (min-width: 768px) {
+      padding-block-end: var(--spacing-md);
+    }
   }
 }
 .display #hero-text {
   align-items: end;
+
   span {
-    grid-column: 1 / 4 !important;
+    grid-column: 1 / 12 !important;
   }
+}
+
+.hero-search-container {
+  margin-block-start: var(--spacing-lg);
+}
+
+.hero-search-wrapper {
+  position: relative;
+  grid-column: span 1;
+
+  :deep(input) {
+    font-size: var(--font-xs);
+  }
+}
+
+.hero-search-clear {
+  position: absolute;
+  right: calc(var(--spacing-xxs) - 1px);
+  top: -10px;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: fit-content;
+  z-index: 10;
 }
 </style>

@@ -1,7 +1,12 @@
-# Leading Design Innovation:    
 
-Aligning Vision, Technology, and Team Strategy
-In my work, I focus on aligning design with broader company goals, ensuring it serves as a strategic, value-driving function rather than merely an aesthetic service. I believe design has the potential to deliver measurable business impact and drive success for both companies and clients. To achieve this, I steer my team toward thinking deeply about complex issues and adopting future-facing technologies and workflows.
+# Leading Design Innovation:
+
+#### In my work, I focus on aligning design with broader company goals, ensuring it serves as a strategic, value-driving function rather than merely an aesthetic service.
+
+![Leading Design Innovation](../images/placeholders/placeholder-23.svg)
+
+## Aligning Vision, Technology, and Team Strategy
+ I believe design has the potential to deliver measurable business impact and drive success for both companies and clients. To achieve this, I steer my team toward thinking deeply about complex issues and adopting future-facing technologies and workflows.
 
 ## Evolving Design to Meet Future Needs
 Design often faces the challenge of being seen as subjective or difficult to quantify. I see my role as leading the evolution of design to address this perception. By integrating data, AI, and automation into our processes, I aim to set a new standard for design quality, helping clients recognize design as an essential part of their success.
@@ -9,7 +14,6 @@ Design often faces the challenge of being seen as subjective or difficult to qua
 The most exciting part of this work is elevating the role of design beyond aesthetics. Whether it’s automating manual tasks or creating more personalized, data-driven experiences, I’m passionate about positioning design as an indispensable asset. This involves building systems and processes that not only look good but also deliver tangible, measurable value. It’s about embracing automation, data-first thinking, and design quality as the pillars that make design a strategic necessity.
 
 ## Driving Innovation through Technology
-AI for Efficiency
 One area where I pilot innovation is through the use of AI to enhance design workflows. This includes leveraging AI to streamline site audits, automate the identification of design inconsistencies, and even explore the automated creation of reusable design components. The goal is to achieve faster, more consistent results while reducing the manual effort and potential for human error. AI also opens up new design possibilities, allowing for rapid experimentation and innovation in user interface design.
 
 ## Contextual Insights with AI

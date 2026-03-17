@@ -1,4 +1,3 @@
-![Softchoice Desktop Homepage](../images/casestudy/softchoice/sc-desktop-1.png)
 
 # Softchoice Website Replatform
 A full brand refresh inside an existing CMS — without touching the platform.
@@ -9,6 +8,9 @@ A full brand refresh inside an existing CMS — without touching the platform.
 | **Client** | Softchoice |
 | **Status** | Launched · 2021 |
 | **Tags** | brand-design · motion · cms |
+
+![Softchoice Desktop Homepage](../images/casestudy/softchoice/sc-desktop-1.png)
+
 
 ## Overview
 

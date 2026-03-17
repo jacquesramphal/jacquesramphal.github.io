@@ -79,7 +79,7 @@
         <div class="hs grid-parent posts" id="testDiv">
           <ArticleCard
             class="post"
-            v-for="blogPost in contentful"
+            v-for="(blogPost, index) in contentful"
             v-bind:key="blogPost.sys.id"
             :image="blogPost.image"
             :alt="blogPost.alt"
@@ -89,6 +89,7 @@
             :description="blogPost.description"
             :route="blogPost.route"
             :label="blogPost.label"
+            :index="index"
           />
         </div>
    

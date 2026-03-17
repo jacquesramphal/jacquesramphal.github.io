@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jacques Ramphal — Resume</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --ink: #111;
+      --muted: #555;
+      --rule: #ddd;
+      --font: 'Georgia', serif;
+      --sans: system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      font-family: var(--sans);
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--ink);
+      background: #fff;
+      margin: 0;
+      padding: 2rem;
+      max-width: 760px;
+      margin-inline: auto;
+    }
+
+    /* Header */
+    header { margin-bottom: 1.25rem; }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 0 0.15rem;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin: 0 0 0.4rem;
+    }
+    .contact {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .contact a { color: var(--muted); text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+    .contact span { margin: 0 0.35rem; opacity: 0.4; }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 0.9rem 0;
+    }
+
+    /* Summary */
+    .summary {
+      font-size: 0.875rem;
+      margin-bottom: 0.6rem;
+      max-width: 66ch;
+    }
+
+    /* Core competencies */
+    .competencies {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .competencies strong { color: var(--ink); }
+
+    /* Sections */
+    h2 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin: 1rem 0 0.5rem;
+    }
+
+    /* Role */
+    .role { margin-bottom: 0.85rem; }
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .role-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .role-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .role ul {
+      margin: 0.25rem 0 0;
+      padding-left: 1.1rem;
+    }
+    .role li {
+      font-size: 0.825rem;
+      color: #222;
+      margin-bottom: 0.15rem;
+    }
+
+    /* Skills */
+    .skills { display: flex; flex-direction: column; gap: 0.2rem; margin-top: 0.25rem; }
+    .skill-row { font-size: 0.8rem; }
+    .skill-row strong { color: var(--ink); }
+    .skill-row span { color: var(--muted); }
+
+    /* Footer */
+    .footer-line {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.75rem;
+    }
+
+    /* Print */
+    @media print {
+      body {
+        padding: 0;
+        font-size: 11pt;
+        max-width: 100%;
+      }
+      h1 { font-size: 16pt; }
+      h2 { font-size: 7pt; }
+      .role-title { font-size: 10pt; }
+      .role li, .skill-row, .summary, .competencies, .contact, .footer-line {
+        font-size: 9pt;
+      }
+      a { color: inherit !important; text-decoration: none !important; }
+      hr { border-color: #ccc; }
+    }
+  </style>
+<script>
+  if (new URLSearchParams(location.search).has('print')) {
+    window.addEventListener('load', () => window.print());
+  }
+</script>
+</head>
+<body>
+
+<header>
+  <h1>Jacques Ramphal</h1>
+  <p class="subtitle">Head of Design · Agentic Experience (AX) Lead — Toronto, ON</p>
+  <p class="contact">
+    <a href="https://linkedin.com/in/jacquesramphal-design">linkedin.com/in/jacquesramphal-design</a>
+    <span>·</span>
+    <a href="mailto:jacques@ramphal.design">jacques@ramphal.design</a>
+    <span>·</span>
+    <a href="https://github.com/jacquesramphal">github.com/jacquesramphal</a>
+  </p>
+</header>
+
+<hr>
+
+<p class="summary">Founding-caliber design engineer with 12+ years shipping enterprise and consumer products — currently leading agentic experience (AX) design at Orium, where I built Genie: an AI orchestration layer that automates recurring design tasks and establishes agent-safe UX patterns for hybrid human-AI workflows.</p>
+
+<p class="competencies"><strong>Core Competencies:</strong> <span>Product Design · UX/UI Design · Design Systems · Design-to-Development Integration · AI and Agentic UX · Design Leadership · Front-End Development · Design Tokens · Design QA · Accessibility · Agile</span></p>
+
+<hr>
+
+<h2>Experience</h2>
+
+<div class="role">
+  <div class="role-header">
+    <span class="role-title">Head of Design · Agentic Experience Lead</span>
+    <span class="role-meta">Orium, Toronto · Sep 2024 – Present</span>
+  </div>
+  <ul>
+    <li>Set strategic direction for UX, agentic experience design, and design-to-development integration.</li>
+    <li>Primary designer and developer of Genie — architecture, UX patterns, n8n automation, and front-end.</li>
+    <li>Oversee design quality through scalable Design QA systems and front-end integration standards.</li>
+  </ul>
+</div>
+
+<div class="role">
+  <div class="role-header">
+    <span class="role-title">Full Stack Design Lead</span>
+    <span class="role-meta">Orium · Jan 2024 – Sep 2024</span>
+  </div>
+  <ul>
+    <li>Led product design and front-end development of Orium Accelerators for composable commerce platforms.</li>
+    <li>Trained designers on systems thinking, code collaboration, and delivery standards.</li>
+  </ul>
+</div>
+
+<div class="role">
+  <div class="role-header">
+    <span class="role-title">Senior Product Designer</span>
+    <span class="role-meta">Orium · Sep 2013 – Jan 2024</span>
+  </div>
+  <ul>
+    <li>Led product design across enterprise and consumer platforms in retail, healthcare, and SaaS.</li>
+    <li>Architected and governed token-based design systems across multiple teams and codebases.</li>
+    <li>Implemented UI components directly in React and Vue to ensure fidelity from design to production.</li>
+    <li>Reduced design-to-development friction by approximately 60% through systemization and shared tooling.</li>
+    <li>Shipped customer-facing products used by millions of end users.</li>
+  </ul>
+</div>
+
+<div class="role">
+  <div class="role-header">
+    <span class="role-title">UX Designer (Contract)</span>
+    <span class="role-meta">University Health Network · 2013</span>
+  </div>
+  <ul>
+    <li>Designed accessible healthcare interfaces (WCAG 2.1); conducted usability testing with patients and clinicians.</li>
+  </ul>
+</div>
+
+<hr>
+
+<h2>Skills</h2>
+
+<div class="skills">
+  <div class="skill-row"><strong>Design &amp; Prototyping</strong> <span>— Figma, Figma Make, Adobe Creative Suite, Miro</span></div>
+  <div class="skill-row"><strong>Front-End Development</strong> <span>— React, Vue.js, React Native, TypeScript, JavaScript, HTML, CSS/SCSS, Git</span></div>
+  <div class="skill-row"><strong>Design Systems</strong> <span>— Design Tokens, Storybook, Figma Variables, Style Dictionary, Component Libraries</span></div>
+  <div class="skill-row"><strong>AI &amp; Automation</strong> <span>— Claude Code, Claude API, n8n, Prompt Engineering, Agentic UX</span></div>
+  <div class="skill-row"><strong>Methods</strong> <span>— User Research, Design QA, Accessibility (WCAG 2.1), Agile/Scrum</span></div>
+</div>
+
+<p class="footer-line"><strong>Education:</strong> Bachelor of Design (BDes), Graphic Design — OCAD University · 2014 &nbsp;·&nbsp; <strong>Certifications:</strong> n8n Certified Expert Partner · 2026 &nbsp;·&nbsp; Composable Commerce · 2023</p>
+
+</body>
+</html>

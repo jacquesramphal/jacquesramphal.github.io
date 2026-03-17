@@ -1,5 +1,3 @@
-![Planning dashboard interface](../images/casestudy/glo/planner.png)
-
 # Fortune 100 Planning Tool
 A strategic planning interface for an organization managing data across business units, budgets, and initiatives at scale.
 
@@ -9,6 +7,8 @@ A strategic planning interface for an organization managing data across business
 | **Client** | Fortune 100 (NDA) |
 | **Status** | Launched |
 | **Tags** | product-design · dashboard |
+
+![Planning dashboard interface](../images/casestudy/glo/planner.png)
 
 ## Overview
 
@@ -34,8 +34,8 @@ Navigation was the primary design problem — not visualization, not aesthetics,
 
 The hierarchy went: portfolio → business unit → initiative → detail. Each layer had a distinct visual treatment that made it immediately recognizable. Transitions between layers needed to feel continuous rather than disjointed. Data visualization was kept conservative: charts only where a chart communicated something a table couldn't.
 
-![Planning Dashboard](../images/casestudy/glo/planner.png)
-*The top-level planning view — organizational data across business units in a single navigable interface.*
+![Analytics and Insights View](../images/casestudy/glo/insights.png)
+*Analytics and insights view — patterns and trends surfaced across the planning dataset.*
 
 ## Outcome
 
@@ -43,8 +43,7 @@ The tool launched and became the primary planning interface for the organization
 
 Strategic planning moved from a fragmented, document-driven process into a shared interface with a common vocabulary. The client came back with iteration requests rather than structural concerns — which, for a first version, is the outcome you want.
 
-![Analytics and Insights View](../images/casestudy/glo/insights.png)
-*Analytics and insights view — patterns and trends surfaced across the planning dataset.*
+
 
 ![Detailed Planning View](../images/casestudy/glo/details.png)
 *The detail view — granular planning at the initiative level, preserving the context of the layer above.*

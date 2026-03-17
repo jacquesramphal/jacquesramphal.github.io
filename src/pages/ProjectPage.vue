@@ -4,9 +4,11 @@
       style="scroll-snap-align: start"
       :key="entry.id"
       :title="`${entry.title}`"
-      :subtitle="`${entry.description}`"
       :filename="`${entry.images.filename1}`"
+
     />
+    <!-- :filename3="`${entry.images.filename1}`" -->
+
     <!-- <TestimonialCarousel /> -->
 
     <GridContainer style="padding-block-start: var(--spacing-sm) !important">
@@ -21,32 +23,29 @@
 
     <GridContainer
       style="scroll-snap-align: start"
-      tight
       class="animate glow delay-1"
+      tight
     >
       <ImageCard
         size="large"
         title=""
-        :filename3="`${entry.images.filename1}`"
+        :filename1="`${entry.images.filename1}`"
         :alt="`${entry.alt}`"
         route=""
         :style="`${entry.bgcolor}`"
-    /></GridContainer>
+      />
+    </GridContainer>
 
     <div class="section">
       <!-- <MarkdownRenderer :markdown="pageContent" /> -->
       <!-- <TextGrid2 /> -->
 
-
-
-      <TextGrid
+      <!-- <TextGrid
       :key="entry.id"
-
       title= "Key Focus Areas"
       as="h2"
         description=""
         :eyebrow1="`${entry.keypoints.title}`"
-
         detail1="Empowering Kum & Go to manage their search, merchandising, promotions, loyalty, and content independently."
         eyebrow2="Increased Customer Engagement"
         detail2="Launching a robust loyalty program to engage a larger segment of the consumer base."
@@ -54,53 +53,61 @@
         detail3="Enhancing the omnichannel experience to drive more in-store purchases."
         eyebrow4="Extensible and Maintainable Platform"
         detail4="Moving off a costly legacy platform to a more efficient and innovative system."
-      />
+      /> -->
 
-      <TextGrid
-      title= "Key Focus Areas"
-      as="h2"
-        description=""
-        eyebrow1="Control Over Digital Experience"
-        detail1="Empowering Kum & Go to manage their search, merchandising, promotions, loyalty, and content independently."
-        eyebrow2="Increased Customer Engagement"
-        detail2="Launching a robust loyalty program to engage a larger segment of the consumer base."
-        eyebrow3="More In-Store Purchases"
-        detail3="Enhancing the omnichannel experience to drive more in-store purchases."
-        eyebrow4="Extensible and Maintainable Platform"
-        detail4="Moving off a costly legacy platform to a more efficient and innovative system."
-      />
+      <!-- make label and route conditionally rendered -->
 
+      <!-- V1 -->
 
-      <TextImage
+      <!-- <TextGrid3
         v-for="(section, j) in entry.entries"
         :key="j"
-        @click="openImage(section.images.filename1)"
-        :flipped="j % 2 !== 0"
-        class="fadeInUp"
-        :eyebrow="section.eyebrow"
         :title="section.title"
-        :description="section.body"
-        :filename="section.images.filename1"
-        :alt="section.images.alt"
+        description=""
         as="h2"
-      />
+        eyebrow1=""
+        :detail1="section.body"
+        label=""
+        route=""
+      /> -->
+      <!-- <GridParent rows>
+        <GridParent
+          tight
+          style="margin-block-end: var(--spacing-md) !important"
+          v-for="(section, j) in entry.entries"
+          :key="j"
+        >
+          <TextBlock
+            class="offset fadeInUp"
+            left
+            as="h2"
+            :title="`${entry.description}`"
+            :description="`${entry.description}`"
+
+           
+          />
+         
+        </GridParent>
+      </GridParent> -->
 
       <GridContainer>
-        <GridParent rows >
-          <GridParent tight
-            style="
-              margin-block-end: var(--spacing-md) !important;
-            "
+        <GridParent rows>
+        
+          <GridParent
+            tight
+            style="margin-block-end: var(--spacing-md) !important"
             v-for="(section, j) in entry.entries"
             :key="j"
           >
             <TextBlock
               class="offset fadeInUp"
               left
+              as="h3"
               eyebrow=""
               :title="section.title"
               :description="section.body"
               :blockquote="section.blockquote"
+              style="margin-block-end: var(--spacing-md) !important"
             />
             <GridWrapper
               tight
@@ -116,19 +123,114 @@
                 :alt="section.images.alt"
                 :caption="section.images.caption"
               />
-            </GridWrapper> </GridParent
-        ></GridParent>
+            </GridWrapper>
+          </GridParent>
+        </GridParent>
       </GridContainer>
+
+      <GridContainer v-if="entry.description" class="fadeInUp" style="padding-block-start: var(--spacing-md) !important; padding-block-end: var(--spacing-md) !important;">
+        <TextBlock
+          left
+          eyebrow="Summary"
+          as="h2"
+          :title="entry.title"
+          :description="`${entry.description}`"
+          :label="entry.label || ''"
+          :link="entry.link || ''"
+          :btnroute="entry.btnroute || ''"
+        />
+      </GridContainer>
+
+      <!-- <TextGrid3
+        v-for="(section, j) in entry.entries"
+        :key="j"
+        :title="section.title"
+        description=""
+        as="h2"
+        eyebrow1=""
+        :detail1="section.body"
+        label=""
+        route=""
+      />
+      <GridContainer>
+        <GridParent rows>
+        
+          <GridParent
+            tight
+            style="margin-block-end: var(--spacing-md) !important"
+            v-for="(section, j) in entry.entries"
+            :key="j"
+          >
+            <TextBlock
+              class="offset fadeInUp"
+              left
+              as="h3"
+              eyebrow=""
+              :title="section.title"
+              :description="section.body"
+              :blockquote="section.blockquote"
+              style="margin-block-end: var(--spacing-md) !important"
+            />
+            <GridWrapper
+              tight
+              class="offset fadeInUp"
+              v-if="section.images.filename1"
+              id=""
+            >
+              <ImageCard
+                size="large"
+                class=""
+                title=""
+                :filename1="section.images.filename1"
+                :alt="section.images.alt"
+                :caption="section.images.caption"
+              />
+            </GridWrapper>
+          </GridParent>
+        </GridParent>
+      </GridContainer> 
+
+      <TextImage
+        v-for="(section, j) in entry.entries"
+        :key="j"
+        @click="openImage(section.images.filename1)"
+        :flipped="j % 2 !== 0"
+        class="fadeInUp"
+        :eyebrow="section.eyebrow"
+        :title="section.title"
+        :description="section.body"
+        :filename="section.images.filename1"
+        :alt="section.images.alt"
+        as="h2"
+      /> -->
     </div>
 
-    <!-- class="fullvh fadeInUp" -->
-
-  
+    <!-- <iframe
+              v-bind:style="{
+                width: '100%',
+                height: '900px',
+                outline: 'var(--border)',
+                border: '0',
+                borderRadius: 'var(--spacing-xs)',
+                marginBottom: '16px',
+                zIndex: '100'
+              }"
+              src="https://codesandbox.io/p/sandbox/react-new?file=/src/index.js"
+            ></iframe> -->
     <FullscreenImage
       :isOpen="isImageOpen"
       :imageSrc="selectedImage"
       @close="closeImage"
     />
+    <div id="related-work-section" style="background: transparent !important;">
+      <CardRow2
+        title="Related Work"
+        kind="work"
+        :items="relatedWorkEntries"
+        :viewAllTo="{ name: 'Library' }"
+        :limit="3"
+      />
+    </div>
   </PageWrapper>
 </template>
 
@@ -143,7 +245,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
-import TextImage from "@/components/card/TextImage.vue";
+import CardRow2 from "@/components/CardRow2.vue";
+import TextBlock from "@/components/text/TextBlock/TextBlock.vue";
+// import TextImage from "@/components/card/TextImage.vue";
 
 gsap.registerPlugin(ScrollTrigger);
 document.addEventListener("DOMContentLoaded", () => {
@@ -190,8 +294,9 @@ export default {
   components: {
     ImageCard,
     GridContainer,
-    // CardRow2,
-    TextImage,
+    CardRow2,
+    TextBlock,
+    // TextImage,
     FullscreenImage,
     // BreadCrumb,
     // HeaderNav,
@@ -205,18 +310,14 @@ export default {
   },
   methods: {
     openImage(image) {
-      this.selectedImage = image;
+      this.selectedImage = require(`@/assets/images/${image}`);
       this.isImageOpen = true;
     },
     closeImage() {
       this.isImageOpen = false;
+      this.selectedImage = null; // Clear the selected image when closing
     },
   },
-  // data() {
-  //   return {
-  //     htmlContent: "",
-  //   };
-  // },
 
   computed: {
     workId() {
@@ -224,6 +325,11 @@ export default {
     },
     entry() {
       return workData.entries.find((entry) => entry.id == this.workId);
+    },
+    relatedWorkEntries() {
+      return workData.entries
+        .filter((e) => e.category === "Work" && e.id != this.workId)
+        .slice(0, 6);
     },
   },
   mounted() {
@@ -316,6 +422,12 @@ export default {
         duration: 3,
         ease: "none",
       });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && this.isImageOpen) {
+        this.closeImage();
+      }
     });
   },
 };

@@ -2,9 +2,21 @@ import HeroBanner from "./HeroBanner.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {
-  title: "Components/HeroBanner",
+  title: "Components/Layout/HeroBanner",
   component: HeroBanner,
+  tags: ['autodocs'],
   decorators: [withDesign],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Large page-level hero section. Supports a background image (`background`), centred layout, ' +
+          'an overlap effect that bleeds into the section below, and full-viewport-height mode (`fullvh`). ' +
+          'Primary and secondary CTAs are configured via `label`/`route` and `labeltwo`/`routetwo`.',
+      },
+    },
+  },
   argTypes: {
     contentful: {
       type: "Array",
@@ -125,22 +137,6 @@ Default.args = {
   routetwo: "/example-secondary-route",
   subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 };
-export const Center = Template.bind({});
-Center.args = {
-  eyebrow: "Example Eyebrow",
-  title: "Centered",
-  tag: "Tag1 typography",
-  subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  route: "example-route",
-  label: "Primary CTA",
-  routetwo: "/example-secondary-route",
-  labeltwo: "Secondary CTA",
-  background: false,
-  center: true,
-  overlap: false,
-  fullvh: false,
-};
-
 export const Background = Template.bind({});
 Background.args = {
   contentful: [
@@ -158,18 +154,5 @@ Background.args = {
   background: true,
   center: false,
   overlap: false,
-  fullvh: false,
-};
-export const Overlap = Template.bind({});
-Overlap.args = {
-  contentful: [
-    // Add content here
-  ],
-  filename: "jacques.jpg",
-  eyebrow: "Example Eyebrow",
-  title: "Overlapped",
-  background: true,
-  center: false,
-  overlap: true,
   fullvh: false,
 };

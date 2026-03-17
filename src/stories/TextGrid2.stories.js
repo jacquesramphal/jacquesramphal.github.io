@@ -2,10 +2,29 @@ import TextGrid2 from "../components/card/TextGrid2.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {
-  title: "Components/Text/TextGrid2",
+  title: "Components/Layout/TextGrid2",
   component: TextGrid2,
+  tags: ['autodocs'],
   decorators: [withDesign],
-  argTypes: {},
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A metadata summary block with up to three label/value pairs and an optional subtitle and description. ' +
+          'Used in case study and work pages to surface key project details at a glance.',
+      },
+    },
+  },
+  argTypes: {
+    label1: { control: "text" },
+    label2: { control: "text" },
+    label3: { control: "text" },
+    value1: { control: "text" },
+    value2: { control: "text" },
+    value3: { control: "text" },
+    subtitle: { control: "text" },
+    description: { control: "text" },
+  },
 };
 
 const Template = (args) => ({
@@ -17,4 +36,14 @@ const Template = (args) => ({
 });
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  label1: "Role",
+  value1: "Staff Product Designer",
+  label2: "Location",
+  value2: "Remote",
+  label3: "Focus",
+  value3: "Design Systems",
+  subtitle: "About This Work",
+  description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+};

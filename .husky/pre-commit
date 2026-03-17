@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
 
-# . "$(dirname -- "$0")/_/husky.sh"
+. "$(dirname -- "$0")/_/husky.sh"
 
-# node scripts/update-stories.js
+# Design guard (mode controlled by design-guard.config.json)
+# Override temporarily:
+# - DESIGN_GUARD_MODE=warn git commit ...
+# - DESIGN_GUARD_STRICT=0 git commit ...
+pnpm exec design-guard --verbose

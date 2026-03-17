@@ -2,19 +2,29 @@ import MyButton from "./Button.vue";
 import { withDesign } from "storybook-addon-designs";
 
 export default {
-  title: "Components/Forms/Button",
+  title: "Components/Primitives/Button",
   component: MyButton,
+  tags: ['autodocs'],
   decorators: [withDesign],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Primary interactive element. Five visual types: `solid`, `outline`, `ghost`, `subtle`, `textlink`. ' +
+          'Three sizes: `xs`, `small`, `large`. Renders an `<a>` when `link` or `route` is provided, otherwise a `<button>`.',
+      },
+    },
+  },
   argTypes: {
-    onClick: {},
     type: {
       control: { type: "select" },
-      options: ["primary", "secondary"],
+      options: ["solid", "outline", "ghost", "subtle", "textlink"],
     },
     size: {
       control: { type: "select" },
-      options: ["small", "large"],
+      options: ["xs", "small", "large"],
     },
+    label: { control: "text" },
   },
 };
 
@@ -26,40 +36,48 @@ const Template = (args) => ({
   template: '<my-button v-bind="args" />',
 });
 
-export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/vue/writing-stories/args
-Primary.args = {
-  primary: true,
-  label: "Button",
-  type: "solid",
-};
-Primary.parameters = {
-  design: {
-    type: "figma",
-    url: "https://www.figma.com/file/c2JuJnN4XUPnBd44IZn3xg/Ramphal-Design-Library?type=design&node-id=0-180&mode=design&t=M4PTdiwkrAK9Pn4A-4",
-  },
-};
+// --- Types ---
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: "Button Secondary",
-  type: "outline",
-};
-Secondary.parameters = {
-  design: {
-    type: "figma",
-    url: "https://www.figma.com/file/c2JuJnN4XUPnBd44IZn3xg/Ramphal-Design-Library?type=design&node-id=0-176&mode=design&t=M4PTdiwkrAK9Pn4A-4",
-  },
-};
+export const Solid = Template.bind({});
+Solid.args = { label: "Solid", type: "solid", size: "large" };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: "large",
-  label: "Button",
-};
+export const Outline = Template.bind({});
+Outline.args = { label: "Outline", type: "outline", size: "large" };
 
-export const Small = Template.bind({});
-Small.args = {
-  size: "small",
-  label: "Button",
-};
+export const Ghost = Template.bind({});
+Ghost.args = { label: "Ghost", type: "ghost", size: "large" };
+
+export const Subtle = Template.bind({});
+Subtle.args = { label: "Subtle", type: "subtle", size: "large" };
+
+export const TextLink = Template.bind({});
+TextLink.args = { label: "Text Link", type: "textlink", size: "large" };
+
+// --- Sizes ---
+
+export const SizeLarge = Template.bind({});
+SizeLarge.storyName = "Size / Large";
+SizeLarge.args = { label: "Large", type: "solid", size: "large" };
+
+export const SizeSmall = Template.bind({});
+SizeSmall.storyName = "Size / Small";
+SizeSmall.args = { label: "Small", type: "solid", size: "small" };
+
+export const SizeXS = Template.bind({});
+SizeXS.storyName = "Size / XS";
+SizeXS.args = { label: "XS", type: "solid", size: "xs" };
+
+// --- All types at a glance ---
+
+export const AllTypes = () => ({
+  components: { MyButton },
+  template: `
+    <div style="display: flex; flex-wrap: wrap; gap: 1.6rem; align-items: center; padding: 2.4rem;">
+      <my-button label="Solid" type="solid" size="large" />
+      <my-button label="Outline" type="outline" size="large" />
+      <my-button label="Ghost" type="ghost" size="large" />
+      <my-button label="Subtle" type="subtle" size="large" />
+      <my-button label="Text Link" type="textlink" size="large" />
+    </div>
+  `,
+});

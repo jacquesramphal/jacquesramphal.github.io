@@ -50,4 +50,31 @@ export default {
       flex-wrap: wrap
 ul
   font-size: var(--font-xs)
+
+// Print styles - inline comma-separated format
+@media print
+  .resume-skills
+    margin-block-end: 0.4rem // was var(--spacing-sm) = 2.4rem
+
+  .resume-skills-tag
+    display: inline
+    margin: 0
+
+    &:not(:last-child)::after
+      content: ', '
+
+  .resume-skills-tag-title
+    display: inline
+
+    &::after
+      content: ': '
+
+  .resume-skills-tag-entries
+    display: inline
+
+  .resume-skills-tag-entry
+    display: inline
+
+    &:not(:last-child)::after
+      content: ', '
 </style>

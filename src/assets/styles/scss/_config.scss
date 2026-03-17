@@ -1,25 +1,26 @@
 /* Styles for users who prefer light mode at the OS level */
 @font-face {
   font-display: auto;
-  font-family: "Epilogue";
+  font-family: 'Epilogue';
   font-style: normal;
   font-weight: 100 900;
-  src: url("../../type/epilogue/epilogue-regular.ttf") format("truetype");
+  src: url('../../type/epilogue/epilogue-regular.ttf') format('truetype');
 }
 
-
 :root {
-  --foreground-opacity: 0.7;
+  --foreground-opacity: 0.75;
   --foreground: var(--color-darktext);
-  --foreground-muted: rgba(var(--color-darktext), var(--foreground-opacity));
+  --foreground-rgb: var(--color-darktext-rgb);
+  --foreground-muted: rgba(var(--color-darktext-rgb), var(--foreground-opacity));
+  --text-muted: var(--foreground-muted);
   --foreground-subtle: rgba(43, 61, 79, var(--foreground-opacity));
   /* Use the RGB values for --color-darktext */
   --background: var(--color-offwhite);
   --background-darker: var(--color-highlight2);
-  --link: var(--color-action);
+  --link: var(--foreground);
   --border: 1px solid var(--color-xlight);
   /* Reversed */
-  --link-reversed: var(--color-action-dark);
+  --link-reversed: var(--foreground-reversed);
   --foreground-reversed: var(--color-offwhite);
   --background-reversed: var(--color-offblack);
   --background-darker-reversed: var(--color-highlight);
@@ -29,14 +30,36 @@
   --font-reversed-bold: 550;
   --font-reversed-heavy: 700;
 
+  /* CODE (markdown + snippets) */
+  --code-bg: var(--background-darker);
+  --code-fg: var(--foreground);
+  --code-border: rgba(0, 0, 0, 0.08);
+  --code-inline-bg: var(--background-darker);
+  --code-inline-fg: var(--foreground);
+
+  /* Code syntax tokens (highlight.js classes) */
+  --code-comment: rgba(43, 61, 79, 0.65);
+  --code-keyword: #6d28d9;
+  --code-string: #047857;
+  --code-number: #b45309;
+  --code-title: #1d4ed8;
+  --code-attr: #b91c1c;
+  --code-meta: rgba(43, 61, 79, 0.75);
+  --code-addition: #047857;
+  --code-deletion: #b91c1c;
+
   /* NEUTRAL */
   --color: 0, 100%;
   --l: 50%;
   /*the initial lightness*/
 
   --color-offblack: #1d1b22;
+  --color-offblack-rgb: 29, 27, 34;
   --color-black: #030201;
-  --color-darktext: #2b3d4f;
+  --color-darktext: var(--color-offblack);
+  --color-darktext-rgb: var(--color-offblack-rgb);
+  /*--color-darktext: #2b3d4f;*/
+
   /*--color-darktext: var(--color-black); */
   --color-slate: #41464e;
   --color-dark: #24292e;
@@ -47,14 +70,16 @@
   --color-xxxlight: #f2f2f2;
   --color-white: #ffffff;
   --color-offwhite: #fafafa;
+  --color-offwhite-rgb: 250, 250, 250;
   /*--color-offwhite: #fdfdf5;*/
   --color-highlight: hsla(0, 0%, 0%, 0.25);
   --color-highlight2: hsla(0, 0%, 0%, 0.05);
-  --color-pink: #ffd3d9;
+  --color-pink: #fdcdd4;
+  /* --color-pink: #ffd3d9; */
 
   /* STATES */
-  --color-action: var(--color-purple);
-  --color-action-dark: var(--color-lightpurple);
+  --color-action: var(--foreground);
+  --color-action-dark: var(--foreground);
   --color-danger: var(--color-red);
   --color-success: var(--color-green);
   --color-disabled: #f2f2f2;
@@ -63,10 +88,12 @@
   --color-red: #e74646;
   --color-green: #0dba38;
   --color-blue: #0086e6;
+  --color-dodgerblue: #1e90ff;
   --color-purple: rgba(100, 21, 255, 1);
   --color-lightpurple: #a099ff;
   --color-yellow: #fcb23b;
   --color-lightyellow: #ffdd9e;
+  --color-accent: rgba(255, 221, 158, 0.5);
   --color-brown: #e8a192;
   --color-darkbrown: #814b50;
 
@@ -91,27 +118,41 @@
   --shadow-z4-dark: 0 8px 16px 0 rgba(0, 0, 0, 0.12);
   --shadow-z5-dark: 0 16px 32px 0 rgba(0, 0, 0, 0.14);
 
-  --shadow-text: 0px 16px 24px rgba(0, 0, 0, 0.07),
-    0px 6px 30px rgba(0, 0, 0, 0.06), 0px 8px 10px rgba(0, 0, 0, 0.15);
+  --shadow-text:
+    0px 16px 24px rgba(0, 0, 0, 0.07), 0px 6px 30px rgba(0, 0, 0, 0.06),
+    0px 8px 10px rgba(0, 0, 0, 0.15);
   --shadow-light: 0px 2px 4px rgba(14, 30, 37, 0.12);
   --shadow-heavy: -10px 10px 80px rgba(0, 0, 0, 0.1);
   --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.25);
-  --shadow-deep: 0px 16px 24px rgba(0, 0, 0, 0.07),
-    0px 6px 30px rgba(0, 0, 0, 0.06), 0px 8px 10px rgba(0, 0, 0, 0.1);
+  --shadow-deep:
+    0px 16px 24px rgba(0, 0, 0, 0.07), 0px 6px 30px rgba(0, 0, 0, 0.06),
+    0px 8px 10px rgba(0, 0, 0, 0.1);
 
   /* FONT-FAMILY */
-  --fontFamily-primary: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+  /* --fontFamily-primary: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
   --fontFamily-secondary:  "Epilogue", sans-serif !important;
+  --fontFamily-tertiary: "Noto Serif", "Merriweather", Georgia, Cambria, "Times New Roman", Times !important;
+  --fontFamily-displaySans: "Noto Sans Display", sans-serif;
+  --fontFamily-displaySerif: "Noto Serif Display", "Merriweather", Georgia, Cambria, "Times New Roman", Times; */
+
+  /* FONT-FAMILY */
+  --fontFamily-primary:
+    'Manrope', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --fontFamily-secondary:
+    'Manrope', Helvetica, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   /*  --fontFamily-primary: "Atkinson Hyperlegible", sans-serif !important;
     --fontFamily-secondary: "Atkinson Hyperlegible", sans-serif !important; */
-  --fontFamily-tertiary: "Noto Serif", "Merriweather", Georgia, Cambria, "Times New Roman", Times !important;
+  --fontFamily-tertiary: 'Manrope', Times. Helvetica, 'Epilogue', sans-serif !important;
+  --fontFamily-displaySans:
+    'Manrope', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --fontFamily-displaySerif: Times, Helvetica, 'Epilogue', sans-serif !important;
 
-  --fontFamily-displaySans: "Noto Sans Display", sans-serif;
-  --fontFamily-displaySerif: "Noto Serif Display", "Merriweather", Georgia, Cambria, "Times New Roman", Times;
-
-
-
-  
   /* CORE NUMERIC SIZE SCALE */
   --size-0: 0;
   --size-1: 0.4rem;
@@ -151,11 +192,11 @@
   --size-35: 60.8rem;
   --size-36: 64rem;
 
-
   /* SPACING */
 
   --spacing-xxxs: var(--size-1);
   --spacing-xxs: var(--size-2);
+  --spacing-field: 1rem;
   --spacing-xs: var(--size-4);
   --spacing-sm: var(--size-6);
   --spacing-md: var(--size-8);
@@ -164,6 +205,17 @@
   --spacing-xl: var(--size-20);
   --spacing-xxl: var(--size-24);
   --spacing-xxxl: var(--size-32);
+
+  /* RADIUS */
+
+  --radius-sm: var(--size-1);
+  --radius-full: 9999px; /* design-guard:ignore */
+
+  /* LINK / TEXT DECORATION */
+
+  --link-underline-offset: 0.75rem; /* design-guard:ignore */
+  --link-underline-thickness: 0.15rem; /* design-guard:ignore */
+  --link-underline-thickness-hover: 0.2rem; /* design-guard:ignore */
 
   /* BREAKPOINTS */
   --breakpoint-xs: 767px;
@@ -174,6 +226,8 @@
 
   /* FLUID FONT SIZES */
 
+  /* H1 Poster*/
+  --font-1100: clamp(var(--size-12), 7vw, var(--size-20));
   /* H1 Display*/
   --font-1000: clamp(var(--size-12), 7vw, var(--size-20));
   /* H1 */
@@ -184,6 +238,8 @@
   --font-700: clamp(var(--size-7), 7vw, var(--size-9));
   /* H4 */
   --font-600: var(--size-7);
+  /* Lead Paragraph (p under H1) */
+  --font-p-lead: clamp(var(--size-5), 2.5vw, var(--size-7));
   /* H5 + Paragraph */
   --font-500: var(--size-5);
   /* H6 + Paragraph Small*/
@@ -200,7 +256,6 @@
   --font-1000: clamp(3.34rem, 2.45rem + 4.43vw, 5.61rem);
 */
 
-
   /* NOT USED  */
 
   /* Smaller */
@@ -209,7 +264,6 @@
   --font-200: var(--size-2);
   /* Tiny */
   --font-100: var(--size-1);
-
 
   /* ABSOLUTE FONT SIZES */
   --font-4xl: var(--size-20);
@@ -225,16 +279,66 @@
 
   @media print {
     * {
-      --font-3xl: var(--size-16);
-      --font-2xl: var(--size-15);
-      --font-xl: var(--size-14);
-      --font-lg: var(--size-10);
-      --font-md: var(--size-5);
-      --font-sm: var(--size-4);
-      --font-xs: var(--size-3);
-      --font-2xs: var(--size-2);
-      --font-3xs: var(--size-1);
+      /* Further reduced print font sizes for one-page fit */
+      --font-3xl: 0.875rem; /* 14pt (headings) */
+      --font-2xl: 0.8125rem; /* 13pt */
+      --font-xl: 0.75rem; /* 12pt */
+      --font-lg: 0.6875rem; /* 11pt */
+      --font-md: 0.625rem; /* 10pt */
+      --font-sm: 0.5625rem; /* 9pt */
+      --font-xs: 0.5rem; /* 8pt */
+      --font-2xs: 0.625rem; /* 10pt body text (was 11pt) */
+      --font-3xs: 0.5rem; /* 8pt */
 
+      /* Reduced spacing for one-page fit */
+      --spacing-xxxs: 0.15rem;
+      --spacing-xxs: 0.3rem;
+      --spacing-xs: 0.4rem;
+      --spacing-sm: 0.6rem;
+      --spacing-md: 0.8rem;
+      --spacing-big: 1rem;
+      --spacing-lg: 1.5rem;
+
+      /* Use standard ATS-friendly fonts */
+      font-family: Arial, Helvetica, sans-serif !important;
+      -webkit-font-smoothing: auto;
+      -moz-osx-font-smoothing: auto;
+    }
+
+    @page {
+      size: letter;
+      margin: 1cm; /* Slightly smaller margins */
+    }
+
+    /* Override all font families for print */
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li,
+    div,
+    span {
+      font-family: Arial, Helvetica, sans-serif !important;
+      font-variation-settings: normal !important;
+    }
+
+    /* Hide global UI components in print */
+    nav,
+    footer,
+    .hero-banner,
+    header[class*='header'] {
+      display: none !important;
+    }
+
+    /* Optimize page containers for print */
+    .page-wrapper,
+    .grid-container {
+      padding: 0 !important;
+      margin: 0 !important;
     }
   }
 
@@ -265,7 +369,6 @@
   --letterSpacing-reversed-base: 0.01rem;
   --letterSpacing-reversed-loose: 0.04rem;
 
-
   /* LINE HEIGHT */
 
   --lineHeight-none: 0;
@@ -275,10 +378,9 @@
   --lineHeight-tall: 1.5;
   --lineHeight-taller: 1.8;
 
-
-
   /* IMAGE FILTERS */
   --filter: brightness(1) saturate(1);
+  --icon-filter: none;
 }
 
 /* PADDING -- TBD */
@@ -286,16 +388,18 @@
 /* Override light mode with dark mode styles if the user decides to swap */
 :root.dark-theme {
   --foreground: var(--color-offwhite);
+  --foreground-rgb: var(--color-offwhite-rgb);
   --foreground-muted: rgba(var(--foreground), 0.7);
-  --foreground-subtle: rgba(250, 250, 250, 0.5);
+  --text-muted: var(--foreground-muted);
+  --foreground-subtle: rgba(250, 250, 250, var(--foreground-opacity));
   /* Use the RGB values for #fafafa */
   --background: var(--color-offblack);
   --background-darker: var(--color-highlight);
-  --link: var(--color-action-dark);
+  --link: var(--foreground);
   --border: 1px solid black;
 
   /* Reversed */
-  --link-reversed: var(--color-action);
+  --link-reversed: var(--foreground-reversed);
   --foreground-reversed: var(--color-darktext);
   --background-reversed: var(--color-offwhite);
   --background-darker-reversed: var(--color-highlight2);
@@ -313,11 +417,13 @@
   --fontWeight-heavy: 700;
 
   --shadow-light: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  --shadow-deep: 0px 16px 24px rgba(0, 0, 0, 0.25),
-    0px 6px 30px rgba(0, 0, 0, 0.25), 0px 8px 10px rgba(0, 0, 0, 0.25);
+  --shadow-deep:
+    0px 16px 24px rgba(0, 0, 0, 0.25), 0px 6px 30px rgba(0, 0, 0, 0.25),
+    0px 8px 10px rgba(0, 0, 0, 0.25);
 
   /* IMAGE FILTERS */
   --filter: brightness(0.8) saturate(1.25);
+  --icon-filter: none; /* Icons use CSS masks with foreground color */
 
   /* SPACING - testing calc */
   --letterSpacing-tight: -0.12rem;
@@ -327,6 +433,23 @@
   --letterSpacing-reversed-base: 0;
   --letterSpacing-reversed-loose: 0.03rem;
 
+  /* CODE (markdown + snippets) */
+  --code-bg: var(--background-darker);
+  --code-fg: var(--foreground);
+  --code-border: rgba(255, 255, 255, 0.12);
+  --code-inline-bg: var(--background-darker);
+  --code-inline-fg: var(--foreground);
+
+  /* Code syntax tokens (highlight.js classes) */
+  --code-comment: rgba(250, 250, 250, 0.6);
+  --code-keyword: #c4b5fd;
+  --code-string: #6ee7b7;
+  --code-number: #fbbf24;
+  --code-title: #93c5fd;
+  --code-attr: #fda4af;
+  --code-meta: rgba(250, 250, 250, 0.7);
+  --code-addition: #6ee7b7;
+  --code-deletion: #fda4af;
 }
 
 /* Styles for users who prefer dark mode at the OS level */
@@ -334,14 +457,15 @@
   :root {
     --foreground: var(--color-offwhite);
     --foreground-muted: rgba(var(--foreground), 0.7);
-    --foreground-subtle: rgba(250, 250, 250, 0.5);
+    --text-muted: var(--foreground-muted);
+    --foreground-subtle: rgba(250, 250, 250, var(--foreground-opacity));
     /* Use the RGB values for #fafafa */
     --background: var(--color-offblack);
     --background-darker: var(--color-highlight);
-    --link: var(--color-action-dark);
+    --link: var(--foreground);
     --border: 1px solid black;
     /* Reversed */
-    --link-reversed: var(--color-action);
+    --link-reversed: var(--foreground-reversed);
     --foreground-reversed: var(--color-darktext);
     --background-reversed: var(--color-offwhite);
     --background-darker-reversed: var(--color-highlight2);
@@ -358,8 +482,9 @@
     --fontWeight-bold: 550;
     --fontWeight-heavy: 700;
 
-    --shadow-deep: 0px 16px 24px var(--color-offblack),
-      0px 6px 30px var(--color-offblack), 0px 8px 10px var(--color-offblack);
+    --shadow-deep:
+      0px 16px 24px var(--color-offblack), 0px 6px 30px var(--color-offblack),
+      0px 8px 10px var(--color-offblack);
 
     /* IMAGE FILTERS */
     --filter: brightness(0.8) saturate(1.25);
@@ -372,6 +497,23 @@
     --letterSpacing-reversed-base: 0;
     --letterSpacing-reversed-loose: 0.03rem;
 
+    /* CODE (markdown + snippets) */
+    --code-bg: var(--background-darker);
+    --code-fg: var(--foreground);
+    --code-border: rgba(255, 255, 255, 0.12);
+    --code-inline-bg: var(--background-darker);
+    --code-inline-fg: var(--foreground);
+
+    /* Code syntax tokens (highlight.js classes) */
+    --code-comment: rgba(250, 250, 250, 0.6);
+    --code-keyword: #c4b5fd;
+    --code-string: #6ee7b7;
+    --code-number: #fbbf24;
+    --code-title: #93c5fd;
+    --code-attr: #fda4af;
+    --code-meta: rgba(250, 250, 250, 0.7);
+    --code-addition: #6ee7b7;
+    --code-deletion: #fda4af;
   }
 }
 
@@ -379,15 +521,16 @@
 :root.light-theme {
   --foreground: var(--color-darktext);
   --foreground-muted: rgba(var(--foreground), 0.7);
+  --text-muted: var(--foreground-muted);
   --foreground-subtle: rgba(43, 61, 79, var(--foreground-opacity));
   /* Use the RGB values for --color-darktext */
 
   --background: var(--color-offwhite);
   --background-darker: var(--color-highlight2);
-  --link: var(--color-action);
+  --link: var(--foreground);
   --border: 1px solid var(--color-xlight);
   /* Reversed */
-  --link-reversed: var(--color-action-dark);
+  --link-reversed: var(--foreground-reversed);
   --foreground-reversed: var(--color-offwhite);
   --background-reversed: var(--color-offblack);
   --background-darker-reversed: var(--color-highlight);
@@ -404,11 +547,31 @@
   --fontWeight-bold: 600;
   --fontWeight-heavy: 800;
 
-  --shadow-deep: 0px 16px 24px rgba(0, 0, 0, 0.07),
-    0px 6px 30px rgba(0, 0, 0, 0.06), 0px 8px 10px rgba(0, 0, 0, 0.1);
+  --shadow-deep:
+    0px 16px 24px rgba(0, 0, 0, 0.07), 0px 6px 30px rgba(0, 0, 0, 0.06),
+    0px 8px 10px rgba(0, 0, 0, 0.1);
 
   /* IMAGE FILTERS */
   --filter: brightness(1) saturate(1);
+  --icon-filter: none; /* Icons use CSS masks with foreground color */
+
+  /* CODE (markdown + snippets) */
+  --code-bg: var(--background-darker);
+  --code-fg: var(--foreground);
+  --code-border: rgba(0, 0, 0, 0.08);
+  --code-inline-bg: var(--background-darker);
+  --code-inline-fg: var(--foreground);
+
+  /* Code syntax tokens (highlight.js classes) */
+  --code-comment: rgba(43, 61, 79, 0.65);
+  --code-keyword: #6d28d9;
+  --code-string: #047857;
+  --code-number: #b45309;
+  --code-title: #1d4ed8;
+  --code-attr: #b91c1c;
+  --code-meta: rgba(43, 61, 79, 0.75);
+  --code-addition: #047857;
+  --code-deletion: #b91c1c;
 
   /* SPACING */
   --letterSpacing-tight: -0.16rem;
@@ -421,21 +584,19 @@
 
 /* needs cleanup and consolidation */
 
-
-
 /* Filters & Gradients */
 .gradient-sunrise {
-  background: linear-gradient(to bottom right,
-      var(--gradient-sunrise-start) 0%,
-      var(--gradient-sunrise-mid) 40%,
-      var(--gradient-sunrise-end) 75%,
-      var(--link-reversed) 95%);
+  background: linear-gradient(
+    to bottom right,
+    var(--gradient-sunrise-start) 0%,
+    var(--gradient-sunrise-mid) 40%,
+    var(--gradient-sunrise-end) 75%,
+    var(--link-reversed) 95%
+  );
 }
 
 .gradient2 {
-  background: -webkit-linear-gradient(top left,
-      var(--link-reversed),
-      var(--link-reversed));
+  background: -webkit-linear-gradient(top left, var(--link-reversed), var(--link-reversed));
 }
 
 .shadow-top {

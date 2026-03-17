@@ -1,20 +1,16 @@
 <template>
-  <GridContainer
-    id="stickynav"
-    class="navbar"
-    :class="{ 'hidden-navbar': !showNavbar }"
-  >
-    <div class="bg reversed">
-      <nav class="">
+  <GridContainer id="stickynav" class="navbar" :class="{ 'hidden-navbar': !showNavbar }">
+    <div class="bg" style="background-color: var(--background)">
+      <nav class="" aria-label="Main navigation">
         <li class="wordmark">
           <MyButton
-            label="Jake Ramphal"
+            label="Jacques Ramphal"
             route="/"
             type="ghost"
             v-show="isDesktopScreen && !menuOpen"
           />
           <MyButton
-            label="Jake Ramphal"
+            label="Jacques Ramphal"
             route="/"
             type="ghost"
             v-show="isMobileScreen && !menuOpen"
@@ -22,7 +18,6 @@
         </li>
 
         <div class="justify-end">
-        
           <li>
             <MyButton
               v-show="isDesktopScreen && !menuOpen"
@@ -31,9 +26,9 @@
               label="docs"
             />
           </li>
-        
+
           <!-- Slot for the menu button -->
-          <li class="nav-link" tabindex="0" style="width: 98px;">
+          <li class="nav-link" tabindex="0" style="width: 98px">
             <slot name="menu-button"></slot>
           </li>
         </div>
@@ -43,12 +38,12 @@
 </template>
 
 <script>
-import GridContainer from "./grid/GridContainer.vue";
-import MyButton from "./Button/Button.vue";
+import GridContainer from './grid/GridContainer.vue';
+import MyButton from './Button/Button.vue';
 
 const OFFSET = 60;
 export default {
-  name: "StickyNav",
+  name: 'StickyNav',
   components: {
     GridContainer,
     MyButton,
@@ -56,7 +51,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Jake Ramphal",
+      default: 'Jacques Ramphal',
     },
   },
   data() {
@@ -73,11 +68,11 @@ export default {
 
   mounted() {
     this.lastScrollPosition = window.pageYOffset;
-    window.addEventListener("scroll", this.onScroll);
-    window.addEventListener("resize", this.onWindowResize);
-    const viewportMeta = document.createElement("meta");
-    viewportMeta.name = "viewport";
-    viewportMeta.content = "width=device-width, initial-scale=1";
+    window.addEventListener('scroll', this.onScroll);
+    window.addEventListener('resize', this.onWindowResize);
+    const viewportMeta = document.createElement('meta');
+    viewportMeta.name = 'viewport';
+    viewportMeta.content = 'width=device-width, initial-scale=1';
     document.head.appendChild(viewportMeta);
 
     // Call the resize method on initial mount to set the initial visibility
@@ -85,8 +80,8 @@ export default {
   },
 
   beforeUnmount() {
-    window.removeEventListener("scroll", this.onScroll);
-    window.removeEventListener("resize", this.onWindowResize);
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onWindowResize);
   },
 
   methods: {
@@ -117,10 +112,10 @@ export default {
 <style lang="scss">
 .nav-link > a {
   border-radius: 4px;
-  color: var(--foreground-reversed) !important;
+  color: var(--foreground) !important;
 
   &:hover {
-    background: var(--background-darker-reversed);
+    background: var(--background-darker);
     transition: all 0.25s ease;
   }
 }
@@ -128,7 +123,7 @@ export default {
 
 <style lang="scss" scoped>
 * {
-  color: var(--foreground-reversed) !important;
+  color: var(--foreground) !important;
   margin: 0;
   mix-blend-mode: normal;
 }
@@ -141,8 +136,8 @@ export default {
 }
 
 .navbar {
-  inset-inline-end:  0;
-  inset-block-end:  0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
   max-width: none;
   mix-blend-mode: normal !important;
   overflow: visible;
@@ -159,19 +154,17 @@ export default {
 }
 /* Adds extra background colour to account for bouncing effect */
 .navbar::after {
-  content: "";
+  content: '';
   position: absolute;
-  inset-block-start:  0;
-  inset-block-end:  -100%; /* Adjust the value to control the width of the additional background */
-  inset-inline-end:  0;
+  inset-block-start: 0;
+  inset-block-end: -100%; /* Adjust the value to control the width of the additional background */
+  inset-inline-end: 0;
   inline-size: 100%; /* Adjust the value to control the width of the additional background */
-  background-color: var(
-    --background-reversed
-  ); /* Specify the color of the additional background */
+  background-color: var(--background); /* Specify the color of the additional background */
   z-index: -1; /* Set the z-index to be behind the navbar */
   @media only screen and (min-width: 768px) {
-    inset-inline-end:  -100%; /* Adjust the value to control the width of the additional background */
-    inset-block-end:  0;
+    inset-inline-end: -100%; /* Adjust the value to control the width of the additional background */
+    inset-block-end: 0;
   }
 }
 
@@ -184,6 +177,7 @@ export default {
 }
 
 .bg {
+  box-shadow: var(--shadow-z4) !important;
   transition: 0.5s box-shadow ease-in-out !important;
   align-items: middle;
   justify-self: stretch;
@@ -227,7 +221,7 @@ nav {
 }
 
 .router-link-exact-active {
-  background: var(--background-darker-reversed);
+  background: var(--background-darker);
   text-decoration: underline dashed !important;
 }
 
@@ -237,7 +231,7 @@ p {
 
 .wordmark::after {
   @media only screen and (min-width: 768px) {
-    content: "/";
+    content: '/';
     padding: var(--spacing-xxs);
     opacity: 0.5;
     font-weight: var(--fontWeight-normal);

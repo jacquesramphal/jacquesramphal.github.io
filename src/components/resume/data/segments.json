@@ -3,62 +3,40 @@
     "title": "Experience",
     "entries": [
       {
-        "title": "Senior Product Designer",
+        "title": "Senior Product Designer & Design Lead",
         "position": "Permanent Full-time",
         "location": "Orium",
         "from": "2013",
         "to": "Present",
-        "description": "As a multi-disciplinary designer with over a decade at Orium (formerly Myplanet), I've collaborated with high-performing teams to create engaging user experiences and empower customers to connect with their audience. Orium values empathy, collaboration, flexibility, and humanity, and I've played a key role in its evolution. I've partnered with diverse teams and clients to craft beautiful designs and ensure rigorous Design QA standards. Recently, I've focused on Design Advocacy, bridging functional gaps, implementing shared token languages, and enhancing tool visibility. Our teams aim for cross-functional excellence. My hands-on approach in designing and coding on production projects ensures full polish and improves team communication. By refining my expertise in UI development and front-end polish, I've driven innovation and shaped new learning approaches within the organization.",
-        "callout": "I'm a design advocate, bridging functional gaps, implementing shared token languages, and enhancing tool visibility. I drive innovation and shape new learning approaches within the organization."
+        "description": "Lead design for enterprise and consumer products across retail, healthcare, and SaaS clients. Architect and govern token-based design systems adopted across multiple teams and platforms. Partner closely with engineering to ensure design fidelity from Figma to production. Design and implement production-ready React and Vue components. Define and operationalize design quality standards, reducing rework and QA cycles. Mentor designers and developers on systems thinking, front-end implementation, and collaboration.",
+        "callout": "Reduced design-to-development friction by approximately 60% through systemization. Shipped customer-facing products used by millions."
       },
       {
-        "title": "Mindfulness Facilitator",
+        "title": "Mindfulness Facilitator & Culture Lead",
         "position": "",
         "location": "Orium",
         "from": "2016",
         "to": "Present",
-        "description": "Self-awareness and empathy are central to my personal and professional journey. In my role as Mindfulness Lead, I have facilitated and mentored others in mindfulness practices, through guided meditation and onboarding sessions. Mindful breaks, which are always optional, are a staple in our culture, serving as reminders to do the things that support personal well-being. These practices allow us to reflect on what it means to work and live, fostering a healthier and more balanced workplace environment.",
-        "callout": "I'm one of many day-to-day mindfulness ambassadors promoting good-vibes and fostering emotional intelligence on multi-disciplinary teams."
+        "description": "Lead mindfulness and emotional intelligence initiatives supporting team well-being and focus. Facilitate onboarding and group sessions for cross-functional teams. Contribute to sustainable, human-centered team culture.",
+        "callout": ""
       },
       {
         "title": "UX Designer",
-        "position": "",
+        "position": "Contract",
         "location": "University Health Network",
         "from": "",
-        "to": "Summer 2013",
-        "description": "This section will contain a concise description of my responsibilities and achievements during my tenure as a UX Designer at University Health Network."
+        "to": "2013",
+        "description": "Designed accessible healthcare interfaces aligned with WCAG standards. Conducted usability testing with patients and clinicians.",
+        "callout": ""
       },
       {
-        "title": "UI Designer",
+        "title": "UI Designer Fellow",
         "position": "",
         "location": "Orium",
-        "from": "Jan 2013",
-        "to": "April 2013",
-        "description": "<p><strong>THIS IS HTML - need to fix ol style!!!</strong> During my tenure as a UI Designer (Fellow) at Orium, I embarked on a transformative learning experience for students, recent graduates, and career changers. Collaborated with aspiring student designers to craft product pitches and interfaces, gaining real-world expertise in UI design. Honed user-centric design skills and embraced team collaboration, setting a solid foundation for future growth.</p><ul><li>Unique learning opportunity for students, recent graduates, and career changers.</li><li>Collaborated with aspiring student designers on product pitches and interfaces.</li><li>Real-world experience in UI design and team collaboration.</li><li>Emphasized user-centric design principles.</li><li>Fostered creativity and collaboration.</li><li>Honed skills in ideation, iteration, and UI design.</li><li>Contributed to nurturing the next generation of design talent.</li></ul>"
-      },
-      {
-        "title": "Print Shop Rep",
-        "position": "",
-        "location": "Staples",
-        "from": "Nov 2010",
-        "to": "Dec 2012",
-        "description": "This section will contain a concise description of my responsibilities and achievements during my tenure as a Print Shop Rep at Staples."
-      },
-      {
-        "title": "Graphic Designer",
-        "position": "",
-        "location": "Bethel Group",
-        "from": "Sep 2008",
-        "to": "Jul 2010",
-        "description": "This section will contain a concise description of my responsibilities and achievements during my tenure as a Graphic Designer at Bethel Group."
-      },
-      {
-        "title": "Design Intern",
-        "position": "",
-        "location": "Media Enterprises Ltd.",
-        "from": "Mar 2008",
-        "to": "Aug 2008",
-        "description": "This is where I learned the magic of Photoshop. This section will contain a concise description of my responsibilities and achievements during my internship at Media Enterprises Ltd."
+        "from": "2013",
+        "to": "2013",
+        "description": "Participated in design fellowship focused on product design, collaboration, and client delivery.",
+        "callout": ""
       }
     ]
   },
@@ -67,48 +45,54 @@
     "title": "Education",
     "entries": [
       {
-        "title": "Graphic Design",
-        "location": "OCADU",
+        "title": "Bachelor of Design, Graphic Design",
+        "location": "OCAD University",
         "from": "2010",
         "to": "2014",
-        "description": "This section will contain a concise description of my education at OCADU, including the Graphic Design program and any relevant courses or achievements."
+        "description": ""
       }
     ]
   },
 
   {
-    "title": "Skills",
+    "title": "Technical Skills",
     "entries": [
-      "Placeholder for listing your key skills and competencies relevant to the job you are applying for.",
-      "Example: UI/UX Design, Front-end Development, Mindfulness Facilitation, Adobe Creative Suite, Collaboration, Emotional Intelligence"
+      {
+        "title": "Design & Prototyping",
+        "description": "Figma, FigJam, Adobe Creative Suite, Miro"
+      },
+      {
+        "title": "Development",
+        "description": "React, Vue.js, JavaScript, TypeScript, HTML, CSS, SCSS, Git"
+      },
+      {
+        "title": "Design Systems",
+        "description": "Design Tokens, Storybook, Component Libraries, Figma Variables"
+      },
+      {
+        "title": "AI & Automation",
+        "description": "n8n, LLM-assisted workflows, Prompt Engineering, Agentic UX"
+      }
     ]
   },
 
   {
     "title": "Certifications",
     "entries": [
-      "Placeholder for listing any relevant certifications or licenses that enhance your qualifications."
-    ]
-  },
-
-  {
-    "title": "Projects",
-    "entries": [
-      "Placeholder for highlighting any relevant projects you've worked on, showcasing your abilities and accomplishments."
-    ]
-  },
-
-  {
-    "title": "Volunteer Experience",
-    "entries": [
-      "Placeholder for mentioning any volunteer experience that demonstrates valuable skills or aligns with the job."
-    ]
-  },
-
-  {
-    "title": "Interests/Hobbies",
-    "entries": [
-      "Placeholder for mentioning your interests or hobbies that complement your professional skills or show a well-rounded personality."
+      {
+        "title": "n8n Certified Expert Partner",
+        "location": "n8n",
+        "from": "",
+        "to": "2024",
+        "description": ""
+      },
+      {
+        "title": "Introduction to Composable Commerce",
+        "location": "Contentful",
+        "from": "",
+        "to": "2023",
+        "description": ""
+      }
     ]
   }
 ]

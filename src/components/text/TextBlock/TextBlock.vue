@@ -7,16 +7,35 @@
       :is-svg="true"
       :size="`${iconsize}`"
     />
+    <!-- Type badge hidden temporarily -->
+    <!-- <div v-if="shouldShowTags" class="tags">
+      <MyButton
+        type="subtle"
+        size="xs"
+        :label="typeLabel"
+        :customBgColor="typeColorSubtle"
+        :customTextColor="typeColor"
+      />
+    </div> -->
+    <p v-else-if="eyebrow" class="eyebrow subtle">{{ eyebrow }}</p>
+    <a
+      v-if="title && titleRoute && isExternalTitleLink"
+      :href="titleRoute"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="title-link"
+    >
+      <DynamicText :as="as" :text="title" :attrs="{ class: 'title' }" />
+    </a>
+    <router-link v-else-if="title && titleRoute" :to="titleRoute" class="title-link">
+      <DynamicText :as="as" :text="title" :attrs="{ class: 'title' }" />
+    </router-link>
     <DynamicText
-      v-if="eyebrow"
-      :text="eyebrow"
-      :attrs="{ class: 'eyebrow subtle' }"
-    />
-    <DynamicText
-      v-if="title"
+      v-else-if="title"
       :as="as"
       tabIndex="0"
       :text="title"
+      :isHtml="isHtml"
       :attrs="{ class: 'title' }"
     />
     <DynamicText
@@ -26,6 +45,15 @@
       :text="description"
       :attrs="{ class: 'description' }"
     />
+    <!-- Content tags at bottom -->
+    <div v-if="shouldShowTags && ((tags && tags.length) || readTime)" class="tags tags--content">
+      <span v-if="readTime" class="tag-label tag-label--read-time">
+        <p style="font-size: var(--font-2xs)">{{ readTime }}</p>
+      </span>
+      <span v-for="tag in tags" :key="tag" class="tag-label" @click="$emit('tag-click', tag)"
+        ><p style="font-size: var(--font-2xs)">{{ tag }}</p></span
+      >
+    </div>
     <!-- <TextLink
       v-if="route"
       :label="label"
@@ -42,21 +70,21 @@
     <MyButton
       id="btn"
       :type="btntype"
-      v-if="(route || btnroute) && label"
+      v-if="(route || btnroute || link) && label"
       :label="label"
-      :route="route || btnroute"
+      :route="link ? undefined : route || btnroute"
+      :link="link"
     />
   </div>
 </template>
 
 <script>
-import MyButton from "../../Button/Button.vue";
+import MyButton from '../../Button/Button.vue';
 // import TextLink from "../TextLink.vue";
-import DynamicText from "../DynamicText.vue";
-import MyIcon from "../../Icon.vue";
-
+import DynamicText from '../DynamicText.vue';
+import MyIcon from '../../Icon.vue';
 export default {
-  name: "TextBlock",
+  name: 'TextBlock',
   components: {
     MyButton,
     // TextLink,
@@ -69,7 +97,7 @@ export default {
     },
     iconsize: {
       type: String,
-      default: "64",
+      default: '64',
     },
     alt: {
       type: String,
@@ -79,23 +107,22 @@ export default {
       required: false,
     },
     as: {
-      default: "h3",
+      default: 'h3',
       type: String,
       required: false,
     },
-    btntype:{
+    btntype: {
       type: String,
     },
     title: {
       type: String,
-      default: "",
+      default: '',
       required: false,
     },
 
     description: {
       type: String,
-      default:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      default: '',
       required: false,
     },
     // blockquote: {
@@ -111,9 +138,13 @@ export default {
       type: Boolean,
       default: false,
     },
+    reversed: {
+      type: Boolean,
+      default: false,
+    },
     label: {
       type: String,
-      default: "",
+      default: '',
       required: false,
     },
     route: {
@@ -125,29 +156,92 @@ export default {
       required: false,
     },
     link: {
-      default: "",
+      default: '',
       type: String,
+    },
+    titleRoute: {
+      type: String,
+      required: false,
+    },
+    tags: {
+      type: Array,
+      default: () => [],
+      required: false,
+    },
+    cardType: {
+      type: String,
+      default: null,
+      required: false,
+    },
+    readTime: {
+      type: String,
+      default: '',
+      required: false,
+    },
+    isHtml: {
+      type: Boolean,
+      default: false,
     },
   },
 
   computed: {
+    shouldShowTags() {
+      // Show tags only when used in a card context (cardType is explicitly provided)
+      return this.cardType !== null;
+    },
     classes() {
       return {
-        "textblock-align": true,
-        "textblock-align--center": this.center,
-        "textblock-align--left": !this.center,
+        'textblock-align': true,
+        'textblock-align--center': this.center,
+        'textblock-align--left': !this.center,
 
-        "textblock--clamped": this.clamped,
-        "textblock--normal": !this.clamped,
+        'textblock--clamped': this.clamped,
+        'textblock--normal': !this.clamped,
+
+        reversed: this.reversed,
       };
+    },
+    isExternalTitleLink() {
+      return (
+        this.titleRoute &&
+        (this.titleRoute.startsWith('http://') || this.titleRoute.startsWith('https://'))
+      );
+    },
+    typeColor() {
+      const typeColorMap = {
+        article: 'var(--text)',
+        tool: 'var(--text)',
+        'case-study': 'var(--text)',
+        'design-project': 'var(--text)',
+      };
+      return typeColorMap[this.cardType] || '#0066b3';
+    },
+    typeColorSubtle() {
+      const subtleColorMap = {
+        article: 'var(--background-darker)',
+        tool: 'var(--background-darker)',
+        'case-study': 'var(--background-darker)',
+        'design-project': 'var(--background-darker)',
+      };
+      return subtleColorMap[this.cardType] || 'rgba(0, 134, 230, 0.15)';
+    },
+    typeLabel() {
+      const typeLabelMap = {
+        article: 'Writing',
+        tool: 'Writing',
+        'case-study': 'Case Study',
+        'design-project': 'Project',
+      };
+      return typeLabelMap[this.cardType] || 'Writing';
     },
   },
 };
 </script>
-<style scoped>
-* {
+<style scoped lang="scss">
+/* Links and text should inherit global styles, not force color inheritance */
+/* * {
   color: inherit;
-}
+} */
 #textblock {
   display: flex;
   flex-direction: column;
@@ -157,10 +251,36 @@ export default {
   word-spacing: 1rem;
   margin-block-end: 1em;
 }
+
+.eyebrow-badge {
+  display: inline-block;
+  padding: var(--spacing-xxxs) var(--spacing-xs);
+  border-radius: var(--spacing-xxxs);
+  font-size: var(--font-300);
+  font-weight: var(--fontWeight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-block-end: var(--spacing-xs);
+}
 .title {
   /* flex: 1; */
   inline-size: 100%;
   white-space: normal;
+  font-weight: var(--fontWeight-bold) !important;
+}
+
+h1.title {
+  margin-block-end: var(--spacing-sm);
+}
+
+.title-link {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 0.15rem;
+  }
 }
 .description {
   /* flex: 1; */
@@ -171,7 +291,7 @@ export default {
   grid-column: 1 / 4;
 }
 .description {
-  margin: 1rem 0 0 0;
+  margin: var(--spacing-xs) 0 0 0;
 }
 .textblock--clamped p {
   overflow: hidden;
@@ -201,6 +321,72 @@ export default {
 .textblock-align--center {
   text-align: center;
 }
+
+.tags {
+  margin-block-end: var(--spacing-xs);
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--spacing-xs);
+  row-gap: 0;
+}
+
+.tags--content {
+  margin-block-start: auto;
+  margin-block-end: 0;
+  padding-block-start: var(--spacing-xs);
+}
+
+.tag-label {
+  display: inline;
+  cursor: pointer;
+  color: var(--foreground-muted);
+}
+
+.tag-label p {
+  display: inline;
+  font-size: var(--font-2xs);
+}
+
+.tag-label--read-time {
+  cursor: default;
+  color: var(--foreground-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  // &::after {
+  //   content: '|';
+  //   color: var(--foreground-muted);
+
+  //   margin-inline-start: var(--spacing-xxs);
+  // }
+
+  // &::before {
+  //   content: '';
+  //   display: inline-block;
+  //   width: 16px;
+  //   height: 16px;
+  //   flex-shrink: 0;
+  //   background-color: var(--foreground-muted);
+  //   mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="black" stroke-width="1.2"/><path d="M6 3v3l1.8 1.3" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  //   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="black" stroke-width="1.2"/><path d="M6 3v3l1.8 1.3" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  //   mask-repeat: no-repeat;
+  //   -webkit-mask-repeat: no-repeat;
+  //   mask-size: contain;
+  //   -webkit-mask-size: contain;
+  //   mask-position: center;
+  //   -webkit-mask-position: center;
+  // }
+}
+
+/* .tag-label::after {
+  content: '•';
+  margin-inline-start: var(--spacing-xxs);
+  color: var(--text-subtle);
+}
+.tag-label:last-child::after {
+  content: '';
+  margin: 0;
+} */
 
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 768px) {

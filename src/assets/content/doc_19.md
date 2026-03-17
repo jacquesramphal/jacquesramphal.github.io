@@ -1,7 +1,7 @@
 # DynamicText Component
 
 ### Overview
-The `DynamicText` component is a flexible Vue component designed to render text as plain text or HTML. It dynamically determines the rendering mode based on a Boolean prop. Below, you'll find usage examples for Vue, plain HTML, and React.
+The `DynamicText` component is a flexible Vue component designed to render text as plain text or HTML. It dynamically determines the rendering mode based on a Boolean prop. Below, you’ll find usage examples for Vue, plain HTML, and React.
 
 ### Features
 - Renders text or HTML based on a prop.
@@ -44,7 +44,7 @@ export default {
 </script>
 ```
 
-To use the `DynamicText` component in a Vue application, ensure you have Vue set up in your project. Here's how you can use it:
+To use the `DynamicText` component in a Vue application, ensure you have Vue set up in your project. Here’s how you can use it:
 
 ```
 <template>
@@ -67,7 +67,7 @@ export default {
 ```
 
 #### Plain HTML
-For plain HTML, dynamic behavior based on the type of content isn't directly supported, but you can mimic the behavior using JavaScript:
+For plain HTML, dynamic behavior based on the type of content isn’t directly supported, but you can mimic the behavior using JavaScript:
 
 ```
 <!DOCTYPE html>
@@ -105,7 +105,7 @@ const DynamicText = ({ as: Component = 'p', text, isHtml, ...attrs }) => {
 export default DynamicText;
 ```
 
-Here's how you can use it in React:
+Here’s how you can use it in React:
 
 
 ```

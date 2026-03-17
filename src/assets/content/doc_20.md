@@ -5,9 +5,9 @@
 
 ### Features
 - **Customizable Padding**: Default padding that adjusts based on the viewport width, with tighter padding options.
-- **Full Viewport Width**: Allows the container to expand fully across the viewport's width.
+- **Full Viewport Width**: Allows the container to expand fully across the viewport’s width.
 - **Full Viewport Height**: Adjusts the container to fill the entire viewport height, centered aligning its content.
-- **Maximum Viewport Width**: Constrains the container's maximum width while keeping it centered.
+- **Maximum Viewport Width**: Constrains the container’s maximum width while keeping it centered.
 
 ``` 
 <template>
@@ -100,7 +100,7 @@ export default {
 ```
 
 ### Props
-- `tight`: Boolean, makes the container's padding tighter.
+- `tight`: Boolean, makes the container’s padding tighter.
 - `fullvw`: Boolean, expands the container to the full width of the viewport.
 - `fullvh`: Boolean, expands the container to the full height of the viewport and centers the content vertically.
 - `maxvw`: Boolean, sets a maximum width to the container.
@@ -128,5 +128,5 @@ export default {
 ```
 
 ### Styling
-The component uses SCSS for styling, leveraging media queries to adapt the container's padding based on the screen size. Here are the relevant styles:
+The component uses SCSS for styling, leveraging media queries to adapt the container’s padding based on the screen size. Here are the relevant styles:
 

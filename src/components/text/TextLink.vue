@@ -10,13 +10,13 @@
         :url="iconurl"
         :unicode="unicode"
       />
-      {{ label }}
+      <component :is="as">{{ label }}</component>
     </router-link>
     <a
       :class="classes"
       class="external"
       v-else-if="link"
-      target="blank"
+      target="_blank"
       :href="`${link}`"
       @click="onClick"
     >
@@ -29,14 +29,9 @@
         :url="iconurl"
         :unicode="unicode"
       />
-      {{ label }}
+      <component :is="as" class="label-text">{{ label }}</component>
     </a>
-    <a
-      :class="classes"
-      v-else
-      target="blank"
-      @click="onClick"
-    >
+    <a :class="classes" v-else target="_blank" @click="onClick">
       <MyIcon
         v-if="icon || unicode"
         :style="{ 'margin-inline-end': iconsize / 2 + 'px' }"
@@ -46,7 +41,7 @@
         :url="iconurl"
         :unicode="unicode"
       />
-      {{ label }}
+      <component :is="as">{{ label }}</component>
       <MyIcon
         v-if="iconRight || unicodeRight"
         :style="{ 'margin-inline-start': iconsize / 2 + 'px' }"
@@ -61,11 +56,11 @@
 </template>
 
 <script>
-import MyIcon from "./../Icon.vue";
-import { reactive, computed } from "vue";
+import MyIcon from './../Icon.vue';
+import { reactive, computed } from 'vue';
 
 export default {
-  name: "TextLink",
+  name: 'TextLink',
   components: {
     MyIcon,
   },
@@ -73,7 +68,7 @@ export default {
     label: {
       type: String,
       required: true,
-      default: "Text Link Label",
+      default: 'Text Link Label',
     },
     route: {
       type: String,
@@ -93,7 +88,7 @@ export default {
     },
     iconsize: {
       type: String,
-      default: "64",
+      default: '64',
     },
     iconurl: {
       type: String,
@@ -103,6 +98,10 @@ export default {
     },
     unicodeRight: {
       type: String,
+    },
+    as: {
+      type: String,
+      default: 'p',
     },
     // Override props
     large: {
@@ -115,55 +114,48 @@ export default {
       default: false,
       required: false,
     },
-    right:  {
+    right: {
       type: Boolean,
       default: false,
       required: false,
     },
   },
-  
-  emits: ["click"],
-setup(props, { emit }) {
-  const reactiveProps = reactive(props);
-  return {
-    classes: computed(() => ({
-      "link-size": true,
-      "link-size--large": reactiveProps.large,
 
-      "link-left": true,
-      "link-left--left": reactiveProps.left,
-      "link-left--default": !reactiveProps.left,
+  emits: ['click'],
+  setup(props, { emit }) {
+    const reactiveProps = reactive(props);
+    return {
+      classes: computed(() => ({
+        'link-size': true,
+        'link-size--large': reactiveProps.large,
 
-      "link-right": true,
-      "link-right--right": reactiveProps.right,
-      "link-right--default": !reactiveProps.right,
-    })),
-    onClick() {
-      emit("click");
-    },
-  };
-},
-  
+        'link-left': true,
+        'link-left--left': reactiveProps.left,
+        'link-left--default': !reactiveProps.left,
+
+        'link-right': true,
+        'link-right--right': reactiveProps.right,
+        'link-right--default': !reactiveProps.right,
+      })),
+      onClick() {
+        emit('click');
+      },
+    };
+  },
 };
 </script>
 <style></style>
 
 <style lang="scss" scoped>
-* {
-  color: inherit;
-  // font-weight: var(--fontWeight-medium);
-}
-// #richlink {
-//   color: var(--link);
+// Links should inherit global link styles, not parent element colors
+// * {
+//   color: inherit;
 // }
-// a {
-//   text-decoration: underline !important;
-// }
+
 .link-size {
   /* background: var(--color-xlight); */
   display: flex;
   align-items: center;
-
 }
 
 /* .link-size--default */
@@ -175,7 +167,7 @@ setup(props, { emit }) {
 /* .link-left */
 
 .link-left--left:before {
-  content: "★ ";
+  content: '★ ';
   color: var(--link);
   text-decoration: none;
 }
@@ -183,9 +175,31 @@ setup(props, { emit }) {
 /* .link-right */
 
 .link-right--right:after {
-  content: " ★";
+  content: ' ★';
   color: var(--link);
 }
 
 /* ---- External Link ---- */
+.external {
+  text-decoration: none !important;
+  .label-text {
+    text-decoration: underline;
+    text-decoration-color: var(--color-text);
+    text-decoration-thickness: 0.15rem;
+    text-underline-offset: 0.75rem;
+  }
+
+  &::after {
+    content: ' ↗';
+    text-decoration: none;
+    display: inline-block;
+    margin-inline-start: 0.2em;
+  }
+
+  &:hover .label-text {
+    text-decoration: underline wavy var(--color-yellow);
+    text-decoration-thickness: 0.2rem;
+    text-underline-offset: 0.75rem;
+  }
+}
 </style>

@@ -1,34 +1,50 @@
 [
   {
-    "title": "Skills",
+    "title": "Core Skills",
     "entries": [
       {
-        "title": "Product-Design",
+        "title": "Product Design & UX Strategy",
         "level": 5
       },
       {
-        "title": "Front-end Design",
+        "title": "Design Systems Architecture",
+        "level": 5
+      },
+      {
+        "title": "AI / Agentic Experience Design",
+        "level": 5
+      },
+      {
+        "title": "Design Tokens & Component Libraries",
+        "level": 5
+      },
+      {
+        "title": "Front-End Development (React, Vue)",
         "level": 5
       }
     ]
   },
   {
-    "title": "Tools",
+    "title": "Leadership & Process",
     "entries": [
       {
-        "title": "Figma",
+        "title": "Cross-Functional Leadership",
         "level": 5
       },
       {
-        "title": "Sketch",
+        "title": "Design-to-Development Workflows",
         "level": 5
       },
       {
-        "title": "Github",
+        "title": "Design Quality & QA Processes",
         "level": 5
-      },      
+      },
       {
-        "title": "Visual Studio Code",
+        "title": "Accessibility (WCAG 2.1)",
+        "level": 5
+      },
+      {
+        "title": "Agile / Scrum Collaboration",
         "level": 5
       }
     ]

@@ -8,7 +8,7 @@
 // import { gsap } from "gsap";
 
 export default {
-  name: "GridParent",
+  name: 'GridParent',
   props: {
     rows: {
       type: Boolean,
@@ -17,6 +17,11 @@ export default {
     tight: {
       type: Boolean,
       default: false,
+    },
+    cols: {
+      type: Number,
+      default: null,
+      validator: (v) => [3, 6, 9, 12].includes(v),
     },
   },
   // mounted() {
@@ -28,15 +33,15 @@ export default {
   computed: {
     classes() {
       return {
-        "grid-template": true,
-        "grid-template--rows": this.rows,
-        "grid-template--tight": this.tight,
+        'grid-template': true,
+        'grid-template--rows': this.rows,
+        'grid-template--tight': this.tight,
+        [`grid-template--cols-${this.cols}`]: !!this.cols,
       };
     },
   },
 };
 </script>
-
 
 <style lang="scss" scoped>
 // @keyframes fadeIn {
@@ -72,7 +77,6 @@ export default {
   @media only screen and (min-width: 1201px) {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: var(--spacing-lg);
-
   }
 
   &--rows {
@@ -81,9 +85,23 @@ export default {
   }
   &--tight {
     @media only screen and (min-width: 1201px) {
-    grid-gap: var(--spacing-md);
-
+      grid-gap: var(--spacing-md);
+    }
   }
+  &--cols-6 {
+    @media only screen and (min-width: 1201px) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+  &--cols-9 {
+    @media only screen and (min-width: 1201px) {
+      grid-template-columns: repeat(9, 1fr);
+    }
+  }
+  &--cols-12 {
+    @media only screen and (min-width: 1201px) {
+      grid-template-columns: repeat(12, 1fr);
+    }
   }
 }
 </style>

@@ -1,48 +1,133 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Need to add meta description and images etc.  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <meta name="description" content="Jake' Site" />
-    <meta name="keywords" content="HTML, CSS, JavaScript" />
-    <meta name="author" content="Jake Ramphal - Design" />
+    <!-- Primary Meta Tags -->
     <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      name="title"
+      content="Jacques Ramphal - UX / AX Full Stack Design Lead | Design Systems & Agentic AI"
     />
+    <meta
+      name="description"
+      content="Full Stack Design Lead at Orium with 15 years experience. Specializing in design systems, agentic AI, and bridging design-development workflows through code and tokens."
+    />
+    <meta
+      name="keywords"
+      content="design systems, agentic AI, UX design, design tokens, product design, Toronto designer, design lead, AI UX, Genie AI, design engineering"
+    />
+    <meta name="author" content="Jacques Ramphal" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    <link rel="canonical" href="https://jacquesramphal.github.io/" />
 
-    <link rel="icon" href="<%= BASE_URL %>favicon.svg" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jacquesramphal.github.io/" />
+    <meta property="og:title" content="Jacques Ramphal - UX / AX Design Lead" />
+    <meta
+      property="og:description"
+      content="Senior Product Designer specializing in design systems, agentic AI, and design-development workflows. 15 years at Orium building token-based systems and AI platforms."
+    />
+    <meta property="og:image" content="https://jacquesramphal.github.io/og-image.png" />
+    <meta property="og:site_name" content="Jacques Ramphal Portfolio" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://jacquesramphal.github.io/" />
+    <meta property="twitter:title" content="Jacques Ramphal - UX / AX Design Lead" />
+    <meta
+      property="twitter:description"
+      content="Senior Product Designer specializing in design systems, agentic AI, and design-development workflows."
+    />
+    <meta property="twitter:image" content="https://jacquesramphal.github.io/og-image.png" />
+
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="Jacques Ramphal" />
+    <meta
+      itemprop="description"
+      content="Full Stack Design Lead at Orium with 15 years experience in design systems and agentic AI."
+    />
+    <meta itemprop="image" content="https://jacquesramphal.github.io/og-image.png" />
+
+    <link rel="icon" href="<%= BASE_URL %>fav-dynamic.svg" />
     <link
       rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jacques Ramphal",
+        "jobTitle": "Senior Product Designer & Design Lead",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Orium"
+        },
+        "url": "https://jacquesramphal.github.io",
+        "sameAs": ["https://linkedin.com/in/jacquesramphal", "https://github.com/jacquesramphal"],
+        "knowsAbout": [
+          "Design Systems",
+          "Agentic AI",
+          "UX Design",
+          "Design Tokens",
+          "Product Design",
+          "AI/UX Integration",
+          "Design Engineering"
+        ],
+        "description": "Senior Product Designer with 15 years at Orium, specializing in token-based design systems and agentic AI platforms. I architect design systems and workflows so designers and developers spend less time arguing over specs and more time shipping.",
+        "alumniOf": {
+          "@type": "Organization",
+          "name": "Orium"
+        }
+      }
+    </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
-
-    
     <script src="https://getinsights.io/js/insights.js"></script>
     <script>
-      insights.init("xtk6brD0rPPePrkC");
+      insights.init('xtk6brD0rPPePrkC');
       insights.trackPages();
     </script>
-    <title>Jake Ramphal</title>
+    <title>Jacques Ramphal - UX / AX Full Stack Design Lead | Portfolio</title>
+
+    <!-- SPA redirect decode for GitHub Pages — must run before app boots -->
+    <!-- https://github.com/rafgraph/spa-github-pages -->
+    <script>
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&');
+            });
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded[0] + (decoded[1] ? '?' + decoded[1] : '') + l.hash
+          );
+        }
+      })(window.location);
+    </script>
   </head>
   <body>
     <noscript>
       <strong
-        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
-        properly without JavaScript enabled. Please enable it to
-        continue.</strong
+        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without
+        JavaScript enabled. Please enable it to continue.</strong
       >
     </noscript>
     <div id="app"></div>

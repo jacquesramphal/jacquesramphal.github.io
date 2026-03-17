@@ -1,9 +1,15 @@
+<header>
+
 # Case Study: EQX Interconnection
-### The Problem
+
+</header>
+
+
+## The Problem
 The Challenge
 Reimagine the user experience for the next generation of interconnection services; design and develop a marketplace that facilitates the discovery and connection of cloud services.
 
-### The Strategy
+## The Strategy
 The Strategy
 Qualitative interviews with different portal user groups; new modular & component-based codebase; prototyping and testing with main user groups (buyers, sellers, and resellers).
 
@@ -16,14 +22,14 @@ We worked to create a system that would highlight the most important elements, m
 ![Image](../images/casestudy/eqx/eqx-1.png)
 
 
-### The Outcomes
+## The Outcomes
 The Solution
 A React.js platform supplemented by a pattern library that can be built and expanded upon; a new user experience team and user experience strategy.
 
 ![Image](../images/casestudy/eqx/eqx-2.png)
 
 
-#### A comprehensive style guide for an array of Equinix products.
+### A comprehensive style guide for an array of Equinix products.
 
 And across all three properties, our team worked with the client team to build and bolster their design standards and practices. With the aim of building lasting solutions, we worked with them to establish everything from icon libraries to repeatable design patterns that could be applied across the engagements we worked on with them, as well as on any future projects.
 
