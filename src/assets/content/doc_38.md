@@ -1,42 +1,58 @@
+![Design Guard](../images/placeholders/placeholder-26.svg)
+
 # Design Guard
+A pre-commit scanner that flags hardcoded design values before they reach the codebase.
 
-#### Catch hardcoded design values before they ship (npm package + CLI)
+| | |
+|---|---|
+| **Role** | Author |
+| **Type** | npm Package |
+| **Status** | Published |
+| **Tags** | cli · design-systems |
 
-![Image](../images/placeholders/placeholder-26.svg)
+## Overview
 
-If you care about design consistency, you eventually end up caring about **what shouldn’t be allowed** in your codebase:
+> The moment you stop enforcing tokens at the point of contribution, the token system starts to decay — slowly at first, then everywhere at once.
 
-- `12px` that should have been `var(--spacing-sm)`
-- `0.95rem` that should have been `var(--font-500)`
-- `#333` that should have been `var(--color-darktext)`
+Design Guard scans staged files before commit and flags hardcoded values that should be tokens: `px` lengths, `rem` values, hex colors, `rgb()` functions. In strict mode it fails the commit. In standard mode it warns. Either way, the drift gets surfaced at the point where it's cheapest to fix — before review, before merge, before it's in twenty components.
 
-This is a tiny “design guard” that scans **staged files** (`git add`’d) and warns (or fails, in strict mode) when it finds hardcoded values that should be tokens.
+It runs on staged files only, keeping it fast. Configurable via `design-guard.config.json` — include/exclude paths, ignore files, tolerance thresholds. Individual lines can be marked `design-guard:ignore` for legitimate exceptions.
 
-> **Freebie (npm package + CLI)**  
-> Install/runs anywhere: [`@jacquesramphal/design-guard`](https://www.npmjs.com/package/@jacquesramphal/design-guard)  
->  
-> - Run (verbose): `npx design-guard --verbose`  
-> - Strict (fail commit/CI): `npx design-guard --strict --verbose`
+## What it catches
 
-## What it checks
+Hardcoded lengths — `px`, `rem`, `em`, `%`, `vw`, `vh` — and hardcoded colors — hex (`#fff`, `#ffffff`) and `rgb()`/`rgba()`/`hsl()`/`hsla()`. Token usage like `var(--size-5)` is never flagged because there's no numeric literal to match.
 
-- **Hardcoded lengths**: `px`, `rem`, `em`, `%`, `vw`, `vh`, etc.
-- **Hardcoded colors**: hex (`#fff`, `#ffffff`, …) and `rgb()/rgba()/hsl()/hsla()`
+Common drift patterns it surfaces:
 
-It does **not** flag token usage (like `var(--size-5)`), because there’s no numeric literal to match.
+- `12px` that should be `var(--spacing-sm)`
+- `0.95rem` that should be `var(--font-500)`
+- `#333` that should be `var(--color-darktext)`
 
-## Config (repo root)
+## Config
 
-The tool reads `design-guard.config.json` from your repo root if present.
+Reads `design-guard.config.json` from the repo root if present:
 
-Common patterns:
-
-- Use `include` to restrict scanning to the parts of the repo you care about (usually `src`)
-- Use `exclude` for broad folders like build output
-- Use `ignoreFiles` for token/reference sources (e.g. `_config.scss`) so they don’t self-flag
+- `include` — restrict scanning to specific paths (usually `src/`)
+- `exclude` — skip build output, vendored files
+- `ignoreFiles` — skip token source files like `_config.scss` so they don't self-flag
 
 ## Ignoring
 
-- Ignore a line: add `design-guard:ignore`
-- Ignore an entire file: add `design-guard:off`
+```scss
+// design-guard:ignore  ← skip this line
+color: #fff;
 
+// design-guard:off  ← skip entire file (add at top)
+```
+
+## Use It
+
+```bash
+# Warn mode
+npx @jacquesramphal/design-guard --verbose
+
+# Strict mode (fails commit or CI)
+npx @jacquesramphal/design-guard --strict --verbose
+```
+
+Available on npm: [`@jacquesramphal/design-guard`](https://www.npmjs.com/package/@jacquesramphal/design-guard) · Source on [GitHub](https://github.com/jacquesramphal/design-guard)

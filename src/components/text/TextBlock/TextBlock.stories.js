@@ -1,19 +1,8 @@
 import TextBlock from "./TextBlock";
 
 export default {
-  title: "Components/Layout/TextBlock",
+  title: "Components/text/TextBlock",
   component: TextBlock,
-  tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'A content block with optional eyebrow, heading (`as` controls the tag level), body copy, and CTA. ' +
-          'Used inside HeroBanner, TextImage, and standalone section layouts. ' +
-          'Pass `center: true` to centre-align all content.',
-      },
-    },
-  },
   argTypes: {
     alt: { control: "text" },
     as: {
@@ -51,7 +40,7 @@ const Template = (args) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-  icon: "icon/j-logo.svg",
+  icon: "j-logo.svg",
   alt: "Logo",
   as: "h1",
   eyebrow: "Eyebrow",

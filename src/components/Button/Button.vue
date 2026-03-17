@@ -1,30 +1,28 @@
 <template>
   <span>
-    <router-link active-class="active-class" v-if="route" id="btn" :to="`${route}`">
+    <router-link
+      active-class="active-class"
+      v-if="route"
+      id="btn"
+      :to="`${route}`"
+    >
       <button
         class="custom-btn"
         type="button"
         :class="classes"
-        :style="buttonStyles"
         @click="onClick"
-        :disabled="disabled"
-        :aria-disabled="disabled ? 'true' : 'false'"
-        :aria-label="ariaLabel || label"
+        :style="style"
       >
         <!-- <span v-if="icon" class="button-icon">{{ icon }}</span> -->
 
-        <MyIcon class="button-icon" v-if="icon" :name="`${icon}`" :is-svg="true" size="16" />
-        <span v-if="!hideLabel" class="button-label">
-          <slot>{{ label }}</slot>
-        </span>
-        <slot v-else />
         <MyIcon
-          class="button-icon-right"
-          v-if="iconRight"
-          :name="`${iconRight}`"
+          class="button-icon"
+          v-if="icon"
+          :name="`${icon}`"
           :is-svg="true"
           size="16"
         />
+        <span class="button-label">{{ label }}</span>
       </button>
     </router-link>
     <a v-else-if="link" id="btn" :href="`${link}`" target="blank">
@@ -32,26 +30,19 @@
         class="custom-btn"
         type="button"
         :class="classes"
-        :style="buttonStyles"
         @click="onClick"
-        :disabled="disabled"
-        :aria-disabled="disabled ? 'true' : 'false'"
-        :aria-label="ariaLabel || label"
+        :style="style"
       >
         <!-- <span v-if="icon" class="button-icon">{{ icon }}</span> -->
 
-        <MyIcon class="button-icon" v-if="icon" :name="`${icon}`" :is-svg="true" size="16" />
-        <span v-if="!hideLabel" class="button-label">
-          <slot>{{ label }}</slot>
-        </span>
-        <slot v-else />
         <MyIcon
-          class="button-icon-right"
-          v-if="iconRight"
-          :name="`${iconRight}`"
+          class="button-icon"
+          v-if="icon"
+          :name="`${icon}`"
           :is-svg="true"
           size="16"
         />
+        <span class="button-label">{{ label }}</span>
       </button>
     </a>
     <button
@@ -59,49 +50,37 @@
       class="custom-btn"
       type="button"
       :class="classes"
-      :style="buttonStyles"
       @click="onClick"
-      :disabled="disabled"
-      :aria-disabled="disabled ? 'true' : 'false'"
-      :aria-label="ariaLabel || label"
+      :style="style"
     >
       <!-- <span v-if="icon" class="button-icon">{{ icon }}</span> -->
 
-      <MyIcon class="button-icon" v-if="icon" :name="`${icon}`" :is-svg="true" size="16" />
-      <span v-if="!hideLabel" class="button-label">
-        <slot>{{ label }}</slot>
-      </span>
-      <slot v-else />
+      <MyIcon
+        class="button-icon"
+        v-if="icon"
+        :name="`${icon}`"
+        :is-svg="true"
+        size="16"
+      />
+      <span class="button-label">{{ label }}</span>
     </button>
   </span>
 </template>
 
 <script>
-import { reactive, computed } from 'vue';
-import MyIcon from '../Icon.vue';
+import { reactive, computed } from "vue";
+import MyIcon from "../Icon.vue";
 
 export default {
-  name: 'my-button',
+  name: "my-button",
   components: {
     MyIcon,
   },
   props: {
     label: {
       type: String,
-      required: false,
-      default: 'Button Label',
-    },
-    ariaLabel: {
-      type: String,
-      default: '',
-    },
-    hideLabel: {
-      type: Boolean,
-      default: false,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
+      required: true,
+      default: "Button Label",
     },
     route: {
       type: String,
@@ -114,36 +93,24 @@ export default {
     type: {
       type: String,
       validator: function (value) {
-        return ['solid', 'outline', 'ghost', 'subtle', 'textlink'].indexOf(value) !== -1;
+        return ["solid", "outline", "ghost", "textlink"].indexOf(value) !== -1;
       },
     },
     size: {
       type: String,
       validator: function (value) {
-        return ['xs', 'small', 'large'].indexOf(value) !== -1;
+        return ["small", "large"].indexOf(value) !== -1;
       },
     },
     icon: {
       type: String,
       validator: function (value) {
-        return ['none', 'left', 'right'].indexOf(value) !== -1;
+        return ["none", "left", "right"].indexOf(value) !== -1;
       },
-    },
-    iconRight: {
-      type: String,
-      required: false,
-    },
-    customBgColor: {
-      type: String,
-      required: false,
-    },
-    customTextColor: {
-      type: String,
-      required: false,
     },
   },
 
-  emits: ['click'],
+  emits: ["click"],
 
   setup(props, { emit }) {
     props = reactive(props);
@@ -152,10 +119,9 @@ export default {
         button: true,
         // "button--outline": props.outline,
         // "button--solid": !props.outline,
-        [`button--${props.type || 'solid'}`]: true,
-        [`button--${props.size || 'large'}`]: true,
-        [`button--${props.icon || 'none'}`]: true,
-        external: !!props.link,
+        [`button--${props.type || "solid"}`]: true,
+        [`button--${props.size || "large"}`]: true,
+        [`button--${props.icon || "none"}`]: true,
 
         // "link-left": true,
         // "link-left--left": this.left,
@@ -165,19 +131,8 @@ export default {
         // "link-right--right": this.right,
         // "link-right--default": !this.right,
       })),
-      buttonStyles: computed(() => {
-        const styles = {};
-        if (props.customBgColor) {
-          styles.backgroundColor = props.customBgColor;
-        }
-        if (props.customTextColor) {
-          styles.color = props.customTextColor;
-        }
-        return styles;
-      }),
       onClick() {
-        if (props.disabled) return;
-        emit('click');
+        emit("click");
       },
     };
   },
@@ -188,24 +143,23 @@ export default {
   font-family: inherit;
 }
 .button-icon {
-  margin-inline-end: var(--spacing-xxs); // Adjust spacing between icon and label
+  margin-inline-end: var(
+    --spacing-xxs
+  ); // Adjust spacing between icon and label
   line-height: var(--lineHeight-none);
   // Add any other styling as needed for the icon
 }
 
-.button-icon-right {
-  margin-inline-start: var(--spacing-xxs); // Adjust spacing between label and icon
-  line-height: var(--lineHeight-none);
+.button-label {
+  // Add styling for the label
 }
-
-/* .button-label intentionally left unstyled */
 .button {
   border-radius: var(--spacing-xxs);
   border: none;
   cursor: pointer;
   display: inline-block;
   font-size: inherit;
-  font-weight: var(--fontWeight-bold);
+  // font-weight: var(--fontWeight-medium);
   // padding: 0.5rem 1rem 0.5rem 1rem;
   text-decoration: none;
   transition: all 0.1s ease-in-out;
@@ -218,58 +172,59 @@ export default {
     transform: scale(0.98);
     /* box-shadow: var(--shadow-text); */
   }
-  &:disabled,
-  &[aria-disabled="true"] {
-    opacity: 0.4;
-    cursor: not-allowed;
-    pointer-events: none;
+  @media only screen and (max-width: 768px) {
+    width: 100%;
   }
 }
 
 .button--solid {
-  color: var(--foreground-reversed) !important;
-  background: var(--background-reversed) !important;
-  border: 2px solid var(--background-reversed) !important;
+  color: var(--color-offwhite) !important;
+  background: -webkit-linear-gradient(
+    var(--color-lightpurple),
+    var(--color-purple)
+  ) !important;
+  border: 2px solid var(--link) !important;
   &:before,
   &:after {
-    color: var(--foreground-reversed) !important;
+    color: var(--color-offwhite) !important;
   }
   &:hover {
-    opacity: 0.85;
+    background: -webkit-linear-gradient(var(--link), var(--link)) !important;
+    
   }
 }
 
 .button--outline {
   background-color: transparent !important;
-  color: var(--foreground) !important;
-  border: 1px solid var(--foreground) !important;
-  font-weight: var(--fontWeight-bold);
+  color: var(--link) !important;
+  border: 1px solid var(--link) !important;
+  font-weight: var(--fontWeight-normal);
 
   &:before,
   &:after {
-    color: var(--foreground) !important;
+    color: var(--link) !important;
   }
   &:hover {
-    color: var(--background) !important;
-    background-color: var(--foreground) !important;
+    color: var(--foreground-reversed) !important;
+    background-color: var(--link) !important;
     &:before,
     &:after {
-      color: var(--background) !important;
+      color: var(--foreground) !important;
     }
   }
 }
 
 .button--ghost {
-  color: var(--foreground) !important;
+  color: var(--link) !important;
   background-color: transparent;
   border: 1px solid transparent !important;
-  font-weight: var(--fontWeight-bold);
+  font-weight: var(--fontWeight-normal);
   &:before,
   &:after {
-    color: var(--foreground) !important;
+    color: inherit !important;
   }
   &:hover {
-    background-color: var(--background-darker) !important;
+    border: 1px solid var(--link) !important;
   }
   // &:active,
   // .router-link-exact-active {
@@ -277,13 +232,13 @@ export default {
   // }
 }
 .reversed .button--ghost {
-  color: var(--foreground-reversed) !important;
+  color: var(--link-reversed) !important;
   &:hover {
-    border: 1px solid var(--foreground-reversed) !important;
+    border: 1px solid var(--link-reversed) !important;
   }
   &:before,
   &:after {
-    color: var(--foreground-reversed) !important;
+    color: var(--link-reversed) !important;
   }
   &:active {
     // border: dashed !important;
@@ -291,37 +246,23 @@ export default {
   }
 }
 
-.button--subtle {
-  color: var(--foreground);
-  background-color: transparent;
-  border: 1px solid transparent !important;
-  font-weight: var(--fontWeight-bold);
-  &:before,
-  &:after {
-    color: inherit;
-  }
-  &:hover {
-    opacity: 0.8;
-    transform: translateY(-1px);
-  }
-}
-
 .button--textlink {
-  padding: 0 !important;
   color: var(--foreground) !important;
-  font-weight: var(--fontWeight-bold);
+
+  padding: 0 !important;
+  color: var(--link);
   background-color: transparent;
   border: none;
-  text-decoration: underline var(--color-yellow);
+  text-decoration: underline;
   text-underline-offset: 0.625rem;
-  text-decoration-thickness: 0.2rem !important;
+  text-decoration-thickness: 0.1rem !important;
   &:before,
   &:after {
     color: inherit !important;
   }
   &:hover {
-    color: var(--foreground);
-    text-decoration: underline wavy var(--color-yellow) !important;
+    color: var(--link);
+    text-decoration: underline;
     text-underline-offset: 0.625rem;
     text-decoration-thickness: 0.2rem !important;
   }
@@ -329,25 +270,14 @@ export default {
   .router-link-exact-active {
     text-decoration: underline dashed !important;
     text-underline-offset: 0.625rem;
-    text-decoration-thickness: 0.2rem !important;
+    text-decoration-thickness: 0.1rem !important;
   }
-}
-
-.button--external.button--textlink .button-label::after {
-  content: ' ↗';
-  font-size: 0.85em;
-  margin-inline-start: 0.2em;
-  display: inline-block;
 }
 
 .actve-class {
   text-decoration: underline dashed !important;
 }
 
-.button--xs {
-  font-size: var(--font-400);
-  padding: var(--spacing-xxxs) var(--spacing-xxs);
-}
 .button--small {
   font-size: var(--font-2xs);
   // padding: var(--spacing-xxs);
@@ -363,50 +293,37 @@ export default {
 
 /* Icon Styles */
 .button--none:before {
-  content: '';
+  content: "";
 }
 .button--left:before {
-  content: '★ ';
-  color: var(--foreground);
+  content: "★ ";
+  color: var(--link);
 }
 .button--right:after {
-  content: ' ★';
-  color: var(--foreground);
+  content: " ★";
+  color: var(--link);
 }
 
 .reversed {
   &:before,
   &:after {
-    color: var(--foreground-reversed);
+    color: var(--link-reversed);
   }
   .button--outline {
-    color: var(--foreground-reversed) !important;
-    border: 1px solid var(--foreground-reversed) !important;
+    color: var(--link-reversed) !important;
+    border: 1px solid var(--link-reversed) !important;
     &:before,
     &:after {
-      color: var(--foreground-reversed) !important;
+      color: var(--link-reversed) !important;
     }
   }
   .button--outline:hover {
     color: var(--foreground) !important;
-    background-color: var(--foreground-reversed) !important;
+    background-color: var(--link-reversed) !important;
     &:before,
     &:after {
       color: var(--foreground) !important;
     }
-  }
-  .button--textlink {
-    color: var(--foreground-reversed) !important;
-    &:before,
-    &:after {
-      color: var(--foreground-reversed) !important;
-    }
-    &:hover {
-      color: var(--foreground-reversed) !important;
-    }
-  }
-  .button--external.button--textlink .button-label::after {
-    color: var(--foreground-reversed) !important;
   }
 }
 </style>

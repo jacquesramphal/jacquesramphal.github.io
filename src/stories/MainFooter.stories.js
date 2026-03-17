@@ -1,24 +1,20 @@
-import MainFooter from '../components/MainFooter.vue';
-import { withDesign } from 'storybook-addon-designs';
+import MainFooter from "../components/MainFooter.vue";
+import { withDesign } from "storybook-addon-designs";
 
 export default {
-  title: 'Components/Navigation/MainFooter',
+  title: "Components/MainFooter",
   component: MainFooter,
-  tags: ['autodocs'],
   decorators: [withDesign],
-  parameters: {
-    layout: 'fullscreen',
-    docs: {
-      description: {
-        component: 'Full-width site footer with avatar, copyright, and nav links. Used on all primary pages.',
-      },
-    },
-  },
   argTypes: {},
 };
 
-export const Default = () => ({
+const Template = (args) => ({
   components: { MainFooter },
-  template: '<MainFooter />',
+  setup() {
+    return { args };
+  },
+  template: '<MainFooter v-bind="args" />',
 });
-Default.storyName = 'Default';
+
+export const Default = Template.bind({});
+Default.args = {};

@@ -1,58 +1,56 @@
+![Planning dashboard interface](../images/casestudy/glo/planner.png)
+
 # Fortune 100 Planning Tool
+A strategic planning interface for an organization managing data across business units, budgets, and initiatives at scale.
 
-#### Product Design, Dashboard Design
+| | |
+|---|---|
+| **Role** | Product Designer |
+| **Client** | Fortune 100 (NDA) |
+| **Status** | Launched |
+| **Tags** | product-design · dashboard |
 
-<br>
+## Overview
 
-<table>
-  <tr><td><strong>Role</strong></td><td>Product Designer</td></tr>
-  <tr><td><strong>Status</strong></td><td>Launched</td></tr>
-</table>
+The data existed. What the organization didn't have was a way to look across it without collapsing the complexity that makes it useful.
 
-![Planning dashboard interface](../images/casestudy/glo/planner.png)
+Enterprise planning tools tend toward one of two failure modes: show everything (overwhelming) or summarize everything (useless). The challenge was finding the layer in between — a view that gave decision-makers enough overview to act, while preserving the detail that mattered. The users were executives and planners making resource decisions on tight timelines, not analysts who lived in the tool.
 
-A comprehensive planning tool designed for enterprise-level strategic planning, featuring intuitive dashboards and real-time analytics for data-driven decision making.
+## My Role
 
+I led product design from early discovery through to a launched interface, working closely with the development team and directly with users at the client organization.
 
+I owned the UX, ran working sessions to understand how planning actually happened as opposed to how the org chart suggested it should, and designed the dashboard, the detail views, and the navigation model connecting them.
 
-## Key Focus Areas
+## The Constraint
 
-- **Intuitive Dashboard Design:** Created an intuitive planning interface that simplifies complex enterprise data into actionable insights.
+The organizational data was genuinely complex — multiple layers, multiple owners, multiple formats — and flattening it to make it displayable would have destroyed its value.
 
-- **Real-Time Analytics:** Implemented real-time analytics capabilities to support data-driven decision making at scale.
+Finance owned budget, operations owned initiatives, leadership owned the cross-unit view. None of those pieces had ever lived in the same interface before. Getting them into a single tool required careful decisions about what surfaced by default, what required a tap to reveal, and what could safely live a level down.
 
-- **Scalable Architecture:** Designed a flexible platform architecture that adapts to evolving enterprise planning needs.
+## Approach
 
-- **Enhanced User Experience:** Improved workflow efficiency through thoughtful UX patterns and streamlined navigation.
+Navigation was the primary design problem — not visualization, not aesthetics, but how a user moves from overview to specific line item and back without losing their place.
 
-## Planning Dashboard
+The hierarchy went: portfolio → business unit → initiative → detail. Each layer had a distinct visual treatment that made it immediately recognizable. Transitions between layers needed to feel continuous rather than disjointed. Data visualization was kept conservative: charts only where a chart communicated something a table couldn't.
 
-The main planning interface provides a comprehensive view of strategic planning data with intuitive navigation and real-time updates. The dashboard enables teams to visualize key metrics, track progress, and make informed decisions quickly.
+![Planning Dashboard](../images/casestudy/glo/planner.png)
+*The top-level planning view — organizational data across business units in a single navigable interface.*
 
-![Planning dashboard interface](../images/casestudy/glo/planner.png)
+## Outcome
 
-*Planning dashboard interface*
+The tool launched and became the primary planning interface for the organization, replacing a process that had run across disconnected spreadsheets and email threads.
 
-## Analytics & Insights
+Strategic planning moved from a fragmented, document-driven process into a shared interface with a common vocabulary. The client came back with iteration requests rather than structural concerns — which, for a first version, is the outcome you want.
 
-Advanced analytics capabilities surface key insights and trends to support data-driven decision making at the enterprise level. The insights view helps identify patterns, forecast outcomes, and optimize planning strategies.
+![Analytics and Insights View](../images/casestudy/glo/insights.png)
+*Analytics and insights view — patterns and trends surfaced across the planning dataset.*
 
-![Analytics and insights view](../images/casestudy/glo/insights.png)
+![Detailed Planning View](../images/casestudy/glo/details.png)
+*The detail view — granular planning at the initiative level, preserving the context of the layer above.*
 
-*Analytics and insights view*
+## What I Learned
 
-## Detailed Planning View
+Enterprise tools succeed when they disappear — the goal was never to impress with complexity, it was to make strategic planning feel obvious.
 
-The detailed view allows for granular planning and analysis, enabling teams to drill down into specific metrics and projections. This level of detail supports comprehensive strategic planning and resource allocation.
-
-![Detailed planning view](../images/casestudy/glo/details.png)
-
-*Detailed planning view*
-
----
-
-## Reflection
-
-Enterprise planning tools succeed when they disappear into the workflow. The goal was never to impress with complexity — it was to make strategic planning feel inevitable, so teams could focus on decisions rather than navigation.
-
-When the interface stops being something people think about, the design has done its job.
+When an interface stops being something people think about and becomes something they just use, the design has done its job. That's a harder standard than visual quality or feature completeness, and it takes longer to know whether you've met it.

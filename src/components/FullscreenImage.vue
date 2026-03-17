@@ -44,21 +44,24 @@ export default {
     };
   },
   watch: {
-    isOpen(val) {
-      if (val) {
-        document.body.style.overflow = 'hidden';
-        document.body.style.touchAction = 'none';
-        document.addEventListener('keydown', this.onKeydown);
-        this.$nextTick(() => {
-          this.$refs.viewport?.addEventListener('touchmove', this.onTouchMove, { passive: false });
-        });
-      } else {
-        document.body.style.overflow = '';
-        document.body.style.touchAction = '';
-        document.removeEventListener('keydown', this.onKeydown);
-        this.$refs.viewport?.removeEventListener('touchmove', this.onTouchMove);
-        this.resetZoom();
-      }
+    isOpen: {
+      immediate: true,
+      handler(val) {
+        if (val) {
+          document.body.style.overflow = 'hidden';
+          document.body.style.touchAction = 'none';
+          document.addEventListener('keydown', this.onKeydown);
+          this.$nextTick(() => {
+            this.$refs.viewport?.addEventListener('touchmove', this.onTouchMove, { passive: false });
+          });
+        } else {
+          document.body.style.overflow = '';
+          document.body.style.touchAction = '';
+          document.removeEventListener('keydown', this.onKeydown);
+          this.$refs.viewport?.removeEventListener('touchmove', this.onTouchMove);
+          this.resetZoom();
+        }
+      },
     },
   },
   beforeUnmount() {

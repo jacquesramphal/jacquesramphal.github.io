@@ -1,10 +1,10 @@
 <template>
-  <div role="radiogroup" :aria-label="ariaLabel || 'Filter by category'">
+  <div>
     <input
       v-for="category in categories"
       :key="category.value"
       type="radio"
-      :id="`${groupName}-${category.value}`"
+      :id="category.value"
       :name="groupName"
       :value="category.value"
       :checked="selectedCategory === category.value"
@@ -12,10 +12,7 @@
     />
     <ol class="filters">
       <li v-for="category in categories" :key="category.value">
-        <label
-          :for="`${groupName}-${category.value}`"
-          :class="{ 'active-filter': selectedCategory === category.value }"
-        >{{ category.label }}</label>
+        <label :for="category.value">{{ category.label }}</label>
       </li>
     </ol>
   </div>
@@ -27,7 +24,6 @@ export default {
     categories: Array,
     groupName: String,
     selectedCategory: String,
-    ariaLabel: String,
   },
 };
 </script>
@@ -63,10 +59,16 @@ li {
   color: var(--link);
 }
 
-/* Active filter — applied via Vue :class binding */
-.filters label.active-filter {
-  background: var(--foreground);
-  color: var(--background);
+/* Style for active filter */
+.filters label[for]:checked {
+  background: red !important; /* Change to your desired active filter background color */
+  color: white; /* Change to your desired active filter text color */
+}
+
+/* Apply dynamic filter styles using classes -- doesnt work */
+.filters .active-filter-label {
+  background: var(--green);
+  color: var(--white);
 }
 
 .filters label:hover {

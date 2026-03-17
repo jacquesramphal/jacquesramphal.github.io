@@ -1,8 +1,5 @@
 <template>
   <PageWrapper>
-    <div class="resume-actions">
-      <a href="/resume.html?print" target="_blank" class="resume-print-link">Print / Save PDF</a>
-    </div>
     <the-resume
       class="resume"
       :segments="segments"
@@ -35,20 +32,6 @@ export default {
 </script>
 
 <style scoped>
-.resume-actions {
-  display: flex;
-  justify-content: flex-end;
-  padding: var(--spacing-sm) var(--spacing-md);
-}
-.resume-print-link {
-  font-size: var(--font-400);
-  color: var(--link);
-  text-decoration: none;
-  cursor: pointer;
-}
-.resume-print-link:hover {
-  text-decoration: underline;
-}
 #info > .container {
   /* padding-block-start: 0 !important; */
 }

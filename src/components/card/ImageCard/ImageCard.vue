@@ -6,21 +6,17 @@
     style="padding: 0"
   >
     <GridContainer class="text-container">
-      <GridWrapper class="text" style="overflow: visible !important">
+      <GridWrapper class="text" style="oveflow: visible !important">
         <TextBlock
           clamped
           :eyebrow="`${eyebrow}`"
           as="h4"
           :title="`${title}`"
-          :titleRoute="`${route}`"
           :description="`${description}`"
           :route="`${route}`"
           :link="`${link}`"
           :btnroute="`${btnroute}`"
           :label="`${label}`"
-          :tags="tags"
-          btntype="textlink"
-          @tag-click="$emit('tag-click', $event)"
         />
       </GridWrapper>
     </GridContainer>
@@ -48,7 +44,6 @@
         draggable="false"
         :src="require(`../../../assets/images/${filename1}`)"
         :alt="`${alt}`"
-        :style="bgImageStyle"
       />
     </router-link>
   </span>
@@ -60,22 +55,18 @@
     style="padding: 0; border: var(--border)"
   >
     <GridContainer tight class="text-container2">
-      <GridWrapper class="text2" style="overflow: visible !important">
+      
+      <GridWrapper class="text2" style="oveflow: visible !important">
         <TextBlock
           clamped
           :eyebrow="`${eyebrow}`"
           as="h4"
           :title="`${title}`"
-          :titleRoute="`${route}`"
           :description="`${description}`"
           :route="`${route}`"
           :link="`${link}`"
           :btnroute="`${btnroute}`"
           :label="`${label}`"
-          :tags="tags"
-          btntype="textlink"
-          reversed
-          @tag-click="$emit('tag-click', $event)"
         />
       </GridWrapper>
     </GridContainer>
@@ -104,7 +95,6 @@
         draggable="false"
         :src="require(`../../../assets/images/${filename1}`)"
         :alt="`${alt}`"
-        :style="bgImageStyle"
       />
     </router-link>
   </span>
@@ -124,14 +114,10 @@
         :icon="icon"
         :iconsize="iconsize"
         :title="title"
-        :titleRoute="route"
         :description="description"
         :label="label"
         :route="route ? `${route}` : undefined"
         :btnroute="btnroute ? `${btnroute}` : undefined"
-        :tags="tags"
-        btntype="textlink"
-        @tag-click="$emit('tag-click', $event)"
       />
     </div>
     <div v-if="alt" class="image">
@@ -144,13 +130,12 @@
           draggable="false"
           :src="require(`../../../assets/images/${filename1}`)"
           :alt="`${alt}`"
-          :style="bgImageStyle"
         />
       </router-link>
     </div>
   </div>
 
-  <span v-else :class="[classes, { 'hover-enabled': hoverText }]" class="grid-card">
+  <span v-else :class="classes" class="grid-card">
     <span class="grid-card">
       <figure :data-category="`${eyebrow}`">
         <!-- Caption -->
@@ -167,10 +152,6 @@
               :link="`${link}`"
               :btnroute="`${btnroute}`"
               :label="`${label}`"
-              :tags="tags"
-              btntype="textlink"
-              reversed
-              @tag-click="$emit('tag-click', $event)"
           /></span>
         </span>
         <!-- Foreground Image (if filename2 exists), using conditional class BLUR when TITLE is true -->
@@ -180,7 +161,9 @@
           :class="{ blur: title }"
           style="position: absolute"
           draggable="false"
-          :src="filename2 ? require(`../../../assets/images/${filename2}`) : null"
+          :src="
+            filename2 ? require(`../../../assets/images/${filename2}`) : null
+          "
           :alt="`${alt}`"
         />
         <img
@@ -189,7 +172,9 @@
           :class="{ blur: title }"
           style="position: absolute"
           draggable="false"
-          :src="filename3 ? require(`../../../assets/images/${filename3}`) : null"
+          :src="
+            filename3 ? require(`../../../assets/images/${filename3}`) : null
+          "
           :alt="`${alt}`"
         />
         <!-- Background Image -->
@@ -199,7 +184,6 @@
           draggable="false"
           :src="require(`../../../assets/images/${filename1}`)"
           :alt="`${alt}`"
-          :style="bgImageStyle"
         />
       </figure>
     </span>
@@ -208,13 +192,13 @@
 </template>
 
 <script>
-import GridContainer from '../../grid/GridContainer.vue';
-import GridWrapper from '../../grid/GridWrapper.vue';
-import TextBlock from '../../text/TextBlock/TextBlock.vue';
-import { reactive, computed } from 'vue';
+import GridContainer from "../../grid/GridContainer.vue";
+import GridWrapper from "../../grid/GridWrapper.vue";
+import TextBlock from "../../text/TextBlock/TextBlock.vue";
+import { reactive, computed } from "vue";
 
 export default {
-  name: 'ImageCard',
+  name: "ImageCard",
 
   components: {
     TextBlock,
@@ -224,14 +208,14 @@ export default {
   props: {
     eyebrow: {
       type: String,
-      default: '',
+      default: "",
     },
     title: {
       type: String,
     },
     description: {
       type: String,
-      default: '',
+      default: "",
     },
     caption: {
       type: String,
@@ -247,28 +231,28 @@ export default {
     },
     filename1: {
       type: String,
-      default: 'empty.png',
+      default: "empty.png",
     },
     alt: {
       type: String,
-      default: 'This is an image',
+      default: "This is an image",
       required: true,
     },
     route: {
       type: String,
-      default: '',
+      default: "",
     },
     btnroute: {
       type: String,
-      default: '',
+      default: "",
     },
     link: {
       type: String,
-      default: '',
+      default: "",
     },
     label: {
       type: String,
-      default: 'Read More',
+      default: "Read More",
     },
     detail: {
       type: Boolean,
@@ -279,23 +263,17 @@ export default {
     size: {
       type: String,
       validator: function (value) {
-        return ['small', 'large'].indexOf(value) !== -1;
+        return ["small", "large"].indexOf(value) !== -1;
       },
     },
     variant: {
       type: String,
       validator: function (value) {
-        return ['default', 'borderless', 'cover', 'split', 'list'].indexOf(value) !== -1;
+        return (
+          ["default", "borderless", "cover", "split", "list"].indexOf(value) !==
+          -1
+        );
       },
-    },
-    hoverText: {
-      type: Boolean,
-      default: false,
-    },
-    tags: {
-      type: Array,
-      default: () => [],
-      required: false,
     },
   },
 
@@ -304,21 +282,11 @@ export default {
 
     return {
       classes: computed(() => ({
-        'image-card': true,
-        [`image-card--${reactiveProps.size || 'small'}`]: true,
+        "image-card": true,
+        [`image-card--${reactiveProps.size || "small"}`]: true,
         defaultcard: true,
         [`defaultcard--${reactiveProps.variant}`]: true,
       })),
-      bgImageStyle: computed(() => {
-        const filename = reactiveProps.filename1 || '';
-        const isSvg = typeof filename === 'string' && filename.toLowerCase().endsWith('.svg');
-        const isLarge = reactiveProps.size === 'large';
-        // For large SVG "logo cards" (like work/dod.svg), keep the image centered (not pinned).
-        if (isSvg && isLarge) {
-          return { objectPosition: '50% 50%', objectFit: 'contain' };
-        }
-        return {};
-      }),
     };
   },
 };
@@ -372,7 +340,7 @@ img {
 
 .image {
   overflow: hidden;
-  aspect-ratio: 3/4;
+  aspect-ratio: 4/3;
   border-radius: 0 !important;
 }
 .defaultcard--list {
@@ -406,7 +374,7 @@ img {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: var(--spacing-md);
     .image {
-      aspect-ratio: 3/4 !important;
+      aspect-ratio: 16/9 !important;
       // flex: 3;
       grid-column: 3 / 4 !important;
       block-size: 100% !important;
@@ -442,6 +410,7 @@ img {
   }
 }
 .defaultcard--cover {
+  
   background-color: transparent;
   &:hover {
     background: transparent;
@@ -457,7 +426,11 @@ img {
     padding: var(--spacing-md);
     z-index: 100;
     align-content: end; //alignment
-    background: linear-gradient(15deg, var(--background) 25%, rgba(0, 0, 0, 0) 120%);
+    background: linear-gradient(
+      15deg,
+      var(--background) 25%,
+      rgba(0, 0, 0, 0) 120%
+    );
   }
   .textblock {
     background: transparent !important;
@@ -474,7 +447,7 @@ img {
 .image-card {
   .bg {
     mix-blend-mode: normal;
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 1 / 1;
     block-size: 101%;
     object-fit: cover;
     object-position: 0% 100%;
@@ -505,12 +478,10 @@ img {
 
 // image-cards Large
 .image-card--large {
-  aspect-ratio: auto !important;
-
   @media only screen and (min-width: 768px) {
     grid-column: 1 / 3;
     .bg {
-      aspect-ratio: 16 / 8;
+      aspect-ratio: 16 / 9;
       object-position: 0% 0%;
     }
     // .filename2 {
@@ -570,38 +541,17 @@ img {
     }
   }
 }
-
-// Split variant with large size
-.thumbdetail.image-card--large {
-  @media only screen and (min-width: 768px) {
-    grid-column: 1 / 3;
-    .bg {
-      aspect-ratio: 16 / 8;
-      object-position: 0% 0%;
-    }
-  }
-
-  @media only screen and (min-width: 1201px) {
-    grid-column: 1 / 4;
-    .bg {
-      aspect-ratio: 5 / 4;
-      object-position: 0% 0%;
-    }
-  }
-}
 .bg {
   mix-blend-mode: normal;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   block-size: 101%;
   object-fit: cover;
 }
 .thumbdetail {
-  display: grid;
   background-color: var(--background-darker) !important;
   grid-column: 1 / 4;
   grid-template-rows: 2, 1fr;
   text-decoration: none !important;
-  min-height: 400px;
 
   @media only screen and (min-width: 768px) {
     grid-gap: var(--spacing-md);
@@ -615,21 +565,8 @@ img {
   }
 }
 
-.thumbdetail2 {
-  display: grid;
-  background-color: var(--background-darker) !important;
-  grid-column: 1 / 4;
-  text-decoration: none !important;
-  min-height: 400px;
-}
-
 .text-container {
   padding: var(--spacing-md) var(--spacing-md) 0 var(--spacing-md) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  min-height: 100% !important;
-  height: 100% !important;
-  block-size: 100% !important;
 
   @media only screen and (min-width: 768px) {
     padding: var(--spacing-sm) 0 var(--spacing-md) var(--spacing-md) !important;
@@ -641,28 +578,15 @@ img {
 }
 .text-container2 {
   padding: var(--spacing-md) var(--spacing-md) 0 var(--spacing-md) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  min-height: 100% !important;
-  height: 100% !important;
-  block-size: 100% !important;
 }
 
 .textblock {
   text-decoration: none !important;
   text-decoration: none !important;
-  height: 100%;
 }
 
 .textblock:hover {
   text-decoration: none !important;
-}
-
-// Push eyebrow/title/description to bottom for cover and image card variants
-.thumbdetail .textblock .eyebrow,
-.thumbdetail2 .textblock .eyebrow,
-.defaultcard--cover .textblock .eyebrow {
-  margin-block-start: auto;
 }
 
 .title {
@@ -671,21 +595,11 @@ img {
 
 .text {
   // max-width: 60px;
-  display: flex !important;
-  flex-direction: column !important;
-  flex: 1 !important;
-  height: 100% !important;
+
   overflow: visible !important;
   @media only screen and (min-width: 768px) {
     grid-column: 1 / 2;
   }
-}
-.text2 {
-  display: flex !important;
-  flex-direction: column !important;
-  flex: 1 !important;
-  height: 100% !important;
-  overflow: visible !important;
 }
 .wrap {
 }
@@ -720,7 +634,7 @@ img {
   -o-transition: all 0.1s ease-in-out;
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
-  opacity: 1;
+  opacity: 0;
   display: block !important;
   float: left;
   padding: var(--spacing-sm) var(--spacing-md);
@@ -731,7 +645,11 @@ img {
   inline-size: -moz-available;
   inline-size: -webkit-fill-available;
   block-size: 100%;
-  background: linear-gradient(135deg, var(--background-reversed) 0%, rgba(255, 255, 255, 0) 200%);
+  background: linear-gradient(
+    135deg,
+    var(--background-reversed) 0%,
+    rgba(255, 255, 255, 0) 200%
+  );
 
   #textblock {
     background: transparent;
@@ -748,22 +666,15 @@ img {
   }
 }
 
-// Hide caption by default when hover is enabled
-.grid-card.hover-enabled .caption {
-  opacity: 0;
-}
-
-// Show caption on hover when hover is enabled
-.grid-card.hover-enabled:hover {
+.grid-card:hover {
   .caption {
     opacity: 1;
     color: var(--color-offwhite) !important;
     display: block !important;
   }
 }
-
-.grid-card.hover-enabled:hover .fg.blur,
-.grid-card.hover-enabled:hover .bg.blur {
+.grid-card:hover .fg.blur,
+.grid-card:hover .bg.blur {
   filter: blur(2px); /* Blur amount on hover, can be adjusted */
 }
 </style>

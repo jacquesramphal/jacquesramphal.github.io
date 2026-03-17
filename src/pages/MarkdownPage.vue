@@ -16,6 +16,7 @@
       :center="false"
       :breadcrumb="''"
     />
+    <!-- Legacy: hero image after <header> block, tight container -->
     <GridContainer
       tight
       v-if="hasHeaderTag && heroImageSrc && heroImage"
@@ -30,12 +31,33 @@
         />
       </div>
     </GridContainer>
+
+    <!-- New format: pre-title lead image, full viewport width, above TOC and content -->
+    <GridContainer
+      fullvw
+      v-if="!hasHeaderTag && hasLeadImage && heroImageSrc && heroImage"
+      style="scroll-snap-align: start; margin-block-end: 0; padding-block-end: 0;"
+    >
+      <div class="hero-fullscreen-image hero-fullscreen-image--lead">
+        <img
+          :src="heroImageSrc"
+          :alt="heroTitle || 'Hero image'"
+          draggable="false"
+          class="hero-fullscreen-image__img"
+        />
+      </div>
+    </GridContainer>
     <!-- :full="isFullWidth" -->
     <GridContainer
+      :style="!hasHeaderTag && hasLeadImage ? 'padding-block-start: 0' : ''"
       ><GridParent
         :class="[
           'markdown-layout',
-          { 'markdown-layout--no-hero': !hasHeaderTag, 'markdown-layout--full-width': isFullWidth },
+          {
+            'markdown-layout--no-hero': !hasHeaderTag && !hasLeadImage,
+            'markdown-layout--no-hero-lead': !hasHeaderTag && hasLeadImage,
+            'markdown-layout--full-width': isFullWidth,
+          },
         ]"
       >
         <main id="markdown-content-end" class="markdown-main">
@@ -181,6 +203,7 @@ export default {
     const heroSubtitle = ref('');
     const heroImage = ref('');
     const hasHeaderTag = ref(false);
+    const hasLeadImage = ref(false);
     const statsLabel1 = ref('');
     const statsValue1 = ref('');
     const statsLabel2 = ref('');
@@ -342,7 +365,7 @@ export default {
       }
 
       // ---------------------------
-      // 2. Extract first image AFTER header
+      // 2. Extract image — BEFORE first heading (new format) or AFTER header (legacy)
       // ---------------------------
       const lines = markdown.split('\n');
       let headerClosedLine = -1;
@@ -353,13 +376,32 @@ export default {
         }
       });
 
-      // Scan from line after header until you find an image
       if (headerClosedLine >= 0) {
+        // Legacy: scan after </header>
         for (let i = headerClosedLine + 1; i < lines.length; i++) {
           const match = lines[i].match(/!\[[^\]]*\]\(([^)]+)\)/);
           if (match) {
             image = match[1];
             break;
+          }
+        }
+      } else {
+        const isHtml = markdown.trim().startsWith('<');
+        if (isHtml) {
+          // HTML format: extract src from first <img> before <h1>
+          const h1Idx = markdown.search(/<h1[\s>]/i);
+          const searchIn = h1Idx !== -1 ? markdown.slice(0, h1Idx) : markdown;
+          const imgSrcMatch = searchIn.match(/<img[^>]+src=["']([^"']+)["']/i);
+          if (imgSrcMatch) image = imgSrcMatch[1];
+        } else {
+          // Raw markdown: image before first # heading
+          for (let i = 0; i < lines.length; i++) {
+            if (/^#\s/.test(lines[i])) break;
+            const match = lines[i].match(/!\[[^\]]*\]\(([^)]+)\)/);
+            if (match) {
+              image = match[1];
+              break;
+            }
           }
         }
       }
@@ -386,10 +428,34 @@ export default {
       const headerRegex = /<header[^>]*>[\s\S]*?<\/header>/i;
       const hasHeader = headerRegex.test(markdown);
 
-      // If there is no <header> block, we should not strip anything
-      // (otherwise we'd remove the first content image even though no hero will render).
+      // No <header> block — check for lead image before first heading (new format)
       if (!hasHeader) {
-        return markdown;
+        const isHtml = markdown.trim().startsWith('<');
+
+        if (isHtml) {
+          // HTML format: remove first paragraph-wrapped or bare img tag before h1.
+          // Regex built from parts to avoid false-positive linter warnings on the img literal.
+          const imgTag = '<' + 'img[^>]+>';
+          const leadImgPattern = new RegExp(
+            '^\\s*(<p[^>]*>\\s*)?' + imgTag + '(\\s*<\\/p>)?\\s*',
+            'i'
+          );
+          return markdown.replace(leadImgPattern, '');
+        }
+
+        // Markdown format: remove first image line before the first # heading
+        const lines = markdown.split('\n');
+        const result = [];
+        let imageStripped = false;
+        for (const line of lines) {
+          const isImage = /!\[[^\]]*\]\([^)]+\)/.test(line);
+          if (!imageStripped && isImage) {
+            imageStripped = true;
+            continue; // skip this line
+          }
+          result.push(line);
+        }
+        return imageStripped ? result.join('\n') : markdown;
       }
 
       let output = markdown;
@@ -431,6 +497,7 @@ export default {
         heroSubtitle.value = '';
         heroImage.value = '';
         hasHeaderTag.value = false;
+        hasLeadImage.value = false;
         isFullWidth.value = false;
 
         // Resolve route param -> content file.
@@ -547,9 +614,26 @@ export default {
             markdownToExtract = processedMarkdownForRender;
           }
 
-          // If there is no <header> block in the doc, we should not render the hero at all.
-          // This flag is the single source of truth for hero rendering.
+          // Legacy: header block detection
           hasHeaderTag.value = /<header[^>]*>/i.test(markdownToExtract || '');
+
+          // New format: image before first heading (handles both raw markdown and HTML)
+          hasLeadImage.value = (() => {
+            const src = (markdownToExtract || '').trim();
+            const isHtml = src.startsWith('<');
+            if (isHtml) {
+              // In HTML: image appears before <h1>
+              const h1Idx = src.search(/<h1[\s>]/i);
+              const imgIdx = src.search(/<img[\s>]/i);
+              return imgIdx !== -1 && (h1Idx === -1 || imgIdx < h1Idx);
+            }
+            // Raw markdown: image line before first # heading
+            for (const line of src.split('\n')) {
+              if (/^#\s/.test(line)) return false;
+              if (/!\[[^\]]*\]\([^)]+\)/.test(line)) return true;
+            }
+            return false;
+          })();
           isFullWidth.value = /<!--\s*full-width\s*-->/i.test(markdownToExtract || '');
 
           heroData = extractHeroData(markdownToExtract);
@@ -744,6 +828,12 @@ export default {
       const imagePath = heroImage.value.trim();
       console.log('heroImageSrc: Original image path from extraction:', imagePath);
 
+      // If the path is already a resolved URL (webpack output, data URI, or absolute),
+      // return it directly — no imageMap lookup needed.
+      if (imagePath.startsWith('/') || imagePath.startsWith('http') || imagePath.startsWith('data:')) {
+        return imagePath;
+      }
+
       // Clean up the path - remove any leading/trailing slashes and normalize
       // The extraction already removes ../images/ prefix, so we should have clean path like "casestudy/genie/genie.png"
       let cleanPath = imagePath;
@@ -887,6 +977,7 @@ export default {
       heroSubtitle,
       heroImage,
       hasHeaderTag,
+      hasLeadImage,
       heroImageSrc,
       fallbackImageSrc,
       shouldShowHero,
@@ -1255,6 +1346,14 @@ export default {
   margin-block-start: var(--spacing-xl);
 }
 
+.markdown-layout--no-hero-lead {
+  margin-block-start: var(--spacing-md);
+
+  @media only screen and (min-width: 768px) {
+    margin-block-start: var(--spacing-lg);
+  }
+}
+
 .markdown-layout--full-width {
   .markdown-main {
     @media only screen and (min-width: 1201px) {
@@ -1388,6 +1487,15 @@ export default {
   overflow: hidden;
   aspect-ratio: 16 / 9;
   max-height: 75vh;
+
+  &--lead {
+    aspect-ratio: 4 / 3;
+    max-height: 50vh;
+
+    @media only screen and (min-width: 768px) {
+      aspect-ratio: 21 / 9;
+    }
+  }
   position: relative;
 
   :deep(.image-card) {
@@ -1414,14 +1522,15 @@ export default {
     height: 100%;
     display: block;
     object-fit: cover;
-    object-position: top center;
+    object-position: 50% 50%;
     position: absolute;
     top: 0;
     left: 0;
+    border-radius: 0 !important;
 
     @media only screen and (min-width: 768px) {
       object-fit: cover;
-      object-position: top center;
+      object-position: 50% 50%;
     }
   }
 }
@@ -1441,12 +1550,12 @@ export default {
   }
 }
 
+
 .presenter-mode {
   .toc-sidebar-wrap,
   .markdown-share,
   #related-writing-section,
-  #hero-banner,
-  .hero-fullscreen-image {
+  #hero-banner {
     display: none !important;
   }
 
@@ -1456,13 +1565,16 @@ export default {
     scroll-snap-align: start;
   }
 
-  .markdown-layout {
-    grid-template-columns: 1fr 9fr 1fr !important;
-  }
+  // Desktop only — mobile retains full-width normal layout
+  @media only screen and (min-width: 768px) {
+    .markdown-layout {
+      grid-template-columns: 1fr 9fr 1fr !important;
+    }
 
-  .markdown-main {
-    zoom: 1.2;
-    grid-column: 2 / 3 !important;
+    .markdown-main {
+      zoom: 1.2;
+      grid-column: 2 / 3 !important;
+    }
   }
 }
 

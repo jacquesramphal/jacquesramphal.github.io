@@ -1,3 +1,5 @@
+const webpack = require('webpack'); // Add the webpack import
+
 module.exports = ({ config }) => {
   config.module.rules.push(
     {

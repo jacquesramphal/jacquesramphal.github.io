@@ -24,14 +24,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    overflowVisible: {
-      type: Boolean,
-      default: false,
-    },
-    full: {
-      type: Boolean,
-      default: false,
-    },
   },
   computed: {
     classes() {
@@ -41,8 +33,6 @@ export default {
         "container-spacing--fullvw": this.fullvw,
         "container-spacing--maxvw": this.maxvw,
         "container-spacing--fullvh": this.fullvh,
-        "container-spacing--overflow-visible": this.overflowVisible,
-        "container-spacing--full": this.full,
       };
     },
   },
@@ -67,10 +57,7 @@ export default {
   overflow: hidden;
 
   @media only screen and (min-width: 768px) {
-    padding: var(--spacing-lg)!important;
-  }
-  @media only screen and (min-width: 1201px) {
-    padding: var(--spacing-lg) var(--spacing-xl) !important;
+    padding: var(--spacing-lg) !important;
   }
   // @media only screen and (min-width: 1201px) {
   //   padding: var(--spacing-lg) var(--spacing-xl) !important;
@@ -105,14 +92,6 @@ export default {
     float: none;
     margin-inline-start: auto;
     margin-inline-end: auto;
-  }
-
-  &--overflow-visible {
-    overflow: visible !important;
-  }
-
-  &--full {
-    padding-inline: 0 !important;
   }
 }
 </style>

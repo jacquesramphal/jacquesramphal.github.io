@@ -2,33 +2,61 @@
 
 /** GLOBAL HIGHLIGHT COLOUR **/
 ::selection {
-  background: var(--color-accent);
+  background: rgba(185, 141, 226, 0.4);
 }
 
 ::-moz-selection {
-  background: var(--color-accent);
+  background: rgba(185, 141, 226, 0.4);
 }
+
+/* :focus {
+  outline: 4px dashed var(--background-darker);
+} */
+/*:active {
+ outline: 1px dashed var(--link);
+  outline: 8px solid rgba(21, 156, 228, 0.4);
+  outline-offset: .8rem; 
+}*/
+/* outline: 3px solid var(--color-action) !important; */
+/* box-shadow: 20px 15px 30px yellow, -20px 15px 30px lime, -20px -15px 30px blue, 20px -15px 30px red;} */
+
+/* outline: none;
+  transform: scale(1.08) !important; */
+/* 
+  outline: 3px dashed var(--color-action);
+  outline-offset: 10px; */
+/* 
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
+} */
 
 /* -------- FORM INPUT -------- */
 
 label {
-  font-size: var(--font-500);
+  font-size: 1.6rem;
   display: inline-block;
-  margin-block-end: var(--size-5) !important;
+  margin-block-end: 2rem !important;
 }
+
+/* label::after {
+  content: ":";
+  display: inline-block;
+  margin-inline-end: 3px;
+  margin-block-end: 2rem !important;
+} */
 
 input,
 textarea,
 select {
-  font-size: var(--font-500);
+  font-size: 1.6rem;
   color: var(--foreground) !important;
   inline-size: 100%;
   inset-block-start: 0;
-  padding: var(--spacing-xs);
-  margin-block-end: var(--spacing-field);
+  padding: 1.6rem;
+  margin-block-end: 1rem;
   box-sizing: border-box;
   border: transparent;
-  border-radius: var(--radius-sm);
+  border-radius: 4px;
   background-color: var(--background-darker);
   /* box-shadow: var(--shadow-z1); */
 }
@@ -41,7 +69,7 @@ input:focus,
 textarea:focus,
 select:focus {
   background: inherit;
-  outline: 2px solid var(--color-action) !important; /* design-guard:ignore */
+  border-color: var(--color-action) !important;
   outline-offset: 0;
   -moz-transition: outline 0.1s ease-out;
   -o-transition: outline 0.1s ease-out;
@@ -57,6 +85,8 @@ select:optional {
 input:required:valid,
 textarea:required:valid,
 select:required:valid {
+  /* background:  url(../images/emoji/emoji-smile.png)  no-repeat 97% 12px; */
+  background-size: 28px;
   background-color: var(--background-darker);
 }
 
@@ -66,9 +96,24 @@ select:required:invalid {
   /* border-color: red; */
 }
 
-/* SELECTORS */
-option:first {
+input:required:focus:valid,
+textarea:required:focus:valid,
+select:required:focus:valid {
+  background: url(../../images/emoji/emoji-wink.png) no-repeat 97% 12px;
+  background-size: 28px;
+  border-color: var(--color-success) !important;
 }
+
+input:required:focus:invalid,
+textarea:required:focus:invalid,
+select:required:focus:invalid {
+  background: url(../../images/emoji/emoji-think.png) no-repeat 97% 12px;
+  background-size: 28px;
+  /* border: 2px solid var(--color-danger) !important; */
+}
+
+/* SELECTORS */
+option:first {}
 
 /* ------- Dark Form UI ------- */
 
@@ -80,6 +125,8 @@ option:first {
   input,
   textarea,
   select {
+    /* border: 1px solid var(--color-white); */
+    /* border: 2px solid black; */
     background-color: var(--background-darker);
     box-shadow: none;
   }
@@ -107,8 +154,8 @@ option:first {
   justify-items: center;
 }
 
-input[type='radio'],
-input[type='checkbox'] {
+input[type="radio"],
+input[type="checkbox"] {
   margin-inline-end: var(--size-2);
   /* Adjust the spacing between the input and label */
   inline-size: var(--size-5);
@@ -117,24 +164,21 @@ input[type='checkbox'] {
   /* Set the block size (height) of the radio/checkbox */
 }
 
-input[type='radio'] + label,
-input[type='checkbox'] + label {
+input[type="radio"]+label,
+input[type="checkbox"]+label {
   cursor: pointer;
   font-size: var(--font-500);
   margin-block-end: 0 !important;
 }
 
-.form-radio {
-}
+.form-radio {}
 
-.form-radio:checked::before {
-}
+.form-radio:checked::before {}
 
-.form-radio:hover {
-}
+.form-radio:hover {}
 
-.form-radio:checked {
-}
+.form-radio:checked {}
+
 
 /*TOOLTIPS*/
 [data-tooltip]:hover:after {
@@ -147,15 +191,15 @@ input[type='checkbox'] + label {
   content: attr(data-tooltip);
   background-color: var(--color-dark);
   font-size: inherit;
-  color: var(--color-white);
+  color: #fff;
   position: absolute;
-  padding: var(--size-20) var(--size-5) var(--spacing-xxs) var(--size-5);
+  padding: 10rem 2rem 1rem 2rem;
   white-space: nowrap;
-  box-shadow: var(--shadow-z1);
+  box-shadow: 1px 1px 10px var(--color-dark);
   opacity: 0;
   z-index: 99999;
   visibility: hidden;
-  border-radius: var(--radius-full);
+  border-radius: 400px !important;
 }
 
 [data-tooltip] {
@@ -168,3 +212,14 @@ ul {
   padding: 0;
   margin: 0;
 }
+
+/* 
+li {
+  padding-inline-start: 16px;
+}
+
+li::before {
+  content: "•";
+  padding-inline-end: 8px;
+  color: blue;
+} */

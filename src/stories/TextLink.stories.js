@@ -1,18 +1,8 @@
 import TextLink from "../components/text/TextLink.vue";
 
 export default {
-  title: "Components/Primitives/TextLink",
+  title: "Components/Text/TextLink",
   component: TextLink,
-  tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Inline link component. Pass `route` for Vue Router navigation or `link` for external URLs. ' +
-          'The `large` prop increases size; `left`/`right` add directional arrow indicators.',
-      },
-    },
-  },
   argTypes: {
     label: { control: "text" },
     route: { control: "text" },

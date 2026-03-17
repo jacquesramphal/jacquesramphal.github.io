@@ -2,7 +2,6 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import hljs from "highlight.js";
 import store from "./store";
-import { createHead } from "@vueuse/head";
 // import { init, track, parameters } from "insights-js";
 import "./assets/js/gsap.js"; // Import your GSAP file
 
@@ -29,8 +28,6 @@ import BreadCrumb from "@/components/BreadCrumb.vue";
 import ImageCard2 from "@/components/card/ImageCard2.vue";
 import MyButton from "@/components/Button/Button.vue";
 import ButtonRow from "@/components/ButtonRow.vue";
-import SidebarNav from "./components/SidebarNav.vue";
-import SideNav from "./components/SideNav.vue";
 // import ButtonRow2 from "@/components/ButtonRow2.vue";
 import MyLogo from "@/components/MyLogo.vue";
 import Icon from "@/components/Icon.vue";
@@ -52,51 +49,6 @@ import NewsletterSubscription from "./components/form/NewsletterSubscription.vue
 
 import router from "./router";
 import { Directive, DirectiveBinding, VNode } from "vue";
-import { triggerHaptic } from "tactus";
-
-const isTouchDevice = () => navigator.maxTouchPoints > 0;
-
-// Global haptic feedback — mobile only, respects user toggle
-document.addEventListener("click", (e) => {
-  if (!isTouchDevice()) return;
-  if (localStorage.getItem("user-haptic") === "off") return;
-  const target = (e.target as HTMLElement).closest("a, button");
-  if (target && !target.hasAttribute("disabled") && target.getAttribute("aria-disabled") !== "true") {
-    triggerHaptic();
-  }
-});
-
-// Global sound feedback — respects user toggle
-const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
-let audioCtx: AudioContext | null = null;
-
-const playClickSound = () => {
-  try {
-    if (!AudioCtx) return;
-    if (!audioCtx) audioCtx = new AudioCtx();
-    if (audioCtx.state === "suspended") audioCtx.resume();
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-    osc.type = "sine";
-    osc.frequency.value = 600;
-    gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
-    osc.start();
-    osc.stop(audioCtx.currentTime + 0.08);
-  } catch (e) {
-    // ignore AudioContext errors
-  }
-};
-
-document.addEventListener("click", (e) => {
-  if (localStorage.getItem("user-sound") !== "on") return;
-  const target = (e.target as HTMLElement).closest("a, button");
-  if (target && !target.hasAttribute("disabled") && target.getAttribute("aria-disabled") !== "true") {
-    playClickSound();
-  }
-});
 
 // Define the custom directive
 const highlightjsDirective = {
@@ -151,7 +103,6 @@ export const appear: Directive = {
 
 // Create the Vue app instance
 const app = createApp(App);
-const head = createHead();
 
 // Use the custom directives
 app.directive("appear", appear);
@@ -160,7 +111,6 @@ app.directive("highlightjs", highlightjsDirective);
 // Use plugins, components, and mount the app as before
 app.use(router); // Use Vue Router plugin
 app.use(store); // Use Vuex store plugin
-app.use(head); // Use VueUse Head for dynamic meta tags
 
 // Global Components
 app
@@ -201,9 +151,7 @@ app
 .component("MyInput", MyInput)
 .component("NewsletterSubscription", NewsletterSubscription)
 .component("FormCentered", FormCentered)
-.component("MyForm", MyForm)
-.component("SidebarNav", SidebarNav)
-.component("SideNav", SideNav);
+.component("MyForm", MyForm);
 
 // Mount the app
 app.mount("#app");

@@ -1,7 +1,11 @@
 <template>
-  <div class="" style="overflow: visible !important; background: transparent !important">
+  <div class="" style="overflow: visible !important">
     <!-- DESKTOP VIEW START -->
-    <GridContainer v-if="isDesktopScreen" id="cards" style="overflow: visible !important">
+    <GridContainer
+      v-if="isDesktopScreen"
+      id="cards"
+      style="overflow: visible !important"
+    >
       <!-- HEADER COMPONENT START -->
       <div
         class="grid-parent"
@@ -9,65 +13,38 @@
           padding-block-end: var(--spacing-md);
           align-items: center;
           grid-template-columns: repeat(3, 1fr);
+          
         "
       >
-        <TextBlock style="grid-column: 1 / 3" :title="title" as="h2" description="" />
-
-        <p class="justify-end" style="align-self: center; white-space: nowrap">
-          <router-link v-if="viewAllTo" :to="viewAllTo">View All</router-link>
+        <TextBlock
+          style="grid-column: 1 / 3"
+          :title="title"
+          as="h2"
+          description=""
+        />
+        
+        <p class="justify-end" style="align-self: center">
+          <router-link :to="{ name: 'Library', hash: '#writing' }">View All</router-link>
         </p>
       </div>
-
+      
       <!-- HEADER COMPONENT END -->
 
       <GridParent tight>
-        <template v-if="kind === 'writing' || kind === 'work'">
-          <ArticleCard
-            borderless
-            v-for="entry in visibleItems"
-            :key="`writing-${entry.id}`"
-            eyebrow=""
-            :filename="entry.thumbnail"
-            :imageVariant="entry.imageVariant"
-            :bgcolor="entry.bgcolor"
-            :alt="entry.alt"
-            :title="entry.title"
-            :description="entry.description"
-            :route="entry.route || (entry.btnroute ? `/${entry.btnroute}` : '')"
-            :link="entry.link"
-            :label="entry.label"
-            :tags="entry.tags"
-            :type="entry.type"
-            :contentFile="entry.contentFile"
-          />
-        </template>
-        <template v-else>
-          <ImageCard
-            v-for="entry in visibleItems"
-            :key="`nonwriting-${entry.id}`"
-            class="post"
-            :data-category="entry.tag"
-            :title="entry.title"
-            :description="entry.description"
-            :cta="entry.cta"
-            :route="entry.route || (entry.btnroute ? `/${entry.btnroute}` : '')"
-            :btnroute="entry.btnroute"
-            :link="entry.link"
-            :alt="entry.alt"
-            :filename2="kind === 'work' ? null : entry.filename2 || entry.images?.filename2"
-            :filename3="
-              kind === 'work'
-                ? entry.filename3 ||
-                  entry.filename2 ||
-                  entry.filename1 ||
-                  entry.images?.filename1 ||
-                  entry.images?.filename3
-                : entry.filename3 || entry.images?.filename3
-            "
-            :style="entry.bgcolor"
-            size="small"
-          />
-        </template>
+        
+        <ArticleCard
+          borderless
+          v-for="entry in docs.entries.slice(0, 3)"
+          :key="entry.id"
+          :eyebrow="entry.eyebrow"
+          :filename="entry.thumbnail"
+          :alt="entry.alt"
+          :title="entry.title"
+          :description="entry.description"
+          :btnroute="entry.btnroute"
+          :route="entry.route"
+          :label="entry.label"
+        />
       </GridParent>
     </GridContainer>
 
@@ -75,7 +52,9 @@
 
     <!-- MOBILE VIEW START -->
     <span v-else
-      ><GridContainer style="padding-block-end: 0 !important; overflow: visible !important">
+      ><GridContainer
+        style="padding-block-end: 0 !important; overflow: visible !important"
+      >
         <!-- HEADER COMPONENT START -->
         <div
           class="grid-parent"
@@ -85,169 +64,70 @@
             grid-template-columns: repeat(1fr);
           "
         >
-          <TextBlock style="grid-column: 1 / 3" :title="title" as="h2" description="" />
-          <p class="justify-end" style="grid-column: 3 / 3; align-self: center">
-            <router-link v-if="viewAllTo" :to="viewAllTo">View All</router-link>
+          <TextBlock
+            style="grid-column: 1 / 3"
+            :title="title"
+            description= ""
+          />
+          <p class="justify-start" style="grid-column: 3 / 3; align-self: flex-start">
+            <router-link :to="{ name: 'Library' }">View All</router-link>
           </p>
         </div>
         <!-- HEADER COMPONENT END -->
       </GridContainer>
 
       <div class="scrolling-wrapper">
-        <GridParent class="cardmobile" v-for="entry in visibleItemsMobile" :key="entry.id">
+        <GridParent
+          class="cardmobile"
+          v-for="entry in docs.entries.slice(0, 3)"
+          :key="entry.id"
+        >
           <ArticleCard
-            borderless
-            v-if="kind === 'writing' || kind === 'work'"
-            :key="`writing-${entry.id}`"
+          borderless
             :image="entry.image"
-            eyebrow=""
+            :eyebrow="entry.eyebrow"
             :filename="entry.thumbnail"
-            :imageVariant="entry.imageVariant"
-            :bgcolor="entry.bgcolor"
             :alt="entry.alt"
             :title="entry.title"
             :description="entry.description"
-            :route="entry.route || (entry.btnroute ? `/${entry.btnroute}` : '')"
-            :link="entry.link"
+            :route="entry.btnroute"
             :label="entry.label"
-            :tags="entry.tags"
-            :type="entry.type"
-            :contentFile="entry.contentFile"
           />
-          <ImageCard
-            v-else
-            :key="`nonwriting-${entry.id}`"
-            :data-category="entry.tag"
-            :title="entry.title"
-            :description="entry.description"
-            :cta="entry.cta"
-            :route="entry.route || (entry.btnroute ? `/${entry.btnroute}` : '')"
-            :btnroute="entry.btnroute"
-            :link="entry.link"
-            :alt="entry.alt"
-            :filename1="
-              kind === 'work'
-                ? 'blank.svg'
-                : entry.filename1 || entry.filename3 || entry.images?.filename1
-            "
-            :filename2="kind === 'work' ? null : entry.filename2 || entry.images?.filename2"
-            :filename3="
-              kind === 'work'
-                ? entry.filename3 ||
-                  entry.filename2 ||
-                  entry.filename1 ||
-                  entry.images?.filename1 ||
-                  entry.images?.filename3
-                : entry.filename3 || entry.images?.filename3
-            "
-            :style="entry.bgcolor"
-            size="small"
-          />
-        </GridParent>
-      </div>
-    </span>
+        </GridParent></div
+    ></span>
     <!-- MOBILE VIEW END -->
   </div>
 </template>
 
 <script>
-import library from '../assets/data/library.json';
-import ArticleCard from '@/components/card/ArticleCard/ArticleCard.vue';
-import ImageCard from '@/components/card/ImageCard/ImageCard.vue';
+import docs from "../assets/data/docs.json";
 const OFFSET = 60;
 
 export default {
-  name: 'CardRow2',
-  components: { ArticleCard, ImageCard },
+  name: "CardRow2",
+  components: {},
   props: {
     title: {
       type: String,
-      default: 'Writing',
-    },
-    kind: {
-      type: String,
-      default: 'writing',
-    },
-    items: {
-      type: Array,
-      default: null,
-    },
-    viewAllTo: {
-      // string path or vue-router location object
-      type: [String, Object],
-      default: null,
-    },
-    limit: {
-      type: Number,
-      default: 3,
-    },
-    limitMobile: {
-      type: Number,
-      default: 10,
-    },
-    filterByType: {
-      type: String,
-      default: null,
+      default: "Writing",
     },
   },
   data() {
     return {
-      library,
+      docs,
       lastScrollPosition: 0,
       scrollValue: 0,
       showMobile: false, // Change to regular data property
       isDesktopScreen: false, // Change to regular data property
     };
   },
-  computed: {
-    resolvedItems() {
-      if (Array.isArray(this.items)) return this.items;
-      // Use library data (which has type info) instead of docs
-      return this.library.entries;
-    },
-    filteredItems() {
-      const currentRoute = this.$route;
-      let items = this.resolvedItems;
-
-      // Filter by type if filterByType prop is provided
-      if (this.filterByType) {
-        items = items.filter((item) => item.type === this.filterByType);
-      }
-
-      // Filter out the current document if we're on a doc page
-      if (currentRoute.name === 'Doc' || currentRoute.name === 'DocById') {
-        const currentSlug = currentRoute.params.slug;
-        const currentId = currentRoute.params.id;
-
-        items = items.filter((item) => {
-          // Filter by slug if available
-          if (currentSlug && item.slug) {
-            return item.slug !== currentSlug;
-          }
-          // Filter by docId if numeric id route is used
-          if (currentId && item.docId) {
-            return item.docId !== parseInt(currentId, 10);
-          }
-          return true;
-        });
-      }
-
-      return items;
-    },
-    visibleItems() {
-      return this.filteredItems.slice(0, this.limit);
-    },
-    visibleItemsMobile() {
-      return this.filteredItems.slice(0, this.limitMobile);
-    },
-  },
   mounted() {
     this.lastScrollPosition = window.pageYOffset;
-    window.addEventListener('scroll', this.onScroll);
-    window.addEventListener('resize', this.onWindowResize);
-    const viewportMeta = document.createElement('meta');
-    viewportMeta.name = 'viewport';
-    viewportMeta.content = 'width=device-width, initial-scale=1';
+    window.addEventListener("scroll", this.onScroll);
+    window.addEventListener("resize", this.onWindowResize);
+    const viewportMeta = document.createElement("meta");
+    viewportMeta.name = "viewport";
+    viewportMeta.content = "width=device-width, initial-scale=1";
     document.head.appendChild(viewportMeta);
 
     // Call the resize method on initial mount to set the initial visibility
@@ -255,8 +135,8 @@ export default {
   },
 
   beforeUnmount() {
-    window.removeEventListener('scroll', this.onScroll);
-    window.removeEventListener('resize', this.onWindowResize);
+    window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener("resize", this.onWindowResize);
   },
 
   methods: {
@@ -292,7 +172,7 @@ export default {
     inline-size: 25vw;
   }
   /* ------------ BREAKPOINT MD ------------ */
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 740px) {
     .cardmobile {
       margin: 0 0 var(--spacing-sm) var(--spacing-sm);
       inline-size: 85vw;
@@ -334,18 +214,18 @@ export default {
 
 /* FILTERING RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-[value='All']:checked ~ .filters [for='All'],
-[value='CSS']:checked ~ .filters [for='CSS'],
-[value='JavaScript']:checked ~ .filters [for='JavaScript'],
-[value='Figma']:checked ~ .filters [for='Figma'],
-[value='All']:checked ~ .posts [data-category] {
+[value="All"]:checked ~ .filters [for="All"],
+[value="CSS"]:checked ~ .filters [for="CSS"],
+[value="JavaScript"]:checked ~ .filters [for="JavaScript"],
+[value="Figma"]:checked ~ .filters [for="Figma"],
+[value="All"]:checked ~ .posts [data-category] {
   display: block;
 }
 
-[value='CSS']:checked ~ .posts .post:not([data-category~='CSS']),
-[value='JavaScript']:checked ~ .posts .post:not([data-category~='JavaScript']),
-[value='Typography']:checked ~ .posts .post:not([data-category~='Typography']),
-[value='Figma']:checked ~ .posts .post:not([data-category~='Figma']) {
+[value="CSS"]:checked ~ .posts .post:not([data-category~="CSS"]),
+[value="JavaScript"]:checked ~ .posts .post:not([data-category~="JavaScript"]),
+[value="Typography"]:checked ~ .posts .post:not([data-category~="Typography"]),
+[value="Figma"]:checked ~ .posts .post:not([data-category~="Figma"]) {
   display: none;
 }
 </style>
