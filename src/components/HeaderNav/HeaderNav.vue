@@ -242,7 +242,7 @@ button {
   display: flex;
   inset-block-start: 0;
   align-items: center;
-  mix-blend-mode: normal !important;
+  mix-blend-mode: difference;
   overflow: visible;
   position: fixed !important;
   transform: translate3d(0, 0, 0) !important;
@@ -261,7 +261,7 @@ button {
   inset-block-end: 0; /* Adjust the value to control the width of the additional background */
   inset-inline-end: 0;
   inline-size: 100%; /* Adjust the value to control the width of the additional background */
-  background: var(--background);
+  // background: var(--background);
   // background: var(--color-yellow);
   /* Specify the color of the additional background */
   opacity: 0.95;
@@ -286,7 +286,7 @@ button {
   border-block-end: none;
 }
 .bg {
-  background: var(--background);
+  // background: var(--background);
   transition: 0.5s box-shadow ease-in-out !important;
   justify-self: flex-end;
   overflow: visible;
@@ -419,6 +419,8 @@ p {
 }
 
 .wordmark {
+  color: white;
+
   #richlink,
   a,
   router-link {
@@ -441,6 +443,24 @@ p {
     text-decoration: none !important;
     color: inherit !important;
   }
+}
+
+// mix-blend-mode: difference requires white content for correct inversion.
+// White on white bg → black (readable). White on dark bg → white (readable).
+// Must use :deep() to pierce Vue scoped boundary into BreadCrumb/TextLink,
+// and !important to beat the global `color: var(--foreground) !important` in typography.scss.
+:deep(a),
+:deep(router-link),
+:deep(.nav-wordmark-link),
+:deep(.nav-item),
+:deep(p),
+:deep(span) {
+  color: white !important;
+}
+
+:deep(a:hover),
+:deep(router-link:hover) {
+  text-decoration-color: white !important;
 }
 // .wordmark::after {
 //   @media only screen and (min-width: 768px) {

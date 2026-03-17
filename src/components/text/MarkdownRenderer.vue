@@ -141,6 +141,7 @@ export default {
       // Re-setup animations when content changes
       this.$nextTick(() => {
         this.setupAnimations();
+        this.setupFullBgParallax();
         this.$el?.querySelectorAll?.('table').forEach((table) => {
           if (table.parentElement?.classList?.contains('table-scroll')) return;
           const wrapper = document.createElement('div');
@@ -152,6 +153,17 @@ export default {
     },
   },
   methods: {
+    decorateFullBgImages(rootEl) {
+      if (!rootEl || !(rootEl instanceof HTMLElement)) return;
+      rootEl.querySelectorAll('p img[alt="bg"], p img[alt="full-bg"]').forEach((img) => {
+        const p = img.parentElement;
+        if (!p || p.tagName !== 'P') return;
+        const div = document.createElement('div');
+        div.className = 'md-full-bg';
+        div.style.backgroundImage = `url('${img.getAttribute('src')}')`;
+        p.parentNode.replaceChild(div, p);
+      });
+    },
     decorateCodeBlocks(rootEl) {
       if (!rootEl || !(rootEl instanceof HTMLElement)) return;
 
@@ -239,6 +251,7 @@ export default {
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = html;
         this.decorateCodeBlocks(tempDiv);
+        this.decorateFullBgImages(tempDiv);
 
         // Extract headings from HTML
         const headings = tempDiv.querySelectorAll('h1, h2, h3, h4, h5, h6');
@@ -387,6 +400,12 @@ export default {
             const lang = (infostring || '').trim().split(/\s+/)[0];
             return renderCodeBlockHtml({ code, lang });
           };
+          renderer.image = function (href, title, text) {
+            if (text === 'bg' || text === 'full-bg') {
+              return `<div class="md-full-bg" style="background-image: url('${href}')"></div>`;
+            }
+            return `<img src="${href}" alt="${text}"${title ? ` title="${title}"` : ''}>`;
+          };
 
           const options = {
             mangle: false,
@@ -399,6 +418,7 @@ export default {
           const tempDiv = document.createElement('div');
           tempDiv.innerHTML = html;
           this.decorateCodeBlocks(tempDiv);
+          this.decorateFullBgImages(tempDiv);
 
           // Group content into sections between h2 headings
           const allElements = Array.from(tempDiv.children);
@@ -533,6 +553,32 @@ export default {
 
       this.$emit('headings', headings);
     },
+    setupFullBgParallax() {
+      this.$nextTick(() => {
+        const elements = this.$el?.querySelectorAll?.('.md-full-bg') || [];
+        elements.forEach((el) => {
+          // Kill any existing ScrollTrigger on this element before re-creating
+          ScrollTrigger.getAll()
+            .filter((t) => t.vars?.trigger === el)
+            .forEach((t) => t.kill());
+
+          gsap.fromTo(
+            el,
+            { backgroundPositionY: '30%' },
+            {
+              backgroundPositionY: '70%',
+              ease: 'none',
+              scrollTrigger: {
+                trigger: el,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+              },
+            }
+          );
+        });
+      });
+    },
     setupAnimations() {
       // Disable ScrollTrigger on markdown pages - implementation retained but disabled
       if (!this.enableScrollTrigger) {
@@ -647,6 +693,7 @@ export default {
   },
   mounted() {
     this.setupAnimations();
+    this.setupFullBgParallax();
 
     this._onMarkdownClick = async (e) => {
       const btn = e?.target?.closest?.('button.codeblock-copy');
@@ -732,6 +779,21 @@ export default {
     }
     @media only screen and (min-width: 1201px) {
       grid-column: 1 / 4; // Span all 3 columns of GridParent to fill content area (columns 2-3 of outer grid)
+    }
+  }
+
+  .md-full-bg {
+    grid-column: 1 / 4;
+    width: 100%;
+    min-height: 50vh;
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    border-radius: 0;
+    margin-block: var(--spacing-md);
+    @media only screen and (min-width: 1201px) {
+      min-height: 60vh;
+      margin-block: var(--spacing-lg);
     }
   }
 
