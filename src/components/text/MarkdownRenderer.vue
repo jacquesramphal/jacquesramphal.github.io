@@ -1202,6 +1202,28 @@ td:last-of-type {
 //   background-color: var(--background-darker);
 // }
 
+/* Side-header tables: thead contains only empty <th> cells (e.g. case study metadata tables)
+   Hides the empty top-header row and applies header styling to the first column instead. */
+table:not(:has(thead th:not(:empty))) {
+  thead {
+    display: none;
+  }
+
+  td:first-child {
+    background-color: var(--background-darker);
+    color: var(--foreground) !important;
+    font-size: var(--font-400);
+    font-weight: var(--fontWeight-medium);
+    letter-spacing: var(--letterSpacing-loose);
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-variation-settings:
+      'YAXS' 400,
+      'wdth' 115,
+      'opsz' 48;
+  }
+}
+
 /* Responsive Table Styles */
 // @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
 //   /* Force table into rows */
