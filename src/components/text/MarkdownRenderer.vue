@@ -1140,6 +1140,7 @@ table {
   inline-size: 100%;
   min-inline-size: 100%; /* ensures tr spans full width so row borders extend edge to edge */
   border-collapse: collapse;
+  margin-block-start: 3rem;
   margin-block-end: 3rem; /* Adjust the spacing between tables */
   font-size: var(--font-xs);
   line-height: 1.5;
