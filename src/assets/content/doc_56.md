@@ -30,9 +30,17 @@ A standard PDP doesn't communicate component compatibility. A customer who selec
 
 ## Approach
 
-Designing the configuration flow around the actual hardware constraints — options cascade based on what's compatible, not what's available.
+### Mapping the dependency graph
 
-Working with OnLogic's engineering team, I mapped the dependency graph for the key product categories: what depends on what, where the configuration forks, what a user needs at each step. The PDP became a staged experience where each selection narrows the valid options downstream. Real-time price calculations updated as selections were made. The composable architecture — commercetools, Contentful, Algolia — gave each layer room to evolve independently.
+Working with OnLogic's engineering team, I mapped the dependency structure for the key product categories: what depends on what, where the configuration forks, what a user needs at each step. A processor choice limits memory options. A chassis selection constrains thermal design. Those dependencies needed to be visible in the interface before a customer made an incompatible selection — not surfaced at checkout.
+
+### The cascade configurator
+
+The PDP became a staged experience where each selection narrows the valid options downstream. Components with incompatible configurations are filtered or flagged at the moment of selection, with inline explanation of why. Real-time price calculations updated as each selection was made, so the running total reflected the actual configuration at every step.
+
+### A platform built to extend
+
+The composable stack — commercetools, Contentful, Algolia — was designed with extensibility in mind. Each layer could evolve independently. The design specs were built so OnLogic's development team could add new product categories without restructuring the interface.
 
 ![OnLogic PDP — hardware options with pricing deltas and availability states](../images/casestudy/onlogic/onlogic-pdp-config.png)
 *The configurator — storage options cascade with per-option pricing deltas, out-of-stock states, and spec detail inline. The sticky sidebar updates the total in real time.*

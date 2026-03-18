@@ -1,7 +1,7 @@
 ![Token Architecture Overview](../images/placeholders/placeholder-25.svg)
 
 # Token Pipeline for a Multi-Brand HMI Platform
-A unified design token architecture across four brands, two themes, and two modalities — with AI guardrails built in.
+A unified token architecture across four brands, two themes, and two modalities — with design-code sync and AI guardrails built in.
 
 | | |
 |---|---|
@@ -10,31 +10,31 @@ A unified design token architecture across four brands, two themes, and two moda
 | **Status** | Delivered · 2024 |
 | **Tags** | design-systems · tokens · ai |
 
+## Key Learning
+
+A token system only works as a shared contract if it's enforced everywhere drift can happen — in Figma, in code, and especially in AI-assisted development. Most teams build the architecture and skip the enforcement. The enforcement is the part that matters.
+
 ## Overview
 
-The visual design existed in Figma and the code existed in React, and the two were drifting further apart every sprint — accelerated by AI tools generating whatever values they felt like.
+The visual design lived in Figma and the code lived in React, and the two were moving further apart every sprint. Colors existed simultaneously in Figma variables, CSS files, and hardcoded component values, with nothing keeping them in sync. When a designer updated a surface color, nothing downstream knew about it.
 
-The client had a multi-display vehicle HMI prototype that needed to scale across four brands, two themes, two modalities, and three screens. Colors lived simultaneously in Figma, in CSS files, and in hardcoded component values, with no enforced shared vocabulary. When a designer updated a surface color in Figma, nothing downstream knew about it.
+The underlying complexity was real: a multi-display vehicle HMI prototype needing to scale across four brands, two themes (day and night), and two interaction modalities. That's a lot of combinations if you think about it the wrong way — or one architecture if you think about it right.
 
 ## My Role
 
-I was the sole designer and developer on the system layer — token architecture, pipeline, enforcement tooling, and AI guardrails, all of it.
-
-Every decision ran through me: inheritance models, semantic naming, build tooling, ESLint rules, AI development guidelines, and the actual code to back all of it up.
+I was the sole designer and developer on the system layer: token architecture, build pipeline, enforcement tooling, and AI guardrails. Every decision ran through me — inheritance models, semantic naming, linting rules, AI development guidelines, and the code to back all of it up.
 
 ## The Constraint
 
-Four brands sharing 85% of the same values, AI tools actively widening the design–code gap, and no enforcement at any of the points where drift happens.
+Four brands sharing most of the same values, AI tools actively widening the design-code gap, and no enforcement at any of the points where drift actually happens.
 
-Brand duplication was the most mechanical problem: four JSON files each containing ~1,300 lines, most of it identical. Changing a shared spacing value meant editing five files and hoping nothing was missed. The harder problem was AI-generated code — Cursor and Claude are fast, and they're happy to write `color: #ffffff` or `padding: 16px` the moment you give them a component task.
+Brand duplication was the most mechanical problem: four JSON files each containing around 1,300 lines, most of it identical. Changing a shared spacing value meant editing five files and hoping nothing was missed. The harder problem was AI-generated code — fast tools that are perfectly happy to write `color: #ffffff` or `padding: 16px` on every component without being asked.
 
 ## Approach
 
-Treat tokens as a contract — the single source of truth between Figma, code, and AI tooling — and enforce that contract at every point where drift can happen.
+### Treating tokens as a shared contract
 
-### Token Architecture
-
-The inheritance model: brand files contain only overrides against a shared base, shrinking from ~1,300 lines per brand to ~200.
+The inheritance model was the first structural decision. Instead of one full token file per brand, each brand file contains only what differs from a shared base — shrinking from roughly 1,300 lines per brand to around 200.
 
 ```
 Design Tokens/
@@ -47,118 +47,67 @@ Design Tokens/
 └── Compositions.json
 ```
 
-The build output from a single generate command:
+The semantic color layer formalizes three tiers. Raw primitives never touch components directly:
 
-```
-src/styles/tokens/
-├── index.css               ← single import
-├── Standard/
-│   ├── brand.css
-│   ├── theme-day.css
-│   └── theme-night.css
-└── shared/
-    ├── motion.css
-    └── interactions.css
-```
-
-One import. All themes, brands, and platforms — runtime-switched via data attributes, no rebuild required:
-
-```js
-document.documentElement.dataset.brand = 'Standard';
-document.documentElement.dataset.theme = 'night';
-document.documentElement.dataset.platform = 'tap';
-```
-
-The semantic color layer formalizes three tiers — raw primitives never touch components directly:
-
-| Layer | Purpose | Direct use in components |
+| Layer | Purpose | Used in components |
 |---|---|---|
-| `color-primitives` | Raw values — never used directly | ✗ |
-| `color` | Brand accents | ✓ |
-| `surface` / `onsurface` | Semantic theme surfaces | ✓ |
+| `color-primitives` | Raw values | No |
+| `color` | Brand accents | Yes |
+| `surface` / `onsurface` | Semantic theme surfaces | Yes |
 
-This is what makes day/night switching automatic. `--color-surface-secondary-enabled` changes meaning across themes; `#1c1c1c` never does.
+This is what makes day/night switching automatic. `--color-surface-secondary-enabled` changes meaning across themes; a raw hex value never does. All themes, brands, and platforms are runtime-switched via data attributes — no rebuild required.
 
-### Guardrails for AI Development
+### Enforcing the contract in code and in AI
 
-This was the piece most teams skip. A perfect token system still fails if Cursor writes `padding: 16px` on every component. Three layers of enforcement:
+A perfect token architecture still fails if Cursor writes `padding: 16px` on every component. The enforcement layer is what makes the system real rather than aspirational — and it runs at every point where drift can happen.
 
-**Layer 1 — Design Guard**
+**Design Guard** scans staged files for hardcoded values: hex colors, raw `px` lengths, `rgb()` functions, inline `var()` fallbacks. In warn mode it surfaces violations during development; in strict mode it blocks merges in CI. It's the same tool used across several projects and is available separately: [Design Guard →](/doc/design-guard)
 
-`designGuard.js` scans `src/` for hardcoded design values on every save. Heuristics rather than a full parser — fast, zero heavy dependencies.
+A **custom ESLint rule** covers inline styles in JSX — the most common pattern AI tools produce. `style={{ padding: '16px' }}` blocks. `style={{ padding: 'var(--spacing-16)' }}` passes. That one rule catches an entire category of AI-generated drift before it reaches review.
 
-```js
-const PATTERNS = {
-  hexColor:            /#[0-9a-fA-F]{3,8}\b/g,
-  colorFn:             /\b(?:rgb|rgba|hsl|hsla)\s*\(/g,
-  px:                  /(-?\d*\.?\d+)px\b/g,
-  varFallback:         /\bvar\(\s*--[^,)\s]+\s*,/g,
-  hardcodedTransition: /\btransition\s*:\s*[^;]*\b(\d*\.?\d+)(ms|s)\b/gi,
-};
+**AI development guidelines** in `.cursorrules` give Cursor and Claude explicit stop conditions: never use hex or raw values; if a needed token doesn't exist, stop and request it through the token process rather than inventing a value. Explicit rules written for tools that have no design intuition work better than assuming the model will infer conventions.
+
+Three layers covering CSS, JSX, and the AI tools themselves.
+
+### Token changes reach the app without extra steps
+
+Editing any token JSON file triggers a CSS regeneration and live reload. A single dev command starts the token watcher and the Vite dev server together. The full lint pipeline runs in two modes: warn during development, strict in CI — same checks, different failure behavior.
+
+This closed the loop that previously required a manual Figma export, a file copy, and a component update before a token change was visible anywhere in the running app.
+
 ```
-
-Output is grouped by file with line/column and the offending value. Strict mode runs in CI — violations block merge.
-
-```bash
-npm run lint:design         # warn, keep going
-npm run lint:design:strict  # fail CI on any finding
+Figma Variables (Token Studio)
+         │
+         ▼  sync
+    tokens/
+    ├── Base/            ← shared foundation
+    ├── Brand/           ← per-brand overrides
+    ├── Theme/           ← Day / Night surfaces
+    ├── Motion/          ← durations, easing
+    ├── Interactions/    ← hover, focus, disabled
+    └── Platform/        ← HMI (tap) / Desktop
+         │
+         ▼  npm run build
+    build/css/
+    ├── variables.css    → :root (primary light)
+    ├── dark.css         → [data-theme="dark"]
+    └── brand-*.css      → [data-brand="..."]
+         │
+         ▼  Design Guard (on save + CI)
+    ✓  Token-compliant components
 ```
-
-**Layer 2 — Custom ESLint Rule**
-
-The design guard covers CSS. This covers inline styles in JSX, a common AI output pattern:
-
-```jsx
-// Blocked
-<div style={{ padding: '16px', color: '#fff' }} />
-
-// Allowed
-<div style={{ padding: 'var(--spacing-16)', color: 'var(--color-onsurface-primary)' }} />
-```
-
-**Layer 3 — AI Rules**
-
-`.cursorrules` and `docs/ai/AI_DEVELOPMENT_RULES.md` give Cursor and Claude explicit stop conditions:
-
-- Never use hex, px, or raw time values
-- Never add `var()` fallbacks
-- If a token doesn't exist for your use case, **stop** and use `TOKEN_REQUEST_TEMPLATE.md`
-- If a component doesn't exist, **stop** and use `COMPONENT_REQUEST_TEMPLATE.md`
-
-### Dev Pipeline
-
-Token changes flow to the running app without extra steps:
-
-```bash
-./scripts/dev-all.sh
-```
-
-Under the hood, the frontend `package.json` watches the token JSON directory and regenerates CSS on every save:
-
-```json
-"dev": "concurrently -k -n tokens,vite \"npm:tokens:watch\" \"npm:dev:vite\"",
-"tokens:watch": "nodemon --watch ../Design\\ Tokens -e json --exec npm run tokens:generate"
-```
-
-Edit token JSON → save → CSS regenerates → live reload. The full lint pipeline:
-
-```bash
-npm run lint          # design guard + stylelint + eslint (warn)
-npm run lint:strict   # same, fails on any finding
-```
-
 
 ## Outcome
 
-One import. All themes and brands runtime-switchable. AI tools generating token-compliant code by default.
+Brand duplication is gone — a single base file serves all four brands, each brand file containing only its overrides. A broken token reference fails the build immediately. The design guard runs on every save and blocks non-compliant merges in CI. Figma variables mirror the token repo through a single sync command.
 
-Brand duplication is gone. A broken token reference fails the build immediately. The design guard runs on every save and blocks merges in CI. Figma variables mirror the token repo via a single sync command. A quote from the client team: *"We need someone who works the way you do — someone who loves designing enterprise interfaces in Cursor or Claude."*
+The client's feedback: *"We need someone who works the way you do — someone who loves designing enterprise interfaces in Cursor or Claude."*
 
 ## What I Learned
 
-AI tools are fast and sloppy by default — the enforcement layer isn't a workaround, it's what makes AI-assisted development compatible with a real design system.
+AI tools are fast and sloppy by default. The enforcement layer doesn't feel optional once you've seen what AI-assisted development looks like without it — every component a slightly different spacing value, hex codes scattered through inline styles. Guardrails don't slow development down. They make AI-generated code trustworthy enough to merge.
 
-Don't trust that AI tools will learn your conventions. Give them explicit rules, explicit stop conditions, and a linter that makes non-compliant code visible and blockable. When the guardrails are in place, Cursor and Claude generate token-compliant code not because the model understands design systems, but because the system makes anything else immediately obvious.
+Building a token system that works with AI tooling means thinking about the system from the perspective of a tool that has no design intuition. Explicit rules, explicit stop conditions, a linter that makes violations immediately visible — that's what turns a naming convention into a contract.
 
 ---
 

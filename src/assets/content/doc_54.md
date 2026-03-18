@@ -32,16 +32,18 @@ The modules covered the full range of the site: hero sections, navigation, two-c
 
 ## Approach
 
-Redesign the modules, not the system.
+The brand guidelines gave clear direction on color, typography, and spacing. Translating that into modules meant working through each block type systematically — not just updating colors and fonts, but reconsidering how content was arranged within the existing constraints.
 
-The brand guidelines gave clear direction on color, typography, and spacing. Translating that into modules meant working through each block type systematically — not just updating colors and fonts, but reconsidering how content was arranged within the existing constraints. Motion was added as a final layer: scroll animations that made content feel intentional, navigation transitions that gave the site continuity, interactive states that responded without calling attention to themselves.
+### Motion as a layer
+
+Motion was added last, but planned early. Scroll animations made content feel intentional. Navigation transitions gave the site continuity. Interactive states responded without calling attention to themselves. The goal was elevated perceived quality without anything that competes with the content.
 
 ![Brand Guidelines and Module Design](../images/casestudy/softchoice/sc-guide-1.png)
 *The module redesign process — brand guidelines mapped to existing CMS block types.*
 
-## Design System
+### Holding it together as a system
 
-The module redesigns needed to hold together as a system — color, typography, spacing, and motion defined consistently enough that the content team could extend them without coming back to design for every new page.
+The module redesigns needed to hold together — color, typography, spacing, and motion defined consistently enough that the content team could extend them without coming back to design for every new page.
 
 ![Softchoice Design System](../images/casestudy/softchoice/sc-guide-2.png)
 *Component and token documentation — brand values mapped to reusable decisions so the team could maintain consistency independently.*
@@ -50,7 +52,7 @@ The module redesigns needed to hold together as a system — color, typography, 
 
 Every module now carries the new visual language, the CMS stayed exactly where the organization needed it, and Softchoice came out with a style guide for maintaining consistency without coming back to us.
 
-The motion layer elevated the perceived quality of the experience without pulling attention from the content. The improvements no one notices are usually the ones that last.
+The motion layer elevated the perceived quality of the experience without pulling attention from the content.
 
 ![Softchoice Desktop Homepage](../images/casestudy/softchoice/sc-desktop-1.png)
 *The launched site — new brand identity across every module, with the existing CMS structure unchanged.*

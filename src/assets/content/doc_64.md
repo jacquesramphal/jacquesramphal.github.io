@@ -34,9 +34,17 @@ When designers join the dev repo, they create friction at the point where develo
 
 ## Approach
 
-A separate repo per client, scaffolded in minutes, connected to the same tokens and components as production through a structured sync rather than a shared branch.
+### One command, isolated from dev
 
-`/design setup acme-retail` scaffolds a complete workspace: real production UI components, live token pages that hot-reload from JSON, full-width page templates. When it's time to hand off, `/design diff` outputs a change list that developers action as a PR — nothing auto-applies, developers control what merges. Token Studio compatibility is built in, so there's no manual wiring between Figma and the Storybook environment. The `.env.tokens` config mirrors Figma's Token Studio GitHub sync settings exactly — the token repo is the bridge between Figma variables and what renders in Storybook.
+`/design setup acme-retail` scaffolds a complete workspace: real production UI components, live token pages that hot-reload from JSON, full-width page templates. The repo is separate from the dev codebase — designers have a full working context without touching anything that could block a PR or create a review bottleneck.
+
+### Token sync without custom tooling
+
+Token Studio compatibility is built in. The `.env.tokens` config mirrors Figma's Token Studio GitHub sync settings exactly, so the token repo is the bridge between Figma variables and what renders in Storybook. Updating a token in Figma propagates to the design workspace on the next sync — no manual export, no file copying.
+
+### Diff-based handoff
+
+When work is ready to hand off, `/design diff` outputs a structured change list: specific files, specific properties, specific values. Developers action it as a PR. Nothing auto-applies — developers control what merges. The handoff artifact is concrete rather than interpretive.
 
 ![/design help output in Claude Code terminal](../images/article/design-help.png)
 *The /design command suite — seven commands covering setup, sync, diff, push, and screenshot capture.*

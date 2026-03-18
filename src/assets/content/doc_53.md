@@ -30,9 +30,17 @@ Kum & Go's customers use the app at the pump, often quickly, often in bad weathe
 
 ## Approach
 
-Building the loyalty program around the physical experience first — the pump, the store, the moment of transaction.
+### Loyalty built around existing behavior
 
-The personalized feed surfaced offers based on purchase history. Home location selection made the app feel contextually aware. Mobile Fuel Pay, integrated with P97, let customers prepay for gas and redeem points without leaving the app — closing the loop between digital and physical that most retail loyalty programs treat as separate concerns. Contentful handled content management so Kum & Go's marketing team could update promotions independently. The app was built on React Native using Orium's React Native Accelerator, with Paytronix managing the loyalty program backend, Typesense handling search and product indexing, and P97 powering Mobile Fuel Pay.
+The loyalty program had to reward what customers were already doing — fueling up, visiting the store — without requiring them to learn a new mental model. The personalized feed surfaced offers based on purchase history. Home location selection made the app feel contextually aware. The goal was for the experience to feel like it was paying attention, not like a points counter customers had to manage.
+
+### Closing the digital-physical loop
+
+Mobile Fuel Pay let customers prepay for gas and redeem points at the pump without leaving the app. That connection between the app and the physical store is where most retail loyalty programs break down — they work in the app or they work in store, but rarely both in the same moment. Closing that loop was the most significant functional decision in the project.
+
+### A platform Kum & Go could own
+
+Contentful handled content management so Kum & Go's marketing team could update promotions independently. The app was built on React Native using Orium's accelerator, with Paytronix managing the loyalty backend and Typesense handling search. The composability of the stack was deliberate — Kum & Go needed to be able to extend and operate it without routing every change through an external team.
 
 ![React Native Framework and Composable Architecture](../images/casestudy/kg/kg-3.jpg)
 *Mobile Fuel Pay and loyalty program integration — the core of the in-store digital experience.*

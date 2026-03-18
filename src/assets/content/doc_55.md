@@ -30,9 +30,15 @@ Finance owned budget, operations owned initiatives, leadership owned the cross-u
 
 ## Approach
 
-Navigation was the primary design problem — not visualization, not aesthetics, but how a user moves from overview to specific line item and back without losing their place.
+### Navigation as the primary problem
 
-The hierarchy went: portfolio → business unit → initiative → detail. Each layer had a distinct visual treatment that made it immediately recognizable. Transitions between layers needed to feel continuous rather than disjointed. Data visualization was kept conservative: charts only where a chart communicated something a table couldn't.
+The instinct in data-heavy tools is to reach for visualization — better charts, more filters, richer displays. These users were executives and planners making resource decisions on tight timelines, not analysts who lived in the tool. The design problem was navigation: how a user moves from overview to a specific line item and back without losing their place.
+
+The hierarchy went portfolio → business unit → initiative → detail. Each layer had a distinct visual treatment that made it immediately recognizable. Transitions between layers needed to feel continuous rather than disjointed.
+
+### Data kept legible
+
+Charts only appeared where a chart communicated something a table couldn't. That constraint requires constant pressure to maintain — there's always a request for a graph, and most of the time a well-structured table serves the actual need better. Keeping visualization conservative preserved the readability the tool's value depended on.
 
 ![Analytics and Insights View](../images/casestudy/glo/insights.png)
 *Analytics and insights view — patterns and trends surfaced across the planning dataset.*
@@ -49,7 +55,5 @@ Strategic planning moved from a fragmented, document-driven process into a share
 *The detail view — granular planning at the initiative level, preserving the context of the layer above.*
 
 ## What I Learned
-
-Enterprise tools succeed when they disappear — the goal was never to impress with complexity, it was to make strategic planning feel obvious.
 
 When an interface stops being something people think about and becomes something they just use, the design has done its job. That's a harder standard than visual quality or feature completeness, and it takes longer to know whether you've met it.
