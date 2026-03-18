@@ -16,12 +16,6 @@ The data existed. What the organization didn't have was a way to look across it 
 
 Enterprise planning tools tend toward one of two failure modes: show everything (overwhelming) or summarize everything (useless). The challenge was finding the layer in between: a view that gave decision-makers enough overview to act while preserving the detail that mattered. The users were executives and planners making resource decisions on tight timelines, not analysts who lived in the tool.
 
-## My Role
-
-I led product design from early discovery through to a launched interface, working closely with the development team and directly with users at the client organization.
-
-I owned the UX, ran working sessions to understand how planning actually happened as opposed to how the org chart suggested it should, and designed the dashboard, the detail views, and the navigation model connecting them.
-
 ## The Constraint
 
 The organizational data had multiple layers, multiple owners, multiple formats, and flattening it to make it displayable would have destroyed its value.

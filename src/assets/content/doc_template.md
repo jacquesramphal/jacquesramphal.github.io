@@ -18,10 +18,6 @@ The single transferable insight from this project. What would you tell someone s
 
 The situation before the work started. Who was doing what, what wasn't working, and why it mattered. Lead with the user or the constraint, not the outcome. Don't summarize the solution — that's what the rest of the case is for.
 
-## My Role
-
-What you owned, what you didn't, and who you worked with. Keep it specific. "I led design" is less useful than "I owned the UX from discovery through QA and worked directly with the client's engineering team."
-
 ## The Constraint
 
 What made this specific and hard. Not a generic challenge statement — the actual thing that shaped every decision. If the constraint doesn't explain why the approach looks the way it does, it's not specific enough.

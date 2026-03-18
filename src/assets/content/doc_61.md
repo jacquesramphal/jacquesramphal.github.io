@@ -7,7 +7,7 @@ A unified token architecture across four brands, two themes, and two modalities,
 |---|---|
 | **Role** | Sole Designer & Developer |
 | **Client** | Automotive (NDA) |
-| **Status** | Delivered · 2024 |
+| **Status** | Delivered · 2026  |
 | **Tags** | design-systems · tokens · ai |
 
 ## Key Learning
@@ -19,10 +19,6 @@ A token system only works as a shared contract if it's enforced everywhere drift
 The visual design lived in Figma and the code lived in React, and the two were moving further apart every sprint. Colors existed simultaneously in Figma variables, CSS files, and hardcoded component values, with nothing keeping them in sync. When a designer updated a surface color, nothing downstream knew about it.
 
 The underlying complexity was real: a multi-display vehicle HMI prototype needing to scale across four brands, two themes (day and night), and two interaction modalities. With the right architecture, all those combinations collapse into one system.
-
-## My Role
-
-I was the sole designer and developer on the system layer: token architecture, build pipeline, enforcement tooling, and AI guardrails. Every decision ran through me: inheritance models, semantic naming, linting rules, AI development guidelines, and the code to back all of it up.
 
 ## The Constraint
 

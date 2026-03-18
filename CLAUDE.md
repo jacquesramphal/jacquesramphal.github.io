@@ -151,12 +151,13 @@ Case studies follow a fixed h2 order. Sections that don't apply can be omitted; 
 ```
 ## Key Learning       ← the single transferable insight (optional but preferred)
 ## Overview           ← the situation, not the solution
-## My Role            ← what you owned, who you worked with
 ## The Constraint     ← what made this hard or specific
 ## Approach           ← how you worked through it (use h3s — see below)
 ## Outcome            ← what shipped or changed
 ## What I Learned     ← honest reflection, not a verdict
 ```
+
+Role is captured in the metadata table. Do not add a `## My Role` section. If collaborator or team context matters to the story (e.g. three parties with conflicting assumptions), weave it into Overview or The Constraint rather than isolating it as attribution.
 
 ### h3s in Approach
 

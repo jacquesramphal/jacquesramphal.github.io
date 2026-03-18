@@ -22,12 +22,6 @@ Every project at Orium moved through the same sequence of mechanical tasks: gath
 
 I started in small pockets of time, thirty minutes between design reviews or an hour on a Friday evening, playing with automations, custom GPTs, and scripts that could run audits and generate user stories. I was learning tools I'd never touched before: n8n, workflow orchestration, agentic AI patterns. When I showed some of the experiments to the team, the questions came quickly: Could Genie run this audit for us? Could it generate user stories for our scope? It turned out my problems weren't unique. Every designer was spending creative energy on routine tasks. What started as personal reclamation could become organizational reclamation.
 
-## My Role
-
-I designed Genie from the ground up and built the first version, which meant becoming an AI developer, a workflow orchestration practitioner, and a product thinker in real time, while staying a designer.
-
-Building for other designers, not just myself, required learning product thinking by doing it: leading without formal authority, championing a vision while remaining an individual contributor, making decisions that affected people with very different workflows.
-
 ## The Constraint
 
 Designing for an AI agent means designing for a system that can't guarantee the same result twice. Getting users to trust something that can't promise the same output is a different problem than any conventional UX I'd worked on.

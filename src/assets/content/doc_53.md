@@ -16,12 +16,6 @@ Kum & Go wanted to own their digital experience, not just run it.
 
 That meant moving off a legacy platform onto something their team could manage, extend, and evolve without routing every change through an external partner. The existing app was limited with promotions, couldn't surface personalized offers, and didn't connect the in-store experience to the mobile one in any meaningful way. The goal was to rebuild it on a composable foundation and launch a loyalty program that could anchor a longer-term relationship with their customers.
 
-## My Role
-
-I led design across the app (loyalty program flows, merchandising, Mobile Fuel Pay, and the component system) and contributed to front-end development alongside the build team.
-
-I owned the design from early concepts through handoff and QA, working directly in code on components and integration points. The loyalty and fuel pay flows required close collaboration with the Paytronix and P97 integration teams.
-
 ## The Constraint
 
 The app needed to feel like a genuine loyalty platform, not a points counter bolted onto a fuel app, and it needed to launch without disrupting a service customers already relied on.

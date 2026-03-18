@@ -20,12 +20,6 @@ In client work, the gap between design intent and production reality lives in in
 
 Storybook got tried as a shared environment early on. The idea was right; the structure wasn't. Merge conflicts, blocked PRs, unclear ownership: neither side had a clean working context. This project is the rethink: an isolated environment per client, one command to spin up, connected to the same components and tokens as production but completely independent from the dev repo.
 
-## My Role
-
-I designed and built the full command suite, the AI agent behind it, and made the core architectural decision: isolated repo, not shared branch.
-
-Design Lead and Design Engineer. I owned the decisions: diff-based handoff versus annotated specs, Token Studio sync versus manual export. I built the tooling and wrote the agent instructions. The system runs on real client projects today.
-
 ## The Constraint
 
 The design environment and the dev environment need to share a source of truth, but in client delivery work, they can't share a codebase.

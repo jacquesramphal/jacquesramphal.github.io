@@ -16,12 +16,6 @@ OnLogic's customers are IT professionals configuring industrial PCs for specific
 
 The legacy platform had been built for a general commerce audience and couldn't represent the dependencies between hardware components: how a processor choice limits memory options, how a chassis selection constrains thermal design. The migration to composable commerce was the opportunity to build a configuration experience that matched the precision of the audience it served.
 
-## My Role
-
-I led product design for the migration: the configuration flow, product detail pages, checkout experience, and the design system that held it together.
-
-I owned the UX from discovery through to launch, working with OnLogic's product and engineering teams to map the hardware dependencies that needed to be reflected in the flow, and with Orium's development team to design specs that could be built on and extended.
-
 ## The Constraint
 
 The product catalog was genuinely complex: components with real dependencies, configurations that could only be validated against hardware constraints, and users who would immediately notice any gap between what the interface implied and what was technically possible.

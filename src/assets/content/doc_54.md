@@ -18,15 +18,9 @@ Softchoice was launching a new brand identity in January, and their website wasn
 
 The CMS was already serving the organization well: block-driven, extensible, familiar to the content team. The constraint was working within the existing module structure rather than replacing it: same architecture, different visual language, with motion added as a layer on top.
 
-## My Role
-
-I led the design across all modules, translating the new brand guidelines into the existing CMS structure, and worked directly with the development team on implementation.
-
-The project involved coordinating between a branding agency, Softchoice's internal IT team, and the development team. I owned the module redesigns, the motion specifications, and the design-to-development handoff.
-
 ## The Constraint
 
-The brand guidelines were comprehensive. The CMS was fixed. Every change had to fit within what the existing block structure could already do.
+The brand guidelines were comprehensive. The CMS was fixed. Every change had to fit within what the existing block structure could already do. Three parties were involved: a branding agency, Softchoice's IT team, and the development team, each with their own assumptions about where the new visual language would land.
 
 The modules covered the full range of the site: hero sections, navigation, two-column layouts, callouts, stats, image quadrants, accordions. Each needed to carry the new brand identity while staying functionally identical to what it replaced. Any deviation would have required development work the timeline didn't allow.
 

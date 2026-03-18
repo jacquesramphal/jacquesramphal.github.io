@@ -16,11 +16,7 @@ Multi-brand support, dark mode, accessible defaults: these are the decisions tha
 
 Every project that involves a design system eventually hits the same moments: a second brand shows up, dark mode gets requested, someone asks if it's accessible. Each one can feel like a detour, something to handle after the real work is done. This starter treats those things as the foundation rather than the afterthought.
 
-Two files to import. An unstyled HTML document looks designed. Multi-brand and dark mode are built in.
-
-## My Role
-
-I designed the token architecture, wrote the build config, and built the element defaults. This grew from a pattern I kept rebuilding on projects — each time slightly better, until it made sense to make it portable and stop rebuilding it.
+Two files to import. An unstyled HTML document looks designed. Multi-brand and dark mode are built in. It grew from a pattern rebuilt on each new project, slightly better each time, until making it portable made more sense than rebuilding it again.
 
 ## The Constraint
 
