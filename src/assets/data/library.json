@@ -213,6 +213,8 @@
       "route": "/doc/designing-genie",
       "contentFile": "doc_32.md",
       "thumbnail": "genie.png",
+       "imageVariant": "angled",
+              "bgcolor": "background-color: var(--color-pink)",
       "alt": "Genie - Agentic AI Platform",
       "tags": ["ai", "agentic-ai"]
     },
@@ -259,6 +261,27 @@
       "github": "https://github.com/jacquesramphal/smart-quotes",
       "npm": "@jacquesramphal/smart-quotes",
       "tags": ["cli", "npm"]
+    },
+    {
+      "id": 67,
+      "docId": 67,
+      "slug": "design-tokens-template",
+      "type": "design-project",
+      "title": "Design Token Starter",
+      "eyebrow": "Design Systems",
+      "description": "A layered token architecture for personal projects and design systems — multi-brand, theme-aware, and Figma Token Studio ready. Two files to import, zero classes required.",
+      "route": "/doc/design-tokens-template",
+      "contentFile": "doc_67.md",
+
+      "thumbnail": "casestudy/token-starter/elements.png",
+            "imageVariant": "angled",
+              "bgcolor": "background-color: var(--color-yellow)",
+      "filename1": "casestudy/token-starter/all.png",
+      "filename2": "casestudy/token-starter/colors.png",
+      "filename3": "casestudy/token-starter/elements.png",
+      "alt": "Design Token Starter — multi-brand token architecture",
+      "github": "https://github.com/jacquesramphal/design-tokens-template",
+      "tags": ["design-systems", "tokens", "open-source"]
     },
     {
       "id": 13,

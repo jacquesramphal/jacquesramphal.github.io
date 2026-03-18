@@ -1,5 +1,3 @@
-![Smart Quotes Fixer](../images/placeholders/placeholder-27.svg)
-
 # Smart Quotes Fixer
 A CLI that converts straight quotes to smart quotes in rendered content, without touching code.
 

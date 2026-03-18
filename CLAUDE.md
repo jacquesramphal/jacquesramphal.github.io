@@ -144,6 +144,51 @@ Not all X/Y pivots are wrong. The test: does the reversal add new information, o
 
 ---
 
+## Case study structure
+
+Case studies follow a fixed h2 order. Sections that don't apply can be omitted; the order should not change.
+
+```
+## Key Learning       ← the single transferable insight (optional but preferred)
+## Overview           ← the situation, not the solution
+## My Role            ← what you owned, who you worked with
+## The Constraint     ← what made this hard or specific
+## Approach           ← how you worked through it (use h3s — see below)
+## Outcome            ← what shipped or changed
+## What I Learned     ← honest reflection, not a verdict
+```
+
+### h3s in Approach
+
+Use h3s when the Approach has more than one distinct decision worth explaining. Each h3 should answer *why* that decision was made, not describe *what* was built.
+
+```
+❌ ### Token Architecture
+   Seven layers, each overriding the one before...
+
+✓  ### Multi-brand from the start
+   Multi-brand support almost always arrives late — either as a client request after
+   launch or as an architectural call that gets deferred to the dev team...
+```
+
+The h3 label should name the decision or the design principle, not the deliverable. A reader who only reads the h3s should understand the thinking, not the output.
+
+Good examples of h3 framing:
+- "Multi-brand from the start" (not "Brand Architecture")
+- "Theme-aware, not theme-bolted-on" (not "Dark Mode Implementation")
+- "Base styles for HTML elements" (not "base.css")
+- "Accessible by default" (not "Accessibility")
+
+### Writing tone
+
+Case studies are about experience and value, not implementation mechanics. Technical details belong in READMEs and documentation. The case study should answer: what did you learn, what problem were you solving, and why did the decisions you made matter?
+
+Ask yourself for each paragraph: is this explaining *why*, or just describing *what*?
+
+Reference: [doc_67.md](src/assets/content/doc_67.md) (Design Token Starter) is the current best example of this structure.
+
+---
+
 ## For card descriptions (work.json / library.json)
 
 Lead with the user or the constraint, not the outcome or an adjective cluster.
@@ -157,6 +202,24 @@ Lead with the user or the constraint, not the outcome or an adjective cluster.
 ```
 
 The description should put the reader in the problem, not pitch the solution.
+
+---
+
+### 8. The em-dash crutch
+
+**Pattern:** Overusing `—` as a general-purpose connector, especially in pairs: "The thing — specifically this — is why it works."
+
+**Why it happens:** Em dashes can substitute for commas, colons, or parentheses, so they become a default connector. Frequent use makes prose feel breathless and signals that sentences weren't restructured.
+
+**Fix:** Replace most with commas, colons, semicolons, or restructure the sentence. Occasional use earns emphasis; regular use loses it.
+
+```
+❌ Base styles cover the elements — headings, body, buttons — all through tokens.
+✓  Base styles cover headings, body, and buttons, all through tokens.
+
+❌ This started as a reusable foundation — a layer I kept rebuilding.
+✓  This started as a reusable foundation, a layer I kept rebuilding.
+```
 
 ---
 
