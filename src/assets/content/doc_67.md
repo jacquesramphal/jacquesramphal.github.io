@@ -1,5 +1,5 @@
 # Design Token Starter
-A reusable foundation for design systems — multi-brand, theme-aware, and accessible by default.
+A reusable foundation for design systems: multi-brand, theme-aware, and accessible by default.
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@ A reusable foundation for design systems — multi-brand, theme-aware, and acces
 
 ## Key Learning
 
-The decisions that feel like overhead at the start of a project — multi-brand support, dark mode, accessible defaults — are the ones that become expensive refactors when deferred. Doing them right once in a starter means every project that uses it starts from a better baseline.
+Multi-brand support, dark mode, accessible defaults: these are the decisions that feel like overhead at the start of a project and become expensive refactors when you skip them. Doing them right once in a starter means every project that uses it starts from a better baseline.
 
 ## Overview
 
@@ -36,7 +36,7 @@ Multi-brand support almost always arrives late, either as a client request after
 
 The starter includes two working brands to demonstrate the pattern. Each brand is a single file containing only what differs from the shared base. Adding a third brand means copying a template file, adding color and font overrides, and registering it in two places. The complexity doesn't grow with the number of brands.
 
-### Theme-aware, not theme-bolted-on
+### Theming built into the architecture
 
 Dark mode added late usually means writing override blocks after the fact and hoping nothing breaks. When theming is part of the token architecture from the start, switching themes is an attribute on the root HTML element, and every surface, text color, and border updates automatically.
 
@@ -50,12 +50,12 @@ The base stylesheet covers the full set of HTML elements using only token refere
 
 ### Accessible by default
 
-Accessibility tends to get treated as an audit item or a late-stage check, when most of the foundational work is actually in the defaults. Focus rings need to be visible. Color contrast needs to pass. Form elements need to behave as expected. These aren't hard decisions — they're just easy to skip when moving fast.
+Accessibility tends to get treated as an audit item or a late-stage check, when most of the foundational work is actually in the defaults. Focus rings need to be visible. Color contrast needs to pass. Form elements need to behave as expected. These aren't hard decisions. They're just easy to skip when moving fast.
 
 Building them into the base styles means they carry into every project that uses the starter, without anyone having to think about them again.
 
 ![Color tokens — the semantic layer that connects theming and accessibility](../images/casestudy/token-starter/colors.png)
-*The semantic color layer. Role-based aliases like `--dt-color-surface-default` carry the theming and accessibility decisions — contrast, focus ring colors, surface roles — that would otherwise need to be re-established per project.*
+*The semantic color layer. Role-based aliases like `--dt-color-surface-default` carry the theming and accessibility decisions (contrast, focus ring colors, surface roles) that would otherwise need to be re-established per project.*
 
 ![Spacing scale — numeric and semantic aliases](../images/casestudy/token-starter/spacing.png)
 *Spacing with both numeric keys and semantic aliases. The same scale, two ways to reference it depending on context.*
@@ -80,6 +80,6 @@ The build runs on Style Dictionary v4 with Token Studio transforms, outputs CSS,
 
 Every project that uses this starts with multi-brand scaffolding, accessible defaults, and a working theme system already in place. The overhead of those decisions is gone before the first line of product code is written.
 
-The things that get deferred in a hurry — theming, accessibility, multi-brand structure — aren't actually that hard to build. They're just easy to skip. A starter that makes them the default removes the moment where you have to decide whether to do them properly or cut the corner.
+The things that get deferred in a hurry (theming, accessibility, multi-brand structure) aren't actually that hard to build. They're just easy to skip. A starter that makes them the default removes the moment where you have to decide whether to do them properly or cut the corner.
 
-Source and template on [GitHub](https://github.com/jacquesramphal/design-token-template)
+Source and template on [GitHub](https://github.com/jacquesramphal/design-tokens-template)

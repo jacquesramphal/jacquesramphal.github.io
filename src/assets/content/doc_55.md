@@ -14,7 +14,7 @@ A strategic planning interface for an organization managing data across business
 
 The data existed. What the organization didn't have was a way to look across it without collapsing the complexity that makes it useful.
 
-Enterprise planning tools tend toward one of two failure modes: show everything (overwhelming) or summarize everything (useless). The challenge was finding the layer in between — a view that gave decision-makers enough overview to act, while preserving the detail that mattered. The users were executives and planners making resource decisions on tight timelines, not analysts who lived in the tool.
+Enterprise planning tools tend toward one of two failure modes: show everything (overwhelming) or summarize everything (useless). The challenge was finding the layer in between: a view that gave decision-makers enough overview to act while preserving the detail that mattered. The users were executives and planners making resource decisions on tight timelines, not analysts who lived in the tool.
 
 ## My Role
 
@@ -24,7 +24,7 @@ I owned the UX, ran working sessions to understand how planning actually happene
 
 ## The Constraint
 
-The organizational data was genuinely complex — multiple layers, multiple owners, multiple formats — and flattening it to make it displayable would have destroyed its value.
+The organizational data had multiple layers, multiple owners, multiple formats, and flattening it to make it displayable would have destroyed its value.
 
 Finance owned budget, operations owned initiatives, leadership owned the cross-unit view. None of those pieces had ever lived in the same interface before. Getting them into a single tool required careful decisions about what surfaced by default, what required a tap to reveal, and what could safely live a level down.
 
@@ -38,21 +38,21 @@ The hierarchy went portfolio → business unit → initiative → detail. Each l
 
 ### Data kept legible
 
-Charts only appeared where a chart communicated something a table couldn't. That constraint requires constant pressure to maintain — there's always a request for a graph, and most of the time a well-structured table serves the actual need better. Keeping visualization conservative preserved the readability the tool's value depended on.
+Charts only appeared where a chart communicated something a table couldn't. That constraint requires constant pressure to maintain. There's always a request for a graph, and most of the time a well-structured table serves the actual need better. Keeping visualization conservative preserved the readability the tool's value depended on.
 
 ![Analytics and Insights View](../images/casestudy/glo/insights.png)
-*Analytics and insights view — patterns and trends surfaced across the planning dataset.*
+*Analytics and insights view: patterns and trends surfaced across the planning dataset.*
 
 ## Outcome
 
 The tool launched and became the primary planning interface for the organization, replacing a process that had run across disconnected spreadsheets and email threads.
 
-Strategic planning moved from a fragmented, document-driven process into a shared interface with a common vocabulary. The client came back with iteration requests rather than structural concerns — which, for a first version, is the outcome you want.
+Strategic planning moved from a fragmented, document-driven process into a shared interface with a common vocabulary. The client came back with iteration requests rather than structural concerns, which for a first version is the outcome you want.
 
 
 
 ![Detailed Planning View](../images/casestudy/glo/details.png)
-*The detail view — granular planning at the initiative level, preserving the context of the layer above.*
+*The detail view: granular planning at the initiative level, preserving the context of the layer above.*
 
 ## What I Learned
 

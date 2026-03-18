@@ -209,9 +209,9 @@ The description should put the reader in the problem, not pitch the solution.
 
 **Pattern:** Overusing `—` as a general-purpose connector, especially in pairs: "The thing — specifically this — is why it works."
 
-**Why it happens:** Em dashes can substitute for commas, colons, or parentheses, so they become a default connector. Frequent use makes prose feel breathless and signals that sentences weren't restructured.
+**Why it happens:** Em dashes can substitute for commas, colons, or parentheses, so they become a default connector. They are visible and distinctive enough that readers notice the pattern quickly. Frequent use signals the writing wasn't restructured.
 
-**Fix:** Replace most with commas, colons, semicolons, or restructure the sentence. Occasional use earns emphasis; regular use loses it.
+**Fix:** Replace almost all of them. Use a colon for elaboration, a comma for continuation, a period for a full stop. Keep an em dash only when the interruption itself is the point and nothing else conveys it.
 
 ```
 ❌ Base styles cover the elements — headings, body, buttons — all through tokens.
@@ -219,6 +219,32 @@ The description should put the reader in the problem, not pitch the solution.
 
 ❌ This started as a reusable foundation — a layer I kept rebuilding.
 ✓  This started as a reusable foundation, a layer I kept rebuilding.
+
+❌ A wrong component choice doesn't trigger a return — it triggers a failed deployment.
+✓  A wrong component choice doesn't trigger a return; it triggers a failed deployment.
+```
+
+**This applies everywhere:** body text, subtitles, captions, h3 labels, Key Learning sections. Captions are especially visible — use a colon instead of an em dash in almost every case.
+
+```
+❌ *The module redesign process — brand guidelines mapped to CMS block types.*
+✓  *The module redesign process: brand guidelines mapped to CMS block types.*
+```
+
+### 9. Pivot h3 labels
+
+**Pattern:** An h3 that frames a decision as "X, not Y" or "theme-aware, not theme-bolted-on."
+
+**Why it happens:** The pivot format feels punchy for section headers. But it front-loads the verdict before the reader has seen the evidence, and it reads as performed insight.
+
+**Fix:** Name the decision or the principle directly, without the negation.
+
+```
+❌ ### Theme-aware, not theme-bolted-on
+✓  ### Theming built into the architecture
+
+❌ ### Redesign the modules, not the system
+✓  ### Working within the existing structure
 ```
 
 ---
