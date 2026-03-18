@@ -1,8 +1,5 @@
 <template :class="classes">
   <div class="default-card" :class="classes" :data-category="`${eyebrow}`">
-    <div v-if="locked" class="lock-overlay">
-      <span class="lock-message">Available on request</span>
-    </div>
     <div v-if="alt" class="image" :style="bgcolor">
       <!-- Show placeholder when no image -->
       <template v-if="!hasImage">
@@ -81,6 +78,9 @@
           />
         </div>
       </template>
+      <div v-if="locked" class="lock-overlay">
+        <span class="lock-message">Available on request</span>
+      </div>
     </div>
 
     <div class="info">
@@ -389,18 +389,10 @@ export default {
 
 /* Locked card state */
 .defaultcard--locked {
-  cursor: default;
+  cursor: help;
 
-  &:hover {
-    box-shadow: var(--shadow-z2);
-
-    img {
-      transform: none !important;
-    }
-
-    .lock-overlay {
-      opacity: 1;
-    }
+  &:hover .lock-overlay {
+    opacity: 1;
   }
 }
 
