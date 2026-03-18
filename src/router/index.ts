@@ -162,6 +162,15 @@ const routes = [
       dynamicTitle: true,
     },
   },
+  {
+    name: 'SecuredDoc',
+    path: '/secured/doc/:slug',
+    component: MarkdownPage,
+    props: true,
+    meta: {
+      dynamicTitle: true,
+    },
+  },
   // {
   //   name: "Doc",
   //   path: "/doc/:id",

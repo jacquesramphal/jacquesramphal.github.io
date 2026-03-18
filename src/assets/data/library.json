@@ -265,12 +265,12 @@
     {
       "id": 67,
       "docId": 67,
-      "slug": "design-tokens-template",
+      "slug": "design-token-template",
       "type": "design-project",
       "title": "Design Token Starter",
       "eyebrow": "Design Systems",
       "description": "A layered token architecture for personal projects and design systems — multi-brand, theme-aware, and Figma Token Studio ready. Two files to import, zero classes required.",
-      "route": "/doc/design-tokens-template",
+      "route": "/doc/design-token-template",
       "contentFile": "doc_67.md",
 
       "thumbnail": "casestudy/token-starter/elements.png",
@@ -280,7 +280,7 @@
       "filename2": "casestudy/token-starter/colors.png",
       "filename3": "casestudy/token-starter/elements.png",
       "alt": "Design Token Starter — multi-brand token architecture",
-      "github": "https://github.com/jacquesramphal/design-tokens-template",
+      "github": "https://github.com/jacquesramphal/design-token-template",
       "tags": ["design-systems", "tokens", "open-source"]
     },
     {
@@ -324,7 +324,9 @@
         "caption3": "Motion Design Elements"
       },
       "alt": "Softchoice Website Replatform",
-      "tags": ["rebrand", "motion-design"]
+      "tags": ["rebrand", "motion-design"],
+      "locked": true,
+      "securedRoute": "/secured/doc/softchoice-rebrand"
     },
     {
       "id": 53,
@@ -351,7 +353,9 @@
         "caption3": "K&G Digital Experience"
       },
       "alt": "Kum & Go Mobile Loyalty App",
-      "tags": ["loyalty", "mobile"]
+      "tags": ["loyalty", "mobile"],
+      "locked": true,
+      "securedRoute": "/secured/doc/kg-loyalty-platform"
     },
     {
       "id": 55,
@@ -405,7 +409,9 @@
         "caption3": "Custom PDP and Checkout Experience"
       },
       "alt": "OnLogic Product Configurator",
-      "tags": ["commerce", "configurator"]
+      "tags": ["commerce", "configurator"],
+      "locked": true,
+      "securedRoute": "/secured/doc/onlogic-commerce-platform"
     },
     {
       "id": 70,

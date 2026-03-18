@@ -142,6 +142,7 @@ A curated collection of my writing, professional work, and personal projects."
               :type="entry.type"
               :contentFile="entry.contentFile"
               :index="index"
+              :locked="!!entry.locked"
               @tag-click="handleTagClick"
             />
           </GridParent>
@@ -229,6 +230,7 @@ A curated collection of my writing, professional work, and personal projects."
             :type="entry.type"
             :contentFile="entry.contentFile"
             :index="index"
+            :locked="!!entry.locked"
             @tag-click="handleTagClick"
           />
         </GridParent>

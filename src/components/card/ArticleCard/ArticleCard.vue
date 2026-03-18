@@ -1,9 +1,12 @@
 <template :class="classes">
   <div class="default-card" :class="classes" :data-category="`${eyebrow}`">
+    <div v-if="locked" class="lock-overlay">
+      <span class="lock-message">Available on request</span>
+    </div>
     <div v-if="alt" class="image" :style="bgcolor">
       <!-- Show placeholder when no image -->
       <template v-if="!hasImage">
-        <router-link v-if="(route || btnroute) && !link" :to="`${route || btnroute}`">
+        <router-link v-if="activeRoute && !activeLink" :to="activeRoute">
           <div class="placeholder" :style="{ backgroundColor: placeholderColor }">
             <div class="display placeholder-text" :style="{ color: placeholderTextColor }">
               <span
@@ -16,7 +19,7 @@
             </div>
           </div>
         </router-link>
-        <a v-else-if="link" :href="link" target="_blank" rel="noopener noreferrer">
+        <a v-else-if="activeLink" :href="activeLink" target="_blank" rel="noopener noreferrer">
           <div class="placeholder" :style="{ backgroundColor: placeholderColor }">
             <div class="placeholder-text" :style="{ color: placeholderTextColor }">
               <span
@@ -44,7 +47,7 @@
 
       <!-- Show images when available -->
       <template v-else>
-        <router-link v-if="(route || btnroute) && !link" :to="`${route || btnroute}`">
+        <router-link v-if="activeRoute && !activeLink" :to="activeRoute">
           <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" loading="lazy" />
           <img
             draggable="false"
@@ -55,7 +58,7 @@
             loading="lazy"
           />
         </router-link>
-        <a v-else-if="link" :href="link" target="_blank" rel="noopener noreferrer">
+        <a v-else-if="activeLink" :href="activeLink" target="_blank" rel="noopener noreferrer">
           <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" loading="lazy" />
           <img
             draggable="false"
@@ -88,12 +91,12 @@
         clamped
         class="textblock"
         :class="{ 'textblock--mobile-list': mobileList }"
-        :eyebrow="eyebrow"
+        :eyebrow="displayEyebrow"
         as="h4"
         :icon="icon"
         :iconsize="iconsize"
         :title="title"
-        :titleRoute="route || btnroute || link"
+        :titleRoute="activeRoute || activeLink"
         :description="description"
         :tags="tags"
         :cardType="type"
@@ -234,6 +237,11 @@ export default {
       default: '',
       required: false,
     },
+    locked: {
+      type: Boolean,
+      default: false,
+      required: false,
+    },
   },
   computed: {
     classes() {
@@ -243,7 +251,17 @@ export default {
         'defaultcard--borderless': this.borderless,
         'defaultcard--list': this.list,
         'defaultcard--mobile-list': this.mobileList,
+        'defaultcard--locked': this.locked,
       };
+    },
+    activeRoute() {
+      return this.locked ? '' : (this.route || this.btnroute);
+    },
+    activeLink() {
+      return this.locked ? '' : this.link;
+    },
+    displayEyebrow() {
+      return this.locked ? '🔒 client-work' : this.eyebrow;
     },
     hasImage() {
       return !!(this.imgurl || this.filename || this.filename1 || this.filename3);
@@ -367,6 +385,43 @@ export default {
   margin-block-end: var(--spacing-xxs);
 
   padding-block-start: var(--spacing-sm);
+}
+
+/* Locked card state */
+.defaultcard--locked {
+  cursor: default;
+
+  &:hover {
+    box-shadow: var(--shadow-z2);
+
+    img {
+      transform: none !important;
+    }
+
+    .lock-overlay {
+      opacity: 1;
+    }
+  }
+}
+
+.lock-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.lock-message {
+  color: white;
+  font-size: var(--font-500);
+  font-weight: var(--fontWeight-medium);
+  letter-spacing: 0.05em;
 }
 
 img {
