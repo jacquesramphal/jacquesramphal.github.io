@@ -1142,7 +1142,6 @@ table {
   border-collapse: collapse;
   margin-block-start: 3rem;
   margin-block-end: 3rem; /* Adjust the spacing between tables */
-  font-size: var(--font-xs);
   line-height: 1.5;
   border: var(--border); /* Add a border to all table rows */
   @media only screen and (max-width: 768px) {
@@ -1152,8 +1151,7 @@ table {
 
 /* Table Header */
 th {
-  color: var(--foreground) !important;
-  font-size: var(--font-400);
+  color: var(--foreground-muted) !important;
   font-weight: var(--fontWeight-medium);
   background-color: var(--background-darker);
 }
@@ -1206,8 +1204,7 @@ table:not(:has(thead th:not(:empty))) {
 
   td:first-child {
     background-color: var(--background-darker);
-    color: var(--foreground) !important;
-    font-size: var(--font-400);
+    color: var(--foreground-muted) !important;
     font-weight: var(--fontWeight-medium);
     white-space: nowrap;
   }
