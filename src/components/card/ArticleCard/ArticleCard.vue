@@ -78,7 +78,7 @@
           />
         </div>
       </template>
-      <div v-if="locked" class="lock-overlay">
+      <div v-if="isEffectivelyLocked" class="lock-overlay">
         <span class="lock-message">Available on request</span>
       </div>
     </div>
@@ -251,17 +251,25 @@ export default {
         'defaultcard--borderless': this.borderless,
         'defaultcard--list': this.list,
         'defaultcard--mobile-list': this.mobileList,
-        'defaultcard--locked': this.locked,
+        'defaultcard--locked': this.isEffectivelyLocked,
       };
     },
+    isDev() {
+      return process.env.NODE_ENV === 'development';
+    },
+    isEffectivelyLocked() {
+      // Locked in production, unlocked in development
+      return this.locked && !this.isDev;
+    },
     activeRoute() {
-      return this.locked ? '' : (this.route || this.btnroute);
+      return this.isEffectivelyLocked ? '' : (this.route || this.btnroute);
     },
     activeLink() {
-      return this.locked ? '' : this.link;
+      return this.isEffectivelyLocked ? '' : this.link;
     },
     displayEyebrow() {
-      return this.locked ? '🔒 client-work' : this.eyebrow;
+      // Show lock indicator in production only
+      return this.isEffectivelyLocked ? '🔒 client-work' : this.eyebrow;
     },
     hasImage() {
       return !!(this.imgurl || this.filename || this.filename1 || this.filename3);
@@ -345,11 +353,11 @@ export default {
     }
 
     .image-offset {
-      transform: scale(1.05) translateX(15%) translateY(10%);
+      transform: scale(1.05) translateX(15%);
     }
 
     .image-angled {
-      transform: scale(0.99) rotate(-7deg) translateX(18%) translateY(12%);
+      transform: scale(1.02) rotate(-7deg) translateX(18%) translateY(var(--spacing-md));
     }
   }
   // &:active {
@@ -452,17 +460,19 @@ img {
 }
 
 .image-offset {
-  transform: scale(0.95) translateX(15%) translateY(10%);
+  transform: scale(0.95) translateX(15%);
+  transform-origin: top right;
   box-shadow: var(--shadow-z5);
   border-radius: var(--spacing-xxs) !important;
-  object-position: 0% 0% !important;
+  object-position: 0 0 !important;
 }
 
 .image-angled {
-  transform: scale(0.9) rotate(-7deg) translateX(18%) translateY(12%);
+  transform: scale(0.95) rotate(-7deg) translateX(18%) translateY(var(--spacing-md));
+  transform-origin: top right;
   box-shadow: var(--shadow-z5);
   border-radius: var(--spacing-xxs) !important;
-  object-position: 0% 0% !important;
+  object-position: 0 0 !important;
 }
 
 .image {

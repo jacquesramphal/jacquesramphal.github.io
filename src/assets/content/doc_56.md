@@ -8,7 +8,9 @@ A hardware configuration experience for IT professionals where a wrong choice ha
 | **Status** | Launched |
 | **Tags** | commerce · configurator · b2b |
 
+## Key Learning
 
+Designing for technical users means earning trust through precision. Every edge case you account for signals that the product understands its audience.
 
 ## Overview
 

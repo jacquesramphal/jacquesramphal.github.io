@@ -1,6 +1,6 @@
 # The Best QA Is the One That Doesn’t Have to Happen
 
-## Strong baselines. Early DQA. Less testing later.
+Strong baselines. Early DQA. Less testing later.
 
 ![Image](../images/article/cover1.png)
 

@@ -3,7 +3,7 @@
 
 # Design Tokens: The Unseen Hero in a Changing Design Landscape
 
-#### A Shared Language in Turbulent Times.
+A Shared Language in Turbulent Times.
 
 </header>
 ![Genie Core Functions Diagram](../images/article/without-tokens.png)

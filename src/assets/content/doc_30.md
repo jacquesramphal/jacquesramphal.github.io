@@ -2,7 +2,7 @@
 
 # Ask Me Anything
 
-#### I’m Jacques, Head of Design at Orium, based in Toronto. I lead design work where systems, code, and AI meet—building the practices and platforms that let teams deliver meaningful products efficiently and sustainably.
+I'm Jacques, Head of Design at Orium, based in Toronto. I lead design work where systems, code, and AI meet—building the practices and platforms that let teams deliver meaningful products efficiently and sustainably.
 
 </br>
 

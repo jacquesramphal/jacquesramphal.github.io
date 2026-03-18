@@ -1,6 +1,6 @@
 # Designers as Final Checkpoint
 
-## Maintaining authority through validation
+Maintaining authority through validation
 
 ![Designers as Final Checkpoint](../images/placeholders/placeholder-02.svg)
 
