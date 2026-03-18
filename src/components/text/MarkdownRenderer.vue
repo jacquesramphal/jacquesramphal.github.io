@@ -1142,6 +1142,7 @@ table {
   border-collapse: collapse;
   margin-block-start: 3rem;
   margin-block-end: 3rem; /* Adjust the spacing between tables */
+  font-size: var(--font-500); /* match body paragraph size */
   line-height: 1.5;
   border: var(--border); /* Add a border to all table rows */
   @media only screen and (max-width: 768px) {
