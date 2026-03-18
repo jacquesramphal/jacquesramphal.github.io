@@ -1154,6 +1154,7 @@ th {
   color: var(--foreground-muted) !important;
   font-weight: var(--fontWeight-medium);
   background-color: var(--background-darker);
+  white-space: nowrap;
 }
 
 /* Table Padding */
