@@ -198,8 +198,11 @@
       "description": "An isolated Storybook environment powered by AI — one command to start. How I built a design layer on top of an agentic framework, and what I learned about operationalizing change in a service company where the best handoff is still a handoff.",
       "route": "/doc/the-design-command-suite",
       "contentFile": "doc_64.md",
-      "thumbnail": "placeholders/placeholder-30.svg",
+      "thumbnail": "casestudy/storybook/sb-foundations-colors.png",
       "alt": "Case Study: The /design Agent",
+             "imageVariant": "angled",
+              "bgcolor": "background-color: var(--color-blue)",
+
       "tags": ["design-engineering", "storybook", "ai"]
     },
     {

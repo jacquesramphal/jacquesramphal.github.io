@@ -1,5 +1,5 @@
 <template :class="classes">
-  <div class="default-card" :class="classes" :data-category="`${eyebrow}`">
+  <div class="default-card" :class="classes" :data-category="`${eyebrow}`" @click="handleCardClick">
     <div v-if="alt" class="image" :style="bgcolor">
       <!-- Show placeholder when no image -->
       <template v-if="!hasImage">
@@ -45,7 +45,13 @@
       <!-- Show images when available -->
       <template v-else>
         <router-link v-if="activeRoute && !activeLink" :to="activeRoute">
-          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" loading="lazy" />
+          <img
+            v-if="imgurl"
+            :src="imgurl"
+            :alt="`${alt}`"
+            :class="`image-${imageVariant}`"
+            loading="lazy"
+          />
           <img
             draggable="false"
             v-if="filename"
@@ -56,7 +62,13 @@
           />
         </router-link>
         <a v-else-if="activeLink" :href="activeLink" target="_blank" rel="noopener noreferrer">
-          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" loading="lazy" />
+          <img
+            v-if="imgurl"
+            :src="imgurl"
+            :alt="`${alt}`"
+            :class="`image-${imageVariant}`"
+            loading="lazy"
+          />
           <img
             draggable="false"
             v-if="filename"
@@ -67,7 +79,13 @@
           />
         </a>
         <div v-else>
-          <img v-if="imgurl" :src="imgurl" :alt="`${alt}`" :class="`image-${imageVariant}`" loading="lazy" />
+          <img
+            v-if="imgurl"
+            :src="imgurl"
+            :alt="`${alt}`"
+            :class="`image-${imageVariant}`"
+            loading="lazy"
+          />
           <img
             draggable="false"
             v-if="filename"
@@ -79,7 +97,8 @@
         </div>
       </template>
       <div v-if="isEffectivelyLocked" class="lock-overlay">
-        <span class="lock-message">Available on request</span>
+        <span class="lock-label">Client Work</span>
+        <span class="lock-message">Request Access</span>
       </div>
     </div>
 
@@ -207,6 +226,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    featured: {
+      type: Boolean,
+      default: false,
+    },
     tags: {
       type: Array,
       default: () => [],
@@ -251,6 +274,7 @@ export default {
         'defaultcard--borderless': this.borderless,
         'defaultcard--list': this.list,
         'defaultcard--mobile-list': this.mobileList,
+        'defaultcard--featured': this.featured,
         'defaultcard--locked': this.isEffectivelyLocked,
       };
     },
@@ -262,14 +286,13 @@ export default {
       return this.locked && !this.isDev;
     },
     activeRoute() {
-      return this.isEffectivelyLocked ? '' : (this.route || this.btnroute);
+      return this.isEffectivelyLocked ? '' : this.route || this.btnroute;
     },
     activeLink() {
       return this.isEffectivelyLocked ? '' : this.link;
     },
     displayEyebrow() {
-      // Show lock indicator in production only
-      return this.isEffectivelyLocked ? '🔒 client-work' : this.eyebrow;
+      return this.eyebrow;
     },
     hasImage() {
       return !!(this.imgurl || this.filename || this.filename1 || this.filename3);
@@ -310,6 +333,15 @@ export default {
     },
     readTime() {
       return getReadTime(this.contentFile);
+    },
+  },
+  methods: {
+    handleCardClick(e) {
+      if (this.isEffectivelyLocked) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.$emit('request-access', this.title);
+      }
     },
   },
 };
@@ -407,21 +439,30 @@ export default {
 .lock-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: var(--spacing-xxs);
   opacity: 0;
   transition: opacity 0.25s ease-in-out;
   z-index: 10;
   pointer-events: none;
 }
 
+.lock-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--font-300);
+  font-weight: var(--fontWeight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
 .lock-message {
   color: white;
   font-size: var(--font-500);
   font-weight: var(--fontWeight-medium);
-  letter-spacing: 0.05em;
 }
 
 img {
@@ -756,6 +797,61 @@ img {
     border-radius: 0 !important;
     position: absolute;
     margin: 0 !important;
+  }
+}
+
+.defaultcard--featured {
+  @media only screen and (min-width: 768px) and (max-width: 1200px) {
+    grid-column: span 2;
+  }
+
+  @media only screen and (min-width: 1201px) {
+    grid-column: 1 / -1;
+    border: none !important;
+    box-shadow: none !important;
+    min-height: auto;
+    display: grid !important;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-xs);
+
+    &:hover {
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .image {
+      grid-column: 1 / 2;
+      grid-row: 1;
+      margin: 0 !important;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover !important;
+        object-position: 50% 0;
+      }
+    }
+
+    .info {
+      grid-column: 2 / 3;
+      grid-row: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: stretch;
+      padding: var(--spacing-md) !important;
+      height: auto;
+    }
+
+    .textblock {
+      flex: 0;
+    }
+
+    .textblock :deep(.title) {
+      font-size: var(--font-700);
+    }
   }
 }
 </style>

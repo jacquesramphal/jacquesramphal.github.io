@@ -126,6 +126,7 @@ A curated collection of my writing, professional work, and personal projects."
               borderless
               v-for="(entry, index) in filteredCaseStudiesAndProjects"
               :key="entry.id"
+              :featured="index === 0"
               :mobileList="index !== 0"
               :alt="entry.alt"
               :description="entry.description"
@@ -136,14 +137,15 @@ A curated collection of my writing, professional work, and personal projects."
               :route="entry.route"
               :btnroute="entry.btnroute"
               :link="entry.link"
-              eyebrow=""
+              :eyebrow="index === 0 ? 'Featured' : ''"
               :title="entry.title"
               :tags="entry.tags"
               :type="entry.type"
               :contentFile="entry.contentFile"
-              :index="index"
+              :index="index + 1"
               :locked="!!entry.locked"
               @tag-click="handleTagClick"
+              @request-access="handleRequestAccess"
             />
           </GridParent>
         </div>
@@ -232,12 +234,19 @@ A curated collection of my writing, professional work, and personal projects."
             :index="index"
             :locked="!!entry.locked"
             @tag-click="handleTagClick"
+            @request-access="handleRequestAccess"
           />
         </GridParent>
 
         <p v-else class="subtle library-empty">No matches.</p>
       </template>
     </GridContainer>
+
+    <ContactModal
+      :isOpen="modalOpen"
+      :projectTitle="selectedProject"
+      @close="closeModal"
+    />
   </PageWrapper>
 </template>
 
@@ -245,6 +254,7 @@ A curated collection of my writing, professional work, and personal projects."
 import library from '@/assets/data/library.json';
 import MyButton from '@/components/Button/Button.vue';
 import ArticleCard from '@/components/card/ArticleCard/ArticleCard.vue';
+import ContactModal from '@/components/ContactModal.vue';
 import GridContainer from '@/components/grid/GridContainer.vue';
 import GridParent from '@/components/grid/GridParent.vue';
 import MyInput from '@/components/form/MyInput.vue';
@@ -255,6 +265,7 @@ export default {
   components: {
     MyButton,
     ArticleCard,
+    ContactModal,
     GridContainer,
     GridParent,
     MyInput,
@@ -267,6 +278,8 @@ export default {
       query: '',
       selectedTypes: ['article', 'tool', 'case-study', 'design-project'],
       selectedTags: [],
+      modalOpen: false,
+      selectedProject: '',
     };
   },
   computed: {
@@ -367,6 +380,14 @@ export default {
         this.selectedTags = [...this.selectedTags, tag];
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+    handleRequestAccess(projectTitle) {
+      this.selectedProject = projectTitle;
+      this.modalOpen = true;
+    },
+    closeModal() {
+      this.modalOpen = false;
+      this.selectedProject = '';
     },
   },
 };
