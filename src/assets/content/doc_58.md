@@ -1,6 +1,6 @@
 # The Ramstack: Design Tools, Complexity, and the Case for Interoperability
 
-#### A future-proof approach to front-end design isn’t about the tools—it’s about the principles beneath them
+A future-proof approach to front-end design isn't about the tools—it's about the principles beneath them
 
 ![Image](../images/article/cover3.png)
 

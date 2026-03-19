@@ -1,6 +1,5 @@
 # The Designer in the Age of AI
-
-## Shifting from inspectors to system stewards
+Shifting from inspectors to system stewards
 
 ![The Designer in the Age of AI](../images/placeholders/placeholder-12.svg)
 

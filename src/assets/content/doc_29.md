@@ -1,7 +1,7 @@
 
 # Leading Design Innovation:
 
-#### In my work, I focus on aligning design with broader company goals, ensuring it serves as a strategic, value-driving function rather than merely an aesthetic service.
+In my work, I focus on aligning design with broader company goals, ensuring it serves as a strategic, value-driving function rather than merely an aesthetic service.
 
 ![Leading Design Innovation](../images/placeholders/placeholder-23.svg)
 

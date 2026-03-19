@@ -1,6 +1,6 @@
 # Sketchbook
 
-#### Visual explorations, UI experiments, and work-in-progress from across projects.
+Visual explorations, UI experiments, and work-in-progress from across projects.
 
 <!-- full-width -->
 

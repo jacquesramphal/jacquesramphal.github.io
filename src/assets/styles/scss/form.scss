@@ -20,6 +20,8 @@ label {
 input,
 textarea,
 select {
+  font-family: var(--fontFamily-primary) !important;
+  font-weight: var(--fontWeight-medium) !important;
   font-size: var(--font-500);
   color: var(--foreground) !important;
   inline-size: 100%;
