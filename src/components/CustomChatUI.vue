@@ -853,10 +853,14 @@ export default {
     }
 
     // Note: desktop should not auto-open fullscreen; fullscreen is user-selected.
+
+    // Listen for pixel buddy chat event
+    window.addEventListener('pixel-buddy-chat', this.openChat);
   },
   beforeUnmount() {
     window.removeEventListener('resize', this.handleResize);
     window.removeEventListener('keydown', this.handleEscapeKey);
+    window.removeEventListener('pixel-buddy-chat', this.openChat);
     window.removeEventListener('scroll', this.handleMobileScroll);
     if (this._menuObserver) this._menuObserver.disconnect();
     // Clean up just in case

@@ -78,7 +78,8 @@ transform: rotate(90deg);
       class="avatar-standing"
     />-->
 
-    <CustomChatUI />
+    <!-- <CustomChatUI /> -->
+    <PixelBuddy />
     <!-- Chat with Jacques's agent button and sidebar -->
     <!-- <div class="fixed-chat-entry" @click="toggleChatSidebar">
       <span class="vertical-text">chat with Jacques's agent</span>
@@ -114,6 +115,7 @@ import TheLogin from './components/TheLogin.vue';
 // import BreadCrumb from "./components/BreadCrumb.vue";
 import SidebarNav from './components/SidebarNav.vue';
 import CustomChatUI from './components/CustomChatUI.vue';
+import PixelBuddy from './components/PixelBuddy.vue';
 // import UnderConstructionBar from './components/UnderConstructionBar.vue';
 import { useRouter } from 'vue-router'; // Import Vue Router
 import { provide, ref } from 'vue';
@@ -134,6 +136,7 @@ export default {
     // BreadCrumb,
     SidebarNav,
     CustomChatUI,
+    PixelBuddy,
     // UnderConstructionBar,
   },
   setup() {

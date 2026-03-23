@@ -10,6 +10,7 @@
   "entries": [
 
     {
+   
       "id": 29,
       "docId": 62,
       "slug": "when-ux-becomes-ax",
@@ -187,6 +188,7 @@
       "alt": "Article: Designing Your Own Relevance",
       "tags": ["career", "growth", "leadership"]
     },
+   
 
     {
       "id": 30,
@@ -204,6 +206,20 @@
               "bgcolor": "background-color: var(--color-blue)",
 
       "tags": ["design-engineering", "storybook", "ai"]
+    },
+     {
+       "id": 30,
+      "docId": 68,
+      "slug": "pixel-buddy",
+      "type": "case-study",
+      "title": "Pixel Buddy",
+      "eyebrow": "Interactive Experiment",
+      "description": "An 8-bit character that lives on this site, following your cursor and treating the page as a platformer. Design is WIP, behavior is the experiment.",
+      "route": "/doc/pixel-buddy",
+      "contentFile": "doc_68.md",
+      "thumbnail": "pixelbuddy/pixel-buddy.png",
+      "alt": "Pixel Buddy: Interactive 8-bit character experiment",
+      "tags": ["experiment", "interaction", "animation", "vue"]    
     },
     {
       "id": 9,
