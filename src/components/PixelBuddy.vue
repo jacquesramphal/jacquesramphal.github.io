@@ -348,16 +348,33 @@ export default {
       setTimeout(() => {
         const target = this.highlightedElement;
         if (target) {
-          // Flash the highlight
-          target.classList.add('pixel-buddy-clicked');
-          setTimeout(() => {
-            target.classList.remove('pixel-buddy-clicked');
-          }, 200);
+          // Check if element is clickable
+          const clickableTags = ['A', 'BUTTON', 'INPUT', 'SELECT', 'TEXTAREA', 'LABEL'];
+          const isClickable = clickableTags.includes(target.tagName) ||
+            target.onclick ||
+            target.hasAttribute('onclick') ||
+            target.hasAttribute('role') && ['button', 'link', 'menuitem'].includes(target.getAttribute('role')) ||
+            window.getComputedStyle(target).cursor === 'pointer';
 
-          target.click();
-          // Also trigger focus for interactive elements
-          if (typeof target.focus === 'function') {
-            target.focus();
+          if (isClickable) {
+            // Flash the highlight
+            target.classList.add('pixel-buddy-clicked');
+            setTimeout(() => {
+              target.classList.remove('pixel-buddy-clicked');
+            }, 200);
+
+            target.click();
+            // Also trigger focus for interactive elements
+            if (typeof target.focus === 'function') {
+              target.focus();
+            }
+          } else {
+            // Eat the element - nom nom
+            target.classList.add('pixel-buddy-eaten');
+            setTimeout(() => {
+              target.style.display = 'none';
+              target.classList.remove('pixel-buddy-eaten');
+            }, 300);
           }
         }
       }, 100);
@@ -377,13 +394,12 @@ export default {
     doLeave() {
       this.menuVisible = false;
       this.isLeaving = true;
-      this.state = "leaving";
-      // Walk off screen
-      this.targetX = -100;
-      this.isStaying = false;
+      this.state = "poof";
+      this.isControlled = false;
+      // Hide after poof animation
       setTimeout(() => {
         this.$el.style.display = "none";
-      }, 2000);
+      }, 400);
     },
     isElementSolid(el) {
       if (!el || el === document.body || el === document.documentElement) return false;
@@ -1196,15 +1212,34 @@ export default {
   50% { transform: translateY(-10px) scale(1.1); }
 }
 
-/* Leaving animation */
-.pixel-buddy.leaving {
-  animation: fade-out 2s ease-out forwards;
+/* Poof animation */
+.pixel-buddy.poof .character {
+  animation: poof-expand 0.4s ease-out forwards;
 }
 
-@keyframes fade-out {
-  0% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { opacity: 0; }
+.pixel-buddy.poof::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -12px;
+  background: radial-gradient(circle, rgba(200,200,200,0.8) 0%, rgba(150,150,150,0.4) 40%, transparent 70%);
+  border-radius: 50%;
+  animation: poof-smoke 0.4s ease-out forwards;
+}
+
+@keyframes poof-expand {
+  0% { transform: scale(1); opacity: 1; }
+  30% { transform: scale(1.3); opacity: 0.8; }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+@keyframes poof-smoke {
+  0% { transform: scale(0.5); opacity: 0; }
+  30% { transform: scale(1.5); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
 }
 </style>
 
@@ -1246,5 +1281,17 @@ export default {
   0% { box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.8); }
   50% { box-shadow: 0 0 0 8px rgba(66, 133, 244, 0.4); }
   100% { box-shadow: 0 0 0 0 rgba(66, 133, 244, 0); }
+}
+
+/* Eaten effect - element gets consumed */
+.pixel-buddy-eaten {
+  animation: pixel-buddy-eat 0.3s ease-in forwards !important;
+  pointer-events: none !important;
+}
+
+@keyframes pixel-buddy-eat {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.8) rotate(5deg); opacity: 0.6; }
+  100% { transform: scale(0) rotate(-10deg); opacity: 0; }
 }
 </style>
