@@ -1,5 +1,3 @@
-![K&G Loyalty Platform - Mobile App Hero](../images/casestudy/kg/kg-1.jpg)
-
 # Kum & Go Mobile Loyalty App
 A composable mobile app with loyalty, fuel pay, and promotions for a convenience retailer ready to own its digital experience.
 
@@ -9,6 +7,12 @@ A composable mobile app with loyalty, fuel pay, and promotions for a convenience
 | **Client** | Kum & Go / Orium |
 | **Status** | Launched · 2022 |
 | **Tags** | product-design · mobile · loyalty |
+
+![K&G Loyalty Platform - Mobile App Hero](../images/casestudy/kg/kg-1.jpg)
+
+## Key Learning
+
+Designing for the pump means designing for a constrained moment. Every extra tap costs more when someone is standing outside in bad weather with a car that needs fuel.
 
 ## Overview
 

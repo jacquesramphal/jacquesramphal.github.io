@@ -1,6 +1,6 @@
 # When UX Becomes AX: How Designers Adapt in the Age of Agentic Systems
 
-If you think AI makes design less relevant, I get it — but you’re probably looking at the wrong layer.
+If you think AI makes design less relevant, I get it — but you're probably looking at the wrong layer.
 
 I keep hearing this from people I interact with: “Now it’s about agents, orchestration, automation… this isn’t really design anymore. What’s the point?” On the surface, it makes sense. When systems can decide and act on their own, it feels like design moves out of the picture. But I actually think that’s where design becomes more critical, not less.
 

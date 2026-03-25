@@ -1,9 +1,9 @@
 
+![Finding my lane](../images/placeholders/placeholder-24.svg)
+
 # I almost lost my job. Instead, I found my lane.
 
-#### Designing Your Own Relevance
-
-![Finding my lane](../images/placeholders/placeholder-24.svg)
+Designing Your Own Relevance
 
 
 Like so many others, I almost lost my job during COVID.

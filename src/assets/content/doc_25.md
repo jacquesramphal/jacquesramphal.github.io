@@ -2,7 +2,7 @@
 
 # Softchoice Website Rebrand: Polishing a Brand Identity in Motion
 
-#### When a brand launches a new identity, the website needs to reflect it—without breaking what already works.
+When a brand launches a new identity, the website needs to reflect it—without breaking what already works.
 
 </header>
 ![Softchoice Desktop Homepage](../images/casestudy/softchoice/sc-desktop-1.png)

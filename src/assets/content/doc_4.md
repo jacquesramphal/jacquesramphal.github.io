@@ -2,7 +2,7 @@
 
 # Usability and User Experience Testing
 
-#### A practical chapter stub (WIP)
+A practical chapter stub (WIP)
 
 </header>
 

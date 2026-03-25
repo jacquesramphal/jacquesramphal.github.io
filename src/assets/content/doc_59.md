@@ -1,14 +1,15 @@
+![Image](../images/article/cover2.png)
 # The Future of Design
 
-#### Speculation on what comes next—and why the question matters more than the answer
+Speculation on what comes next—and why the question matters more than the answer
 
-![Image](../images/article/cover2.png)
+
+## The Question I can't answer
 
 There’s a question I keep circling back to, and I’m not sure there’s a clean answer: *What is the future of design?*
 
 Not design as a job title. Not design as a deliverable. Design as a practice—as the discipline that occupies the space between what a thing is and what it could be.
 
----
 
 ## The Convergence Question
 
@@ -18,7 +19,7 @@ That future feels closer than it used to. Design tools increasingly adopt develo
 
 Whether these two worlds fully converge or remain productively separate is an open question. But the gap is narrowing, and the narrowing itself is meaningful. The designer who doesn’t understand how things get built, and the developer who doesn’t understand why things look and behave the way they do—both are working at a disadvantage.
 
----
+
 
 ## The Spectrum
 
@@ -59,7 +60,7 @@ Design that primarily serves the aesthetic preferences of the designer is design
 
 The environmental cost of digital products is real. Performance, efficiency, and responsible design aren’t nice-to-haves—they’re part of what it means to do the work well.
 
----
+
 
 ## Tech Agnosticism as a Practice
 
@@ -69,7 +70,7 @@ The ideal design environment would support open, interoperable formats—much li
 
 Open-source design tools are improving. Web standards continue to expand into territory that was once only possible in specialized applications. The community of practitioners who believe in interoperability is growing. The demand for flexible, agnostic tools is beginning to influence how tools get built.
 
----
+
 
 ## What Designers Can Do Now
 

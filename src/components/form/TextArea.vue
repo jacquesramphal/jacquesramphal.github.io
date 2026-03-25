@@ -4,12 +4,14 @@
     ><br />
     <textarea
       cols="1"
-      rows="3"
+      :rows="rows"
       :id="`${id}`"
-      type="textarea"
       :name="`${name}`"
       :placeholder="`${placeholder}`"
-      required
+      :required="required"
+      :disabled="disabled"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
     />
   </div>
 </template>
@@ -17,9 +19,7 @@
 <script>
 export default {
   name: "TextArea",
-  components: {
-    /* MyButton, */
-  },
+  emits: ['update:modelValue'],
   props: {
     id: {
       type: String,
@@ -37,30 +37,33 @@ export default {
       type: String,
       default: "This is an placeholder",
     },
+    modelValue: {
+      type: String,
+      default: "",
+    },
+    rows: {
+      type: [String, Number],
+      default: 3,
+    },
+    required: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
 
 <style scoped>
-* {
-  color: inherit;
-  font-family: inherit;
-}
 #textarea {
-  /*  background: var(--color-xlight); */
-  grid-column: 1 / 4;
+  width: 100%;
 }
 
-/* ------------ BREAKPOINT MD ------------ */
-@media only screen and (min-width: 768px) {
-  #textarea {
-    grid-column: 1 / 3;
-  }
-  /* ------------ BREAKPOINT LG ------------ */
-  @media only screen and (min-width: 1201px) {
-    #textarea {
-      grid-column: 2 / 4;
-    }
-  }
+textarea {
+  font-family: var(--fontFamily-primary) !important;
+  font-weight: var(--fontWeight-medium) !important;
 }
 </style>

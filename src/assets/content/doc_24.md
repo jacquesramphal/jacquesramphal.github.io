@@ -2,7 +2,7 @@
 
 # K&G Loyalty Platform: Redefining Convenience Through Digital Experience
 
-#### Building a mobile-first loyalty platform that connects digital convenience with in-store experiences.
+Building a mobile-first loyalty platform that connects digital convenience with in-store experiences.
 
 </header>
 ![K&G Mobile App Hero](../images/casestudy/kg/kg-2.jpg)

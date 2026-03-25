@@ -1,7 +1,7 @@
 
 # The Shifting Design Landscape
 
-#### From pixel pushers to strategic advocates: how designers are evolving in an AI-driven, cross-skilled world
+From pixel pushers to strategic advocates: how designers are evolving in an AI-driven, cross-skilled world
 
 ![Image](../images/article/cover2.png)
 

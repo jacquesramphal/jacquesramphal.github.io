@@ -10,6 +10,10 @@ A strategic planning interface for an organization managing data across business
 
 ![Planning dashboard interface](../images/casestudy/glo/planner.png)
 
+## Key Learning
+
+Enterprise tools fail when they try to show everything or summarize everything. The design problem is finding the layer in between.
+
 ## Overview
 
 The data existed. What the organization didn't have was a way to look across it without collapsing the complexity that makes it useful.

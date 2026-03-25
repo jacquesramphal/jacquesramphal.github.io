@@ -1,4 +1,3 @@
-
 # Softchoice Website Replatform
 A full brand refresh inside an existing CMS, without touching the platform.
 
@@ -11,6 +10,9 @@ A full brand refresh inside an existing CMS, without touching the platform.
 
 ![Softchoice Desktop Homepage](../images/casestudy/softchoice/sc-desktop-1.png)
 
+## Key Learning
+
+The best constraints force precision. Working inside a fixed module structure meant every decision had to earn its place.
 
 ## Overview
 
