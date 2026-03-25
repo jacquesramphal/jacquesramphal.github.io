@@ -1,74 +1,90 @@
-# counter-fill
-Fills the enclosed counter spaces inside letterforms — the holes in **o, e, a, g, d, b, p** — with any colour or gradient.
+# Counter Fill
 
-| | |
-|---|---|
-| **Role** | Author |
-| **Type** | Script / Experiment |
-| **Status** | WIP · 2025 |
-| **Tags** | canvas · typography · experiment · open-source |
+Fills the enclosed spaces inside letterforms — the holes in **o, e, a, g, d, b, p** — with colour or gradient. Live HTML text, any font, any size.
+
+![Counter Fill Example](../images/casestudy/counter-fill/counter-fill.png)
+
+---
+
+## Small detail. Real problem.
+
+The counter is one of the oldest details in type design. It's the enclosed space inside a letterform: the bowl of an **o**, the eye of an **e**, the aperture of a **p**. Type designers have shaped and tuned these spaces for centuries. They carry weight, personality, and optical balance. In display type especially, they're hard to ignore.
+
+In print and in every design tool, filling a counter with a different colour is nothing. You paint it. Designers do it constantly in editorial mastheads, logotypes, posters, anywhere display type gets treated as image.
+
+In the browser, on live text, nobody had done it. Not that I could find.
+
+That gap is invisible if you're only on one side of the design-dev divide. Designers don't know what it takes to replicate it in code. Developers don't think about letterform counters. I noticed it because I'm on both sides, and the absence was obvious.
+
+---
 
 ## Overview
 
-Fully generative. Works on any word, any font, any size. No hardcoded letterforms. Real DOM text — accessible, selectable, screen-readable.
+I searched for a while. There are workarounds — SVG paths drawn by hand, blend mode effects that only hold under narrow conditions — but nothing that works on real live text, at any size, in any font, without throwing away accessibility in the process.
 
-The idea: draw the text onto an offscreen canvas, flood-fill from every edge to mark all *outside* transparent pixels, then treat whatever unmarked transparent pixels remain as counter holes. Paint those with a radial gradient. Put the canvas behind the real text so the text stays selectable and the effect stays invisible to assistive technology.
+So I built it.
 
-The result is letterforms that glow from the inside — the holes in **o**, **e**, **a**, **g**, **d**, **b**, **p** and **q** lit up with colour while the strokes remain unchanged.
+The text stays real: selectable, readable by screen readers, searchable. The colour is purely decorative, sitting behind the letterforms, invisible to anything that isn't looking at pixels.
 
-## The Constraint
+---
 
-Most typographic fill effects require SVG paths, custom letterforms, or image exports. None of those are accessible, resizable without re-exporting, or font-agnostic. The constraint here was to work entirely with real DOM text — no SVGs, no images, no pre-baked paths — so the result is still readable by screen readers, selectable by users, and font-agnostic by default.
+## Usage
 
-## Approach
+Required CSS is injected automatically — no stylesheet needed.
 
-### BFS flood-fill from the canvas edges
-
-Text is drawn white on transparent onto an offscreen canvas. A BFS flood-fill starts from every edge pixel — any transparent pixel reachable from the edge is "outside." Any transparent pixel that remains after the flood is enclosed: a counter hole.
-
-### Drift correction
-
-Canvas `textBaseline` and DOM layout don't always agree. A probe canvas measures where the ink actually lands, compares it against the expected baseline, and corrects the offset before drawing to the main canvas. This keeps the fill aligned to the real rendered glyphs on every browser and screen density.
-
-### Dilation
-
-Counter pixels are dilated 2px outward before painting to close antialiasing gaps. The text span sits above the canvas via `z-index`, so the slight bleed is hidden by the strokes themselves.
-
-### Multi-line support
-
-In multi-line mode, the library splits words into individual `span.cf-word` elements, measures each word's baseline position via a zero-width sizer span, and draws all words onto a single shared canvas. This keeps the gradient coherent across line breaks.
-
-### Performance
-
-A `ResizeObserver` watches all target elements. Repaints are debounced via `requestAnimationFrame` and skip elements whose pixel dimensions haven't changed, so resize events on retina screens don't trigger redundant BFS passes.
-
-## Use It
+### Single-line
 
 ```html
-<!-- Single word -->
-<h1 class="wrap" id="my-heading">
+<h1 class="wrap" id="w1">
   <canvas></canvas>
   <span class="text">Golden</span>
 </h1>
-
-<!-- Multi-line — JS splits words automatically -->
-<h2 class="wrap-multi" id="my-multi">Golden Baroque Obsidian</h2>
 
 <script src="counter-fill.js"></script>
 <script>
   document.fonts.ready.then(() => {
     CounterFill.init({
-      'my-heading': { stops: ['#f5c842', '#d4820a', '#7a3a08'] },
-      'my-multi':   { stops: ['#f5c842', '#d4820a', '#7a3a08'] },
+      w1: { stops: ['#f5c842', '#d4820a', '#7a3a08'] },
     });
   });
 </script>
 ```
 
-[View standalone demo](/counter-fill.html) · [Source on GitHub](https://github.com/jacquesramphal/jacquesramphal.github.io/tree/main/scripts)
+### Multi-line
 
-## What I Learned
+Just write the text. JS splits words automatically.
 
-BFS flood-fill on a canvas is fast enough for display-size text on a modern device, but the GPU-to-CPU readback (`getImageData`) is the bottleneck. Running it on a probe canvas first, then using that result to correct the main canvas position, keeps the expensive readback to one call per element.
+```html
+<h2 class="wrap-multi" id="wm">Golden Baroque Obsidian</h2>
 
-The bigger surprise was how much browser-to-browser variance there is in where text actually lands relative to its declared baseline. The drift correction pass turned out to be necessary, not optional.
+<script>
+  document.fonts.ready.then(() => {
+    CounterFill.init({
+      wm: { stops: ['#f5c842', '#d4820a'] },
+    });
+  });
+</script>
+```
+
+### Colours
+
+Keyed by element `id`. Two or more stops become a radial gradient, centre-out. One stop is a solid fill. CSS variables work directly.
+
+```js
+CounterFill.init({
+  w1: { stops: ['#f5c842', '#d4820a', '#7a3a08'] }, // 3-stop gradient
+  w2: { stops: ['#60c8f0', '#002060'] },             // 2-stop
+  w3: { stops: ['#e05c5c'] },                        // solid
+  w4: { stops: ['var(--color-accent)'] },            // design token
+});
+```
+
+For Vue, React, and module setups, see the [full README on GitHub](https://github.com/jacquesramphal/counter-fill).
+
+---
+
+## What I learned
+
+The gap between "this seems like a small detail" and "this took significant effort to get right" is almost entirely about making two systems agree on where the text actually is. That part took longer than everything else combined.
+
+Worth it for any project where typography is doing serious work.

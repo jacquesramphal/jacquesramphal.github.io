@@ -266,7 +266,7 @@ export default {
   /* flex: 1; */
   inline-size: 100%;
   white-space: normal;
-  font-weight: var(--fontWeight-bold) !important;
+  font-weight: var(--fontWeight-bold);
 }
 
 h1.title {

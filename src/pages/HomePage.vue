@@ -316,7 +316,7 @@ export default {
         h1.classList.add('wrap-multi');
         document.fonts.ready.then(() => {
           CounterFill.init({
-            'hero-title': { stops: ['#c084fc', '#7c3aed', '#3b0764'] },
+            'hero-title': { stops: ['var(--color-pink)', 'var(--color-yellow)'] },
           });
         });
       }
@@ -424,7 +424,6 @@ export default {
 h1.wrap-multi {
   position: relative;
   display: block;
-  line-height: inherit;
 
   canvas {
     position: absolute;
@@ -439,7 +438,7 @@ h1.wrap-multi {
   .cf-word {
     position: relative;
     z-index: 1;
-    display: inline;
+    display: inline-block;
   }
 }
 

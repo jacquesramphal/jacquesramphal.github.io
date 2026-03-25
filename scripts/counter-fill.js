@@ -14,7 +14,13 @@
  *
  * ─── Required CSS ────────────────────────────────────────────────────
  *
- *   Auto-injected by CounterFill.init() — no stylesheet needed.
+ *   .wrap { position:relative; display:inline-block; line-height:1; white-space:nowrap; }
+ *   .wrap canvas { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; }
+ *   .wrap .text { position:relative; z-index:1; }
+ *
+ *   .wrap-multi { position:relative; display:block; line-height:1.2; text-align:center; }
+ *   .wrap-multi canvas { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; }
+ *   .wrap-multi .cf-word { position:relative; z-index:1; display:inline; }
  *
  * ─── Fill config ─────────────────────────────────────────────────────
  *
@@ -23,13 +29,6 @@
  *   CounterFill.init({
  *     'my-heading': { stops: ['#f5c842','#d4820a','#7a3a08'] },
  *     'my-multi':   { stops: ['#f5c842','#d4820a','#7a3a08'] },
- *   });
- *
- *   CSS variables are resolved at paint time, so you can use design tokens:
- *
- *   CounterFill.init({
- *     'my-heading': { stops: ['var(--color-accent)'] },
- *     'my-multi':   { stops: ['var(--color-primary)','var(--color-secondary)'] },
  *   });
  *
  * ─── API ─────────────────────────────────────────────────────────────
@@ -58,17 +57,6 @@
     document.head.appendChild(style);
   }
 
-  // ── Resolve CSS variables to concrete color values ────────────────────────
-  const _colorEl = document.createElement('div');
-  _colorEl.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden;';
-  document.body.appendChild(_colorEl);
-
-  function resolveColor(color) {
-    if (!color.includes('var(')) return color;
-    _colorEl.style.color = color;
-    return getComputedStyle(_colorEl).color;
-  }
-
   // ── BFS flood-fill + dilate + paint ──────────────────────────────────────
   function bfsAndPaint(cv, ctx, pw, ph, stops) {
     const img = ctx.getImageData(0, 0, pw, ph);
@@ -84,49 +72,13 @@
     for (let x = 0; x < pw; x++) { enq(x); enq((ph-1)*pw+x); }
     for (let y = 0; y < ph; y++) { enq(y*pw); enq(y*pw+pw-1); }
     while (q.length) {
-      const i = q.pop();
+      const i = q.pop(), x = i%pw, y = (i/pw)|0;
       enq(i-1); enq(i+1); enq(i-pw); enq(i+pw);
     }
 
     const counter = new Uint8Array(N);
     for (let i = 0; i < N; i++)
       if (d[i*4+3] === 0 && !outside[i]) counter[i] = 1;
-
-    // Filter out false-positive enclosed regions (e.g. space trapped between tight
-    // text lines when line-height ≈ 1). Real letter counters are compact; a region
-    // spanning >20% of canvas width OR with aspect ratio > 4:1 (wide strip) is not
-    // a letter counter — it's an inter-line gap.
-    const regionSeen = new Uint8Array(N);
-    for (let i = 0; i < N; i++) {
-      if (!counter[i] || regionSeen[i]) continue;
-      const region = [];
-      let minX = pw, maxX = 0, minY = ph, maxY = 0;
-      const rq = [i];
-      regionSeen[i] = 1;
-      while (rq.length) {
-        const ri = rq.pop();
-        region.push(ri);
-        const rx = ri % pw;
-        const ry = (ri / pw) | 0;
-        if (rx < minX) minX = rx;
-        if (rx > maxX) maxX = rx;
-        if (ry < minY) minY = ry;
-        if (ry > maxY) maxY = ry;
-        for (const ni of [ri-1, ri+1, ri-pw, ri+pw]) {
-          if (ni >= 0 && ni < N && counter[ni] && !regionSeen[ni]) {
-            regionSeen[ni] = 1; rq.push(ni);
-          }
-        }
-      }
-      const rw = maxX - minX;
-      const rh = maxY - minY;
-      // Only reject wide flat strips (inter-line gaps). The width threshold
-      // was removed: per-word canvases are narrow enough that real counters
-      // (inside 'O', 'e', 'g', etc.) could exceed any fixed % of canvas width.
-      if (rh > 0 && rw / rh > 4) {
-        for (const ri of region) counter[ri] = 0;
-      }
-    }
 
     const DILATE = 2;
     const dilated = new Uint8Array(N);
@@ -152,17 +104,10 @@
     ctx.putImageData(mask, 0, 0);
     ctx.globalCompositeOperation = 'source-atop';
 
-    const resolved = stops.map(resolveColor);
-    let fill;
-    if (resolved.length === 1) {
-      fill = resolved[0];
-    } else {
-      const cx = pw*0.5, cy = ph*0.48, r = pw*0.6;
-      const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
-      resolved.forEach((c, i) => g.addColorStop(i / (resolved.length - 1), c));
-      fill = g;
-    }
-    ctx.fillStyle = fill;
+    const cx = pw*0.5, cy = ph*0.48, r = pw*0.6;
+    const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+    stops.forEach((c, i) => g.addColorStop(i / (stops.length - 1), c));
+    ctx.fillStyle = g;
     ctx.fillRect(0, 0, pw, ph);
     ctx.globalCompositeOperation = 'source-over';
   }
@@ -227,45 +172,6 @@
     bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops);
   }
 
-  // ── Per-word canvas paint (counter stays inside the span it belongs to) ──
-  function paintWordSpan(span, fill, fontStr, letterSpacing, dpr) {
-    const word = span.dataset.cfWord;
-    if (!word) return;
-
-    let cv = span.querySelector(':scope > canvas.cf-canvas');
-    if (!cv) {
-      cv = document.createElement('canvas');
-      cv.className = 'cf-canvas';
-      cv.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:-1;';
-      span.insertBefore(cv, span.firstChild);
-    }
-
-    const W = span.offsetWidth, H = span.offsetHeight;
-    if (!W || !H) return;
-    cv.width  = Math.round(W * dpr);
-    cv.height = Math.round(H * dpr);
-
-    const ctx = cv.getContext('2d', { willReadFrequently: true });
-    ctx.scale(dpr, dpr);
-
-    // Measure baseline within the span's own coordinate space
-    const sizer = document.createElement('span');
-    sizer.style.cssText = 'display:inline-block;width:0;height:0;vertical-align:baseline;overflow:visible;';
-    span.insertBefore(sizer, span.firstChild);
-    const sR  = sizer.getBoundingClientRect();
-    const spR = span.getBoundingClientRect();
-    span.removeChild(sizer);
-
-    const bx = sR.left   - spR.left;
-    const by = sR.bottom - spR.top;
-
-    ctx.font = fontStr; ctx.letterSpacing = letterSpacing;
-    ctx.textBaseline = 'alphabetic'; ctx.fillStyle = '#fff';
-    ctx.fillText(word, bx, by);
-
-    bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops);
-  }
-
   // ── Multi-line paint ──────────────────────────────────────────────────────
   function paintMulti(wrap, FILLS) {
     const fill = FILLS[wrap.id];
@@ -273,17 +179,18 @@
 
     const dpr = window.devicePixelRatio || 1;
 
-    // First call: split raw text into per-word spans
-    if (!wrap.querySelector(':scope > span.cf-word')) {
+    let cv = wrap.querySelector(':scope > canvas');
+    if (!cv) {
       const rawText = wrap.textContent.trim();
       wrap.innerHTML = '';
+      cv = document.createElement('canvas');
+      wrap.appendChild(cv);
       rawText.split(/(\s+)/).forEach(part => {
         if (/^\s+$/.test(part)) {
           wrap.appendChild(document.createTextNode(part));
         } else if (part.length) {
           const s = document.createElement('span');
           s.className = 'cf-word';
-          s.dataset.cfWord = part;
           s.textContent = part;
           wrap.appendChild(s);
         }
@@ -293,6 +200,14 @@
     const wordSpans = wrap.querySelectorAll(':scope > span.cf-word');
     if (!wordSpans.length) return;
 
+    const W = wrap.offsetWidth, H = wrap.offsetHeight;
+    if (!W || !H) return;
+    cv.width  = Math.round(W * dpr);
+    cv.height = Math.round(H * dpr);
+
+    const ctx = cv.getContext('2d', { willReadFrequently: true });
+    ctx.scale(dpr, dpr);
+
     const cs = getComputedStyle(wrap);
     const fontStr = [
       cs.fontStyle !== 'normal' ? cs.fontStyle : '',
@@ -300,8 +215,31 @@
     ].filter(Boolean).join(' ');
     const letterSpacing = cs.letterSpacing || '0px';
 
-    // Each word paints its own canvas — no shared coordinate math
-    wordSpans.forEach(span => paintWordSpan(span, fill, fontStr, letterSpacing, dpr));
+    const mc   = document.createElement('canvas');
+    const mCtx = mc.getContext('2d');
+    mCtx.font  = fontStr;
+
+    const wrapRect = wrap.getBoundingClientRect();
+
+    wordSpans.forEach(span => {
+      const word = span.textContent.trim();
+      if (!word) return;
+
+      const sizer = document.createElement('span');
+      sizer.style.cssText = 'display:inline-block;width:0;height:0;vertical-align:baseline;overflow:visible;';
+      span.insertBefore(sizer, span.firstChild);
+      const sR = sizer.getBoundingClientRect();
+      span.removeChild(sizer);
+
+      const bx = sR.left   - wrapRect.left;
+      const by = sR.bottom - wrapRect.top;
+
+      ctx.font = fontStr; ctx.letterSpacing = letterSpacing;
+      ctx.textBaseline = 'alphabetic'; ctx.fillStyle = '#fff';
+      ctx.fillText(word, bx, by);
+    });
+
+    bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops);
   }
 
   // ── Performance: size cache + rAF batching ────────────────────────────────
@@ -315,19 +253,14 @@
     if (sizeCache.get(el) === key) return;
     pending.add({ el, FILLS });
     if (rafId) return;
-    // Double rAF: first frame allows the browser to settle layout after a resize,
-    // second frame reads positions and paints — prevents stale getBoundingClientRect
-    // reads that cause counters to appear on the wrong line.
     rafId = requestAnimationFrame(() => {
-      rafId = requestAnimationFrame(() => {
-        rafId = null;
-        pending.forEach(({ el: target, FILLS: f }) => {
-          const k = `${Math.round(target.offsetWidth*dpr)}x${Math.round(target.offsetHeight*dpr)}`;
-          sizeCache.set(target, k);
-          target.classList.contains('wrap-multi') ? paintMulti(target, f) : paintWrap(target, f);
-        });
-        pending.clear();
+      rafId = null;
+      pending.forEach(({ el: target, FILLS: f }) => {
+        const k = `${Math.round(target.offsetWidth*dpr)}x${Math.round(target.offsetHeight*dpr)}`;
+        sizeCache.set(target, k);
+        target.classList.contains('wrap-multi') ? paintMulti(target, f) : paintWrap(target, f);
       });
+      pending.clear();
     });
   }
 

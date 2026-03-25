@@ -212,9 +212,9 @@
       "description": "A script that fills the enclosed counter spaces inside letterforms — the holes in o, e, a, g — with any colour or gradient. Generative, font-agnostic, and built on real DOM text so it stays accessible.",
       "route": "/doc/counter-fill",
       "contentFile": "doc_69.md",
-      "thumbnail": "placeholders/placeholder-27.svg",
+      "thumbnail": "casestudy/counter-fill/counter-fill.png",
       "alt": "counter-fill: typographic counter-space fill experiment",
-      "github": "https://github.com/jacquesramphal/jacquesramphal.github.io/tree/main/scripts",
+      "github": "https://github.com/jacquesramphal/counter-fill",
       "tags": ["experiment", "canvas", "typography", "open-source"]
     },
     {
