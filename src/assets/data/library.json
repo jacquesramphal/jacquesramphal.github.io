@@ -203,6 +203,21 @@
       "tags": ["design-engineering", "storybook", "ai"]
     },
     {
+      "id": 32,
+      "docId": 69,
+      "slug": "counter-fill",
+      "type": "case-study",
+      "title": "counter-fill",
+      "eyebrow": "Typography Experiment",
+      "description": "A script that fills the enclosed counter spaces inside letterforms — the holes in o, e, a, g — with any colour or gradient. Generative, font-agnostic, and built on real DOM text so it stays accessible.",
+      "route": "/doc/counter-fill",
+      "contentFile": "doc_69.md",
+      "thumbnail": "placeholders/placeholder-27.svg",
+      "alt": "counter-fill: typographic counter-space fill experiment",
+      "github": "https://github.com/jacquesramphal/jacquesramphal.github.io/tree/main/scripts",
+      "tags": ["experiment", "canvas", "typography", "open-source"]
+    },
+    {
       "id": 9,
       "docId": 32,
       "slug": "designing-genie",

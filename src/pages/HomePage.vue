@@ -159,6 +159,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useHead } from '@vueuse/head';
 import work from '@/assets/data/library.json';
+import CounterFill from '@/utils/counter-fill.js';
 // import ProductCarousel from '../components/ProductCarousel.vue';
 import TestimonialCarousel from '@/components/TestimonialCarousel.vue';
 gsap.registerPlugin(ScrollTrigger);
@@ -308,6 +309,19 @@ export default {
     TestimonialCarousel,
   },
   mounted() {
+    this.$nextTick(() => {
+      const h1 = this.$el.querySelector('h1.title');
+      if (h1) {
+        h1.id = 'hero-title';
+        h1.classList.add('wrap-multi');
+        document.fonts.ready.then(() => {
+          CounterFill.init({
+            'hero-title': { stops: ['#c084fc', '#7c3aed', '#3b0764'] },
+          });
+        });
+      }
+    });
+
     // this.htmlContent = marked(content);
     const fadeInUp = gsap.utils.toArray('.fadeInUp');
     const fadeInDown = gsap.utils.toArray('.fadeInDown');
@@ -404,6 +418,29 @@ export default {
 
 <style lang="scss">
 @media only screen and (min-width: 1201px) {
+}
+
+/* counter-fill: required CSS for multi-line mode */
+h1.wrap-multi {
+  position: relative;
+  display: block;
+  line-height: inherit;
+
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .cf-word {
+    position: relative;
+    z-index: 1;
+    display: inline;
+  }
 }
 
 .vertical-wordmark {
