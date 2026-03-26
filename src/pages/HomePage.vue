@@ -1,5 +1,6 @@
 <template>
-  <PageWrapper style="background-color: var(--color-highlight) !important">
+  <!-- <PageWrapper style="background-color: var(--color-highlight) !important"> -->
+  <PageWrapper>
     <!-- <HeroBanner
       fullvh
       end
