@@ -1,7 +1,7 @@
 import TheLogin from '@/components/TheLogin.vue';
 
 import { createRouter, createWebHistory } from 'vue-router';
-import InfoPage from '@/pages/InfoPage.vue';
+import MarkdownInfoPage from '@/pages/MarkdownPage.vue';
 import MySketchbook from '@/pages/MySketchbook.vue';
 import DesignSystem from '@/pages/DesignSystem.vue';
 import MaintenancePage from '@/pages/misc/MaintenancePage.vue';
@@ -83,7 +83,8 @@ const routes = [
   {
     path: '/info',
     name: 'Info',
-    component: InfoPage,
+    component: MarkdownInfoPage,
+    props: { slug: 'info' },
   },
 
   {

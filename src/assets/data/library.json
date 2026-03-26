@@ -454,6 +454,11 @@
       "published": false
     },
     {
+      "docId": 70,
+      "slug": "info",
+      "contentFile": "doc_70.md"
+    },
+    {
       "docId": 63,
       "slug": "sketchbook",
       "contentFile": "doc_63.md"
