@@ -276,6 +276,21 @@
       "tags": ["dashboard", "analytics"]
     },
     {
+      "id": 32,
+      "docId": 69,
+      "slug": "counter-fill",
+      "type": "tool",
+      "title": "Counter Fill: Colouring the Holes in Your Type",
+      "eyebrow": "Typography Experiment",
+      "description": "A script that fills the enclosed counter spaces inside letterforms — the holes in o, e, a, g — with any colour or gradient. Generative, font-agnostic, and built on real DOM text so it stays accessible.",
+      "route": "/doc/counter-fill",
+      "contentFile": "doc_69.md",
+      "thumbnail": "casestudy/counter-fill/counter-fill-2.png",
+      "alt": "counter-fill: typographic counter-space fill experiment",
+      "github": "https://github.com/jacquesramphal/counter-fill",
+      "tags": ["experiment", "canvas", "typography", "open-source"]
+    },
+    {
       "id": 67,
       "docId": 67,
       "slug": "design-token-template",
@@ -294,21 +309,6 @@
       "alt": "Design Token Starter — multi-brand token architecture",
       "github": "https://github.com/jacquesramphal/design-token-template",
       "tags": ["design-systems", "tokens", "open-source"]
-    },
-    {
-      "id": 32,
-      "docId": 69,
-      "slug": "counter-fill",
-      "type": "tool",
-      "title": "Counter Fill: Colouring the Holes in Your Type",
-      "eyebrow": "Typography Experiment",
-      "description": "A script that fills the enclosed counter spaces inside letterforms — the holes in o, e, a, g — with any colour or gradient. Generative, font-agnostic, and built on real DOM text so it stays accessible.",
-      "route": "/doc/counter-fill",
-      "contentFile": "doc_69.md",
-      "thumbnail": "casestudy/counter-fill/counter-fill-2.png",
-      "alt": "counter-fill: typographic counter-space fill experiment",
-      "github": "https://github.com/jacquesramphal/counter-fill",
-      "tags": ["experiment", "canvas", "typography", "open-source"]
     },
     {
       "id": 13,
