@@ -242,7 +242,6 @@ button {
   display: flex;
   inset-block-start: 0;
   align-items: center;
-  mix-blend-mode: difference;
   overflow: visible;
   position: fixed !important;
   transform: translate3d(0, 0, 0) !important;
@@ -251,6 +250,7 @@ button {
   z-index: 100000 !important;
   @media only screen and (min-width: 768px) {
     inset-block-start: 0;
+    mix-blend-mode: difference;
   }
 }
 /* Adds extra background colour to account for bouncing effect */
@@ -258,16 +258,14 @@ button {
   content: '';
   position: absolute;
   inset-block-start: -100%;
-  inset-block-end: 0; /* Adjust the value to control the width of the additional background */
+  inset-block-end: 0;
   inset-inline-end: 0;
-  inline-size: 100%; /* Adjust the value to control the width of the additional background */
-  // background: var(--background);
-  // background: var(--color-yellow);
-  /* Specify the color of the additional background */
+  inline-size: 100%;
+  background: var(--background);
   opacity: 0.95;
-  z-index: -1; /* Set the z-index to be behind the navbar */
+  z-index: -1;
   @media only screen and (min-width: 768px) {
-    // background: transparent;
+    background: transparent;
     inset-block-end: 0;
     inset-block-start: -100%;
   }
@@ -283,10 +281,13 @@ button {
   transform: translate3d(0, 0, 0) !important;
 }
 .navbar.is-scrolled .bg {
-  border-block-end: none;
+  border-block-end: var(--border);
+  @media only screen and (min-width: 768px) {
+    border-block-end: none;
+  }
 }
 .bg {
-  // background: var(--background);
+  background: var(--background);
   transition: 0.5s box-shadow ease-in-out !important;
   justify-self: flex-end;
   overflow: visible;
@@ -296,9 +297,9 @@ button {
   inline-size: 100%;
   // border-block-start: var(--spacing-xxs) solid var(--color-yellow);
 
-  // border-block-end: var(--border);
+  border-block-end: none;
   @media only screen and (min-width: 768px) {
-    // background: transparent;
+    background: transparent;
 
     // padding-block: var(--size-12) var(--spacing-sm) !important;
     // padding-inline: var(--spacing-lg) !important;
@@ -419,7 +420,10 @@ p {
 }
 
 .wordmark {
-  color: white;
+  color: var(--foreground);
+  @media only screen and (min-width: 768px) {
+    color: white;
+  }
 
   #richlink,
   a,
@@ -449,18 +453,20 @@ p {
 // White on white bg → black (readable). White on dark bg → white (readable).
 // Must use :deep() to pierce Vue scoped boundary into BreadCrumb/TextLink,
 // and !important to beat the global `color: var(--foreground) !important` in typography.scss.
-:deep(a),
-:deep(router-link),
-:deep(.nav-wordmark-link),
-:deep(.nav-item),
-:deep(p),
-:deep(span) {
-  color: white !important;
-}
+@media only screen and (min-width: 768px) {
+  :deep(a),
+  :deep(router-link),
+  :deep(.nav-wordmark-link),
+  :deep(.nav-item),
+  :deep(p),
+  :deep(span) {
+    color: white !important;
+  }
 
-:deep(a:hover),
-:deep(router-link:hover) {
-  text-decoration-color: white !important;
+  :deep(a:hover),
+  :deep(router-link:hover) {
+    text-decoration-color: white !important;
+  }
 }
 // .wordmark::after {
 //   @media only screen and (min-width: 768px) {

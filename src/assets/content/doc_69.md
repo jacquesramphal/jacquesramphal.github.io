@@ -1,8 +1,8 @@
-# Counter Fill
+# Counter Fill: Colouring the Holes in Your Type
 
 Fills the enclosed spaces inside letterforms — the holes in **o, e, a, g, d, b, p** — with colour or gradient. Live HTML text, any font, any size.
 
-![Counter Fill Example](../images/casestudy/counter-fill/counter-fill.png)
+![Counter Fill Example](../images/casestudy/counter-fill/counter-fill-2.png)
 
 ---
 
