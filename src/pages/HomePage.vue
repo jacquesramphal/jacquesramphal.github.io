@@ -24,7 +24,7 @@
         as="h2"
         description=""
         eyebrow1=""
-        :detail1="`Head of Design at Orium, Toronto. For ${careerYears} years I’ve been closing the gap between design and engineering—building token-based design systems, shipping production code, and designing AI-native products from scratch.<br/><br/>I build AI agents and partner with clients to explore and realize agentic experience (AX) possibilities—helping teams move past AI hype into real, user-centred AI products. I coach designers into unicorns—people who think in systems, write production code, and own the full delivery stack.`"
+        :detail1="`Head of Design at Orium, Toronto. ${careerYears} years at the seam between design and engineering, designing systems, writing production code, and lately building with AI.<br/><br/>I care most about the gap between design intent and what actually ships: how decisions survive handoff, how systems scale, and how people stay in control when the tools get smarter. I also coach designers moving closer to systems and code, not because everyone needs to write code, but because fluency changes the kinds of conversations you can have.`"
       />
     </AnimatedComponent>
 
