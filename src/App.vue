@@ -2,7 +2,7 @@
   <!-- <router-view v-if="isLoggedIn" v-slot="{ Component }"> -->
 
   <router-view v-slot="{ Component }">
-    <BreadCrumb v-if="!$route.meta.hideBreadCrumb" />
+    <!-- <BreadCrumb v-if="!$route.meta.hideBreadCrumb" /> -->
     <!-- <SidebarNav/> -->
     <!-- <TextLink
             style="    position: absolute !important;
@@ -27,22 +27,8 @@ transform: rotate(90deg);
       :headings="markdownHeadings || []"
       :active-heading="markdownActiveHeading"
     >
-      <template v-slot:menu-button>
-        <TextLink
-          style="border: 0 !important; line-height: inherit"
-          type="textlink"
-          :label="menuOpen ? 'Close' : 'Menu'"
-          @click="toggleMenu"
-        />
-      </template>
-      <template v-slot:menu-button-mobile>
-        <TextLink
-          style="border: 0 !important; line-height: inherit"
-          type="textlink"
-          :label="menuOpen ? 'Close' : 'Menu'"
-          @click="toggleMenu"
-        />
-      </template>
+      <!-- menu button hidden: Library link in HeaderNav handles primary nav -->
+
     </HeaderNav>
     <!-- <ThemeButton v-if="!$route.meta.hideThemeButton" /> -->
     <transition name="fade" mode="out-in">
@@ -111,7 +97,7 @@ import MobileTOCBar from './components/MobileTOCBar.vue';
 import SimpleFooter from './components/SimpleFooter.vue';
 import TheLogin from './components/TheLogin.vue';
 // import ThemeButton from "./components/ThemeButton.vue";
-import BreadCrumb from './components/BreadCrumb.vue';
+// import BreadCrumb from "./components/BreadCrumb.vue";
 import SidebarNav from './components/SidebarNav.vue';
 import CustomChatUI from './components/CustomChatUI.vue';
 // import UnderConstructionBar from './components/UnderConstructionBar.vue';
@@ -131,7 +117,7 @@ export default {
     FullscreenMenu,
     MyButton,
     // NewsletterSubscription,
-    BreadCrumb,
+    // BreadCrumb,
     SidebarNav,
     CustomChatUI,
     // UnderConstructionBar,

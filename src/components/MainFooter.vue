@@ -173,7 +173,7 @@ export default {
     return {
       menuItems1: [
         { text: 'Library', route: '/library' },
-        { text: 'Info', route: '/info' },
+        { text: 'Info', route: '/doc/info' },
         { text: 'Resume', route: '/resume.html', external: true },
         { text: 'Storybook', route: '/storybook/', external: true },
       ],
