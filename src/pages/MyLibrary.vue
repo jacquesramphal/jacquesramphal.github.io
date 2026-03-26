@@ -185,6 +185,42 @@ A curated collection of my writing, professional work, and personal projects."
             />
           </GridParent>
         </div>
+        <!-- Tools Section -->
+        <div v-if="filteredTools.length" class="library-section">
+          <TextBlock
+            style="
+              align-items: center;
+              grid-template-columns: repeat(3, 1fr);
+              padding-block-end: var(--spacing-md);
+            "
+            title="Tools & Open Source"
+            as="h2"
+            description=""
+            class="section-header"
+          />
+          <GridParent tight class="posts">
+            <ArticleCard
+              borderless
+              v-for="(entry, index) in filteredTools"
+              :key="entry.id"
+              :mobileList="index !== 0"
+              :alt="entry.alt"
+              :description="entry.description"
+              :filename="entry.thumbnail"
+              :label="entry.label"
+              :route="entry.route"
+              :btnroute="entry.btnroute"
+              :link="entry.link"
+              eyebrow=""
+              :title="entry.title"
+              :tags="entry.tags"
+              :type="entry.type"
+              :contentFile="entry.contentFile"
+              :index="index"
+              @tag-click="handleTagClick"
+            />
+          </GridParent>
+        </div>
       </template>
 
       <!-- Filters active: Show all in one list -->
@@ -235,6 +271,27 @@ A curated collection of my writing, professional work, and personal projects."
             :locked="!!entry.locked"
             @tag-click="handleTagClick"
             @request-access="handleRequestAccess"
+          />
+
+          <ArticleCard
+            borderless
+            mobileList
+            v-for="(entry, index) in filteredTools"
+            :key="entry.id"
+            :alt="entry.alt"
+            :description="entry.description"
+            :filename="entry.thumbnail"
+            :label="entry.label"
+            :route="entry.route"
+            :btnroute="entry.btnroute"
+            :link="entry.link"
+            eyebrow=""
+            :title="entry.title"
+            :tags="entry.tags"
+            :type="entry.type"
+            :contentFile="entry.contentFile"
+            :index="index"
+            @tag-click="handleTagClick"
           />
         </GridParent>
 
@@ -336,7 +393,10 @@ export default {
       });
     },
     filteredArticlesAndTools() {
-      return this.filteredEntries.filter((e) => e.type === 'article' || e.type === 'tool');
+      return this.filteredEntries.filter((e) => e.type === 'article');
+    },
+    filteredTools() {
+      return this.filteredEntries.filter((e) => e.type === 'tool');
     },
     filteredCaseStudiesAndProjects() {
       return this.filteredEntries.filter(
