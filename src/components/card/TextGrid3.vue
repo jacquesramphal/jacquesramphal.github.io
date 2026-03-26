@@ -105,7 +105,7 @@ block-size: 100vh;
 } */
 @media only screen and (max-width: 767px) {
   :deep(.grid-wrapper) {
-    padding-block-end: var(--spacing-xl);
+    padding-block-end: var(--spacing-lg);
   }
 }
 /* ------------ BREAKPOINT MD ------------ */
