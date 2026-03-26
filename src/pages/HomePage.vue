@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper>
+  <PageWrapper style="background-color: var(--color-highlight) !important">
     <!-- <HeroBanner
       fullvh
       end
@@ -15,9 +15,9 @@
     />
 
     <!-- WRITING SECTION -->
-    <!-- <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" /> -->
+    <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
     <!-- ABOUT SECTION -->
-    <!-- <AnimatedComponent>
+    <AnimatedComponent>
       <TextGrid3
         title="About"
         as="h2"
@@ -25,15 +25,15 @@
         eyebrow1=""
         :detail1="`Head of Design at Orium, Toronto. For ${careerYears} years I’ve been closing the gap between design and engineering—building token-based design systems, shipping production code, and designing AI-native products from scratch.<br/><br/>I build AI agents and partner with clients to explore and realize agentic experience (AX) possibilities—helping teams move past AI hype into real, user-centred AI products. I coach designers into unicorns—people who think in systems, write production code, and own the full delivery stack.`"
       />
-    </AnimatedComponent> -->
+    </AnimatedComponent>
 
     <!-- WORK SECTION -->
-    <!-- <CardRow2
+    <CardRow2
       title="Select Work"
       kind="work"
       filterByType="case-study"
       :viewAllTo="{ name: 'Library' }"
-    /> -->
+    />
 
     <!-- Decorative Cards -->
     <!-- <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />

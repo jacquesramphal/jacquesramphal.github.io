@@ -16,6 +16,7 @@
   --foreground-subtle: rgba(43, 61, 79, var(--foreground-opacity));
   /* Use the RGB values for --color-darktext */
   --background: var(--color-offwhite);
+  --background-accent: var(--color-lightyellow);
   --background-darker: var(--color-highlight2);
   --link: var(--foreground);
   --border: 1px solid var(--color-xlight);
@@ -72,7 +73,8 @@
   --color-offwhite: #fafafa;
   --color-offwhite-rgb: 250, 250, 250;
   /*--color-offwhite: #fdfdf5;*/
-  --color-highlight: hsla(0, 0%, 0%, 0.25);
+  --color-highlight: var(--background-accent);
+
   --color-highlight2: hsla(0, 0%, 0%, 0.05);
   --color-pink: #fdcdd4;
   /* --color-pink: #ffd3d9; */
@@ -209,13 +211,17 @@
   /* RADIUS */
 
   --radius-sm: var(--size-1);
-  --radius-full: 9999px; /* design-guard:ignore */
+  --radius-full: 9999px;
+  /* design-guard:ignore */
 
   /* LINK / TEXT DECORATION */
 
-  --link-underline-offset: 0.75rem; /* design-guard:ignore */
-  --link-underline-thickness: 0.15rem; /* design-guard:ignore */
-  --link-underline-thickness-hover: 0.2rem; /* design-guard:ignore */
+  --link-underline-offset: 0.75rem;
+  /* design-guard:ignore */
+  --link-underline-thickness: 0.15rem;
+  /* design-guard:ignore */
+  --link-underline-thickness-hover: 0.2rem;
+  /* design-guard:ignore */
 
   /* BREAKPOINTS */
   --breakpoint-xs: 767px;
@@ -280,15 +286,24 @@
   @media print {
     * {
       /* Further reduced print font sizes for one-page fit */
-      --font-3xl: 0.875rem; /* 14pt (headings) */
-      --font-2xl: 0.8125rem; /* 13pt */
-      --font-xl: 0.75rem; /* 12pt */
-      --font-lg: 0.6875rem; /* 11pt */
-      --font-md: 0.625rem; /* 10pt */
-      --font-sm: 0.5625rem; /* 9pt */
-      --font-xs: 0.5rem; /* 8pt */
-      --font-2xs: 0.625rem; /* 10pt body text (was 11pt) */
-      --font-3xs: 0.5rem; /* 8pt */
+      --font-3xl: 0.875rem;
+      /* 14pt (headings) */
+      --font-2xl: 0.8125rem;
+      /* 13pt */
+      --font-xl: 0.75rem;
+      /* 12pt */
+      --font-lg: 0.6875rem;
+      /* 11pt */
+      --font-md: 0.625rem;
+      /* 10pt */
+      --font-sm: 0.5625rem;
+      /* 9pt */
+      --font-xs: 0.5rem;
+      /* 8pt */
+      --font-2xs: 0.625rem;
+      /* 10pt body text (was 11pt) */
+      --font-3xs: 0.5rem;
+      /* 8pt */
 
       /* Reduced spacing for one-page fit */
       --spacing-xxxs: 0.15rem;
@@ -307,7 +322,8 @@
 
     @page {
       size: letter;
-      margin: 1cm; /* Slightly smaller margins */
+      margin: 1cm;
+      /* Slightly smaller margins */
     }
 
     /* Override all font families for print */
@@ -394,6 +410,7 @@
   --foreground-subtle: rgba(250, 250, 250, var(--foreground-opacity));
   /* Use the RGB values for #fafafa */
   --background: var(--color-offblack);
+  --background-accent: var(--color-purple);
   --background-darker: var(--color-highlight);
   --link: var(--foreground);
   --border: 1px solid black;
@@ -423,7 +440,8 @@
 
   /* IMAGE FILTERS */
   --filter: brightness(0.8) saturate(1.25);
-  --icon-filter: none; /* Icons use CSS masks with foreground color */
+  --icon-filter: none;
+  /* Icons use CSS masks with foreground color */
 
   /* SPACING - testing calc */
   --letterSpacing-tight: -0.12rem;
@@ -461,6 +479,7 @@
     --foreground-subtle: rgba(250, 250, 250, var(--foreground-opacity));
     /* Use the RGB values for #fafafa */
     --background: var(--color-offblack);
+    --background-accent: var(--color-lightyellow);
     --background-darker: var(--color-highlight);
     --link: var(--foreground);
     --border: 1px solid black;
@@ -527,6 +546,7 @@
 
   --background: var(--color-offwhite);
   --background-darker: var(--color-highlight2);
+  --background-accent: var(--color-lightyellow);
   --link: var(--foreground);
   --border: 1px solid var(--color-xlight);
   /* Reversed */
@@ -553,7 +573,8 @@
 
   /* IMAGE FILTERS */
   --filter: brightness(1) saturate(1);
-  --icon-filter: none; /* Icons use CSS masks with foreground color */
+  --icon-filter: none;
+  /* Icons use CSS masks with foreground color */
 
   /* CODE (markdown + snippets) */
   --code-bg: var(--background-darker);
@@ -586,13 +607,11 @@
 
 /* Filters & Gradients */
 .gradient-sunrise {
-  background: linear-gradient(
-    to bottom right,
-    var(--gradient-sunrise-start) 0%,
-    var(--gradient-sunrise-mid) 40%,
-    var(--gradient-sunrise-end) 75%,
-    var(--link-reversed) 95%
-  );
+  background: linear-gradient(to bottom right,
+      var(--gradient-sunrise-start) 0%,
+      var(--gradient-sunrise-mid) 40%,
+      var(--gradient-sunrise-end) 75%,
+      var(--link-reversed) 95%);
 }
 
 .gradient2 {
