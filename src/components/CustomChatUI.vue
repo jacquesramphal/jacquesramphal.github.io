@@ -945,13 +945,6 @@ export default {
     transform: translateY(calc(100% + var(--spacing-md)));
     pointer-events: none;
   }
-
-  .chat-button--mobile .custom-btn:hover:not(:disabled) {
-    color: var(--foreground) !important;
-    background: var(--background) !important;
-    border-color: var(--foreground) !important;
-    opacity: 1;
-  }
 }
 
 .chat-button-desktop-wrapper {
