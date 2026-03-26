@@ -63,6 +63,7 @@ const routes = [
     children: [],
     meta: {
       hideNav: false,
+      hideFooter: true,
     },
   },
 

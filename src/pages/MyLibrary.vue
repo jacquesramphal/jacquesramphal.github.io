@@ -299,11 +299,7 @@ A curated collection of my writing, professional work, and personal projects."
       </template>
     </GridContainer>
 
-    <ContactModal
-      :isOpen="modalOpen"
-      :projectTitle="selectedProject"
-      @close="closeModal"
-    />
+    <ContactModal :isOpen="modalOpen" :projectTitle="selectedProject" @close="closeModal" />
   </PageWrapper>
 </template>
 

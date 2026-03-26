@@ -7,37 +7,33 @@
       title="Head of Design at Orium. This is my index—work, writing, and thinking on design systems, AI, and the future of agentic experiences."
     /> -->
     <HeroBanner
-      fullvh
-      end
       id="hero"
+      end
       isHtml
       class="display"
-      title="I design systems, write the code, and ship it."
+      title="I design systems and write the code that ships them. Browse my <a href='/library'><em>writing</em></a> and <a href='/library'><em>work</em></a>."
     />
 
     <!-- WRITING SECTION -->
-    <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
-
-    <!-- WORK SECTION -->
-    <CardRow2
-      title="Select Work"
-      kind="work"
-      filterByType="case-study"
-      :viewAllTo="{ name: 'Library' }"
-    />
-
+    <!-- <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" /> -->
     <!-- ABOUT SECTION -->
-    <AnimatedComponent>
+    <!-- <AnimatedComponent>
       <TextGrid3
         title="About"
         as="h2"
         description=""
         eyebrow1=""
-        :detail1="`Head of Design at Orium, Toronto. I close the gap between design and engineering — building design systems, shipping production code, and designing AI-native products.`"
-        route="/doc/ask-me-anything"
-        label="Ask me anything"
+        :detail1="`Head of Design at Orium, Toronto. For ${careerYears} years I’ve been closing the gap between design and engineering—building token-based design systems, shipping production code, and designing AI-native products from scratch.<br/><br/>I build AI agents and partner with clients to explore and realize agentic experience (AX) possibilities—helping teams move past AI hype into real, user-centred AI products. I coach designers into unicorns—people who think in systems, write production code, and own the full delivery stack.`"
       />
-    </AnimatedComponent>
+    </AnimatedComponent> -->
+
+    <!-- WORK SECTION -->
+    <!-- <CardRow2
+      title="Select Work"
+      kind="work"
+      filterByType="case-study"
+      :viewAllTo="{ name: 'Library' }"
+    /> -->
 
     <!-- Decorative Cards -->
     <!-- <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />
@@ -195,16 +191,25 @@ export default {
       ],
     };
   },
-  components: {},
+  computed: {
+    careerYears() {
+      return new Date().getFullYear() - 2013;
+    },
+    // Filter work entries to show only Work category (exclude Play)
+    filteredWorkEntries() {
+      return this.work.entries.filter((entry) => entry.category === 'Work');
+    },
+  },
+  methods: {},
   mounted() {
     this.$nextTick(() => {
       const h1 = this.$el.querySelector('h1.title');
       if (h1) {
-        h1.id = 'hero-title';
+        // h1.id = 'hero-title';
         h1.classList.add('wrap-multi');
         document.fonts.ready.then(() => {
           CounterFill.init({
-            'hero-title': { stops: ['var(--color-pink)', 'var(--color-yellow)'] },
+            'hero-title': { stops: ['var(--color-pink)', 'var(--color-lightyellow)'] },
           });
         });
       }

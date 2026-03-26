@@ -1,7 +1,7 @@
 <template>
   <GridWrapper class="">
     <GridContainer>
-      <GridParent tight>
+      <GridParent tight class="parent">
         <TextBlock
           id="section-title"
           tabIndex="0"
@@ -10,7 +10,7 @@
           eyebrow=""
           :description="`${description}`"
         />
-        
+
         <TextBlock
           class="subsection"
           as="h4"
@@ -21,20 +21,19 @@
           :label="label ? `${label}` : undefined"
           btntype="outline"
         />
-        
       </GridParent>
     </GridContainer>
   </GridWrapper>
 </template>
 
 <script>
-import GridParent from "../grid/GridParent.vue";
-import GridContainer from "../grid/GridContainer.vue";
-import GridWrapper from "../grid/GridWrapper.vue";
-import TextBlock from "../text/TextBlock/TextBlock.vue";
+import GridParent from '../grid/GridParent.vue';
+import GridContainer from '../grid/GridContainer.vue';
+import GridWrapper from '../grid/GridWrapper.vue';
+import TextBlock from '../text/TextBlock/TextBlock.vue';
 
 export default {
-  name: "TextGrid3",
+  name: 'TextGrid3',
   components: {
     GridParent,
     GridContainer,
@@ -48,25 +47,25 @@ export default {
     },
     title: {
       type: String,
-      default: "Detail Card",
+      default: 'Detail Card',
     },
     as: {
-      default: "h2",
+      default: 'h2',
       type: String,
       required: false,
     },
     description: {
       type: String,
-      default: "This is a description",
+      default: 'This is a description',
     },
     eyebrow1: {
       type: String,
-      default: "Eyebrow1",
+      default: 'Eyebrow1',
     },
     detail1: {
       type: String,
       default:
-        "Detail 1. Lorem ipsum doler optima sit amet doler optima sit amet doler optima sit amet optima sit amet amet doler optima sit amet optima sit amet.",
+        'Detail 1. Lorem ipsum doler optima sit amet doler optima sit amet doler optima sit amet optima sit amet amet doler optima sit amet optima sit amet.',
     },
     label: {
       type: String,
@@ -74,7 +73,6 @@ export default {
     route: {
       type: String,
     },
-
   },
 };
 </script>
@@ -90,12 +88,18 @@ export default {
 /* #description {
 block-size: 100vh;
 } */
+.parent {
+  grid-gap: 0;
+
+  @media only screen and (min-width: 768px) {
+    grid-gap: var(--spacing-md);
+  }
+}
 #section-title {
   grid-column: 1 / 4;
 }
 #textblock {
   grid-column: 1 / 4;
-  padding: 0;
 }
 /* #textblock:first-child {
   background: yellow; 
@@ -103,11 +107,6 @@ block-size: 100vh;
 /* h3 {
   margin-block-start: -10px;
 } */
-@media only screen and (max-width: 767px) {
-  :deep(.grid-wrapper) {
-    padding-block-end: var(--spacing-xl);
-  }
-}
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 768px) {
   #section-title {
@@ -115,7 +114,6 @@ block-size: 100vh;
   }
   #textblock {
     grid-column: span 2;
-    padding: 0 2.8em 2.8em 0;
   }
   h4 {
     margin-block-start: -1rem;

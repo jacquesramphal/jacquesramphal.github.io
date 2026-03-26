@@ -269,12 +269,34 @@ a:visited {
 
 /* Heading link overrides */
 h1 a {
-  text-decoration: none;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  font-variation-settings: inherit !important;
+  letter-spacing: inherit !important;
+  line-height: inherit !important;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+  text-decoration-thickness: 0.04em;
+}
+
+/* CounterFill wraps link words in position:relative spans, which can break
+   the <a>'s text-decoration. Re-apply underline directly to the span. */
+h1 a span.cf-word {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+  text-decoration-thickness: 0.04em;
 }
 
 h1 a:hover {
-  position: relative;
-  text-decoration: none;
+  text-decoration: underline wavy var(--color-yellow) !important;
+  text-underline-offset: 0.12em;
+  text-decoration-thickness: 0.06em !important;
+}
+
+h1 a:hover span.cf-word {
+  text-decoration: underline wavy var(--color-yellow) !important;
+  text-underline-offset: 0.12em;
+  text-decoration-thickness: 0.06em !important;
 }
 
 h1 a:active,

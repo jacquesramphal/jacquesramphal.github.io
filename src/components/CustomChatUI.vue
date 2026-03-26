@@ -403,7 +403,8 @@ export default {
       return this.viewportWidth <= this.mobileFullscreenBreakpoint;
     },
     mobileButtonVisible() {
-      return this.atBottomOfPage || this.menuIsOpen;
+      const isHome = this.$route && this.$route.path === '/';
+      return isHome || this.atBottomOfPage || this.menuIsOpen;
     },
     resolvedMetadata() {
       const safeLocation =

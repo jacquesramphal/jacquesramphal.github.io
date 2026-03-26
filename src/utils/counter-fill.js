@@ -266,6 +266,28 @@
     bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops);
   }
 
+  // ── Recursively wrap text-node words in .cf-word spans ───────────────────
+  // Preserves inline elements (e.g. <a>) so links inside h1 keep their markup.
+  function _wrapWordsInNode(node, container) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      node.textContent.split(/(\s+)/).forEach(part => {
+        if (/^\s+$/.test(part)) {
+          container.appendChild(document.createTextNode(part));
+        } else if (part.length) {
+          const s = document.createElement('span');
+          s.className = 'cf-word';
+          s.dataset.cfWord = part;
+          s.textContent = part;
+          container.appendChild(s);
+        }
+      });
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      const clone = node.cloneNode(false);
+      container.appendChild(clone);
+      Array.from(node.childNodes).forEach(child => _wrapWordsInNode(child, clone));
+    }
+  }
+
   // ── Multi-line paint ──────────────────────────────────────────────────────
   function paintMulti(wrap, FILLS) {
     const fill = FILLS[wrap.id];
@@ -273,24 +295,14 @@
 
     const dpr = window.devicePixelRatio || 1;
 
-    // First call: split raw text into per-word spans
-    if (!wrap.querySelector(':scope > span.cf-word')) {
-      const rawText = wrap.textContent.trim();
+    // First call: split text nodes into per-word spans, preserving inline elements
+    if (!wrap.querySelector('span.cf-word')) {
+      const children = Array.from(wrap.childNodes);
       wrap.innerHTML = '';
-      rawText.split(/(\s+)/).forEach(part => {
-        if (/^\s+$/.test(part)) {
-          wrap.appendChild(document.createTextNode(part));
-        } else if (part.length) {
-          const s = document.createElement('span');
-          s.className = 'cf-word';
-          s.dataset.cfWord = part;
-          s.textContent = part;
-          wrap.appendChild(s);
-        }
-      });
+      children.forEach(child => _wrapWordsInNode(child, wrap));
     }
 
-    const wordSpans = wrap.querySelectorAll(':scope > span.cf-word');
+    const wordSpans = wrap.querySelectorAll('span.cf-word');
     if (!wordSpans.length) return;
 
     const cs = getComputedStyle(wrap);
