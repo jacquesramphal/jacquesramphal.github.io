@@ -6,71 +6,17 @@
       id="hero"
       title="Head of Design at Orium. This is my index—work, writing, and thinking on design systems, AI, and the future of agentic experiences."
     /> -->
-    <HeroBanner fullvh end id="hero" isHtml class="display" :title="title" />
-    <!-- <HeroAnimated2 /> -->
-    <!-- <GridWrapper motif1> -->
-    <!-- ^ motif not working -->
-    <!-- style="background: var(--color-yellow)" -->
+    <HeroBanner fullvh end id="hero" isHtml class="display" title="I design systems, write the code, and ship it." />
 
-    <!-- <HeroBanner
-      fullvh
-      end
-      id="hero"
-      class="display"
-      title="I design systems, <br> write the code, and ship the thing."
-    />
-    <HeroBanner
-      fullvh
-      end
-      id="hero"
-      class="display"
-      title="I’m <em data-text=’Jacques’>Jacques</em>—I design systems, write the code, and ship it."
-    /> -->
+    <!-- WRITING SECTION -->
+    <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: ‘Library’ }" />
 
-    <!-- title="Head of Design. I build AI agents, turn designers into unicorns, and ship the thing. Call me <em>Jake</em>." -->
-
-    <!-- <HeroBanner fullvh end id="hero" class="display">
-      <template #title>
-        I'm
-        <CounterText
-          text="Jacques"
-          :fontSize="heroFontSize"
-          :counterColor="resolvedCounterColor"
-          :foregroundColor="resolvedForegroundColor"
-        />—Full Stack Design Lead at Orium turning systems, code, and AI into real products.
-      </template>
-    </HeroBanner> -->
-    <!-- :title="title" -->
-    <!-- FEATURED WORK SECTION - SPLIT FROM PLAY -->
-    <!-- <GridContainer style="padding-block-end: var(--spacing-md) !important">
-      <div class="grid-parent" style="align-items: center; grid-template-columns: repeat(3, 1fr)">
-        <TextBlock style="grid-column: 1 / 3" flex="1" title="Featured" as="h2" description="" />
-
-      </div>
-    </GridContainer>
-
-    <GridContainer style="padding-block-start: 0 !important">
-      <GridParent tight id="recentwork">
-        <ImageCard
-          class="post"
-          :eyebrow="work.featEyebrow"
-          :title="work.featTitle"
-          :description="work.featDescription"
-          :cta="work.label"
-          :route="work.route"
-          :btnroute="work.btnroute"
-          :filename3="work.featImage"
-          size="large"
-          :style="work.bgcolor"
-        />
-      </GridParent>
-    </GridContainer> -->
     <!-- WORK SECTION -->
     <CardRow2
       title="Select Work"
       kind="work"
       filterByType="case-study"
-      :viewAllTo="{ name: 'Library' }"
+      :viewAllTo="{ name: ‘Library’ }"
     />
 
     <!-- ABOUT SECTION -->
@@ -80,14 +26,11 @@
         as="h2"
         description=""
         eyebrow1=""
-        :detail1="`Head of Design at Orium, Toronto. For ${careerYears} years I’ve been closing the gap between design and engineering—building token-based design systems, shipping production code, and designing AI-native products from scratch.<br/><br/>I build AI agents and partner with clients to explore and realize agentic experience (AX) possibilities—helping teams move past AI hype into real, user-centred AI products. I coach designers into unicorns—people who think in systems, write production code, and own the full delivery stack.`"
+        :detail1="`Head of Design at Orium, Toronto. I close the gap between design and engineering — building design systems, shipping production code, and designing AI-native products.`"
         route="/doc/ask-me-anything"
-        label="Learn More"
+        label="Ask me anything"
       />
     </AnimatedComponent>
-    <!-- WRITING SECTION -->
-    <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
-    <TestimonialCarousel />
 
     <!-- Decorative Cards -->
     <!-- <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />
@@ -160,8 +103,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useHead } from '@vueuse/head';
 import work from '@/assets/data/library.json';
 import CounterFill from '@/utils/counter-fill.js';
-// import ProductCarousel from '../components/ProductCarousel.vue';
-import TestimonialCarousel from '@/components/TestimonialCarousel.vue';
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
@@ -215,40 +156,6 @@ export default {
   data() {
     return {
       work,
-      // contentful: [],
-      titles: [
-        'Head of Design. I design, code, and ship before the meeting ends.',
-        'Full-stack Designer. Recovering Generalist. Still relapses into CSS at 11pm.',
-        'I turned the design-dev gap into a job description. Then I hired myself.',
-        'I speak Designer and Developer. Fluently. Simultaneously.',
-        'Exploring the intersection of design and dev. I live there now.',
-        'I build AI agents so I have someone to delegate to.',
-        'Companies say \u201cAI-first.\u201d I ask \u201cAI for what?\u201d Then we build the actual thing.',
-        'I turn designers into developers. They\u2019re still mad about it.',
-        'My keyboard lagged. I had a moment. We\u2019re both fine.',
-        'Designer? Developer? My business card just says \u201cyes.\u201d',
-        'HR doesn\u2019t know what to call me. I\u2019ve stopped explaining.',
-        'I filed a bug against my own design. Fixed it before standup.',
-        'My Figma file has a \u201cfor devs\u201d section. I wrote both sides.',
-        'I have 47 browser tabs open. Two of them are me.',
-        'Part designer. Part developer. Part therapist for both teams.',
-        'I shipped the thing and then redesigned it. Twice.',
-        'I Figma by day. I git push by night. My sleep schedule is a design decision.',
-        'I once argued with a developer about spacing. I was both of us.',
-        'I write the ticket, design the solution, and close the PR.',
-        'I built AI tools to handle the boring parts of design. It\u2019s better at them than I was.',
-        'I have strong opinions about design tokens. You\u2019ve been warned.',
-        'I attend the design sync and the sprint planning. I bring snacks to both.',
-        'My standup answer depends on which hat I\u2019m wearing.',
-        'I review my own PRs. It\u2019s a whole thing.',
-        'I ship the design and the code in the same PR. The commit message is always too honest.',
-        'I once redesigned something mid-sprint. No regrets.',
-        'I made a design system. Then I made it again, better.',
-        'I asked \u201cbut does it scale?\u201d in the design review. The developers stared. I stared back.',
-        'I wrote the component. Then critiqued my own spacing.',
-        'I closed the gap between design and dev. Now I am the gap.',
-      ],
-      title: '',
       featuredProducts: [
         {
           name: 'Modern Desk Lamp',
@@ -281,33 +188,7 @@ export default {
       ],
     };
   },
-  computed: {
-    careerYears() {
-      return new Date().getFullYear() - 2013;
-    },
-    // Filter work entries to show only Work category (exclude Play)
-    filteredWorkEntries() {
-      return this.work.entries.filter((entry) => entry.category === 'Work');
-    },
-  },
-  created() {
-    this.title = this.getNextTitle();
-  },
-  methods: {
-    getNextTitle() {
-      const lastIndex = parseInt(localStorage.getItem('lastTitleIndex') ?? '-1');
-      const nextIndex = (lastIndex + 1) % this.titles.length;
-      localStorage.setItem('lastTitleIndex', nextIndex);
-      return this.preventOrphans(this.titles[nextIndex]);
-    },
-    preventOrphans(text) {
-      // Bind single-char words (I, A) to the next word so they never strand alone at line end
-      return text.replace(/\b([IA])\s(?=[A-Za-z])/g, '$1\u00A0');
-    },
-  },
-  components: {
-    TestimonialCarousel,
-  },
+  components: {},
   mounted() {
     this.$nextTick(() => {
       const h1 = this.$el.querySelector('h1.title');
