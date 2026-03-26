@@ -1,38 +1,25 @@
-# About
 
-Head of Design at Orium, Toronto. I design systems, write production code, and build AI-native products, closing the gap between design intent and what actually ships.
+# Designer who ships code. Systems thinker. AI builder.
 
-13 years at the seam between design and engineering — designing systems, implementing them in code, and lately, building with AI.
 
----
+![Jacques Ramphal](../images/portrait.jpg)
 
-## What I work on
 
-### Design systems
+Head of Design at Orium, Toronto. 13 years at the seam between design and engineering — designing systems, writing production code, and lately building with AI.
 
-Token-based design systems for enterprise teams. The goal is making it easier to do the right thing than the wrong thing: shared tokens, semantic naming, component libraries, and governance that scales across brands and codebases.
+I care most about the gap between design intent and what actually ships. It's where the interesting problems live: not just how things look, but how decisions survive handoff, how systems scale across teams and brands, and how people stay in control when the tools get smarter.
 
-### Agentic AI
+For the past year I've been leading design on [Genie](/doc/designing-genie) — an agentic AI platform built to automate the mechanical parts of delivery work so designers can spend their energy on what actually requires judgment. Building it changed me. I went in as a designer and came out also an AI developer, a workflow orchestration practitioner, and a reluctant product thinker. I'm still mostly a designer.
 
-I led design on [Genie](/doc/designing-genie), an internal platform at Orium that uses AI agents to automate recurring delivery work, surface project risks, and consolidate context. The design challenge was transparency: when to show reasoning, what makes an agent trustworthy, and how a person stays in control.
+I write production front-end code, run design QA, and pair with engineers on implementation because I've seen too many good decisions die in handoff. I also coach designers who want to move closer to systems and code — not because everyone needs to write code, but because fluency removes friction and changes the kinds of conversations you can have.
 
-### Design-to-development
-
-I write production front-end code, pair with engineers on implementation, and run design QA so design decisions survive the handoff. I also coach designers who want to move closer to systems and code.
+Outside of Orium I maintain a set of [open-source tools](/library), write about design and AI, and build small experiments mostly just to learn something.
 
 ---
 
-## Currently
-
-Head of Design and AX Lead at Orium. Building Genie, publishing writing on design and AI, and maintaining a set of [open-source tools](/library).
-
----
-
-## Find more
-
-- [Ask me anything](/doc/ask-me-anything): Q&A on my process, how I work, and what I'm looking for
-- [Resume](/resume): Full work history and credentials
-- [Library](/library): Writing, case studies, and tools
+- [Ask me anything](/doc/ask-me-anything)
+- [Resume](/resume)
+- [Library](/library)
 - [GitHub](https://github.com/jacquesramphal)
 - [LinkedIn](https://linkedin.com/in/ramphal-design)
 - [Email](mailto:jacques@ramphal.design)
