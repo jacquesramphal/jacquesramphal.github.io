@@ -108,6 +108,42 @@ A curated collection of my writing, professional work, and personal projects."
 
       <!-- No filters: Show sections with headers -->
       <template v-if="!hasActiveFilters">
+        <!-- Writing Section -->
+        <TextBlock
+          style="
+            align-items: center;
+            grid-template-columns: repeat(3, 1fr);
+            padding-block-end: var(--spacing-md);
+          "
+          title="Writing"
+          as="h2"
+          description=""
+          class="section-header"
+        />
+        <div v-if="filteredArticlesAndTools.length" class="library-section">
+          <GridParent tight class="posts">
+            <ArticleCard
+              borderless
+              v-for="(entry, index) in filteredArticlesAndTools"
+              :key="entry.id"
+              :mobileList="index !== 0"
+              :alt="entry.alt"
+              :description="entry.description"
+              :filename="entry.thumbnail"
+              :label="entry.label"
+              :route="entry.route"
+              :btnroute="entry.btnroute"
+              :link="entry.link"
+              eyebrow=""
+              :title="entry.title"
+              :tags="entry.tags"
+              :type="entry.type"
+              :contentFile="entry.contentFile"
+              :index="index"
+              @tag-click="handleTagClick"
+            />
+          </GridParent>
+        </div>
         <!-- Case Studies Section -->
         <div v-if="filteredCaseStudiesAndProjects.length" class="library-section">
           <TextBlock
@@ -146,42 +182,6 @@ A curated collection of my writing, professional work, and personal projects."
               :locked="!!entry.locked"
               @tag-click="handleTagClick"
               @request-access="handleRequestAccess"
-            />
-          </GridParent>
-        </div>
-        <!-- Writing Section -->
-        <TextBlock
-          style="
-            align-items: center;
-            grid-template-columns: repeat(3, 1fr);
-            padding-block-end: var(--spacing-md);
-          "
-          title="Writing"
-          as="h2"
-          description=""
-          class="section-header"
-        />
-        <div v-if="filteredArticlesAndTools.length" class="library-section">
-          <GridParent tight class="posts">
-            <ArticleCard
-              borderless
-              v-for="(entry, index) in filteredArticlesAndTools"
-              :key="entry.id"
-              :mobileList="index !== 0"
-              :alt="entry.alt"
-              :description="entry.description"
-              :filename="entry.thumbnail"
-              :label="entry.label"
-              :route="entry.route"
-              :btnroute="entry.btnroute"
-              :link="entry.link"
-              eyebrow=""
-              :title="entry.title"
-              :tags="entry.tags"
-              :type="entry.type"
-              :contentFile="entry.contentFile"
-              :index="index"
-              @tag-click="handleTagClick"
             />
           </GridParent>
         </div>
