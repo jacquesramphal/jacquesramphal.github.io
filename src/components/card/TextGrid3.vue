@@ -103,6 +103,11 @@ block-size: 100vh;
 /* h3 {
   margin-block-start: -10px;
 } */
+@media only screen and (max-width: 767px) {
+  :deep(.container) {
+    padding-block-end: var(--spacing-xl) !important;
+  }
+}
 /* ------------ BREAKPOINT MD ------------ */
 @media only screen and (min-width: 768px) {
   #section-title {

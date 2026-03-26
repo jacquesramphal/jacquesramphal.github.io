@@ -40,7 +40,6 @@
           <li class="glow animate delay-2">
             <TextLink label="Library" route="/library" />
           </li>
-          <span class="glow animate delay-1"> <slot name="menu-button"></slot></span>
         </ul>
       </nav>
     </GridContainer>
