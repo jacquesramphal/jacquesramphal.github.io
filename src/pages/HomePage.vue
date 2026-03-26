@@ -6,17 +6,24 @@
       id="hero"
       title="Head of Design at Orium. This is my index—work, writing, and thinking on design systems, AI, and the future of agentic experiences."
     /> -->
-    <HeroBanner fullvh end id="hero" isHtml class="display" title="I design systems, write the code, and ship it." />
+    <HeroBanner
+      fullvh
+      end
+      id="hero"
+      isHtml
+      class="display"
+      title="I design systems, write the code, and ship it."
+    />
 
     <!-- WRITING SECTION -->
-    <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: ‘Library’ }" />
+    <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
 
     <!-- WORK SECTION -->
     <CardRow2
       title="Select Work"
       kind="work"
       filterByType="case-study"
-      :viewAllTo="{ name: ‘Library’ }"
+      :viewAllTo="{ name: 'Library' }"
     />
 
     <!-- ABOUT SECTION -->
