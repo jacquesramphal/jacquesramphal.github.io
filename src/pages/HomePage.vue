@@ -27,7 +27,6 @@
     />
 
     <!-- ABOUT SECTION -->
-    <div class="about-section">
     <AnimatedComponent>
       <TextGrid3
         title="About"
@@ -39,7 +38,6 @@
         label="Ask me anything"
       />
     </AnimatedComponent>
-    </div>
 
     <!-- Decorative Cards -->
     <!-- <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />
@@ -307,12 +305,6 @@ export default {
 </script>
 
 <style lang="scss">
-.about-section {
-  @media only screen and (max-width: 767px) {
-    padding-block-end: var(--spacing-xl);
-  }
-}
-
 @media only screen and (min-width: 1201px) {
 }
 
