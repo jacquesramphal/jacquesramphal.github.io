@@ -95,7 +95,7 @@ block-size: 100vh;
 }
 #textblock {
   grid-column: 1 / 4;
-  padding: 1em 0 0 0;
+  padding: 0;
 }
 /* #textblock:first-child {
   background: yellow; 
@@ -105,7 +105,7 @@ block-size: 100vh;
 } */
 @media only screen and (max-width: 767px) {
   :deep(.grid-wrapper) {
-    padding-block-end: var(--spacing-lg);
+    padding-block-end: var(--spacing-xl);
   }
 }
 /* ------------ BREAKPOINT MD ------------ */
