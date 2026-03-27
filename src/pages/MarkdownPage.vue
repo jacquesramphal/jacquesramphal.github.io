@@ -303,13 +303,13 @@ export default {
                       '@type': 'ListItem',
                       position: 1,
                       name: 'Home',
-                      item: 'https://jacquesramphal.github.io/',
+                      item: 'https://ramphal.design/',
                     },
                     {
                       '@type': 'ListItem',
                       position: 2,
                       name: 'Library',
-                      item: 'https://jacquesramphal.github.io/library',
+                      item: 'https://ramphal.design/library',
                     },
                     {
                       '@type': 'ListItem',
@@ -318,7 +318,7 @@ export default {
                       item:
                         typeof window !== 'undefined'
                           ? window.location.href
-                          : `https://jacquesramphal.github.io${router.currentRoute.value.fullPath}`,
+                          : `https://ramphal.design${router.currentRoute.value.fullPath}`,
                     },
                   ],
                 }),

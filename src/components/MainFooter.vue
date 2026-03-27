@@ -59,6 +59,14 @@
                   </li>
                 </ul>
               </div>
+              <div id="links4">
+                <p class="subtle">Site</p>
+                <ul>
+                  <li v-for="(item, index) in menuItems3" :key="index">
+                    <TextLink :label="item.text" :route="item.route" />
+                  </li>
+                </ul>
+              </div>
               <div id="links3">
                 <p class="subtle">Config</p>
                 <ul>
@@ -173,7 +181,7 @@ export default {
     return {
       menuItems1: [
         { text: 'Library', route: '/library' },
-        { text: 'Info', route: '/doc/info' },
+        { text: 'About', route: '/doc/info' },
         { text: 'Resume', route: '/resume.html', external: true },
         { text: 'Storybook', route: '/storybook/', external: true },
       ],
@@ -184,12 +192,13 @@ export default {
           icon: 'icon/linkedin.svg',
         },
         { text: 'Github', url: 'https://github.com/jacquesramphal', icon: 'icon/github-mark.svg' },
-        { text: 'Email', url: 'hmailto:jacques@ramphal.design', icon: 'icon/j-logo.svg' },
+        { text: 'Email', url: 'mailto:jacques@ramphal.design', icon: 'icon/j-logo.svg' },
       ],
       menuItems3: [
-        { text: 'AI Ethics', route: '/doc/ai-ethics' },
+        { text: 'Journal', route: '/doc/design-learnings' },
         { text: 'Colophon', route: '/doc/colophon' },
-        // { text: 'Design System', route: '/designsystem' },
+        { text: 'Ask Me Anything', route: '/doc/ask-me-anything' },
+        { text: 'AI Ethics', route: '/doc/ai-ethics' },
         { text: 'Privacy', route: '/doc/privacy' },
         { text: 'Accessibility', route: '/doc/accessibility' },
       ],

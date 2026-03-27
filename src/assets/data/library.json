@@ -8,12 +8,12 @@
   "featImage": "casestudy/genie/genie.png",
   "alt": "Genie - Agentic AI Platform",
   "entries": [
-
     {
       "id": 66,
       "docId": 66,
       "slug": "building-genie-changed-me",
       "type": "article",
+      "date": "",
       "title": "Building Genie Changed Me",
       "eyebrow": "Agentic AI Design",
       "description": "The story of building Genie — from personal experiment to organizational platform — and what building it changed about how I work, what I'm capable of, and how others engage with me.",
@@ -21,13 +21,17 @@
       "contentFile": "doc_66.md",
       "thumbnail": "casestudy/genie/genie.png",
       "alt": "Article: Building Genie Changed Me",
-      "tags": ["ai", "agentic-ai"]
+      "tags": [
+        "ai",
+        "agentic-ai"
+      ]
     },
     {
       "id": 29,
       "docId": 62,
       "slug": "when-ux-becomes-ax",
       "type": "article",
+      "date": "",
       "title": "When UX Becomes AX",
       "eyebrow": "Agentic AI Design",
       "description": "If you think AI makes design less relevant, you're looking at the wrong layer",
@@ -35,13 +39,18 @@
       "contentFile": "doc_62.md",
       "thumbnail": "placeholders/placeholder-29.svg",
       "alt": "Article: When UX Becomes AX",
-      "tags": ["ai", "agentic-ai", "design"]
+      "tags": [
+        "ai",
+        "agentic-ai",
+        "design"
+      ]
     },
     {
       "id": 23,
       "docId": 51,
       "slug": "designer-age-of-ai",
       "type": "article",
+      "date": "",
       "title": "The Designer in the Age of AI",
       "eyebrow": "Design Evolution AI",
       "description": "Shifting from inspectors to system stewards. As tools automate comparison and regression, designers become orchestrators who define baselines, set standards, and protect coherence.",
@@ -49,13 +58,17 @@
       "route": "/doc/designer-age-of-ai",
       "contentFile": "doc_51.md",
       "alt": "Article: The Designer in the Age of AI",
-      "tags": ["ai", "design"]
+      "tags": [
+        "ai",
+        "design"
+      ]
     },
     {
       "id": 14,
       "docId": 29,
       "slug": "leading-design-innovation",
       "type": "article",
+      "date": "",
       "title": "Leading Design Innovation",
       "eyebrow": "Design Leadership",
       "description": "How I focus on aligning design with broader company goals, ensuring it serves as a strategic, value-driving function rather than merely an aesthetic service. Exploring vision, technology, team strategy, and the evolution of design through AI, automation, and data-driven thinking.",
@@ -63,11 +76,15 @@
       "route": "/doc/leading-design-innovation",
       "contentFile": "doc_29.md",
       "alt": "Article: Leading Design Innovation",
-      "tags": ["design", "leadership"]
+      "tags": [
+        "design",
+        "leadership"
+      ]
     },
     {
       "id": 11,
       "type": "article",
+      "date": "",
       "title": "Design Tokens: The Unseen Hero",
       "eyebrow": "Design Systems",
       "description": "Why a shared design language is the most resilient investment teams can make as tools, roles, and workflows keep evolving. In a time when everything else in tech feels like shifting sand, design tokens are the bedrock—tiny pieces of your design's DNA that become a shared language everyone can speak, ensuring consistency and adaptability even as the design tools around them evolve.",
@@ -75,11 +92,15 @@
       "thumbnail": "article/token-article.jpg",
       "alt": "Article: Design Tokens - The Unseen Hero in a Changing Design Landscape",
       "label": "Read on Composable.com",
-      "tags": ["design-systems", "tokens"]
+      "tags": [
+        "design-systems",
+        "tokens"
+      ]
     },
     {
       "id": 10,
       "type": "article",
+      "date": "",
       "title": "Designing Genie: Pioneering Agentic AI for Delivery",
       "eyebrow": "Agentic AI Design",
       "description": "Designing agentic systems forces you to rethink how work gets done. Not in the abstract, but in the day-to-day reality of delivery: shifting requirements, scattered context, rising risk, and teams stretched thin. This article explores how we built Genie—an agentic orchestration layer that consolidates context, generates requirements, surfaces risks, and automates workflows—and the three mental model problems we solved in designing for agentic AI.",
@@ -87,13 +108,17 @@
       "thumbnail": "article/Designing_Genie-hero-20.jpg",
       "alt": "Article: Designing Genie - Pioneering Agentic AI for Delivery",
       "label": "Read on Orium",
-      "tags": ["ai", "agentic-ai"]
+      "tags": [
+        "ai",
+        "agentic-ai"
+      ]
     },
     {
       "id": 27,
       "docId": 59,
       "slug": "the-future-of-design",
       "type": "article",
+      "date": "",
       "title": "The Future of Design",
       "eyebrow": "Design Speculation",
       "description": "Speculation on where design is heading. From siloed to integrated, static to dynamic, proprietary to open-source—the future of design is defined by tensions, not destinations.",
@@ -101,13 +126,18 @@
       "contentFile": "doc_59.md",
       "thumbnail": "article/cover2.png",
       "alt": "Article: The Future of Design",
-      "tags": ["design", "future", "philosophy"]
+      "tags": [
+        "design",
+        "future",
+        "philosophy"
+      ]
     },
     {
       "id": 26,
       "docId": 58,
       "slug": "the-ramstack",
       "type": "article",
+      "date": "",
       "title": "The Ramstack",
       "eyebrow": "Design Philosophy",
       "description": "A future-proof approach to front-end design isn't about specific tools—it's about the principles beneath them. On headless complexity, tech debt, and why interoperability should be the core of your design practice.",
@@ -115,13 +145,18 @@
       "contentFile": "doc_58.md",
       "thumbnail": "article/cover3.png",
       "alt": "Article: The Ramstack",
-      "tags": ["design-tools", "front-end", "philosophy"]
+      "tags": [
+        "design-tools",
+        "front-end",
+        "philosophy"
+      ]
     },
     {
       "id": 15,
       "docId": 44,
       "slug": "best-qa-doesnt-have-to-happen",
       "type": "article",
+      "date": "",
       "title": "The Best QA Is the One That Doesn't Have to Happen",
       "eyebrow": "Quality Process",
       "description": "Strong baselines. Early DQA. Less testing later. When quality is built into the baseline from the start, QA shifts from discovery to confirmation — and the best QA process is one that doesn't have to happen.",
@@ -129,13 +164,18 @@
       "contentFile": "doc_44.md",
       "thumbnail": "article/cover1.png",
       "alt": "Article: The Best QA Is the One That Doesn't Have to Happen",
-      "tags": ["quality", "process", "qa"]
+      "tags": [
+        "quality",
+        "process",
+        "qa"
+      ]
     },
     {
       "id": 17,
       "docId": 45,
       "slug": "designers-final-checkpoint",
       "type": "article",
+      "date": "",
       "title": "Designers as Final Checkpoint",
       "eyebrow": "Design Authority",
       "description": "Maintaining authority through validation. When designers act as the final checkpoint before release, they protect the integrity of interaction, communication, accessibility, and system coherence.",
@@ -143,13 +183,17 @@
       "contentFile": "doc_45.md",
       "thumbnail": "placeholders/placeholder-02.svg",
       "alt": "Article: Designers as Final Checkpoint",
-      "tags": ["design", "qa"]
+      "tags": [
+        "design",
+        "qa"
+      ]
     },
     {
       "id": 21,
       "docId": 49,
       "slug": "manual-vs-automated-wrong-debate",
       "type": "article",
+      "date": "",
       "title": "Manual vs. Automated Is the Wrong Debate",
       "eyebrow": "Quality Process",
       "description": "The complementary role of human and machine intelligence. Automation is acceleration, not intelligence. The future of quality is machines for detection, humans for discernment.",
@@ -157,13 +201,17 @@
       "contentFile": "doc_49.md",
       "thumbnail": "placeholders/placeholder-07.svg",
       "alt": "Article: Manual vs. Automated Is the Wrong Debate",
-      "tags": ["quality", "automation"]
+      "tags": [
+        "quality",
+        "automation"
+      ]
     },
     {
       "id": 24,
       "docId": 52,
       "slug": "delivering-fewer-complete-things",
       "type": "article",
+      "date": "",
       "title": "Delivering Fewer, More Complete Things",
       "eyebrow": "Velocity Strategy",
       "description": "True velocity through completion, not volume. It's better to deliver fewer tickets that are truly done than more tickets that will be reopened. Rework is invisible drag.",
@@ -171,27 +219,35 @@
       "contentFile": "doc_52.md",
       "thumbnail": "placeholders/placeholder-05.svg",
       "alt": "Article: Delivering Fewer, More Complete Things",
-      "tags": ["velocity", "strategy"]
+      "tags": [
+        "velocity",
+        "strategy"
+      ]
     },
     {
       "id": 25,
       "docId": 57,
       "slug": "design-learnings",
       "type": "article",
+      "date": "",
       "title": "Design Learnings & Principles",
-      "eyebrow": "Design Wisdom",
+      "eyebrow": "Journal",
       "description": "A living collection of wisdom from opinionated mentors, teachers, and personal design observations. From foundational principles to leadership lessons, this is a journal of continuous learning in design, code, and craft.",
       "route": "/doc/design-learnings",
       "contentFile": "doc_57.md",
       "thumbnail": "placeholders/placeholder-19.svg",
       "alt": "Design Learnings & Principles",
-      "tags": ["design", "leadership"]
+      "tags": [
+        "design",
+        "leadership"
+      ]
     },
     {
       "id": 28,
       "docId": 60,
       "slug": "designing-your-own-relevance",
       "type": "article",
+      "date": "",
       "title": "Designing Your Own Relevance",
       "eyebrow": "Career-Growth",
       "description": "How pressure, curiosity, and transferable skills created a career path no one handed me. On finding your niche, navigating identity shifts, and building relevance by staying grounded in what's true about how you work.",
@@ -199,14 +255,18 @@
       "contentFile": "doc_60.md",
       "thumbnail": "placeholders/placeholder-24.svg",
       "alt": "Article: Designing Your Own Relevance",
-      "tags": ["career", "growth", "leadership"]
+      "tags": [
+        "career",
+        "growth",
+        "leadership"
+      ]
     },
-
     {
       "id": 9,
       "docId": 32,
       "slug": "designing-genie",
       "type": "case-study",
+      "date": "",
       "title": "Designing Genie",
       "eyebrow": "Agentic AI Design",
       "description": "How a personal automation experiment became a shared platform for the delivery team, and the three mental model problems that had to be solved to design for agentic AI.",
@@ -216,13 +276,17 @@
       "imageVariant": "angled",
       "bgcolor": "background-color: var(--color-pink)",
       "alt": "Genie - Agentic AI Platform",
-      "tags": ["ai", "agentic-ai"]
+      "tags": [
+        "ai",
+        "agentic-ai"
+      ]
     },
     {
       "id": 31,
       "docId": 61,
       "slug": "hmi-design-token-pipeline",
       "type": "case-study",
+      "date": "",
       "title": "Token Pipeline for a Multi-Brand HMI Platform",
       "eyebrow": "Design Systems",
       "description": "How I built a unified token architecture, an AI-guarded lint pipeline, and a one-command dev loop that kept Figma, code, and AI tooling in sync across four brands, two themes, and two modalities — for a multi-display vehicle Human-Machine Interface platform.",
@@ -230,13 +294,18 @@
       "contentFile": "doc_61.md",
       "thumbnail": "placeholders/placeholder-25.svg",
       "alt": "Case Study: Design Token Pipeline for a Multi-Brand HMI Platform",
-      "tags": ["design-systems", "tokens", "ai"]
+      "tags": [
+        "design-systems",
+        "tokens",
+        "ai"
+      ]
     },
     {
       "id": 30,
       "docId": 64,
       "slug": "the-design-command-suite",
       "type": "case-study",
+      "date": "",
       "title": "The /design Agent",
       "eyebrow": "Design Engineering",
       "description": "An isolated Storybook environment powered by AI — one command to start. How I built a design layer on top of an agentic framework, and what I learned about operationalizing change in a service company where the best handoff is still a handoff.",
@@ -246,13 +315,18 @@
       "alt": "Case Study: The /design Agent",
       "imageVariant": "angled",
       "bgcolor": "background-color: var(--color-blue)",
-      "tags": ["design-engineering", "storybook", "ai"]
+      "tags": [
+        "design-engineering",
+        "storybook",
+        "ai"
+      ]
     },
     {
       "id": 55,
       "docId": 55,
       "slug": "fortune-100-planning-tool",
       "type": "case-study",
+      "date": "",
       "title": "Fortune 100 Planning Tool",
       "eyebrow": "Dashboard Design",
       "description": "A strategic planning tool for a Fortune 100 company — making complex organizational data across business units, budgets, and initiatives navigable without flattening it.",
@@ -273,13 +347,17 @@
         "caption3": "Detailed planning view"
       },
       "alt": "Fortune 100 Planning Tool Dashboard",
-      "tags": ["dashboard", "analytics"]
+      "tags": [
+        "dashboard",
+        "analytics"
+      ]
     },
     {
       "id": 32,
       "docId": 69,
       "slug": "counter-fill",
       "type": "tool",
+      "date": "",
       "title": "Counter Fill: Colouring the Holes in Your Type",
       "eyebrow": "Typography Experiment",
       "description": "A script that fills the enclosed counter spaces inside letterforms — the holes in o, e, a, g — with any colour or gradient. Generative, font-agnostic, and built on real DOM text so it stays accessible.",
@@ -288,13 +366,19 @@
       "thumbnail": "casestudy/counter-fill/counter-fill-2.png",
       "alt": "counter-fill: typographic counter-space fill experiment",
       "github": "https://github.com/jacquesramphal/counter-fill",
-      "tags": ["experiment", "canvas", "typography", "open-source"]
+      "tags": [
+        "experiment",
+        "canvas",
+        "typography",
+        "open-source"
+      ]
     },
     {
       "id": 67,
       "docId": 67,
       "slug": "design-token-template",
       "type": "tool",
+      "date": "",
       "title": "Design Token Starter",
       "eyebrow": "Design Systems",
       "description": "A layered token architecture for personal projects and design systems — multi-brand, theme-aware, and Figma Token Studio ready. Two files to import, zero classes required.",
@@ -308,13 +392,18 @@
       "filename3": "casestudy/token-starter/elements.png",
       "alt": "Design Token Starter — multi-brand token architecture",
       "github": "https://github.com/jacquesramphal/design-token-template",
-      "tags": ["design-systems", "tokens", "open-source"]
+      "tags": [
+        "design-systems",
+        "tokens",
+        "open-source"
+      ]
     },
     {
       "id": 13,
       "docId": 38,
       "slug": "design-guard",
       "type": "tool",
+      "date": "",
       "title": "Design Guard",
       "eyebrow": "CLI Package",
       "description": "A lightweight design guard that scans staged files for hardcoded lengths (px/rem/%/etc.) and colors, nudging code toward design tokens.",
@@ -324,13 +413,17 @@
       "alt": "Doc: Design Guard",
       "github": "https://github.com/jacquesramphal/design-guard",
       "npm": "@jacquesramphal/design-guard",
-      "tags": ["cli", "design-systems"]
+      "tags": [
+        "cli",
+        "design-systems"
+      ]
     },
     {
       "id": 12,
       "docId": 37,
       "slug": "smart-quotes-fixer",
       "type": "tool",
+      "date": "",
       "title": "Smart Quotes Fixer",
       "eyebrow": "CLI Package",
       "description": "A safe script that converts straight quotes to smart quotes in rendered content without touching code, bindings, or attribute delimiters.",
@@ -340,13 +433,17 @@
       "alt": "Doc: Smart Quotes Fixer",
       "github": "https://github.com/jacquesramphal/smart-quotes",
       "npm": "@jacquesramphal/smart-quotes",
-      "tags": ["cli", "npm"]
+      "tags": [
+        "cli",
+        "npm"
+      ]
     },
     {
       "id": 56,
       "docId": 56,
       "slug": "onlogic-commerce-platform",
       "type": "case-study",
+      "date": "",
       "title": "OnLogic Product Configurator",
       "eyebrow": "Composable Commerce",
       "description": "OnLogic's customers are IT professionals configuring industrial PCs with specific hardware requirements — where a wrong choice has real consequences. Migrated from a legacy platform to composable commerce, with a configuration flow built around real dependencies.",
@@ -367,7 +464,10 @@
         "caption3": "Custom PDP and Checkout Experience"
       },
       "alt": "OnLogic Product Configurator",
-      "tags": ["commerce", "configurator"],
+      "tags": [
+        "commerce",
+        "configurator"
+      ],
       "locked": true,
       "securedRoute": "/secured/doc/onlogic-commerce-platform"
     },
@@ -376,6 +476,7 @@
       "docId": 53,
       "slug": "kg-loyalty-platform",
       "type": "case-study",
+      "date": "",
       "title": "Kum & Go Mobile Loyalty App",
       "eyebrow": "Product Design",
       "description": "Founded in 1959, Kum & Go redefines convenience with customer-centric offerings. Partnering with Orium, they launched a new digital experience featuring enhanced promotions, loyalty programs, and improved merchandising.",
@@ -396,7 +497,10 @@
         "caption3": "K&G Digital Experience"
       },
       "alt": "Kum & Go Mobile Loyalty App",
-      "tags": ["loyalty", "mobile"],
+      "tags": [
+        "loyalty",
+        "mobile"
+      ],
       "locked": true,
       "securedRoute": "/secured/doc/kg-loyalty-platform"
     },
@@ -405,6 +509,7 @@
       "docId": 54,
       "slug": "softchoice-rebrand",
       "type": "case-study",
+      "date": "",
       "title": "Softchoice Website Replatform",
       "eyebrow": "CMS Design",
       "description": "When a brand launches a new identity, the website needs to reflect it—without breaking what already works. Redesigned Softchoice's website to reflect their new brand identity, working within their existing CMS structure. Enhanced modules, introduced motion design, and collaborated closely with development to ensure design fidelity.",
@@ -425,13 +530,17 @@
         "caption3": "Motion Design Elements"
       },
       "alt": "Softchoice Website Replatform",
-      "tags": ["rebrand", "motion-design"],
+      "tags": [
+        "rebrand",
+        "motion-design"
+      ],
       "locked": true,
       "securedRoute": "/secured/doc/softchoice-rebrand"
     },
     {
       "id": 70,
       "type": "design-project",
+      "date": "",
       "title": "Explorations",
       "eyebrow": "Visual Design",
       "description": "UI experiments, design process, and work-in-progress from across projects.",
@@ -439,13 +548,16 @@
       "thumbnail": "avatar/avatar.svg",
       "filename1": "avatar/avatar.svg",
       "alt": "Explorations: design work and process",
-      "tags": ["visual-design", "explorations"]
+      "tags": [
+        "visual-design",
+        "explorations"
+      ]
     },
-
     {
       "docId": 65,
       "slug": "template",
       "type": "case-study",
+      "date": "",
       "title": "Case Study Template",
       "eyebrow": "Template",
       "description": "Format reference for portfolio case studies. Demonstrates metadata block, section structure, blockquote talking points, and captioned images.",
@@ -456,42 +568,50 @@
     {
       "docId": 70,
       "slug": "info",
-      "contentFile": "doc_70.md"
+      "contentFile": "doc_70.md",
+      "date": ""
     },
     {
       "docId": 63,
       "slug": "explorations",
-      "contentFile": "doc_63.md"
+      "contentFile": "doc_63.md",
+      "date": ""
     },
     {
       "docId": 15,
       "slug": "cv",
-      "contentFile": "doc_42.md"
+      "contentFile": "doc_42.md",
+      "date": ""
     },
     {
       "docId": 30,
       "slug": "ask-me-anything",
-      "contentFile": "doc_30.md"
+      "contentFile": "doc_30.md",
+      "date": ""
     },
     {
       "docId": 36,
       "slug": "colophon",
-      "contentFile": "doc_36.md"
+      "contentFile": "doc_36.md",
+      "date": ""
     },
     {
       "docId": 39,
       "slug": "ai-ethics",
-      "contentFile": "doc_39.md"
+      "contentFile": "doc_39.md",
+      "date": ""
     },
     {
       "docId": 40,
       "slug": "privacy",
-      "contentFile": "doc_40.md"
+      "contentFile": "doc_40.md",
+      "date": ""
     },
     {
       "docId": 41,
       "slug": "accessibility",
-      "contentFile": "doc_41.md"
+      "contentFile": "doc_41.md",
+      "date": ""
     }
   ]
 }
