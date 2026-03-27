@@ -31,7 +31,7 @@ transform: rotate(90deg);
 
     </HeaderNav>
     <!-- <ThemeButton v-if="!$route.meta.hideThemeButton" /> -->
-    <transition name="fade" mode="out-in">
+    <transition name="fade">
       <component :is="Component" :key="$route.path" />
     </transition>
 

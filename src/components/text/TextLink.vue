@@ -197,7 +197,7 @@ export default {
   }
 
   &:hover .label-text {
-    text-decoration: underline wavy var(--color-yellow);
+    text-decoration: underline wavy var(--foreground);
     text-decoration-thickness: 0.2rem;
     text-underline-offset: 0.75rem;
   }

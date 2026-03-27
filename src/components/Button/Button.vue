@@ -219,7 +219,7 @@ export default {
     /* box-shadow: var(--shadow-text); */
   }
   &:disabled,
-  &[aria-disabled="true"] {
+  &[aria-disabled='true'] {
     opacity: 0.4;
     cursor: not-allowed;
     pointer-events: none;
@@ -321,7 +321,7 @@ export default {
   }
   &:hover {
     color: var(--foreground);
-    text-decoration: underline wavy var(--color-yellow) !important;
+    text-decoration: underline wavy var(--foreground) !important;
     text-underline-offset: 0.625rem;
     text-decoration-thickness: 0.2rem !important;
   }

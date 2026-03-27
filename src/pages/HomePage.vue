@@ -10,6 +10,7 @@
     <HeroBanner
       id="hero"
       end
+      fullvh
       isHtml
       class="display"
       title="I design systems and write the code that ships them. Browse my <a href='/library'><em>writing</em></a> and <a href='/library'><em>work</em></a>."
@@ -204,7 +205,7 @@ export default {
   methods: {},
   mounted() {
     this.$nextTick(() => {
-      const h1 = this.$el.querySelector('h1.title');
+      const h1 = document.querySelector('h1.title');
       if (h1) {
         // h1.id = 'hero-title';
         h1.classList.add('wrap-multi');
