@@ -195,6 +195,7 @@ export default {
         { text: 'Email', url: 'mailto:jacques@ramphal.design', icon: 'icon/j-logo.svg' },
       ],
       menuItems3: [
+        { text: 'Journal', route: '/doc/design-learnings' },
         { text: 'Colophon', route: '/doc/colophon' },
         { text: 'Ask Me Anything', route: '/doc/ask-me-anything' },
         { text: 'AI Ethics', route: '/doc/ai-ethics' },
