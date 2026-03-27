@@ -113,7 +113,7 @@ function buildProjects() {
 }
 
 export default {
-  name: 'Explorations',
+  name: 'MyExplorations',
   components: { FullscreenImage, ImageCard },
   data() {
     return {
