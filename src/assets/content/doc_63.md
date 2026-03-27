@@ -1,6 +1,6 @@
-# Sketchbook
+# Explorations
 
-Visual explorations, UI experiments, and work-in-progress from across projects.
+UI experiments, design process, and work-in-progress from across projects.
 
 <!-- full-width -->
 

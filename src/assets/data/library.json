@@ -432,14 +432,14 @@
     {
       "id": 70,
       "type": "design-project",
-      "title": "Visual Sketchbook",
+      "title": "Explorations",
       "eyebrow": "Visual Design",
-      "description": "A running collection of visual design explorations, UI experiments, and work-in-progress screenshots from across projects.",
-      "route": "/Sketchbook",
+      "description": "UI experiments, design process, and work-in-progress from across projects.",
+      "route": "/explorations",
       "thumbnail": "avatar/avatar.svg",
       "filename1": "avatar/avatar.svg",
-      "alt": "Visual Sketchbook — Design explorations and experiments",
-      "tags": ["visual-design", "sketchbook"]
+      "alt": "Explorations: design work and process",
+      "tags": ["visual-design", "explorations"]
     },
 
     {
@@ -460,7 +460,7 @@
     },
     {
       "docId": 63,
-      "slug": "sketchbook",
+      "slug": "explorations",
       "contentFile": "doc_63.md"
     },
     {
