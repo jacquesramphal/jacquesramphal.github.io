@@ -20,4 +20,4 @@ If you're reading this after I've moved on from whatever I'm doing now, the work
 
 ---
 
-Built in Canada. All code and content © Jacques Ramphal.
+[About](/about) · Built in Canada. All code and content © Jacques Ramphal.
