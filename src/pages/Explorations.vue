@@ -2,8 +2,8 @@
   <PageWrapper>
     <HeroBanner
       id="hero"
-      title="My Sketchbook"
-      subtitle="Visual explorations, UI experiments, and work-in-progress from across projects."
+      title="Explorations"
+      subtitle="Process and concept work from across projects."
       as="h1"
     />
 
