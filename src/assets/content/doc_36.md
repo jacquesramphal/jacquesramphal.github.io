@@ -1,32 +1,23 @@
 # Colophon
 
-## Technology Stack
-This portfolio is a working design system built to showcase systems thinking, component architecture, and modern web development practices.
+The site has been live since 2013. Most of what's here started as something I needed to think through: a problem, a pattern, a method that kept proving itself. Writing it down was the test. If I couldn't explain it, I didn't understand it yet.
 
-- **Frontend**: Vue 3, TypeScript, Vite
-- **Styling**: CSS Custom Properties, Token-based theming, SCSS
-- **Content**: Markdown rendering, Git-based content management
-- **Typography**: Epilogue (variable font)
-- **Deployment**: Netlify, Continuous deployment from GitHub
-- **AI Integration**: n8n workflow, Content-aware chatbot
+This is an index: work, writing, and tools I built because nothing else did what I needed. Some of it will age badly. Most of it reflects where I was at the time, which is the point.
 
-## Design Principles
+I don't have social media. Not as a statement, just a choice that's held up. It means this site is the primary record. What I make here is what persists.
 
-This site demonstrates design system thinking in practice:
+The design is part of the argument. I built it, maintain it, and keep changing it. The source is public, the tools are documented, and the case studies explain the thinking behind the decisions. A designer who writes production code is a claim that's easy to make; the site is the evidence.
 
-- **Token-based architecture** for instant theme switching
-- **Component reusability** across contexts
-- **Markdown-first content** with no CMS dependency
-- **Variable fonts** for expressive, performant typography
-- **Progressive enhancement** and responsive design
+If you're reading this after I've moved on from whatever I'm doing now, the work is still here.
 
-## Key Features
+## How it's built
 
-- **Markdown Renderer**: Write in markdown, deploy with Git. The renderer handles hero images, syntax highlighting, tables, and responsive layouts automatically.
-- **Theme System**: CSS custom properties enable instant switching between light, dark, and system themes without rebuilding components.
-- **Variable Typography**: Single font file with contextual variations—wider for headings, optimized for body text, all from Epilogue’s variable font axes.
-- **AI Assistant**: Content-aware chatbot trained on site content, providing conversational navigation and contextual help.
+- **Frontend**: Vue 3, TypeScript
+- **Styling**: CSS custom properties, token-based theming, SCSS
+- **Content**: Markdown files, no CMS dependency
+- **Typography**: Variable font
+- **Deployment**: GitHub Actions
 
 ---
 
-Built with care in Canada. All code and content © Jacques Ramphal 2025.
+[About](/about) · Built in Canada. All code and content © Jacques Ramphal.
