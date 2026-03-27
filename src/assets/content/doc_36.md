@@ -2,7 +2,9 @@
 
 The site has been live since 2013. Most of what's here started as something I needed to think through: a problem, a pattern, a method that kept proving itself. Writing it down was the test. If I couldn't explain it, I didn't understand it yet.
 
-This is an index: work, writing, and tools I built because nothing else did what I needed. Some of it will age badly. Most of it reflects where I was at the time, which is the point.
+## This is an index
+
+Wwork, writing, and tools I built because nothing else did what I needed. Some of it will age badly. Most of it reflects where I was at the time, which is the point.
 
 I don't have social media. Not as a statement, just a choice that's held up. It means this site is the primary record. What I make here is what persists.
 
