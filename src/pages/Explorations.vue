@@ -113,7 +113,7 @@ function buildProjects() {
 }
 
 export default {
-  name: 'MySketchbook',
+  name: 'Explorations',
   components: { FullscreenImage, ImageCard },
   data() {
     return {
