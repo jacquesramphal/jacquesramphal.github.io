@@ -120,6 +120,7 @@
         :tags="tags"
         :cardType="type"
         :readTime="readTime"
+        :date="date"
         @tag-click="$emit('tag-click', $event)"
       />
 
@@ -256,6 +257,11 @@ export default {
       validator: (value) => ['full', 'offset', 'angled'].includes(value),
     },
     contentFile: {
+      type: String,
+      default: '',
+      required: false,
+    },
+    date: {
       type: String,
       default: '',
       required: false,

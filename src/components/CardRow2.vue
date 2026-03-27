@@ -209,6 +209,9 @@ export default {
       const currentRoute = this.$route;
       let items = this.resolvedItems;
 
+      // Exclude unpublished items
+      items = items.filter((item) => item.published !== false);
+
       // Filter by type if filterByType prop is provided
       if (this.filterByType) {
         items = items.filter((item) => item.type === this.filterByType);

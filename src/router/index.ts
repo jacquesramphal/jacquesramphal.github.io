@@ -1,7 +1,7 @@
 import TheLogin from '@/components/TheLogin.vue';
 
 import { createRouter, createWebHistory } from 'vue-router';
-import MySketchbook from '@/pages/MySketchbook.vue';
+import Explorations from '@/pages/Explorations.vue';
 import DesignSystem from '@/pages/DesignSystem.vue';
 import MaintenancePage from '@/pages/misc/MaintenancePage.vue';
 import MyResume from '@/pages/MyResume.vue';
@@ -83,6 +83,10 @@ const routes = [
     path: '/info',
     redirect: { name: 'Doc', params: { slug: 'info' } },
   },
+  {
+    path: '/about',
+    redirect: { name: 'Doc', params: { slug: 'info' } },
+  },
 
   {
     path: '/designsystem',
@@ -110,11 +114,11 @@ const routes = [
     component: PlayIndex,
   },
   {
-    name: 'MySketchbook',
-    path: '/sketchbook',
-    component: MySketchbook,
+    name: 'Explorations',
+    path: '/explorations',
+    component: Explorations,
     meta: {
-      title: 'Sketchbook',
+      title: 'Explorations',
     },
   },
   {

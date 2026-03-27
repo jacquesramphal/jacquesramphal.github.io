@@ -46,7 +46,10 @@
       :attrs="{ class: 'description' }"
     />
     <!-- Content tags at bottom -->
-    <div v-if="shouldShowTags && ((tags && tags.length) || readTime)" class="tags tags--content">
+    <div v-if="shouldShowTags && ((tags && tags.length) || readTime || date)" class="tags tags--content">
+      <span v-if="date" class="tag-label tag-label--date">
+        <p style="font-size: var(--font-2xs)">{{ date }}</p>
+      </span>
       <span v-if="readTime" class="tag-label tag-label--read-time">
         <p style="font-size: var(--font-2xs)">{{ readTime }}</p>
       </span>
@@ -174,6 +177,11 @@ export default {
       required: false,
     },
     readTime: {
+      type: String,
+      default: '',
+      required: false,
+    },
+    date: {
       type: String,
       default: '',
       required: false,
