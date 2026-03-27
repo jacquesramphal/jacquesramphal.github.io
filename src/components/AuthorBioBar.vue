@@ -36,7 +36,7 @@ export default {
     },
     title: {
       type: String,
-      default: 'Head of Design, Agentic Systems & AX Lead | Orium',
+      default: 'Design, Systems & Code · Toronto',
     },
     description: {
       type: String,

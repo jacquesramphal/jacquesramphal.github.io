@@ -119,19 +119,19 @@ export default {
   },
   setup() {
     useHead({
-      title: 'Jacques Ramphal - Head of Design & AX Lead | Orium',
+      title: 'Jacques Ramphal — Design, Systems, Code',
       meta: [
         {
           name: 'description',
-          content: `Head of Design at Orium with ${new Date().getFullYear() - 2013} years experience leading agentic systems (AX) design, design systems, and AI-driven delivery workflows.`,
+          content: `${new Date().getFullYear() - 2013} years at the seam between design and engineering — designing systems, writing production code, and building with AI.`,
         },
         {
           property: 'og:title',
-          content: 'Jacques Ramphal - Head of Design & AX Lead | Orium',
+          content: 'Jacques Ramphal — Design, Systems, Code',
         },
         {
           property: 'og:description',
-          content: `Head of Design at Orium, leading agentic systems (AX) design, design systems, and AI-driven delivery workflows. ${new Date().getFullYear() - 2013} years bridging UX, AI, and development.`,
+          content: `${new Date().getFullYear() - 2013} years at the seam between design and engineering — designing systems, writing production code, and building with AI.`,
         },
         {
           property: 'og:type',
@@ -139,7 +139,7 @@ export default {
         },
         {
           property: 'og:url',
-          content: 'https://jacquesramphal.github.io/',
+          content: 'https://ramphal.design/',
         },
         {
           property: 'twitter:card',
@@ -147,12 +147,11 @@ export default {
         },
         {
           property: 'twitter:title',
-          content: 'Jacques Ramphal - Head of Design & AX Lead | Orium',
+          content: 'Jacques Ramphal — Design, Systems, Code',
         },
         {
           property: 'twitter:description',
-          content:
-            'Head of Design at Orium, leading agentic systems (AX) design, design systems, and AI-driven delivery workflows.',
+          content: `${new Date().getFullYear() - 2013} years at the seam between design and engineering — designing systems, writing production code, and building with AI.`,
         },
       ],
     });
