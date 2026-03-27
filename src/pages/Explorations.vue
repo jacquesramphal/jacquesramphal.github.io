@@ -3,7 +3,7 @@
     <HeroBanner
       id="hero"
       title="Explorations"
-      subtitle="UI experiments, design process, and work-in-progress from across projects."
+      subtitle="Process and concept work from across projects."
       as="h1"
     />
 
