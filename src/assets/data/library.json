@@ -9,6 +9,25 @@
   "alt": "Genie - Agentic AI Platform",
   "entries": [
     {
+      "id": 71,
+      "docId": 71,
+      "slug": "imposter-syndrome",
+      "type": "article",
+      "date": "",
+      "title": "Imposter Syndrome Never Fully Goes Away",
+      "eyebrow": "Mindset",
+      "description": "On showing up prepared without knowing the right answer, learning to sit with that discomfort, and being kind enough to yourself to build the support before you need it.",
+      "route": "/doc/imposter-syndrome",
+      "contentFile": "doc_71.md",
+      "thumbnail": "placeholders/placeholder-16.svg",
+      "alt": "Article: Imposter Syndrome Never Fully Goes Away",
+      "tags": [
+        "career",
+        "mindset",
+        "growth"
+      ]
+    },
+    {
       "id": 66,
       "docId": 66,
       "slug": "building-genie-changed-me",
