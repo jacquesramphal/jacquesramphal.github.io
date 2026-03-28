@@ -16,7 +16,7 @@ After, the internal audit starts. You remember the two things that didn't land a
 
 When feedback comes, hear what's actually true, not the emotion around it or the worst interpretation of it. Your work is not the full measure of your value.
 
----
+## What follows you home
 
 Some discomfort means you care, and caring is part of doing good work. But if it's following you home and sitting at the table with your family, something is out of balance. The work will get done. Decide how much you can genuinely give and give that fully, then check in often: is this effort aimed at the right problem, or am I just adding hours?
 

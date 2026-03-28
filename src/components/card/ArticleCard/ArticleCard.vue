@@ -538,10 +538,13 @@ img {
 .image a,
 .image router-link {
   text-decoration: none;
+  display: block;
+  height: 100%;
 }
 
 .placeholder {
-  aspect-ratio: 5/4;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
