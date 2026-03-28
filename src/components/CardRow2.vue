@@ -292,6 +292,7 @@ export default {
   .cardmobile {
     margin: 0 0 var(--spacing-sm) var(--spacing-sm);
     display: inline-flex;
+    vertical-align: top;
     inline-size: 25vw;
   }
   /* ------------ BREAKPOINT MD ------------ */
