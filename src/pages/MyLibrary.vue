@@ -391,15 +391,19 @@ export default {
       });
     },
     filteredArticlesAndTools() {
-      return this.filteredEntries.filter((e) => e.type === 'article');
+      return this.filteredEntries
+        .filter((e) => e.type === 'article')
+        .sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
     },
     filteredTools() {
-      return this.filteredEntries.filter((e) => e.type === 'tool');
+      return this.filteredEntries
+        .filter((e) => e.type === 'tool')
+        .sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
     },
     filteredCaseStudiesAndProjects() {
-      return this.filteredEntries.filter(
-        (e) => e.type === 'case-study' || e.type === 'design-project'
-      );
+      return this.filteredEntries
+        .filter((e) => e.type === 'case-study' || e.type === 'design-project')
+        .sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
     },
     hasActiveFilters() {
       return (

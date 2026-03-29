@@ -9,64 +9,11 @@
   "alt": "Genie - Agentic AI Platform",
   "entries": [
     {
-      "id": 73,
-      "docId": 73,
-      "slug": "ego",
-      "type": "article",
-      "date": "",
-      "title": "Ego",
-      "eyebrow": "Mindset",
-      "description": "On the difference between the discomfort that makes you better and the kind that follows you home — and how to tell which one you're feeding.",
-      "route": "/doc/ego",
-      "contentFile": "doc_73.md",
-      "alt": "Article: Ego",
-      "tags": [
-        "career",
-        "mindset",
-        "growth"
-      ]
-    },
-    {
-      "id": 72,
-      "docId": 72,
-      "slug": "make-it-pop",
-      "type": "article",
-      "date": "",
-      "title": "Make It Pop",
-      "eyebrow": "Enterprise UX",
-      "description": "Finding joy in enterprise design when the craft has moved from pixels to systems, and why the human part of the work matters more as tools get better.",
-      "route": "/doc/make-it-pop",
-      "contentFile": "doc_72.md",
-      "alt": "Article: Make It Pop",
-      "tags": [
-        "career",
-        "enterprise-ux",
-        "design-systems"
-      ]
-    },
-    {
-      "id": 71,
-      "docId": 71,
-      "slug": "imposter-syndrome",
-      "type": "article",
-      "date": "",
-      "title": "Imposter Syndrome Never Fully Goes Away",
-      "eyebrow": "Mindset",
-      "description": "On showing up prepared without knowing the right answer, learning to sit with that discomfort, and being kind enough to yourself to build the support before you need it.",
-      "route": "/doc/imposter-syndrome",
-      "contentFile": "doc_71.md",
-      "alt": "Article: Imposter Syndrome Never Fully Goes Away",
-      "tags": [
-        "career",
-        "mindset",
-        "growth"
-      ]
-    },
-    {
       "id": 66,
       "docId": 66,
       "slug": "building-genie-changed-me",
       "type": "article",
+      "featured": true,
       "date": "",
       "title": "Building Genie Changed Me",
       "eyebrow": "Agentic AI Design",
@@ -100,21 +47,22 @@
       ]
     },
     {
-      "id": 23,
-      "docId": 51,
-      "slug": "designer-age-of-ai",
+      "id": 28,
+      "docId": 60,
+      "slug": "designing-your-own-relevance",
       "type": "article",
       "date": "",
-      "title": "The Designer in the Age of AI",
-      "eyebrow": "Design Evolution AI",
-      "description": "Shifting from inspectors to system stewards. As tools automate comparison and regression, designers become orchestrators who define baselines, set standards, and protect coherence.",
-      "thumbnail": "placeholders/placeholder-12.svg",
-      "route": "/doc/designer-age-of-ai",
-      "contentFile": "doc_51.md",
-      "alt": "Article: The Designer in the Age of AI",
+      "title": "Designing Your Own Relevance",
+      "eyebrow": "Career-Growth",
+      "description": "How pressure, curiosity, and transferable skills created a career path no one handed me. On finding your niche, navigating identity shifts, and building relevance by staying grounded in what's true about how you work.",
+      "route": "/doc/designing-your-own-relevance",
+      "contentFile": "doc_60.md",
+      "thumbnail": "placeholders/placeholder-24.svg",
+      "alt": "Article: Designing Your Own Relevance",
       "tags": [
-        "ai",
-        "design"
+        "career",
+        "growth",
+        "leadership"
       ]
     },
     {
@@ -133,6 +81,62 @@
       "tags": [
         "design",
         "leadership"
+      ]
+    },
+    {
+      "id": 26,
+      "docId": 58,
+      "slug": "the-ramstack",
+      "type": "article",
+      "date": "",
+      "title": "The Ramstack",
+      "eyebrow": "Design Philosophy",
+      "description": "A future-proof approach to front-end design isn't about specific tools—it's about the principles beneath them. On headless complexity, tech debt, and why interoperability should be the core of your design practice.",
+      "route": "/doc/the-ramstack",
+      "contentFile": "doc_58.md",
+      "thumbnail": "article/cover3.png",
+      "alt": "Article: The Ramstack",
+      "tags": [
+        "design-tools",
+        "front-end",
+        "philosophy"
+      ]
+    },
+    {
+      "id": 27,
+      "docId": 59,
+      "slug": "the-future-of-design",
+      "type": "article",
+      "date": "",
+      "title": "The Future of Design",
+      "eyebrow": "Design Speculation",
+      "description": "Speculation on where design is heading. From siloed to integrated, static to dynamic, proprietary to open-source—the future of design is defined by tensions, not destinations.",
+      "route": "/doc/the-future-of-design",
+      "contentFile": "doc_59.md",
+      "thumbnail": "article/cover2.png",
+      "alt": "Article: The Future of Design",
+      "tags": [
+        "design",
+        "future",
+        "philosophy"
+      ]
+    },
+    {
+      "id": 23,
+      "docId": 51,
+      "slug": "designer-age-of-ai",
+      "type": "article",
+      "date": "",
+      "title": "The Designer in the Age of AI",
+      "eyebrow": "Design Evolution AI",
+      "description": "Shifting from inspectors to system stewards. As tools automate comparison and regression, designers become orchestrators who define baselines, set standards, and protect coherence.",
+      "thumbnail": "placeholders/placeholder-12.svg",
+      "route": "/doc/designer-age-of-ai",
+      "contentFile": "doc_51.md",
+      "alt": "Article: The Designer in the Age of AI",
+      "tags": [
+        "ai",
+        "design"
       ]
     },
     {
@@ -165,44 +169,6 @@
       "tags": [
         "ai",
         "agentic-ai"
-      ]
-    },
-    {
-      "id": 27,
-      "docId": 59,
-      "slug": "the-future-of-design",
-      "type": "article",
-      "date": "",
-      "title": "The Future of Design",
-      "eyebrow": "Design Speculation",
-      "description": "Speculation on where design is heading. From siloed to integrated, static to dynamic, proprietary to open-source—the future of design is defined by tensions, not destinations.",
-      "route": "/doc/the-future-of-design",
-      "contentFile": "doc_59.md",
-      "thumbnail": "article/cover2.png",
-      "alt": "Article: The Future of Design",
-      "tags": [
-        "design",
-        "future",
-        "philosophy"
-      ]
-    },
-    {
-      "id": 26,
-      "docId": 58,
-      "slug": "the-ramstack",
-      "type": "article",
-      "date": "",
-      "title": "The Ramstack",
-      "eyebrow": "Design Philosophy",
-      "description": "A future-proof approach to front-end design isn't about specific tools—it's about the principles beneath them. On headless complexity, tech debt, and why interoperability should be the core of your design practice.",
-      "route": "/doc/the-ramstack",
-      "contentFile": "doc_58.md",
-      "thumbnail": "article/cover3.png",
-      "alt": "Article: The Ramstack",
-      "tags": [
-        "design-tools",
-        "front-end",
-        "philosophy"
       ]
     },
     {
@@ -279,6 +245,60 @@
       ]
     },
     {
+      "id": 73,
+      "docId": 73,
+      "slug": "ego",
+      "type": "article",
+      "date": "",
+      "title": "Ego",
+      "eyebrow": "Mindset",
+      "description": "On the difference between the discomfort that makes you better and the kind that follows you home — and how to tell which one you're feeding.",
+      "route": "/doc/ego",
+      "contentFile": "doc_73.md",
+      "alt": "Article: Ego",
+      "tags": [
+        "career",
+        "mindset",
+        "growth"
+      ]
+    },
+    {
+      "id": 72,
+      "docId": 72,
+      "slug": "make-it-pop",
+      "type": "article",
+      "date": "",
+      "title": "Make It Pop",
+      "eyebrow": "Enterprise UX",
+      "description": "Finding joy in enterprise design when the craft has moved from pixels to systems, and why the human part of the work matters more as tools get better.",
+      "route": "/doc/make-it-pop",
+      "contentFile": "doc_72.md",
+      "alt": "Article: Make It Pop",
+      "tags": [
+        "career",
+        "enterprise-ux",
+        "design-systems"
+      ]
+    },
+    {
+      "id": 71,
+      "docId": 71,
+      "slug": "imposter-syndrome",
+      "type": "article",
+      "date": "",
+      "title": "Imposter Syndrome Never Fully Goes Away",
+      "eyebrow": "Mindset",
+      "description": "On showing up prepared without knowing the right answer, learning to sit with that discomfort, and being kind enough to yourself to build the support before you need it.",
+      "route": "/doc/imposter-syndrome",
+      "contentFile": "doc_71.md",
+      "alt": "Article: Imposter Syndrome Never Fully Goes Away",
+      "tags": [
+        "career",
+        "mindset",
+        "growth"
+      ]
+    },
+    {
       "id": 25,
       "docId": 57,
       "slug": "design-learnings",
@@ -297,29 +317,11 @@
       ]
     },
     {
-      "id": 28,
-      "docId": 60,
-      "slug": "designing-your-own-relevance",
-      "type": "article",
-      "date": "",
-      "title": "Designing Your Own Relevance",
-      "eyebrow": "Career-Growth",
-      "description": "How pressure, curiosity, and transferable skills created a career path no one handed me. On finding your niche, navigating identity shifts, and building relevance by staying grounded in what's true about how you work.",
-      "route": "/doc/designing-your-own-relevance",
-      "contentFile": "doc_60.md",
-      "thumbnail": "placeholders/placeholder-24.svg",
-      "alt": "Article: Designing Your Own Relevance",
-      "tags": [
-        "career",
-        "growth",
-        "leadership"
-      ]
-    },
-    {
       "id": 9,
       "docId": 32,
       "slug": "designing-genie",
       "type": "case-study",
+      "featured": true,
       "date": "",
       "title": "Designing Genie",
       "eyebrow": "Agentic AI Design",
@@ -404,92 +406,6 @@
       "tags": [
         "dashboard",
         "analytics"
-      ]
-    },
-    {
-      "id": 32,
-      "docId": 69,
-      "slug": "counter-fill",
-      "type": "tool",
-      "date": "",
-      "title": "Counter Fill: Colouring the Holes in Your Type",
-      "eyebrow": "Typography Experiment",
-      "description": "A script that fills the enclosed counter spaces inside letterforms — the holes in o, e, a, g — with any colour or gradient. Generative, font-agnostic, and built on real DOM text so it stays accessible.",
-      "route": "/doc/counter-fill",
-      "contentFile": "doc_69.md",
-      "thumbnail": "casestudy/counter-fill/counter-fill-2.png",
-      "alt": "counter-fill: typographic counter-space fill experiment",
-      "github": "https://github.com/jacquesramphal/counter-fill",
-      "tags": [
-        "experiment",
-        "canvas",
-        "typography",
-        "open-source"
-      ]
-    },
-    {
-      "id": 67,
-      "docId": 67,
-      "slug": "design-token-template",
-      "type": "tool",
-      "date": "",
-      "title": "Design Token Starter",
-      "eyebrow": "Design Systems",
-      "description": "A layered token architecture for personal projects and design systems — multi-brand, theme-aware, and Figma Token Studio ready. Two files to import, zero classes required.",
-      "route": "/doc/design-token-template",
-      "contentFile": "doc_67.md",
-      "thumbnail": "casestudy/token-starter/elements.png",
-      "imageVariant": "angled",
-      "bgcolor": "background-color: var(--color-yellow)",
-      "filename1": "casestudy/token-starter/all.png",
-      "filename2": "casestudy/token-starter/colors.png",
-      "filename3": "casestudy/token-starter/elements.png",
-      "alt": "Design Token Starter — multi-brand token architecture",
-      "github": "https://github.com/jacquesramphal/design-token-template",
-      "tags": [
-        "design-systems",
-        "tokens",
-        "open-source"
-      ]
-    },
-    {
-      "id": 13,
-      "docId": 38,
-      "slug": "design-guard",
-      "type": "tool",
-      "date": "",
-      "title": "Design Guard",
-      "eyebrow": "CLI Package",
-      "description": "A lightweight design guard that scans staged files for hardcoded lengths (px/rem/%/etc.) and colors, nudging code toward design tokens.",
-      "route": "/doc/design-guard",
-      "thumbnail": "placeholders/placeholder-26.svg",
-      "contentFile": "doc_38.md",
-      "alt": "Doc: Design Guard",
-      "github": "https://github.com/jacquesramphal/design-guard",
-      "npm": "@jacquesramphal/design-guard",
-      "tags": [
-        "cli",
-        "design-systems"
-      ]
-    },
-    {
-      "id": 12,
-      "docId": 37,
-      "slug": "smart-quotes-fixer",
-      "type": "tool",
-      "date": "",
-      "title": "Smart Quotes Fixer",
-      "eyebrow": "CLI Package",
-      "description": "A safe script that converts straight quotes to smart quotes in rendered content without touching code, bindings, or attribute delimiters.",
-      "route": "/doc/smart-quotes-fixer",
-      "thumbnail": "placeholders/placeholder-27.svg",
-      "contentFile": "doc_37.md",
-      "alt": "Doc: Smart Quotes Fixer",
-      "github": "https://github.com/jacquesramphal/smart-quotes",
-      "npm": "@jacquesramphal/smart-quotes",
-      "tags": [
-        "cli",
-        "npm"
       ]
     },
     {
@@ -590,6 +506,93 @@
       ],
       "locked": true,
       "securedRoute": "/secured/doc/softchoice-rebrand"
+    },
+    {
+      "id": 67,
+      "docId": 67,
+      "slug": "design-token-template",
+      "type": "tool",
+      "featured": true,
+      "date": "",
+      "title": "Design Token Starter",
+      "eyebrow": "Design Systems",
+      "description": "A layered token architecture for personal projects and design systems — multi-brand, theme-aware, and Figma Token Studio ready. Two files to import, zero classes required.",
+      "route": "/doc/design-token-template",
+      "contentFile": "doc_67.md",
+      "thumbnail": "casestudy/token-starter/elements.png",
+      "imageVariant": "angled",
+      "bgcolor": "background-color: var(--color-yellow)",
+      "filename1": "casestudy/token-starter/all.png",
+      "filename2": "casestudy/token-starter/colors.png",
+      "filename3": "casestudy/token-starter/elements.png",
+      "alt": "Design Token Starter — multi-brand token architecture",
+      "github": "https://github.com/jacquesramphal/design-token-template",
+      "tags": [
+        "design-systems",
+        "tokens",
+        "open-source"
+      ]
+    },
+    {
+      "id": 32,
+      "docId": 69,
+      "slug": "counter-fill",
+      "type": "tool",
+      "date": "",
+      "title": "Counter Fill: Colouring the Holes in Your Type",
+      "eyebrow": "Typography Experiment",
+      "description": "A script that fills the enclosed counter spaces inside letterforms — the holes in o, e, a, g — with any colour or gradient. Generative, font-agnostic, and built on real DOM text so it stays accessible.",
+      "route": "/doc/counter-fill",
+      "contentFile": "doc_69.md",
+      "thumbnail": "casestudy/counter-fill/counter-fill-2.png",
+      "alt": "counter-fill: typographic counter-space fill experiment",
+      "github": "https://github.com/jacquesramphal/counter-fill",
+      "tags": [
+        "experiment",
+        "canvas",
+        "typography",
+        "open-source"
+      ]
+    },
+    {
+      "id": 13,
+      "docId": 38,
+      "slug": "design-guard",
+      "type": "tool",
+      "date": "",
+      "title": "Design Guard",
+      "eyebrow": "CLI Package",
+      "description": "A lightweight design guard that scans staged files for hardcoded lengths (px/rem/%/etc.) and colors, nudging code toward design tokens.",
+      "route": "/doc/design-guard",
+      "thumbnail": "placeholders/placeholder-26.svg",
+      "contentFile": "doc_38.md",
+      "alt": "Doc: Design Guard",
+      "github": "https://github.com/jacquesramphal/design-guard",
+      "npm": "@jacquesramphal/design-guard",
+      "tags": [
+        "cli",
+        "design-systems"
+      ]
+    },
+    {
+      "id": 12,
+      "docId": 37,
+      "slug": "smart-quotes-fixer",
+      "type": "tool",
+      "date": "",
+      "title": "Smart Quotes Fixer",
+      "eyebrow": "CLI Package",
+      "description": "A safe script that converts straight quotes to smart quotes in rendered content without touching code, bindings, or attribute delimiters.",
+      "route": "/doc/smart-quotes-fixer",
+      "thumbnail": "placeholders/placeholder-27.svg",
+      "contentFile": "doc_37.md",
+      "alt": "Doc: Smart Quotes Fixer",
+      "github": "https://github.com/jacquesramphal/smart-quotes",
+      "npm": "@jacquesramphal/smart-quotes",
+      "tags": [
+        "cli",
+        "npm"
+      ]
     },
     {
       "id": 70,
