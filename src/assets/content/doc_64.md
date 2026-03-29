@@ -18,7 +18,7 @@ In a service company, clients have existing teams and established workflows. The
 
 In client work, the gap between design intent and production reality lives in interpretation. The only way to close it is to give designers access to the real environment, not a simulation of it.
 
-Storybook got tried as a shared environment early on. The idea was right; the structure wasn't. Merge conflicts, blocked PRs, unclear ownership: neither side had a clean working context. This project is the rethink: an isolated environment per client, one command to spin up, connected to the same components and tokens as production but completely independent from the dev repo.
+I tried Storybook as a shared environment early on. The idea was right; the structure wasn't. Merge conflicts, blocked PRs, unclear ownership: neither side had a clean working context. This project is the rethink: an isolated environment per client, one command to spin up, connected to the same components and tokens as production but completely independent from the dev repo.
 
 ## The Constraint
 
@@ -86,6 +86,6 @@ Designers work in real components against real tokens, with no risk of blocking 
 
 ## What I Learned
 
-Building the infrastructure before the team adopts it is a deliberate choice. Someone has to lay the track before anyone can board the train.
+Building the infrastructure before the team adopts it is a deliberate choice. The environment has to exist before anyone can experience it.
 
 The technical side is solved. Getting a team with established delivery habits to change how they work is slower and not something you can engineer around. Adoption follows evidence, not argument. The designers who've worked inside the environment understand it immediately. The challenge is creating enough of those moments that it stops being something one person uses.

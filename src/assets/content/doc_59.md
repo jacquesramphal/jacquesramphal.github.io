@@ -8,7 +8,7 @@ Speculation on what comes next—and why the question matters more than the answ
 
 There’s a question I keep circling back to, and I’m not sure there’s a clean answer: *What is the future of design?*
 
-Not design as a job title. Not design as a deliverable. Design as a practice—as the discipline that occupies the space between what a thing is and what it could be.
+Not design as a job title or a deliverable. Design as a practice: the discipline that occupies the space between what a thing is and what it could be.
 
 
 ## The Convergence Question
@@ -76,8 +76,6 @@ Open-source design tools are improving. Web standards continue to expand into te
 
 Waiting for the ideal environment to arrive is a strategy for standing still. In the meantime:
 
-Support open-source design projects. Advocate for open formats in your organization. Build design systems that live in code, not just in files. Learn enough about implementation to have real conversations with the people building what you design. Engage in discussions on interoperability and open standards—they need voices from design, not just engineering.
+Support open-source design projects. Advocate for open formats in your organization. Build design systems that live in code, not just in files. Learn enough about implementation to have real conversations with the people building what you design. Engage in discussions on interoperability and open standards. They need voices from design, not just engineering.
 
-The tools you use today will be replaced. The thinking you develop now won’t be.
-
-Design has always been the practice of making intention visible. The future belongs to designers who can hold that intention clearly, regardless of which tools they’re holding.
+Design has always been the practice of making intention visible.

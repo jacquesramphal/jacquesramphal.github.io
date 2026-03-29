@@ -22,7 +22,7 @@ When a strong baseline exists, DQA stops being a hunt for problems and becomes a
 
 Many teams skip this and rely on sharp designers or attentive engineers to “catch things” instead.
 
-That doesn’t scale. Heroics are exciting. Baselines are sustainable.
+That doesn’t scale. Heroics are exciting; baselines are sustainable.
 
 ## When Design QA Should Happen
 
