@@ -429,11 +429,11 @@ li {
 #content {
   grid-template-columns: repeat(2, 1fr);
   @media only screen and (min-width: 768px) {
-    padding-inline-end: var(--spacing-lg);
+    // padding-inline-end: var(--spacing-lg);
   }
   @media only screen and (min-width: 1201px) {
     grid-column: span 2;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 .footer-utility {
