@@ -135,7 +135,7 @@ If the evidence is already there, cut the verdict. Readers who just read the evi
 
 **Why it happens:** Em dashes can substitute for commas, colons, or parentheses, so they become a default connector. They are visible and distinctive enough that readers notice the pattern quickly. Frequent use signals the writing wasn't restructured.
 
-**Fix:** Replace almost all of them. Use a colon for elaboration, a comma for continuation, a period for a full stop. Keep an em dash only when the interruption itself is the point and nothing else conveys it.
+**Fix:** Don't overuse them. Each em dash should earn its place — it works when the aside or interruption genuinely needs to stand apart from the surrounding sentence. When there's a more precise alternative, use it: a colon for elaboration, a comma for continuation, a semicolon for two closely related clauses, a period for a full stop.
 
 ```
 ❌ Base styles cover the elements — headings, body, buttons — all through tokens.
@@ -144,11 +144,12 @@ If the evidence is already there, cut the verdict. Readers who just read the evi
 ❌ This started as a reusable foundation — a layer I kept rebuilding.
 ✓  This started as a reusable foundation, a layer I kept rebuilding.
 
-❌ A wrong component choice doesn't trigger a return — it triggers a failed deployment.
-✓  A wrong component choice doesn't trigger a return; it triggers a failed deployment.
+✓  Enterprise design has a lot of invisible contribution — work that gets absorbed,
+   attributed elsewhere, or shipped without fanfare.
+   [earns it — the aside is a clarifying expansion, not a connector]
 ```
 
-**This applies everywhere:** body text, subtitles, captions, h3 labels, Key Learning sections. Captions are especially visible — use a colon instead of an em dash in almost every case.
+Captions are especially visible. Prefer a colon over an em dash in most cases.
 
 ```
 ❌ *The module redesign process — brand guidelines mapped to CMS block types.*

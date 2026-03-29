@@ -9,6 +9,42 @@
   "alt": "Genie - Agentic AI Platform",
   "entries": [
     {
+      "id": 73,
+      "docId": 73,
+      "slug": "ego",
+      "type": "article",
+      "date": "",
+      "title": "Ego",
+      "eyebrow": "Mindset",
+      "description": "On the difference between the discomfort that makes you better and the kind that follows you home — and how to tell which one you're feeding.",
+      "route": "/doc/ego",
+      "contentFile": "doc_73.md",
+      "alt": "Article: Ego",
+      "tags": [
+        "career",
+        "mindset",
+        "growth"
+      ]
+    },
+    {
+      "id": 72,
+      "docId": 72,
+      "slug": "make-it-pop",
+      "type": "article",
+      "date": "",
+      "title": "Make It Pop",
+      "eyebrow": "Enterprise UX",
+      "description": "Finding joy in enterprise design when the craft has moved from pixels to systems, and why the human part of the work matters more as tools get better.",
+      "route": "/doc/make-it-pop",
+      "contentFile": "doc_72.md",
+      "alt": "Article: Make It Pop",
+      "tags": [
+        "career",
+        "enterprise-ux",
+        "design-systems"
+      ]
+    },
+    {
       "id": 71,
       "docId": 71,
       "slug": "imposter-syndrome",
