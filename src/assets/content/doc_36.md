@@ -1,4 +1,4 @@
-# Colophon
+# About This Site
 
 The site has been live since 2013. Most of what's here started as something I needed to think through: a problem, a pattern, a method that kept proving itself. Writing it down was the test. If I couldn't explain it, I didn't understand it yet.
 
