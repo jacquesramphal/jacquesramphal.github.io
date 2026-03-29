@@ -622,56 +622,55 @@ img {
 }
 
 .defaultcard--list {
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  border: none;
-  padding: var(--spacing-md) 0;
-  display: grid !important;
-  min-height: auto;
-
-  &:hover {
-    background: transparent;
-    box-shadow: none;
-  }
-  .image {
-    display: none;
-  }
-  .info {
-    padding: 0 0 0 0 !important;
-
-    &:not(:has(.color-bar)) {
-      padding-block-start: var(--spacing-xs) !important;
-    }
-  }
-  .card-footer {
-    padding-block-start: var(--spacing-xs);
-  }
-  .color-bar {
-    width: 100%;
-    margin-inline-start: 0;
-  }
-  @media only screen and (min-width: 1201px) {
-    border-block-end: var(--border) !important;
-  }
-  // &:last-child {
-  //   border-block-end: none !important;
-  // }
-  @media only screen and (min-width: 1201px) {
-    flex-direction: row-reverse !important;
+  @media only screen and (min-width: 768px) {
+    @include list-row-base;
+    padding-block-start: var(--spacing-sm);
+    display: grid !important;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: var(--spacing-md);
+    grid-gap: var(--spacing-xs);
+
     .image {
-      // aspect-ratio: 16/9 !important;
-      // flex: 3;
-      grid-column: 3 / 4 !important;
-      block-size: 100% !important;
-    }
-    .info {
-      // flex: 6;
-      grid-column: 1 / 3 !important;
+      grid-column: 3 / 4;
       grid-row: 1;
-      padding: 0 !important;
-      border: none !important;
+      margin: 0 !important;
+      aspect-ratio: 1 / 1 !important;
+      inline-size: 100% !important;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        display: none;
+      }
+
+      .placeholder {
+        aspect-ratio: 1 / 1;
+        block-size: 100%;
+        inline-size: 100%;
+      }
+    }
+
+    .info {
+      grid-column: 1 / 4;
+      grid-row: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      &:not(:has(.color-bar)) {
+        padding-block-start: 0 !important;
+      }
+    }
+
+    .card-footer {
+      padding-block-start: var(--spacing-xxs);
+      margin-block-start: auto;
+    }
+
+    .color-bar {
+      width: 100%;
+      margin-inline-start: 0;
     }
   }
 }
@@ -716,6 +715,8 @@ img {
 .defaultcard--mobile-list {
   @media only screen and (max-width: 767px) {
     @include list-row-base;
+    min-height: 0 !important;
+    height: auto !important;
     padding-block-start: var(--spacing-sm);
     display: grid !important;
     grid-template-columns: repeat(3, 1fr);

@@ -1,8 +1,12 @@
 # Make It Pop
 
-The phrase used to be a punchline. A client says "make it pop" in a presentation and designers exchange a look across the table. It meant something vague about excitement, about the thing not feeling like enterprise software. We laughed because we'd heard it a hundred times, and because the fix was always the same: a bolder color, a motion treatment, a hero image nobody would remember two weeks later.
+## The phrase used to be a punchline. 
 
-That version of joy was real. Finding the right typeface for a system that would serve thousands of users every day. Getting a green light on something that actually felt alive. But the scope of the work has widened, and the pops have moved with it.
+A client says "make it pop" in a presentation and designers exchange a look across the table. It meant something vague about excitement, about the thing not feeling like enterprise software. We laughed because we'd heard it a hundred times, and because the fix was always the same: a bolder color, a motion treatment, a hero image nobody would remember two weeks later.
+
+## That version of joy was real. 
+
+Finding the right typeface for a system that would serve thousands of users every day. Getting a green light on something that actually felt alive. But the scope of the work has widened, and the pops have moved with it.
 
 There's something genuinely satisfying about a token update that propagates correctly across twelve products, or documentation that closes a handoff gap that used to eat three days per sprint.
 

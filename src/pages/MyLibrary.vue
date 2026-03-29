@@ -126,13 +126,17 @@
           </div>
         </div>
         <div v-if="filteredArticlesAndTools.length" class="library-section">
-          <GridParent tight class="posts">
+          <GridParent
+            tight
+            :rows="viewMode === 'list'"
+            :class="['posts', { 'posts--list': viewMode === 'list' }]"
+          >
             <ArticleCard
               borderless
               v-for="(entry, index) in filteredArticlesAndTools"
               :key="entry.id"
-              :mobileList="viewMode === 'grid' ? index !== 0 : false"
-              :indexRow="viewMode === 'list'"
+              :mobileList="index !== 0"
+              :featured="viewMode === 'list' && index === 0"
               :alt="entry.alt"
               :description="entry.description"
               :filename="entry.thumbnail"
@@ -140,7 +144,7 @@
               :route="entry.route"
               :btnroute="entry.btnroute"
               :link="entry.link"
-              eyebrow=""
+              :eyebrow="index === 0 ? 'Featured' : ''"
               :title="entry.title"
               :tags="entry.tags"
               :type="entry.type"
@@ -548,10 +552,61 @@ export default {
   grid-column: unset;
 }
 
+@media only screen and (min-width: 768px) {
+  .posts--list :deep(.default-card:not(.defaultcard--featured)) {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-block-start: var(--border) !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding-block: var(--spacing-xs);
+    padding-block-start: var(--spacing-sm);
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xs);
+
+    &:nth-child(2) {
+      border-block-start: none !important;
+    }
+    &:hover {
+      background: transparent;
+      box-shadow: none !important;
+    }
+  }
+
+  .posts--list :deep(.default-card:not(.defaultcard--featured) .image) {
+    display: none !important;
+  }
+
+  .posts--list :deep(.default-card:not(.defaultcard--featured) .info) {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 !important;
+  }
+
+  .posts--list :deep(.default-card:not(.defaultcard--featured) .card-footer) {
+    padding-block-start: var(--spacing-xxs);
+    margin-block-start: auto;
+    //   border-block-end: var(--border) !important;
+  }
+
+  // .posts--list :deep(.default-card:last-child) {
+  //   border-block-end: var(--border) !important;
+  // }
+}
+
 .view-toggle {
-  display: flex;
+  display: none;
   gap: var(--spacing-xxs);
   flex-shrink: 0;
+
+  @media only screen and (min-width: 768px) {
+    display: flex;
+  }
 }
 
 .library-section__header {
