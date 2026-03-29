@@ -51,6 +51,8 @@ Genie moved from a personal experiment to an organizational platform used across
 
 The hours it saves are real, but the more significant shift is what those hours get redirected toward: the judgment calls, the design decisions, the problems that actually require a person in the room.
 
+The implementation is still evolving. The n8n workflows are being rebuilt as a native command interface, closer to where the work actually happens and with less infrastructure between a command and its result. The design problems don't change with the orchestration layer: legibility, trust, keeping judgment with the person.
+
 ## What I Learned
 
 Building for others meant slowing down and accepting that usefulness isn't universal by default. Some days are hard: adoption is slow, nobody seems to get it. Other days a team tells you Genie saved them hours, helped them catch something they would have missed, or gave them space to focus on what they care about. Both kinds of days are the reality of building something real.
