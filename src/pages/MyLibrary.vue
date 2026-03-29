@@ -108,24 +108,31 @@
       <!-- No filters: Show sections with headers -->
       <template v-if="!hasActiveFilters">
         <!-- Writing Section -->
-        <TextBlock
-          style="
-            align-items: center;
-            grid-template-columns: repeat(3, 1fr);
-            padding-block-end: var(--spacing-md);
-          "
-          title="Writing"
-          as="h2"
-          description=""
-          class="section-header"
-        />
+        <div class="section-header-row">
+          <TextBlock title="Writing" as="h2" description="" class="section-header" />
+          <div class="view-toggle">
+            <MyButton
+              size="small"
+              :type="viewMode === 'list' ? 'outline' : 'ghost'"
+              label="List"
+              @click="setViewMode('list')"
+            />
+            <MyButton
+              size="small"
+              :type="viewMode === 'grid' ? 'outline' : 'ghost'"
+              label="Grid"
+              @click="setViewMode('grid')"
+            />
+          </div>
+        </div>
         <div v-if="filteredArticlesAndTools.length" class="library-section">
           <GridParent tight class="posts">
             <ArticleCard
               borderless
               v-for="(entry, index) in filteredArticlesAndTools"
               :key="entry.id"
-              :mobileList="index !== 0"
+              :mobileList="viewMode === 'grid' ? index !== 0 : false"
+              :indexRow="viewMode === 'list'"
               :alt="entry.alt"
               :description="entry.description"
               :filename="entry.thumbnail"
@@ -330,6 +337,7 @@ export default {
   data() {
     return {
       library,
+      viewMode: localStorage.getItem('libraryViewMode') || 'grid',
       query: '',
       selectedTypes: ['article', 'tool', 'case-study', 'design-project'],
       selectedTags: [],
@@ -410,6 +418,10 @@ export default {
     },
   },
   methods: {
+    setViewMode(mode) {
+      this.viewMode = mode;
+      localStorage.setItem('libraryViewMode', mode);
+    },
     clearFilters() {
       this.query = '';
       this.selectedTypes = [...this.allTypeValues];
@@ -520,8 +532,22 @@ export default {
   border-block-start: var(--border);
 }
 
-.section-header {
+.section-header-row {
   grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block-end: var(--spacing-md);
+}
+
+.section-header {
+  grid-column: unset;
+}
+
+.view-toggle {
+  display: flex;
+  gap: var(--spacing-xxs);
+  flex-shrink: 0;
 }
 
 .library-section__header {
