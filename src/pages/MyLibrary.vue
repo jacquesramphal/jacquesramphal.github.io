@@ -113,15 +113,15 @@
           <div class="view-toggle">
             <MyButton
               size="small"
-              :type="viewMode === 'list' ? 'outline' : 'ghost'"
-              label="List"
-              @click="setViewMode('list')"
-            />
-            <MyButton
-              size="small"
               :type="viewMode === 'grid' ? 'outline' : 'ghost'"
               label="Grid"
               @click="setViewMode('grid')"
+            />
+            <MyButton
+              size="small"
+              :type="viewMode === 'list' ? 'outline' : 'ghost'"
+              label="List"
+              @click="setViewMode('list')"
             />
           </div>
         </div>
