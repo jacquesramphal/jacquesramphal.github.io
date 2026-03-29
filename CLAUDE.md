@@ -225,6 +225,39 @@ Not all X/Y pivots are wrong. The test: does the reversal add new information, o
 
 ---
 
+### 12. AI word tells
+
+Four clusters. All signal AI rather than a person writing.
+
+**Filler adverbs** — "moreover," "furthermore," "additionally," "indeed," "certainly," "albeit," "notably."
+These perform logical structure instead of having it. If "moreover" is load-bearing, the paragraph isn't structured well enough. Delete the word and fix the paragraph.
+
+**Adjective tells** — "seamless," "robust," "intuitive," "comprehensive," "holistic," "impactful," "innovative," "cutting-edge," "best-in-class."
+These name the category of a quality rather than the quality itself. "Seamless integration" means nothing. What was the friction, and how was it removed?
+
+```
+❌ A seamless, intuitive experience that empowers users with robust tooling.
+✓  A configuration flow where a wrong hardware choice fails the deployment, not the return.
+```
+
+**Verb tells** — "delve," "underscore," "leverage" (as a verb), "unpack," "explore" (when used instead of "describe" or "discuss").
+AI reaches for a dynamic verb and lands on the same one every time. Use the plain word.
+
+```
+❌ Let's delve into the token architecture and unpack the decisions behind it.
+✓  The token architecture has seven layers. Here's why.
+```
+
+**Stock metaphors** — "north star," "guardrails" (when not literal), "moving the needle," "Swiss Army knife," "at the end of the day."
+The test: has every design article published in the last three years used this phrase? Then cut it. If the metaphor is genuinely clarifying, keep it. If it's decorating a sentence that would be clearer without it, cut it.
+
+```
+❌ Tokens became the north star for the entire design system.
+✓  Tokens were the single source of truth that kept Figma, code, and AI tooling in sync.
+```
+
+---
+
 ## Voice principles
 
 What good writing looks like on this site, stated positively.
