@@ -36,11 +36,11 @@
           </span>
         </div>
 
-        <ul class="links justify-end glow">
+        <!-- <ul class="links justify-end glow">
           <li class="glow animate delay-2">
             <TextLink label="Library" route="/library" />
           </li>
-        </ul>
+        </ul> -->
       </nav>
     </GridContainer>
   </div>
@@ -49,13 +49,13 @@
 <script>
 import GridContainer from '../grid/GridContainer.vue';
 import BreadCrumb from '../BreadCrumb.vue';
-import TextLink from '../text/TextLink.vue';
+// import TextLink from '../text/TextLink.vue';
 // import ThemeButton from "../ThemeButton.vue";
 
 const OFFSET = 60;
 export default {
   name: 'HeaderNav',
-  components: { GridContainer, BreadCrumb, TextLink },
+  components: { GridContainer, BreadCrumb },
   props: {
     breadcrumb: {
       type: Boolean,
