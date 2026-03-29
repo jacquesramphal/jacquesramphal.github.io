@@ -5,7 +5,7 @@ This is the story of building Genie — from personal experiment to organization
 
 ## What is Genie?
 
-For the past year or so, I've been working on [an internal tool at Orium called Genie](https://orium.com/blog/orium-genie-agentic-ai-design) that is redefining how we approach our projects and client work. Genie is an agentic orchestration layer for delivery operations. It connects to live project systems like Jira, Slack, Mavenlink, and internal project databases, continuously synthesizing context, surfacing insights, and automating workflows without manual intervention.
+I've been working on [an internal tool at Orium called Genie](https://orium.com/blog/orium-genie-agentic-ai-design) that is redefining how we approach our projects and client work. Genie is an agentic orchestration layer for delivery operations. It connects to live project systems like Jira, Slack, Mavenlink, and internal project databases, continuously synthesizing context, surfacing insights, and automating workflows without manual intervention.
 
 **Genie is what happens when you give an agent access to your operational data, and the ability to take action.**
 
@@ -75,9 +75,7 @@ When you're deep in the work, unblocking issues and shipping features, those que
 
 The irony isn't lost on me. I might be a strong designer and a capable developer, but I'm a junior product manager. And that's a compliment. It means Genie outgrew me as a personal tool and became something that requires product thinking.
 
-Building something meaningful changes not just your work, but your role, your expectations, and the way others engage with you. That's uncomfortable and humbling, and exactly where growth happens.
-
-Building Genie didn't just change how we work. It changed what I'm capable of building next.
+Building Genie changed what I'm capable of building next.
 
 ---
 
