@@ -1,49 +1,60 @@
 <template>
-  <GridContainer style="background: none" fullvh id="wrapper" align-items="center">
-    <GridParent
-      tight
-      rows
-      style="
-        grid-template-columns: none !important;
-        grid-template-rows: repeat(6, auto);
-        background: none;
-        block-size: 100%;
-        justify-content: space-between;
-      "
+  <GridWrapper>
+    <HeroBanner
+      id="hero"
+      end
+      fullvh
+      isHtml
+      class="display"
+      title="I design systems and write the code that ships them. Browse my <a href='/library'><em>writing</em></a> and <a href='/library'><em>work</em></a>."
+    />
+
+    <GridContainer
+      style="background: var(--color-lightyellow)"
+      fullvh
+      id="wrapper"
+      align-items="center"
     >
-      <div><p>Ramphal—Design</p></div>
+      <GridParent
+        tight
+        rows
+        style="
+          grid-template-columns: none !important;
+          grid-template-rows: repeat(6, auto);
+          background: none;
+          block-size: 100%;
+          justify-content: space-between;
+        "
+      >
+        <div><p>Ramphal—Design</p></div>
 
-      <TextBlock
-        as="h1"
-        title="Jacques Ramphal"
-        description=" I lead design work where systems, code, and AI meet—building the practices and platforms
-            that let cross-functional teams deliver meaningful products efficiently and sustainably."
-      />
+        <TextBlock as="h1" class="" title="Jacques Ramphal. Lead Product Designer" />
 
-      <!-- <div style="background: none"><h1 class="display">Jacques Ramphal</h1></div> -->\
-      <GridParent tight cols="12" class="bottom-grid" style="background: none">
-        <div class="bottom-col" style="grid-column: 1 / 5; text-align: left">
-          <ul>
-            <li v-for="(item, index) in contactLinks" :key="index">
-              <a :href="item.url">{{ item.text }}</a>
-            </li>
-          </ul>
-          <!-- <p>
+        <!-- <div style="background: none"><h1 class="display">Jacques Ramphal</h1></div> -->
+        <GridParent tight cols="12" class="bottom-grid" style="background: none">
+          <div class="bottom-col" style="grid-column: 1 / 5; text-align: left">
+            <p>
+              I lead design work where systems, code, and AI meet—building the practices and
+              platforms that let cross-functional teams deliver meaningful products efficiently and
+              sustainably.
+            </p>
+
+            <!-- <p>
             I lead design work where systems, code, and AI meet—building the practices and platforms
             that let cross-functional teams deliver meaningful products efficiently and sustainably.
           </p> -->
-        </div>
-        <div class="bottom-col" style="grid-column: 6 / 12; text-align: left">
+          </div>
+          <!-- <div class="bottom-col" style="grid-column: 6 / 12; text-align: left">
           <ul>
             <li v-for="(item, index) in contactLinks" :key="index">
               <a :href="item.url">{{ item.text }}</a>
             </li>
           </ul>
-        </div>
+        </div> -->
+        </GridParent>
       </GridParent>
-    </GridParent>
-  </GridContainer>
-  <!-- <MainFooter />
+    </GridContainer>
+    <!-- <MainFooter />
     <GridWrapper id="wrapper">
       <GridContainer fullvh>
         <GridParent
@@ -82,6 +93,7 @@
         </GridParent>
       </GridContainer>
     </GridWrapper> -->
+  </GridWrapper>
 </template>
 
 <script>

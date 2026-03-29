@@ -34,7 +34,7 @@
               />
             </div>
             <GridParent tight id="content">
-              <div id="links1">
+              <div id="links">
                 <p class="subtle">Useful Links</p>
 
                 <ul>
@@ -48,7 +48,7 @@
                 </ul>
               </div>
 
-              <div id="links2">
+              <div id="links">
                 <p class="subtle">Contact</p>
                 <ul>
                   <li v-for="(item, index) in menuItems2" :key="index">
@@ -59,7 +59,7 @@
                   </li>
                 </ul>
               </div>
-              <div id="links4">
+              <div id="links">
                 <p class="subtle">Site</p>
                 <ul>
                   <li v-for="(item, index) in menuItems3" :key="index">
@@ -67,7 +67,7 @@
                   </li>
                 </ul>
               </div>
-              <div id="links3">
+              <div id="links">
                 <p class="subtle">Config</p>
                 <ul>
                   <li>
@@ -429,11 +429,11 @@ li {
 #content {
   grid-template-columns: repeat(2, 1fr);
   @media only screen and (min-width: 768px) {
-    padding-inline-end: var(--spacing-lg);
+    // padding-inline-end: var(--spacing-lg);
   }
   @media only screen and (min-width: 1201px) {
     grid-column: span 2;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 .footer-utility {

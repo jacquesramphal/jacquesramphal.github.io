@@ -64,7 +64,7 @@ transform: rotate(90deg);
       class="avatar-standing"
     />-->
 
-    <CustomChatUI />
+    <CustomChatUI v-if="!$route.meta.hideChat" />
     <!-- Chat with Jacques's agent button and sidebar -->
     <!-- <div class="fixed-chat-entry" @click="toggleChatSidebar">
       <span class="vertical-text">chat with Jacques's agent</span>
@@ -159,15 +159,32 @@ export default {
   mounted() {
     const router = useRouter();
 
-    // Use Vue Router's afterEach hook to close the menu on route change
-    router.afterEach((to) => {
+    router.afterEach((to, from) => {
       this.closeMenu();
       // Clear headings when navigating away from markdown pages
       if (!to.path.startsWith('/doc/')) {
         this.markdownHeadings = [];
         this.markdownActiveHeading = null;
       }
+
+      // Force light theme on routes with forceLight meta; restore user theme on leaving
+      if (to.meta.forceLight) {
+        document.documentElement.classList.remove('dark-theme');
+        document.documentElement.classList.add('light-theme');
+      } else if (from.meta.forceLight) {
+        const savedTheme = localStorage.getItem('user-theme');
+        document.documentElement.classList.remove('light-theme', 'dark-theme');
+        if (savedTheme && savedTheme !== 'system') {
+          document.documentElement.classList.add(savedTheme);
+        }
+      }
     });
+
+    // Apply on initial load if landing directly on a forceLight route
+    if (this.$route.meta.forceLight) {
+      document.documentElement.classList.remove('dark-theme');
+      document.documentElement.classList.add('light-theme');
+    }
   },
 
   // data() {

@@ -195,7 +195,9 @@ const routes = [
     component: BusinessCardPage,
     meta: {
       hideFooter: true,
-      hideNav: true,
+      hideNav: false,
+      forceLight: true,
+      hideChat: true,
     },
   },
 ];
