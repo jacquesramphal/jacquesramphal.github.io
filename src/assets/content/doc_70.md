@@ -18,6 +18,6 @@ I maintain a set of [open-source tools](/library) and write about design, AI, an
 - [Ask me anything](/doc/ask-me-anything)
 - [Journal](/doc/design-learnings)
 - [Library](/library)
-- [Colophon](/doc/colophon)
+- [About This Site](/doc/about-this-site)
 - [GitHub](https://github.com/jacquesramphal)
 - [Email](mailto:jacques@ramphal.design)
