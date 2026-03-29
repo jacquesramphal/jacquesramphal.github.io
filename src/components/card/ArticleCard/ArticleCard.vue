@@ -227,6 +227,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    indexRow: {
+      type: Boolean,
+      default: false,
+    },
     featured: {
       type: Boolean,
       default: false,
@@ -280,6 +284,7 @@ export default {
         'defaultcard--borderless': this.borderless,
         'defaultcard--list': this.list,
         'defaultcard--mobile-list': this.mobileList,
+        'defaultcard--index-row': this.indexRow,
         'defaultcard--featured': this.featured,
         'defaultcard--locked': this.isEffectivelyLocked,
       };
@@ -354,6 +359,28 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@mixin list-row-base {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none;
+  min-height: auto;
+  border-block-start: var(--border) !important;
+  padding-block: var(--spacing-xs);
+
+  &:hover {
+    background: transparent;
+    box-shadow: none !important;
+  }
+
+  .image {
+    display: none !important;
+  }
+
+  .info {
+    padding: 0 !important;
+  }
+}
+
 * {
   border-radius: 0;
 }
@@ -688,20 +715,11 @@ img {
 }
 .defaultcard--mobile-list {
   @media only screen and (max-width: 767px) {
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    border: none;
+    @include list-row-base;
     padding-block-start: var(--spacing-sm);
     display: grid !important;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: var(--spacing-xs);
-    min-height: auto;
-    border-block-start: var(--border) !important;
-
-    &:hover {
-      background: transparent;
-      box-shadow: none;
-    }
 
     .image {
       grid-column: 3 / 4;
@@ -709,7 +727,6 @@ img {
       margin: 0 !important;
       aspect-ratio: 1 / 1 !important;
       inline-size: 100% !important;
-      display: none !important;
 
       img {
         object-fit: cover;
@@ -728,7 +745,6 @@ img {
     .info {
       grid-column: 1 / 4;
       grid-row: 1;
-      padding: 0 !important;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -747,21 +763,57 @@ img {
       width: 100%;
       margin-inline-start: 0;
     }
+  }
+}
 
-    // Hide title and show description (which will contain title content)
-    .textblock--mobile-list :deep(.title) {
-      // display: none !important;
-      // font-size: var(--font-size-sm) !important;
-    }
+.defaultcard--index-row {
+  @include list-row-base;
+  display: flex !important;
+  flex-direction: row;
+  align-items: baseline;
+  grid-column: 1 / -1;
 
-    .textblock--mobile-list :deep(.description) {
-      // margin-block-end: 0;
-      // margin-block-start: 0;
-    }
+  .info {
+    flex: 1;
+  }
 
-    .textblock--mobile-list :deep(.tags) {
-      // margin-block-end: var(--spacing-xxs);
-    }
+  .textblock {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+  }
+
+  .textblock :deep(.description) {
+    display: none !important;
+  }
+
+  .textblock :deep(.title) {
+    font-size: var(--font-400);
+    font-weight: var(--fontWeight-medium);
+    line-height: var(--lineHeight-base);
+  }
+
+  .textblock :deep(.title-link:hover .title) {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 0.15rem;
+  }
+
+  .textblock :deep(.eyebrow) {
+    font-size: var(--font-2xs);
+    color: var(--foreground-muted);
+  }
+
+  .textblock :deep(.tags--content) {
+    margin-block-start: 0;
+    padding-block-start: 0;
+    flex-shrink: 0;
+    align-self: baseline;
+    justify-content: flex-end;
   }
 }
 
