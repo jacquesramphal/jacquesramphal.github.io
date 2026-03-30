@@ -411,6 +411,7 @@
   /* Use the RGB values for #fafafa */
   --background: var(--color-offblack);
   --background-accent: var(--color-purple);
+  --color-highlight: hsla(0, 0%, 100%, 0.08);
   --background-darker: var(--color-highlight);
   --link: var(--foreground);
   --border: 1px solid black;
@@ -480,6 +481,7 @@
     /* Use the RGB values for #fafafa */
     --background: var(--color-offblack);
     --background-accent: var(--color-lightyellow);
+    --color-highlight: hsla(0, 0%, 100%, 0.08);
     --background-darker: var(--color-highlight);
     --link: var(--foreground);
     --border: 1px solid black;
