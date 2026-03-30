@@ -1,18 +1,6 @@
 <template>
   <PageWrapper>
-    <HeroBanner
-      class=""
-      id="hero"
-      title="Library"
-      subtitle="Writing, work, and tools — an index of what I've made and what I think."
-      :showSearch="false"
-      :searchValue="query"
-      @update:searchValue="query = $event"
-      @clear-search="clearFilters"
-      searchPlaceholder="Search title, description, tags…"
-    />
-
-    <GridContainer style="padding-block-start: 0 !important">
+    <GridContainer style="padding-block-start: var(--spacing-xl) !important">
       <!-- HEADER COMPONENT START -->
       <!-- <div
         class="grid-parent"
@@ -136,7 +124,7 @@
               v-for="(entry, index) in filteredArticlesAndTools"
               :key="entry.id"
               :mobileList="index !== 0"
-              :featured="viewMode === 'list' && index === 0"
+              :featured="viewMode !== 'list' && index === 0"
               :alt="entry.alt"
               :description="entry.description"
               :filename="entry.thumbnail"
@@ -238,7 +226,7 @@
 
       <!-- Filters active: Show all in one list -->
       <template v-else>
-        <GridParent tight class="posts" v-if="filteredEntries.length">
+        <GridParent tight :rows="viewMode === 'list'" :class="['posts', { 'posts--list': viewMode === 'list' }]" v-if="filteredEntries.length">
           <!-- Articles and Tools use ArticleCard -->
           <ArticleCard
             borderless
@@ -566,7 +554,7 @@ export default {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-xs);
 
-    &:nth-child(2) {
+    &:first-child {
       border-block-start: none !important;
     }
     &:hover {

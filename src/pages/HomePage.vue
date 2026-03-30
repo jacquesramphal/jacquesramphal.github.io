@@ -9,10 +9,8 @@
     /> -->
     <HeroBanner
       id="hero"
-      end
-      fullvh
       isHtml
-      class="display"
+      class=""
       title="I design systems and write the code that ships them. Browse my <a href='/library'><em>writing</em></a> and <a href='/library'><em>work</em></a>."
     />
 
