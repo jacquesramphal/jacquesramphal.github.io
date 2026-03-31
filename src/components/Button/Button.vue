@@ -312,9 +312,9 @@ export default {
   font-weight: var(--fontWeight-bold);
   background-color: transparent;
   border: none;
-  text-decoration: underline var(--color-yellow);
-  text-underline-offset: 0.625rem;
-  text-decoration-thickness: 0.2rem !important;
+  text-decoration: underline var(--foreground);
+  text-underline-offset: var(--link-underline-offset);
+  text-decoration-thickness: var(--link-underline-thickness) !important;
   &:before,
   &:after {
     color: inherit !important;
