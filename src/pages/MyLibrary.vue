@@ -23,6 +23,7 @@
           <router-link v-if="viewAllTo" :to="viewAllTo">View All</router-link>
         </p>
       </div> -->
+      <!-- <TextBlock title="Writing" as="h2" description="" class="section-header" /> -->
 
       <!-- HEADER COMPONENT END -->
       <div class="library-filterbar">
@@ -81,21 +82,8 @@
         </div>
       </div>
 
-      <div v-if="hasActiveFilters" class="library-section__header">
-        <div class="library-section__info">
-          <p class="subtle results-label">Showing results for:</p>
-          <div class="active-filters">
-            <p v-for="tag in selectedTags" :key="tag" class="filter-tag">
-              {{ tag }}
-            </p>
-          </div>
-          <MyButton size="small" type="textlink" label="Clear filters" @click="clearFilters" />
-        </div>
-      </div>
-
-      <!-- No filters: Show sections with headers -->
+      <!-- No filters: sectioned view -->
       <template v-if="!hasActiveFilters">
-        <!-- Writing Section -->
         <div class="section-header-row">
           <TextBlock title="Writing" as="h2" description="" class="section-header" />
           <div class="view-toggle">
@@ -143,25 +131,24 @@
             />
           </GridParent>
         </div>
-        <!-- Case Studies Section -->
         <div v-if="filteredCaseStudiesAndProjects.length" class="library-section">
           <TextBlock
-            style="
-              align-items: center;
-              grid-template-columns: repeat(3, 1fr);
-              padding-block-end: var(--spacing-md);
-            "
             title="Select Work"
             as="h2"
             description=""
-            class="section-header"
+            class="section-header-row"
+            style="padding-block-end: var(--spacing-md)"
           />
-          <GridParent tight class="posts">
+          <GridParent
+            tight
+            :rows="viewMode === 'list'"
+            :class="['posts', { 'posts--list': viewMode === 'list' }]"
+          >
             <ArticleCard
               borderless
               v-for="(entry, index) in filteredCaseStudiesAndProjects"
               :key="entry.id"
-              :featured="index === 0"
+              :featured="viewMode !== 'list' && index === 0"
               :mobileList="index !== 0"
               :alt="entry.alt"
               :description="entry.description"
@@ -185,20 +172,19 @@
             />
           </GridParent>
         </div>
-        <!-- Tools Section -->
         <div v-if="filteredTools.length" class="library-section">
           <TextBlock
-            style="
-              align-items: center;
-              grid-template-columns: repeat(3, 1fr);
-              padding-block-end: var(--spacing-md);
-            "
             title="Tools & Open Source"
             as="h2"
             description=""
-            class="section-header"
+            class="section-header-row"
+            style="padding-block-end: var(--spacing-md)"
           />
-          <GridParent tight class="posts">
+          <GridParent
+            tight
+            :rows="viewMode === 'list'"
+            :class="['posts', { 'posts--list': viewMode === 'list' }]"
+          >
             <ArticleCard
               borderless
               v-for="(entry, index) in filteredTools"
@@ -224,35 +210,45 @@
         </div>
       </template>
 
-      <!-- Filters active: Show all in one list -->
+      <!-- Filters active: single unified list -->
       <template v-else>
-        <GridParent tight :rows="viewMode === 'list'" :class="['posts', { 'posts--list': viewMode === 'list' }]" v-if="filteredEntries.length">
-          <!-- Articles and Tools use ArticleCard -->
+        <div class="section-header-row">
+          <div class="library-section__header">
+            <div class="library-section__info">
+              <p class="subtle results-label">Showing results for:</p>
+              <div class="active-filters">
+                <p v-for="label in activeFilterLabels" :key="label" class="filter-tag">
+                  {{ label }}
+                </p>
+              </div>
+              <MyButton size="small" type="textlink" label="Clear" @click="clearFilters" />
+            </div>
+          </div>
+          <div class="view-toggle">
+            <MyButton
+              size="small"
+              :type="viewMode === 'grid' ? 'outline' : 'ghost'"
+              label="Grid"
+              @click="setViewMode('grid')"
+            />
+            <MyButton
+              size="small"
+              :type="viewMode === 'list' ? 'outline' : 'ghost'"
+              label="List"
+              @click="setViewMode('list')"
+            />
+          </div>
+        </div>
+        <GridParent
+          v-if="filteredEntries.length"
+          tight
+          :rows="viewMode === 'list'"
+          :class="['posts', { 'posts--list': viewMode === 'list' }]"
+        >
           <ArticleCard
             borderless
             mobileList
-            v-for="(entry, index) in filteredArticlesAndTools"
-            :key="entry.id"
-            :alt="entry.alt"
-            :description="entry.description"
-            :filename="entry.thumbnail"
-            :label="entry.label"
-            :route="entry.route"
-            :btnroute="entry.btnroute"
-            :link="entry.link"
-            eyebrow=""
-            :title="entry.title"
-            :tags="entry.tags"
-            :type="entry.type"
-            :contentFile="entry.contentFile"
-            :index="index"
-            @tag-click="handleTagClick"
-          />
-
-          <ArticleCard
-            borderless
-            mobileList
-            v-for="(entry, index) in filteredCaseStudiesAndProjects"
+            v-for="(entry, index) in filteredEntries"
             :key="entry.id"
             :alt="entry.alt"
             :description="entry.description"
@@ -268,34 +264,13 @@
             :tags="entry.tags"
             :type="entry.type"
             :contentFile="entry.contentFile"
+            :date="entry.date"
             :index="index"
             :locked="!!entry.locked"
             @tag-click="handleTagClick"
             @request-access="handleRequestAccess"
           />
-
-          <ArticleCard
-            borderless
-            mobileList
-            v-for="(entry, index) in filteredTools"
-            :key="entry.id"
-            :alt="entry.alt"
-            :description="entry.description"
-            :filename="entry.thumbnail"
-            :label="entry.label"
-            :route="entry.route"
-            :btnroute="entry.btnroute"
-            :link="entry.link"
-            eyebrow=""
-            :title="entry.title"
-            :tags="entry.tags"
-            :type="entry.type"
-            :contentFile="entry.contentFile"
-            :index="index"
-            @tag-click="handleTagClick"
-          />
         </GridParent>
-
         <p v-else class="subtle library-empty">No matches.</p>
       </template>
     </GridContainer>
@@ -411,6 +386,21 @@ export default {
         this.selectedTypes.length < this.allTypeValues.length ||
         this.query.trim() !== ''
       );
+    },
+    activeFilterLabels() {
+      const labels = [];
+      const typeMap = {
+        article: 'Articles',
+        tool: 'Tools',
+        'case-study': 'Case Studies',
+        'design-project': 'Design Projects',
+      };
+      if (this.query.trim()) labels.push(`"${this.query.trim()}"`);
+      if (this.selectedTypes.length < this.allTypeValues.length) {
+        this.selectedTypes.forEach((t) => labels.push(typeMap[t] || t));
+      }
+      this.selectedTags.forEach((t) => labels.push(t));
+      return labels;
     },
   },
   methods: {
@@ -534,6 +524,11 @@ export default {
   align-items: center;
   justify-content: space-between;
   padding-block-end: var(--spacing-md);
+  min-height: var(--spacing-md);
+
+  @media only screen and (min-width: 768px) {
+    min-height: var(--spacing-lg);
+  }
 }
 
 .section-header {
@@ -601,7 +596,7 @@ export default {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  margin-block-end: var(--spacing-md);
+  margin-block-end: 0;
 }
 
 .library-section__info {
