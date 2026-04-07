@@ -5,7 +5,7 @@ This is the story of building Genie — from personal experiment to organization
 
 ## What is Genie?
 
-I've been working on [an internal tool at Orium called Genie](https://orium.com/blog/orium-genie-agentic-ai-design) that is redefining how we approach our projects and client work. Genie is an agentic orchestration layer for delivery operations. It connects to live project systems like Jira, Slack, Mavenlink, and internal project databases, continuously synthesizing context, surfacing insights, and automating workflows without manual intervention.
+I built [Genie](https://orium.com/blog/orium-genie-agentic-ai-design), an agentic orchestration layer for delivery operations that redefined how we approach projects and client work. It connects to live project systems like Jira, Slack, Mavenlink, and internal project databases, continuously synthesizing context, surfacing insights, and automating workflows without manual intervention.
 
 **Genie is what happens when you give an agent access to your operational data, and the ability to take action.**
 
@@ -63,17 +63,17 @@ Teams are already stretched, and when we ask them to learn new tools, change wor
 
 When I built Genie for myself, I could move fast. Building for others meant listening, slowing down, and accepting that usefulness isn't universal by default. It has to be earned.
 
-Some days are hard — adoption is slow, it feels like nobody gets it. Other days a team tells me Genie saved them hours, helped them catch something they would have missed, or gave them space to focus on what they care about. Both kinds of days, and all the ones in between, are the reality of building something real.
+Some days are hard: adoption is slow, it feels like nobody gets it. Other days a team tells me Genie saved them hours, helped them catch something they would have missed, or gave them space to focus on what they care about. Both kinds of days, and all the ones in between, are the reality of building something real.
 
-Real impact isn't about being right. It's about understanding why people resist, what they're afraid of, and creating something that actually addresses those fears.
+Building for others meant understanding why people resist, what they're afraid of, and creating something that actually addresses those fears.
 
-## When Serious Questions Are a Privilege
+## Becoming a Junior Product Manager
 
 I get a lot of feedback now about product management. Do you have a vision document? A roadmap? Success metrics?
 
-When you're deep in the work, unblocking issues and shipping features, those questions can feel jarring. The perspective shift that helped: you don't get asked those questions unless what you've built matters. They're not criticism — they mean what you built matters enough to think about strategically.
+When you're deep in the work, unblocking issues and shipping features, those questions can feel jarring. But they're not criticism — they're what happens when something outgrows its original scope.
 
-The irony isn't lost on me. I might be a strong designer and a capable developer, but I'm a junior product manager. And that's a compliment. It means Genie outgrew me as a personal tool and became something that requires product thinking.
+The irony isn't lost on me. I might be a strong designer and a capable developer, but I'm a junior product manager. It means Genie outgrew me as a personal tool and became something that requires product thinking.
 
 Building Genie changed what I'm capable of building next.
 

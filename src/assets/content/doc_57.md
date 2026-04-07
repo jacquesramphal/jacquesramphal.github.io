@@ -44,7 +44,7 @@ Key realizations:
 - **Dependent on other people getting their checkmarks**: You’re no longer in full control of execution—your success depends on enabling others
 - **You control “did I do the thing,” but not if what you wanted to happen actually HAPPENED**: There’s a gap between completing tasks and achieving outcomes
 
-The critical question: Do the tasks my team is working on help them see the bigger picture? Do they understand the right goal to move the needle on the outcome I need?
+The critical question: Do the tasks my team is working on help them see the bigger picture? Do they understand the outcome I actually need, not just the task in front of them?
 
 ---
 

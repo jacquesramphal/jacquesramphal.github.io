@@ -6,7 +6,7 @@ talk about what happens when you ont consider design QA and baselines, hinders t
 ![Image](../images/article/cover1.png)
 
 ### A Strategic Shift in Quality Assurance
-In 2023 I began a crusade to evanglize Design QA at Orium. This isn’t just a change in terminology—it’s a fundamental shift in how we approach the bridge between design and development. So, why the new focus? DQA is about more than catching bugs; it’s about ensuring our designs not only look good but function beautifully right from the start.
+Design QA emerged from a gap in how design work was reviewed before it reached production. DQA addresses visual and usability concerns before they become expensive, time-consuming issues—catching problems at the point where they’re cheapest to fix.
 
 ### The Genesis of DQA
 Traditionally, the journey from concept to product involves several stops—Code Review (CR) and Quality Assurance (QA) being notable ones. However, something was missing: a dedicated focus on design. DQA fills this gap. It’s our proactive measure to address visual and usability concerns before they become expensive, time-consuming issues. By integrating a specific DQA phase in tools like Jira, we’ve made design a central pillar of our project checkpoints.
@@ -46,4 +46,4 @@ Ultimately, DQA ensures that the final product isn’t just functional but also 
 The inclusion of “QA” in DQA reminds us of its integral role in the broader Quality Assurance process. It emphasizes that DQA is not a separate endeavor but a partner in the overall quality strategy. Previously, not referring to it as part of QA might have inadvertently isolated it from other quality control activities, but by naming it Design Quality Assurance, we reinforce its importance and interconnectedness with all QA dimensions.
 
 ### Conclusion: Why DQA Matters
-Adopting Design Quality Assurance isn’t just about adhering to standards—it’s about setting new ones. As we refine our approach, the benefits are clear: fewer backtracks, a smoother workflow, and a product that not only meets but exceeds user expectations. DQA isn’t just a process; it’s a commitment to excellence and an essential step toward creating products that are not only effective but also exceptional.
+DQA reduces the number of design issues that reach development. Fewer revisions, less back-and-forth between designers and developers, and a final product that matches the original design intent.

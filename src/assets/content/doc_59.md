@@ -23,42 +23,25 @@ Whether these two worlds fully converge or remain productively separate is an op
 
 ## The Spectrum
 
-The future of design isn’t defined by a single breakthrough. It’s a set of tensions being resolved in different ways by different practitioners and platforms. Each of these pairs represents a direction of travel—not a destination, but a vector:
+The future of design isn’t defined by a single breakthrough. It’s a set of tensions being resolved in different ways by different practitioners and platforms. Each one represents a direction of travel, not a destination.
 
-#### Siloed → Integrated
-Design used to happen in isolation and then get handed off. The future is design embedded throughout the development process—not as a gate, but as a continuous presence. Integration isn’t the loss of the discipline; it’s the maturation of it.
+Design used to happen in isolation and then get handed off. What’s replacing that model is design embedded throughout the development process — not as a gate, but as a continuous presence. Integration isn’t the loss of the discipline; it’s the maturation of it.
 
-#### Static → Dynamic
+Deliverables used to be images. Increasingly, they’re prototypes, tokens, components, and living documentation. Static outputs describe a moment. Systems persist and evolve.
 
-Deliverables used to be images. Increasingly, they’re prototypes, tokens, components, and living documentation. Static outputs describe a moment. Dynamic systems persist and evolve.
+The tools that shaped the last decade are largely proprietary. The next decade may belong to open formats and community-maintained standards — design systems built on code that anyone can read and extend. What you can’t own, you can’t hold hostage.
 
-#### Proprietary → Open-source
+Repetitive design work is being automated: pixel comparison, accessibility checks, regression detection, documentation generation. Machines handle detection while humans provide judgment. The distinction that matters is not manual versus automated, but mechanical versus meaningful.
 
-The tools that shaped the last decade are largely proprietary. The next decade may belong to open formats and community-maintained standards—design systems built on code that anyone can read and anyone can extend. What you can’t own, you can’t hold hostage.
+Fixed layouts and static grids are giving way to systems that adapt to content, to context, to user need. Design that works everywhere rather than looking perfect somewhere is harder and more valuable.
 
-#### Manual → Automated
-
-Repetitive design work is being automated. Pixel comparison, accessibility checks, regression detection, documentation generation—machines handle detection while humans provide judgment. The distinction that matters is not manual versus automated, but mechanical versus meaningful.
-
-#### Rigid → Adaptive
-
-Fixed layouts and static grids are giving way to systems that adapt—to content, to context, to user need. Design that works everywhere rather than looking perfect somewhere is harder and more valuable.
-
-#### Developer-dependent → Code-savvy
-
-The designer who can read and write code has more leverage. Not because design requires code, but because the fluency removes friction—fewer handoffs, more direct conversations, better outcomes. Fluency isn’t the same as mastery.
-
-#### Monolithic → Collaborative
+The designer who can read and write code has more leverage. Not because design requires code, but because the fluency removes friction — fewer handoffs, more direct conversations, better outcomes. Fluency isn’t the same as mastery.
 
 The lone genius designer is a myth that’s finally being retired. The practice that works is distributed, multi-disciplinary, and openly iterative. Authorship matters less than outcome.
 
-#### Narrow → User-focused
-
 Design that primarily serves the aesthetic preferences of the designer is design that doesn’t work. The direction of travel has always been toward the actual user, but the tools and methods are finally catching up to that intention.
 
-#### Resource-intensive → Sustainable
-
-The environmental cost of digital products is real. Performance, efficiency, and responsible design aren’t nice-to-haves—they’re part of what it means to do the work well.
+The environmental cost of digital products is real. Performance, efficiency, and responsible design aren’t nice-to-haves — they’re part of what it means to do the work well.
 
 
 
@@ -74,8 +57,6 @@ Open-source design tools are improving. Web standards continue to expand into te
 
 ## What Designers Can Do Now
 
-Waiting for the ideal environment to arrive is a strategy for standing still. In the meantime:
-
-Support open-source design projects. Advocate for open formats in your organization. Build design systems that live in code, not just in files. Learn enough about implementation to have real conversations with the people building what you design. Engage in discussions on interoperability and open standards. They need voices from design, not just engineering.
+Waiting for the ideal environment to arrive is a strategy for standing still. I've found it useful to support open-source design projects where I can, push for open formats in the organizations I work with, and build design systems that live in code rather than only in files. Learning enough about implementation to have real conversations with the people building what I design has consistently improved outcomes. Discussions on interoperability and open standards tend to be dominated by engineering voices — design perspectives are underrepresented and worth contributing.
 
 Design has always been the practice of making intention visible.

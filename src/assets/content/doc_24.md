@@ -19,12 +19,12 @@ Founded in 1959, Kum & Go has been redefining convenience retail for over 60 yea
 
 Kum & Go wanted to upgrade their digital experience to better serve their customers, but they faced several constraints:
 
-- **Legacy Platform Limitations** — The existing system was costly to maintain and difficult to extend
-- **Fragmented Customer Experience** — Search, merchandising, promotions, and loyalty were disconnected
-- **Limited Engagement** — The current loyalty program wasn’t engaging a large enough segment of customers
-- **Omnichannel Gap** — Digital and in-store experiences felt separate, not integrated
+- **Legacy Platform Limitations:** The existing system was costly to maintain and difficult to extend
+- **Fragmented Customer Experience:** Search, merchandising, promotions, and loyalty were disconnected
+- **Limited Engagement:** The current loyalty program wasn’t engaging a large enough segment of customers
+- **Omnichannel Gap:** Digital and in-store experiences felt separate, not integrated
 
-Most importantly, they needed a platform that could adapt and evolve without service disruptions. This wasn’t just a redesign—it was a complete platform transformation.
+Most importantly, they needed a platform that could adapt and evolve without service disruptions.
 
 ## The Solution: A Composable, Scalable Architecture
 
@@ -44,7 +44,7 @@ The digital experience shouldn’t compete with in-store—it should enhance it.
 
 ### 4. Extensible and Maintainable Platform
 
-Moving off the legacy platform required building something that was both modern and sustainable. The new platform needed to be efficient, innovative, and adaptable for future needs.
+Moving off the legacy platform required building something that was both modern and sustainable. The new platform needed to run without service disruptions, give marketing teams control over content without development cycles, and be extensible enough to add features as customer expectations changed.
 
 ![React Native Framework](../images/casestudy/kg/kg-3.jpg)
 
@@ -96,11 +96,11 @@ The new platform wasn’t just a one-time launch—it was built to evolve. Kum &
 
 ## What This Project Taught Me
 
-This project reinforced a fundamental truth about digital transformation: **the best digital experiences don’t replace physical ones—they enhance them.**
+**The best digital experiences don’t replace physical ones—they enhance them.**
 
-Building a loyalty platform isn’t just about points and rewards. It’s about creating a relationship between brand and customer that spans digital and physical touchpoints. The Mobile Fuel Pay integration was a perfect example—it took a digital action (prepaying for gas) and made it meaningful in the physical world (at the pump).
+The Mobile Fuel Pay integration was the clearest example: a digital action (prepaying for gas) with a direct physical outcome (at the pump). The loyalty program only worked because customers could see the value in their actual behavior, not just in a points balance.
 
-**The technical lesson:** Composable architecture isn’t just a buzzword. When you build with composable principles—separating content, commerce, search, and loyalty into independent systems—you create flexibility that pays dividends. Kum & Go can now evolve each part of their platform independently, without breaking the whole system.
+**The technical lesson:** Separating content, commerce, search, and loyalty into independent systems meant Kum & Go could evolve each part of their platform without breaking the whole. That independence was the actual value—not the architecture label.
 
 **The design lesson:** Omnichannel experiences require thinking beyond screens. The most impactful features were the ones that connected digital actions to physical outcomes—prepaying for gas, earning points at the pump, using the app to enhance the in-store experience.
 
