@@ -451,7 +451,7 @@ figcaption {
   }
 }
 
-h1~p {
+h1 + p {
   font-size: var(--font-p-lead);
 }
 
