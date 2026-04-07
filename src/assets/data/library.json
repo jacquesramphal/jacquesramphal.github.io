@@ -245,6 +245,24 @@
       ]
     },
     {
+      "id": 74,
+      "docId": 74,
+      "slug": "the-guardrail-problem",
+      "type": "article",
+      "date": "2026-04-06",
+      "title": "The Guardrail Problem",
+      "eyebrow": "Design Process",
+      "description": "AI makes design fast. Dangerously fast. On why code friction is the discipline the process needs, and how to build constraints that let you run.",
+      "route": "/doc/the-guardrail-problem",
+      "contentFile": "doc_74.md",
+      "alt": "Article: The Guardrail Problem",
+      "tags": [
+        "design-process",
+        "ai-tools",
+        "design-systems"
+      ]
+    },
+    {
       "id": 73,
       "docId": 73,
       "slug": "ego",
