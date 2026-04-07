@@ -36,7 +36,7 @@ My work lives in three overlapping areas:
 I write about the edges where design gets complicated:
 
 * How AI changes the role of designers — *When UX Becomes AX*
-* Why design tokens are an underrated organizational strategy — *Design Tokens: The Unseen Hero*
+* Why design tokens are an underrated organizational strategy — *Design Tokens: A Shared Language That Outlasts the Tools*
 * What it looks like to find your niche without a map — *Finding My Lane in a Year of Uncertainty*
 * The future of design as a set of tensions, not destinations — *The Future of Design*
 * How strong quality baselines make QA less necessary — *The Best QA Is the One That Doesn’t Have to Happen*
