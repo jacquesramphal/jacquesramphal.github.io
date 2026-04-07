@@ -194,7 +194,7 @@ export default {
   inline-size: fit-content;
   max-inline-size: 100%;
   overflow: visible;
-  padding: 0;
+  padding: 0 var(--spacing-md) 0 0;
   position: relative;
   margin-block-start: 0;
 }
