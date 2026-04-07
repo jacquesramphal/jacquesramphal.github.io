@@ -3,24 +3,8 @@ Shifting from inspectors to system stewards
 
 ![The Designer in the Age of AI](../images/placeholders/placeholder-12.svg)
 
-AI can review.
-AI can compare.
-AI can suggest.
+AI can review, compare, and suggest. What it can't do is care about the outcome.
 
-But AI cannot care.
+As tools automate comparison and regression, designers shift from inspectors to orchestrators: defining the baseline, setting the standards, interpreting nuance, balancing trade-offs, and protecting coherence across systems.
 
-The role of the designer isn’t shrinking. It’s sharpening.
-
-As tools automate comparison and regression, designers shift from inspectors to orchestrators:
-
-* Defining the baseline.
-* Setting the standards.
-* Interpreting nuance.
-* Balancing trade-offs.
-* Protecting coherence across systems.
-
-In a world where machines can generate interfaces, the differentiator is not output; it’s intention.
-
-Designers are not becoming obsolete.
-
-We are becoming system stewards.
+In a world where machines can generate interfaces, intention is what designers bring that the tools don't.

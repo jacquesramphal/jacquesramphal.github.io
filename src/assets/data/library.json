@@ -143,12 +143,12 @@
       "id": 11,
       "type": "article",
       "date": "",
-      "title": "Design Tokens: The Unseen Hero",
+      "title": "Design Tokens: A Shared Language That Outlasts the Tools",
       "eyebrow": "Design Systems",
       "description": "Why a shared design language is the most resilient investment teams can make as tools, roles, and workflows keep evolving. In a time when everything else in tech feels like shifting sand, design tokens are the bedrock—tiny pieces of your design's DNA that become a shared language everyone can speak, ensuring consistency and adaptability even as the design tools around them evolve.",
       "link": "https://composable.com/insights/design-tokens-shared-language-design-systems",
       "thumbnail": "article/token-article.jpg",
-      "alt": "Article: Design Tokens - The Unseen Hero in a Changing Design Landscape",
+      "alt": "Article: Design Tokens - A Shared Language That Outlasts the Tools",
       "label": "Read on Composable.com",
       "tags": [
         "design-systems",
@@ -242,6 +242,24 @@
       "tags": [
         "velocity",
         "strategy"
+      ]
+    },
+    {
+      "id": 74,
+      "docId": 74,
+      "slug": "the-guardrail-problem",
+      "type": "article",
+      "date": "2026-04-06",
+      "title": "The Guardrail Problem",
+      "eyebrow": "Design Process",
+      "description": "AI makes design fast. Dangerously fast. On why code friction is the discipline the process needs, and how to build constraints that let you run.",
+      "route": "/doc/the-guardrail-problem",
+      "contentFile": "doc_74.md",
+      "alt": "Article: The Guardrail Problem",
+      "tags": [
+        "design-process",
+        "ai-tools",
+        "design-systems"
       ]
     },
     {

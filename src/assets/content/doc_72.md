@@ -12,4 +12,4 @@ There's something genuinely satisfying about a token update that propagates corr
 
 What I've noticed is that the human part of the work matters more in proportion to how much of it tools can replicate. AI can generate layout options, copy variations, and component states faster than any designer could. What it doesn't do is sit with a stakeholder who's convinced they already have the answer and ask the question that slows them down long enough to reconsider.
 
-So: make it pop, make it sparkle — whatever the phrase means now to whoever's asking, just make sure someone on the team is still asking it.
+What I've noticed is that the phrase keeps mutating, but the underlying ask stays the same: someone on the team is still trying to make the thing feel alive. That part hasn't changed.

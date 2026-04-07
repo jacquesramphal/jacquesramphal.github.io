@@ -1,8 +1,6 @@
 # When UX Becomes AX: How Designers Adapt in the Age of Agentic Systems
 
-If you think AI makes design less relevant, I get it, but you're probably looking at the wrong layer.
-
-I keep hearing this from people I interact with: "Now it's about agents, orchestration, automation — this isn't really design anymore. What's the point?" When systems can decide and act on their own, it feels like design moves out of the picture. That's where design becomes more critical, not less.
+I keep hearing this from people I interact with: "Now it's about agents, orchestration, automation — this isn't really design anymore. What's the point?" When systems can decide and act on their own, it feels like design moves out of the picture.
 
 ## From Screens to Systems
 
@@ -10,7 +8,7 @@ In a recent Agentic Experience Studio, we designed what an agent is allowed to d
 
 UX has always been about systems; we just focused mostly on the visible layer. Now the invisible layer matters just as much: how work flows across tools, where decisions bottleneck, where coordination breaks down, and where trust erodes. Designing agents means designing behavior inside those systems.
 
-When systems can act autonomously, the cost of bad decision design is higher than the cost of bad visual design. Guardrails, oversight, and clarity of ownership aren't secondary considerations — they're core design concerns.
+When systems can act autonomously, the cost of bad decision design is higher than the cost of bad visual design. Guardrails, oversight, and clarity of ownership are core design concerns.
 
 ## The Skills Already Transfer
 

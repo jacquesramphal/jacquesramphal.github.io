@@ -32,6 +32,12 @@ If the evidence is already there, cut the verdict. Readers who just read the evi
 ✓  [cut — the three consequences in the paragraph before it already make the point]
 ```
 
+```
+❌ The answer isn't to slow down everywhere. It's to build the constraints that let you run.
+✓  Build the constraints that let you run.
+   [cut the first sentence — it restates what the paragraph already showed]
+```
+
 ---
 
 ### 2. The double mirror
@@ -80,6 +86,11 @@ If the evidence is already there, cut the verdict. Readers who just read the evi
 ```
 ❌ That's not just a tooling challenge. It's a design problem.
 ✓  [cut — the sentence before lists the actual challenges]
+```
+
+```
+❌ Speed is fine. Speed inside a system is design.
+✓  [cut — the paragraph before it already made the point]
 ```
 
 ---
@@ -135,7 +146,7 @@ If the evidence is already there, cut the verdict. Readers who just read the evi
 
 **Why it happens:** Em dashes can substitute for commas, colons, or parentheses, so they become a default connector. They are visible and distinctive enough that readers notice the pattern quickly. Frequent use signals the writing wasn't restructured.
 
-**Fix:** Don't overuse them. Each em dash should earn its place — it works when the aside or interruption genuinely needs to stand apart from the surrounding sentence. When there's a more precise alternative, use it: a colon for elaboration, a comma for continuation, a semicolon for two closely related clauses, a period for a full stop.
+**Fix:** Don't overuse them. Each em dash should earn its place — it works when the aside or interruption genuinely needs to stand apart from the surrounding sentence. When it doesn't earn it, prefer a comma for continuation or rewrite as a longer sentence or two shorter ones. Don't swap an em dash directly for a colon — colons read more abrupt and clinical than the prose usually wants.
 
 ```
 ❌ Base styles cover the elements — headings, body, buttons — all through tokens.
@@ -143,6 +154,14 @@ If the evidence is already there, cut the verdict. Readers who just read the evi
 
 ❌ This started as a reusable foundation — a layer I kept rebuilding.
 ✓  This started as a reusable foundation, a layer I kept rebuilding.
+
+❌ Nothing is wrong, exactly — but nothing is quite yours, either.
+✓  Nothing is wrong, exactly, but nothing is quite yours, either.
+
+❌ That friction isn't a bug — it's the discipline the design process needs.
+✓  That friction forces you to be precise. You can't accidentally leave twelve versions
+   of a button in a stylesheet.
+   [rewrite as two sentences rather than patching with a colon]
 
 ✓  Enterprise design has a lot of invisible contribution — work that gets absorbed,
    attributed elsewhere, or shipped without fanfare.
@@ -268,6 +287,13 @@ What good writing looks like on this site, stated positively.
 **Specificity is the argument.** "A wrong component choice triggers a failed deployment" is more persuasive than "high-stakes decisions require precision." The concrete detail does the work the abstract claim only promises.
 
 **Trust the arc.** If the story is well-told, the reader draws the conclusion. You don't need to name it.
+
+**Share, don't declare.** Articles and journal entries should read like someone thinking through something they've experienced, not issuing a manifesto. Avoid imperative commands directed at the reader. Use first person. Lead with what happened to you before drawing any conclusion.
+
+```
+❌ Build the constraints that let you run. Design tokens as law.
+✓  What helped was having constraints in place before I picked up speed.
+```
 
 **First person, active, past tense for completed work.** "I built" not "was responsible for building." "I cut" not "decisions were made to reduce." "I led" not "I was leading."
 

@@ -9,13 +9,9 @@ AI conversations are happening everywhere — in product, in operations, in boar
 
 And suddenly, it can feel like the work is less about “design.”
 
-Less about screens.
-Less about flows.
-Less about pixels.
+The work feels less tethered to screens, flows, and pixels.
 
-But here’s what I’ve learned: this moment doesn’t reduce the relevance of design. It expands it.
-
-## UX Doesn’t Disappear. It Evolves.
+## How UX Shifts in an Agentic World
 
 Traditional UX focused on helping people move through interfaces — clarifying intent, reducing friction, shaping flows.
 
@@ -132,11 +128,7 @@ And the optimism for me comes from this:
 Designers don’t need to become data scientists.
 We don’t need to lead with model architecture.
 
-We need to do what we’ve always done:
-Make complexity understandable.
-Make risk visible.
-Make value measurable.
-And design for humans — even when the “user” is partially autonomous software.
+We need to do what we’ve always done: translate messy, ambiguous situations into decisions someone can act on — even when the “user” is partially autonomous software.
 
 
 
@@ -153,10 +145,7 @@ It’s knowing how to:
 * Roll them out responsibly.
 * Measure whether they worked.
 
-That’s not a tooling gap.
-That’s a design gap.
-
-And it’s an opportunity.
+That gap — knowing how to operationalize, govern, and measure AI systems — is where design thinking has the most to contribute.
 
 The move from UX to AX isn’t about abandoning craft.
 It’s about expanding our craft into behavior, autonomy, and organizational change.
@@ -164,5 +153,3 @@ It’s about expanding our craft into behavior, autonomy, and organizational cha
 Designers have always adapted — from print to web, from web to mobile, from mobile to systems.
 
 This is just the next surface.
-
-And it might be the most interesting one yet.

@@ -6,7 +6,7 @@ showHero: true
 
 # About
 
-I’m Head of Design at Orium, based in Toronto, with 12+ years of experience delivering enterprise and consumer digital products. My work lives where **design systems, code, and AI** overlap—and most of what I care about is making sure the things we design are things we can actually ship.
+My work lives where **design systems, code, and AI** overlap—and most of what I care about is making sure the things we design are things we can actually ship.
 
 ## Design Systems & Infrastructure
 
@@ -14,13 +14,13 @@ I architect design systems that serve enterprise teams at scale. That means:
 
 - Token-based foundations that bridge design and code  
 - Semantic naming and structure that survive real-world complexity  
-- Governance models that keep systems evolving without constant fire drills  
+- Governance models that keep systems evolving without requiring a redesign every time the product changes  
 
-On our teams at Orium, this work has helped reduce design-to-dev iteration time and dramatically improve cross-team consistency. Systems aren’t just a library—they’re a way of giving people a shared language for making better decisions, faster.
+On our teams at Orium, this work has helped reduce design-to-dev iteration time and improve cross-team consistency. Systems aren’t just a library—they’re a way of giving people a shared language for making better decisions, faster.
 
 ## AI/AX Design with Genie
 
-I’m currently leading UX for **[Genie](/doc/building-genie-changed-me)**, our agentic AI/AX platform.
+I led UX for **[Genie](/doc/building-genie-changed-me)**, our agentic AI/AX platform, and continue to shape its direction.
 
 The core question I’m exploring is:  
 **What does it mean to design for an agent—not just an interface?**

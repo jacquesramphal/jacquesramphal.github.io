@@ -38,17 +38,17 @@ The Jamstack—JavaScript, APIs, and Markdown—is a headless philosophy for web
 
 The goal is not a list of approved tools. It’s a set of durable principles:
 
-**Use editors that support your workflow, not editors that own it.**
-The specific application matters less than what it enables. When the tool becomes unavailable or obsolete, your files should remain usable in something else. Formats that only one application can read are liabilities disguised as features.
+**Editors that support the workflow, not own it.**
+The specific application matters less than what it enables. I look for tools where, if they become unavailable or obsolete, the files stay usable in something else. Formats that only one application can read are liabilities disguised as features.
 
-**Choose platforms that respect open standards.**
-Your content, your design decisions, your component architecture: these should be portable. Proprietary formats create technical debt the moment you commit to them. Open formats create optionality.
+**Platforms that respect open standards.**
+I keep content, design decisions, and component architecture portable. Proprietary formats create technical debt the moment you commit to them. Open formats create optionality.
 
-**Reduce dependencies to what you actually need.**
-Every dependency is a liability. Every integration is a failure surface. The core of your application or design system should be self-sufficient, not a house of cards that collapses when one service changes its pricing model.
+**Dependencies reduced to what you actually need.**
+Every dependency is a liability. Every integration is a failure surface. I try to keep the core of a design system self-sufficient, not a house of cards that collapses when one service changes its pricing model.
 
-**Make your design system the source of truth, not the tool.**
-If your design tokens, component decisions, and visual language live only inside a design file, you don’t have a design system. You have a file that describes a design system. When that file format becomes unsupported, your system evaporates. Token-first thinking, where decisions live in version-controlled code, is more resilient than any single design tool.
+**The design system as the source of truth.**
+If design tokens, component decisions, and visual language live only inside a design file, you don’t have a design system. You have a file that describes a design system. When that file format becomes unsupported, the system evaporates. I keep decisions in version-controlled code — token-first thinking that’s more resilient than any single design tool.
 
 ---
 
