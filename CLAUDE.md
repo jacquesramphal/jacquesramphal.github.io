@@ -269,6 +269,13 @@ What good writing looks like on this site, stated positively.
 
 **Trust the arc.** If the story is well-told, the reader draws the conclusion. You don't need to name it.
 
+**Share, don't declare.** Articles and journal entries should read like someone thinking through something they've experienced, not issuing a manifesto. Avoid imperative commands directed at the reader. Use first person. Lead with what happened to you before drawing any conclusion.
+
+```
+❌ Build the constraints that let you run. Design tokens as law.
+✓  What helped was having constraints in place before I picked up speed.
+```
+
 **First person, active, past tense for completed work.** "I built" not "was responsible for building." "I cut" not "decisions were made to reduce." "I led" not "I was leading."
 
 **Employer as context, not identity.** The work defines the person. Mention the employer when it's genuinely relevant (the client, the team size, the constraint) — not to establish credibility.
