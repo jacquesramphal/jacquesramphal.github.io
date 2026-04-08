@@ -30,7 +30,13 @@ The text stays real: selectable, readable by screen readers, searchable. The col
 
 ## Demo
 
+### Display type
+
 <iframe height="700" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/019d6a8b-f8b2-7211-a1f0-6497fa65c2d4?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
+
+### Variable fonts
+
+<iframe height="700" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/019d6a98-6565-7819-a86b-c9157ef62c55?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
 
 ## Usage
 
