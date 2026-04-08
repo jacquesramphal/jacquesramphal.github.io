@@ -526,6 +526,22 @@
       "securedRoute": "/secured/doc/softchoice-rebrand"
     },
     {
+      "id": 75,
+      "slug": "word-counter",
+      "type": "tool",
+      "date": "",
+      "title": "Word Counter",
+      "eyebrow": "Word Game",
+      "description": "A game about vocabulary range. Type unique, valid English words — no repeats. Supports timed sessions, part-of-speech filters, and an interactive dictionary for any word you enter.",
+      "route": "/play/word-counter",
+      "alt": "Word Counter — unique word game",
+      "tags": [
+        "game",
+        "words",
+        "experiment"
+      ]
+    },
+    {
       "id": 67,
       "docId": 67,
       "slug": "design-token-template",
