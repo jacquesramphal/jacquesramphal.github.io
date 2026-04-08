@@ -165,7 +165,10 @@
     const fontData = _fontCache.get(family);
     if (!fontData) return Promise.resolve(false);
 
-    const fvs = cs.fontVariationSettings || 'normal';
+    // getComputedStyle returns axis names in double quotes: "wdth" 100, "opsz" 8
+    // These break the SVG style="..." attribute (double quotes inside double quotes).
+    // Replace with single quotes so the value is valid inside the SVG attribute.
+    const fvs = (cs.fontVariationSettings || 'normal').replace(/"/g, "'");
     const fontSize = parseFloat(cs.fontSize) * dpr;
     const bx = Math.round(baselineX * dpr);
     const by = Math.round(baselineY * dpr);
@@ -176,7 +179,7 @@
     const esc = word.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
     const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="'+pw+'" height="'+ph+'">' +
-      '<defs><style>@font-face{font-family:"CF";src:url("'+fontData+'") format("woff2");}</style></defs>' +
+      '<defs><style>@font-face{font-family:CF;src:url("'+fontData+'") format("woff2");}</style></defs>' +
       '<text x="'+bx+'" y="'+by+'" style="' +
       'font-family:CF;font-size:'+fontSize+'px;font-weight:'+cs.fontWeight+';' +
       'font-style:'+cs.fontStyle+';font-variation-settings:'+fvs+';' +
