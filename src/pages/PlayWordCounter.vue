@@ -16,7 +16,7 @@ export default defineComponent({
   name: 'PlayWordCounter',
   computed: {
     gameUrl(): string {
-      if (process.env.NODE_ENV === 'development') {
+      if (window.location.hostname === 'localhost') {
         return 'http://localhost:3001';
       }
       return '/play/word-counter/';
