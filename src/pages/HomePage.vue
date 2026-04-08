@@ -211,9 +211,9 @@ export default {
         h1.id = 'hero-title';
         h1.classList.add('wrap-multi');
         document.fonts.ready.then(() => {
-          CounterFill.init({
-            'hero-title': { stops: ['var(--color-pink)', 'var(--color-lightyellow)'] },
-          });
+          // CounterFill.init({
+          //   'hero-title': { stops: ['var(--color-pink)', 'var(--color-lightyellow)'] },
+          // });
         });
       }
     });
