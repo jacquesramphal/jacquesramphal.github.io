@@ -18,7 +18,9 @@
     "smart-quotes:write": "smart-quotes --write",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "word-counter": "pnpm --filter @jacquesramphal/unique-word-counter start",
+    "build:word-counter": "pnpm --filter @jacquesramphal/unique-word-counter build"
   },
   "dependencies": {
     "@babel/parser": "^7.23.6",
