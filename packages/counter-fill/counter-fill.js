@@ -69,6 +69,138 @@
     return getComputedStyle(_colorEl).color;
   }
 
+  // ── Map wdth axis to CSS font-stretch keyword ─────────────────────────────
+  // ctx.fontVariationSettings is not supported in all browsers.
+  // font-stretch % values are also rejected by canvas ctx.font parsing.
+  // CSS keyword values (ultra-condensed … ultra-expanded) ARE accepted and
+  // map to the wdth axis on variable fonts — closest approximation available.
+  function _wdthToKeyword(fvs) {
+    if (!fvs || fvs === 'normal') return '';
+    const m = fvs.match(/"wdth"\s+([\d.]+)/);
+    if (!m) return '';
+    const v = parseFloat(m[1]);
+    if (v < 56.25)  return 'ultra-condensed';
+    if (v < 68.75)  return 'extra-condensed';
+    if (v < 81.25)  return 'condensed';
+    if (v < 93.75)  return 'semi-condensed';
+    if (v < 106.25) return '';
+    if (v < 118.75) return 'semi-expanded';
+    if (v < 137.5)  return 'expanded';
+    if (v < 175)    return 'extra-expanded';
+    return 'ultra-expanded';
+  }
+
+  // ── Feature-test ctx.fontVariationSettings (property may exist but be a no-op)
+  let _fvsWorks = null;
+  function _canUseFVS() {
+    if (_fvsWorks !== null) return _fvsWorks;
+    try {
+      const tc = document.createElement('canvas').getContext('2d');
+      if (!('fontVariationSettings' in tc)) { _fvsWorks = false; return false; }
+      tc.font = '400 72px "Roboto Flex", "Arial", sans-serif';
+      const w1 = tc.measureText('W').width;
+      tc.fontVariationSettings = '"wdth" 25';
+      const w2 = tc.measureText('W').width;
+      _fvsWorks = w1 !== w2;
+    } catch(e) { _fvsWorks = false; }
+    return _fvsWorks;
+  }
+
+  // ── SVG font cache for pixel-accurate variable font rendering ────────────
+  // Stores family → [{ base64, unicodeRange }] for embedding in SVG <text>.
+  // SVG <text> supports font-variation-settings natively, and drawing SVG to
+  // canvas does NOT taint it (unlike foreignObject), so getImageData works.
+  const _fontCache = new Map(); // family → base64 data URL string
+
+  // Auto-detect font URLs from same-origin @font-face rules + Google Fonts <link> tags
+  async function _autoDetectFonts() {
+    const found = new Map();
+
+    // 1. Same-origin stylesheets — read @font-face src URLs
+    for (const sheet of document.styleSheets) {
+      try {
+        for (const rule of sheet.cssRules) {
+          if (rule instanceof CSSFontFaceRule) {
+            const family = rule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim();
+            const src = rule.style.getPropertyValue('src');
+            const urlMatch = src && src.match(/url\(["']?([^"')]+)["']?\)/);
+            if (urlMatch && !found.has(family)) found.set(family, urlMatch[1]);
+          }
+        }
+      } catch(e) { /* cross-origin sheet — skip */ }
+    }
+
+    // 2. Google Fonts <link> tags — fetch CSS, extract font URLs
+    for (const link of document.querySelectorAll('link[href*="fonts.googleapis.com/css"]')) {
+      try {
+        const resp = await fetch(link.href);
+        const css = await resp.text();
+        const rules = [...css.matchAll(/@font-face\s*\{[^}]*font-family:\s*['"]?([^;'"]+)['"]?;[^}]*src:\s*url\(([^)]+)\)[^}]*\}/g)];
+        for (const [, family, url] of rules) {
+          // Google Fonts CSS lists subsets in order: cyrillic-ext … latin.
+          // Overwrite each time so the last match (latin) wins.
+          found.set(family.trim(), url);
+        }
+      } catch(e) { /* fetch failed — skip */ }
+    }
+
+    // 3. Fetch each font and base64-encode
+    for (const [family, url] of found) {
+      if (_fontCache.has(family)) continue;
+      try {
+        const resp = await fetch(url);
+        const buf = await resp.arrayBuffer();
+        const bytes = new Uint8Array(buf);
+        let bin = '';
+        for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+        _fontCache.set(family, 'data:font/woff2;base64,' + btoa(bin));
+      } catch(e) { /* fetch failed — this font uses fallback path */ }
+    }
+  }
+
+  // Render text via SVG with embedded font — supports all font-variation-settings axes.
+  // Returns a Promise that resolves to true (success) or false (fallback needed).
+  function _renderTextSVG(ctx, word, cs, baselineX, baselineY, pw, ph, dpr) {
+    const family = cs.fontFamily.split(',')[0].replace(/['"]/g, '').trim();
+    const fontData = _fontCache.get(family);
+    if (!fontData) return Promise.resolve(false);
+
+    const fvs = cs.fontVariationSettings || 'normal';
+    const fontSize = parseFloat(cs.fontSize) * dpr;
+    const bx = Math.round(baselineX * dpr);
+    const by = Math.round(baselineY * dpr);
+    const ls = cs.letterSpacing === 'normal' ? '0px' : cs.letterSpacing;
+    const lsVal = parseFloat(ls) * dpr;
+
+    // Escape text for XML
+    const esc = word.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="'+pw+'" height="'+ph+'">' +
+      '<defs><style>@font-face{font-family:"CF";src:url("'+fontData+'") format("woff2");}</style></defs>' +
+      '<text x="'+bx+'" y="'+by+'" style="' +
+      'font-family:CF;font-size:'+fontSize+'px;font-weight:'+cs.fontWeight+';' +
+      'font-style:'+cs.fontStyle+';font-variation-settings:'+fvs+';' +
+      'font-optical-sizing:'+(cs.fontOpticalSizing||'none')+';' +
+      'letter-spacing:'+lsVal+'px;fill:white;">'+esc+'</text></svg>';
+
+    const blob = new Blob([svg], {type:'image/svg+xml;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+
+    return new Promise(resolve => {
+      const img = new Image();
+      img.onload = () => {
+        ctx.save();
+        ctx.setTransform(1, 0, 0, 1, 0, 0); // draw in pixel coords
+        ctx.drawImage(img, 0, 0);
+        ctx.restore();
+        URL.revokeObjectURL(url);
+        resolve(true);
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); resolve(false); };
+      img.src = url;
+    });
+  }
+
   // ── BFS flood-fill + dilate + paint ──────────────────────────────────────
   function bfsAndPaint(cv, ctx, pw, ph, stops) {
     const img = ctx.getImageData(0, 0, pw, ph);
@@ -168,7 +300,7 @@
   }
 
   // ── Single-line paint ─────────────────────────────────────────────────────
-  function paintWrap(wrap, FILLS) {
+  async function paintWrap(wrap, FILLS) {
     const cv     = wrap.querySelector('canvas');
     const textEl = wrap.querySelector('.text');
     const fill   = FILLS[wrap.id];
@@ -176,16 +308,8 @@
 
     const dpr = window.devicePixelRatio || 1;
     const cs  = getComputedStyle(textEl);
-    const fontStr = [
-      cs.fontStyle !== 'normal' ? cs.fontStyle : '',
-      cs.fontWeight, cs.fontSize, cs.fontFamily,
-    ].filter(Boolean).join(' ');
+    const fvs = cs.fontVariationSettings || 'normal';
     const word = textEl.textContent.trim();
-
-    const mc = document.createElement('canvas');
-    const mx = mc.getContext('2d');
-    mx.font  = fontStr;
-    const ascent = mx.measureText(word).actualBoundingBoxAscent;
 
     const sizer = document.createElement('span');
     sizer.style.cssText = 'display:inline-block;width:0;height:0;vertical-align:baseline;overflow:visible;';
@@ -202,33 +326,100 @@
     const ctx = cv.getContext('2d', { willReadFrequently: true });
     ctx.scale(dpr, dpr);
 
-    // Drift correction on probe canvas — single getImageData on main canvas
-    const probe = document.createElement('canvas');
-    probe.width  = cv.width;
-    probe.height = cv.height;
-    const pCtx  = probe.getContext('2d', { willReadFrequently: true });
-    pCtx.scale(dpr, dpr);
-    pCtx.font = fontStr; pCtx.letterSpacing = cs.letterSpacing || '0px';
-    pCtx.textBaseline = 'alphabetic'; pCtx.fillStyle = '#fff';
-    pCtx.fillText(word, baselineX, baselineY);
+    // ── Static fonts: probe-canvas drift correction (proven path) ──────────
+    if (fvs === 'normal') {
+      const fontStr = [
+        cs.fontStyle !== 'normal' ? cs.fontStyle : '',
+        cs.fontWeight, cs.fontSize, cs.fontFamily,
+      ].filter(Boolean).join(' ');
 
-    const td = pCtx.getImageData(0, 0, probe.width, probe.height).data;
-    let inkTop = probe.height;
-    outer: for (let r = 0; r < probe.height; r++)
-      for (let c = 0; c < probe.width; c++)
-        if (td[(r*probe.width+c)*4+3] > 32) { inkTop = r; break outer; }
-    const drift  = inkTop - Math.round((baselineY - ascent) * dpr);
-    const finalY = Math.abs(drift) > 1 ? baselineY - drift/dpr : baselineY;
+      const mc = document.createElement('canvas');
+      const mx = mc.getContext('2d');
+      mx.font = fontStr;
+      const ascent = mx.measureText(word).actualBoundingBoxAscent;
+
+      const probe = document.createElement('canvas');
+      probe.width = cv.width; probe.height = cv.height;
+      const pCtx = probe.getContext('2d', { willReadFrequently: true });
+      pCtx.scale(dpr, dpr);
+      pCtx.font = fontStr; pCtx.letterSpacing = cs.letterSpacing || '0px';
+      pCtx.textBaseline = 'alphabetic'; pCtx.fillStyle = '#fff';
+      pCtx.fillText(word, baselineX, baselineY);
+
+      const td = pCtx.getImageData(0, 0, probe.width, probe.height).data;
+      let inkTop = probe.height;
+      outer: for (let r = 0; r < probe.height; r++)
+        for (let c = 0; c < probe.width; c++)
+          if (td[(r * probe.width + c) * 4 + 3] > 32) { inkTop = r; break outer; }
+      const drift = inkTop - Math.round((baselineY - ascent) * dpr);
+      const finalY = Math.abs(drift) > 1 ? baselineY - drift / dpr : baselineY;
+
+      ctx.font = fontStr; ctx.letterSpacing = cs.letterSpacing || '0px';
+      ctx.textBaseline = 'alphabetic'; ctx.fillStyle = '#fff';
+      ctx.fillText(word, baselineX, finalY);
+
+      bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops);
+      return;
+    }
+
+    // ── Variable fonts ───────────────────────────────────────────────────────
+
+    // Priority 1: SVG embedded-font rendering — pixel-perfect for ALL axes
+    if (_fontCache.size > 0) {
+      const ok = await _renderTextSVG(ctx, word, cs, baselineX, baselineY, cv.width, cv.height, dpr);
+      if (ok) {
+        // Verify the SVG actually produced ink (wrong font subset → blank canvas)
+        const probe = ctx.getImageData(0, 0, cv.width, cv.height).data;
+        let hasInk = false;
+        for (let i = 3; i < probe.length; i += 4) {
+          if (probe[i] > 32) { hasInk = true; break; }
+        }
+        if (hasInk) { bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops); return; }
+        ctx.clearRect(0, 0, cv.width, cv.height);
+      }
+    }
+
+    // Priority 2: ctx.fontVariationSettings (Chrome 134+, verified working)
+    const _stretch = (cs.fontStretch && cs.fontStretch !== 'normal' && cs.fontStretch !== '100%')
+      ? cs.fontStretch
+      : _wdthToKeyword(fvs);
+    const fontStr = [
+      cs.fontStyle !== 'normal' ? cs.fontStyle : '',
+      _stretch,
+      cs.fontWeight, cs.fontSize, cs.fontFamily,
+    ].filter(Boolean).join(' ');
 
     ctx.font = fontStr; ctx.letterSpacing = cs.letterSpacing || '0px';
     ctx.textBaseline = 'alphabetic'; ctx.fillStyle = '#fff';
-    ctx.fillText(word, baselineX, finalY);
+
+    if (_canUseFVS() && fvs !== 'normal') {
+      ctx.fontVariationSettings = fvs;
+      ctx.fillText(word, baselineX, baselineY);
+    } else {
+      // Priority 3: Width/height scaling approximation
+      const m = ctx.measureText(word);
+      const domW = textEl.offsetWidth;
+      const scaleX = (m.width > 0 && domW > 0) ? domW / m.width : 1;
+      const canvasH = m.actualBoundingBoxAscent + m.actualBoundingBoxDescent;
+      const domH = wrap.offsetHeight;
+      const scaleY = (canvasH > 0 && domH > 0) ? domH / canvasH : 1;
+      const needsScale = Math.abs(scaleX - 1) > 0.02 || Math.abs(scaleY - 1) > 0.05;
+      if (needsScale) {
+        ctx.save();
+        ctx.translate(baselineX, baselineY);
+        ctx.scale(scaleX, scaleY);
+        ctx.fillText(word, 0, 0);
+        ctx.restore();
+      } else {
+        ctx.fillText(word, baselineX, baselineY);
+      }
+    }
 
     bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops);
   }
 
   // ── Per-word canvas paint (counter stays inside the span it belongs to) ──
-  function paintWordSpan(span, fill, fontStr, letterSpacing, dpr) {
+  async function paintWordSpan(span, fill, fontStr, letterSpacing, fontVariationSettings, dpr) {
     const word = span.dataset.cfWord;
     if (!word) return;
 
@@ -259,9 +450,35 @@
     const bx = sR.left   - spR.left;
     const by = sR.bottom - spR.top;
 
+    // Priority 1: SVG embedded-font rendering — pixel-perfect for ALL axes
+    if (fontVariationSettings !== 'normal' && _fontCache.size > 0) {
+      const cs = getComputedStyle(span.closest('.wrap-multi') || span);
+      const ok = await _renderTextSVG(ctx, word, cs, bx, by, cv.width, cv.height, dpr);
+      if (ok) { bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops); return; }
+    }
+
     ctx.font = fontStr; ctx.letterSpacing = letterSpacing;
     ctx.textBaseline = 'alphabetic'; ctx.fillStyle = '#fff';
-    ctx.fillText(word, bx, by);
+
+    // Priority 2: ctx.fontVariationSettings if verified working
+    if (_canUseFVS() && fontVariationSettings !== 'normal') {
+      ctx.fontVariationSettings = fontVariationSettings;
+      ctx.fillText(word, bx, by);
+    } else {
+      // Priority 3: width-scaling approximation
+      const domW = span.offsetWidth;
+      const canvasW = ctx.measureText(word).width;
+      const scaleX = (canvasW > 0 && domW > 0) ? domW / canvasW : 1;
+      if (Math.abs(scaleX - 1) > 0.02) {
+        ctx.save();
+        ctx.translate(bx, 0);
+        ctx.scale(scaleX, 1);
+        ctx.fillText(word, 0, by);
+        ctx.restore();
+      } else {
+        ctx.fillText(word, bx, by);
+      }
+    }
 
     bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops);
   }
@@ -289,7 +506,7 @@
   }
 
   // ── Multi-line paint ──────────────────────────────────────────────────────
-  function paintMulti(wrap, FILLS) {
+  async function paintMulti(wrap, FILLS) {
     const fill = FILLS[wrap.id];
     if (!fill) return;
 
@@ -306,14 +523,19 @@
     if (!wordSpans.length) return;
 
     const cs = getComputedStyle(wrap);
+    const _stretch = (cs.fontStretch && cs.fontStretch !== 'normal' && cs.fontStretch !== '100%')
+      ? cs.fontStretch
+      : _wdthToKeyword(cs.fontVariationSettings || 'normal');
     const fontStr = [
       cs.fontStyle !== 'normal' ? cs.fontStyle : '',
+      _stretch,
       cs.fontWeight, cs.fontSize, cs.fontFamily,
     ].filter(Boolean).join(' ');
     const letterSpacing = cs.letterSpacing || '0px';
+    const fontVariationSettings = cs.fontVariationSettings || 'normal';
 
     // Each word paints its own canvas — no shared coordinate math
-    wordSpans.forEach(span => paintWordSpan(span, fill, fontStr, letterSpacing, dpr));
+    await Promise.all([...wordSpans].map(span => paintWordSpan(span, fill, fontStr, letterSpacing, fontVariationSettings, dpr)));
   }
 
   // ── Performance: size cache + rAF batching ────────────────────────────────
@@ -349,8 +571,9 @@
      * Paint all .wrap and .wrap-multi elements.
      * @param {Object} fills - { elementId: { stops: ['#color1', '#color2', ...] } }
      */
-    init(fills) {
+    async init(fills) {
       _injectStyles();
+      await _autoDetectFonts();
       document.querySelectorAll('.wrap').forEach(el => paintWrap(el, fills));
       document.querySelectorAll('.wrap-multi').forEach(el => paintMulti(el, fills));
 

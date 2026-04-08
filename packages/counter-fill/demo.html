@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>counter-fill · CodeSandbox</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Bebas+Neue&family=Abril+Fatface&family=Oswald:wght@700&family=Yeseva+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Bebas+Neue&family=Abril+Fatface&family=Oswald:wght@700&family=Yeseva+One&family=Fraunces:opsz,wght,SOFT@9..144,100..900,0..100&family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..900&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -17,6 +17,11 @@ align-items: center;
 gap: 64px;
 }
 
+.section { width:100%; max-width:1200px; display:flex; flex-direction:column; align-items:center; gap:48px; padding-top:32px; border-top:1px solid #333; }
+.section-label { font-family:system-ui,sans-serif; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:#666; }
+.section-label span { color:#999; font-weight:400; text-transform:none; letter-spacing:0; }
+.tag { font-family:ui-monospace,monospace; font-size:11px; color:#555; margin-top:-36px; }
+
 
 .w1 .text { font-family:'Playfair Display',serif; font-size:clamp(64px,16vw,150px); font-weight:900; color:#f0ece4; }
 .w2 .text { font-family:'Bebas Neue',sans-serif;  font-size:clamp(72px,20vw,180px); color:#e8e8e8; letter-spacing:.04em; }
@@ -27,31 +32,124 @@ gap: 64px;
 .w7 .text { font-family:'Abril Fatface',serif;    font-size:clamp(56px,14vw,130px); color:#fff0f5; }
 
 .wm { font-family:'Playfair Display',serif; font-size:clamp(48px,11vw,110px); font-weight:900; color:#f0ece4; max-width:min(680px,88vw); }
+
+/* ── Variable font examples (Roboto Flex: wght × wdth) ──
+   font-optical-sizing:none prevents opsz mismatch between DOM (auto=font-size)
+   and canvas (which can't apply opsz without ctx.fontVariationSettings). ── */
+/* ── A: wght × wdth (opsz disabled — baseline test) ── */
+.vf1 .text, .vf2 .text, .vf3 .text, .vf4 .text, .vf5 .text { font-family:'Roboto Flex',sans-serif; font-size:clamp(60px,15vw,140px); color:#ddeeff; font-optical-sizing:none; }
+.vf1 .text { font-weight:100; font-variation-settings:'wdth' 75; }
+.vf2 .text { font-weight:300; font-variation-settings:'wdth' 100; }
+.vf3 .text { font-weight:500; font-variation-settings:'wdth' 100; }
+.vf4 .text { font-weight:700; font-variation-settings:'wdth' 125; }
+.vf5 .text { font-weight:900; font-variation-settings:'wdth' 151; }
+
+/* ── B: wdth extremes ── */
+.vfb1 .text, .vfb2 .text, .vfb3 .text { font-family:'Roboto Flex',sans-serif; font-size:clamp(60px,15vw,140px); font-weight:400; color:#ddeeff; font-optical-sizing:none; }
+.vfb1 .text { font-variation-settings:'wdth' 25; }
+.vfb2 .text { font-variation-settings:'wdth' 100; }
+.vfb3 .text { font-variation-settings:'wdth' 151; }
+
+/* ── C: opsz axis (auto vs explicit) ── */
+.vfc1 .text, .vfc2 .text, .vfc3 .text { font-family:'Roboto Flex',sans-serif; font-size:clamp(60px,15vw,140px); font-weight:500; color:#ddeeff; }
+.vfc1 .text { font-optical-sizing:none; }
+.vfc2 .text { font-optical-sizing:auto; }
+.vfc3 .text { font-variation-settings:'opsz' 8; font-optical-sizing:none; }
+
+/* ── D: Fraunces SOFT axis ── */
+.vfd1 .text, .vfd2 .text, .vfd3 .text { font-family:'Fraunces',serif; font-size:clamp(60px,15vw,140px); font-weight:700; color:#f0ece4; font-optical-sizing:none; }
+.vfd1 .text { font-variation-settings:'SOFT' 0; }
+.vfd2 .text { font-variation-settings:'SOFT' 50; }
+.vfd3 .text { font-variation-settings:'SOFT' 100; }
 </style>
 </head>
 <body>
 
-  <div class="wrap w1" id="w1"><canvas></canvas><span class="text">Golden</span></div>
-  <div class="wrap w2" id="w2"><canvas></canvas><span class="text">Typeface</span></div>
-  <div class="wrap w3" id="w3"><canvas></canvas><span class="text">Aperture</span></div>
-  <div class="wrap w4" id="w4"><canvas></canvas><span class="text">Obsidian</span></div>
-  <div class="wrap w5" id="w5"><canvas></canvas><span class="text">Phantom</span></div>
-  <div class="wrap w6" id="w6"><canvas></canvas><span class="text">Exposure</span></div>
-  <div class="wrap w7" id="w7"><canvas></canvas><span class="text">Baroque</span></div>
+  <div class="section">
+    <div class="section-label">Static fonts</div>
+    <div class="wrap w1" id="w1"><canvas></canvas><span class="text">Golden</span></div>
+    <div class="wrap w2" id="w2"><canvas></canvas><span class="text">Typeface</span></div>
+    <div class="wrap w3" id="w3"><canvas></canvas><span class="text">Aperture</span></div>
+    <div class="wrap w4" id="w4"><canvas></canvas><span class="text">Obsidian</span></div>
+    <div class="wrap w5" id="w5"><canvas></canvas><span class="text">Phantom</span></div>
+    <div class="wrap w6" id="w6"><canvas></canvas><span class="text">Exposure</span></div>
+    <div class="wrap w7" id="w7"><canvas></canvas><span class="text">Baroque</span></div>
+  </div>
 
-  <div class="wrap-multi wm" id="wm">Golden Baroque Obsidian Aperture</div>
+  <div class="section">
+    <div class="section-label">Multi-line</div>
+    <div class="wrap-multi wm" id="wm">Golden Baroque Obsidian Aperture</div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Variable: wght × wdth <span>· Roboto Flex · opsz disabled</span></div>
+    <div class="tag">wght 100 · wdth 75</div>
+    <div class="wrap vf1" id="vf1"><canvas></canvas><span class="text">Encode</span></div>
+    <div class="tag">wght 300 · wdth 100</div>
+    <div class="wrap vf2" id="vf2"><canvas></canvas><span class="text">Oblong</span></div>
+    <div class="tag">wght 500 · wdth 100</div>
+    <div class="wrap vf3" id="vf3"><canvas></canvas><span class="text">Overlap</span></div>
+    <div class="tag">wght 700 · wdth 125</div>
+    <div class="wrap vf4" id="vf4"><canvas></canvas><span class="text">Polygon</span></div>
+    <div class="tag">wght 900 · wdth 151</div>
+    <div class="wrap vf5" id="vf5"><canvas></canvas><span class="text">Boudoir</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Variable: wdth extremes <span>· Roboto Flex · wght 400 · opsz disabled</span></div>
+    <div class="tag">wdth 25 (ultra-condensed)</div>
+    <div class="wrap vfb1" id="vfb1"><canvas></canvas><span class="text">Oblong</span></div>
+    <div class="tag">wdth 100 (normal)</div>
+    <div class="wrap vfb2" id="vfb2"><canvas></canvas><span class="text">Oblong</span></div>
+    <div class="tag">wdth 151 (extra-expanded)</div>
+    <div class="wrap vfb3" id="vfb3"><canvas></canvas><span class="text">Oblong</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Variable: opsz axis <span>· Roboto Flex · wght 500</span></div>
+    <div class="tag">font-optical-sizing: none</div>
+    <div class="wrap vfc1" id="vfc1"><canvas></canvas><span class="text">Opaque</span></div>
+    <div class="tag">font-optical-sizing: auto ⚠️</div>
+    <div class="wrap vfc2" id="vfc2"><canvas></canvas><span class="text">Opaque</span></div>
+    <div class="tag">opsz 8 (explicit, opsz disabled) ⚠️</div>
+    <div class="wrap vfc3" id="vfc3"><canvas></canvas><span class="text">Opaque</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Variable: SOFT axis <span>· Fraunces · wght 700 · opsz disabled</span></div>
+    <div class="tag">SOFT 0</div>
+    <div class="wrap vfd1" id="vfd1"><canvas></canvas><span class="text">Baroque</span></div>
+    <div class="tag">SOFT 50 ⚠️</div>
+    <div class="wrap vfd2" id="vfd2"><canvas></canvas><span class="text">Baroque</span></div>
+    <div class="tag">SOFT 100 ⚠️</div>
+    <div class="wrap vfd3" id="vfd3"><canvas></canvas><span class="text">Baroque</span></div>
+  </div>
 
 <script src="./counter-fill.js"></script>
 <script>
 document.fonts.ready.then(() => CounterFill.init({
-  w1: { stops: ['#f5c842','#d4820a','#7a3a08'] },
-  w2: { stops: ['#ff6060','#c01020','#600010'] },
-  w3: { stops: ['#e05c5c','#a01830','#4a0010'] },
-  w4: { stops: ['#c0a8ff','#6030c0','#200860'] },
-  w5: { stops: ['#40ffb0','#10a060','#004030'] },
-  w6: { stops: ['#ffe040','#e08000','#804000'] },
-  w7: { stops: ['#60e0a0','#108050','#003020'] },
-  wm: { stops: ['#f5c842','#d4820a','#7a3a08'] },
+  w1:  { stops: ['#f5c842','#d4820a','#7a3a08'] },
+  w2:  { stops: ['#ff6060','#c01020','#600010'] },
+  w3:  { stops: ['#e05c5c','#a01830','#4a0010'] },
+  w4:  { stops: ['#c0a8ff','#6030c0','#200860'] },
+  w5:  { stops: ['#40ffb0','#10a060','#004030'] },
+  w6:  { stops: ['#ffe040','#e08000','#804000'] },
+  w7:  { stops: ['#60e0a0','#108050','#003020'] },
+  wm:  { stops: ['#f5c842','#d4820a','#7a3a08'] },
+  vf1:  { stops: ['#80d0ff','#2060e0','#001080'] },
+  vf2:  { stops: ['#80d0ff','#2060e0','#001080'] },
+  vf3:  { stops: ['#80d0ff','#2060e0','#001080'] },
+  vf4:  { stops: ['#80d0ff','#2060e0','#001080'] },
+  vf5:  { stops: ['#80d0ff','#2060e0','#001080'] },
+  vfb1: { stops: ['#60ffb0','#10c060','#004020'] },
+  vfb2: { stops: ['#60ffb0','#10c060','#004020'] },
+  vfb3: { stops: ['#60ffb0','#10c060','#004020'] },
+  vfc1: { stops: ['#ff8060','#c02020','#600010'] },
+  vfc2: { stops: ['#ff8060','#c02020','#600010'] },
+  vfc3: { stops: ['#ff8060','#c02020','#600010'] },
+  vfd1: { stops: ['#c0a8ff','#6030c0','#200860'] },
+  vfd2: { stops: ['#c0a8ff','#6030c0','#200860'] },
+  vfd3: { stops: ['#c0a8ff','#6030c0','#200860'] },
 }));
 </script>
 </body>

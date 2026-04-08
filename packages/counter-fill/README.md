@@ -262,6 +262,16 @@ CounterFill.paint(document.getElementById('my-word'), FILLS);
 
 ---
 
+## Variable font support
+
+Works with variable fonts. The `wght` axis is natively supported by canvas. The `wdth` axis is mapped to CSS `font-stretch` keywords with width-scaling correction.
+
+**Limitation:** Axes like `opsz`, `SOFT`, `GRAD`, and other custom axes cannot be applied to canvas text in browsers that lack `ctx.fontVariationSettings` (pre-Chrome 134). Counter fills will still render, but alignment may drift when these axes significantly alter glyph shapes — particularly when `opsz` is set far from the font-size value. For best results on older browsers, avoid overriding `opsz` or let it auto-match the font-size.
+
+Chrome 134+ (March 2025) supports `ctx.fontVariationSettings` natively. Feature detection is built in — no code changes needed.
+
+---
+
 ## Browser support
 
 | | |
