@@ -28,6 +28,10 @@ The text stays real: selectable, readable by screen readers, searchable. The col
 
 
 
+## Demo
+
+<iframe height="700" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/019d6a8b-f8b2-7211-a1f0-6497fa65c2d4?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
+
 ## Usage
 
 Required CSS is injected automatically — no stylesheet needed.
