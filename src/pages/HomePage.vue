@@ -109,7 +109,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useHead } from '@vueuse/head';
 import work from '@/assets/data/library.json';
-import CounterFill from '@/utils/counter-fill.js';
+import CounterFill from '../../packages/counter-fill/counter-fill.js';
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
@@ -208,7 +208,7 @@ export default {
     this.$nextTick(() => {
       const h1 = document.querySelector('h1.title');
       if (h1) {
-        //        h1.id = 'hero-title';
+        h1.id = 'hero-title';
         h1.classList.add('wrap-multi');
         document.fonts.ready.then(() => {
           CounterFill.init({

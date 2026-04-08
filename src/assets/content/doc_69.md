@@ -4,7 +4,7 @@ Fills the enclosed spaces inside letterforms — the holes in **o, e, a, g, d, b
 
 ![Counter Fill Example](../images/casestudy/counter-fill/counter-fill-2.png)
 
----
+
 
 ## Small detail. Real problem.
 
@@ -16,7 +16,7 @@ In the browser, on live text, nobody had done it. Not that I could find.
 
 That gap is invisible if you're only on one side of the design-dev divide. Designers don't know what it takes to replicate it in code. Developers don't think about letterform counters. I noticed it because I'm on both sides, and the absence was obvious.
 
----
+
 
 ## Overview
 
@@ -26,7 +26,7 @@ So I built it.
 
 The text stays real: selectable, readable by screen readers, searchable. The colour is purely decorative, sitting behind the letterforms, invisible to anything that isn't looking at pixels.
 
----
+
 
 ## Usage
 
@@ -79,9 +79,9 @@ CounterFill.init({
 });
 ```
 
-For Vue, React, and module setups, see the [full README on GitHub](https://github.com/jacquesramphal/counter-fill).
+For Vue, React, and module setups, see the [full README on GitHub](https://github.com/jacquesramphal/jacquesramphal.github.io/tree/main/packages/counter-fill).
 
----
+
 
 ## What I learned
 

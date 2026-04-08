@@ -4,7 +4,6 @@
   "description": "Fill the enclosed counter spaces inside letterforms with any colour or gradient. Works on any word, any font, any size.",
   "license": "MIT",
   "private": false,
-  "type": "module",
   "main": "./counter-fill.js",
   "exports": {
     ".": "./counter-fill.js"

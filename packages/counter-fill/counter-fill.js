@@ -53,7 +53,7 @@
       '.wrap canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}',
       '.wrap .text{position:relative;z-index:1;}',
       '.wrap-multi{position:relative;display:block;line-height:1.2;}',
-      '.wrap-multi .cf-word{position:relative;z-index:1;display:inline;}',
+      '.wrap-multi .cf-word{position:relative;z-index:1;display:inline-block;}',
     ].join('');
     document.head.appendChild(style);
   }
