@@ -46,7 +46,7 @@ jobs:
         run: pnpm build:word-counter
 
       - name: Copy Word Counter to dist
-        run: cp -r apps/unique-word-counter/build dist/play/word-counter
+        run: mkdir -p dist/play/word-counter && cp -r apps/unique-word-counter/build/. dist/play/word-counter
 
       - name: Build Storybook
         run: pnpm build-storybook
