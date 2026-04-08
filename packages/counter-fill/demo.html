@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>counter-fill · CodeSandbox</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Bebas+Neue&family=Abril+Fatface&family=Oswald:wght@700&family=Yeseva+One&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+background: #0e0e0e;
+padding: 60px 32px;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 64px;
+}
+
+
+.w1 .text { font-family:'Playfair Display',serif; font-size:clamp(64px,16vw,150px); font-weight:900; color:#f0ece4; }
+.w2 .text { font-family:'Bebas Neue',sans-serif;  font-size:clamp(72px,20vw,180px); color:#e8e8e8; letter-spacing:.04em; }
+.w3 .text { font-family:'Abril Fatface',serif;    font-size:clamp(60px,15vw,140px); color:#fdf6e3; }
+.w4 .text { font-family:'Playfair Display',serif; font-size:clamp(56px,14vw,130px); font-weight:900; font-style:italic; color:#e8ddd0; }
+.w5 .text { font-family:'Yeseva One',serif;       font-size:clamp(60px,15vw,140px); color:#f5f0eb; }
+.w6 .text { font-family:'Oswald',sans-serif;      font-size:clamp(64px,17vw,160px); font-weight:700; color:#ddeeff; letter-spacing:.04em; }
+.w7 .text { font-family:'Abril Fatface',serif;    font-size:clamp(56px,14vw,130px); color:#fff0f5; }
+
+.wm { font-family:'Playfair Display',serif; font-size:clamp(48px,11vw,110px); font-weight:900; color:#f0ece4; max-width:min(680px,88vw); }
+</style>
+</head>
+<body>
+
+  <div class="wrap w1" id="w1"><canvas></canvas><span class="text">Golden</span></div>
+  <div class="wrap w2" id="w2"><canvas></canvas><span class="text">Typeface</span></div>
+  <div class="wrap w3" id="w3"><canvas></canvas><span class="text">Aperture</span></div>
+  <div class="wrap w4" id="w4"><canvas></canvas><span class="text">Obsidian</span></div>
+  <div class="wrap w5" id="w5"><canvas></canvas><span class="text">Phantom</span></div>
+  <div class="wrap w6" id="w6"><canvas></canvas><span class="text">Exposure</span></div>
+  <div class="wrap w7" id="w7"><canvas></canvas><span class="text">Baroque</span></div>
+
+  <div class="wrap-multi wm" id="wm">Golden Baroque Obsidian Aperture</div>
+
+<script src="./counter-fill.js"></script>
+<script>
+document.fonts.ready.then(() => CounterFill.init({
+  w1: { stops: ['#f5c842','#d4820a','#7a3a08'] },
+  w2: { stops: ['#ff6060','#c01020','#600010'] },
+  w3: { stops: ['#e05c5c','#a01830','#4a0010'] },
+  w4: { stops: ['#c0a8ff','#6030c0','#200860'] },
+  w5: { stops: ['#40ffb0','#10a060','#004030'] },
+  w6: { stops: ['#ffe040','#e08000','#804000'] },
+  w7: { stops: ['#60e0a0','#108050','#003020'] },
+  wm: { stops: ['#f5c842','#d4820a','#7a3a08'] },
+}));
+</script>
+</body>
+</html>
