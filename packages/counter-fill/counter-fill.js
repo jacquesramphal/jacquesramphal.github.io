@@ -110,7 +110,7 @@
   // Stores family → [{ base64, unicodeRange }] for embedding in SVG <text>.
   // SVG <text> supports font-variation-settings natively, and drawing SVG to
   // canvas does NOT taint it (unlike foreignObject), so getImageData works.
-  const _fontCache = new Map(); // family → base64 data URL string
+  const _fontCache = new Map(); // family → { dataUrl, mime }
 
   // Auto-detect font URLs from same-origin @font-face rules + Google Fonts <link> tags
   async function _autoDetectFonts() {
@@ -153,59 +153,80 @@
         const bytes = new Uint8Array(buf);
         let bin = '';
         for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
-        _fontCache.set(family, 'data:font/woff2;base64,' + btoa(bin));
+        // Detect format from Content-Type or URL; fall back to octet-stream
+        // so the browser auto-detects (avoids woff2 mismatch on Safari).
+        const ct = resp.headers.get('content-type') || '';
+        const mime = ct.includes('woff2') ? 'font/woff2'
+                   : ct.includes('woff')  ? 'font/woff'
+                   : ct.includes('ttf') || ct.includes('truetype') ? 'font/ttf'
+                   : 'application/octet-stream';
+        _fontCache.set(family, { dataUrl: 'data:' + mime + ';base64,' + btoa(bin), mime });
       } catch(e) { /* fetch failed — this font uses fallback path */ }
     }
   }
 
   // Render text via SVG with embedded font — supports all font-variation-settings axes.
   // Returns a Promise that resolves to true (success) or false (fallback needed).
-  function _renderTextSVG(ctx, word, cs, baselineX, baselineY, pw, ph, dpr) {
+  async function _renderTextSVG(ctx, word, cs, baselineX, baselineY, pw, ph, dpr, domTextWidth) {
     const family = cs.fontFamily.split(',')[0].replace(/['"]/g, '').trim();
-    const fontData = _fontCache.get(family);
-    if (!fontData) return Promise.resolve(false);
+    const cached = _fontCache.get(family);
+    if (!cached) return false;
 
     // getComputedStyle returns axis names in double quotes: "wdth" 100, "opsz" 8
-    // These break the SVG style="..." attribute (double quotes inside double quotes).
-    // Replace with single quotes so the value is valid inside the SVG attribute.
+    // Replace with single quotes for valid CSS inside the SVG stylesheet.
     const fvs = (cs.fontVariationSettings || 'normal').replace(/"/g, "'");
     const fontSize = parseFloat(cs.fontSize) * dpr;
     const bx = Math.round(baselineX * dpr);
     const by = Math.round(baselineY * dpr);
     const ls = cs.letterSpacing === 'normal' ? '0px' : cs.letterSpacing;
     const lsVal = parseFloat(ls) * dpr;
+    const stretch = cs.fontStretch || 'normal';
+    const kerning = cs.fontKerning || 'auto';
+    const ffs = (cs.fontFeatureSettings || 'normal').replace(/"/g, "'");
 
     // Escape text for XML
     const esc = word.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
+    // All font properties go in <style> block — Safari ignores some font
+    // properties in SVG inline styles. Include every property that affects
+    // glyph metrics to prevent cumulative horizontal drift across letters.
     const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="'+pw+'" height="'+ph+'">' +
-      '<defs><style>@font-face{font-family:CF;src:url("'+fontData+'") format("woff2");}</style></defs>' +
-      '<text x="'+bx+'" y="'+by+'" style="' +
-      'font-family:CF;font-size:'+fontSize+'px;font-weight:'+cs.fontWeight+';' +
-      'font-style:'+cs.fontStyle+';font-variation-settings:'+fvs+';' +
+      '<defs><style>' +
+      '@font-face{font-family:CF;src:url("'+cached.dataUrl+'");}' +
+      'text{font-family:CF;font-size:'+fontSize+'px;font-weight:'+cs.fontWeight+';' +
+      'font-style:'+cs.fontStyle+';font-stretch:'+stretch+';' +
+      'font-variation-settings:'+fvs+';' +
       'font-optical-sizing:'+(cs.fontOpticalSizing||'none')+';' +
-      'letter-spacing:'+lsVal+'px;fill:white;">'+esc+'</text></svg>';
+      'font-kerning:'+kerning+';font-feature-settings:'+ffs+';' +
+      'letter-spacing:'+lsVal+'px;fill:white;}' +
+      '</style></defs>' +
+      '<text x="'+bx+'" y="'+by+'"' +
+      (domTextWidth > 0 ? ' textLength="'+Math.round(domTextWidth * dpr)+'" lengthAdjust="spacing"' : '') +
+      '>'+esc+'</text></svg>';
 
     const blob = new Blob([svg], {type:'image/svg+xml;charset=utf-8'});
     const url = URL.createObjectURL(blob);
 
-    return new Promise(resolve => {
+    try {
       const img = new Image();
-      img.onload = () => {
-        ctx.save();
-        ctx.setTransform(1, 0, 0, 1, 0, 0); // draw in pixel coords
-        ctx.drawImage(img, 0, 0);
-        ctx.restore();
-        URL.revokeObjectURL(url);
-        resolve(true);
-      };
-      img.onerror = () => { URL.revokeObjectURL(url); resolve(false); };
       img.src = url;
-    });
+      // decode() waits for full render including embedded font loading —
+      // fixes Safari where onload fires before the font is ready.
+      await img.decode();
+      ctx.save();
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.drawImage(img, 0, 0);
+      ctx.restore();
+      URL.revokeObjectURL(url);
+      return true;
+    } catch(e) {
+      URL.revokeObjectURL(url);
+      return false;
+    }
   }
 
   // ── BFS flood-fill + dilate + paint ──────────────────────────────────────
-  function bfsAndPaint(cv, ctx, pw, ph, stops) {
+  function bfsAndPaint(cv, ctx, pw, ph, stops, dilate) {
     const img = ctx.getImageData(0, 0, pw, ph);
     const d   = img.data;
     const N   = pw * ph;
@@ -263,7 +284,7 @@
       }
     }
 
-    const DILATE = 2;
+    const DILATE = dilate || 2;
     const dilated = new Uint8Array(N);
     for (let y = 0; y < ph; y++)
       for (let x = 0; x < pw; x++) {
@@ -334,14 +355,19 @@
     // (SVG needs the exact style/weight variant cached; _fontCache stores one
     // file per family, which can be the wrong variant for multi-style families.)
     if (fvs !== 'normal' && _fontCache.size > 0) {
-      const ok = await _renderTextSVG(ctx, word, cs, baselineX, baselineY, cv.width, cv.height, dpr);
+      const ok = await _renderTextSVG(ctx, word, cs, baselineX, baselineY, cv.width, cv.height, dpr, textEl.offsetWidth);
       if (ok) {
         const svgData = ctx.getImageData(0, 0, cv.width, cv.height).data;
         let hasInk = false;
         for (let i = 3; i < svgData.length; i += 4) {
           if (svgData[i] > 32) { hasInk = true; break; }
         }
-        if (hasInk) { bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops); return; }
+        // Browsers without native ctx.fontVariationSettings (Safari) may render
+        // SVG glyphs with smaller counters (custom axes like SOFT not applied).
+        // Scale dilation with font size — large text needs more expansion.
+        // Canvas sits behind DOM text (z-index), so over-dilation into strokes is hidden.
+        const svgDilate = _canUseFVS() ? 2 : Math.max(4, Math.round(parseFloat(cs.fontSize) * dpr * 0.04));
+        if (hasInk) { bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops, svgDilate); return; }
         ctx.clearRect(0, 0, cv.width, cv.height);
       }
     }
@@ -457,8 +483,9 @@
     // Priority 1: SVG embedded-font rendering — pixel-perfect for ALL axes
     if (fontVariationSettings !== 'normal' && _fontCache.size > 0) {
       const cs = getComputedStyle(span.closest('.wrap-multi') || span);
-      const ok = await _renderTextSVG(ctx, word, cs, bx, by, cv.width, cv.height, dpr);
-      if (ok) { bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops); return; }
+      const ok = await _renderTextSVG(ctx, word, cs, bx, by, cv.width, cv.height, dpr, span.offsetWidth);
+      const mDilate = _canUseFVS() ? 2 : Math.max(4, Math.round(parseFloat(cs.fontSize) * dpr * 0.04));
+      if (ok) { bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops, mDilate); return; }
     }
 
     ctx.font = fontStr; ctx.letterSpacing = letterSpacing;
