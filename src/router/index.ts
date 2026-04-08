@@ -15,6 +15,7 @@ import MyLibrary from '@/pages/MyLibrary.vue';
 import WritingIndex from '@/pages/WritingIndex.vue';
 import WorkIndex from '@/pages/WorkIndex.vue';
 import PlayIndex from '@/pages/PlayIndex.vue';
+import PlayWordCounter from '@/pages/PlayWordCounter.vue';
 import UsefulLinks from '@/pages/UsefulLinks.vue';
 import CoursePage from '@/pages/CoursePage.vue';
 import BusinessCardPage from '@/pages/BusinessCardPage.vue';
@@ -112,6 +113,15 @@ const routes = [
     name: 'PlayIndex',
     path: '/play',
     component: PlayIndex,
+  },
+  {
+    name: 'PlayWordCounter',
+    path: '/play/word-counter',
+    component: PlayWordCounter,
+    meta: {
+      hideNav: true,
+      hideFooter: true,
+    },
   },
   {
     name: 'Explorations',
