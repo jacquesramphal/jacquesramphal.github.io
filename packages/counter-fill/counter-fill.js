@@ -329,8 +329,65 @@
     const ctx = cv.getContext('2d', { willReadFrequently: true });
     ctx.scale(dpr, dpr);
 
-    // ── Static fonts: probe-canvas drift correction (proven path) ──────────
-    if (fvs === 'normal') {
+    // ── SVG for variable fonts with explicit axes ──────────────────────────
+    // Only attempt SVG when fvs is set — static fonts use probe-canvas below.
+    // (SVG needs the exact style/weight variant cached; _fontCache stores one
+    // file per family, which can be the wrong variant for multi-style families.)
+    if (fvs !== 'normal' && _fontCache.size > 0) {
+      const ok = await _renderTextSVG(ctx, word, cs, baselineX, baselineY, cv.width, cv.height, dpr);
+      if (ok) {
+        const svgData = ctx.getImageData(0, 0, cv.width, cv.height).data;
+        let hasInk = false;
+        for (let i = 3; i < svgData.length; i += 4) {
+          if (svgData[i] > 32) { hasInk = true; break; }
+        }
+        if (hasInk) { bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops); return; }
+        ctx.clearRect(0, 0, cv.width, cv.height);
+      }
+    }
+
+    // ── Canvas fallback: split by font type ──────────────────────────────────
+
+    if (fvs !== 'normal') {
+      // Variable font with explicit axes
+
+      // Path A: ctx.fontVariationSettings (Chrome 134+, verified working)
+      const _stretch = (cs.fontStretch && cs.fontStretch !== 'normal' && cs.fontStretch !== '100%')
+        ? cs.fontStretch
+        : _wdthToKeyword(fvs);
+      const fontStr = [
+        cs.fontStyle !== 'normal' ? cs.fontStyle : '',
+        _stretch,
+        cs.fontWeight, cs.fontSize, cs.fontFamily,
+      ].filter(Boolean).join(' ');
+
+      ctx.font = fontStr; ctx.letterSpacing = cs.letterSpacing || '0px';
+      ctx.textBaseline = 'alphabetic'; ctx.fillStyle = '#fff';
+
+      if (_canUseFVS()) {
+        ctx.fontVariationSettings = fvs;
+        ctx.fillText(word, baselineX, baselineY);
+      } else {
+        // Path B: Width/height scaling approximation
+        const m = ctx.measureText(word);
+        const domW = textEl.offsetWidth;
+        const scaleX = (m.width > 0 && domW > 0) ? domW / m.width : 1;
+        const canvasH = m.actualBoundingBoxAscent + m.actualBoundingBoxDescent;
+        const domH = wrap.offsetHeight;
+        const scaleY = (canvasH > 0 && domH > 0) ? domH / canvasH : 1;
+        const needsScale = Math.abs(scaleX - 1) > 0.02 || Math.abs(scaleY - 1) > 0.05;
+        if (needsScale) {
+          ctx.save();
+          ctx.translate(baselineX, baselineY);
+          ctx.scale(scaleX, scaleY);
+          ctx.fillText(word, 0, 0);
+          ctx.restore();
+        } else {
+          ctx.fillText(word, baselineX, baselineY);
+        }
+      }
+    } else {
+      // Static font (or variable font at default axes) — probe-canvas drift correction
       const fontStr = [
         cs.fontStyle !== 'normal' ? cs.fontStyle : '',
         cs.fontWeight, cs.fontSize, cs.fontFamily,
@@ -360,62 +417,6 @@
       ctx.font = fontStr; ctx.letterSpacing = cs.letterSpacing || '0px';
       ctx.textBaseline = 'alphabetic'; ctx.fillStyle = '#fff';
       ctx.fillText(word, baselineX, finalY);
-
-      bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops);
-      return;
-    }
-
-    // ── Variable fonts ───────────────────────────────────────────────────────
-
-    // Priority 1: SVG embedded-font rendering — pixel-perfect for ALL axes
-    if (_fontCache.size > 0) {
-      const ok = await _renderTextSVG(ctx, word, cs, baselineX, baselineY, cv.width, cv.height, dpr);
-      if (ok) {
-        // Verify the SVG actually produced ink (wrong font subset → blank canvas)
-        const probe = ctx.getImageData(0, 0, cv.width, cv.height).data;
-        let hasInk = false;
-        for (let i = 3; i < probe.length; i += 4) {
-          if (probe[i] > 32) { hasInk = true; break; }
-        }
-        if (hasInk) { bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops); return; }
-        ctx.clearRect(0, 0, cv.width, cv.height);
-      }
-    }
-
-    // Priority 2: ctx.fontVariationSettings (Chrome 134+, verified working)
-    const _stretch = (cs.fontStretch && cs.fontStretch !== 'normal' && cs.fontStretch !== '100%')
-      ? cs.fontStretch
-      : _wdthToKeyword(fvs);
-    const fontStr = [
-      cs.fontStyle !== 'normal' ? cs.fontStyle : '',
-      _stretch,
-      cs.fontWeight, cs.fontSize, cs.fontFamily,
-    ].filter(Boolean).join(' ');
-
-    ctx.font = fontStr; ctx.letterSpacing = cs.letterSpacing || '0px';
-    ctx.textBaseline = 'alphabetic'; ctx.fillStyle = '#fff';
-
-    if (_canUseFVS() && fvs !== 'normal') {
-      ctx.fontVariationSettings = fvs;
-      ctx.fillText(word, baselineX, baselineY);
-    } else {
-      // Priority 3: Width/height scaling approximation
-      const m = ctx.measureText(word);
-      const domW = textEl.offsetWidth;
-      const scaleX = (m.width > 0 && domW > 0) ? domW / m.width : 1;
-      const canvasH = m.actualBoundingBoxAscent + m.actualBoundingBoxDescent;
-      const domH = wrap.offsetHeight;
-      const scaleY = (canvasH > 0 && domH > 0) ? domH / canvasH : 1;
-      const needsScale = Math.abs(scaleX - 1) > 0.02 || Math.abs(scaleY - 1) > 0.05;
-      if (needsScale) {
-        ctx.save();
-        ctx.translate(baselineX, baselineY);
-        ctx.scale(scaleX, scaleY);
-        ctx.fillText(word, 0, 0);
-        ctx.restore();
-      } else {
-        ctx.fillText(word, baselineX, baselineY);
-      }
     }
 
     bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops);
