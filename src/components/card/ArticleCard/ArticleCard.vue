@@ -121,6 +121,7 @@
         :cardType="type"
         :readTime="readTime"
         :date="date"
+        :isExternal="!!activeLink"
         @tag-click="$emit('tag-click', $event)"
       />
 

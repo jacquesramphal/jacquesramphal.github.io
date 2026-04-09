@@ -46,7 +46,10 @@
       :attrs="{ class: 'description' }"
     />
     <!-- Content tags at bottom -->
-    <div v-if="shouldShowTags && ((tags && tags.length) || readTime || date)" class="tags tags--content">
+    <div v-if="shouldShowTags && ((tags && tags.length) || readTime || date || isExternal)" class="tags tags--content">
+      <span v-if="isExternal" class="tag-label tag-label--external">
+        <p style="font-size: var(--font-2xs)">External &#8599;</p>
+      </span>
       <span v-if="date" class="tag-label tag-label--date">
         <p style="font-size: var(--font-2xs)">{{ date }}</p>
       </span>
@@ -184,6 +187,11 @@ export default {
     date: {
       type: String,
       default: '',
+      required: false,
+    },
+    isExternal: {
+      type: Boolean,
+      default: false,
       required: false,
     },
     isHtml: {
@@ -353,6 +361,11 @@ h1.title {
 .tag-label p {
   display: inline;
   font-size: var(--font-2xs);
+}
+
+.tag-label--external {
+  cursor: default;
+  color: var(--foreground-muted);
 }
 
 .tag-label--read-time {
