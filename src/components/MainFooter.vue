@@ -196,7 +196,7 @@ export default {
       ],
       menuItems3: [
         { text: 'Journal', route: '/doc/design-learnings' },
-        { text: 'About This Site', route: '/doc/about-this-site' },
+        { text: 'About', route: '/about' },
         { text: 'Ask Me Anything', route: '/doc/ask-me-anything' },
         { text: 'AI Ethics', route: '/doc/ai-ethics' },
         { text: 'Privacy', route: '/doc/privacy' },

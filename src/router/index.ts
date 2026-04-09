@@ -87,6 +87,10 @@ const routes = [
     path: '/about',
     redirect: { name: 'Doc', params: { slug: 'info' } },
   },
+  {
+    path: '/doc/about-this-site',
+    redirect: '/about',
+  },
 
   {
     path: '/designsystem',
