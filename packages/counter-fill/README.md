@@ -188,6 +188,11 @@ const ro = CounterFill.init(FILLS);
 
 // Paint one element manually (e.g. after dynamic content added)
 CounterFill.paint(document.getElementById('my-word'), FILLS);
+
+// Register a font for SVG rendering (call before init)
+// Use for fonts loaded via JS, cross-origin, or CDN-hosted
+await CounterFill.registerFont('My Font', '/fonts/my-font.woff2');
+await CounterFill.registerFont('My Font', '/fonts/my-font-italic.woff2', { style: 'italic', weight: '700' });
 ```
 
 ---
@@ -262,13 +267,58 @@ CounterFill.paint(document.getElementById('my-word'), FILLS);
 
 ---
 
+## Font sources
+
+Fonts are auto-detected from two sources:
+
+| Source | Auto-detected? | Notes |
+|---|---|---|
+| Google Fonts `<link>` | Yes | CSS is fetched, font URLs extracted and cached |
+| Same-origin `@font-face` | Yes | Read from CSSOM at init time |
+| Cross-origin `@font-face` | No | CORS blocks reading stylesheet rules — use `registerFont()` |
+| System / local fonts | No | Not fetchable — uses canvas fallback (static fonts work well) |
+| Fonts loaded via JS (`new FontFace()`) | No | Not in any stylesheet — use `registerFont()` |
+
+For fonts that can't be auto-detected, register them before calling `init()`:
+
+```js
+// Register a CDN-hosted variable font
+await CounterFill.registerFont('Inter', 'https://cdn.example.com/inter-variable.woff2');
+
+// Register specific style/weight variants of a static font
+await CounterFill.registerFont('Merriweather', '/fonts/merriweather-bold.woff2', { weight: '700' });
+await CounterFill.registerFont('Merriweather', '/fonts/merriweather-bold-italic.woff2', { style: 'italic', weight: '700' });
+
+// Then init as usual
+document.fonts.ready.then(() => CounterFill.init({ ... }));
+```
+
+---
+
 ## Variable font support
 
-Works with variable fonts. The `wght` axis is natively supported by canvas. The `wdth` axis is mapped to CSS `font-stretch` keywords with width-scaling correction.
+Three rendering paths, selected automatically via feature detection:
 
-**Limitation:** Axes like `opsz`, `SOFT`, `GRAD`, and other custom axes cannot be applied to canvas text in browsers that lack `ctx.fontVariationSettings` (pre-Chrome 134). Counter fills will still render, but alignment may drift when these axes significantly alter glyph shapes — particularly when `opsz` is set far from the font-size value. For best results on older browsers, avoid overriding `opsz` or let it auto-match the font-size.
+1. **SVG embedded-font** (best) — font is base64-encoded into an SVG `<text>` element drawn to canvas. Supports all axes (`wght`, `wdth`, `opsz`, `SOFT`, custom axes). Used when the font is in the cache (auto-detected or registered).
 
-Chrome 134+ (March 2025) supports `ctx.fontVariationSettings` natively. Feature detection is built in — no code changes needed.
+2. **`ctx.fontVariationSettings`** (Chrome 134+) — native canvas support for all axes. Feature-detected automatically.
+
+3. **Canvas fallback** — `wght` via font-weight, `wdth` via font-stretch keywords with width-scaling correction, probe-canvas drift correction for static fonts. Used when SVG and FVS are unavailable.
+
+### Safari notes
+
+Safari's SVG engine partially applies `font-variation-settings` — standard axes (`wght`, `wdth`) work via their CSS property equivalents, but custom axes (`SOFT`, `GRAD`, etc.) may not be fully applied. Counter fills on Safari use `textLength` for alignment and increased dilation to compensate for glyph shape differences. Results are good but not pixel-identical to Chrome.
+
+---
+
+## Known gaps
+
+> Update later: these are tracked for future improvement.
+
+- **Safari custom axes** — Custom font-variation-settings axes (e.g. `SOFT`, `GRAD`) may not render pixel-perfect in Safari's SVG engine. Fills use increased dilation to compensate but may appear slightly smaller than on Chrome.
+- **Cross-origin fonts without registration** — Fonts loaded from cross-origin stylesheets (e.g. CDN `<link>` without CORS headers on the stylesheet) can't be auto-detected. Use `registerFont()` as a workaround.
+- **System fonts with variable axes** — Local/system variable fonts can't be fetched for SVG embedding. They fall back to the canvas path, which doesn't support custom axes.
+- **Google Fonts subset selection** — Auto-detection picks the last `@font-face` block per family/style/weight (typically latin). Fonts using non-latin characters may load the wrong subset.
 
 ---
 
@@ -277,5 +327,7 @@ Chrome 134+ (March 2025) supports `ctx.fontVariationSettings` natively. Feature 
 | | |
 |---|---|
 | Canvas 2D | All modern browsers |
+| SVG embedded-font path | All modern browsers (best variable font support) |
+| `ctx.fontVariationSettings` | Chrome 134+ (March 2025) |
 | `ctx.letterSpacing` | Chrome 99+, Firefox 116+, Safari 17.2+ |
 | `ResizeObserver` | Chrome 64+, Firefox 69+, Safari 13.1+ |

@@ -36,6 +36,7 @@
  *
  *   CounterFill.init(fills)   — paint all .wrap and .wrap-multi elements
  *   CounterFill.paint(el, fills) — paint one element
+ *   CounterFill.registerFont(family, url, opts) — register a font for SVG rendering
  */
 
 (function (global) {
@@ -107,14 +108,41 @@
   }
 
   // ── SVG font cache for pixel-accurate variable font rendering ────────────
-  // Stores family → [{ base64, unicodeRange }] for embedding in SVG <text>.
+  // Stores family|style|weight → { dataUrl, mime } for embedding in SVG <text>.
   // SVG <text> supports font-variation-settings natively, and drawing SVG to
   // canvas does NOT taint it (unlike foreignObject), so getImageData works.
-  const _fontCache = new Map(); // family → { dataUrl, mime }
+  const _fontCache = new Map(); // "family|style|weight" → { dataUrl, mime }
+
+  // Look up the best cached font for a given family/style/weight.
+  // Exact match first, then family-only fallback (variable fonts share one file).
+  function _getCachedFont(family, style, weight) {
+    return _fontCache.get(family + '|' + style + '|' + weight)
+        || _fontCache.get(family + '|normal|*')   // variable font wildcard
+        || _fontCache.get(family + '|*|*')         // any match for this family
+        || null;
+  }
+
+  // Helper: fetch a font URL and store as base64 in cache under the given key
+  async function _fetchAndCache(key, url) {
+    if (_fontCache.has(key)) return;
+    try {
+      const resp = await fetch(url);
+      const buf = await resp.arrayBuffer();
+      const bytes = new Uint8Array(buf);
+      let bin = '';
+      for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+      const ct = resp.headers.get('content-type') || '';
+      const mime = ct.includes('woff2') ? 'font/woff2'
+                 : ct.includes('woff')  ? 'font/woff'
+                 : ct.includes('ttf') || ct.includes('truetype') ? 'font/ttf'
+                 : 'application/octet-stream';
+      _fontCache.set(key, { dataUrl: 'data:' + mime + ';base64,' + btoa(bin), mime });
+    } catch(e) { /* fetch failed — this font uses fallback path */ }
+  }
 
   // Auto-detect font URLs from same-origin @font-face rules + Google Fonts <link> tags
   async function _autoDetectFonts() {
-    const found = new Map();
+    const toFetch = []; // [{ key, url }]
 
     // 1. Same-origin stylesheets — read @font-face src URLs
     for (const sheet of document.styleSheets) {
@@ -122,54 +150,76 @@
         for (const rule of sheet.cssRules) {
           if (rule instanceof CSSFontFaceRule) {
             const family = rule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim();
+            const style  = rule.style.getPropertyValue('font-style') || 'normal';
+            const weight = rule.style.getPropertyValue('font-weight') || '400';
             const src = rule.style.getPropertyValue('src');
             const urlMatch = src && src.match(/url\(["']?([^"')]+)["']?\)/);
-            if (urlMatch && !found.has(family)) found.set(family, urlMatch[1]);
+            if (urlMatch) {
+              // Variable fonts use weight ranges like "100 900"
+              const isVariable = weight.includes(' ');
+              const key = isVariable
+                ? family + '|normal|*'
+                : family + '|' + style + '|' + weight;
+              toFetch.push({ key, url: urlMatch[1] });
+            }
           }
         }
       } catch(e) { /* cross-origin sheet — skip */ }
     }
 
-    // 2. Google Fonts <link> tags — fetch CSS, extract font URLs
+    // 2. Google Fonts <link> tags — fetch CSS, extract font URLs with style/weight
     for (const link of document.querySelectorAll('link[href*="fonts.googleapis.com/css"]')) {
       try {
         const resp = await fetch(link.href);
         const css = await resp.text();
-        const rules = [...css.matchAll(/@font-face\s*\{[^}]*font-family:\s*['"]?([^;'"]+)['"]?;[^}]*src:\s*url\(([^)]+)\)[^}]*\}/g)];
-        for (const [, family, url] of rules) {
+        // Parse each @font-face block individually for family, style, weight, src
+        const blocks = css.split('@font-face');
+        for (const block of blocks) {
+          const famMatch = block.match(/font-family:\s*['"]?([^;'"]+)['"]?\s*;/);
+          const srcMatch = block.match(/src:\s*url\(([^)]+)\)/);
+          if (!famMatch || !srcMatch) continue;
+          const family = famMatch[1].trim();
+          const styleMatch = block.match(/font-style:\s*(\w+)/);
+          const weightMatch = block.match(/font-weight:\s*([\d\s]+)/);
+          const style = styleMatch ? styleMatch[1] : 'normal';
+          const weight = weightMatch ? weightMatch[1].trim() : '400';
+          const isVariable = weight.includes(' ');
           // Google Fonts CSS lists subsets in order: cyrillic-ext … latin.
-          // Overwrite each time so the last match (latin) wins.
-          found.set(family.trim(), url);
+          // Later entries (latin) overwrite earlier ones for the same key.
+          const key = isVariable
+            ? family + '|normal|*'
+            : family + '|' + style + '|' + weight;
+          // Keep last match per key (latin subset)
+          const idx = toFetch.findIndex(f => f.key === key);
+          if (idx >= 0) toFetch[idx].url = srcMatch[1];
+          else toFetch.push({ key, url: srcMatch[1] });
         }
       } catch(e) { /* fetch failed — skip */ }
     }
 
     // 3. Fetch each font and base64-encode
-    for (const [family, url] of found) {
-      if (_fontCache.has(family)) continue;
-      try {
-        const resp = await fetch(url);
-        const buf = await resp.arrayBuffer();
-        const bytes = new Uint8Array(buf);
-        let bin = '';
-        for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
-        // Detect format from Content-Type or URL; fall back to octet-stream
-        // so the browser auto-detects (avoids woff2 mismatch on Safari).
-        const ct = resp.headers.get('content-type') || '';
-        const mime = ct.includes('woff2') ? 'font/woff2'
-                   : ct.includes('woff')  ? 'font/woff'
-                   : ct.includes('ttf') || ct.includes('truetype') ? 'font/ttf'
-                   : 'application/octet-stream';
-        _fontCache.set(family, { dataUrl: 'data:' + mime + ';base64,' + btoa(bin), mime });
-      } catch(e) { /* fetch failed — this font uses fallback path */ }
-    }
+    await Promise.all(toFetch.map(({ key, url }) => _fetchAndCache(key, url)));
+  }
+
+  /**
+   * Register a font manually for SVG rendering.
+   * Use when fonts are loaded via JS (new FontFace()), cross-origin, or CDN.
+   * @param {string} family  - Font family name (must match CSS font-family)
+   * @param {string} url     - URL to the font file (woff2/woff/ttf)
+   * @param {Object} [opts]  - { style: 'normal', weight: '400' }
+   */
+  async function registerFont(family, url, opts) {
+    const style  = (opts && opts.style)  || 'normal';
+    const weight = (opts && opts.weight) || '*';
+    const key = family + '|' + style + '|' + weight;
+    await _fetchAndCache(key, url);
   }
 
   // Render text via SVG with embedded font — supports all font-variation-settings axes.
   // Returns a Promise that resolves to true (success) or false (fallback needed).
   async function _renderTextSVG(ctx, word, cs, baselineX, baselineY, pw, ph, dpr, domTextWidth) {
     const family = cs.fontFamily.split(',')[0].replace(/['"]/g, '').trim();
-    const cached = _fontCache.get(family);
+    const cached = _getCachedFont(family, cs.fontStyle || 'normal', cs.fontWeight || '400');
     if (!cached) return false;
 
     // getComputedStyle returns axis names in double quotes: "wdth" 100, "opsz" 8
@@ -628,6 +678,16 @@
     paint(el, fills) {
       el.classList.contains('wrap-multi') ? paintMulti(el, fills) : paintWrap(el, fills);
     },
+
+    /**
+     * Register a font for SVG rendering. Use for fonts loaded via JS,
+     * cross-origin stylesheets, or CDN-hosted fonts that can't be auto-detected.
+     * Call before init().
+     * @param {string} family  - Font family name (must match CSS font-family)
+     * @param {string} url     - URL to the font file (woff2/woff/ttf)
+     * @param {Object} [opts]  - { style: 'normal', weight: '400' }
+     */
+    registerFont: registerFont,
   };
 
   if (typeof module !== 'undefined' && module.exports) module.exports = CounterFill;
