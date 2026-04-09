@@ -201,7 +201,7 @@
       'letter-spacing:'+lsVal+'px;fill:white;}' +
       '</style></defs>' +
       '<text x="'+bx+'" y="'+by+'"' +
-      (domTextWidth > 0 ? ' textLength="'+Math.round(domTextWidth * dpr)+'" lengthAdjust="spacing"' : '') +
+      (domTextWidth > 0 ? ' textLength="'+Math.round(domTextWidth * dpr)+'" lengthAdjust="spacingAndGlyphs"' : '') +
       '>'+esc+'</text></svg>';
 
     const blob = new Blob([svg], {type:'image/svg+xml;charset=utf-8'});
@@ -292,7 +292,10 @@
         for (let dy = -DILATE; dy <= DILATE; dy++)
           for (let dx = -DILATE; dx <= DILATE; dx++) {
             const nx = x+dx, ny = y+dy;
-            if (nx>=0 && nx<pw && ny>=0 && ny<ph) dilated[ny*pw+nx] = 1;
+            // Never dilate into outside/background — only into letter strokes
+            // (hidden behind DOM text) or other counter pixels. Allows aggressive
+            // dilation without visible bleed.
+            if (nx>=0 && nx<pw && ny>=0 && ny<ph && !outside[ny*pw+nx]) dilated[ny*pw+nx] = 1;
           }
       }
 
@@ -350,11 +353,12 @@
     const ctx = cv.getContext('2d', { willReadFrequently: true });
     ctx.scale(dpr, dpr);
 
-    // ── SVG for variable fonts with explicit axes ──────────────────────────
-    // Only attempt SVG when fvs is set — static fonts use probe-canvas below.
-    // (SVG needs the exact style/weight variant cached; _fontCache stores one
-    // file per family, which can be the wrong variant for multi-style families.)
-    if (fvs !== 'normal' && _fontCache.size > 0) {
+    // ── SVG for variable fonts ──────────────────────────────────────────────
+    // Use SVG when the element has properties canvas can't honor:
+    //   - explicit font-variation-settings (custom axes)
+    //   - font-optical-sizing: none (canvas always auto-applies opsz)
+    const opsNone = cs.fontOpticalSizing === 'none';
+    if ((fvs !== 'normal' || opsNone) && _fontCache.size > 0) {
       const ok = await _renderTextSVG(ctx, word, cs, baselineX, baselineY, cv.width, cv.height, dpr, textEl.offsetWidth);
       if (ok) {
         const svgData = ctx.getImageData(0, 0, cv.width, cv.height).data;
@@ -366,7 +370,7 @@
         // SVG glyphs with smaller counters (custom axes like SOFT not applied).
         // Scale dilation with font size — large text needs more expansion.
         // Canvas sits behind DOM text (z-index), so over-dilation into strokes is hidden.
-        const svgDilate = _canUseFVS() ? 2 : Math.max(4, Math.round(parseFloat(cs.fontSize) * dpr * 0.04));
+        const svgDilate = _canUseFVS() ? 2 : Math.max(4, Math.round(parseFloat(cs.fontSize) * dpr * 0.03));
         if (hasInk) { bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops, svgDilate); return; }
         ctx.clearRect(0, 0, cv.width, cv.height);
       }
@@ -374,8 +378,8 @@
 
     // ── Canvas fallback: split by font type ──────────────────────────────────
 
-    if (fvs !== 'normal') {
-      // Variable font with explicit axes
+    if (fvs !== 'normal' || opsNone) {
+      // Variable font (explicit axes or opsz-sensitive)
 
       // Path A: ctx.fontVariationSettings (Chrome 134+, verified working)
       const _stretch = (cs.fontStretch && cs.fontStretch !== 'normal' && cs.fontStretch !== '100%')
@@ -484,7 +488,7 @@
     if (fontVariationSettings !== 'normal' && _fontCache.size > 0) {
       const cs = getComputedStyle(span.closest('.wrap-multi') || span);
       const ok = await _renderTextSVG(ctx, word, cs, bx, by, cv.width, cv.height, dpr, span.offsetWidth);
-      const mDilate = _canUseFVS() ? 2 : Math.max(4, Math.round(parseFloat(cs.fontSize) * dpr * 0.04));
+      const mDilate = _canUseFVS() ? 2 : Math.max(4, Math.round(parseFloat(cs.fontSize) * dpr * 0.03));
       if (ok) { bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops, mDilate); return; }
     }
 
