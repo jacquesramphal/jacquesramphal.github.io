@@ -18,7 +18,6 @@
     />
     <!-- Legacy: hero image after <header> block, tight container -->
     <GridContainer
-      tight
       v-if="hasHeaderTag && heroImageSrc && heroImage"
       style="scroll-snap-align: start"
     >
@@ -34,9 +33,10 @@
 
     <!-- New format: pre-title lead image, full viewport width, above TOC and content -->
     <GridContainer
-      fullvw
+      tight
       v-if="!hasHeaderTag && hasLeadImage && heroImageSrc && heroImage"
-      style="scroll-snap-align: start; margin-block-end: 0; padding-block-end: 0;"
+      class="lead-image-container"
+      style="scroll-snap-align: start; margin-block-end: 0; padding-block-end: 0"
     >
       <div class="hero-fullscreen-image hero-fullscreen-image--lead">
         <img
@@ -48,8 +48,7 @@
       </div>
     </GridContainer>
     <!-- :full="isFullWidth" -->
-    <GridContainer
-      :style="!hasHeaderTag && hasLeadImage ? 'padding-block-start: 0' : ''"
+    <GridContainer :style="!hasHeaderTag && hasLeadImage ? 'padding-block-start: 0' : ''"
       ><GridParent
         :class="[
           'markdown-layout',
@@ -72,12 +71,14 @@
               }
             "
           />
-          <FullscreenImage
-            v-if="lightboxOpen"
-            :isOpen="lightboxOpen"
-            :imageSrc="lightboxSrc"
-            @close="lightboxOpen = false"
-          />
+          <Teleport to="body">
+            <FullscreenImage
+              v-if="lightboxOpen"
+              :isOpen="lightboxOpen"
+              :imageSrc="lightboxSrc"
+              @close="lightboxOpen = false"
+            />
+          </Teleport>
           <div class="markdown-share">
             <button
               @click="togglePresenter"
@@ -115,6 +116,10 @@
       />
     </div>
 
+    <Teleport v-if="bylineReady" to="#article-byline-slot">
+      <ArticleByline :readTime="articleReadTime" :date="articleDate" />
+    </Teleport>
+
     <Teleport to="body">
       <PresenterBar
         v-if="presenterMode"
@@ -143,6 +148,8 @@ import GridContainer from '@/components/grid/GridContainer.vue';
 import FullscreenImage from '@/components/FullscreenImage.vue';
 import fallbackImage from '@/assets/images/placeholder.png';
 import libraryData from '@/assets/data/library.json';
+import ArticleByline from '@/components/ArticleByline.vue';
+import { getReadTime } from '@/utils/readTime';
 // import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
 
 // Pre-load all images using require.context so webpack can bundle them
@@ -211,6 +218,9 @@ export default {
     const statsLabel3 = ref('');
     const statsValue3 = ref('');
     const currentDocType = ref(null);
+    const articleReadTime = ref('');
+    const articleDate = ref('');
+    const bylineReady = ref(false);
     const isFullWidth = ref(false);
     const lightboxOpen = ref(false);
     const lightboxSrc = ref('');
@@ -517,6 +527,8 @@ export default {
           (entry) => entry.docId === record?.docId || entry.slug === record?.slug
         );
         currentDocType.value = libraryEntry?.type || null;
+        articleDate.value = libraryEntry?.date || '';
+        articleReadTime.value = getReadTime(contentFile);
 
         // Import markdown - markdown-loader may convert to HTML.
         // We need to fetch the raw file for extraction, but use processed for rendering
@@ -744,7 +756,26 @@ export default {
 
         // Remove header and first image from markdown
         // Use the markdown that will be rendered (might be HTML or markdown)
-        processedMarkdown.value = removeHeaderAndFirstImage(markdownForProcessing);
+        let cleaned = removeHeaderAndFirstImage(markdownForProcessing);
+
+        // Inject byline placeholder after the first h1 so ArticleByline
+        // can be teleported into it after render.
+        const bylinePlaceholder = '<div id="article-byline-slot"></div>';
+        const h1CloseIdx = cleaned.indexOf('</h1>');
+        if (h1CloseIdx !== -1) {
+          const insertAt = h1CloseIdx + '</h1>'.length;
+          cleaned = cleaned.slice(0, insertAt) + bylinePlaceholder + cleaned.slice(insertAt);
+        } else {
+          // Fallback: look for markdown h1 line and insert after it
+          cleaned = cleaned.replace(/^(#\s+.+)$/m, `$1\n${bylinePlaceholder}`);
+        }
+
+        processedMarkdown.value = cleaned;
+        // Wait for DOM to render, then activate the byline teleport
+        bylineReady.value = false;
+        nextTick(() => {
+          bylineReady.value = !!document.getElementById('article-byline-slot');
+        });
         console.log(
           'MarkdownPage: Processed markdown preview:',
           processedMarkdown.value.substring(0, 300)
@@ -757,7 +788,8 @@ export default {
 
     const handlePresenterShortcut = (e) => {
       const tag = document.activeElement?.tagName;
-      const isEditable = tag === 'INPUT' || tag === 'TEXTAREA' || document.activeElement?.isContentEditable;
+      const isEditable =
+        tag === 'INPUT' || tag === 'TEXTAREA' || document.activeElement?.isContentEditable;
       if (!isEditable && e.key === 'p' && !e.metaKey && !e.ctrlKey) {
         togglePresenter();
       }
@@ -830,7 +862,11 @@ export default {
 
       // If the path is already a resolved URL (webpack output, data URI, or absolute),
       // return it directly — no imageMap lookup needed.
-      if (imagePath.startsWith('/') || imagePath.startsWith('http') || imagePath.startsWith('data:')) {
+      if (
+        imagePath.startsWith('/') ||
+        imagePath.startsWith('http') ||
+        imagePath.startsWith('data:')
+      ) {
         return imagePath;
       }
 
@@ -990,6 +1026,9 @@ export default {
       statsLabel3,
       statsValue3,
       currentDocType,
+      articleReadTime,
+      articleDate,
+      bylineReady,
       relatedTitle,
       isFullWidth,
       currentSlug: computed(
@@ -1016,6 +1055,7 @@ export default {
     // TextStats,
     GridContainer,
     FullscreenImage,
+    ArticleByline,
   },
   computed: {
     showStats() {
@@ -1346,12 +1386,16 @@ export default {
   margin-block-start: var(--spacing-xl);
 }
 
-.markdown-layout--no-hero-lead {
-  margin-block-start: var(--spacing-md);
+.lead-image-container {
+  margin-block-start: calc(var(--spacing-md) + var(--spacing-xs));
 
   @media only screen and (min-width: 768px) {
-    margin-block-start: var(--spacing-lg);
+    margin-block-start: calc(var(--spacing-md) + var(--spacing-xxs));
   }
+}
+
+.markdown-layout--no-hero-lead {
+  margin-block-start: 0;
 }
 
 .markdown-layout--full-width {
@@ -1486,7 +1530,6 @@ export default {
   width: 100%;
   overflow: hidden;
   aspect-ratio: 16 / 9;
-  max-height: 75vh;
 
   &--lead {
     aspect-ratio: 4 / 3;
@@ -1526,7 +1569,6 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    border-radius: 0 !important;
 
     @media only screen and (min-width: 768px) {
       object-fit: cover;
@@ -1549,7 +1591,6 @@ export default {
     display: none !important;
   }
 }
-
 
 .presenter-mode {
   .toc-sidebar-wrap,
@@ -1577,6 +1618,4 @@ export default {
     }
   }
 }
-
-
 </style>

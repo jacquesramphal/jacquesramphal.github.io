@@ -1,7 +1,8 @@
 
-![Finding my lane](../images/placeholders/placeholder-24.svg)
 
 # I almost lost my job. Instead, I found my lane.
+
+![Finding my lane](../images/placeholders/placeholder-24.svg)
 
 Like so many others, I almost lost my job during COVID.
 

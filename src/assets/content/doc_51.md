@@ -1,7 +1,6 @@
 # The Designer in the Age of AI
-Shifting from inspectors to system stewards
-
 ![The Designer in the Age of AI](../images/placeholders/placeholder-12.svg)
+Shifting from inspectors to system stewards
 
 AI can review, compare, and suggest. What it can't do is care about the outcome.
 

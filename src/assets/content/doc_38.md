@@ -1,6 +1,6 @@
-![Design Guard](../images/placeholders/placeholder-26.svg)
 
 # Design Guard
+![Design Guard](../images/placeholders/placeholder-26.svg)
 A pre-commit scanner that flags hardcoded design values before they reach the codebase.
 
 | | |

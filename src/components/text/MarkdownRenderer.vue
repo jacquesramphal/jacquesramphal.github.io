@@ -819,7 +819,7 @@ export default {
     }
   }
 
-  img {
+  img:not(.article-byline__avatar) {
     cursor: zoom-in;
     margin-block: var(--spacing-xs) var(--spacing-xxxs);
 
@@ -834,6 +834,16 @@ export default {
     @media only screen and (min-width: 1201px) {
       margin-block: var(--spacing-md) 0;
     }
+  }
+
+  .article-byline__avatar {
+    width: 24px !important;
+    height: 24px !important;
+    object-fit: cover !important;
+    object-position: center top;
+    border-radius: 50%;
+    margin: 0 !important;
+    cursor: default !important;
   }
 
   // First image (hero image) - Scale to grid width with flexible height
