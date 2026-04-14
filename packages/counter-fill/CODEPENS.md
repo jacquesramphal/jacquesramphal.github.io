@@ -15,6 +15,7 @@ Nothing else is required. No CodePen external resources, no font `<link>` in the
 ---
 
 ## 1. Basic — Static Fonts
+pen id: 019d6a8b-f8b2-7211-a1f0-6497fa65c2d4
 
 ### HTML
 
@@ -44,7 +45,7 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 ### JS (paste below the `counter-fill.js` library)
 
 ```js
-document.fonts.ready.then(() => CounterFill.init({
+window.addEventListener('load', () => CounterFill.init({
   w1: { stops: ['#f5c842','#d4820a','#7a3a08'] },
   w2: { stops: ['#ff6060','#c01020','#600010'] },
   w3: { stops: ['#e05c5c','#a01830','#4a0010'] },
@@ -56,6 +57,7 @@ document.fonts.ready.then(() => CounterFill.init({
 ---
 
 ## 2. Multi-line
+pen id: 019d898a-a047-77b1-bc38-f47b3c473866
 
 ### HTML
 
@@ -71,13 +73,13 @@ document.fonts.ready.then(() => CounterFill.init({
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: column; align-items: center; gap: 64px; }
 
-.wm { font-family: 'Playfair Display', serif; font-size: clamp(48px,11vw,110px); font-weight: 900; color: #f0ece4; max-width: min(680px,88vw); }
+.wm { font-family: 'Playfair Display', serif; font-size: clamp(36px,8vw,80px); font-weight: 900; color: #f0ece4; max-width: min(680px,88vw); }
 ```
 
 ### JS (paste below the `counter-fill.js` library)
 
 ```js
-document.fonts.ready.then(() => CounterFill.init({
+window.addEventListener('load', () => CounterFill.init({
   wm: { stops: ['#f5c842','#d4820a','#7a3a08'] },
 }));
 ```
@@ -85,6 +87,7 @@ document.fonts.ready.then(() => CounterFill.init({
 ---
 
 ## 3. Variable Fonts — wght x wdth
+pen id: 019d6a98-6565-7819-a86b-c9157ef62c55
 
 ### HTML
 
@@ -131,7 +134,7 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 ### JS (paste below the `counter-fill.js` library)
 
 ```js
-document.fonts.ready.then(() => CounterFill.init({
+window.addEventListener('load', () => CounterFill.init({
   vf1: { stops: ['#80d0ff','#2060e0','#001080'] },
   vf2: { stops: ['#80d0ff','#2060e0','#001080'] },
   vf3: { stops: ['#80d0ff','#2060e0','#001080'] },
@@ -143,6 +146,8 @@ document.fonts.ready.then(() => CounterFill.init({
 ---
 
 ## 4. Variable Fonts — Custom Axis (Fraunces SOFT)
+
+pen id: 019d899c-00c0-71bb-8afb-1845143ed8e3
 
 ### HTML
 
@@ -182,7 +187,7 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 ### JS (paste below the `counter-fill.js` library)
 
 ```js
-document.fonts.ready.then(() => CounterFill.init({
+window.addEventListener('load', () => CounterFill.init({
   vfd1: { stops: ['#c0a8ff','#6030c0','#200860'] },
   vfd2: { stops: ['#c0a8ff','#6030c0','#200860'] },
   vfd3: { stops: ['#c0a8ff','#6030c0','#200860'] },
@@ -192,6 +197,8 @@ document.fonts.ready.then(() => CounterFill.init({
 ---
 
 ## 5. Letter-spacing
+
+pen id: 019d89a1-39d1-7e9e-907b-06bb12eb48a6
 
 ### HTML
 
@@ -228,7 +235,7 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 ### JS (paste below the `counter-fill.js` library)
 
 ```js
-document.fonts.ready.then(() => CounterFill.init({
+window.addEventListener('load', () => CounterFill.init({
   ls1: { stops: ['#e05c5c','#a01830','#4a0010'] },
   ls2: { stops: ['#e05c5c','#a01830','#4a0010'] },
   ls3: { stops: ['#e05c5c','#a01830','#4a0010'] },
@@ -238,6 +245,8 @@ document.fonts.ready.then(() => CounterFill.init({
 ---
 
 ## 6. Text-shadow + Line-height
+
+pen id: 019d89a2-a0a5-780c-80f0-88e28a67ab41
 
 ### HTML
 
@@ -276,14 +285,14 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
   color: #f0ece4;
   max-width: min(680px,88vw);
 }
-.lh1 { line-height: 1; }
-.lh2 { line-height: 1.4; }
+  .lh1.wrap-multi { line-height: 1; }                                                                                                       
+  .lh2.wrap-multi { line-height: 1.4; }
 ```
 
 ### JS (paste below the `counter-fill.js` library)
 
 ```js
-document.fonts.ready.then(() => CounterFill.init({
+window.addEventListener('load', () => CounterFill.init({
   ts1: { stops: ['#ffe040','#e08000','#804000'] },
   lh1: { stops: ['#60e0a0','#108050','#003020'] },
   lh2: { stops: ['#60e0a0','#108050','#003020'] },
@@ -336,7 +345,7 @@ button { font-family: system-ui, sans-serif; font-size: 14px; padding: 8px 20px;
 ### JS (paste below the `counter-fill.js` library)
 
 ```js
-document.fonts.ready.then(() => CounterFill.init({
+window.addEventListener('load', () => CounterFill.init({
   pf1: { stops: ['#f5c842','#d4820a','#7a3a08'] },
   pf2: { stops: ['#e05c5c','#a01830','#4a0010'] },
 }));
@@ -384,7 +393,7 @@ body { background: #0e0e0e; padding: 40px 24px; display: flex; flex-direction: c
 ### JS (paste below the `counter-fill.js` library)
 
 ```js
-document.fonts.ready.then(() => CounterFill.init({
+window.addEventListener('load', () => CounterFill.init({
   s1:  { stops: ['#f5c842','#d4820a','#7a3a08'] },
   s2:  { stops: ['#ff6060','#c01020','#600010'] },
   s3:  { stops: ['#e05c5c','#a01830','#4a0010'] },
@@ -404,48 +413,79 @@ document.fonts.ready.then(() => CounterFill.init({
 
 ## 9. Writing Modes
 
-Tests counter fill behaviour under horizontal (default), `vertical-rl`, and `vertical-lr` writing modes. Baseline measurement assumes horizontal text — vertical modes may affect fill alignment.
+pen id: 019d89a7-2448-7026-bd64-0c5a56e6d3d3
+
+Tests counter fill under `direction: rtl` (Arabic), `writing-mode: vertical-rl`, and `writing-mode: vertical-lr`. Vertical modes use the SVG rendering path (canvas `fillText` can't render vertically), so the font `<link>` in the HTML is required for auto-detection.
 
 ### HTML
 
 ```html
-<p class="label">horizontal (default)</p>
-<div class="wrap wm-h" id="wm-h"><canvas></canvas><span class="text">Aperture</span></div>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Amiri:wght@700&display=swap" rel="stylesheet">
+
+<p class="label">direction: rtl (Arabic)</p>
+<div class="wrap wm-rtl" id="wm-rtl"><canvas></canvas><span class="text">قافية</span></div>
+
+<p class="label">direction: rtl (Arabic, longer)</p>
+<div class="wrap wm-rtl2" id="wm-rtl2"><canvas></canvas><span class="text">طباعة جميلة</span></div>
 
 <p class="label">writing-mode: vertical-rl</p>
-<div class="wrap wm-vrl" id="wm-vrl"><canvas></canvas><span class="text">Aperture</span></div>
+<div class="wrap wm-vrl" id="wm-vrl"><canvas></canvas><span class="text">Baroque Obsidian</span></div>
+
+<p class="label">writing-mode: vertical-rl (shorter)</p>
+<div class="wrap wm-vrl2" id="wm-vrl2"><canvas></canvas><span class="text">Polygon Drop</span></div>
 
 <p class="label">writing-mode: vertical-lr</p>
-<div class="wrap wm-vlr" id="wm-vlr"><canvas></canvas><span class="text">Aperture</span></div>
+<div class="wrap wm-vlr" id="wm-vlr"><canvas></canvas><span class="text">Golden Aperture</span></div>
+
+<p class="label">writing-mode: vertical-lr (shorter)</p>
+<div class="wrap wm-vlr2" id="wm-vlr2"><canvas></canvas><span class="text">Encode Loop</span></div>
+
+<p class="label">horizontal LTR (baseline)</p>
+<div class="wrap wm-h" id="wm-h"><canvas></canvas><span class="text">Aperture</span></div>
 ```
 
 ### CSS
 
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Amiri:wght@700&display=swap');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: column; align-items: center; gap: 48px; }
 .label { font-family: ui-monospace, monospace; font-size: 11px; color: #555; }
 
+.wm-rtl .text,
+.wm-rtl2 .text {
+  font-family: 'Amiri', serif;
+  font-size: clamp(48px, 10vw, 96px);
+  font-weight: 700;
+  color: #fdf6e3;
+  direction: rtl;
+}
+
 .wm-h .text,
 .wm-vrl .text,
-.wm-vlr .text {
+.wm-vrl2 .text,
+.wm-vlr .text,
+.wm-vlr2 .text {
   font-family: 'Abril Fatface', serif;
-  font-size: clamp(60px, 15vw, 140px);
+  font-size: clamp(48px, 10vw, 96px);
   color: #fdf6e3;
 }
 
-.wm-vrl { writing-mode: vertical-rl; }
-.wm-vlr { writing-mode: vertical-lr; }
+.wm-vrl, .wm-vrl2 { writing-mode: vertical-rl; }
+.wm-vlr, .wm-vlr2 { writing-mode: vertical-lr; }
 ```
 
 ### JS (paste below the `counter-fill.js` library)
 
 ```js
-document.fonts.ready.then(() => CounterFill.init({
-  'wm-h':   { stops: ['#f5c842','#d4820a','#7a3a08'] },
-  'wm-vrl': { stops: ['#c0a8ff','#6030c0','#200860'] },
-  'wm-vlr': { stops: ['#40ffb0','#10a060','#004030'] },
+window.addEventListener('load', () => CounterFill.init({
+  'wm-rtl':  { stops: ['#ffee70','#ffb020','#e08000'] },
+  'wm-rtl2': { stops: ['#ffee70','#ffb020','#e08000'] },
+  'wm-vrl':  { stops: ['#e0c0ff','#a060ff','#6020e0'] },
+  'wm-vrl2': { stops: ['#e0c0ff','#a060ff','#6020e0'] },
+  'wm-vlr':  { stops: ['#80ffcc','#30e090','#10a060'] },
+  'wm-vlr2': { stops: ['#80ffcc','#30e090','#10a060'] },
+  'wm-h':    { stops: ['#ffe060','#f5c040','#e0a020'] },
 }));
 ```

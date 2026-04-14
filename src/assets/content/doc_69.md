@@ -78,8 +78,13 @@ await CounterFill.registerFont('My Font', '/fonts/my-font.woff2');
 await CounterFill.registerFont('My Font', '/fonts/my-font-italic.woff2', { style: 'italic', weight: '700' });
 ```
 
-<!-- PLACEHOLDER: Add variable font CodePen embed (wght × wdth axes, Roboto Flex) once created from CODEPENS.md snippet #3 -->
+### wght × wdth (Roboto Flex)
+
 <iframe height="700" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/019d6a98-6565-7819-a86b-c9157ef62c55?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
+
+### Custom axis — SOFT (Fraunces)
+
+<iframe height="700" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/019d899c-00c0-71bb-8afb-1845143ed8e3?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
 
 
 
@@ -144,7 +149,7 @@ For Vue, React, and module setups, see the [full README on GitHub](https://githu
 
 `ctx.letterSpacing` is supported in Chrome 99+, Firefox 116+, and Safari 17.2+. On older browsers without it, fills still render but may drift slightly on text with non-zero `letter-spacing`. It degrades gracefully; it doesn't break.
 
-<!-- PLACEHOLDER: Add letter-spacing CodePen embed once created from CODEPENS.md snippet #5 -->
+<iframe height="600" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/019d89a1-39d1-7e9e-907b-06bb12eb48a6?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
 
 ### Text-shadow
 
@@ -154,7 +159,7 @@ CSS `text-shadow` doesn't carry into the canvas context, so the fill mask is alw
 
 Multi-line mode splits words into per-word canvases. Line-height affects the spacing between those canvases, not the fill detection. The BFS region filter also rejects the flat gaps between words as false positives, so tight or loose leading doesn't produce spurious fills.
 
-<!-- PLACEHOLDER: Add text-shadow + line-height CodePen embed once created from CODEPENS.md snippet #6 -->
+<iframe height="700" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/019d89a2-a0a5-780c-80f0-88e28a67ab41?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
 
 ### Print
 
@@ -170,13 +175,11 @@ More elaborate print fallbacks — restoring a CSS background or outline effect 
 
 <!-- TODO: Test print behaviour in Firefox and Safari, confirm fallback needed and update this section accordingly -->
 
-### Vertical writing modes
+### Writing modes
 
-`writing-mode: vertical-rl` and `vertical-lr` have not been tested. Baseline measurement assumes horizontal text — vertical modes may affect alignment.
+Canvas `fillText` renders horizontally only, so vertical writing modes (`vertical-rl`, `vertical-lr`) use the SVG embedded-font rendering path. The font is fetched, base64-encoded, and drawn as SVG `<text>` with `writing-mode` set, then painted to canvas for BFS detection. RTL direction works natively since the shaping engine handles bidi within horizontal rendering.
 
-<iframe height="600" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/[WRITING-MODES-PEN-ID]?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
-
-<!-- TODO: Create CodePen from CODEPENS.md snippet #9, paste URL above, then update section copy with findings -->
+<iframe height="700" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/019d89a7-2448-7026-bd64-0c5a56e6d3d3?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
 
 
 

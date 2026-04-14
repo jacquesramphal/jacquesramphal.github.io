@@ -215,9 +215,10 @@
     await _fetchAndCache(key, url);
   }
 
-  // Render text via SVG with embedded font — supports all font-variation-settings axes.
+  // Render text via SVG with embedded font — supports all font-variation-settings axes
+  // and vertical writing modes (canvas fillText can't render vertically).
   // Returns a Promise that resolves to true (success) or false (fallback needed).
-  async function _renderTextSVG(ctx, word, cs, baselineX, baselineY, pw, ph, dpr, domTextWidth) {
+  async function _renderTextSVG(ctx, word, cs, baselineX, baselineY, pw, ph, dpr, domTextWidth, writingMode) {
     const family = cs.fontFamily.split(',')[0].replace(/['"]/g, '').trim();
     const cached = _getCachedFont(family, cs.fontStyle || 'normal', cs.fontWeight || '400');
     if (!cached) return false;
@@ -237,6 +238,20 @@
     // Escape text for XML
     const esc = word.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
+    // ── Vertical writing mode support ───────────────────────────────────────
+    const isVert = writingMode && writingMode.startsWith('vertical');
+    const wmCss = isVert ? 'writing-mode:' + writingMode + ';text-orientation:mixed;' : '';
+    let tx, ty, extraAttrs;
+    if (isVert) {
+      tx = Math.round(pw / 2);
+      ty = 0;
+      extraAttrs = ' dominant-baseline="central"';
+    } else {
+      tx = bx;
+      ty = by;
+      extraAttrs = domTextWidth > 0 ? ' textLength="'+Math.round(domTextWidth * dpr)+'" lengthAdjust="spacingAndGlyphs"' : '';
+    }
+
     // All font properties go in <style> block — Safari ignores some font
     // properties in SVG inline styles. Include every property that affects
     // glyph metrics to prevent cumulative horizontal drift across letters.
@@ -248,10 +263,9 @@
       'font-variation-settings:'+fvs+';' +
       'font-optical-sizing:'+(cs.fontOpticalSizing||'none')+';' +
       'font-kerning:'+kerning+';font-feature-settings:'+ffs+';' +
-      'letter-spacing:'+lsVal+'px;fill:white;}' +
+      'letter-spacing:'+lsVal+'px;' + wmCss + 'fill:white;}' +
       '</style></defs>' +
-      '<text x="'+bx+'" y="'+by+'"' +
-      (domTextWidth > 0 ? ' textLength="'+Math.round(domTextWidth * dpr)+'" lengthAdjust="spacingAndGlyphs"' : '') +
+      '<text x="'+tx+'" y="'+ty+'"' + extraAttrs +
       '>'+esc+'</text></svg>';
 
     const blob = new Blob([svg], {type:'image/svg+xml;charset=utf-8'});
@@ -402,6 +416,15 @@
     cv.height = Math.round(H * dpr);
     const ctx = cv.getContext('2d', { willReadFrequently: true });
     ctx.scale(dpr, dpr);
+
+    // ── Vertical writing mode — canvas fillText can't render vertically ────
+    const wm = getComputedStyle(wrap).writingMode || 'horizontal-tb';
+    const isVertical = wm.startsWith('vertical');
+    if (isVertical && _fontCache.size > 0) {
+      const ok = await _renderTextSVG(ctx, word, cs, baselineX, baselineY, cv.width, cv.height, dpr, textEl.offsetWidth, wm);
+      if (ok) { bfsAndPaint(cv, ctx, cv.width, cv.height, fill.stops); return; }
+      ctx.clearRect(0, 0, cv.width, cv.height);
+    }
 
     // ── SVG for variable fonts ──────────────────────────────────────────────
     // Use SVG when the element has properties canvas can't honor:
@@ -659,6 +682,7 @@
     async init(fills) {
       _injectStyles();
       await _autoDetectFonts();
+      await document.fonts.ready;
       document.querySelectorAll('.wrap').forEach(el => paintWrap(el, fills));
       document.querySelectorAll('.wrap-multi').forEach(el => paintMulti(el, fills));
 
