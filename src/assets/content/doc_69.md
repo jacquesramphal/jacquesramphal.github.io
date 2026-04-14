@@ -173,8 +173,9 @@ More elaborate print fallbacks — restoring a CSS background or outline effect 
 
 `writing-mode: vertical-rl` and `vertical-lr` have not been tested. Baseline measurement assumes horizontal text — vertical modes may affect alignment.
 
-<!-- PLACEHOLDER: Add vertical writing modes CodePen embed once tested -->
-<!-- TODO: Test vertical writing modes and update this section with findings -->
+<iframe height="600" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/[WRITING-MODES-PEN-ID]?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
+
+<!-- TODO: Create CodePen from CODEPENS.md snippet #9, paste URL above, then update section copy with findings -->
 
 
 

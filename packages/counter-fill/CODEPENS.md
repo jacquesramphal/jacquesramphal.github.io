@@ -371,3 +371,51 @@ body { background: #0e0e0e; padding: 40px 24px; display: flex; flex-direction: c
 
 [class^="s"] .text { font-size: clamp(48px,12vw,120px); color: #f0ece4; }
 ```
+
+---
+
+## 9. Writing Modes
+
+Tests counter fill behaviour under horizontal (default), `vertical-rl`, and `vertical-lr` writing modes. Baseline measurement assumes horizontal text — vertical modes may affect fill alignment.
+
+### HTML
+
+```html
+<p class="label">horizontal (default)</p>
+<div class="wrap wm-h" id="wm-h"><canvas></canvas><span class="text">Aperture</span></div>
+
+<p class="label">writing-mode: vertical-rl</p>
+<div class="wrap wm-vrl" id="wm-vrl"><canvas></canvas><span class="text">Aperture</span></div>
+
+<p class="label">writing-mode: vertical-lr</p>
+<div class="wrap wm-vlr" id="wm-vlr"><canvas></canvas><span class="text">Aperture</span></div>
+
+<script>
+document.fonts.ready.then(() => CounterFill.init({
+  'wm-h':   { stops: ['#f5c842','#d4820a','#7a3a08'] },
+  'wm-vrl': { stops: ['#c0a8ff','#6030c0','#200860'] },
+  'wm-vlr': { stops: ['#40ffb0','#10a060','#004030'] },
+}));
+</script>
+```
+
+### CSS
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: column; align-items: center; gap: 48px; }
+.label { font-family: ui-monospace, monospace; font-size: 11px; color: #555; }
+
+.wm-h .text,
+.wm-vrl .text,
+.wm-vlr .text {
+  font-family: 'Abril Fatface', serif;
+  font-size: clamp(60px, 15vw, 140px);
+  color: #fdf6e3;
+}
+
+.wm-vrl { writing-mode: vertical-rl; }
+.wm-vlr { writing-mode: vertical-lr; }
+```
