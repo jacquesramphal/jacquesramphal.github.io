@@ -1,0 +1,30 @@
+{
+  "name": "@jacquesramphal/counter-fill",
+  "version": "0.1.0",
+  "description": "Fill the enclosed counter spaces inside letterforms with any colour or gradient. Works on any word, any font, any size.",
+  "license": "MIT",
+  "private": false,
+  "main": "./counter-fill.js",
+  "exports": {
+    ".": "./counter-fill.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "counter-fill.js",
+    "demo.html",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "typography",
+    "canvas",
+    "counter",
+    "fill",
+    "typeface",
+    "lettering"
+  ]
+}
