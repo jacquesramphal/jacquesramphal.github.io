@@ -16,13 +16,13 @@ In print and in design tools, filling a counter with a contrasting colour is a s
 
 In the browser, on live text, nobody had solved it. Not with something that works on any font, at any size, without exporting the type as an image first.
 
-I noticed the gap because I work on both sides of the design-development divide. Designers don't think about what it takes to replicate a print technique in code. Developers don't think about letterform counters. The absence was obvious from where I was standing.
+I work on both sides of that gap. When you design something and then have to build it yourself, you end up with a running list of techniques that exist in print but have no browser equivalent. Counter fills were on that list for a long time.
 
 
 
 ## Why the workarounds fall short
 
-The existing options are all compromises. SVG paths drawn by hand require redrawing for every font change and fall apart the moment you scale or reflow. CSS blend mode tricks depend on the background being a specific colour and break on anything textured or dark. Image exports throw away accessibility entirely — the text becomes unpickable, unsearchable, invisible to screen readers.
+The existing options are all compromises. SVG paths drawn by hand require redrawing for every font change and fall apart the moment you scale or reflow. CSS blend mode tricks depend on the background being a specific colour and break on anything textured or dark. Image exports throw away accessibility entirely: the text becomes unpickable, unsearchable, invisible to screen readers.
 
 The constraint I set: real DOM text, any font, any size, accessible. No pre-baked paths. No images. Nothing hardcoded to a specific letterform.
 
@@ -34,13 +34,15 @@ Counter Fill uses Canvas 2D as a rendering surface. It draws the text onto an of
 
 The canvas doesn't need bezier paths or letterform outlines. It just needs to know which pixels are ink and which are air, which the browser's Canvas 2D context already knows.
 
-Three details make it work reliably rather than just in a demo:
+Three details make it work reliably in production rather than just in a demo:
 
 **Baseline alignment.** The Canvas `textBaseline` and DOM layout don't agree precisely. A probe canvas measures where the ink actually lands, compares it against the expected position, and corrects the offset before drawing. Without this, fills drift at specific screen densities and across browsers.
 
 **Dilation.** Counter pixels are expanded 2px outward before painting to close antialiasing gaps at stroke edges. The text span sits above the canvas via `z-index`, so any bleed is covered by the strokes themselves.
 
 **Multi-line.** In multi-line mode, each word gets its own canvas, measured by a zero-width baseline probe span. The gradient stays coherent across line breaks because all word canvases share the same gradient origin.
+
+One side effect of the BFS approach: it generalises to any enclosed region, not just the counters you'd expect. Letters with unusual or large counter shapes work without any special handling.
 
 
 
@@ -66,7 +68,7 @@ Counter Fill selects from three rendering paths automatically:
 2. **`ctx.fontVariationSettings`** — Chrome 134+ added native canvas support for variation settings. When available, this path is used directly.
 3. **Canvas fallback** — `wght` maps to font-weight, `wdth` maps to font-stretch keywords with a width-scaling correction pass. Works everywhere; doesn't support custom axes.
 
-Safari's SVG engine partially applies `font-variation-settings`. Standard axes (`wght`, `wdth`) work via their CSS property equivalents, but custom axes like `SOFT` may not render pixel-identically to Chrome. Fills on Safari use increased dilation and `textLength` for alignment. The result is visually close, not pixel-perfect.
+Safari's SVG engine partially applies `font-variation-settings`. Standard axes (`wght`, `wdth`) work via their CSS property equivalents, but custom axes like `SOFT` may not render pixel-identically to Chrome. Fills on Safari use increased dilation and `textLength` for alignment.
 
 Fonts are auto-detected from Google Fonts `<link>` tags and same-origin `@font-face` rules. Cross-origin fonts and fonts loaded via JavaScript need to be registered manually:
 
@@ -139,7 +141,7 @@ For Vue, React, and module setups, see the [full README on GitHub](https://githu
 
 ### Letter-spacing
 
-`ctx.letterSpacing` is supported in Chrome 99+, Firefox 116+, and Safari 17.2+. On older browsers, counter fills still render — the BFS detection still works — but fills may drift slightly on text with non-zero `letter-spacing`. The effect degrades gracefully; it doesn't break.
+`ctx.letterSpacing` is supported in Chrome 99+, Firefox 116+, and Safari 17.2+. On older browsers without it, fills still render but may drift slightly on text with non-zero `letter-spacing`. It degrades gracefully; it doesn't break.
 
 <!-- PLACEHOLDER: Add letter-spacing CodePen embed once created from CODEPENS.md snippet #5 -->
 
@@ -149,7 +151,7 @@ CSS `text-shadow` doesn't carry into the canvas context, so the fill mask is alw
 
 ### Line-height
 
-Multi-line mode splits words into per-word canvases. Line-height affects the spacing between those canvases, not the fill detection. The BFS region filter also rejects wide flat strips — the gaps between a canvas bottom edge and the next word — as false positives, so tight or loose leading doesn't produce spurious fills.
+Multi-line mode splits words into per-word canvases. Line-height affects the spacing between those canvases, not the fill detection. The BFS region filter also rejects the flat gaps between words as false positives, so tight or loose leading doesn't produce spurious fills.
 
 <!-- PLACEHOLDER: Add text-shadow + line-height CodePen embed once created from CODEPENS.md snippet #6 -->
 
@@ -200,6 +202,6 @@ Paint only happens on init and on resize. There's no continuous loop.
 
 ## What I learned
 
-The gap between "this seems like a small detail" and "this took significant effort to get right" is almost entirely about making two rendering systems agree on where text actually sits. Canvas and the DOM have independent layout engines, and they disagree in ways that only show up at specific screen densities, specific fonts, and specific letter-spacing values. The drift correction pass wasn't an optimization — it was necessary.
+The hardest part had nothing to do with the fill algorithm. Making Canvas and the DOM agree on where text actually sits took longer than everything else. They have independent layout engines that disagree in ways that only show up at specific screen densities, specific fonts, and specific letter-spacing values. The drift correction pass wasn't a later optimisation; it was necessary from the start.
 
-The other thing worth noting: the BFS approach generalises completely. It doesn't know what a counter is. It finds enclosed transparent regions and fills them. That means it works on any font, any weight, any character — including unusual counter shapes that a path-based approach would have to handle explicitly.
+If you work on both the design and the code, you know what it's like to find a technique that exists everywhere except the browser. Some of those gaps are hard for good reasons. This one turned out to be solvable with a flood fill. I'm glad I looked.
