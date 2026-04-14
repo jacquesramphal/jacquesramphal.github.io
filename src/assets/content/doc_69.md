@@ -155,7 +155,7 @@ Multi-line mode splits words into per-word canvases. Line-height affects the spa
 
 ### Print
 
-Canvas content doesn't print. The text stays fully readable; the decorative fill disappears. For print contexts, a `@media print` CSS fallback keeps the text legible:
+Canvas content doesn't print by default, but Chrome renders it correctly. For other browsers, a `@media print` CSS fallback keeps the text legible:
 
 ```css
 @media print {
@@ -165,9 +165,14 @@ Canvas content doesn't print. The text stays fully readable; the decorative fill
 
 More elaborate print fallbacks — restoring a CSS background or outline effect — are possible but aren't built into the library.
 
+<!-- TODO: Test print behaviour in Firefox and Safari, confirm fallback needed and update this section accordingly -->
+
 ### Vertical writing modes
 
-`writing-mode: vertical-rl` and `vertical-lr` are not currently supported. Baseline measurement assumes horizontal text. This is a known gap.
+`writing-mode: vertical-rl` and `vertical-lr` have not been tested. Baseline measurement assumes horizontal text — vertical modes may affect alignment.
+
+<!-- PLACEHOLDER: Add vertical writing modes CodePen embed once tested -->
+<!-- TODO: Test vertical writing modes and update this section with findings -->
 
 
 
