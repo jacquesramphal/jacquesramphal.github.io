@@ -208,11 +208,11 @@ export default {
     this.$nextTick(() => {
       const h1 = document.querySelector('h1.title');
       if (h1) {
-        h1.id = 'hero-title';
+        // h1.id = 'hero-title';
         h1.classList.add('wrap-multi');
         document.fonts.ready.then(() => {
           CounterFill.init({
-            'hero-title': { stops: ['var(--color-pink)', 'var(--color-lightyellow)'] },
+            'hero-title': { stops: ['var(--foreground)'] },
           });
         });
       }
