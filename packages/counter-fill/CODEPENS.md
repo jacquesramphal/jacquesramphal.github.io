@@ -1,6 +1,16 @@
 # Counter Fill — CodePen Snippets
 
-Each snippet below is a self-contained HTML + CSS example. Paste the JS tab from `counter-fill.js` yourself.
+Each snippet below is a self-contained HTML + CSS + JS example.
+
+## How to set up each pen
+
+1. **JS pane:** paste the full contents of [`counter-fill.js`](./counter-fill.js) at the top, then paste the snippet's JS block below it. The library exposes `window.CounterFill` and the snippet's `CounterFill.init({...})` call paints the elements.
+2. **HTML pane:** paste the snippet's HTML.
+3. **CSS pane:** paste the snippet's CSS (the `@import` line loads the Google Font).
+
+Nothing else is required. No CodePen external resources, no font `<link>` in the HTML — the library auto-detects Google Fonts from same-origin `@font-face` rules and `<link>` tags, and the CSS auto-injects from `CounterFill.init()`.
+
+> If you'd rather link the library as an external resource instead of pasting it, add the raw URL to **Pen Settings → JS → Add External Scripts/Pens**, and keep only the `CounterFill.init({...})` call in the JS pane.
 
 ---
 
@@ -14,16 +24,6 @@ Each snippet below is a self-contained HTML + CSS example. Paste the JS tab from
 <div class="wrap w3" id="w3"><canvas></canvas><span class="text">Aperture</span></div>
 <div class="wrap w4" id="w4"><canvas></canvas><span class="text">Obsidian</span></div>
 <div class="wrap w5" id="w5"><canvas></canvas><span class="text">Phantom</span></div>
-
-<script>
-document.fonts.ready.then(() => CounterFill.init({
-  w1: { stops: ['#f5c842','#d4820a','#7a3a08'] },
-  w2: { stops: ['#ff6060','#c01020','#600010'] },
-  w3: { stops: ['#e05c5c','#a01830','#4a0010'] },
-  w4: { stops: ['#c0a8ff','#6030c0','#200860'] },
-  w5: { stops: ['#40ffb0','#10a060','#004030'] },
-}));
-</script>
 ```
 
 ### CSS
@@ -41,6 +41,18 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 .w5 .text { font-family: 'Yeseva One', serif; font-size: clamp(60px,15vw,140px); color: #f5f0eb; }
 ```
 
+### JS (paste below the `counter-fill.js` library)
+
+```js
+document.fonts.ready.then(() => CounterFill.init({
+  w1: { stops: ['#f5c842','#d4820a','#7a3a08'] },
+  w2: { stops: ['#ff6060','#c01020','#600010'] },
+  w3: { stops: ['#e05c5c','#a01830','#4a0010'] },
+  w4: { stops: ['#c0a8ff','#6030c0','#200860'] },
+  w5: { stops: ['#40ffb0','#10a060','#004030'] },
+}));
+```
+
 ---
 
 ## 2. Multi-line
@@ -49,12 +61,6 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 
 ```html
 <div class="wrap-multi wm" id="wm">Golden Baroque Obsidian Aperture</div>
-
-<script>
-document.fonts.ready.then(() => CounterFill.init({
-  wm: { stops: ['#f5c842','#d4820a','#7a3a08'] },
-}));
-</script>
 ```
 
 ### CSS
@@ -68,6 +74,14 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 .wm { font-family: 'Playfair Display', serif; font-size: clamp(48px,11vw,110px); font-weight: 900; color: #f0ece4; max-width: min(680px,88vw); }
 ```
 
+### JS (paste below the `counter-fill.js` library)
+
+```js
+document.fonts.ready.then(() => CounterFill.init({
+  wm: { stops: ['#f5c842','#d4820a','#7a3a08'] },
+}));
+```
+
 ---
 
 ## 3. Variable Fonts — wght x wdth
@@ -75,6 +89,8 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 ### HTML
 
 ```html
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..900&display=swap" rel="stylesheet">
+
 <div class="tag">wght 100 · wdth 75</div>
 <div class="wrap vf1" id="vf1"><canvas></canvas><span class="text">Encode</span></div>
 
@@ -89,22 +105,11 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 
 <div class="tag">wght 900 · wdth 151</div>
 <div class="wrap vf5" id="vf5"><canvas></canvas><span class="text">Boudoir</span></div>
-
-<script>
-document.fonts.ready.then(() => CounterFill.init({
-  vf1: { stops: ['#80d0ff','#2060e0','#001080'] },
-  vf2: { stops: ['#80d0ff','#2060e0','#001080'] },
-  vf3: { stops: ['#80d0ff','#2060e0','#001080'] },
-  vf4: { stops: ['#80d0ff','#2060e0','#001080'] },
-  vf5: { stops: ['#80d0ff','#2060e0','#001080'] },
-}));
-</script>
 ```
 
 ### CSS
 
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..900&display=swap');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: column; align-items: center; gap: 48px; }
@@ -123,6 +128,18 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 .vf5 .text { font-weight: 900; font-variation-settings: 'wdth' 151; }
 ```
 
+### JS (paste below the `counter-fill.js` library)
+
+```js
+document.fonts.ready.then(() => CounterFill.init({
+  vf1: { stops: ['#80d0ff','#2060e0','#001080'] },
+  vf2: { stops: ['#80d0ff','#2060e0','#001080'] },
+  vf3: { stops: ['#80d0ff','#2060e0','#001080'] },
+  vf4: { stops: ['#80d0ff','#2060e0','#001080'] },
+  vf5: { stops: ['#80d0ff','#2060e0','#001080'] },
+}));
+```
+
 ---
 
 ## 4. Variable Fonts — Custom Axis (Fraunces SOFT)
@@ -130,6 +147,8 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 ### HTML
 
 ```html
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,100..900,0..100&display=swap" rel="stylesheet">
+
 <div class="tag">SOFT 0</div>
 <div class="wrap vfd1" id="vfd1"><canvas></canvas><span class="text">Baroque</span></div>
 
@@ -138,20 +157,11 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 
 <div class="tag">SOFT 100</div>
 <div class="wrap vfd3" id="vfd3"><canvas></canvas><span class="text">Baroque</span></div>
-
-<script>
-document.fonts.ready.then(() => CounterFill.init({
-  vfd1: { stops: ['#c0a8ff','#6030c0','#200860'] },
-  vfd2: { stops: ['#c0a8ff','#6030c0','#200860'] },
-  vfd3: { stops: ['#c0a8ff','#6030c0','#200860'] },
-}));
-</script>
 ```
 
 ### CSS
 
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,100..900,0..100&display=swap');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: column; align-items: center; gap: 48px; }
@@ -169,6 +179,16 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 .vfd3 .text { font-variation-settings: 'SOFT' 100; }
 ```
 
+### JS (paste below the `counter-fill.js` library)
+
+```js
+document.fonts.ready.then(() => CounterFill.init({
+  vfd1: { stops: ['#c0a8ff','#6030c0','#200860'] },
+  vfd2: { stops: ['#c0a8ff','#6030c0','#200860'] },
+  vfd3: { stops: ['#c0a8ff','#6030c0','#200860'] },
+}));
+```
+
 ---
 
 ## 5. Letter-spacing
@@ -184,14 +204,6 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 
 <div class="label">letter-spacing: 0.12em</div>
 <div class="wrap ls3" id="ls3"><canvas></canvas><span class="text">Aperture</span></div>
-
-<script>
-document.fonts.ready.then(() => CounterFill.init({
-  ls1: { stops: ['#e05c5c','#a01830','#4a0010'] },
-  ls2: { stops: ['#e05c5c','#a01830','#4a0010'] },
-  ls3: { stops: ['#e05c5c','#a01830','#4a0010'] },
-}));
-</script>
 ```
 
 ### CSS
@@ -213,6 +225,16 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 .ls3 .text { letter-spacing: 0.12em; }
 ```
 
+### JS (paste below the `counter-fill.js` library)
+
+```js
+document.fonts.ready.then(() => CounterFill.init({
+  ls1: { stops: ['#e05c5c','#a01830','#4a0010'] },
+  ls2: { stops: ['#e05c5c','#a01830','#4a0010'] },
+  ls3: { stops: ['#e05c5c','#a01830','#4a0010'] },
+}));
+```
+
 ---
 
 ## 6. Text-shadow + Line-height
@@ -228,14 +250,6 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 
 <div class="label">line-height: 1.4 (loose)</div>
 <div class="wrap-multi lh2" id="lh2">Golden Baroque Obsidian</div>
-
-<script>
-document.fonts.ready.then(() => CounterFill.init({
-  ts1: { stops: ['#ffe040','#e08000','#804000'] },
-  lh1: { stops: ['#60e0a0','#108050','#003020'] },
-  lh2: { stops: ['#60e0a0','#108050','#003020'] },
-}));
-</script>
 ```
 
 ### CSS
@@ -266,6 +280,16 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 .lh2 { line-height: 1.4; }
 ```
 
+### JS (paste below the `counter-fill.js` library)
+
+```js
+document.fonts.ready.then(() => CounterFill.init({
+  ts1: { stops: ['#ffe040','#e08000','#804000'] },
+  lh1: { stops: ['#60e0a0','#108050','#003020'] },
+  lh2: { stops: ['#60e0a0','#108050','#003020'] },
+}));
+```
+
 ---
 
 ## 7. Print Fallback
@@ -279,13 +303,6 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 <div class="wrap pf2" id="pf2"><canvas></canvas><span class="text">Ready</span></div>
 
 <button onclick="window.print()">Print this page</button>
-
-<script>
-document.fonts.ready.then(() => CounterFill.init({
-  pf1: { stops: ['#f5c842','#d4820a','#7a3a08'] },
-  pf2: { stops: ['#e05c5c','#a01830','#4a0010'] },
-}));
-</script>
 ```
 
 ### CSS
@@ -316,6 +333,15 @@ button { font-family: system-ui, sans-serif; font-size: 14px; padding: 8px 20px;
 }
 ```
 
+### JS (paste below the `counter-fill.js` library)
+
+```js
+document.fonts.ready.then(() => CounterFill.init({
+  pf1: { stops: ['#f5c842','#d4820a','#7a3a08'] },
+  pf2: { stops: ['#e05c5c','#a01830','#4a0010'] },
+}));
+```
+
 ---
 
 ## 8. Performance — Stress Test
@@ -337,23 +363,6 @@ button { font-family: system-ui, sans-serif; font-size: 14px; padding: 8px 20px;
 <div class="wrap s10" id="s10"><canvas></canvas><span class="text">Juliet</span></div>
 <div class="wrap s11" id="s11"><canvas></canvas><span class="text">Kilo</span></div>
 <div class="wrap s12" id="s12"><canvas></canvas><span class="text">Lima</span></div>
-
-<script>
-document.fonts.ready.then(() => CounterFill.init({
-  s1:  { stops: ['#f5c842','#d4820a','#7a3a08'] },
-  s2:  { stops: ['#ff6060','#c01020','#600010'] },
-  s3:  { stops: ['#e05c5c','#a01830','#4a0010'] },
-  s4:  { stops: ['#c0a8ff','#6030c0','#200860'] },
-  s5:  { stops: ['#40ffb0','#10a060','#004030'] },
-  s6:  { stops: ['#ffe040','#e08000','#804000'] },
-  s7:  { stops: ['#60e0a0','#108050','#003020'] },
-  s8:  { stops: ['#80d0ff','#2060e0','#001080'] },
-  s9:  { stops: ['#f5c842','#d4820a','#7a3a08'] },
-  s10: { stops: ['#ff6060','#c01020','#600010'] },
-  s11: { stops: ['#c0a8ff','#6030c0','#200860'] },
-  s12: { stops: ['#40ffb0','#10a060','#004030'] },
-}));
-</script>
 ```
 
 ### CSS
@@ -370,6 +379,25 @@ body { background: #0e0e0e; padding: 40px 24px; display: flex; flex-direction: c
 .s3 .text, .s6 .text, .s9 .text, .s12 .text { font-family: 'Abril Fatface', serif; }
 
 [class^="s"] .text { font-size: clamp(48px,12vw,120px); color: #f0ece4; }
+```
+
+### JS (paste below the `counter-fill.js` library)
+
+```js
+document.fonts.ready.then(() => CounterFill.init({
+  s1:  { stops: ['#f5c842','#d4820a','#7a3a08'] },
+  s2:  { stops: ['#ff6060','#c01020','#600010'] },
+  s3:  { stops: ['#e05c5c','#a01830','#4a0010'] },
+  s4:  { stops: ['#c0a8ff','#6030c0','#200860'] },
+  s5:  { stops: ['#40ffb0','#10a060','#004030'] },
+  s6:  { stops: ['#ffe040','#e08000','#804000'] },
+  s7:  { stops: ['#60e0a0','#108050','#003020'] },
+  s8:  { stops: ['#80d0ff','#2060e0','#001080'] },
+  s9:  { stops: ['#f5c842','#d4820a','#7a3a08'] },
+  s10: { stops: ['#ff6060','#c01020','#600010'] },
+  s11: { stops: ['#c0a8ff','#6030c0','#200860'] },
+  s12: { stops: ['#40ffb0','#10a060','#004030'] },
+}));
 ```
 
 ---
@@ -389,14 +417,6 @@ Tests counter fill behaviour under horizontal (default), `vertical-rl`, and `ver
 
 <p class="label">writing-mode: vertical-lr</p>
 <div class="wrap wm-vlr" id="wm-vlr"><canvas></canvas><span class="text">Aperture</span></div>
-
-<script>
-document.fonts.ready.then(() => CounterFill.init({
-  'wm-h':   { stops: ['#f5c842','#d4820a','#7a3a08'] },
-  'wm-vrl': { stops: ['#c0a8ff','#6030c0','#200860'] },
-  'wm-vlr': { stops: ['#40ffb0','#10a060','#004030'] },
-}));
-</script>
 ```
 
 ### CSS
@@ -418,4 +438,14 @@ body { background: #0e0e0e; padding: 60px 32px; display: flex; flex-direction: c
 
 .wm-vrl { writing-mode: vertical-rl; }
 .wm-vlr { writing-mode: vertical-lr; }
+```
+
+### JS (paste below the `counter-fill.js` library)
+
+```js
+document.fonts.ready.then(() => CounterFill.init({
+  'wm-h':   { stops: ['#f5c842','#d4820a','#7a3a08'] },
+  'wm-vrl': { stops: ['#c0a8ff','#6030c0','#200860'] },
+  'wm-vlr': { stops: ['#40ffb0','#10a060','#004030'] },
+}));
 ```

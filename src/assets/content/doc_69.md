@@ -54,7 +54,7 @@ One side effect of the BFS approach: it generalises to any enclosed region, not 
 
 ### Multi-line
 
-<iframe height="700" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/019d6a98-6565-7819-a86b-c9157ef62c55?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
+<iframe height="700" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/019d898a-a047-77b1-bc38-f47b3c473866?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
 
 
 
@@ -79,6 +79,7 @@ await CounterFill.registerFont('My Font', '/fonts/my-font-italic.woff2', { style
 ```
 
 <!-- PLACEHOLDER: Add variable font CodePen embed (wght × wdth axes, Roboto Flex) once created from CODEPENS.md snippet #3 -->
+<iframe height="700" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/019d6a98-6565-7819-a86b-c9157ef62c55?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
 
 
 
