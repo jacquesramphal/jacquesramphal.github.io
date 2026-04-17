@@ -155,7 +155,7 @@ body {
   color: var(--accent);
 }
 
-.mode-btn:first-child {
+.mode-btn:not(:last-child) {
   border-right: 1px solid var(--border);
 }
 
@@ -236,6 +236,29 @@ body {
 }
 
 .source-hint p { margin-bottom: 0.25rem; }
+
+/* ── Layers indicator ───────────────────── */
+
+.layers-indicator {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.layer-pip {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  transition: background 0.2s, border-color 0.2s;
+  display: block;
+}
+
+.layer-pip.active {
+  background: var(--accent);
+  border-color: var(--accent);
+}
 
 /* ── Scroll filler ──────────────────────── */
 

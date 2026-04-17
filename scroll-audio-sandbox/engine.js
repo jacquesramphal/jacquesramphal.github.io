@@ -21,6 +21,9 @@ class ScrollAudioEngine {
     this.timelineAudio = null
     this.timelineMediaSource = null
 
+    // Crescendo mode
+    this.synth = null
+
     this.mode = 'scratch'
     this.duration = 0
   }
@@ -33,6 +36,7 @@ class ScrollAudioEngine {
     this.analyser.fftSize = 512
     this.gainNode.connect(this.analyser)
     this.analyser.connect(this.ctx.destination)
+    this.synth = new CrescendoSynth(this.ctx, this.gainNode)
   }
 
   async loadFile(file) {
@@ -122,8 +126,14 @@ class ScrollAudioEngine {
   }
 
   onScroll(velocity, scrollProgress) {
-    if (!this.fwdBuffer) return
     if (this.ctx.state === 'suspended') this.ctx.resume()
+
+    if (this.mode === 'crescendo') {
+      this._handleCrescendo(scrollProgress)
+      return
+    }
+
+    if (!this.fwdBuffer) return
 
     if (this.mode === 'scratch') {
       this._handleScratch(velocity)
@@ -197,6 +207,10 @@ class ScrollAudioEngine {
     }
   }
 
+  _handleCrescendo(progress) {
+    if (this.synth) this.synth.setProgress(progress)
+  }
+
   _handleTimeline(progress) {
     const audio = this.timelineAudio
     if (!audio) return
@@ -218,13 +232,24 @@ class ScrollAudioEngine {
 
   setMode(mode) {
     if (mode === this.mode) return
+
+    // Teardown current mode
     if (this.mode === 'scratch') {
       clearTimeout(this.brakeTimer)
       this._brake()
-    } else {
+    } else if (this.mode === 'timeline') {
       if (this.timelineAudio) this.timelineAudio.pause()
+    } else if (this.mode === 'crescendo') {
+      if (this.synth) this.synth.stop()
     }
+
     this.mode = mode
+
+    // Setup new mode
+    if (mode === 'crescendo' && this.ctx && this.synth) {
+      if (this.ctx.state === 'suspended') this.ctx.resume()
+      this.synth.start()
+    }
   }
 
   getWaveformData() {
@@ -242,19 +267,15 @@ class ScrollAudioEngine {
   }
 
   getPlaybackRate() {
-    if (this.mode === 'scratch') {
-      return this.scratchPlaying ? this.scratchRate : 0
-    }
+    if (this.mode === 'crescendo') return this.synth && this.synth.running ? 1 : 0
+    if (this.mode === 'scratch') return this.scratchPlaying ? this.scratchRate : 0
     return this.timelineAudio && !this.timelineAudio.paused ? 1 : 0
   }
 
   getPosition() {
-    if (this.mode === 'scratch') {
-      return this.duration ? this._scratchOffset() / this.duration : 0
-    }
-    if (this.timelineAudio && this.duration) {
-      return this.timelineAudio.currentTime / this.duration
-    }
+    if (this.mode === 'crescendo') return this.synth ? this.synth.getBeatPosition() : 0
+    if (this.mode === 'scratch') return this.duration ? this._scratchOffset() / this.duration : 0
+    if (this.timelineAudio && this.duration) return this.timelineAudio.currentTime / this.duration
     return 0
   }
 }
