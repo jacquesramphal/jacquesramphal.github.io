@@ -159,6 +159,36 @@ body {
   border-right: 1px solid var(--border);
 }
 
+/* ── Genre toggle ──────────────────────── */
+
+.genre-toggle {
+  display: flex;
+  border: 1px solid var(--border);
+}
+
+.genre-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  padding: 0.4rem 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: color 0.15s, background 0.15s;
+}
+
+.genre-btn.active {
+  background: var(--border);
+  color: var(--accent);
+}
+
+.genre-btn:not(:last-child) {
+  border-right: 1px solid var(--border);
+}
+
 /* ── Waveform ───────────────────────────── */
 
 #waveform {

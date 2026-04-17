@@ -216,15 +216,16 @@
         <div class="progress-fill" id="progressFill"></div>
       </div>
 
-      <!-- Layers indicator (crescendo mode only) -->
-      <div class="layers-indicator" id="layersIndicator" hidden>
-        <span class="layer-pip" data-layer="0" title="Tap"></span>
-        <span class="layer-pip" data-layer="1" title="Kick"></span>
-        <span class="layer-pip" data-layer="2" title="Hi-hat"></span>
-        <span class="layer-pip" data-layer="3" title="Snare"></span>
-        <span class="layer-pip" data-layer="4" title="Open hat"></span>
-        <span class="layer-pip" data-layer="5" title="4-on-floor"></span>
+      <!-- Genre selector (crescendo mode only) -->
+      <div class="genre-toggle" id="genreToggle" hidden>
+        <button class="genre-btn active" data-genre="trap">TRAP</button>
+        <button class="genre-btn" data-genre="dancehall">DANCEHALL</button>
+        <button class="genre-btn" data-genre="soca">SOCA</button>
+        <button class="genre-btn" data-genre="hiphop">HIP-HOP</button>
       </div>
+
+      <!-- Layers indicator (crescendo mode only) -->
+      <div class="layers-indicator" id="layersIndicator" hidden></div>
 
       <div class="stats">
         <div class="stat">
@@ -318,7 +319,18 @@
         drawWaveform();
 
         // ── Stats + layers update loop ──────────
-        const pips = document.querySelectorAll('.layer-pip');
+        function rebuildPips() {
+          const container = document.getElementById('layersIndicator');
+          container.innerHTML = '';
+          if (!engine.synth) return;
+          engine.synth.layers.forEach((l, i) => {
+            const pip = document.createElement('span');
+            pip.className = 'layer-pip';
+            pip.dataset.layer = i;
+            pip.title = l.id;
+            container.appendChild(pip);
+          });
+        }
 
         function updateStats() {
           requestAnimationFrame(updateStats);
@@ -329,14 +341,17 @@
           document.getElementById('progressFill').style.width = Math.round(pos * 100) + '%';
 
           if (isCrescendo && engineReady) {
+            const total = engine.synth ? engine.synth.layers.length : 10;
             const active = engine.synth ? engine.synth.getActiveLayers() : 0;
-            document.getElementById('statRate').textContent = '120 BPM';
+            const bpm = engine.synth ? engine.synth.bpm : 140;
+            document.getElementById('statRate').textContent = bpm + ' BPM';
             document.getElementById('statDir').textContent =
-              '●'.repeat(active) + '○'.repeat(6 - active);
+              '●'.repeat(active) + '○'.repeat(Math.max(0, total - active));
             document.getElementById('statPos').textContent =
               Math.round((engine.synth ? engine.synth.progress : 0) * 100) + '%';
 
             // Update individual layer pips
+            const pips = document.querySelectorAll('.layer-pip');
             pips.forEach((pip, i) => {
               pip.classList.toggle('active', i < active);
             });
@@ -421,15 +436,17 @@
         // ── Mode toggle ──────────────────────────
         function syncModeUI(mode) {
           const isCrescendo = mode === 'crescendo';
-          const needsFile = mode === 'scratch' || mode === 'timeline';
 
           document.getElementById('dropZone').hidden = isCrescendo || loaded;
           document.getElementById('layersIndicator').hidden = !isCrescendo;
+          document.getElementById('genreToggle').hidden = !isCrescendo;
           document.getElementById('sourceHint').hidden = isCrescendo || loaded;
           document.getElementById('descIdle').hidden = isCrescendo || loaded;
           document.getElementById('descScratch').hidden = mode !== 'scratch';
           document.getElementById('descTimeline').hidden = mode !== 'timeline';
           document.getElementById('descCrescendo').hidden = !isCrescendo;
+
+          if (isCrescendo) rebuildPips();
         }
 
         document.querySelectorAll('.mode-btn').forEach((btn) => {
@@ -444,6 +461,22 @@
 
             engine.setMode(mode);
             syncModeUI(mode);
+          });
+        });
+
+        // ── Genre toggle ─────────────────────────
+        document.querySelectorAll('.genre-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.genre-btn').forEach((b) => b.classList.remove('active'));
+            btn.classList.add('active');
+            const genre = btn.dataset.genre;
+
+            if (engine.synth) {
+              engine.synth.stop();
+              engine.synth.setGenre(genre);
+              engine.synth.start();
+              rebuildPips();
+            }
           });
         });
       })();
