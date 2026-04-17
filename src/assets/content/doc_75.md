@@ -81,11 +81,61 @@ Design Guard + token expertise + knowing what a broken system looks like = an AI
 
 ---
 
+## Deployment models
+
+Three ways the agent can be deployed. They're different products with different buyers and different margins.
+
+### Model 1: Configured tool embedded in a team's workflow
+
+Agent sits inside their existing stack — Figma plugin, Slack command, or GitHub Action. Validates output against their token system and Storybook. Produces structured handoff specs. One-time build engagement, monthly retainer to maintain.
+
+Buyer: Head of Design or VP Engineering. This is the entry-point engagement.
+
+### Model 2: Fractional operator across multiple clients
+
+The agent runs. I monitor it, handle escalations, tune prompts, make judgment calls it can't resolve. Billing for availability and expertise, not hours. Three clients at $2–3k/month = $6–9k/month for roughly 10 hours of active work. The leverage is real: the agent executes, I provide the oversight layer.
+
+This is the most scalable version of the business. Not selling design work — selling a running system with a human judgment layer on top.
+
+### Model 3: Agent for businesses with no designer (skip for now)
+
+Different ICP — smaller budget, simpler stack, more hand-holding. Competing with cheap freelancers and no-code tools. The margin is thin and the problems are different. Worth revisiting once the first two models have proof.
+
+---
+
+## Augment vs. replace: the honest answer
+
+**Augmenting an existing team** is the ethical comfortable answer. It's also the lower-value market. Selling "your designers will be faster" is a tooling pitch — soft ROI, lower willingness to pay, design leader as the buyer.
+
+**Replacing a team** is the uncomfortable answer and the higher-value market. A company paying $90k/year for a designer will pay $3–5k/month for a system with equivalent output. That's $36–60k/year vs. $90k — easy sell to a CFO. Different buyer: CEO or VP Engineering, not the design lead.
+
+**But the highest-value position is neither.** It's the skeleton crew model.
+
+### The skeleton crew
+
+A company has one designer doing the work of three, or one designer when they need two. The agent doesn't replace that designer — it multiplies them. One designer + the agent = output that used to require three people. The designer champions it because it protects their position. The CFO champions it because the math is obvious.
+
+Why this is the best entry point for first clients:
+- The existing designer is an internal advocate, not an opponent
+- The ROI story is concrete and easy to tell
+- Someone still needs to oversee the agent, which keeps me on retainer
+- No one has to be fired for the engagement to succeed
+
+### On the ethics
+
+The technology is neutral. The business model and marketing determine who benefits. Building infrastructure that lets one skilled designer cover more ground is what every tool shift in design history has done — Figma over Sketch, components over one-offs, tokens over hardcoded values. Each one made individual designers more productive and reduced headcount needed for the same output.
+
+The question isn't whether this happens. It's whether the person building the infrastructure has design judgment and cares about quality — or doesn't.
+
+**First clients:** target companies with an existing design function that is understaffed. The problem is acute, the budget is real, and I'm walking in to help — not to displace. Once the model is proven, decide whether to go upstream toward the replacement market with clear eyes.
+
+---
+
 ## Content gaps to close now
 
 **The /design Agent as a complete case study.** Most original, most forward-looking work on the site, and it's incomplete. What does it actually do? How does it change the workflow? Where does AI judgment break down?
 
-**A piece on designing the rules the AI follows.** Not "how to use Figma AI." What a design agent needs to know to do good work: the guardrails, the token contract, the agent behavior definition, where human judgment is non-negotiable. This is the gap in current design writing, and it's exactly where I have something to say.
+**A piece on designing the rules the AI follows.** Not "how to use Figma AI." What a design agent needs to know to do good work: the guardrails, the token contract, the agent behavior definition, where human judgment is non-negotiable. This is the gap in current design writing and the place I have something specific to say.
 
 ---
 
@@ -103,4 +153,4 @@ That's the shift the site needs to make visible. Not just as writing, but as a p
 
 ---
 
-*Next: share the /design Agent repo. Scaffold the ProductPage for the agent as a service offering.*
+*Next: share the /design Agent repo. Scaffold the ProductPage around the skeleton crew model.*
