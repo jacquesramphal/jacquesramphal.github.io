@@ -208,6 +208,39 @@
             />
           </GridParent>
         </div>
+        <div v-if="filteredLabs.length" class="library-section">
+          <TextBlock
+            title="Lab"
+            as="h2"
+            description=""
+            class="section-header-row"
+            style="padding-block-end: var(--spacing-md)"
+          />
+          <GridParent
+            tight
+            :rows="viewMode === 'list'"
+            :class="['posts', { 'posts--list': viewMode === 'list' }]"
+          >
+            <ArticleCard
+              borderless
+              v-for="(entry, index) in filteredLabs"
+              :key="entry.id"
+              :mobileList="index !== 0"
+              :alt="entry.alt"
+              :description="entry.description"
+              :filename="entry.thumbnail"
+              :label="entry.label"
+              :link="entry.link"
+              eyebrow=""
+              :title="entry.title"
+              :tags="entry.tags"
+              :type="entry.type"
+              :date="entry.date"
+              :index="index"
+              @tag-click="handleTagClick"
+            />
+          </GridParent>
+        </div>
       </template>
 
       <!-- Filters active: single unified list -->
@@ -306,7 +339,7 @@ export default {
       library,
       viewMode: localStorage.getItem('libraryViewMode') || 'grid',
       query: '',
-      selectedTypes: ['article', 'tool', 'case-study', 'design-project'],
+      selectedTypes: ['article', 'tool', 'case-study', 'design-project', 'lab'],
       selectedTags: [],
       modalOpen: false,
       selectedProject: '',
@@ -319,6 +352,7 @@ export default {
         { value: 'tool', label: 'Tools' },
         { value: 'case-study', label: 'Case Studies' },
         { value: 'design-project', label: 'Design Projects' },
+        { value: 'lab', label: 'Lab' },
       ];
     },
     allTypeValues() {
@@ -380,6 +414,9 @@ export default {
         .filter((e) => e.type === 'case-study' || e.type === 'design-project')
         .sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
     },
+    filteredLabs() {
+      return this.filteredEntries.filter((e) => e.type === 'lab');
+    },
     hasActiveFilters() {
       return (
         this.selectedTags.length > 0 ||
@@ -394,6 +431,7 @@ export default {
         tool: 'Tools',
         'case-study': 'Case Studies',
         'design-project': 'Design Projects',
+        lab: 'Lab',
       };
       if (this.query.trim()) labels.push(`"${this.query.trim()}"`);
       if (this.selectedTypes.length < this.allTypeValues.length) {

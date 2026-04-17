@@ -5,7 +5,8 @@
   "scripts": {
     "prod": "pnpm build && pnpm dev",
     "dev": "vue-cli-service serve",
-    "build": "node scripts/generate-sitemap.js && vue-cli-service build",
+    "build": "node scripts/generate-lab-css.js && node scripts/generate-sitemap.js && vue-cli-service build",
+    "build:lab-css": "node scripts/generate-lab-css.js",
     "sitemap": "node scripts/generate-sitemap.js",
     "lint": "vue-cli-service lint",
     "storybook": "storybook dev",

@@ -3,56 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Editorial Filters — POC</title>
+  <title>Editorial Filters</title>
+  <link rel="stylesheet" href="../lab.css" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #0a0a0a;
-      --surface: #141414;
-      --text: #e0e0e0;
-      --muted: #555;
-      --accent: #ff3322;
-      --border: #222;
-    }
-
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      min-height: 100vh;
-      padding: 2rem 1.25rem 5rem;
-    }
-
-    header {
-      max-width: 960px;
-      margin: 0 auto 2rem;
-      display: flex;
-      align-items: baseline;
-      gap: 1.5rem;
-    }
-
-    h1 {
-      font-size: 0.8rem;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--text);
-    }
-
-    header p {
-      font-size: 0.65rem;
-      letter-spacing: 0.05em;
-      color: var(--muted);
-      font-family: 'Courier New', monospace;
+      padding: var(--spacing-sm) var(--spacing-xs) var(--spacing-big);
     }
 
     .layout {
-      max-width: 960px;
+      max-width: 96rem;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 220px;
-      gap: 2.5rem;
+      grid-template-columns: 1fr 22rem;
+      gap: var(--spacing-sm);
       align-items: start;
     }
 
@@ -63,9 +26,10 @@
     /* Stage */
     .stage {
       position: relative;
-      background: #111;
+      background: var(--background-darker);
       overflow: hidden;
       aspect-ratio: 2 / 3;
+      border-radius: var(--radius-sm);
     }
 
     .stage img,
@@ -85,10 +49,10 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 2rem 1rem 0.75rem;
-      font-family: 'Courier New', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.14em;
+      padding: var(--spacing-sm) var(--spacing-xs) var(--spacing-xxs);
+      font-size: var(--font-3xs);
+      font-weight: var(--fontWeight-medium);
+      letter-spacing: var(--letterSpacing-loose);
       text-transform: uppercase;
       color: rgba(255,255,255,0.5);
       background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
@@ -99,19 +63,19 @@
     .sidebar {
       display: flex;
       flex-direction: column;
-      gap: 1.75rem;
-      padding-top: 0.25rem;
+      gap: var(--spacing-sm);
+      padding-top: var(--spacing-xxxs);
     }
 
     .group-label {
-      font-size: 0.55rem;
-      letter-spacing: 0.2em;
+      font-size: var(--font-3xs);
+      font-weight: var(--fontWeight-medium);
+      letter-spacing: var(--letterSpacing-loose);
       text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 1px solid var(--border);
-      font-family: 'Courier New', monospace;
+      color: var(--text-muted);
+      margin-bottom: var(--spacing-xxs);
+      padding-bottom: var(--spacing-xxxs);
+      border-bottom: var(--border);
     }
 
     .btn-group {
@@ -123,37 +87,37 @@
     button {
       background: transparent;
       border: none;
-      color: var(--muted);
-      font-family: 'Courier New', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      font-family: var(--fontFamily-primary);
+      font-size: var(--font-3xs);
+      font-weight: var(--fontWeight-normal);
+      letter-spacing: var(--letterSpacing-base);
       text-align: left;
-      padding: 0.45rem 0.6rem;
+      padding: var(--spacing-xxxs) var(--spacing-xxs);
       cursor: pointer;
       text-transform: uppercase;
       border-left: 2px solid transparent;
       transition: color 0.1s, border-color 0.1s;
     }
 
-    button:hover { color: var(--text); }
+    button:hover { color: var(--foreground); }
 
     button.active {
-      color: #fff;
-      border-left-color: var(--accent);
+      color: var(--foreground);
+      border-left-color: var(--foreground);
+      font-weight: var(--fontWeight-medium);
     }
 
-    /* Note for canvas-blocked state */
+    /* Canvas-blocked note */
     .canvas-note {
-      font-size: 0.6rem;
-      font-family: 'Courier New', monospace;
-      color: var(--muted);
-      margin-top: 0.5rem;
-      line-height: 1.5;
+      font-size: var(--font-3xs);
+      color: var(--text-muted);
+      margin-top: var(--spacing-xxs);
+      line-height: var(--lineHeight-tall);
       display: none;
     }
 
     /* ─── CSS Filter Classes ─── */
-
     #subject.bw        { filter: grayscale(1); }
     #subject.sepia     { filter: sepia(0.85) brightness(1.05); }
     #subject.hicon     { filter: grayscale(1) contrast(2.4) brightness(0.82); }
@@ -169,9 +133,9 @@
 </head>
 <body>
 
-<header>
+<header class="lab-header">
   <h1>Editorial Filters</h1>
-  <p>CSS · SVG · Canvas — zero deps</p>
+  <p class="muted">CSS / SVG / Canvas</p>
 </header>
 
 <div class="layout">
@@ -233,8 +197,6 @@
 <!-- ─── SVG Filter Definitions ─── -->
 <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-
-    <!-- Duotone I: deep navy → coral -->
     <filter id="f-duo1" color-interpolation-filters="sRGB">
       <feColorMatrix type="matrix" values="
         0.2126 0.7152 0.0722 0 0
@@ -247,8 +209,6 @@
         <feFuncB type="table" tableValues="0.28 0.38"/>
       </feComponentTransfer>
     </filter>
-
-    <!-- Duotone II: deep violet → electric lime -->
     <filter id="f-duo2" color-interpolation-filters="sRGB">
       <feColorMatrix type="matrix" values="
         0.2126 0.7152 0.0722 0 0
@@ -261,8 +221,6 @@
         <feFuncB type="table" tableValues="0.32 0.06"/>
       </feComponentTransfer>
     </filter>
-
-    <!-- Infrared: channel mix — greens → white, reds → dark, eerie sky -->
     <filter id="f-infrared" color-interpolation-filters="sRGB">
       <feColorMatrix type="matrix" values="
          0.0  1.0  0.0  0   0.04
@@ -275,8 +233,6 @@
         <feFuncB type="gamma" amplitude="0.9" exponent="1.3" offset="-0.04"/>
       </feComponentTransfer>
     </filter>
-
-    <!-- Solarization: V-curve partial inversion (Man Ray / Sabattier) -->
     <filter id="f-solarize" color-interpolation-filters="sRGB">
       <feComponentTransfer>
         <feFuncR type="table" tableValues="0 0.5 1 0.5 0"/>
@@ -284,7 +240,6 @@
         <feFuncB type="table" tableValues="0 0.5 1 0.5 0"/>
       </feComponentTransfer>
     </filter>
-
   </defs>
 </svg>
 
@@ -298,7 +253,6 @@
 
   const CANVAS_FX = new Set(['thermal', 'halftone', 'chroma']);
 
-  // Thermal color ramp: black → deep red → orange → neon yellow → near white
   const THERMAL = [
     [  0,   0,   0],
     [ 90,   0,   0],
@@ -321,7 +275,6 @@
     ];
   }
 
-  // Draw image to canvas respecting object-fit: cover geometry
   function drawCover(targetCtx, img) {
     const W = stage.offsetWidth;
     const H = stage.offsetHeight;
@@ -351,21 +304,16 @@
 
   function applyHalftone() {
     const cell = Math.max(4, Math.round(stage.offsetWidth / 80));
-
-    // Read pixels from offscreen to avoid taint before drawing halftone
     const off = Object.assign(document.createElement('canvas'), {
       width: stage.offsetWidth, height: stage.offsetHeight
     });
     drawCover(off.getContext('2d'), subject);
     const src = off.getContext('2d').getImageData(0, 0, off.width, off.height).data;
-
     canvas.width  = off.width;
     canvas.height = off.height;
-
     ctx.fillStyle = '#000';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = '#fff';
-
     for (let y = 0; y < canvas.height; y += cell) {
       for (let x = 0; x < canvas.width; x += cell) {
         const cx  = x + cell / 2;
@@ -385,33 +333,25 @@
     const shift = Math.round(stage.offsetWidth * 0.022);
     const W = stage.offsetWidth;
     const H = stage.offsetHeight;
-
-    // Capture original pixels
     const off = Object.assign(document.createElement('canvas'), { width: W, height: H });
     drawCover(off.getContext('2d'), subject);
     const orig = off.getContext('2d').getImageData(0, 0, W, H).data;
-
-    // Capture right-shifted pixels (for red channel)
     const offR = Object.assign(document.createElement('canvas'), { width: W, height: H });
     const octxR = offR.getContext('2d');
     octxR.drawImage(off, shift, 0);
     const shifted = octxR.getImageData(0, 0, W, H).data;
-
-    // Capture left-shifted pixels (for blue channel)
     const offB = Object.assign(document.createElement('canvas'), { width: W, height: H });
     const octxB = offB.getContext('2d');
     octxB.drawImage(off, -shift, 0);
     const shiftedB = octxB.getImageData(0, 0, W, H).data;
-
     canvas.width  = W;
     canvas.height = H;
     const out = ctx.createImageData(W, H);
     const d   = out.data;
-
     for (let i = 0; i < orig.length; i += 4) {
-      d[i]     = shifted[i];      // R — shifted right
-      d[i + 1] = orig[i + 1];    // G — original
-      d[i + 2] = shiftedB[i + 2];// B — shifted left
+      d[i]     = shifted[i];
+      d[i + 1] = orig[i + 1];
+      d[i + 2] = shiftedB[i + 2];
       d[i + 3] = 255;
     }
     ctx.putImageData(out, 0, 0);
@@ -426,7 +366,7 @@
     ctx.fillRect(0, 0, W, H);
     ctx.fillStyle = '#444';
     const fs = Math.round(W * 0.025);
-    ctx.font = `${fs}px 'Courier New', monospace`;
+    ctx.font = `${fs}px 'Manrope', sans-serif`;
     ctx.fillText('Canvas needs HTTP to read pixels', W * 0.06, H * 0.48);
     ctx.fillText('Run: npx serve public', W * 0.06, H * 0.48 + fs * 1.8);
     note.style.display = 'block';

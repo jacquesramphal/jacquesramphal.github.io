@@ -1,0 +1,754 @@
+/*
+ * lab.css — Auto-generated from _config.scss
+ * DO NOT EDIT — run: node scripts/generate-lab-css.js
+ *
+ * Provides the same design tokens and theme support as the main site.
+ * Labs automatically respect light/dark mode via prefers-color-scheme
+ * and the .dark-theme / .light-theme class toggles.
+ */
+
+/* ── Google Fonts ────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@250;300;350;400;450;500;550;600;700;800&display=swap');
+
+/* ── Reset ───────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Tokens (extracted from _config.scss) ── */
+
+
+:root {
+  --foreground-opacity: 0.75;
+  --foreground: var(--color-darktext);
+  --foreground-rgb: var(--color-darktext-rgb);
+  --foreground-muted: rgba(var(--color-darktext-rgb), var(--foreground-opacity));
+  --text-muted: var(--foreground-muted);
+  --foreground-subtle: rgba(43, 61, 79, var(--foreground-opacity));
+  /* Use the RGB values for --color-darktext */
+  --background: var(--color-offwhite);
+  --background-accent: var(--color-lightyellow);
+  --background-darker: var(--color-highlight2);
+  --link: var(--foreground);
+  --border: 1px solid var(--color-xlight);
+  /* Reversed */
+  --link-reversed: var(--foreground-reversed);
+  --foreground-reversed: var(--color-offwhite);
+  --background-reversed: var(--color-offblack);
+  --background-darker-reversed: var(--color-highlight);
+  --font-reversed-light: 250;
+  --font-reversed-normal: 400;
+  --font-reversed-medium: 450;
+  --font-reversed-bold: 550;
+  --font-reversed-heavy: 700;
+
+  /* CODE (markdown + snippets) */
+  --code-bg: var(--background-darker);
+  --code-fg: var(--foreground);
+  --code-border: rgba(0, 0, 0, 0.08);
+  --code-inline-bg: var(--background-darker);
+  --code-inline-fg: var(--foreground);
+
+  /* Code syntax tokens (highlight.js classes) */
+  --code-comment: rgba(43, 61, 79, 0.65);
+  --code-keyword: #6d28d9;
+  --code-string: #047857;
+  --code-number: #b45309;
+  --code-title: #1d4ed8;
+  --code-attr: #b91c1c;
+  --code-meta: rgba(43, 61, 79, 0.75);
+  --code-addition: #047857;
+  --code-deletion: #b91c1c;
+
+  /* NEUTRAL */
+  --color: 0, 100%;
+  --l: 50%;
+  /*the initial lightness*/
+
+  --color-offblack: #1d1b22;
+  --color-offblack-rgb: 29, 27, 34;
+  --color-black: #030201;
+  --color-darktext: var(--color-offblack);
+  --color-darktext-rgb: var(--color-offblack-rgb);
+  /*--color-darktext: #2b3d4f;*/
+
+  /*--color-darktext: var(--color-black); */
+  --color-slate: #41464e;
+  --color-dark: #24292e;
+  --color-medium: #666666;
+  --color-light: #999999;
+  --color-xlight: #d6d6d6;
+  --color-xxlight: #e6e6e6;
+  --color-xxxlight: #f2f2f2;
+  --color-white: #ffffff;
+  --color-offwhite: #fafafa;
+  --color-offwhite-rgb: 250, 250, 250;
+  /*--color-offwhite: #fdfdf5;*/
+  --color-highlight: var(--background-accent);
+
+  --color-highlight2: hsla(0, 0%, 0%, 0.05);
+  --color-pink: #fdcdd4;
+  /* --color-pink: #ffd3d9; */
+
+  /* STATES */
+  --color-action: var(--foreground);
+  --color-action-dark: var(--foreground);
+  --color-danger: var(--color-red);
+  --color-success: var(--color-green);
+  --color-disabled: #f2f2f2;
+
+  /* ACCENT */
+  --color-red: #e74646;
+  --color-green: #0dba38;
+  --color-blue: #0086e6;
+  --color-dodgerblue: #1e90ff;
+  --color-purple: rgba(100, 21, 255, 1);
+  --color-lightpurple: #a099ff;
+  --color-yellow: #fcb23b;
+  --color-lightyellow: #ffdd9e;
+  --color-accent: rgba(255, 221, 158, 0.5);
+  --color-brown: #e8a192;
+  --color-darkbrown: #814b50;
+
+  /* GRADIENTS */
+  --gradient-sunrise-start: #387ffb;
+  --gradient-sunrise-mid: #34c4ff;
+  --gradient-sunrise-end: #ffc6d0;
+
+  /* HIGHLIGHT */
+
+  /* SHADOW */
+  --shadow-z1: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-z2: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  --shadow-z3: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  --shadow-z4: 0 8px 16px 0 rgba(0, 0, 0, 0.12);
+  --shadow-z5: 0 16px 32px 0 rgba(0, 0, 0, 0.14);
+  --shadow-inner: inset 0 0 4px var(--color-xlight);
+
+  --shadow-z1-dark: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-z2-dark: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  --shadow-z3-dark: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  --shadow-z4-dark: 0 8px 16px 0 rgba(0, 0, 0, 0.12);
+  --shadow-z5-dark: 0 16px 32px 0 rgba(0, 0, 0, 0.14);
+
+  --shadow-text:
+    0px 16px 24px rgba(0, 0, 0, 0.07), 0px 6px 30px rgba(0, 0, 0, 0.06),
+    0px 8px 10px rgba(0, 0, 0, 0.15);
+  --shadow-light: 0px 2px 4px rgba(14, 30, 37, 0.12);
+  --shadow-heavy: -10px 10px 80px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-deep:
+    0px 16px 24px rgba(0, 0, 0, 0.07), 0px 6px 30px rgba(0, 0, 0, 0.06),
+    0px 8px 10px rgba(0, 0, 0, 0.1);
+
+  /* FONT-FAMILY */
+  /* --fontFamily-primary: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+  --fontFamily-secondary:  "Epilogue", sans-serif !important;
+  --fontFamily-tertiary: "Noto Serif", "Merriweather", Georgia, Cambria, "Times New Roman", Times !important;
+  --fontFamily-displaySans: "Noto Sans Display", sans-serif;
+  --fontFamily-displaySerif: "Noto Serif Display", "Merriweather", Georgia, Cambria, "Times New Roman", Times; */
+
+  /* FONT-FAMILY */
+  --fontFamily-primary:
+    'Manrope', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --fontFamily-secondary:
+    'Manrope', Helvetica, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  /*  --fontFamily-primary: "Atkinson Hyperlegible", sans-serif !important;
+    --fontFamily-secondary: "Atkinson Hyperlegible", sans-serif !important; */
+  --fontFamily-tertiary: 'Manrope', Times. Helvetica, 'Epilogue', sans-serif !important;
+  --fontFamily-displaySans:
+    'Manrope', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --fontFamily-displaySerif: Times, Helvetica, 'Epilogue', sans-serif !important;
+
+  /* CORE NUMERIC SIZE SCALE */
+  --size-0: 0;
+  --size-1: 0.4rem;
+  --size-2: 0.8rem;
+  --size-3: 1.2rem;
+  --size-4: 1.6rem;
+  --size-5: 2rem;
+  --size-6: 2.4rem;
+  --size-7: 2.8rem;
+  --size-8: 3.2rem;
+  --size-9: 3.6rem;
+  --size-10: 4rem;
+  --size-11: 4.4rem;
+  --size-12: 4.8rem;
+  --size-13: 5.2rem;
+  --size-14: 5.6rem;
+  --size-15: 6rem;
+  --size-16: 6.4rem;
+  --size-17: 7.2rem;
+  --size-18: 8rem;
+  --size-19: 9.6rem;
+  --size-20: 12.8rem;
+  --size-21: 16rem;
+  --size-22: 19.2rem;
+  --size-23: 22.4rem;
+  --size-24: 25.6rem;
+  --size-25: 28.8rem;
+  --size-26: 32rem;
+  --size-27: 35.2rem;
+  --size-28: 38.4rem;
+  --size-29: 41.6rem;
+  --size-30: 44.8rem;
+  --size-31: 48rem;
+  --size-32: 51.2rem;
+  --size-33: 54.4rem;
+  --size-34: 57.6rem;
+  --size-35: 60.8rem;
+  --size-36: 64rem;
+
+  /* SPACING */
+
+  --spacing-xxxs: var(--size-1);
+  --spacing-xxs: var(--size-2);
+  --spacing-field: 1rem;
+  --spacing-xs: var(--size-4);
+  --spacing-sm: var(--size-6);
+  --spacing-md: var(--size-8);
+  --spacing-big: var(--size-12);
+  --spacing-lg: var(--size-18);
+  --spacing-xl: var(--size-20);
+  --spacing-xxl: var(--size-24);
+  --spacing-xxxl: var(--size-32);
+
+  /* RADIUS */
+
+  --radius-sm: var(--size-1);
+  --radius-full: 9999px;
+
+  /* LINK / TEXT DECORATION */
+
+  --link-underline-offset: 0.75rem;
+  --link-underline-thickness: 0.15rem;
+  --link-underline-thickness-hover: 0.2rem;
+
+  /* BREAKPOINTS */
+  --breakpoint-xs: 767px;
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 992px;
+  --breakpoint-lg: 1200px;
+
+  /* FLUID FONT SIZES */
+
+  /* H1 Poster*/
+  --font-1100: clamp(var(--size-12), 7vw, var(--size-20));
+  /* H1 Display*/
+  --font-1000: clamp(var(--size-12), 7vw, var(--size-20));
+  /* H1 */
+  --font-900: clamp(var(--size-12), 7vw, var(--size-18));
+  /* H2 */
+  --font-800: clamp(var(--size-9), 7vw, var(--size-12));
+  /* H3 */
+  --font-700: clamp(var(--size-7), 7vw, var(--size-9));
+  /* H4 */
+  --font-600: var(--size-7);
+  /* Lead Paragraph (p under H1) */
+  --font-p-lead: clamp(var(--size-5), 2.5vw, var(--size-7));
+  /* H5 + Paragraph */
+  --font-500: var(--size-5);
+  /* H6 + Paragraph Small*/
+  --font-400: var(--size-4);
+
+  /*
+  --font-300: clamp(0.7rem, 0.66rem + 0.2vw, 0.8rem);
+  --font-400: clamp(0.88rem, 0.83rem + 0.24vw, 1rem);
+  --font-500: clamp(1.09rem, 1rem + 0.47vw, 1.33rem);
+  --font-600: clamp(1.37rem, 1.21rem + 0.8vw, 1.78rem);
+  --font-700: clamp(1.71rem, 1.45rem + 1.29vw, 2.37rem);
+  --font-800: clamp(2.14rem, 1.74rem + 1.99vw, 3.16rem);
+  --font-900: clamp(2.67rem, 2.07rem + 3vw, 4.21rem);
+  --font-1000: clamp(3.34rem, 2.45rem + 4.43vw, 5.61rem);
+*/
+
+  /* NOT USED  */
+
+  /* Smaller */
+  --font-300: var(--size-3);
+  /* Even Smaller */
+  --font-200: var(--size-2);
+  /* Tiny */
+  --font-100: var(--size-1);
+
+  /* ABSOLUTE FONT SIZES */
+  --font-4xl: var(--size-20);
+  --font-3xl: var(--size-18);
+  --font-2xl: var(--size-17);
+  --font-xl: var(--size-16);
+  --font-lg: var(--size-12);
+  --font-md: var(--size-9);
+  --font-sm: var(--size-7);
+  --font-xs: var(--size-5);
+  --font-2xs: var(--size-4);
+  --font-3xs: var(--size-3);
+
+  
+
+  /* 
+  --font-display: clamp(4rem, 9vw, 12rem);
+  --font-3xl: clamp(3rem, 7vw, 8rem);
+  --font-2xl: clamp(2.8rem, 6vw, 7.2rem);
+  --font-xl: clamp(2.5rem, 5vw, 6.4rem);
+  --font-lg: clamp(2rem, 4vw, 4.8rem);
+  --font-md: clamp(1.6rem, 3vw, 3.6rem);
+  --font-sm: clamp(1.4rem, 2.8vw, 2.8rem);
+  --font-xs: clamp(1.2rem, 2vw, 2rem);
+  --font-2xs: clamp(1rem, 1.6vw, 1.6rem);
+  --font-3xs: clamp(0.8rem, 1.2vw, 1.2rem);
+*/
+  /* FONT WEIGHT */
+  --fontWeight-light: 300;
+  --fontWeight-normal: 400;
+  --fontWeight-medium: 500;
+  --fontWeight-bold: 600;
+  --fontWeight-heavy: 800;
+
+  /* LETTER SPACING */
+  --letterSpacing-tight: -0.16rem;
+  --letterSpacing-base: 0;
+  --letterSpacing-loose: 0.03rem;
+  --letterSpacing-reversed-tight: -0.12rem;
+  --letterSpacing-reversed-base: 0.01rem;
+  --letterSpacing-reversed-loose: 0.04rem;
+
+  /* LINE HEIGHT */
+
+  --lineHeight-none: 0;
+  --lineHeight-shorter: 1.1;
+  --lineHeight-short: 1.2;
+  --lineHeight-base: 1.4;
+  --lineHeight-tall: 1.5;
+  --lineHeight-taller: 1.8;
+
+  /* IMAGE FILTERS */
+  --filter: brightness(1) saturate(1);
+  --icon-filter: none;
+}
+
+:root.dark-theme {
+  --foreground: var(--color-offwhite);
+  --foreground-rgb: var(--color-offwhite-rgb);
+  --foreground-muted: rgba(var(--foreground), 0.7);
+  --text-muted: var(--foreground-muted);
+  --foreground-subtle: rgba(250, 250, 250, var(--foreground-opacity));
+  /* Use the RGB values for #fafafa */
+  --background: var(--color-offblack);
+  --background-accent: var(--color-purple);
+  --color-highlight: hsla(0, 0%, 100%, 0.08);
+  --background-darker: var(--color-highlight);
+  --link: var(--foreground);
+  --border: 1px solid black;
+
+  /* Reversed */
+  --link-reversed: var(--foreground-reversed);
+  --foreground-reversed: var(--color-darktext);
+  --background-reversed: var(--color-offwhite);
+  --background-darker-reversed: var(--color-highlight2);
+  --font-reversed-light: 300;
+  --font-reversed-normal: 450;
+  --font-reversed-medium: 500;
+  --font-reversed-bold: 600;
+  --font-reversed-heavy: 800;
+
+  /* FONT WEIGHT */
+  --fontWeight-light: 250;
+  --fontWeight-normal: 350;
+  --fontWeight-medium: 450;
+  --fontWeight-bold: 550;
+  --fontWeight-heavy: 700;
+
+  --shadow-light: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  --shadow-deep:
+    0px 16px 24px rgba(0, 0, 0, 0.25), 0px 6px 30px rgba(0, 0, 0, 0.25),
+    0px 8px 10px rgba(0, 0, 0, 0.25);
+
+  /* IMAGE FILTERS */
+  --filter: brightness(0.8) saturate(1.25);
+  --icon-filter: none;
+  /* Icons use CSS masks with foreground color */
+
+  /* SPACING - testing calc */
+  --letterSpacing-tight: -0.12rem;
+  --letterSpacing-base: 0.01rem;
+  --letterSpacing-loose: 0.04rem;
+  --letterSpacing-reversed-tight: -0.16rem;
+  --letterSpacing-reversed-base: 0;
+  --letterSpacing-reversed-loose: 0.03rem;
+
+  /* CODE (markdown + snippets) */
+  --code-bg: var(--background-darker);
+  --code-fg: var(--foreground);
+  --code-border: rgba(255, 255, 255, 0.12);
+  --code-inline-bg: var(--background-darker);
+  --code-inline-fg: var(--foreground);
+
+  /* Code syntax tokens (highlight.js classes) */
+  --code-comment: rgba(250, 250, 250, 0.6);
+  --code-keyword: #c4b5fd;
+  --code-string: #6ee7b7;
+  --code-number: #fbbf24;
+  --code-title: #93c5fd;
+  --code-attr: #fda4af;
+  --code-meta: rgba(250, 250, 250, 0.7);
+  --code-addition: #6ee7b7;
+  --code-deletion: #fda4af;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground: var(--color-offwhite);
+    --foreground-muted: rgba(var(--foreground), 0.7);
+    --text-muted: var(--foreground-muted);
+    --foreground-subtle: rgba(250, 250, 250, var(--foreground-opacity));
+    /* Use the RGB values for #fafafa */
+    --background: var(--color-offblack);
+    --background-accent: var(--color-lightyellow);
+    --color-highlight: hsla(0, 0%, 100%, 0.08);
+    --background-darker: var(--color-highlight);
+    --link: var(--foreground);
+    --border: 1px solid black;
+    /* Reversed */
+    --link-reversed: var(--foreground-reversed);
+    --foreground-reversed: var(--color-darktext);
+    --background-reversed: var(--color-offwhite);
+    --background-darker-reversed: var(--color-highlight2);
+    --font-reversed-light: 300;
+    --font-reversed-normal: 450;
+    --font-reversed-medium: 500;
+    --font-reversed-bold: 600;
+    --font-reversed-heavy: 800;
+
+    /* FONT WEIGHT */
+    --fontWeight-light: 250;
+    --fontWeight-normal: 400;
+    --fontWeight-medium: 450;
+    --fontWeight-bold: 550;
+    --fontWeight-heavy: 700;
+
+    --shadow-deep:
+      0px 16px 24px var(--color-offblack), 0px 6px 30px var(--color-offblack),
+      0px 8px 10px var(--color-offblack);
+
+    /* IMAGE FILTERS */
+    --filter: brightness(0.8) saturate(1.25);
+
+    /* SPACING */
+    --letterSpacing-tight: -0.12rem;
+    --letterSpacing-base: 0.01rem;
+    --letterSpacing-loose: 0.04rem;
+    --letterSpacing-reversed-tight: -0.16rem;
+    --letterSpacing-reversed-base: 0;
+    --letterSpacing-reversed-loose: 0.03rem;
+
+    /* CODE (markdown + snippets) */
+    --code-bg: var(--background-darker);
+    --code-fg: var(--foreground);
+    --code-border: rgba(255, 255, 255, 0.12);
+    --code-inline-bg: var(--background-darker);
+    --code-inline-fg: var(--foreground);
+
+    /* Code syntax tokens (highlight.js classes) */
+    --code-comment: rgba(250, 250, 250, 0.6);
+    --code-keyword: #c4b5fd;
+    --code-string: #6ee7b7;
+    --code-number: #fbbf24;
+    --code-title: #93c5fd;
+    --code-attr: #fda4af;
+    --code-meta: rgba(250, 250, 250, 0.7);
+    --code-addition: #6ee7b7;
+    --code-deletion: #fda4af;
+  }
+}
+
+:root.light-theme {
+  --foreground: var(--color-darktext);
+  --foreground-muted: rgba(var(--foreground), 0.7);
+  --text-muted: var(--foreground-muted);
+  --foreground-subtle: rgba(43, 61, 79, var(--foreground-opacity));
+  /* Use the RGB values for --color-darktext */
+
+  --background: var(--color-offwhite);
+  --background-darker: var(--color-highlight2);
+  --background-accent: var(--color-lightyellow);
+  --link: var(--foreground);
+  --border: 1px solid var(--color-xlight);
+  /* Reversed */
+  --link-reversed: var(--foreground-reversed);
+  --foreground-reversed: var(--color-offwhite);
+  --background-reversed: var(--color-offblack);
+  --background-darker-reversed: var(--color-highlight);
+  --font-reversed-light: 250;
+  --font-reversed-normal: 400;
+  --font-reversed-medium: 450;
+  --font-reversed-bold: 550;
+  --font-reversed-heavy: 700;
+
+  /* FONT WEIGHT */
+  --fontWeight-light: 300;
+  --fontWeight-normal: 400;
+  --fontWeight-medium: 500;
+  --fontWeight-bold: 600;
+  --fontWeight-heavy: 800;
+
+  --shadow-deep:
+    0px 16px 24px rgba(0, 0, 0, 0.07), 0px 6px 30px rgba(0, 0, 0, 0.06),
+    0px 8px 10px rgba(0, 0, 0, 0.1);
+
+  /* IMAGE FILTERS */
+  --filter: brightness(1) saturate(1);
+  --icon-filter: none;
+  /* Icons use CSS masks with foreground color */
+
+  /* CODE (markdown + snippets) */
+  --code-bg: var(--background-darker);
+  --code-fg: var(--foreground);
+  --code-border: rgba(0, 0, 0, 0.08);
+  --code-inline-bg: var(--background-darker);
+  --code-inline-fg: var(--foreground);
+
+  /* Code syntax tokens (highlight.js classes) */
+  --code-comment: rgba(43, 61, 79, 0.65);
+  --code-keyword: #6d28d9;
+  --code-string: #047857;
+  --code-number: #b45309;
+  --code-title: #1d4ed8;
+  --code-attr: #b91c1c;
+  --code-meta: rgba(43, 61, 79, 0.75);
+  --code-addition: #047857;
+  --code-deletion: #b91c1c;
+
+  /* SPACING */
+  --letterSpacing-tight: -0.16rem;
+  --letterSpacing-base: 0;
+  --letterSpacing-loose: 0.03rem;
+  --letterSpacing-reversed-tight: -0.12rem;
+  --letterSpacing-reversed-base: 0.01rem;
+  --letterSpacing-reversed-loose: 0.04rem;
+}
+
+/* ── Base & reset (from typography.scss) ── */
+
+* {
+  font-kerning: auto;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6, p { margin: 0; }
+
+html {
+  font-size: 62.5%; /* 1rem = 10px, matching main site */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--fontFamily-primary);
+  font-weight: var(--fontWeight-normal);
+  letter-spacing: var(--letterSpacing-base);
+  min-height: 100vh;
+}
+
+/* ── Headings (matching main site) ───────── */
+
+h1 {
+  font-size: var(--font-900);
+  font-weight: var(--fontWeight-bold);
+  line-height: var(--lineHeight-shorter);
+  letter-spacing: var(--letterSpacing-tight);
+  font-variation-settings: 'YAXS' 400, 'wdth' 110, 'opsz' 96;
+}
+
+h2 {
+  font-size: var(--size-9);
+  font-weight: var(--fontWeight-bold);
+  line-height: var(--lineHeight-base);
+  letter-spacing: var(--letterSpacing-tight);
+  font-variation-settings: 'YAXS' 400, 'wdth' 105, 'opsz' 56;
+}
+
+h3 {
+  font-size: var(--font-700);
+  font-weight: var(--fontWeight-bold);
+  line-height: var(--lineHeight-base);
+  letter-spacing: var(--letterSpacing-base);
+  font-variation-settings: 'YAXS' 400, 'wdth' 110, 'opsz' 36;
+}
+
+h4 {
+  font-size: var(--font-600);
+  font-weight: var(--fontWeight-bold);
+  line-height: var(--lineHeight-tall);
+  font-variation-settings: 'YAXS' 400, 'wdth' 100, 'opsz' 24;
+}
+
+h5 {
+  font-size: var(--font-500);
+  font-weight: var(--fontWeight-medium);
+  line-height: var(--lineHeight-tall);
+  font-variation-settings: 'YAXS' 400, 'wdth' 110, 'opsz' 18;
+}
+
+h6 {
+  font-size: var(--font-400);
+  font-weight: var(--fontWeight-medium);
+  line-height: var(--lineHeight-tall);
+  letter-spacing: var(--letterSpacing-loose);
+  text-transform: uppercase;
+  font-variation-settings: 'YAXS' 400, 'wdth' 115, 'opsz' 14;
+}
+
+/* ── Body text ───────────────────────────── */
+
+p, li, blockquote, td, label {
+  font-weight: var(--fontWeight-medium);
+  font-size: var(--font-500);
+  line-height: var(--lineHeight-taller);
+  color: rgba(var(--foreground-rgb), 0.75);
+  font-variation-settings: 'wdth' 102, 'opsz' 14;
+}
+
+h1 + p {
+  font-size: var(--font-p-lead);
+}
+
+strong, b {
+  color: rgba(var(--foreground-rgb), 1);
+  font-weight: var(--fontWeight-bold);
+}
+
+/* ── Links ────────────────────────────────── */
+
+a {
+  color: var(--foreground);
+  font-weight: var(--fontWeight-medium);
+  font-size: var(--font-500);
+  text-decoration: underline;
+  text-underline-offset: var(--link-underline-offset);
+  text-decoration-thickness: var(--link-underline-thickness);
+  font-variation-settings: 'wdth' 100, 'opsz' 19;
+  transition: font-variation-settings 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline wavy var(--foreground);
+  text-underline-offset: var(--link-underline-offset);
+  text-decoration-thickness: var(--link-underline-thickness-hover);
+  font-variation-settings: 'wdth' 112, 'opsz' 19;
+}
+
+code, pre {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* ── Responsive (from typography.scss) ───── */
+
+@media only screen and (max-width: 767px) {
+  h2 { font-size: var(--size-9); }
+  h3 { font-size: var(--size-7); }
+  h4 { font-size: var(--size-6); }
+  h5 { font-size: var(--size-5); }
+  h6 { font-size: var(--size-4); }
+}
+
+@media only screen and (min-width: 768px) {
+  h2 { font-size: var(--size-12); }
+}
+
+/* ── Utility classes ─────────────────────── */
+
+.eyebrow {
+  font-size: var(--font-3xs);
+  font-weight: var(--fontWeight-medium);
+  letter-spacing: var(--letterSpacing-loose);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.muted { color: var(--text-muted); }
+.subtle { opacity: 0.75; }
+
+/* ── Lab layout patterns ─────────────────── */
+
+.lab-header {
+  max-width: 96rem;
+  margin: 0 auto;
+  padding: var(--spacing-big) var(--spacing-sm);
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-xs);
+}
+
+.lab-header h1 {
+  font-size: var(--font-2xs);
+  font-weight: var(--fontWeight-medium);
+  letter-spacing: var(--letterSpacing-loose);
+  text-transform: uppercase;
+}
+
+.lab-header p {
+  font-size: var(--font-3xs);
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+.lab-toggle {
+  display: flex;
+  border: var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.lab-toggle button {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--fontFamily-primary);
+  font-size: var(--font-3xs);
+  font-weight: var(--fontWeight-medium);
+  letter-spacing: var(--letterSpacing-loose);
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: color 0.15s, background 0.15s;
+}
+
+.lab-toggle button.active {
+  background: var(--background-darker);
+  color: var(--foreground);
+}
+
+.lab-toggle button:not(:last-child) {
+  border-right: var(--border);
+}
+
+.lab-toggle button:hover:not(.active) {
+  color: var(--foreground);
+}
+
+.lab-label {
+  font-size: var(--font-3xs);
+  font-weight: var(--fontWeight-medium);
+  letter-spacing: var(--letterSpacing-loose);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-bottom: var(--spacing-xxxs);
+  border-bottom: var(--border);
+  margin-bottom: var(--spacing-xxs);
+}
+
+/* ── Scrollbar ───────────────────────────── */
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-medium); border-radius: 2px; }
+
+/* ── Hidden ──────────────────────────────── */
+
+[hidden] { display: none !important; }

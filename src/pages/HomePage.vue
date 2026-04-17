@@ -109,7 +109,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useHead } from '@vueuse/head';
 import work from '@/assets/data/library.json';
-import CounterFill from '../../packages/counter-fill/counter-fill.js';
+import CounterFill from '../../public/lab/counter-fill/counter-fill.js';
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
