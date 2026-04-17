@@ -1,0 +1,51 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Foundations/Colors" />
+
+# Colors
+
+All colors are defined as CSS variables in `src/app/globals.css`.
+Edit those variables to retheme the entire system instantly.
+
+## Token swatches
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: '16px', marginTop: '24px' }}>
+  {[
+    { name: '--background', label: 'Background', tw: 'bg-background border' },
+    { name: '--foreground', label: 'Foreground', tw: 'bg-foreground' },
+    { name: '--primary', label: 'Primary', tw: 'bg-primary' },
+    { name: '--primary-foreground', label: 'Primary FG', tw: 'bg-primary-foreground border' },
+    { name: '--secondary', label: 'Secondary', tw: 'bg-secondary' },
+    { name: '--muted', label: 'Muted', tw: 'bg-muted' },
+    { name: '--muted-foreground', label: 'Muted FG', tw: 'bg-muted-foreground' },
+    { name: '--accent', label: 'Accent', tw: 'bg-accent' },
+    { name: '--destructive', label: 'Destructive', tw: 'bg-destructive' },
+    { name: '--border', label: 'Border', tw: 'bg-border' },
+    { name: '--card', label: 'Card', tw: 'bg-card border' },
+  ].map(({ name, label, tw }) => (
+    <div key={name} style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid #e5e7eb' }}>
+      <div className={tw} style={{ height: '80px', width: '100%' }} />
+      <div style={{ padding: '8px 12px', fontSize: '12px' }}>
+        <strong>{label}</strong>
+        <div style={{ color: '#6b7280', fontFamily: 'monospace' }}>{name}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+## How to customize
+
+Open `src/app/globals.css` and change the HSL values inside `:root`. All components pick up the change automatically.
+
+```css
+:root {
+  /* Change this to your brand blue */
+  --primary: 221 83% 53%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Adjust corner radius across all components */
+  --radius: 0.375rem;
+}
+```
+
+HSL format is `hue saturation% lightness%` — omit the `%` signs in the CSS variable value itself (Tailwind adds them).

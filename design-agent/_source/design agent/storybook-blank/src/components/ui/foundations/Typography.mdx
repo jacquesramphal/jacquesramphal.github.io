@@ -1,0 +1,81 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+The type scale is built on Tailwind's default font-size ramp with semantic utility classes applied via the `Typography` component (`src/components/ui/typography.tsx`).
+
+There is no custom font configured by default — the system inherits the browser's system font stack. To add a custom font, load it in `src/app/globals.css` or via `next/font` and set `font-family` on `body`.
+
+## Type scale
+
+| Style | Class | Size | Weight | Use case |
+|-------|-------|------|--------|----------|
+| H1 | `TypographyH1` | `text-4xl / lg:text-5xl` | 800 | Page titles |
+| H2 | `TypographyH2` | `text-3xl` | 600 | Section headings |
+| H3 | `TypographyH3` | `text-2xl` | 600 | Subsection headings |
+| H4 | `TypographyH4` | `text-xl` | 600 | Card or panel titles |
+| Lead | `TypographyLead` | `text-xl` | 400 | Introductory sentences |
+| P | `TypographyP` | `text-base` | 400 | Body copy |
+| Large | `TypographyLarge` | `text-lg` | 600 | Callouts, pull quotes |
+| Small | `TypographySmall` | `text-sm` | 500 | Labels, captions |
+| Muted | `TypographyMuted` | `text-sm` | 400 | Metadata, timestamps |
+
+## Live examples
+
+<div style={{ marginTop: '32px', maxWidth: '640px' }}>
+
+<h1 style={{ fontSize: '2.5rem', fontWeight: 800, letterSpacing: '-0.025em', lineHeight: 1.1, marginBottom: '16px' }}>
+  H1 — The quick brown fox jumps
+</h1>
+
+<h2 style={{ fontSize: '1.875rem', fontWeight: 600, letterSpacing: '-0.025em', borderBottom: '1px solid #e5e7eb', paddingBottom: '8px', marginBottom: '16px' }}>
+  H2 — Section heading
+</h2>
+
+<h3 style={{ fontSize: '1.5rem', fontWeight: 600, letterSpacing: '-0.025em', marginBottom: '16px' }}>
+  H3 — Subsection heading
+</h3>
+
+<h4 style={{ fontSize: '1.25rem', fontWeight: 600, letterSpacing: '-0.025em', marginBottom: '16px' }}>
+  H4 — Card title
+</h4>
+
+<p style={{ fontSize: '1.25rem', color: '#6b7280', marginBottom: '16px' }}>
+  Lead — An introductory sentence that provides context or draws the reader in.
+</p>
+
+<p style={{ fontSize: '1rem', lineHeight: 1.75, marginBottom: '16px' }}>
+  Paragraph — The standard body text style used for long-form content. Line height is set to 1.75 for comfortable reading at paragraph length.
+</p>
+
+<div style={{ fontSize: '1.125rem', fontWeight: 600, marginBottom: '12px' }}>
+  Large — For callouts and highlighted text
+</div>
+
+<small style={{ fontSize: '0.875rem', fontWeight: 500 }}>
+  Small — labels, captions, helper text
+</small>
+
+<p style={{ fontSize: '0.875rem', color: '#6b7280', marginTop: '12px' }}>
+  Muted — timestamps, metadata, secondary information
+</p>
+
+</div>
+
+## Adding a custom font
+
+To use a Google Font or self-hosted font, update `src/app/globals.css`:
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+}
+```
+
+Or use Next.js font optimisation in a layout file with `next/font/google`.
