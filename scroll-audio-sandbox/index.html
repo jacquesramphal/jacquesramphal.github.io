@@ -133,621 +133,82 @@
         None of these numbers are universal. They depend on the audio content, the device, and what
         you're trying to communicate. Treat them as starting points.
       </p>
-      <h1>The page as an instrument</h1>
 
-      <p class="lede">
-        Drop a house or dancehall loop into the panel, then scroll. Your scroll speed becomes the
-        playback rate. Scroll up to reverse. Stop to let it brake.
-      </p>
-
-      <h2>Why this works</h2>
-      <p>
-        CSS scroll position is a first-class value in the browser. The Scroll-driven Animations spec
-        (shipped 2023) lets CSS animation timelines be driven directly by scroll progress — no
-        JavaScript scroll listeners required. That's the visual layer.
-      </p>
-      <p>
-        The audio layer uses the Web Audio API's AudioBufferSourceNode, which exposes playbackRate
-        as an AudioParam. AudioParams support linear and exponential ramping, which is what makes
-        the vinyl brake effect smooth rather than a hard cut.
-      </p>
-      <p>
-        The connection between the two is a thin JavaScript bridge: measure scroll velocity on each
-        scroll event, map it to a playback rate, ramp the AudioParam. The CSS isn't generating audio
-        — but it's close to the seam where you could wire it up.
-      </p>
-
-      <h2>Two models</h2>
-      <p>
-        Scratch mode treats the page like a record. You control when audio plays, at what speed, and
-        in which direction. Stop scrolling and the audio brakes to a crawl — like a turntable
-        slowing down — rather than cutting off. The deceleration is handled by
-        linearRampToValueAtTime over 350ms.
-      </p>
-      <p>
-        Timeline mode is different. The audio plays continuously, but its position in the track is
-        locked to your scroll position. Scroll to 50% down the page and you hear the halfway point
-        of the loop. Scroll back up and the audio follows. The reader becomes the conductor of the
-        playback position.
-      </p>
-      <p>
-        The hybrid — which this eventually should become — uses scroll velocity to set the playback
-        rate of a continuous piece. Slow readers hear the full tempo. Fast scrollers get a rushed
-        version. Stop and it idles. The music becomes a measure of attention.
-      </p>
-
-      <h2>The technical seam</h2>
-      <p>
-        The main constraint is that AudioBufferSourceNode can only be started once. To change
-        direction, you have to stop the current source and create a new one pointing at a reversed
-        copy of the buffer. The reversed buffer is computed once on load by walking each channel's
-        Float32Array in reverse. Direction changes mirror the current playback position into the
-        reversed buffer so the audio doesn't jump.
-      </p>
-      <p>
-        Timeline mode uses HTMLAudioElement instead of AudioBuffer because AudioBufferSourceNode
-        can't seek — it plays from a given offset and you can't reposition it mid-playback without
-        restarting. HTMLAudioElement.currentTime is seekable. The tradeoff is that rapid seeking
-        causes pops, so there's a crossfade gain envelope (40ms down, 100ms back up) on seeks larger
-        than 0.5 seconds.
-      </p>
-
-      <h2>What makes house loops good for this</h2>
-      <p>
-        A 4/4 house kick pattern is nearly symmetrical. The kick hits on every beat, so reversing it
-        sounds like a slightly different mix rather than a completely different piece of music.
-        Dancehall's syncopation is more directional — reversed it sounds broken rather than
-        interesting. That asymmetry makes it worse for the scratch model and more interesting for
-        timeline mode, where you never reverse.
-      </p>
-      <p>
-        The ideal test loop is 8–16 bars at 120–130bpm, no intro silence, no tail. Seamless loops
-        let the AudioBufferSourceNode looping parameter take over — you never hear the boundary.
-      </p>
-
-      <h2>What comes next</h2>
-      <p>
-        The obvious evolution is an article format where the audio isn't a demo but is the content
-        itself — where the composition was designed knowing the reader will move through it at
-        variable speeds. Sections could be composed to work at 0.5x as well as 2x. The constraint
-        that the writing imposes on the music, and vice versa, is the interesting design problem.
-      </p>
-      <p>
-        There's also a version where different scroll zones trigger different stems — drums drop in
-        above the fold, bass enters at section two, melody at section three. CSS scroll-driven
-        animations already handle this kind of zone-based triggering for visual elements. Wiring
-        audio stems to those same breakpoints would be a thin layer of additional JS.
-      </p>
-      <p>
-        Whether this is a useful reading experience or just a compelling demo is worth testing on a
-        real article. The scroll-as-instrument model probably works better as a standalone creative
-        piece than as a reading aid. Timeline mode is more compatible with actual editorial content
-        — the music follows rather than demands.
-      </p>
-
-      <h2>Scroll further to test range</h2>
-      <p>
-        This content exists to give you enough page height to experience the effect across a full
-        velocity range. Scroll slowly, then quickly, then reverse. The stats panel on the right
-        shows rate, direction, and position in real time.
-      </p>
-      <p>
-        The waveform on the panel is a live oscilloscope view of the audio output — the AnalyserNode
-        feeds a canvas draw loop at 60fps. When the page is idle it flatlines. When you scroll it
-        animates. That relationship is the whole point.
-      </p>
-      <p>
-        At very high scroll speeds the playback rate clamps at 3.5x — this avoids pitch-shifted
-        audio that sounds unintentional rather than musical. The clamp value is arbitrary and worth
-        tuning for different loops.
-      </p>
-      <p>
-        At very low scroll speeds (below 0.05 pixels/ms) the brake fires immediately. This threshold
-        is also tunable — higher values mean the brake fires sooner, giving a more responsive feel.
-        Lower values let slow scrolling continue at a crawl.
-      </p>
-      <p>
-        The 130ms brake delay is the time between the last scroll event and when the deceleration
-        ramp starts. Too short and it fires mid-scroll. Too long and there's a perceptible lag
-        between stopping and hearing the brake. 130ms felt right in testing on a 2024 MacBook
-        trackpad.
-      </p>
-      <p>
-        None of these numbers are universal. They depend on the audio content, the device, and what
-        you're trying to communicate. Treat them as starting points.
-      </p>
-      <h1>The page as an instrument</h1>
-
-      <p class="lede">
-        Drop a house or dancehall loop into the panel, then scroll. Your scroll speed becomes the
-        playback rate. Scroll up to reverse. Stop to let it brake.
-      </p>
-
-      <h2>Why this works</h2>
-      <p>
-        CSS scroll position is a first-class value in the browser. The Scroll-driven Animations spec
-        (shipped 2023) lets CSS animation timelines be driven directly by scroll progress — no
-        JavaScript scroll listeners required. That's the visual layer.
-      </p>
-      <p>
-        The audio layer uses the Web Audio API's AudioBufferSourceNode, which exposes playbackRate
-        as an AudioParam. AudioParams support linear and exponential ramping, which is what makes
-        the vinyl brake effect smooth rather than a hard cut.
-      </p>
-      <p>
-        The connection between the two is a thin JavaScript bridge: measure scroll velocity on each
-        scroll event, map it to a playback rate, ramp the AudioParam. The CSS isn't generating audio
-        — but it's close to the seam where you could wire it up.
-      </p>
-
-      <h2>Two models</h2>
-      <p>
-        Scratch mode treats the page like a record. You control when audio plays, at what speed, and
-        in which direction. Stop scrolling and the audio brakes to a crawl — like a turntable
-        slowing down — rather than cutting off. The deceleration is handled by
-        linearRampToValueAtTime over 350ms.
-      </p>
-      <p>
-        Timeline mode is different. The audio plays continuously, but its position in the track is
-        locked to your scroll position. Scroll to 50% down the page and you hear the halfway point
-        of the loop. Scroll back up and the audio follows. The reader becomes the conductor of the
-        playback position.
-      </p>
-      <p>
-        The hybrid — which this eventually should become — uses scroll velocity to set the playback
-        rate of a continuous piece. Slow readers hear the full tempo. Fast scrollers get a rushed
-        version. Stop and it idles. The music becomes a measure of attention.
-      </p>
-
-      <h2>The technical seam</h2>
-      <p>
-        The main constraint is that AudioBufferSourceNode can only be started once. To change
-        direction, you have to stop the current source and create a new one pointing at a reversed
-        copy of the buffer. The reversed buffer is computed once on load by walking each channel's
-        Float32Array in reverse. Direction changes mirror the current playback position into the
-        reversed buffer so the audio doesn't jump.
-      </p>
-      <p>
-        Timeline mode uses HTMLAudioElement instead of AudioBuffer because AudioBufferSourceNode
-        can't seek — it plays from a given offset and you can't reposition it mid-playback without
-        restarting. HTMLAudioElement.currentTime is seekable. The tradeoff is that rapid seeking
-        causes pops, so there's a crossfade gain envelope (40ms down, 100ms back up) on seeks larger
-        than 0.5 seconds.
-      </p>
-
-      <h2>What makes house loops good for this</h2>
-      <p>
-        A 4/4 house kick pattern is nearly symmetrical. The kick hits on every beat, so reversing it
-        sounds like a slightly different mix rather than a completely different piece of music.
-        Dancehall's syncopation is more directional — reversed it sounds broken rather than
-        interesting. That asymmetry makes it worse for the scratch model and more interesting for
-        timeline mode, where you never reverse.
-      </p>
-      <p>
-        The ideal test loop is 8–16 bars at 120–130bpm, no intro silence, no tail. Seamless loops
-        let the AudioBufferSourceNode looping parameter take over — you never hear the boundary.
-      </p>
-
-      <h2>What comes next</h2>
-      <p>
-        The obvious evolution is an article format where the audio isn't a demo but is the content
-        itself — where the composition was designed knowing the reader will move through it at
-        variable speeds. Sections could be composed to work at 0.5x as well as 2x. The constraint
-        that the writing imposes on the music, and vice versa, is the interesting design problem.
-      </p>
-      <p>
-        There's also a version where different scroll zones trigger different stems — drums drop in
-        above the fold, bass enters at section two, melody at section three. CSS scroll-driven
-        animations already handle this kind of zone-based triggering for visual elements. Wiring
-        audio stems to those same breakpoints would be a thin layer of additional JS.
-      </p>
-      <p>
-        Whether this is a useful reading experience or just a compelling demo is worth testing on a
-        real article. The scroll-as-instrument model probably works better as a standalone creative
-        piece than as a reading aid. Timeline mode is more compatible with actual editorial content
-        — the music follows rather than demands.
-      </p>
-
-      <h2>Scroll further to test range</h2>
-      <p>
-        This content exists to give you enough page height to experience the effect across a full
-        velocity range. Scroll slowly, then quickly, then reverse. The stats panel on the right
-        shows rate, direction, and position in real time.
-      </p>
-      <p>
-        The waveform on the panel is a live oscilloscope view of the audio output — the AnalyserNode
-        feeds a canvas draw loop at 60fps. When the page is idle it flatlines. When you scroll it
-        animates. That relationship is the whole point.
-      </p>
-      <p>
-        At very high scroll speeds the playback rate clamps at 3.5x — this avoids pitch-shifted
-        audio that sounds unintentional rather than musical. The clamp value is arbitrary and worth
-        tuning for different loops.
-      </p>
-      <p>
-        At very low scroll speeds (below 0.05 pixels/ms) the brake fires immediately. This threshold
-        is also tunable — higher values mean the brake fires sooner, giving a more responsive feel.
-        Lower values let slow scrolling continue at a crawl.
-      </p>
-      <p>
-        The 130ms brake delay is the time between the last scroll event and when the deceleration
-        ramp starts. Too short and it fires mid-scroll. Too long and there's a perceptible lag
-        between stopping and hearing the brake. 130ms felt right in testing on a 2024 MacBook
-        trackpad.
-      </p>
-      <p>
-        None of these numbers are universal. They depend on the audio content, the device, and what
-        you're trying to communicate. Treat them as starting points.
-      </p>
-      <h1>The page as an instrument</h1>
-
-      <p class="lede">
-        Drop a house or dancehall loop into the panel, then scroll. Your scroll speed becomes the
-        playback rate. Scroll up to reverse. Stop to let it brake.
-      </p>
-
-      <h2>Why this works</h2>
-      <p>
-        CSS scroll position is a first-class value in the browser. The Scroll-driven Animations spec
-        (shipped 2023) lets CSS animation timelines be driven directly by scroll progress — no
-        JavaScript scroll listeners required. That's the visual layer.
-      </p>
-      <p>
-        The audio layer uses the Web Audio API's AudioBufferSourceNode, which exposes playbackRate
-        as an AudioParam. AudioParams support linear and exponential ramping, which is what makes
-        the vinyl brake effect smooth rather than a hard cut.
-      </p>
-      <p>
-        The connection between the two is a thin JavaScript bridge: measure scroll velocity on each
-        scroll event, map it to a playback rate, ramp the AudioParam. The CSS isn't generating audio
-        — but it's close to the seam where you could wire it up.
-      </p>
-
-      <h2>Two models</h2>
-      <p>
-        Scratch mode treats the page like a record. You control when audio plays, at what speed, and
-        in which direction. Stop scrolling and the audio brakes to a crawl — like a turntable
-        slowing down — rather than cutting off. The deceleration is handled by
-        linearRampToValueAtTime over 350ms.
-      </p>
-      <p>
-        Timeline mode is different. The audio plays continuously, but its position in the track is
-        locked to your scroll position. Scroll to 50% down the page and you hear the halfway point
-        of the loop. Scroll back up and the audio follows. The reader becomes the conductor of the
-        playback position.
-      </p>
-      <p>
-        The hybrid — which this eventually should become — uses scroll velocity to set the playback
-        rate of a continuous piece. Slow readers hear the full tempo. Fast scrollers get a rushed
-        version. Stop and it idles. The music becomes a measure of attention.
-      </p>
-
-      <h2>The technical seam</h2>
-      <p>
-        The main constraint is that AudioBufferSourceNode can only be started once. To change
-        direction, you have to stop the current source and create a new one pointing at a reversed
-        copy of the buffer. The reversed buffer is computed once on load by walking each channel's
-        Float32Array in reverse. Direction changes mirror the current playback position into the
-        reversed buffer so the audio doesn't jump.
-      </p>
-      <p>
-        Timeline mode uses HTMLAudioElement instead of AudioBuffer because AudioBufferSourceNode
-        can't seek — it plays from a given offset and you can't reposition it mid-playback without
-        restarting. HTMLAudioElement.currentTime is seekable. The tradeoff is that rapid seeking
-        causes pops, so there's a crossfade gain envelope (40ms down, 100ms back up) on seeks larger
-        than 0.5 seconds.
-      </p>
-
-      <h2>What makes house loops good for this</h2>
-      <p>
-        A 4/4 house kick pattern is nearly symmetrical. The kick hits on every beat, so reversing it
-        sounds like a slightly different mix rather than a completely different piece of music.
-        Dancehall's syncopation is more directional — reversed it sounds broken rather than
-        interesting. That asymmetry makes it worse for the scratch model and more interesting for
-        timeline mode, where you never reverse.
-      </p>
-      <p>
-        The ideal test loop is 8–16 bars at 120–130bpm, no intro silence, no tail. Seamless loops
-        let the AudioBufferSourceNode looping parameter take over — you never hear the boundary.
-      </p>
-
-      <h2>What comes next</h2>
-      <p>
-        The obvious evolution is an article format where the audio isn't a demo but is the content
-        itself — where the composition was designed knowing the reader will move through it at
-        variable speeds. Sections could be composed to work at 0.5x as well as 2x. The constraint
-        that the writing imposes on the music, and vice versa, is the interesting design problem.
-      </p>
-      <p>
-        There's also a version where different scroll zones trigger different stems — drums drop in
-        above the fold, bass enters at section two, melody at section three. CSS scroll-driven
-        animations already handle this kind of zone-based triggering for visual elements. Wiring
-        audio stems to those same breakpoints would be a thin layer of additional JS.
-      </p>
-      <p>
-        Whether this is a useful reading experience or just a compelling demo is worth testing on a
-        real article. The scroll-as-instrument model probably works better as a standalone creative
-        piece than as a reading aid. Timeline mode is more compatible with actual editorial content
-        — the music follows rather than demands.
-      </p>
-
-      <h2>Scroll further to test range</h2>
-      <p>
-        This content exists to give you enough page height to experience the effect across a full
-        velocity range. Scroll slowly, then quickly, then reverse. The stats panel on the right
-        shows rate, direction, and position in real time.
-      </p>
-      <p>
-        The waveform on the panel is a live oscilloscope view of the audio output — the AnalyserNode
-        feeds a canvas draw loop at 60fps. When the page is idle it flatlines. When you scroll it
-        animates. That relationship is the whole point.
-      </p>
-      <p>
-        At very high scroll speeds the playback rate clamps at 3.5x — this avoids pitch-shifted
-        audio that sounds unintentional rather than musical. The clamp value is arbitrary and worth
-        tuning for different loops.
-      </p>
-      <p>
-        At very low scroll speeds (below 0.05 pixels/ms) the brake fires immediately. This threshold
-        is also tunable — higher values mean the brake fires sooner, giving a more responsive feel.
-        Lower values let slow scrolling continue at a crawl.
-      </p>
-      <p>
-        The 130ms brake delay is the time between the last scroll event and when the deceleration
-        ramp starts. Too short and it fires mid-scroll. Too long and there's a perceptible lag
-        between stopping and hearing the brake. 130ms felt right in testing on a 2024 MacBook
-        trackpad.
-      </p>
-      <p>
-        None of these numbers are universal. They depend on the audio content, the device, and what
-        you're trying to communicate. Treat them as starting points.
-      </p>
-      <h1>The page as an instrument</h1>
-
-      <p class="lede">
-        Drop a house or dancehall loop into the panel, then scroll. Your scroll speed becomes the
-        playback rate. Scroll up to reverse. Stop to let it brake.
-      </p>
-
-      <h2>Why this works</h2>
-      <p>
-        CSS scroll position is a first-class value in the browser. The Scroll-driven Animations spec
-        (shipped 2023) lets CSS animation timelines be driven directly by scroll progress — no
-        JavaScript scroll listeners required. That's the visual layer.
-      </p>
-      <p>
-        The audio layer uses the Web Audio API's AudioBufferSourceNode, which exposes playbackRate
-        as an AudioParam. AudioParams support linear and exponential ramping, which is what makes
-        the vinyl brake effect smooth rather than a hard cut.
-      </p>
-      <p>
-        The connection between the two is a thin JavaScript bridge: measure scroll velocity on each
-        scroll event, map it to a playback rate, ramp the AudioParam. The CSS isn't generating audio
-        — but it's close to the seam where you could wire it up.
-      </p>
-
-      <h2>Two models</h2>
-      <p>
-        Scratch mode treats the page like a record. You control when audio plays, at what speed, and
-        in which direction. Stop scrolling and the audio brakes to a crawl — like a turntable
-        slowing down — rather than cutting off. The deceleration is handled by
-        linearRampToValueAtTime over 350ms.
-      </p>
-      <p>
-        Timeline mode is different. The audio plays continuously, but its position in the track is
-        locked to your scroll position. Scroll to 50% down the page and you hear the halfway point
-        of the loop. Scroll back up and the audio follows. The reader becomes the conductor of the
-        playback position.
-      </p>
-      <p>
-        The hybrid — which this eventually should become — uses scroll velocity to set the playback
-        rate of a continuous piece. Slow readers hear the full tempo. Fast scrollers get a rushed
-        version. Stop and it idles. The music becomes a measure of attention.
-      </p>
-
-      <h2>The technical seam</h2>
-      <p>
-        The main constraint is that AudioBufferSourceNode can only be started once. To change
-        direction, you have to stop the current source and create a new one pointing at a reversed
-        copy of the buffer. The reversed buffer is computed once on load by walking each channel's
-        Float32Array in reverse. Direction changes mirror the current playback position into the
-        reversed buffer so the audio doesn't jump.
-      </p>
-      <p>
-        Timeline mode uses HTMLAudioElement instead of AudioBuffer because AudioBufferSourceNode
-        can't seek — it plays from a given offset and you can't reposition it mid-playback without
-        restarting. HTMLAudioElement.currentTime is seekable. The tradeoff is that rapid seeking
-        causes pops, so there's a crossfade gain envelope (40ms down, 100ms back up) on seeks larger
-        than 0.5 seconds.
-      </p>
-
-      <h2>What makes house loops good for this</h2>
-      <p>
-        A 4/4 house kick pattern is nearly symmetrical. The kick hits on every beat, so reversing it
-        sounds like a slightly different mix rather than a completely different piece of music.
-        Dancehall's syncopation is more directional — reversed it sounds broken rather than
-        interesting. That asymmetry makes it worse for the scratch model and more interesting for
-        timeline mode, where you never reverse.
-      </p>
-      <p>
-        The ideal test loop is 8–16 bars at 120–130bpm, no intro silence, no tail. Seamless loops
-        let the AudioBufferSourceNode looping parameter take over — you never hear the boundary.
-      </p>
-
-      <h2>What comes next</h2>
-      <p>
-        The obvious evolution is an article format where the audio isn't a demo but is the content
-        itself — where the composition was designed knowing the reader will move through it at
-        variable speeds. Sections could be composed to work at 0.5x as well as 2x. The constraint
-        that the writing imposes on the music, and vice versa, is the interesting design problem.
-      </p>
-      <p>
-        There's also a version where different scroll zones trigger different stems — drums drop in
-        above the fold, bass enters at section two, melody at section three. CSS scroll-driven
-        animations already handle this kind of zone-based triggering for visual elements. Wiring
-        audio stems to those same breakpoints would be a thin layer of additional JS.
-      </p>
-      <p>
-        Whether this is a useful reading experience or just a compelling demo is worth testing on a
-        real article. The scroll-as-instrument model probably works better as a standalone creative
-        piece than as a reading aid. Timeline mode is more compatible with actual editorial content
-        — the music follows rather than demands.
-      </p>
-
-      <h2>Scroll further to test range</h2>
-      <p>
-        This content exists to give you enough page height to experience the effect across a full
-        velocity range. Scroll slowly, then quickly, then reverse. The stats panel on the right
-        shows rate, direction, and position in real time.
-      </p>
-      <p>
-        The waveform on the panel is a live oscilloscope view of the audio output — the AnalyserNode
-        feeds a canvas draw loop at 60fps. When the page is idle it flatlines. When you scroll it
-        animates. That relationship is the whole point.
-      </p>
-      <p>
-        At very high scroll speeds the playback rate clamps at 3.5x — this avoids pitch-shifted
-        audio that sounds unintentional rather than musical. The clamp value is arbitrary and worth
-        tuning for different loops.
-      </p>
-      <p>
-        At very low scroll speeds (below 0.05 pixels/ms) the brake fires immediately. This threshold
-        is also tunable — higher values mean the brake fires sooner, giving a more responsive feel.
-        Lower values let slow scrolling continue at a crawl.
-      </p>
-      <p>
-        The 130ms brake delay is the time between the last scroll event and when the deceleration
-        ramp starts. Too short and it fires mid-scroll. Too long and there's a perceptible lag
-        between stopping and hearing the brake. 130ms felt right in testing on a 2024 MacBook
-        trackpad.
-      </p>
-      <p>
-        None of these numbers are universal. They depend on the audio content, the device, and what
-        you're trying to communicate. Treat them as starting points.
-      </p>
-      <h1>The page as an instrument</h1>
-
-      <p class="lede">
-        Drop a house or dancehall loop into the panel, then scroll. Your scroll speed becomes the
-        playback rate. Scroll up to reverse. Stop to let it brake.
-      </p>
-
-      <h2>Why this works</h2>
-      <p>
-        CSS scroll position is a first-class value in the browser. The Scroll-driven Animations spec
-        (shipped 2023) lets CSS animation timelines be driven directly by scroll progress — no
-        JavaScript scroll listeners required. That's the visual layer.
-      </p>
-      <p>
-        The audio layer uses the Web Audio API's AudioBufferSourceNode, which exposes playbackRate
-        as an AudioParam. AudioParams support linear and exponential ramping, which is what makes
-        the vinyl brake effect smooth rather than a hard cut.
-      </p>
-      <p>
-        The connection between the two is a thin JavaScript bridge: measure scroll velocity on each
-        scroll event, map it to a playback rate, ramp the AudioParam. The CSS isn't generating audio
-        — but it's close to the seam where you could wire it up.
-      </p>
-
-      <h2>Two models</h2>
-      <p>
-        Scratch mode treats the page like a record. You control when audio plays, at what speed, and
-        in which direction. Stop scrolling and the audio brakes to a crawl — like a turntable
-        slowing down — rather than cutting off. The deceleration is handled by
-        linearRampToValueAtTime over 350ms.
-      </p>
-      <p>
-        Timeline mode is different. The audio plays continuously, but its position in the track is
-        locked to your scroll position. Scroll to 50% down the page and you hear the halfway point
-        of the loop. Scroll back up and the audio follows. The reader becomes the conductor of the
-        playback position.
-      </p>
-      <p>
-        The hybrid — which this eventually should become — uses scroll velocity to set the playback
-        rate of a continuous piece. Slow readers hear the full tempo. Fast scrollers get a rushed
-        version. Stop and it idles. The music becomes a measure of attention.
-      </p>
-
-      <h2>The technical seam</h2>
-      <p>
-        The main constraint is that AudioBufferSourceNode can only be started once. To change
-        direction, you have to stop the current source and create a new one pointing at a reversed
-        copy of the buffer. The reversed buffer is computed once on load by walking each channel's
-        Float32Array in reverse. Direction changes mirror the current playback position into the
-        reversed buffer so the audio doesn't jump.
-      </p>
-      <p>
-        Timeline mode uses HTMLAudioElement instead of AudioBuffer because AudioBufferSourceNode
-        can't seek — it plays from a given offset and you can't reposition it mid-playback without
-        restarting. HTMLAudioElement.currentTime is seekable. The tradeoff is that rapid seeking
-        causes pops, so there's a crossfade gain envelope (40ms down, 100ms back up) on seeks larger
-        than 0.5 seconds.
-      </p>
-
-      <h2>What makes house loops good for this</h2>
-      <p>
-        A 4/4 house kick pattern is nearly symmetrical. The kick hits on every beat, so reversing it
-        sounds like a slightly different mix rather than a completely different piece of music.
-        Dancehall's syncopation is more directional — reversed it sounds broken rather than
-        interesting. That asymmetry makes it worse for the scratch model and more interesting for
-        timeline mode, where you never reverse.
-      </p>
-      <p>
-        The ideal test loop is 8–16 bars at 120–130bpm, no intro silence, no tail. Seamless loops
-        let the AudioBufferSourceNode looping parameter take over — you never hear the boundary.
-      </p>
-
-      <h2>What comes next</h2>
-      <p>
-        The obvious evolution is an article format where the audio isn't a demo but is the content
-        itself — where the composition was designed knowing the reader will move through it at
-        variable speeds. Sections could be composed to work at 0.5x as well as 2x. The constraint
-        that the writing imposes on the music, and vice versa, is the interesting design problem.
-      </p>
-      <p>
-        There's also a version where different scroll zones trigger different stems — drums drop in
-        above the fold, bass enters at section two, melody at section three. CSS scroll-driven
-        animations already handle this kind of zone-based triggering for visual elements. Wiring
-        audio stems to those same breakpoints would be a thin layer of additional JS.
-      </p>
-      <p>
-        Whether this is a useful reading experience or just a compelling demo is worth testing on a
-        real article. The scroll-as-instrument model probably works better as a standalone creative
-        piece than as a reading aid. Timeline mode is more compatible with actual editorial content
-        — the music follows rather than demands.
-      </p>
-
-      <h2>Scroll further to test range</h2>
-      <p>
-        This content exists to give you enough page height to experience the effect across a full
-        velocity range. Scroll slowly, then quickly, then reverse. The stats panel on the right
-        shows rate, direction, and position in real time.
-      </p>
-      <p>
-        The waveform on the panel is a live oscilloscope view of the audio output — the AnalyserNode
-        feeds a canvas draw loop at 60fps. When the page is idle it flatlines. When you scroll it
-        animates. That relationship is the whole point.
-      </p>
-      <p>
-        At very high scroll speeds the playback rate clamps at 3.5x — this avoids pitch-shifted
-        audio that sounds unintentional rather than musical. The clamp value is arbitrary and worth
-        tuning for different loops.
-      </p>
-      <p>
-        At very low scroll speeds (below 0.05 pixels/ms) the brake fires immediately. This threshold
-        is also tunable — higher values mean the brake fires sooner, giving a more responsive feel.
-        Lower values let slow scrolling continue at a crawl.
-      </p>
-      <p>
-        The 130ms brake delay is the time between the last scroll event and when the deceleration
-        ramp starts. Too short and it fires mid-scroll. Too long and there's a perceptible lag
-        between stopping and hearing the brake. 130ms felt right in testing on a 2024 MacBook
-        trackpad.
-      </p>
-      <p>
-        None of these numbers are universal. They depend on the audio content, the device, and what
-        you're trying to communicate. Treat them as starting points.
-      </p>
+      <!-- ── Scroll range filler ───────────────────────── -->
+      <pre class="scroll-filler" aria-hidden="true">
+  ▲
+  │  slow scroll ─── 1× forward
+  │
+  │  fast scroll ─── scratch
+  │                  rate scales with
+  │                  velocity above threshold
+  │
+  │  quick up/down ─ scratch
+  │                  direction flip opens
+  │                  500ms scratch window
+  │
+  │  slow reverse ── 1× backward
+  │
+  │  fast reverse ── scratch reverse
+  │
+  │  stop ────────── vinyl brake
+  │                  ramps to 0 over 350ms
+  │
+  ╠══ SCRATCH_THRESHOLD = 4 px/ms ══
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  ▼
+      </pre>
     </main>
 
     <!-- ── Fixed panel ──────────────────────────────────── -->

@@ -237,6 +237,18 @@ body {
 
 .source-hint p { margin-bottom: 0.25rem; }
 
+/* ── Scroll filler ──────────────────────── */
+
+pre.scroll-filler {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 4rem 0 0;
+  white-space: pre;
+  user-select: none;
+}
+
 /* ── Hidden ─────────────────────────────── */
 
 [hidden] { display: none !important; }
