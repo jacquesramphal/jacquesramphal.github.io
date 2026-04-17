@@ -177,7 +177,7 @@
 <div class="layout">
 
   <div class="stage" id="stage">
-    <img id="subject" src="portrait.jpg" alt="Subject" crossorigin="anonymous">
+    <img id="subject" src="portrait.jpg" alt="Subject">
     <canvas id="canvas"></canvas>
     <div class="effect-label" id="label">Original</div>
   </div>
@@ -222,8 +222,8 @@
         <button data-effect="chroma"   data-label="Chromatic Aberration"   data-canvas="1">Chromatic Abbr.</button>
       </div>
       <p class="canvas-note" id="canvas-note">
-        Canvas pixel ops are blocked on file://<br>
-        Open via a local server to enable.
+        Canvas pixel ops need HTTP.<br>
+        Run: npx serve public
       </p>
     </div>
 
@@ -427,8 +427,8 @@
     ctx.fillStyle = '#444';
     const fs = Math.round(W * 0.025);
     ctx.font = `${fs}px 'Courier New', monospace`;
-    ctx.fillText('Canvas blocked on file://', W * 0.06, H * 0.48);
-    ctx.fillText('Run via: npm run serve', W * 0.06, H * 0.48 + fs * 1.8);
+    ctx.fillText('Canvas needs HTTP to read pixels', W * 0.06, H * 0.48);
+    ctx.fillText('Run: npx serve public', W * 0.06, H * 0.48 + fs * 1.8);
     note.style.display = 'block';
   }
 
