@@ -9,6 +9,20 @@
   "alt": "Genie - Agentic AI Platform",
   "entries": [
     {
+      "id": 75,
+      "docId": 75,
+      "slug": "future-positioning",
+      "type": "planning",
+      "private": true,
+      "date": "Apr 2026",
+      "title": "Future Positioning: Design in an Automated World",
+      "eyebrow": "Strategy",
+      "description": "Private planning document. Site positioning review, honest assessment of gaps, and what's worth building as AI automates the execution layer of design.",
+      "route": "/doc/future-positioning",
+      "contentFile": "doc_75.md",
+      "tags": ["planning", "strategy", "ai"]
+    },
+    {
       "id": 66,
       "docId": 66,
       "slug": "building-genie-changed-me",
