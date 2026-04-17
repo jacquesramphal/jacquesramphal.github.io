@@ -14,6 +14,8 @@ class ScrollAudioEngine {
     this.scratchRate = 0
     this.scratchPlaying = false
     this.brakeTimer = null
+    this.prevForward = true
+    this.lastDirFlipTime = -Infinity  // ctx time of last direction reversal
 
     // Timeline mode
     this.timelineAudio = null
@@ -131,42 +133,68 @@ class ScrollAudioEngine {
   }
 
   _handleScratch(velocity) {
-    const speed = Math.min(Math.abs(velocity) * 0.06, 3.5)
-    const forward = velocity >= 0
+    // px/ms above which velocity alone triggers scratch
+    const SCRATCH_THRESHOLD = 4
+    // seconds after a direction flip to stay in scratch mode
+    const FLIP_SCRATCH_WINDOW = 0.5
 
-    if (Math.abs(velocity) < 0.05) {
+    const absVel = Math.abs(velocity)
+    const forward = velocity >= 0
+    const now = this.ctx.currentTime
+
+    if (absVel < 0.05) {
       this._brake()
       return
     }
 
+    clearTimeout(this.brakeTimer)
+    this.brakeTimer = setTimeout(() => this._brake(), 130)
+
+    // Record direction flips — quick back-and-forth gestures trigger scratch
+    if (forward !== this.prevForward) {
+      this.lastDirFlipTime = now
+    }
+    this.prevForward = forward
+
+    const inFlipWindow = (now - this.lastDirFlipTime) < FLIP_SCRATCH_WINDOW
+    const isScratch = absVel > SCRATCH_THRESHOLD || inFlipWindow
+
+    if (!isScratch) {
+      // Gentle, one-direction scroll — play at 1× in scroll direction
+      const buf = forward ? this.fwdBuffer : this.revBuffer
+      if (!this.scratchPlaying || forward !== this.isForward) {
+        const offset = this.scratchPlaying ? this.duration - this._scratchOffset() : this.scratchOffset
+        this._startScratch(buf, offset, 1.0)
+        this.isForward = forward
+      } else {
+        this.scratchSource.playbackRate.linearRampToValueAtTime(1.0, this.ctx.currentTime + 0.04)
+        this.scratchRate = 1.0
+      }
+      return
+    }
+
+    // Scratch: fast scroll → scales up from 1×; slow flip-triggered → proportional to velocity
+    const speed = absVel > SCRATCH_THRESHOLD
+      ? Math.min(1.0 + (absVel - SCRATCH_THRESHOLD) * 0.25, 3.5)
+      : Math.max(absVel * 0.15, 0.05)
+
     if (!this.scratchPlaying) {
-      this._startScratch(
-        forward ? this.fwdBuffer : this.revBuffer,
-        this.scratchOffset,
-        speed
-      )
+      this._startScratch(forward ? this.fwdBuffer : this.revBuffer, this.scratchOffset, speed)
       this.isForward = forward
     } else if (forward !== this.isForward) {
       // Direction flip — mirror position into opposite buffer
       const offset = this._scratchOffset()
       const mirrored = this.duration - offset
-      this._startScratch(
-        forward ? this.fwdBuffer : this.revBuffer,
-        mirrored,
-        speed
-      )
+      this._startScratch(forward ? this.fwdBuffer : this.revBuffer, mirrored, speed)
       this.isForward = forward
     } else {
-      // Same direction — just ramp rate
+      // Same direction — ramp rate
       this.scratchSource.playbackRate.linearRampToValueAtTime(
         Math.max(speed, 0.001),
         this.ctx.currentTime + 0.04
       )
       this.scratchRate = speed
     }
-
-    clearTimeout(this.brakeTimer)
-    this.brakeTimer = setTimeout(() => this._brake(), 130)
   }
 
   _handleTimeline(progress) {
