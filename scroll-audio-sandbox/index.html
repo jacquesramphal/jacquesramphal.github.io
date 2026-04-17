@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll Audio — Sandbox</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ── Scrollable content ──────────────────────────── -->
+    <main class="content">
+      <p class="eyebrow">Experiment / Scroll Audio</p>
+      <h1>The page as an instrument</h1>
+
+      <p class="lede">
+        Drop a house or dancehall loop into the panel, then scroll. Your scroll speed becomes the
+        playback rate. Scroll up to reverse. Stop to let it brake.
+      </p>
+
+      <h2>Why this works</h2>
+      <p>
+        CSS scroll position is a first-class value in the browser. The Scroll-driven Animations spec
+        (shipped 2023) lets CSS animation timelines be driven directly by scroll progress — no
+        JavaScript scroll listeners required. That's the visual layer.
+      </p>
+      <p>
+        The audio layer uses the Web Audio API's AudioBufferSourceNode, which exposes playbackRate
+        as an AudioParam. AudioParams support linear and exponential ramping, which is what makes
+        the vinyl brake effect smooth rather than a hard cut.
+      </p>
+      <p>
+        The connection between the two is a thin JavaScript bridge: measure scroll velocity on each
+        scroll event, map it to a playback rate, ramp the AudioParam. The CSS isn't generating audio
+        — but it's close to the seam where you could wire it up.
+      </p>
+
+      <h2>Two models</h2>
+      <p>
+        Scratch mode treats the page like a record. You control when audio plays, at what speed, and
+        in which direction. Stop scrolling and the audio brakes to a crawl — like a turntable
+        slowing down — rather than cutting off. The deceleration is handled by
+        linearRampToValueAtTime over 350ms.
+      </p>
+      <p>
+        Timeline mode is different. The audio plays continuously, but its position in the track is
+        locked to your scroll position. Scroll to 50% down the page and you hear the halfway point
+        of the loop. Scroll back up and the audio follows. The reader becomes the conductor of the
+        playback position.
+      </p>
+      <p>
+        The hybrid — which this eventually should become — uses scroll velocity to set the playback
+        rate of a continuous piece. Slow readers hear the full tempo. Fast scrollers get a rushed
+        version. Stop and it idles. The music becomes a measure of attention.
+      </p>
+
+      <h2>The technical seam</h2>
+      <p>
+        The main constraint is that AudioBufferSourceNode can only be started once. To change
+        direction, you have to stop the current source and create a new one pointing at a reversed
+        copy of the buffer. The reversed buffer is computed once on load by walking each channel's
+        Float32Array in reverse. Direction changes mirror the current playback position into the
+        reversed buffer so the audio doesn't jump.
+      </p>
+      <p>
+        Timeline mode uses HTMLAudioElement instead of AudioBuffer because AudioBufferSourceNode
+        can't seek — it plays from a given offset and you can't reposition it mid-playback without
+        restarting. HTMLAudioElement.currentTime is seekable. The tradeoff is that rapid seeking
+        causes pops, so there's a crossfade gain envelope (40ms down, 100ms back up) on seeks larger
+        than 0.5 seconds.
+      </p>
+
+      <h2>What makes house loops good for this</h2>
+      <p>
+        A 4/4 house kick pattern is nearly symmetrical. The kick hits on every beat, so reversing it
+        sounds like a slightly different mix rather than a completely different piece of music.
+        Dancehall's syncopation is more directional — reversed it sounds broken rather than
+        interesting. That asymmetry makes it worse for the scratch model and more interesting for
+        timeline mode, where you never reverse.
+      </p>
+      <p>
+        The ideal test loop is 8–16 bars at 120–130bpm, no intro silence, no tail. Seamless loops
+        let the AudioBufferSourceNode looping parameter take over — you never hear the boundary.
+      </p>
+
+      <h2>What comes next</h2>
+      <p>
+        The obvious evolution is an article format where the audio isn't a demo but is the content
+        itself — where the composition was designed knowing the reader will move through it at
+        variable speeds. Sections could be composed to work at 0.5x as well as 2x. The constraint
+        that the writing imposes on the music, and vice versa, is the interesting design problem.
+      </p>
+      <p>
+        There's also a version where different scroll zones trigger different stems — drums drop in
+        above the fold, bass enters at section two, melody at section three. CSS scroll-driven
+        animations already handle this kind of zone-based triggering for visual elements. Wiring
+        audio stems to those same breakpoints would be a thin layer of additional JS.
+      </p>
+      <p>
+        Whether this is a useful reading experience or just a compelling demo is worth testing on a
+        real article. The scroll-as-instrument model probably works better as a standalone creative
+        piece than as a reading aid. Timeline mode is more compatible with actual editorial content
+        — the music follows rather than demands.
+      </p>
+
+      <h2>Scroll further to test range</h2>
+      <p>
+        This content exists to give you enough page height to experience the effect across a full
+        velocity range. Scroll slowly, then quickly, then reverse. The stats panel on the right
+        shows rate, direction, and position in real time.
+      </p>
+      <p>
+        The waveform on the panel is a live oscilloscope view of the audio output — the AnalyserNode
+        feeds a canvas draw loop at 60fps. When the page is idle it flatlines. When you scroll it
+        animates. That relationship is the whole point.
+      </p>
+      <p>
+        At very high scroll speeds the playback rate clamps at 3.5x — this avoids pitch-shifted
+        audio that sounds unintentional rather than musical. The clamp value is arbitrary and worth
+        tuning for different loops.
+      </p>
+      <p>
+        At very low scroll speeds (below 0.05 pixels/ms) the brake fires immediately. This threshold
+        is also tunable — higher values mean the brake fires sooner, giving a more responsive feel.
+        Lower values let slow scrolling continue at a crawl.
+      </p>
+      <p>
+        The 130ms brake delay is the time between the last scroll event and when the deceleration
+        ramp starts. Too short and it fires mid-scroll. Too long and there's a perceptible lag
+        between stopping and hearing the brake. 130ms felt right in testing on a 2024 MacBook
+        trackpad.
+      </p>
+      <p>
+        None of these numbers are universal. They depend on the audio content, the device, and what
+        you're trying to communicate. Treat them as starting points.
+      </p>
+
+      <!-- ── Scroll range filler ───────────────────────── -->
+      <pre class="scroll-filler" aria-hidden="true">
+  ▲
+  │  slow scroll ─── 1× forward
+  │
+  │  fast scroll ─── scratch
+  │                  rate scales with
+  │                  velocity above threshold
+  │
+  │  quick up/down ─ scratch
+  │                  direction flip opens
+  │                  500ms scratch window
+  │
+  │  slow reverse ── 1× backward
+  │
+  │  fast reverse ── scratch reverse
+  │
+  │  stop ────────── vinyl brake
+  │                  ramps to 0 over 350ms
+  │
+  ╠══ CRESCENDO MODE ═══════════════
+  │
+  │  0 – 5%  ─────── silence
+  │  5 – 20% ─────── shaker / tap
+  │  20 – 38% ────── + kick (1 & 3)
+  │  38 – 55% ────── + hi-hat (8ths)
+  │  55 – 72% ────── + snare (2 & 4)
+  │  72 – 88% ────── + open hat
+  │  88 – 100% ───── + 4-on-the-floor
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  │
+  ▼
+      </pre>
+    </main>
+
+    <!-- ── Fixed panel ──────────────────────────────────── -->
+    <aside class="panel">
+      <div class="panel-title">Scroll Audio</div>
+
+      <!-- Mode toggle always visible -->
+      <div class="mode-toggle">
+        <button class="mode-btn active" data-mode="scratch">SCRATCH</button>
+        <button class="mode-btn" data-mode="timeline">TIMELINE</button>
+        <button class="mode-btn" data-mode="crescendo">CRESCENDO</button>
+      </div>
+
+      <div class="drop-zone" id="dropZone">
+        <input type="file" id="fileInput" accept=".mp3,.wav,.ogg,.flac" hidden />
+        <p>Drop an audio loop here<br />or <button id="browseBtn">browse</button></p>
+      </div>
+
+      <div id="trackInfo" class="track-info"></div>
+
+      <canvas id="waveform" width="240" height="72"></canvas>
+
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
+      <!-- Genre selector (crescendo mode only) -->
+      <div class="genre-toggle" id="genreToggle" hidden>
+        <button class="genre-btn active" data-genre="trap">TRAP</button>
+        <button class="genre-btn" data-genre="dancehall">DANCEHALL</button>
+        <button class="genre-btn" data-genre="soca">SOCA</button>
+        <button class="genre-btn" data-genre="hiphop">HIP-HOP</button>
+      </div>
+
+      <!-- Layers indicator (crescendo mode only) -->
+      <div class="layers-indicator" id="layersIndicator" hidden></div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="label">Rate</span>
+          <span class="value" id="statRate">—</span>
+        </div>
+        <div class="stat">
+          <span class="label">Dir</span>
+          <span class="value" id="statDir">—</span>
+        </div>
+        <div class="stat">
+          <span class="label">Pos</span>
+          <span class="value" id="statPos">—</span>
+        </div>
+      </div>
+
+      <div class="mode-desc">
+        <p id="descScratch">
+          Scroll speed → playback rate. Scroll up to reverse. Vinyl brake on stop.
+        </p>
+        <p id="descTimeline" hidden>
+          Scroll position → track position. Audio follows where you are on the page.
+        </p>
+        <p id="descCrescendo" hidden>
+          Scroll down to build the beat. Each section adds a new layer — shaker, kick, hi-hat,
+          snare, open hat, 4-on-the-floor. No file needed.
+        </p>
+        <p id="descIdle">Load a loop to begin. Try Looperman for house or dancehall stems.</p>
+      </div>
+
+      <div class="source-hint" id="sourceHint">
+        <p>Loops: looperman.com · freesound.org</p>
+        <p>Pixabay.com/music (instant, no account)</p>
+      </div>
+    </aside>
+
+    <script src="crescendo.js"></script>
+    <script src="engine.js"></script>
+    <script>
+      (function () {
+        const engine = new ScrollAudioEngine();
+        let engineReady = false;
+        let loaded = false;
+
+        async function ensureEngine() {
+          if (!engineReady) {
+            await engine.init();
+            engineReady = true;
+          }
+        }
+
+        // ── Waveform canvas ─────────────────────
+        const canvas = document.getElementById('waveform');
+        const canvasCtx = canvas.getContext('2d');
+
+        function drawWaveform() {
+          requestAnimationFrame(drawWaveform);
+
+          const W = canvas.clientWidth;
+          const H = canvas.clientHeight;
+          if (canvas.width !== W) canvas.width = W;
+
+          canvasCtx.clearRect(0, 0, W, H);
+
+          const data = engine.getWaveformData();
+          if (!data) {
+            canvasCtx.beginPath();
+            canvasCtx.strokeStyle = '#2a2a2a';
+            canvasCtx.lineWidth = 1;
+            canvasCtx.moveTo(0, H / 2);
+            canvasCtx.lineTo(W, H / 2);
+            canvasCtx.stroke();
+            return;
+          }
+
+          canvasCtx.beginPath();
+          canvasCtx.strokeStyle = '#d8d8d8';
+          canvasCtx.lineWidth = 1.5;
+
+          const sliceW = W / data.length;
+          let x = 0;
+          for (let i = 0; i < data.length; i++) {
+            const v = data[i] / 128;
+            const y = (v * H) / 2;
+            if (i === 0) canvasCtx.moveTo(x, y);
+            else canvasCtx.lineTo(x, y);
+            x += sliceW;
+          }
+          canvasCtx.stroke();
+        }
+        drawWaveform();
+
+        // ── Stats + layers update loop ──────────
+        function rebuildPips() {
+          const container = document.getElementById('layersIndicator');
+          container.innerHTML = '';
+          if (!engine.synth) return;
+          engine.synth.layers.forEach((l, i) => {
+            const pip = document.createElement('span');
+            pip.className = 'layer-pip';
+            pip.dataset.layer = i;
+            pip.title = l.id;
+            container.appendChild(pip);
+          });
+        }
+
+        function updateStats() {
+          requestAnimationFrame(updateStats);
+
+          const isCrescendo = engine.mode === 'crescendo';
+          const pos = engine.getPosition();
+
+          document.getElementById('progressFill').style.width = Math.round(pos * 100) + '%';
+
+          if (isCrescendo && engineReady) {
+            const total = engine.synth ? engine.synth.layers.length : 10;
+            const active = engine.synth ? engine.synth.getActiveLayers() : 0;
+            const bpm = engine.synth ? engine.synth.bpm : 140;
+            document.getElementById('statRate').textContent = bpm + ' BPM';
+            document.getElementById('statDir').textContent =
+              '●'.repeat(active) + '○'.repeat(Math.max(0, total - active));
+            document.getElementById('statPos').textContent =
+              Math.round((engine.synth ? engine.synth.progress : 0) * 100) + '%';
+
+            // Update individual layer pips
+            const pips = document.querySelectorAll('.layer-pip');
+            pips.forEach((pip, i) => {
+              pip.classList.toggle('active', i < active);
+            });
+          } else if (loaded) {
+            const rate = engine.getPlaybackRate();
+            const forward = engine.isForward;
+            document.getElementById('statRate').textContent =
+              rate < 0.01 ? '0.00×' : rate.toFixed(2) + '×';
+            document.getElementById('statDir').textContent =
+              rate < 0.01 ? '■' : forward ? '▶' : '◀';
+            document.getElementById('statPos').textContent = Math.round(pos * 100) + '%';
+          }
+        }
+        updateStats();
+
+        // ── Scroll tracking ──────────────────────
+        let lastY = window.scrollY;
+        let lastT = performance.now();
+        let smoothVel = 0;
+
+        window.addEventListener(
+          'scroll',
+          () => {
+            const now = performance.now();
+            const dt = now - lastT;
+            if (dt > 0) {
+              const raw = (window.scrollY - lastY) / dt;
+              smoothVel = smoothVel * 0.55 + raw * 0.45;
+            }
+            lastY = window.scrollY;
+            lastT = now;
+
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+
+            if (engine.mode === 'crescendo' && engineReady) {
+              engine.onScroll(smoothVel, progress);
+            } else if (loaded) {
+              engine.onScroll(smoothVel, progress);
+            }
+          },
+          { passive: true }
+        );
+
+        // ── File loading ─────────────────────────
+        async function loadFile(file) {
+          await ensureEngine();
+          const dur = await engine.loadFile(file);
+          loaded = true;
+
+          document.getElementById('dropZone').hidden = true;
+          document.getElementById('descIdle').hidden = true;
+          document.getElementById('sourceHint').hidden = true;
+
+          const mins = Math.floor(dur / 60);
+          const secs = Math.round(dur % 60).toString().padStart(2, '0');
+          document.getElementById('trackInfo').textContent = file.name + ' · ' + mins + ':' + secs;
+
+          syncModeUI(engine.mode);
+        }
+
+        // Drop zone
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+
+        document.getElementById('browseBtn').addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => {
+          if (e.target.files[0]) loadFile(e.target.files[0]);
+        });
+        dropZone.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          dropZone.classList.add('over');
+        });
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('over'));
+        dropZone.addEventListener('drop', (e) => {
+          e.preventDefault();
+          dropZone.classList.remove('over');
+          const file = e.dataTransfer.files[0];
+          if (file) loadFile(file);
+        });
+
+        // ── Mode toggle ──────────────────────────
+        function syncModeUI(mode) {
+          const isCrescendo = mode === 'crescendo';
+
+          document.getElementById('dropZone').hidden = isCrescendo || loaded;
+          document.getElementById('layersIndicator').hidden = !isCrescendo;
+          document.getElementById('genreToggle').hidden = !isCrescendo;
+          document.getElementById('sourceHint').hidden = isCrescendo || loaded;
+          document.getElementById('descIdle').hidden = isCrescendo || loaded;
+          document.getElementById('descScratch').hidden = mode !== 'scratch';
+          document.getElementById('descTimeline').hidden = mode !== 'timeline';
+          document.getElementById('descCrescendo').hidden = !isCrescendo;
+
+          if (isCrescendo) rebuildPips();
+        }
+
+        document.querySelectorAll('.mode-btn').forEach((btn) => {
+          btn.addEventListener('click', async () => {
+            document.querySelectorAll('.mode-btn').forEach((b) => b.classList.remove('active'));
+            btn.classList.add('active');
+            const mode = btn.dataset.mode;
+
+            if (mode === 'crescendo') {
+              await ensureEngine();
+            }
+
+            engine.setMode(mode);
+            syncModeUI(mode);
+          });
+        });
+
+        // ── Genre toggle ─────────────────────────
+        document.querySelectorAll('.genre-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.genre-btn').forEach((b) => b.classList.remove('active'));
+            btn.classList.add('active');
+            const genre = btn.dataset.genre;
+
+            if (engine.synth) {
+              engine.synth.stop();
+              engine.synth.setGenre(genre);
+              engine.synth.start();
+              rebuildPips();
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

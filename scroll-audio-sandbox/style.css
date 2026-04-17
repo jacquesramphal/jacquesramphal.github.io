@@ -1,0 +1,313 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0c0c0c;
+  --surface: #141414;
+  --border: #222;
+  --text: #d8d8d8;
+  --muted: #555;
+  --accent: #e8e8e8;
+  --panel-w: 280px;
+}
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Courier New', Courier, monospace;
+  padding-right: var(--panel-w);
+  min-height: 100vh;
+}
+
+/* ── Content ──────────────────────────────── */
+
+.content {
+  max-width: 68ch;
+  padding: 5rem 3rem 10rem;
+  line-height: 1.75;
+}
+
+.content h1 {
+  font-size: 1.6rem;
+  font-weight: normal;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.content .eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+.content h2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 3rem 0 0.75rem;
+  font-weight: normal;
+}
+
+.content p {
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  color: var(--text);
+}
+
+.content .lede {
+  font-size: 1.15rem;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+/* ── Panel ──────────────────────────────── */
+
+.panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: var(--panel-w);
+  height: 100vh;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 1.25rem;
+  overflow: hidden;
+}
+
+.panel-title {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── Drop zone ──────────────────────────── */
+
+.drop-zone {
+  border: 1px dashed var(--border);
+  padding: 1.25rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.drop-zone:hover, .drop-zone.over {
+  border-color: var(--text);
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+}
+
+.drop-zone button {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  text-decoration: underline;
+  padding: 0;
+}
+
+/* ── Track info ─────────────────────────── */
+
+.track-info {
+  font-size: 0.72rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Mode toggle ────────────────────────── */
+
+.mode-toggle {
+  display: flex;
+  border: 1px solid var(--border);
+}
+
+.mode-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: color 0.15s, background 0.15s;
+}
+
+.mode-btn.active {
+  background: var(--border);
+  color: var(--accent);
+}
+
+.mode-btn:not(:last-child) {
+  border-right: 1px solid var(--border);
+}
+
+/* ── Genre toggle ──────────────────────── */
+
+.genre-toggle {
+  display: flex;
+  border: 1px solid var(--border);
+}
+
+.genre-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  padding: 0.4rem 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: color 0.15s, background 0.15s;
+}
+
+.genre-btn.active {
+  background: var(--border);
+  color: var(--accent);
+}
+
+.genre-btn:not(:last-child) {
+  border-right: 1px solid var(--border);
+}
+
+/* ── Waveform ───────────────────────────── */
+
+#waveform {
+  width: 100%;
+  height: 72px;
+  display: block;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+/* ── Stats ──────────────────────────────── */
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat .label {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.stat .value {
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+/* ── Progress bar ───────────────────────── */
+
+.progress-bar {
+  height: 2px;
+  background: var(--border);
+  position: relative;
+}
+
+.progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: var(--accent);
+  width: 0%;
+  transition: none;
+}
+
+/* ── Mode description ───────────────────── */
+
+.mode-desc {
+  font-size: 0.72rem;
+  color: var(--muted);
+  line-height: 1.55;
+  flex: 1;
+}
+
+/* ── Source hint ────────────────────────── */
+
+.source-hint {
+  font-size: 0.68rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+.source-hint a {
+  color: var(--text);
+}
+
+.source-hint p { margin-bottom: 0.25rem; }
+
+/* ── Layers indicator ───────────────────── */
+
+.layers-indicator {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.layer-pip {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  transition: background 0.2s, border-color 0.2s;
+  display: block;
+}
+
+.layer-pip.active {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ── Scroll filler ──────────────────────── */
+
+pre.scroll-filler {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 4rem 0 0;
+  white-space: pre;
+  user-select: none;
+}
+
+/* ── Hidden ─────────────────────────────── */
+
+[hidden] { display: none !important; }
+
+/* ── Scrollbar ──────────────────────────── */
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); }
