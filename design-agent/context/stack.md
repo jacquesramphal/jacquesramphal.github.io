@@ -4,6 +4,37 @@ The most important technical decision: the agent's knowledge layer should be pla
 
 ---
 
+## Orchestration decision: Claude API directly
+
+**Not LangChain. Not n8n at the core. Claude API directly.**
+
+**LangChain: no.** Abstractions leak — you end up debugging the framework, not building the product. It changes constantly. For what this system needs, it's overkill. Most teams that start with LangChain strip it out.
+
+**n8n: yes, but only at the edges.** Good for connecting external tools: Slack form submission → trigger the agent, agent finishes → write to Jira, send a Slack notification. That's the right use. n8n is a pipe between the agent and the outside world — not the reasoning core, not the orchestration logic, not the rules engine.
+
+**Claude API directly: yes, this is the core.** The "orchestration" is a script:
+
+```
+read rules files → construct prompt → call Claude API → validate output against schema → write output → if checkpoint: pause for human approval → next phase
+```
+
+That's a 50-line Node script. Claude's context window loads rules, phase inputs, and conversation history in one call. Claude tool use handles anything that needs to call an external API. Structured output (JSON mode) handles output formatting. No framework needed.
+
+**Model-swap path:** API calls are isolated to a single adapter function. Switch Claude to another model by changing one file. Everything else stays.
+
+**The CLAUDE.md angle:** Rules files structured as CLAUDE.md-compatible markdown work as system context for the agent AND as documentation for human designers reading them. Same file, two uses. That's the agnostic future-proofing — not a framework, just a file format any model can read.
+
+| Layer | Tool | Why |
+|---|---|---|
+| Rules | Markdown files | Portable, version-controlled, human-readable |
+| Reasoning | Claude API (claude-sonnet-4-6) | Best instruction-following, large context, structured output |
+| Orchestration | Plain Node/Python script | No abstraction overhead, easy to swap models |
+| Integrations | n8n | Triggers, webhooks, external tool connections |
+| State | Files in git | Free versioning, auditable, no database needed |
+| Output schema | JSON Schema | Validates structured output before it goes anywhere |
+
+---
+
 ## Core principle: durable over clever
 
 The tools will change. Claude, GPT-4, whatever ships in 18 months — they're all just models that accept text and return text. The value is not in wrapping a specific model. It's in the rules, the schemas, and the judgment encoded in the prompts. Those live in markdown files. Any model can read them.

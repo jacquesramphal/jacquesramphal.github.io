@@ -60,9 +60,13 @@ Ongoing maintenance and oversight: prompt tuning, new guardrails as the design s
 
 ## Why this, why now
 
-AI tools are not slowing down. Claude Design launched today and people are already calling it a Figma killer. The teams that build the infrastructure to integrate these tools into a disciplined system will ship faster with less regression. The teams that don't will generate design debt faster than they can spend it.
+Claude Design launched today. People are calling it a Figma killer. Every major AI design tool — Figma AI, v0, Bolt, Builder.io — is generating components faster than teams can evaluate them. None of them enforce a token contract. None of them validate against a Storybook instance. None of them produce a structured handoff spec a developer can act on.
 
-The bottleneck has never been the AI. It's always been the judgment layer — who decides what's right, what gets flagged, what ships. That layer requires design knowledge and engineering knowledge at the same time. Most teams don't have both in one person. I do, and I've built it into deployable infrastructure.
+Context-provision tools (Storybook MCP, Knapsack's MCP server) are trying to solve this upstream — telling AI agents what components exist before they generate. That helps, but it doesn't catch what slips through. There is no product that validates output after generation, before it ships, with a human in the loop.
+
+That's this service. Every tool on the market either generates design output or manages design system data. This is the judgment layer between those two things — the gap no current product occupies.
+
+The closest thing is Knapsack ($10M Series A, October 2025), which is building enterprise governance tooling in the same territory. Their model is upstream and their buyer is large enterprise. This service is downstream, human-supervised, and built for mid-size product teams that can't afford enterprise tooling but can't afford the design debt either.
 
 ---
 
