@@ -69,13 +69,17 @@ Legend: ✅ Done · 🟡 Partial · ⬜ Not started
 | Item | Status | File |
 |---|---|---|
 | Client rules template | ✅ | rules/client-rules-template.md |
-| Client COMPONENT_MANIFEST.json template | ⬜ | rules/COMPONENT_MANIFEST.template.json |
+| Client COMPONENT_MANIFEST.json template | ✅ | rules/COMPONENT_MANIFEST.template.json |
 | Validation system prompt | ⬜ | prompts/validate-component.md |
 | Handoff spec system prompt | ⬜ | prompts/generate-handoff.md |
 | Audit report system prompt | ⬜ | prompts/generate-audit-report.md |
 | Component spec JSON schema | ⬜ | schemas/component-spec.json |
 | Handoff doc JSON schema | ⬜ | schemas/handoff-doc.json |
 | QA report JSON schema | ⬜ | schemas/qa-report.json |
+| Storybook screenshot capture script | ✅ | scripts/capture-screenshots.js |
+| Vercel deploy script | ✅ | scripts/vercel-deploy.sh |
+| Story change tracker | ✅ | scripts/track-story-changes.js |
+| Session setup command | ✅ | scripts/design-session-setup.md |
 | Validate script (start agent, run rules, flag violations) | ⬜ | scripts/validate.js |
 | Handoff script (produce structured handoff package) | ⬜ | scripts/handoff.js |
 | Start agent script (load rules, call Claude API) | ⬜ | scripts/start-agent.js |

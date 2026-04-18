@@ -1,0 +1,61 @@
+{
+  "_instructions": "Fill in this template for each client engagement. The validation agent reads this at runtime to understand what components exist, their constraints, and their Figma references. Add one entry per production-ready component. Keep in sync with the client's Storybook.",
+  "version": "1.0.0",
+  "client": "[CLIENT_NAME]",
+  "package": "[client-package]/ui",
+  "storybookUrl": "[https://storybook.client.com or localhost:6006]",
+  "generatedAt": "[YYYY-MM-DD]",
+  "components": [
+    {
+      "name": "[ComponentName]",
+      "title": "[Category/ComponentName]",
+      "package": "[client-package]/ui",
+      "storyFile": "src/components/[ComponentName]/[ComponentName].stories.tsx",
+      "status": "production-ready",
+      "_statusOptions": ["production-ready", "in-review", "proposed"],
+      "contentEditable": ["[field1]", "[field2]"],
+      "_contentEditableNote": "Fields exposed in the CMS editor. Keep in sync with the CMS schema.",
+      "imageSlots": [
+        {
+          "name": "[imageDesktop]",
+          "minWidth": 1440,
+          "minHeight": 640,
+          "objectFit": "cover",
+          "_objectFitOptions": ["cover", "contain", "fill"],
+          "ratio": "2.2:1"
+        }
+      ],
+      "_imageSlotsNote": "One entry per image prop. QA validates against these specs.",
+      "variants": ["[Default]", "[Dark]", "[Compact]"],
+      "_variantsNote": "Named story exports. Names must match the Storybook story exactly.",
+      "tokenContract": {
+        "colors": ["var(--color-primary)", "var(--color-surface)"],
+        "spacing": ["var(--spacing-md)", "var(--spacing-lg)"],
+        "_note": "Optional. List the tokens this component is expected to use. Validation agent flags hardcoded values."
+      },
+      "figmaLinks": [
+        "https://figma.com/design/[fileKey]/[fileName]?node-id=[nodeId]"
+      ]
+    },
+    {
+      "_comment": "Add more components following the same pattern. One entry per production-ready component.",
+      "name": "[SecondComponent]",
+      "title": "[Category/SecondComponent]",
+      "package": "[client-package]/ui",
+      "storyFile": "src/components/[SecondComponent]/[SecondComponent].stories.tsx",
+      "status": "production-ready",
+      "contentEditable": ["[field1]"],
+      "imageSlots": [],
+      "variants": ["[Default]"],
+      "figmaLinks": []
+    }
+  ],
+  "tokenSource": "[path/to/tokens.json or Figma Variables URL]",
+  "humanReviewTriggers": [
+    "Any color value not referencing a token",
+    "Any new prop not present in the component package",
+    "Any prop categorised ⚠ Proposed — Needs Review",
+    "Any image slot missing a spec",
+    "Any variant name that is a single word with no context"
+  ]
+}
