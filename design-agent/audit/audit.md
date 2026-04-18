@@ -77,7 +77,8 @@ Step sequence:
 
 | File | Purpose |
 |---|---|
-| `guides/auditor-prompt.md` | Vision auditor system prompt |
+| `guides/auditor-prompt.md` | Vision auditor system prompt (component inventory + UX heuristics pass) |
+| `guides/ux-heuristics.md` | Research-backed UX principles the auditor applies (Baymard + NNG) |
 | `guides/inventory-match-prompt.md` | Inventory matcher system prompt |
 | `guides/prune-urls-prompt.md` | Representative-URL selection prompt |
 | `guides/consolidate-prompt.md` | Page-template consolidation prompt |
@@ -114,6 +115,7 @@ Before any capture/analysis runs, initialize:
 rowBuffer = {
   audit:         [],   // Component Audit — one row per detected component per URL
   consolidation: [],   // Page Consolidation — deep mode only
+  uxFlags:       [],   // UX heuristic findings — one entry per finding per URL
 };
 screenshotResults = []; // { url, desktopPath, mobilePath }
 ```

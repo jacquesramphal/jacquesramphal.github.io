@@ -19,6 +19,7 @@ Two phases:
 - `outputArtefacts` — from Step 2 (`runFolder`, `screenshotsFolder`)
 - `rowBuffer.audit` — populated by Step 4 (always)
 - `rowBuffer.consolidation` — populated by Step 6 (deep only)
+- `rowBuffer.uxFlags` — populated by Step 4 (always); one array of flags per URL
 - `consolidation` — summary stats from Step 6 (deep only)
 - `auditedUrls[]`, `failedUrls[]` — tracked through the loop
 
@@ -134,6 +135,22 @@ ${consolidation.summary}` : ""}
 ## Net-new components
 
 ${netNewComponentNames.map(n => `- ${n}`).join("\n") || "_(none)_"}
+
+## UX findings
+
+${(() => {
+  const allFlags = rowBuffer.uxFlags.flat();
+  if (!allFlags.length) return "_(no UX issues flagged)_";
+  const high = allFlags.filter(f => f.severity === "high");
+  const medium = allFlags.filter(f => f.severity === "medium");
+  const low = allFlags.filter(f => f.severity === "low");
+  const renderFlags = (flags) => flags.map(f => `- **${f.heuristic}:** ${f.finding}`).join("\n");
+  return [
+    high.length ? `### High priority\n${renderFlags(high)}` : "",
+    medium.length ? `### Medium priority\n${renderFlags(medium)}` : "",
+    low.length ? `### Low priority\n${renderFlags(low)}` : "",
+  ].filter(Boolean).join("\n\n");
+})()}
 
 ## Files in this run folder
 

@@ -26,19 +26,32 @@ Make a vision call with:
 - System: the auditor prompt
 - User: "Analyze this page. Desktop first, mobile second. URL: `<url>`" + both images attached
 
-Parse the response's final JSON code block as `detectedComponents[]`:
+Parse the response's final JSON code block. The auditor now returns a single object with two keys:
 
 ```json
-[
-  {
-    "componentName": "Hero Banner",
-    "fields": [
-      { "name": "Heading", "type": "Text", "description": "..." },
-      { "name": "Background Image", "type": "Image", "description": "..." }
-    ]
-  }
-]
+{
+  "components": [
+    {
+      "componentName": "Hero Banner",
+      "fields": [
+        { "name": "Heading", "type": "Text", "description": "..." },
+        { "name": "Background Image", "type": "Image", "description": "..." }
+      ]
+    }
+  ],
+  "uxFlags": [
+    {
+      "heuristic": "Mobile experience",
+      "finding": "Add to cart button is 36px tall at mobile breakpoint — below recommended 44px touch target",
+      "severity": "high"
+    }
+  ]
+}
 ```
+
+Store `detectedComponents = response.components` and `uxFlags = response.uxFlags || []`.
+
+The `uxFlags` are written to the audit summary in Step 7, not to the component CSV rows. They represent page-level UX issues identified by the agent against research-backed heuristics (navigation, forms, search, mobile, cognitive load, error recovery). See `audit/guides/ux-heuristics.md` for the full heuristics reference the auditor applies.
 
 ## 2a. If `inputs.compareInventory === true` — match against inventory
 
@@ -119,7 +132,7 @@ fieldsString = component.fields
 
 ## 4. Buffer rows — NO webhook writes in this step
 
-Append one object per detected component to the in-memory buffer. Keys must match the sheet column headers exactly (typos preserved):
+Append one object per detected component to the audit buffer. Also append the UX flags for this URL to the uxFlags buffer.
 
 ```js
 for (const c of matchedComponents) {
@@ -134,7 +147,14 @@ for (const c of matchedComponents) {
     "Mobile Screenshot":       mobileUrl,
   });
 }
+
+// Annotate each UX flag with the URL it came from so the summary can group by page.
+rowBuffer.uxFlags.push(
+  ...uxFlags.map(f => ({ ...f, url }))
+);
 ```
+
+`rowBuffer.uxFlags` is seeded as `[]` in `audit.md` alongside `rowBuffer.audit`. Step 7 reads it to build the UX findings section of `audit-summary.md`.
 
 **Do not call `appendAuditRows`** here. That happens once, in Step 7, for all rows at once.
 
