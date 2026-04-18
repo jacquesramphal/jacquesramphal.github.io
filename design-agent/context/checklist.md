@@ -51,14 +51,16 @@ Legend: ✅ Done · 🟡 Partial · ⬜ Not started
 | Page consolidation prompt | ✅ | audit/guides/consolidate-prompt.md |
 | Checkpoint/resume pattern | ✅ | audit/guides/checkpoint.md |
 | Config and column schemas | ✅ | audit/guides/config.md |
-| Step 1: collect inputs | ⬜ | audit/step1-collect-inputs.md |
-| Step 2: setup output folder | ⬜ | audit/step2-setup-output.md |
-| Step 3: capture screenshots | ⬜ | audit/step3-capture-screenshots.md |
-| Step 4: audit URL (vision + match) | ⬜ | audit/step4-audit-url.md |
-| Step 5: crawl and prune (deep/batch) | ⬜ | audit/step5-crawl-and-prune.md |
-| Step 6: consolidate pages (deep/batch) | ⬜ | audit/step6-consolidate-pages.md |
-| Step 7: write report and CSVs | ⬜ | audit/step7-report.md |
-| Simulate mode (persona UX prediction) | ⬜ | audit/simulate.md |
+| Step 1: collect inputs | ✅ | audit/step1-collect-inputs.md |
+| Step 2: setup output folder | ✅ | audit/step2-setup-drive.md |
+| Step 3: capture screenshots | ✅ | audit/step3-capture-screenshots.md |
+| Step 4: audit URL (vision + match) | ✅ | audit/step4-audit-url.md |
+| Step 5: crawl and prune (deep/batch) | ✅ | audit/step5-crawl-and-prune.md |
+| Step 6: consolidate pages (deep/batch) | ✅ | audit/step6-consolidate-pages.md |
+| Step 7: write report and CSVs | ✅ | audit/step7-report.md |
+| Batch parallel analysis | ✅ | audit/step-batch-analyze.md |
+| Simulate mode (persona UX prediction) | ✅ | audit/simulate.md |
+| Simulate guides (prompts + scoring) | ✅ | audit/guides/simulate/ |
 
 ---
 
