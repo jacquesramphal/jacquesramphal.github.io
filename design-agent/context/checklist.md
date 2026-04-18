@@ -70,19 +70,19 @@ Legend: ✅ Done · 🟡 Partial · ⬜ Not started
 |---|---|---|
 | Client rules template | ✅ | rules/client-rules-template.md |
 | Client COMPONENT_MANIFEST.json template | ✅ | rules/COMPONENT_MANIFEST.template.json |
-| Validation system prompt | ⬜ | prompts/validate-component.md |
+| Validation system prompt | ✅ | prompts/validate-component.md |
 | Handoff spec system prompt | ⬜ | prompts/generate-handoff.md |
 | Audit report system prompt | ⬜ | prompts/generate-audit-report.md |
-| Component spec JSON schema | ⬜ | schemas/component-spec.json |
+| Component spec JSON schema | ✅ | schemas/component-spec.json |
 | Handoff doc JSON schema | ⬜ | schemas/handoff-doc.json |
 | QA report JSON schema | ⬜ | schemas/qa-report.json |
 | Storybook screenshot capture script | ✅ | scripts/capture-screenshots.js |
 | Vercel deploy script | ✅ | scripts/vercel-deploy.sh |
 | Story change tracker | ✅ | scripts/track-story-changes.js |
 | Session setup command | ✅ | scripts/design-session-setup.md |
-| Validate script (start agent, run rules, flag violations) | ⬜ | scripts/validate.js |
+| Validate script (start agent, run rules, flag violations) | ✅ | scripts/validate.js |
 | Handoff script (produce structured handoff package) | ⬜ | scripts/handoff.js |
-| Start agent script (load rules, call Claude API) | ⬜ | scripts/start-agent.js |
+| Start agent script (load rules, call Claude API) | ✅ | scripts/start-agent.js |
 
 ---
 
@@ -111,14 +111,14 @@ Legend: ✅ Done · 🟡 Partial · ⬜ Not started
 
 **Immediate (unlock first client):**
 1. Extract `storybook-blank` to `design-agent/storybook-blank/` — deploy and verify
-2. Write audit step files (step1–step7) — these make the audit dispatcher executable
-3. Write `prompts/validate-component.md` and `schemas/component-spec.json` — the Tier A core
+2. ~~Write audit step files (step1–step7)~~ ✅ Done
+3. ~~Write `prompts/validate-component.md` and `schemas/component-spec.json`~~ ✅ Done
 4. Fill the product page demo section with a real example (blocked until first engagement)
 
 **Second (make the process runnable):**
-5. Write `scripts/validate.js` — the thin glue that makes Tier A callable
-6. Write simulate mode doc — strong standalone service for pre-sales
-7. Build deployment models doc
+5. ~~Write `scripts/validate.js`~~ ✅ Done (`scripts/start-agent.js` also written)
+6. Build deployment models doc
+7. Write `prompts/generate-handoff.md` + `schemas/handoff-doc.json` — makes Tier A handoff output structured
 
 **Hold:**
 - Custom MCPs — script layer is sufficient for first 3 clients
