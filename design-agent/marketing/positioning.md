@@ -72,7 +72,7 @@ The closest thing is Knapsack ($10M Series A, October 2025), which is building e
 
 ## Background
 
-13 years at the boundary between design and production engineering. Built Genie — an agentic AI platform for a design team — before most design leaders knew what an agent was. Writes production front-end code. Maintains open-source design tooling. Published on design systems and agentic AI design at Composable.com and Orium.com.
+13 years at the boundary between design and production engineering. Built an agentic AI platform for a design team before most design leaders knew what an agent was. Writes production front-end code. Maintains open-source design tooling. Published on design systems and agentic AI at Composable.com.
 
 ---
 

@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "component-spec",
+  "title": "Component Validation Report",
+  "description": "Structured output produced by the component validation agent for a single story file. Consumed by scripts/validate.js to determine pass/fail and generate human-readable reports.",
+  "type": "object",
+  "required": [
+    "component",
+    "storyFile",
+    "validatedAt",
+    "overallStatus",
+    "checks",
+    "proposed",
+    "humanReviewRequired",
+    "humanReviewReasons"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "component": {
+      "type": "string",
+      "description": "Component name as declared in storyMeta.component, or derived from the story filename."
+    },
+    "storyFile": {
+      "type": "string",
+      "description": "Path to the story file that was validated, relative to the Storybook root."
+    },
+    "validatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of when this validation ran."
+    },
+    "overallStatus": {
+      "type": "string",
+      "enum": ["pass", "fail", "needs-review"],
+      "description": "pass: all checks clean. needs-review: checks pass but proposed items or unregistered component. fail: one or more checks failed."
+    },
+    "checks": {
+      "type": "object",
+      "required": [
+        "propsImported",
+        "argTypesCategorised",
+        "imageSpecs",
+        "noLogicInStories",
+        "variantNames",
+        "noHardcodedValues",
+        "storyMetaPresent",
+        "manifestConsistency"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "propsImported": { "$ref": "#/$defs/checkResult" },
+        "argTypesCategorised": { "$ref": "#/$defs/checkResult" },
+        "imageSpecs": { "$ref": "#/$defs/checkResult" },
+        "noLogicInStories": { "$ref": "#/$defs/checkResult" },
+        "variantNames": { "$ref": "#/$defs/checkResult" },
+        "noHardcodedValues": { "$ref": "#/$defs/checkResult" },
+        "storyMetaPresent": { "$ref": "#/$defs/checkResult" },
+        "manifestConsistency": { "$ref": "#/$defs/checkResult" }
+      }
+    },
+    "proposed": {
+      "type": "array",
+      "description": "All argTypes categorised as ⚠ Proposed — Needs Review. Always populated when present, even when overallStatus is pass.",
+      "items": {
+        "type": "object",
+        "required": ["argType", "description", "action"],
+        "additionalProperties": false,
+        "properties": {
+          "argType": {
+            "type": "string",
+            "description": "The prop key as it appears in argTypes."
+          },
+          "description": {
+            "type": "string",
+            "description": "The description field from the argType entry, explaining the proposed change."
+          },
+          "action": {
+            "type": "string",
+            "description": "The required human action before this prop can be promoted."
+          }
+        }
+      }
+    },
+    "humanReviewRequired": {
+      "type": "boolean",
+      "description": "True when any check has status fail or mismatch, proposed is non-empty, component is not registered, or any hardcoded value has no determinable token equivalent."
+    },
+    "humanReviewReasons": {
+      "type": "array",
+      "description": "Specific reasons why human review is required. Empty when humanReviewRequired is false.",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "checkResult": {
+      "type": "object",
+      "required": ["status", "findings"],
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pass", "fail", "skip", "partial", "mismatch", "not-registered"],
+          "description": "pass: check clean. fail: violation found. skip: check not applicable. partial: present but incomplete. mismatch: present but inconsistent with manifest. not-registered: component absent from manifest."
+        },
+        "findings": {
+          "type": "array",
+          "description": "Specific, concrete findings. Each item is one finding — not a summary. Empty array when status is pass or skip.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -137,8 +137,8 @@ That's the gap. This service occupies it.
 **[DESIGN AGENT DEMO PLACEHOLDER — repo context needed]**
 [Short description of what the demo shows: a real component going through the validation workflow, a violation getting flagged, the structured handoff spec that comes out the other side]
 
-**Built Genie before most design leaders knew what an agent was.**
-Genie is an agentic AI platform built for a design team — an orchestration layer that automated routine design work and reclaimed time for novel problems. [Read the case study →](/doc/building-genie-changed-me)
+**Built an agentic AI platform for a design team before most design leaders knew what an agent was.**
+An orchestration layer that automated routine design work and reclaimed time for novel problems. [Read the case study →](/doc/building-genie-changed-me)
 
 **Wrote the framework before building the product.**
 The agent card format, the AX design methodology, and the workflow mapping approach used in this service are documented publicly. [When UX Becomes AX →](/doc/when-ux-becomes-ax)

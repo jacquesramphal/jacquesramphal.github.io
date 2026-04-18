@@ -6,10 +6,9 @@ A quick-reference doc for what you can point to in pitches and proposals. Update
 
 ## What exists now
 
-### Genie (agentic AI platform)
+### Agentic AI platform (production team deployment)
 - Built an orchestration layer that automated routine design work and reclaimed creative focus for the team
-- Learned n8n, AI development, and product management without formal authority
-- First implementation of agentic design in a production team context
+- First implementation of agentic design in a production team context — research, prototyping, and deployment without a dedicated AI engineering team
 - Published case study at ramphal.design/doc/building-genie-changed-me
 
 ### The /design Agent (in progress)
@@ -28,7 +27,7 @@ A quick-reference doc for what you can point to in pitches and proposals. Update
 ### Published writing
 - "When UX Becomes AX" — agent card framework, workflow mapping, designing agent behavior
 - "The Distance Between Request and Outcome Is Now Your Brand" — agentic AI for delivery teams (Orium blog)
-- "Designing Genie: Pioneering Agentic AI for Delivery" (Orium blog)
+- "Pioneering Agentic AI for Delivery" (industry blog post)
 - "Design Tokens: A Shared Language That Outlasts the Tools" (Composable.com)
 
 ---
@@ -45,7 +44,7 @@ A quick-reference doc for what you can point to in pitches and proposals. Update
 
 If they ask for references or prior work before there are paying clients:
 
-1. Show the Genie case study — it's a real deployment, real team, real results
+1. Show the agentic AI platform case study — it's a real deployment, real team, real results
 2. Show the /design Agent repo (when ready to share)
 3. Offer a paid proof-of-concept: "I'd propose starting with a 1-week audit at a reduced rate, and the output will tell us both whether there's a fit."
 4. The writing on ramphal.design — "When UX Becomes AX" in particular — demonstrates the thinking behind what gets built

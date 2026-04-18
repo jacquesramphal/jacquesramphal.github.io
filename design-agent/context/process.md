@@ -24,11 +24,11 @@ Don't try to sell the full lifecycle first. The three tiers are separate product
 
 ### Tier B: Discovery + definition (add second)
 
-**What it is:** Intake questionnaire, site/product audit (Genie whitelabeled), IA, user stories, flows, requirements definition, backlog creation. The agent synthesizes inputs into structured artifacts a team can act on.
+**What it is:** Intake questionnaire, site/product component audit, IA, user stories, flows, requirements definition, backlog creation. The agent synthesizes inputs into structured artifacts a team can act on.
 
 **Who buys it:** Same buyer, or CEO/Head of Product at a company starting a new product or significant redesign. Also the entry point for the skeleton crew model — one designer using this to cover the work of three.
 
-**Why add second:** The Genie audit is already built and real. Whitelabeling it is the fastest path to a Tier B artifact. The rest is structured prompts + templates that already exist.
+**Why add second:** The audit flow is already built. It's the fastest path to a Tier B deliverable. The rest is structured prompts + templates that already exist.
 
 **Phases:** Intake → audit → stakeholder alignment → IA + user stories → requirements + backlog → plan for review
 
@@ -70,7 +70,7 @@ For reference when scoping Tier C engagements. Each phase is a structured agent 
 **Input:** Project brief, access to existing product (URL, Figma file, or repo), analytics data if available
 
 **Agent tasks:**
-- Run the Genie audit framework against the existing product
+- Run the component audit against the existing product
 - Identify design system gaps, token violations, accessibility issues, navigation problems
 - Cross-reference with analytics data (if provided) to prioritize by actual usage
 
