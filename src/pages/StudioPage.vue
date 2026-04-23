@@ -304,31 +304,15 @@
 
     <!-- ABOUT -->
     <div class="section--dark reversed">
-      <GridContainer>
-        <GridParent rows>
-          <TextBlock
-            eyebrow="Principal"
-            as="h2"
-            title="Jacques Ramphal"
-          />
-          <GridParent>
-            <div>
-              <p class="about-role">Design engineer · Studio lead</p>
-              <div class="about-links">
-                <a href="https://ramphal.design" target="_blank">ramphal.design →</a>
-                <a href="mailto:jacques@ramphal.design">jacques@ramphal.design</a>
-              </div>
-            </div>
-            <div class="about-body">
-              <p>13 years at the seam between design and engineering. I design systems and write the production code that ships them.</p>
-              <p>I built an agentic AI platform for a design team before most design leaders knew what an agent was. I maintain open-source design tooling, write production front-end code, and have published on design systems and agentic AI.</p>
-              <p>The practice exists because a specific combination of things is rare: design systems depth, engineering ability, agent infrastructure, and the willingness to operate it as an independent practice. Most designers with this background are employed at large companies. Almost none are selling it.</p>
-              <p>The agent team handles the execution layer. I handle the judgment layer. The gap between those two things is where every engagement lives.</p>
-              <p class="about-note">The client never interacts with the agents directly. Every deliverable passes through a human review gate before it leaves the practice. That's not a feature — it's the model.</p>
-            </div>
-          </GridParent>
-        </GridParent>
-      </GridContainer>
+      <TextGrid3
+        title="Jacques Ramphal"
+        as="h2"
+        description=""
+        eyebrow1="Design engineer · Studio lead"
+        :detail1="`13 years at the seam between design and engineering. I design systems and write the production code that ships them.<br/><br/>I built an agentic AI platform for a design team before most design leaders knew what an agent was. I maintain open-source design tooling, write production front-end code, and have published on design systems and agentic AI.<br/><br/>The practice exists because a specific combination of things is rare: design systems depth, engineering ability, agent infrastructure, and the willingness to operate it as an independent practice. Most designers with this background are employed at large companies. Almost none are selling it.<br/><br/>The agent team handles the execution layer. I handle the judgment layer. The gap between those two things is where every engagement lives.`"
+        label="ramphal.design"
+        route="/about"
+      />
     </div>
 
     <!-- TESTIMONIALS -->
@@ -405,6 +389,7 @@ import GridContainer from '@/components/grid/GridContainer.vue';
 import GridParent from '@/components/grid/GridParent.vue';
 import TextBlock from '@/components/text/TextBlock/TextBlock.vue';
 import TestimonialCarousel from '@/components/TestimonialCarousel.vue';
+import TextGrid3 from '@/components/card/TextGrid3.vue';
 
 export default {
   name: 'StudioPage',
@@ -416,6 +401,7 @@ export default {
     GridParent,
     TextBlock,
     TestimonialCarousel,
+    TextGrid3,
   },
 };
 </script>
@@ -482,7 +468,7 @@ export default {
   font-weight: var(--fontWeight-semibold);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--foreground-muted);
+  opacity: 0.6;
 }
 
 .model-list {
@@ -496,13 +482,13 @@ export default {
     display: flex;
     gap: var(--spacing-xs);
     font-size: var(--font-xs);
-    color: var(--foreground-muted);
+    opacity: 0.75;
     line-height: 1.4;
 
     &::before {
       content: '✓';
       font-weight: var(--fontWeight-bold);
-      color: var(--foreground);
+      opacity: 1;
       flex-shrink: 0;
     }
   }
@@ -529,7 +515,7 @@ export default {
   font-weight: var(--fontWeight-semibold);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--foreground-muted);
+  opacity: 0.5;
 }
 
 .price-name {
@@ -547,7 +533,7 @@ export default {
 
 .price-unit {
   font-size: var(--font-2xs);
-  color: var(--foreground-muted);
+  opacity: 0.5;
 }
 
 .price-list {
@@ -560,14 +546,14 @@ export default {
 
   li {
     font-size: var(--font-xs);
-    color: var(--foreground-muted);
+    opacity: 0.7;
     display: flex;
     gap: var(--spacing-xs);
     line-height: 1.4;
 
     &::before {
       content: '—';
-      color: var(--border-color, #d6d6d6);
+      opacity: 0.4;
       flex-shrink: 0;
     }
   }
@@ -575,50 +561,8 @@ export default {
 
 .pricing-note {
   font-size: var(--font-xs);
-  color: var(--foreground-muted);
+  opacity: 0.6;
   text-align: center;
-}
-
-/* ── ABOUT ──────────────────────────────────────── */
-.about-role {
-  font-size: var(--font-xs);
-  opacity: 0.5;
-  margin-bottom: var(--spacing-sm);
-}
-
-.about-links {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xxs);
-
-  a {
-    font-size: var(--font-xs);
-    opacity: 0.5;
-    text-decoration: none;
-    transition: opacity 0.15s;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-}
-
-.about-body {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-
-  p {
-    font-size: var(--font-sm);
-    line-height: 1.65;
-  }
-}
-
-.about-note {
-  margin-top: var(--spacing-xs);
-  padding-top: var(--spacing-sm);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  opacity: 0.5;
 }
 
 /* ── FAQ ────────────────────────────────────────── */
