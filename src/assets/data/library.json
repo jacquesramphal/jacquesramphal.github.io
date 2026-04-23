@@ -644,6 +644,57 @@
       ]
     },
     {
+      "id": 76,
+      "type": "lab",
+      "date": "",
+      "title": "Scroll-Driven Audio",
+      "eyebrow": "Lab",
+      "description": "The page as an instrument. Scroll to build a beat from scratch — layered drum synthesis triggered by scroll progress, with genre modes for trap, dancehall, soca, and hip-hop.",
+      "link": "/lab/scroll-audio/",
+      "label": "Open Experiment",
+      "thumbnail": "placeholders/placeholder-29.svg",
+      "alt": "Lab: Scroll-Driven Audio Synthesis",
+      "tags": [
+        "experiment",
+        "web-audio",
+        "scroll"
+      ]
+    },
+    {
+      "id": 77,
+      "type": "lab",
+      "date": "",
+      "title": "Editorial Photo Filters",
+      "eyebrow": "Lab",
+      "description": "CSS, SVG, and canvas photo filters built with zero dependencies. Duotone, cyanotype, infrared, halftone, chromatic aberration, and more.",
+      "link": "/lab/photo-filters/",
+      "label": "Open Experiment",
+      "thumbnail": "placeholders/placeholder-29.svg",
+      "alt": "Lab: Editorial Photo Filters",
+      "tags": [
+        "experiment",
+        "css-filters",
+        "svg"
+      ]
+    },
+    {
+      "id": 78,
+      "type": "lab",
+      "date": "",
+      "title": "Counter Fill",
+      "eyebrow": "Lab",
+      "description": "Live demo of counter-fill — filling the enclosed counter spaces inside letterforms with colour or gradients, built on real DOM text.",
+      "link": "/lab/counter-fill/",
+      "label": "Open Experiment",
+      "thumbnail": "casestudy/counter-fill/counter-fill-2.png",
+      "alt": "Lab: Counter Fill Demo",
+      "tags": [
+        "experiment",
+        "canvas",
+        "typography"
+      ]
+    },
+    {
       "id": 70,
       "type": "design-project",
       "date": "",

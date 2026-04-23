@@ -3,41 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>counter-fill · CodeSandbox</title>
+<title>counter-fill</title>
+<link rel="stylesheet" href="../lab.css" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Bebas+Neue&family=Abril+Fatface&family=Oswald:wght@700&family=Yeseva+One&family=Fraunces:opsz,wght,SOFT@9..144,100..900,0..100&family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..900&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
+/* Override lab.css base — counter-fill demos control their own typography */
 body {
-background: #0e0e0e;
-padding: 60px 32px;
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 64px;
+  padding: var(--spacing-big) var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-big);
 }
 
-.section { width:100%; max-width:1200px; display:flex; flex-direction:column; align-items:center; gap:48px; padding-top:32px; border-top:1px solid #333; }
-.section-label { font-family:system-ui,sans-serif; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:#666; }
-.section-label span { color:#999; font-weight:400; text-transform:none; letter-spacing:0; }
-.tag { font-family:ui-monospace,monospace; font-size:11px; color:#555; margin-top:-36px; }
+.section { width:100%; max-width:120rem; display:flex; flex-direction:column; align-items:center; gap:var(--spacing-big); padding-top:var(--spacing-md); border-top:var(--border); }
+.section-label { font-family:var(--fontFamily-primary); font-size:var(--font-3xs); font-weight:var(--fontWeight-medium); letter-spacing:var(--letterSpacing-loose); text-transform:uppercase; color:var(--text-muted); }
+.section-label span { color:var(--foreground); opacity:0.5; font-weight:var(--fontWeight-normal); text-transform:none; letter-spacing:0; }
+.tag { font-family:ui-monospace,monospace; font-size:var(--font-3xs); color:var(--text-muted); margin-top:calc(var(--spacing-big) * -0.75); }
 
 
-.w1 .text { font-family:'Playfair Display',serif; font-size:clamp(64px,16vw,150px); font-weight:900; color:#f0ece4; }
-.w2 .text { font-family:'Bebas Neue',sans-serif;  font-size:clamp(72px,20vw,180px); color:#e8e8e8; letter-spacing:.04em; }
-.w3 .text { font-family:'Abril Fatface',serif;    font-size:clamp(60px,15vw,140px); color:#fdf6e3; }
-.w4 .text { font-family:'Playfair Display',serif; font-size:clamp(56px,14vw,130px); font-weight:900; font-style:italic; color:#e8ddd0; }
-.w5 .text { font-family:'Yeseva One',serif;       font-size:clamp(60px,15vw,140px); color:#f5f0eb; }
-.w6 .text { font-family:'Oswald',sans-serif;      font-size:clamp(64px,17vw,160px); font-weight:700; color:#ddeeff; letter-spacing:.04em; }
-.w7 .text { font-family:'Abril Fatface',serif;    font-size:clamp(56px,14vw,130px); color:#fff0f5; }
+.w1 .text { font-family:'Playfair Display',serif; font-size:clamp(64px,16vw,150px); font-weight:900; color:var(--foreground); }
+.w2 .text { font-family:'Bebas Neue',sans-serif;  font-size:clamp(72px,20vw,180px); color:var(--foreground); letter-spacing:.04em; }
+.w3 .text { font-family:'Abril Fatface',serif;    font-size:clamp(60px,15vw,140px); color:var(--foreground); }
+.w4 .text { font-family:'Playfair Display',serif; font-size:clamp(56px,14vw,130px); font-weight:900; font-style:italic; color:var(--foreground); }
+.w5 .text { font-family:'Yeseva One',serif;       font-size:clamp(60px,15vw,140px); color:var(--foreground); }
+.w6 .text { font-family:'Oswald',sans-serif;      font-size:clamp(64px,17vw,160px); font-weight:700; color:var(--foreground); letter-spacing:.04em; }
+.w7 .text { font-family:'Abril Fatface',serif;    font-size:clamp(56px,14vw,130px); color:var(--foreground); }
 
-.wm { font-family:'Playfair Display',serif; font-size:clamp(48px,11vw,110px); font-weight:900; color:#f0ece4; max-width:min(680px,88vw); }
+.wm { font-family:'Playfair Display',serif; font-size:clamp(48px,11vw,110px); font-weight:900; color:var(--foreground); max-width:min(680px,88vw); }
 
 /* ── Variable font examples (Roboto Flex: wght × wdth) ──
    font-optical-sizing:none prevents opsz mismatch between DOM (auto=font-size)
    and canvas (which can't apply opsz without ctx.fontVariationSettings). ── */
 /* ── A: wght × wdth (opsz disabled — baseline test) ── */
-.vf1 .text, .vf2 .text, .vf3 .text, .vf4 .text, .vf5 .text { font-family:'Roboto Flex',sans-serif; font-size:clamp(60px,15vw,140px); color:#ddeeff; font-optical-sizing:none; }
+.vf1 .text, .vf2 .text, .vf3 .text, .vf4 .text, .vf5 .text { font-family:'Roboto Flex',sans-serif; font-size:clamp(60px,15vw,140px); color:var(--foreground); font-optical-sizing:none; }
 .vf1 .text { font-weight:100; font-variation-settings:'wdth' 75; }
 .vf2 .text { font-weight:300; font-variation-settings:'wdth' 100; }
 .vf3 .text { font-weight:500; font-variation-settings:'wdth' 100; }
@@ -45,19 +44,19 @@ gap: 64px;
 .vf5 .text { font-weight:900; font-variation-settings:'wdth' 151; }
 
 /* ── B: wdth extremes ── */
-.vfb1 .text, .vfb2 .text, .vfb3 .text { font-family:'Roboto Flex',sans-serif; font-size:clamp(60px,15vw,140px); font-weight:400; color:#ddeeff; font-optical-sizing:none; }
+.vfb1 .text, .vfb2 .text, .vfb3 .text { font-family:'Roboto Flex',sans-serif; font-size:clamp(60px,15vw,140px); font-weight:400; color:var(--foreground); font-optical-sizing:none; }
 .vfb1 .text { font-variation-settings:'wdth' 25; }
 .vfb2 .text { font-variation-settings:'wdth' 100; }
 .vfb3 .text { font-variation-settings:'wdth' 151; }
 
 /* ── C: opsz axis (auto vs explicit) ── */
-.vfc1 .text, .vfc2 .text, .vfc3 .text { font-family:'Roboto Flex',sans-serif; font-size:clamp(60px,15vw,140px); font-weight:500; color:#ddeeff; }
+.vfc1 .text, .vfc2 .text, .vfc3 .text { font-family:'Roboto Flex',sans-serif; font-size:clamp(60px,15vw,140px); font-weight:500; color:var(--foreground); }
 .vfc1 .text { font-optical-sizing:none; }
 .vfc2 .text { font-optical-sizing:auto; }
 .vfc3 .text { font-variation-settings:'opsz' 8; font-optical-sizing:none; }
 
 /* ── D: Fraunces SOFT axis ── */
-.vfd1 .text, .vfd2 .text, .vfd3 .text { font-family:'Fraunces',serif; font-size:clamp(60px,15vw,140px); font-weight:700; color:#f0ece4; font-optical-sizing:none; }
+.vfd1 .text, .vfd2 .text, .vfd3 .text { font-family:'Fraunces',serif; font-size:clamp(60px,15vw,140px); font-weight:700; color:var(--foreground); font-optical-sizing:none; }
 .vfd1 .text { font-variation-settings:'SOFT' 0; }
 .vfd2 .text { font-variation-settings:'SOFT' 50; }
 .vfd3 .text { font-variation-settings:'SOFT' 100; }
