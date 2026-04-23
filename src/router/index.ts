@@ -8,7 +8,6 @@ import MyResume from '@/pages/MyResume.vue';
 import NotFound from '@/pages/misc/NotFound.vue';
 import ProjectPage from '@/pages/ProjectPage.vue';
 import ProductPage from '@/pages/ProductPage.vue';
-import StudioPage from '@/pages/StudioPage.vue';
 // import DocPage from "@/pages/DocPage.vue";
 import MarkdownPage from '@/pages/MarkdownPage.vue';
 import HomePage from '@/pages/HomePage.vue';
@@ -130,11 +129,6 @@ const routes = [
     name: 'Product',
     path: '/product',
     component: ProductPage,
-  },
-  {
-    name: 'Studio',
-    path: '/studio',
-    component: StudioPage,
   },
   {
     name: 'Work',
