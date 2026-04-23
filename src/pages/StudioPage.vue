@@ -1,6 +1,5 @@
 <template>
   <PageWrapper>
-
     <!-- HERO -->
     <HeroBanner
       eyebrow="Design studio · One principal, agent team"
@@ -263,7 +262,9 @@
               </ul>
             </div>
           </GridParent>
-          <p class="pricing-note">Audit fee credited toward the next phase. You're not paying to be sold something.</p>
+          <p class="pricing-note">
+            Audit fee credited toward the next phase. You're not paying to be sold something.
+          </p>
         </GridParent>
       </GridContainer>
     </GridWrapper>
@@ -272,11 +273,7 @@
     <GridWrapper>
       <GridContainer>
         <GridParent rows>
-          <TextBlock
-            eyebrow="Fit"
-            as="h2"
-            title="You're a fit if."
-          />
+          <TextBlock eyebrow="Fit" as="h2" title="You're a fit if." />
           <GridParent>
             <TextBlock
               as="h4"
@@ -307,8 +304,8 @@
       <TextGrid3
         title="Jacques Ramphal"
         as="h2"
-        description=""
-        eyebrow1="Design engineer · Studio lead"
+        description="Design engineer · Studio lead"
+        eyebrow1=""
         :detail1="`13 years at the seam between design and engineering. I design systems and write the production code that ships them.<br/><br/>I built an agentic AI platform for a design team before most design leaders knew what an agent was. I maintain open-source design tooling, write production front-end code, and have published on design systems and agentic AI.<br/><br/>The practice exists because a specific combination of things is rare: design systems depth, engineering ability, agent infrastructure, and the willingness to operate it as an independent practice. Most designers with this background are employed at large companies. Almost none are selling it.<br/><br/>The agent team handles the execution layer. I handle the judgment layer. The gap between those two things is where every engagement lives.`"
         label="ramphal.design"
         route="/about"
@@ -322,47 +319,85 @@
     <GridWrapper>
       <GridContainer>
         <GridParent rows>
-          <TextBlock
-            eyebrow="FAQ"
-            as="h2"
-            title="Common questions."
-          />
+          <TextBlock eyebrow="FAQ" as="h2" title="Common questions." />
           <div class="markdown faq-block">
             <details>
               <summary>Is this a tool I subscribe to, or a service?</summary>
-              <p>A service. I run the workflow for you, or I deploy it in your environment and operate it. There's no self-serve product — the judgment layer is the point.</p>
+              <p>
+                A service. I run the workflow for you, or I deploy it in your environment and
+                operate it. There's no self-serve product — the judgment layer is the point.
+              </p>
             </details>
             <details>
               <summary>How is this different from hiring a freelancer?</summary>
-              <p>A freelancer gives you their hours. This practice gives you defined deliverables at each phase gate — owned by you, regardless of what comes next. The agent infrastructure means the output potential scales independently of one person's hours. The engagement model means you're not paying for availability, you're paying for outcomes.</p>
+              <p>
+                A freelancer gives you their hours. This practice gives you defined deliverables at
+                each phase gate — owned by you, regardless of what comes next. The agent
+                infrastructure means the output potential scales independently of one person's
+                hours. The engagement model means you're not paying for availability, you're paying
+                for outcomes.
+              </p>
             </details>
             <details>
               <summary>What if we just need the audit?</summary>
-              <p>That's a valid outcome. You get a written report you own. It tells you what you have, what's missing, and what it would take to fix it. Useful regardless of next steps. The audit fee is credited toward Phase 2 if you continue.</p>
+              <p>
+                That's a valid outcome. You get a written report you own. It tells you what you
+                have, what's missing, and what it would take to fix it. Useful regardless of next
+                steps. The audit fee is credited toward Phase 2 if you continue.
+              </p>
             </details>
             <details>
               <summary>What if we don't have Storybook?</summary>
-              <p>The audit will tell us. Token contract enforcement and handoff specs don't require Storybook specifically — they need a source of truth for your components. If you don't have one, we scope around what you do have, or include standing one up in the engagement.</p>
+              <p>
+                The audit will tell us. Token contract enforcement and handoff specs don't require
+                Storybook specifically — they need a source of truth for your components. If you
+                don't have one, we scope around what you do have, or include standing one up in the
+                engagement.
+              </p>
             </details>
             <details>
               <summary>What AI tools does this work with?</summary>
-              <p>Any. Figma AI, Claude Design, v0, Bolt, Builder.io, or whatever your team is using. The validation layer sits after generation, not inside a specific tool. The token contract is the standard — the source of the output doesn't matter.</p>
+              <p>
+                Any. Figma AI, Claude Design, v0, Bolt, Builder.io, or whatever your team is using.
+                The validation layer sits after generation, not inside a specific tool. The token
+                contract is the standard — the source of the output doesn't matter.
+              </p>
             </details>
             <details>
               <summary>How is my data handled?</summary>
-              <p>The audit capture — screenshots, component inventory — stays on my machine. The synthesis work runs through Anthropic's Claude API. Anthropic does not use API inputs for model training. Inputs are retained for up to 30 days for safety monitoring, then deleted. Deletion on request. If you have strict compliance requirements (GDPR, HIPAA, SOC 2), let me know before we start — I can scope API calls to exclude sensitive material or run local models for confidential steps.</p>
+              <p>
+                The audit capture — screenshots, component inventory — stays on my machine. The
+                synthesis work runs through Anthropic's Claude API. Anthropic does not use API
+                inputs for model training. Inputs are retained for up to 30 days for safety
+                monitoring, then deleted. Deletion on request. If you have strict compliance
+                requirements (GDPR, HIPAA, SOC 2), let me know before we start — I can scope API
+                calls to exclude sensitive material or run local models for confidential steps.
+              </p>
             </details>
             <details>
               <summary>What if our design system is a mess?</summary>
-              <p>The audit is specifically for this. If the system is too fragmented to enforce, the report will say so — along with what it would take to get it to a state where the agent is useful. There is always a finding. A company with no drift still gets an inventory, a gap list, and a prioritised set of next steps.</p>
+              <p>
+                The audit is specifically for this. If the system is too fragmented to enforce, the
+                report will say so — along with what it would take to get it to a state where the
+                agent is useful. There is always a finding. A company with no drift still gets an
+                inventory, a gap list, and a prioritised set of next steps.
+              </p>
             </details>
             <details>
               <summary>What happens when the engagement ends?</summary>
-              <p>You own everything produced. The rules files are plain markdown in a git repo. The agent architecture is documented. If you eventually bring this in-house, the handoff is clean.</p>
+              <p>
+                You own everything produced. The rules files are plain markdown in a git repo. The
+                agent architecture is documented. If you eventually bring this in-house, the handoff
+                is clean.
+              </p>
             </details>
             <details>
               <summary>Do I need a developer to set this up?</summary>
-              <p>For Phase 4 (deploy in your environment): a front-end engineer needs to be available for the kickoff and team walkthrough — roughly 3 hours. I handle the build. The system runs without ongoing engineering support.</p>
+              <p>
+                For Phase 4 (deploy in your environment): a front-end engineer needs to be available
+                for the kickoff and team walkthrough — roughly 3 hours. I handle the build. The
+                system runs without ongoing engineering support.
+              </p>
             </details>
           </div>
         </GridParent>
@@ -377,7 +412,6 @@
       label="Request an audit"
       link="mailto:jacques@ramphal.design"
     />
-
   </PageWrapper>
 </template>
 
@@ -406,7 +440,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 /* ── DARK SECTIONS ──────────────────────────────── */
 .section--dark {
   background: var(--foreground);
