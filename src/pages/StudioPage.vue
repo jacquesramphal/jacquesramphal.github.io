@@ -428,10 +428,6 @@ export default {
 /* ── DARK SECTIONS ──────────────────────────────── */
 .section--dark {
   background: var(--foreground);
-
-  :deep(.subtle) {
-    color: rgba(var(--color-offwhite-rgb), 0.5);
-  }
 }
 
 /* ── PHASE CARDS ────────────────────────────────── */
@@ -483,18 +479,6 @@ export default {
 .model-card--dark {
   background: var(--foreground);
   border-color: var(--foreground);
-
-  .model-eyebrow {
-    color: rgba(var(--color-offwhite-rgb), 0.45);
-  }
-
-  .model-list li {
-    color: rgba(var(--color-offwhite-rgb), 0.7);
-
-    &::before {
-      color: var(--color-pink, #fdcdd4);
-    }
-  }
 }
 
 .model-eyebrow {
@@ -542,15 +526,6 @@ export default {
 .price-card--dark {
   background: var(--foreground);
   border-color: var(--foreground);
-
-  .price-eyebrow,
-  .price-unit {
-    color: rgba(var(--color-offwhite-rgb), 0.4);
-  }
-
-  .price-list li {
-    color: rgba(var(--color-offwhite-rgb), 0.6);
-  }
 }
 
 .price-eyebrow {
@@ -611,7 +586,7 @@ export default {
 /* ── ABOUT ──────────────────────────────────────── */
 .about-role {
   font-size: var(--font-xs);
-  color: rgba(var(--color-offwhite-rgb), 0.5);
+  opacity: 0.5;
   margin-bottom: var(--spacing-sm);
 }
 
@@ -622,12 +597,12 @@ export default {
 
   a {
     font-size: var(--font-xs);
-    color: rgba(var(--color-offwhite-rgb), 0.5);
+    opacity: 0.5;
     text-decoration: none;
-    transition: color 0.15s;
+    transition: opacity 0.15s;
 
     &:hover {
-      color: var(--foreground-reversed);
+      opacity: 1;
     }
   }
 }
@@ -639,7 +614,6 @@ export default {
 
   p {
     font-size: var(--font-sm);
-    color: rgba(var(--color-offwhite-rgb), 0.75);
     line-height: 1.65;
   }
 }
@@ -648,7 +622,7 @@ export default {
   margin-top: var(--spacing-xs);
   padding-top: var(--spacing-sm);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(var(--color-offwhite-rgb), 0.5) !important;
+  opacity: 0.5;
 }
 
 /* ── FAQ ────────────────────────────────────────── */
