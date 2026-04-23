@@ -440,7 +440,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 /* ── DARK SECTIONS ──────────────────────────────── */
 .section--dark {
   background: var(--foreground);

@@ -102,7 +102,7 @@
     /> -->
     <!-- STUDIO BANNER -->
     <AnimatedComponent>
-      <div class="studio-banner">
+      <div class="studio-banner reversed">
         <GridContainer>
           <GridParent rows>
             <TextBlock
@@ -357,8 +357,6 @@ h1.wrap-multi {
 }
 
 .studio-banner {
-  background: var(--foreground);
-  color: var(--background);
   padding-block: var(--spacing-lg);
 
   :deep(.eyebrow),
@@ -368,8 +366,6 @@ h1.wrap-multi {
   }
 
   :deep(.btn) {
-    color: var(--background);
-    border-color: var(--background);
   }
 }
 

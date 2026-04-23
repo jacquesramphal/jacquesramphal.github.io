@@ -46,7 +46,10 @@
       :attrs="{ class: 'description' }"
     />
     <!-- Content tags at bottom -->
-    <div v-if="shouldShowTags && ((tags && tags.length) || readTime || date || isExternal)" class="tags tags--content">
+    <div
+      v-if="shouldShowTags && ((tags && tags.length) || readTime || date || isExternal)"
+      class="tags tags--content"
+    >
       <span v-if="isExternal" class="tag-label tag-label--external">
         <p style="font-size: var(--font-2xs)">External &#8599;</p>
       </span>
@@ -264,7 +267,7 @@ export default {
   inline-size: 100%;
 }
 .eyebrow {
-  word-spacing: 1rem;
+  // word-spacing: 1rem;
   margin-block-end: 1em;
 }
 

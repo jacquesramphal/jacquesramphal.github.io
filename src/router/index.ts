@@ -135,6 +135,10 @@ const routes = [
     name: 'Studio',
     path: '/studio',
     component: StudioPage,
+    meta: {
+      hideFooter: true,
+      hideNav: true,
+    },
   },
   {
     name: 'Work',
