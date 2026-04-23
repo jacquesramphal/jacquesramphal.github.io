@@ -65,21 +65,18 @@ export default {
 // }
 .grid-template {
   display: grid;
-  column-gap: var(--spacing-xs);
-  row-gap: var(--spacing-sm);
+  grid-gap: var(--spacing-sm);
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(1, 1fr);
 
   @media only screen and (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
     margin-block-start: 0;
-    column-gap: var(--spacing-sm);
-    row-gap: var(--spacing-md);
+    grid-gap: var(--spacing-md);
   }
   @media only screen and (min-width: 1201px) {
     grid-template-columns: repeat(var(--cols, 3), 1fr);
-    column-gap: var(--spacing-sm);
-    row-gap: var(--spacing-lg);
+    grid-gap: var(--spacing-lg);
   }
 
   &--rows {
@@ -88,7 +85,7 @@ export default {
   }
   &--tight {
     @media only screen and (min-width: 1201px) {
-      column-gap: var(--spacing-xs);
+      grid-gap: var(--spacing-md);
     }
   }
   &--cols-2 {
