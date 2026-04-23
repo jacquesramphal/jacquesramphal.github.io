@@ -100,24 +100,6 @@
       title="Featured Products" 
       :products="featuredProducts"
     /> -->
-    <!-- STUDIO BANNER -->
-    <AnimatedComponent>
-      <div class="studio-banner">
-        <GridContainer>
-          <GridParent rows>
-            <TextBlock
-              as="h2"
-              eyebrow="Now available"
-              title="I run a design practice."
-              description="Systems-led design and engineering for teams that need to ship with confidence. Fixed scope, no surprises."
-              label="Learn more"
-              route="/studio"
-            />
-          </GridParent>
-        </GridContainer>
-      </div>
-    </AnimatedComponent>
-
     <div class="vertical-wordmark" aria-hidden="true">Jacques Ramphal</div>
   </PageWrapper>
 </template>
@@ -353,23 +335,6 @@ h1.wrap-multi {
     position: relative;
     z-index: 1;
     display: inline-block;
-  }
-}
-
-.studio-banner {
-  background: var(--foreground);
-  color: var(--background);
-  padding-block: var(--spacing-lg);
-
-  :deep(.eyebrow),
-  :deep(.title),
-  :deep(.description) {
-    color: inherit;
-  }
-
-  :deep(.btn) {
-    color: var(--background);
-    border-color: var(--background);
   }
 }
 
