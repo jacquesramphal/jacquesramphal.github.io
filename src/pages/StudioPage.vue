@@ -387,15 +387,11 @@
 
     <!-- CTA -->
     <HeroBanner
-      center
-      background
       as="h2"
       title="Engagements start with an audit."
       subtitle="Most scope conversations take one email. If the fit isn't right, you'll know quickly — and leave with something useful."
       label="Request an audit"
       link="mailto:jacques@ramphal.design"
-      labeltwo="Read the process →"
-      routetwo="/doc/process"
     />
 
   </PageWrapper>
