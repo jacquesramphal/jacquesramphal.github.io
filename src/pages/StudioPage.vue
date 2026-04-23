@@ -117,7 +117,7 @@
             title="Four gates. Nothing ships without your approval."
             description="Every phase ends with a human decision point. You approve before work moves forward. This is structural — not an afterthought."
           />
-          <GridParent :cols="4">
+          <GridParent :cols="4" tight>
             <TextBlock
               as="h4"
               eyebrow="Gate 01"
@@ -157,7 +157,7 @@
             title="Two ways to work together."
             description="Depending on what your team needs — deliverables now, or a running system for the long term."
           />
-          <GridParent :cols="2">
+          <GridParent :cols="2" tight>
             <div class="model-card model-card--dark reversed">
               <p class="model-eyebrow">Most common</p>
               <TextBlock
@@ -209,7 +209,7 @@
             title="Fixed fees. No surprises."
             description="Every phase is scoped and priced before work begins. Most engagements start with an audit — everything else follows from what it finds."
           />
-          <GridParent :cols="4">
+          <GridParent :cols="4" tight>
             <div class="price-card price-card--dark reversed">
               <p class="price-eyebrow">Phase 1</p>
               <h3 class="price-name">Audit</h3>
