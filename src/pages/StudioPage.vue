@@ -14,7 +14,7 @@
     />
 
     <!-- PROBLEM -->
-    <div class="section--dark">
+    <div class="section--dark reversed">
       <GridContainer>
         <GridParent rows>
           <TextBlock
@@ -108,7 +108,7 @@
     </GridWrapper>
 
     <!-- HUMAN GATES -->
-    <div class="section--dark">
+    <div class="section--dark reversed">
       <GridContainer>
         <GridParent rows>
           <TextBlock
@@ -117,7 +117,7 @@
             title="Four gates. Nothing ships without your approval."
             description="Every phase ends with a human decision point. You approve before work moves forward. This is structural — not an afterthought."
           />
-          <GridParent>
+          <GridParent :cols="4">
             <TextBlock
               as="h4"
               eyebrow="Gate 01"
@@ -157,8 +157,8 @@
             title="Two ways to work together."
             description="Depending on what your team needs — deliverables now, or a running system for the long term."
           />
-          <GridParent>
-            <div class="model-card model-card--dark">
+          <GridParent :cols="2">
+            <div class="model-card model-card--dark reversed">
               <p class="model-eyebrow">Most common</p>
               <TextBlock
                 as="h3"
@@ -209,8 +209,8 @@
             title="Fixed fees. No surprises."
             description="Every phase is scoped and priced before work begins. Most engagements start with an audit — everything else follows from what it finds."
           />
-          <GridParent>
-            <div class="price-card price-card--dark">
+          <GridParent :cols="4">
+            <div class="price-card price-card--dark reversed">
               <p class="price-eyebrow">Phase 1</p>
               <h3 class="price-name">Audit</h3>
               <p class="price-amount">$3–8k</p>
@@ -303,7 +303,7 @@
     </GridWrapper>
 
     <!-- ABOUT -->
-    <div class="section--dark">
+    <div class="section--dark reversed">
       <GridContainer>
         <GridParent rows>
           <TextBlock
@@ -428,16 +428,9 @@ export default {
 /* ── DARK SECTIONS ──────────────────────────────── */
 .section--dark {
   background: var(--foreground);
-  color: var(--background);
-
-  :deep(.eyebrow),
-  :deep(.description),
-  :deep(.title) {
-    color: inherit;
-  }
 
   :deep(.subtle) {
-    color: rgba(250, 250, 250, 0.5);
+    color: rgba(var(--color-offwhite-rgb), 0.5);
   }
 }
 
@@ -490,19 +483,13 @@ export default {
 .model-card--dark {
   background: var(--foreground);
   border-color: var(--foreground);
-  color: var(--background);
-
-  :deep(.title),
-  :deep(.description) {
-    color: inherit;
-  }
 
   .model-eyebrow {
-    color: rgba(250, 250, 250, 0.45);
+    color: rgba(var(--color-offwhite-rgb), 0.45);
   }
 
   .model-list li {
-    color: rgba(250, 250, 250, 0.7);
+    color: rgba(var(--color-offwhite-rgb), 0.7);
 
     &::before {
       color: var(--color-pink, #fdcdd4);
@@ -555,15 +542,14 @@ export default {
 .price-card--dark {
   background: var(--foreground);
   border-color: var(--foreground);
-  color: var(--background);
 
   .price-eyebrow,
   .price-unit {
-    color: rgba(250, 250, 250, 0.4);
+    color: rgba(var(--color-offwhite-rgb), 0.4);
   }
 
   .price-list li {
-    color: rgba(250, 250, 250, 0.6);
+    color: rgba(var(--color-offwhite-rgb), 0.6);
   }
 }
 
@@ -625,7 +611,7 @@ export default {
 /* ── ABOUT ──────────────────────────────────────── */
 .about-role {
   font-size: var(--font-xs);
-  color: rgba(250, 250, 250, 0.5);
+  color: rgba(var(--color-offwhite-rgb), 0.5);
   margin-bottom: var(--spacing-sm);
 }
 
@@ -636,12 +622,12 @@ export default {
 
   a {
     font-size: var(--font-xs);
-    color: rgba(250, 250, 250, 0.5);
+    color: rgba(var(--color-offwhite-rgb), 0.5);
     text-decoration: none;
     transition: color 0.15s;
 
     &:hover {
-      color: var(--background);
+      color: var(--foreground-reversed);
     }
   }
 }
@@ -653,7 +639,7 @@ export default {
 
   p {
     font-size: var(--font-sm);
-    color: rgba(250, 250, 250, 0.75);
+    color: rgba(var(--color-offwhite-rgb), 0.75);
     line-height: 1.65;
   }
 }
@@ -662,7 +648,7 @@ export default {
   margin-top: var(--spacing-xs);
   padding-top: var(--spacing-sm);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(250, 250, 250, 0.5) !important;
+  color: rgba(var(--color-offwhite-rgb), 0.5) !important;
 }
 
 /* ── FAQ ────────────────────────────────────────── */

@@ -21,7 +21,7 @@ export default {
     cols: {
       type: Number,
       default: null,
-      validator: (v) => [3, 6, 9, 12].includes(v),
+      validator: (v) => [2, 3, 4, 6, 9, 12].includes(v),
     },
   },
   // mounted() {
@@ -65,18 +65,21 @@ export default {
 // }
 .grid-template {
   display: grid;
-  grid-gap: var(--spacing-sm);
+  column-gap: var(--spacing-xs);
+  row-gap: var(--spacing-sm);
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(1, 1fr);
 
   @media only screen and (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
     margin-block-start: 0;
-    grid-gap: var(--spacing-md);
+    column-gap: var(--spacing-sm);
+    row-gap: var(--spacing-md);
   }
   @media only screen and (min-width: 1201px) {
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: var(--spacing-lg);
+    grid-template-columns: repeat(var(--cols, 3), 1fr);
+    column-gap: var(--spacing-sm);
+    row-gap: var(--spacing-lg);
   }
 
   &--rows {
@@ -85,22 +88,37 @@ export default {
   }
   &--tight {
     @media only screen and (min-width: 1201px) {
-      grid-gap: var(--spacing-md);
+      column-gap: var(--spacing-xs);
+    }
+  }
+  &--cols-2 {
+    @media only screen and (min-width: 768px) {
+      --cols: 2;
+    }
+  }
+  &--cols-3 {
+    @media only screen and (min-width: 1201px) {
+      --cols: 3;
+    }
+  }
+  &--cols-4 {
+    @media only screen and (min-width: 1201px) {
+      --cols: 4;
     }
   }
   &--cols-6 {
     @media only screen and (min-width: 1201px) {
-      grid-template-columns: repeat(6, 1fr);
+      --cols: 6;
     }
   }
   &--cols-9 {
     @media only screen and (min-width: 1201px) {
-      grid-template-columns: repeat(9, 1fr);
+      --cols: 9;
     }
   }
   &--cols-12 {
     @media only screen and (min-width: 1201px) {
-      grid-template-columns: repeat(12, 1fr);
+      --cols: 12;
     }
   }
 }
