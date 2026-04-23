@@ -646,13 +646,13 @@
     {
       "id": 76,
       "type": "lab",
+      "published": false,
       "date": "",
       "title": "Scroll-Driven Audio",
       "eyebrow": "Lab",
-      "description": "The page as an instrument. Scroll to build a beat from scratch — layered drum synthesis triggered by scroll progress, with genre modes for trap, dancehall, soca, and hip-hop.",
+      "description": "The page as an instrument. Scroll to build a beat from scratch — layered drum synthesis triggered by scroll progress, with genre modes for trap, dancehall, and hip-hop.",
       "link": "/lab/scroll-audio/",
       "label": "Open Experiment",
-      "thumbnail": "placeholders/placeholder-29.svg",
       "alt": "Lab: Scroll-Driven Audio Synthesis",
       "tags": [
         "experiment",
@@ -663,13 +663,13 @@
     {
       "id": 77,
       "type": "lab",
+      "published": false,
       "date": "",
       "title": "Editorial Photo Filters",
       "eyebrow": "Lab",
       "description": "CSS, SVG, and canvas photo filters built with zero dependencies. Duotone, cyanotype, infrared, halftone, chromatic aberration, and more.",
       "link": "/lab/photo-filters/",
       "label": "Open Experiment",
-      "thumbnail": "placeholders/placeholder-29.svg",
       "alt": "Lab: Editorial Photo Filters",
       "tags": [
         "experiment",
@@ -680,6 +680,7 @@
     {
       "id": 78,
       "type": "lab",
+      "published": false,
       "date": "",
       "title": "Counter Fill",
       "eyebrow": "Lab",

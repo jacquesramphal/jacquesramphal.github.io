@@ -333,7 +333,7 @@
 :root.dark-theme {
   --foreground: var(--color-offwhite);
   --foreground-rgb: var(--color-offwhite-rgb);
-  --foreground-muted: rgba(var(--foreground), 0.7);
+  --foreground-muted: rgba(var(--color-offwhite-rgb), 0.7);
   --text-muted: var(--foreground-muted);
   --foreground-subtle: rgba(250, 250, 250, var(--foreground-opacity));
   /* Use the RGB values for #fafafa */
@@ -402,7 +402,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground: var(--color-offwhite);
-    --foreground-muted: rgba(var(--foreground), 0.7);
+    --foreground-rgb: var(--color-offwhite-rgb);
+    --foreground-muted: rgba(var(--color-offwhite-rgb), 0.7);
     --text-muted: var(--foreground-muted);
     --foreground-subtle: rgba(250, 250, 250, var(--foreground-opacity));
     /* Use the RGB values for #fafafa */

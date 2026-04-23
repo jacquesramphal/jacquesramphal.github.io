@@ -197,18 +197,6 @@
     <aside class="panel">
       <div class="panel-title">Scroll Audio</div>
 
-      <!-- Mode toggle always visible -->
-      <div class="mode-toggle">
-        <button class="mode-btn active" data-mode="scratch">SCRATCH</button>
-        <button class="mode-btn" data-mode="timeline">TIMELINE</button>
-        <button class="mode-btn" data-mode="crescendo">CRESCENDO</button>
-      </div>
-
-      <div class="drop-zone" id="dropZone">
-        <input type="file" id="fileInput" accept=".mp3,.wav,.ogg,.flac" hidden />
-        <p>Drop an audio loop here<br />or <button id="browseBtn">browse</button></p>
-      </div>
-
       <div id="trackInfo" class="track-info"></div>
 
       <canvas id="waveform" width="240" height="72"></canvas>
@@ -218,15 +206,14 @@
       </div>
 
       <!-- Genre selector (crescendo mode only) -->
-      <div class="genre-toggle" id="genreToggle" hidden>
+      <div class="genre-toggle" id="genreToggle">
         <button class="genre-btn active" data-genre="trap">TRAP</button>
         <button class="genre-btn" data-genre="dancehall">DANCEHALL</button>
-        <button class="genre-btn" data-genre="soca">SOCA</button>
-        <button class="genre-btn" data-genre="hiphop">HIP-HOP</button>
+<button class="genre-btn" data-genre="hiphop">HIP-HOP</button>
       </div>
 
       <!-- Layers indicator (crescendo mode only) -->
-      <div class="layers-indicator" id="layersIndicator" hidden></div>
+      <div class="layers-indicator" id="layersIndicator"></div>
 
       <div class="stats">
         <div class="stat">
@@ -244,22 +231,10 @@
       </div>
 
       <div class="mode-desc">
-        <p id="descScratch">
-          Scroll speed → playback rate. Scroll up to reverse. Vinyl brake on stop.
-        </p>
-        <p id="descTimeline" hidden>
-          Scroll position → track position. Audio follows where you are on the page.
-        </p>
-        <p id="descCrescendo" hidden>
+        <p id="descCrescendo">
           Scroll down to build the beat. Each section adds a new layer — shaker, kick, hi-hat,
-          snare, open hat, 4-on-the-floor. No file needed.
+          snare, open hat, 4-on-the-floor.
         </p>
-        <p id="descIdle">Load a loop to begin. Try Looperman for house or dancehall stems.</p>
-      </div>
-
-      <div class="source-hint" id="sourceHint">
-        <p>Loops: looperman.com · freesound.org</p>
-        <p>Pixabay.com/music (instant, no account)</p>
       </div>
     </aside>
 
@@ -269,12 +244,13 @@
       (function () {
         const engine = new ScrollAudioEngine();
         let engineReady = false;
-        let loaded = false;
 
         async function ensureEngine() {
           if (!engineReady) {
             await engine.init();
             engineReady = true;
+            engine.setMode('crescendo');
+            rebuildPips();
           }
         }
 
@@ -336,12 +312,10 @@
         function updateStats() {
           requestAnimationFrame(updateStats);
 
-          const isCrescendo = engine.mode === 'crescendo';
           const pos = engine.getPosition();
-
           document.getElementById('progressFill').style.width = Math.round(pos * 100) + '%';
 
-          if (isCrescendo && engineReady) {
+          if (engineReady) {
             const total = engine.synth ? engine.synth.layers.length : 10;
             const active = engine.synth ? engine.synth.getActiveLayers() : 0;
             const bpm = engine.synth ? engine.synth.bpm : 140;
@@ -351,19 +325,10 @@
             document.getElementById('statPos').textContent =
               Math.round((engine.synth ? engine.synth.progress : 0) * 100) + '%';
 
-            // Update individual layer pips
             const pips = document.querySelectorAll('.layer-pip');
             pips.forEach((pip, i) => {
               pip.classList.toggle('active', i < active);
             });
-          } else if (loaded) {
-            const rate = engine.getPlaybackRate();
-            const forward = engine.isForward;
-            document.getElementById('statRate').textContent =
-              rate < 0.01 ? '0.00×' : rate.toFixed(2) + '×';
-            document.getElementById('statDir').textContent =
-              rate < 0.01 ? '■' : forward ? '▶' : '◀';
-            document.getElementById('statPos').textContent = Math.round(pos * 100) + '%';
           }
         }
         updateStats();
@@ -375,7 +340,9 @@
 
         window.addEventListener(
           'scroll',
-          () => {
+          async () => {
+            await ensureEngine();
+
             const now = performance.now();
             const dt = now - lastT;
             if (dt > 0) {
@@ -388,82 +355,10 @@
             const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
             const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
 
-            if (engine.mode === 'crescendo' && engineReady) {
-              engine.onScroll(smoothVel, progress);
-            } else if (loaded) {
-              engine.onScroll(smoothVel, progress);
-            }
+            engine.onScroll(smoothVel, progress);
           },
           { passive: true }
         );
-
-        // ── File loading ─────────────────────────
-        async function loadFile(file) {
-          await ensureEngine();
-          const dur = await engine.loadFile(file);
-          loaded = true;
-
-          document.getElementById('dropZone').hidden = true;
-          document.getElementById('descIdle').hidden = true;
-          document.getElementById('sourceHint').hidden = true;
-
-          const mins = Math.floor(dur / 60);
-          const secs = Math.round(dur % 60).toString().padStart(2, '0');
-          document.getElementById('trackInfo').textContent = file.name + ' · ' + mins + ':' + secs;
-
-          syncModeUI(engine.mode);
-        }
-
-        // Drop zone
-        const dropZone = document.getElementById('dropZone');
-        const fileInput = document.getElementById('fileInput');
-
-        document.getElementById('browseBtn').addEventListener('click', () => fileInput.click());
-        fileInput.addEventListener('change', (e) => {
-          if (e.target.files[0]) loadFile(e.target.files[0]);
-        });
-        dropZone.addEventListener('dragover', (e) => {
-          e.preventDefault();
-          dropZone.classList.add('over');
-        });
-        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('over'));
-        dropZone.addEventListener('drop', (e) => {
-          e.preventDefault();
-          dropZone.classList.remove('over');
-          const file = e.dataTransfer.files[0];
-          if (file) loadFile(file);
-        });
-
-        // ── Mode toggle ──────────────────────────
-        function syncModeUI(mode) {
-          const isCrescendo = mode === 'crescendo';
-
-          document.getElementById('dropZone').hidden = isCrescendo || loaded;
-          document.getElementById('layersIndicator').hidden = !isCrescendo;
-          document.getElementById('genreToggle').hidden = !isCrescendo;
-          document.getElementById('sourceHint').hidden = isCrescendo || loaded;
-          document.getElementById('descIdle').hidden = isCrescendo || loaded;
-          document.getElementById('descScratch').hidden = mode !== 'scratch';
-          document.getElementById('descTimeline').hidden = mode !== 'timeline';
-          document.getElementById('descCrescendo').hidden = !isCrescendo;
-
-          if (isCrescendo) rebuildPips();
-        }
-
-        document.querySelectorAll('.mode-btn').forEach((btn) => {
-          btn.addEventListener('click', async () => {
-            document.querySelectorAll('.mode-btn').forEach((b) => b.classList.remove('active'));
-            btn.classList.add('active');
-            const mode = btn.dataset.mode;
-
-            if (mode === 'crescendo') {
-              await ensureEngine();
-            }
-
-            engine.setMode(mode);
-            syncModeUI(mode);
-          });
-        });
 
         // ── Genre toggle ─────────────────────────
         document.querySelectorAll('.genre-btn').forEach((btn) => {
