@@ -56,7 +56,7 @@
             title="End-to-end. Not point-to-point."
             description="Every other AI design tool picks a point in the process and stops. This practice runs the full engagement — audit, discovery, definition, handoff — as a coordinated sequence with your approval at every gate."
           />
-          <GridParent>
+          <GridParent tight>
             <div class="phase-card">
               <span class="phase-tag phase-tag--entry">Entry point</span>
               <TextBlock
