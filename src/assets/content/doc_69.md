@@ -10,9 +10,7 @@ The counter is the enclosed space inside a letterform: the bowl of an **o**, the
 
 In print and in design tools, filling a counter with a contrasting colour is a standard technique. Editorial mastheads, logotypes, concert posters — designers reach for it whenever type is being treated as image rather than content.
 
-![](examples_in_the_wild.png)
-
-From left to right, top to bottom. [Capcom Logo (1983)](https://fontsinuse.com/uses/38691/capcom-logo), [New Order – "1963" single cover (1995)](https://fontsinuse.com/uses/8037/new-order-1963-single-cover), [Packy & Marlon video game (1995)](https://fontsinuse.com/uses/76013/packy-and-marlon-video-game), [Audi Fox advertisements (1975)](https://fontsinuse.com/uses/2139/audi-fox-advertisements), [Popular magazine (2015)](https://fontsinuse.com/uses/12726/popular-magazine-1), ["Soul in Modern Shapes & Sounds" poster for SubTone (2010)](https://fontsinuse.com/uses/37765/soul-in-modern-shapes-and-sounds-poster-for-s), and [Glory by NoViolet Bulawayo (2022)](https://fontsinuse.com/uses/57525/glory-by-noviolet-bulawayo)
+![Counter Fill Example](../images/casestudy/counter-fill/counter-fill-2.png)
 
 In the browser, maybe we can't go as far as some of these examples, but just colouring the hole on some letters should be possible, right? Surprisingly, on live text, nobody has solved it. Not with something that works on any font, at any size, without exporting the type as an image first.
 
@@ -186,3 +184,25 @@ Paint only happens on init and on resize. There's no continuous loop.
 The hardest part had nothing to do with the fill algorithm. Making Canvas and the DOM agree on where text actually sits took longer than everything else. They have independent layout engines that disagree in ways that only show up at specific screen densities, specific fonts, and specific letter-spacing values. The drift correction pass wasn't a later optimisation; it was necessary from the start.
 
 If you work on both the design and the code, you know what it's like to find a technique that exists everywhere except the browser. Some of those gaps are hard for good reasons. This one turned out to be solvable with a flood fill. I'm glad I looked.
+
+### Counter fills in the wild
+
+![Capcom Logo](../images/casestudy/counter-fill/capcom.png)
+
+*[Capcom Logo (1983)](https://fontsinuse.com/uses/38691/capcom-logo)*
+
+![Packy & Marlon video game](../images/casestudy/counter-fill/packy-marlon.png)
+
+*[Packy & Marlon video game (1995)](https://fontsinuse.com/uses/76013/packy-and-marlon-video-game)*
+
+![Audi Fox advertisement](../images/casestudy/counter-fill/audi-fox.jpg)
+
+*[Audi Fox advertisements (1975)](https://fontsinuse.com/uses/2139/audi-fox-advertisements)*
+
+![Popular magazine](../images/casestudy/counter-fill/popular-magazine.jpg)
+
+*[Popular magazine (2015)](https://fontsinuse.com/uses/12726/popular-magazine-1)*
+
+![SubTone poster](../images/casestudy/counter-fill/subtone-poster.png)
+
+*["Soul in Modern Shapes & Sounds" poster for SubTone (2010)](https://fontsinuse.com/uses/37765/soul-in-modern-shapes-and-sounds-poster-for-s)*
