@@ -379,6 +379,21 @@ export default {
   &:after {
     color: var(--foreground-reversed);
   }
+  .button--solid {
+    color: var(--foreground) !important;
+    background: var(--background) !important;
+    border: 2px solid var(--background) !important;
+    &:before,
+    &:after {
+      color: var(--foreground) !important;
+    }
+    &:hover {
+      opacity: 0.85;
+    }
+    &:active {
+      transform: scale(0.98);
+    }
+  }
   .button--outline {
     color: var(--foreground-reversed) !important;
     border: 1px solid var(--foreground-reversed) !important;

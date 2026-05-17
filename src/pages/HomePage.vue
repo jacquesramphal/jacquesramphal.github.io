@@ -10,9 +10,9 @@
     <HeroBanner
       id="hero"
       isHtml
-      class="display"
       fullvh
       end
+      class="display"
       title="I design systems and write the code that ships them. Browse my <a href='/library'><em>writing</em></a> and <a href='/library'><em>work</em></a>."
     />
 
@@ -101,7 +101,7 @@
       :products="featuredProducts"
     /> -->
     <!-- STUDIO BANNER -->
-    <AnimatedComponent>
+    <!-- <AnimatedComponent>
       <div class="studio-banner reversed">
         <GridContainer>
           <GridParent rows>
@@ -116,7 +116,18 @@
           </GridParent>
         </GridContainer>
       </div>
-    </AnimatedComponent>
+    </AnimatedComponent> -->
+    <!-- style="background: var(--background-darker)" -->
+
+    <HeroBanner
+      center
+      isHtml
+      eyebrow="Let's work together"
+      title="Need more design than you can staff?"
+      subtitle="Audit, discovery, specs, and handoff. Fixed scope, no surprises."
+      label="Learn more"
+      route="/studio"
+    />
 
     <div class="vertical-wordmark" aria-hidden="true">Jacques Ramphal</div>
   </PageWrapper>
@@ -357,8 +368,6 @@ h1.wrap-multi {
 }
 
 .studio-banner {
-  padding-block: var(--spacing-lg);
-
   :deep(.eyebrow),
   :deep(.title),
   :deep(.description) {

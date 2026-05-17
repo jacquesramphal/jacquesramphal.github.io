@@ -9,10 +9,10 @@
         :src="require(`../../assets/images/${filename}`)"
         :alt="`${alt}`"
       />
-      <GridContainer id="eyebrow" v-if="eyebrow" style="z-index: 10000">
+      <!-- <GridContainer id="eyebrow" v-if="eyebrow" style="z-index: 10000">
         <div class="animate fade delay-3">
           <DynamicText as="p" :text="eyebrow" isHtml :attrs="{ id: 'eyebrow' }" class="subtle" />
-          <!-- <component
+       <component
             :is="breadcrumb ? 'TextLink' : 'p'"
             class="subtle"
             v-if="eyebrow"
@@ -20,9 +20,9 @@
             :label="breadcrumb ? eyebrow : undefined"
             :route="breadcrumb ? breadcrumb : undefined"
             style="scroll-snap-align: start"
-          /> -->
-        </div>
-      </GridContainer>
+          />
+        </div> 
+      </GridContainer>-->
       <GridContainer class="banner-container" v-if="title || $slots.title">
         <GridParent :cols="12" id="hero-text" class="animate fade delay-1">
           <span>
@@ -34,7 +34,9 @@
               <TextBlock
                 :as="as"
                 :title="title"
+                :eyebrow="eyebrow"
                 :description="subtitle"
+                :center="center"
                 :attrs="{ id: 'title' }"
                 :isHtml="isHtml"
               />
@@ -118,7 +120,7 @@ import GridParent from '../grid/GridParent.vue';
 import MyButton from '../Button/Button.vue';
 import MyInput from '../form/MyInput.vue';
 import AnimatedComponent from '../AnimatedComponent.vue';
-import DynamicText from '../text/DynamicText.vue';
+// import DynamicText from '../text/DynamicText.vue';
 import TextBlock from '../text/TextBlock/TextBlock.vue';
 
 export default {
@@ -132,7 +134,7 @@ export default {
     TextBlock,
     AnimatedComponent,
     // TextLink,
-    DynamicText,
+    // DynamicText,
   },
   props: {
     contentful: {
@@ -214,7 +216,6 @@ export default {
       type: Boolean,
       default: false,
     },
-
     // Search props
     showSearch: {
       type: Boolean,
@@ -262,8 +263,9 @@ img {
   display: none;
 }
 #hero-text {
-  margin-block-start: var(--spacing-xl);
-  align-items: end !important;
+  margin-block-start: 0;
+  padding-block-end: 0;
+  align-items: center !important;
   display: grid;
   justify-content: left;
   text-align: left;
@@ -273,7 +275,7 @@ img {
     // max-width: 65vw;
   }
   span {
-    grid-column: span 10;
+    grid-column: span 8;
   }
 
   .hero-content {
@@ -292,7 +294,6 @@ img {
 
   #subtitle {
     margin-block-start: 2rem;
-    // max-width: 86.4rem;
     inline-size: 100%;
     @media only screen and (min-width: 768px) {
       margin-block-start: 3.2rem;
@@ -330,13 +331,22 @@ img {
   overflow: hidden !important;
   position: relative;
   block-size: auto;
-  padding-block-end: var(--spacing-xs);
+  // padding-block-end: var(--spacing-xs);
   @media only screen and (min-width: 768px) {
     background-position: 100% 100%;
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 60vh;
-    padding-block-end: var(--spacing-sm);
+    // padding-block-end: var(--spacing-sm);
+  }
+  .banner-container {
+    flex: 1;
+    display: grid;
+    align-content: center;
+    padding-block: var(--spacing-lg) !important;
+    @media only screen and (min-width: 768px) {
+      padding-block: var(--spacing-xl) !important;
+    }
   }
   &::after {
     content: '';
@@ -442,17 +452,21 @@ img {
 
 .herobanner--center {
   #hero-text {
-    @media only screen and (min-width: 768px) {
-      justify-self: center;
-      text-align: center !important;
-    }
+    justify-self: center;
+    text-align: center !important;
+    align-items: center !important;
+
     span {
-      grid-column: span 3;
+      grid-column: span 12;
+    }
+    @media only screen and (min-width: 768px) {
+      max-width: 65vw;
     }
   }
   #hero-text > span {
     justify-content: center;
     text-align: center;
+    margin-inline: auto;
   }
   #hero-cta {
     justify-content: center;
@@ -480,18 +494,29 @@ img {
   }
 }
 .herobanner--end {
+  .banner-container {
+    align-content: end;
+  }
   #hero-text {
     align-items: end !important;
+    margin-block-start: var(--spacing-xl);
+    // padding-block-end: var(--spacing-md);
     @media only screen and (min-width: 768px) {
-      padding-block-end: var(--spacing-lg);
+      // padding-block-end: var(--spacing-lg);
     }
   }
 }
 .display .herobanner--end {
   #hero-text {
     @media only screen and (min-width: 768px) {
-      padding-block-end: var(--spacing-md);
+      padding-block-end: 0 !important;
     }
+  }
+}
+.display .banner-container {
+  padding-block-end: var(--spacing-sm) !important;
+  @media only screen and (min-width: 768px) {
+    padding-block-end: var(--spacing-xl) !important;
   }
 }
 .display #hero-text {

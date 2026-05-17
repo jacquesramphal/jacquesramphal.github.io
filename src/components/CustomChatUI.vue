@@ -389,6 +389,7 @@ export default {
       bodyScrollLocked: false,
       scrollLockY: 0,
       atBottomOfPage: false,
+      scrolledPastHero: false,
       menuIsOpen: false,
     };
   },
@@ -403,8 +404,10 @@ export default {
       return this.viewportWidth <= this.mobileFullscreenBreakpoint;
     },
     mobileButtonVisible() {
+      if (this.menuIsOpen) return true;
       const isHome = this.$route && this.$route.path === '/';
-      return isHome || this.atBottomOfPage || this.menuIsOpen;
+      if (isHome) return this.scrolledPastHero;
+      return this.atBottomOfPage;
     },
     resolvedMetadata() {
       const safeLocation =
@@ -803,6 +806,7 @@ export default {
       const threshold = 80;
       this.atBottomOfPage =
         window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - threshold;
+      this.scrolledPastHero = window.scrollY > window.innerHeight * 0.6;
     },
     handleEscapeKey(event) {
       if (event.key === 'Escape' && this.isOpen) {
@@ -927,6 +931,7 @@ export default {
     right: var(--spacing-xxs);
     width: calc(100% - var(--spacing-xxs) * 2);
     height: auto;
+    box-shadow: var(--shadow-deep);
     transition:
       opacity 0.25s ease,
       transform 0.25s ease;
