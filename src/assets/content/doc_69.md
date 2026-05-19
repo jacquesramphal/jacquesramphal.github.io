@@ -4,7 +4,7 @@
 
 <!-- ![Counter Fill Example](../images/casestudy/counter-fill/counter-fill-2.png) -->
 
-This walks through [Counter Fill](https://github.com/jacquesramphal/jacquesramphal.github.io/tree/main/packages/counter-fill), a small library I built to fill the enclosed spaces inside letterforms on live DOM text. The [Usage](#usage) section has what you need to drop it into a project. [How it works](#how-it-works) covers the technique itself.
+Filling the counter — the enclosed space inside a letter like the bowl of an **o** — is a standard design move in print. On the web, on live text, the options have been thin: export the type as an image and lose accessibility, or hand-draw SVG paths for one font at one size. [Counter Fill](https://github.com/jacquesramphal/jacquesramphal.github.io/tree/main/packages/counter-fill) is a small JavaScript library I built to do it on live DOM text, at any font and any size. The [Usage](#usage) section has what you need to drop it into a project. [How it works](#how-it-works) walks through the approach.
 
 ## The counter as a design detail
 
@@ -13,8 +13,6 @@ The counter is the enclosed space inside a letterform: the bowl of an **o**, the
 In print and in design tools, filling a counter with a contrasting colour is a standard technique. Editorial mastheads, logotypes, concert posters — designers reach for it whenever type is being treated as image rather than content.
 
 ![Counter Fill Example](../images/casestudy/counter-fill/counter-fill-2.png)
-
-In the browser, maybe we can't go as far as some of these examples, but just colouring the hole on some letters should be possible, right? On live text, nobody has solved it. Not with something that works on any font, at any size, without exporting the type as an image first.
 
 I work on both sides of that gap. When you design something and then have to build it yourself, you end up with a running list of techniques that exist in print but have no browser equivalent, and counter fills were on my list for a long time.
 
