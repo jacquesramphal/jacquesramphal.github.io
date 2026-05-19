@@ -4,7 +4,9 @@
 
 <!-- ![Counter Fill Example](../images/casestudy/counter-fill/counter-fill-2.png) -->
 
-### The counter as a design detail
+Filling the counter — the enclosed space inside a letter like the bowl of an **o** — is a standard design move in print. On the web, on live text, the options have been thin: export the type as an image and lose accessibility, or hand-draw SVG paths for one font at one size. [Counter Fill](https://github.com/jacquesramphal/jacquesramphal.github.io/tree/main/packages/counter-fill) is a small JavaScript library I built to do it on live DOM text, at any font and any size. The [Usage](#usage) section has what you need to drop it into a project. [How it works](#how-it-works) walks through the approach.
+
+## The counter as a design detail
 
 The counter is the enclosed space inside a letterform: the bowl of an **o**, the eye of an **e**, the aperture of a **p**. Type designers have shaped and tuned these spaces for centuries. In display type, they carry as much visual weight as the strokes themselves.
 
@@ -12,25 +14,23 @@ In print and in design tools, filling a counter with a contrasting colour is a s
 
 ![Counter Fill Example](../images/casestudy/counter-fill/counter-fill-2.png)
 
-In the browser, maybe we can't go as far as some of these examples, but just colouring the hole on some letters should be possible, right? Surprisingly, on live text, nobody has solved it. Not with something that works on any font, at any size, without exporting the type as an image first.
-
 I work on both sides of that gap. When you design something and then have to build it yourself, you end up with a running list of techniques that exist in print but have no browser equivalent, and counter fills were on my list for a long time.
 
-### Why the workarounds fall short
+## Why the workarounds fall short
 
 The existing options are all compromises. SVG paths drawn by hand require redrawing for every font change and fall apart the moment you scale or reflow. CSS blend mode tricks depend on the background being a specific colour and break on anything textured or dark. Image exports throw away accessibility entirely: the text becomes unpickable, unsearchable, invisible to screen readers.
 
 The constraint I set: real DOM text, any font, any size, accessible. No pre-baked paths. No images. Nothing hardcoded to a specific letterform.
 
-### Usage
+## Usage
 
-[Counter Fill](https://github.com/jacquesramphal/jacquesramphal.github.io/tree/main/packages/counter-fill) is a small JavaScript library that detects the enclosed spaces inside letterforms and fills them with colour or gradient. It works on live DOM text, with any font, at any size. Install it from npm or grab the script directly. Required CSS is injected automatically — no stylesheet needed.
+[Counter Fill](https://github.com/jacquesramphal/jacquesramphal.github.io/tree/main/packages/counter-fill) is a small JavaScript library that detects the enclosed spaces inside letterforms and fills them with colour or gradient. It works on live DOM text, with any font, at any size. Install it from npm or grab the script directly. Required CSS is injected automatically, so no stylesheet is needed.
 
 ```bash
 npm install @jacquesramphal/counter-fill
 ```
 
-#### Single-line
+### Single-line
 
 ```html
 <h1 class="wrap" id="w1">
@@ -50,7 +50,7 @@ npm install @jacquesramphal/counter-fill
 
 <iframe height="700" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/019d6a8b-f8b2-7211-a1f0-6497fa65c2d4?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
 
-#### Multi-line
+### Multi-line
 
 Just write the text. The library splits words automatically.
 
@@ -68,9 +68,9 @@ Just write the text. The library splits words automatically.
 
 <iframe height="700" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/019d898a-a047-77b1-bc38-f47b3c473866?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
 
-#### Fill config
+### Fill config
 
-Two or more stops become a radial gradient from the centre out. One stop is a solid fill. CSS custom properties resolve at paint time — design tokens work directly.
+Two or more stops become a radial gradient from the centre out. One stop is a solid fill. CSS custom properties resolve at paint time, so design tokens work directly.
 
 ```js
 CounterFill.init({
@@ -83,7 +83,7 @@ CounterFill.init({
 
 For Vue, React, and module setups, see the [full README on GitHub](https://github.com/jacquesramphal/jacquesramphal.github.io/tree/main/packages/counter-fill).
 
-### How it works
+## How it works
 
 Counter Fill uses Canvas 2D as a rendering surface. It draws the text onto an offscreen canvas, then runs a BFS flood-fill from every edge pixel. Any transparent pixel the flood can reach from the edge is outside the letterforms. Any transparent pixel it can't reach is enclosed — a counter.
 
@@ -99,15 +99,15 @@ Three details make it work reliably in production rather than just in a demo:
 
 One side effect of the BFS approach: it generalises to any enclosed region, not just the counters you'd expect. Letters with unusual or large counter shapes work without any special handling.
 
-### Variable fonts
+## Variable fonts
 
-Variable fonts add a layer of complexity because the canvas has to match a glyph that may be at a custom `wght`, `wdth`, or any proprietary axis — and Canvas 2D historically didn't support those axes natively.
+Variable fonts add a layer of complexity. The canvas has to match a glyph that may be at a custom `wght`, `wdth`, or any proprietary axis, and Canvas 2D historically didn't support those axes natively.
 
 Counter Fill selects from three rendering paths automatically:
 
-1. **SVG embedded-font** — the font file is fetched, base64-encoded, and embedded in an SVG `<text>` element drawn to canvas. This supports all axes including custom ones like `SOFT` or `GRAD`. It's the most accurate path and works in all modern browsers.
-2. **`ctx.fontVariationSettings`** — Chrome 134+ added native canvas support for variation settings. When available, this path is used directly.
-3. **Canvas fallback** — `wght` maps to font-weight, `wdth` maps to font-stretch keywords with a width-scaling correction pass. Works everywhere; doesn't support custom axes.
+1. **SVG embedded-font:** the font file is fetched, base64-encoded, and embedded in an SVG `<text>` element drawn to canvas. This supports all axes including custom ones like `SOFT` or `GRAD`. It's the most accurate path and works in all modern browsers.
+2. **`ctx.fontVariationSettings`:** Chrome 134+ added native canvas support for variation settings. When available, this path is used directly.
+3. **Canvas fallback:** `wght` maps to font-weight, `wdth` maps to font-stretch keywords with a width-scaling correction pass. Works everywhere; doesn't support custom axes.
 
 Safari's SVG engine partially applies `font-variation-settings`. Standard axes (`wght`, `wdth`) work via their CSS property equivalents, but custom axes like `SOFT` may not render pixel-identically to Chrome. Fills on Safari use increased dilation and `textLength` for alignment.
 
@@ -119,33 +119,33 @@ await CounterFill.registerFont('My Font', '/fonts/my-font.woff2');
 await CounterFill.registerFont('My Font', '/fonts/my-font-italic.woff2', { style: 'italic', weight: '700' });
 ```
 
-#### wght × wdth (Roboto Flex)
+### wght × wdth (Roboto Flex)
 
 <iframe height="700" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/019d6a98-6565-7819-a86b-c9157ef62c55?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
 
-#### Custom axis — SOFT (Fraunces)
+### Custom axis — SOFT (Fraunces)
 
 <iframe height="700" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/019d899c-00c0-71bb-8afb-1845143ed8e3?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
 
-### A few things worth knowing
+## A few things worth knowing
 
-#### Letter-spacing
+### Letter-spacing
 
-`ctx.letterSpacing` is supported in Chrome 99+, Firefox 116+, and Safari 17.2+. On older browsers without it, fills still render but may drift slightly on text with non-zero `letter-spacing`. It degrades gracefully; it doesn't break.
+`ctx.letterSpacing` is supported in Chrome 99+, Firefox 116+, and Safari 17.2+. On older browsers without it, fills still render but may drift slightly on text with non-zero `letter-spacing`.
 
 <iframe height="600" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/019d89a1-39d1-7e9e-907b-06bb12eb48a6?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
 
-#### Text-shadow
+### Text-shadow
 
-CSS `text-shadow` doesn't carry into the canvas context, so the fill mask is always clean regardless of what shadows are set on the DOM text. The shadow renders on top of the canvas exactly as it would without the fill. No conflict.
+CSS `text-shadow` doesn't carry into the canvas context, so the fill mask is always clean regardless of what shadows are set on the DOM text. The shadow renders on top of the canvas exactly as it would without the fill.
 
-#### Line-height
+### Line-height
 
 Multi-line mode splits words into per-word canvases. Line-height affects the spacing between those canvases, not the fill detection. The BFS region filter also rejects the flat gaps between words as false positives, so tight or loose leading doesn't produce spurious fills.
 
 <iframe height="700" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/019d89a2-a0a5-780c-80f0-88e28a67ab41?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
 
-#### Print
+### Print
 
 Canvas content doesn't print by default, but Chrome renders it correctly. For other browsers, a `@media print` CSS fallback keeps the text legible:
 
@@ -155,19 +155,19 @@ Canvas content doesn't print by default, but Chrome renders it correctly. For ot
 }
 ```
 
-More elaborate print fallbacks — restoring a CSS background or outline effect — are possible but aren't built into the library.
+More elaborate print fallbacks, like restoring a CSS background or outline effect, are possible but aren't built into the library.
 
 <!-- TODO: Test print behaviour in Firefox and Safari, confirm fallback needed and update this section accordingly -->
 
-#### Writing modes
+### Writing modes
 
 Canvas `fillText` renders horizontally only, so vertical writing modes (`vertical-rl`, `vertical-lr`) use the SVG embedded-font rendering path. The font is fetched, base64-encoded, and drawn as SVG `<text>` with `writing-mode` set, then painted to canvas for BFS detection. RTL direction works natively since the shaping engine handles bidi within horizontal rendering.
 
 <iframe height="700" style="width:100%;border:0;border-radius:8px;" scrolling="no" src="https://codepen.io/jacquesramphal/embed/019d89a7-2448-7026-bd64-0c5a56e6d3d3?default-tab=result" loading="lazy" allowfullscreen="true"></iframe>
 
-### Performance
+## Performance
 
-The expensive operation is `getImageData` — reading pixel data back from the GPU. For a 140px heading at 2× DPR, that's about 156,000 pixels and runs in under 1ms on modern hardware. BFS is O(pixels) with comparable cost.
+The expensive operation is `getImageData`, reading pixel data back from the GPU. For a 140px heading at 2× DPR, that's about 156,000 pixels and runs in under 1ms on modern hardware. BFS is O(pixels) with comparable cost.
 
 Resize handling stays cheap through three things:
 
@@ -175,17 +175,17 @@ Resize handling stays cheap through three things:
 - Repaints are debounced via double `requestAnimationFrame`, batching all resize events into a single pass
 - Font files are fetched once at init and reused for every subsequent paint
 
-Paint only happens on init and on resize. There's no continuous loop.
+Paint only happens on init and on resize.
 
 <!-- PLACEHOLDER: Add performance stress-test CodePen embed once created from CODEPENS.md snippet #8 -->
 
-### What I learned
+## What I learned
 
-The hardest part had nothing to do with the fill algorithm. Making Canvas and the DOM agree on where text actually sits took longer than everything else. They have independent layout engines that disagree in ways that only show up at specific screen densities, specific fonts, and specific letter-spacing values. The drift correction pass wasn't a later optimisation; it was necessary from the start.
+The hardest part had nothing to do with the fill algorithm. Making Canvas and the DOM agree on where text actually sits took longer than everything else. They have independent layout engines that disagree in ways that only show up at specific screen densities, specific fonts, and specific letter-spacing values. The drift correction pass was necessary from the start.
 
-If you work on both the design and the code, you know what it's like to find a technique that exists everywhere except the browser. Some of those gaps are hard for good reasons. This one turned out to be solvable with a flood fill. I'm glad I looked.
+If you work on both the design and the code, you know what it's like to find a technique that exists everywhere except the browser. Some of those gaps are hard for good reasons. This one turned out to be solvable with a flood fill.
 
-### Counter fills in the wild
+## Counter fills in the wild
 
 ![Capcom Logo](../images/casestudy/counter-fill/capcom.png)
 
