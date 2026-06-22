@@ -1,0 +1,45 @@
+/* Design tokens sourced from jacquesramphal.github.io _config.scss
+   Keep in sync with src/assets/styles/scss/_config.scss */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* ── Color palette ── */
+  --color-offblack: #1d1b22;
+  --color-offwhite: #fafafa;
+  --color-xlight: #d6d6d6;
+  --color-xxlight: #e6e6e6;
+  --color-highlight2: hsla(0, 0%, 0%, 0.05);
+  --color-purple: rgba(100, 21, 255, 1);
+  --color-lightpurple: #a099ff;
+  --color-red: #e74646;
+  --color-green: #0dba38;
+
+  /* ── Semantic tokens ── */
+  --foreground: var(--color-offblack);
+  --background: var(--color-offwhite);
+  --background-darker: var(--color-highlight2);
+  --fontFamily-primary: 'Manrope', ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu, Cantarell,
+    'Helvetica Neue', Arial, sans-serif;
+
+  /* ── Game variable mappings ── */
+  --primary-color: var(--foreground);
+  --background-color: var(--background);
+  --accent-color: var(--color-purple);
+  --accent-color-dark: var(--color-purple);
+  --border-color: var(--color-xlight);
+  --hover-color: var(--background-darker);
+  --accent-hover-color: var(--color-lightpurple);
+  --error-color: var(--color-red);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground: var(--color-offwhite);
+    --background: var(--color-offblack);
+    --background-darker: hsla(0, 0%, 100%, 0.08);
+    --border-color: #333;
+    --hover-color: hsla(0, 0%, 100%, 0.06);
+  }
+}
