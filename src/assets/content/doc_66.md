@@ -5,7 +5,7 @@ This is the story of building Genie — from personal experiment to organization
 
 ## What is Genie?
 
-I built [Genie](https://orium.com/blog/orium-genie-agentic-ai-design), an agentic orchestration layer for delivery operations that redefined how we approach projects and client work. It connects to live project systems like Jira, Slack, Mavenlink, and internal project databases, continuously synthesizing context, surfacing insights, and automating workflows without manual intervention.
+I built Genie, an agentic orchestration layer for delivery operations that redefined how we approach projects and client work. It connects to the systems and operational data a team already works in, continuously synthesizing context, surfacing insights, and automating routine workflows without manual intervention.
 
 **Genie is what happens when you give an agent access to your operational data, and the ability to take action.**
 
@@ -21,9 +21,9 @@ None of that work was wasted, but it consumed energy I wanted to spend elsewhere
 
 I started experimenting in small pockets of time. Thirty minutes between design reviews, an hour on a Friday evening, playing with automations, custom GPTs, and scripts that could run audits, generate user stories, and map components.
 
-![Genie n8n Workflow](../images/gennifer.png)
+![Genie workflow](../images/gennifer.png)
 
-I was learning tools I'd never touched before — [n8n](https://n8n.io/), workflow orchestration, agentic AI patterns — to solve problems I'd never encountered before. I had to learn AI development properly and truly understand how agents work, because I was building one to solve real design problems. Curiosity turned into a passion project, and an education I hadn't planned on.
+I was learning things I'd never touched before, workflow orchestration and agentic patterns, to solve problems I'd never encountered before. I had to learn AI development properly and truly understand how agents work, because I was building one to solve real design problems. Curiosity turned into a passion project, and an education I hadn't planned on.
 
 I showed some of the experiments to the team and the questions came quickly. Could Genie run this audit for us? Could it generate user stories for our scope? Could it help with component mapping?
 

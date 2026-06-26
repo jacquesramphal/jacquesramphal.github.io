@@ -9,6 +9,21 @@
   "alt": "Genie - Agentic AI Platform",
   "entries": [
     {
+      "id": 79,
+      "docId": 76,
+      "slug": "friction",
+      "type": "article",
+      "published": true,
+      "date": "Jun 2026",
+      "title": "Friction",
+      "eyebrow": "Mindset",
+      "description": "A project falling apart, fifty-odd UI defects and no source of truth, and what staying in it taught me: friction only sharpens you when there's something steady to work against.",
+      "route": "/doc/friction",
+      "contentFile": "doc_76.md",
+      "alt": "Article: Friction",
+      "tags": ["career", "mindset"]
+    },
+    {
       "id": 75,
       "docId": 75,
       "slug": "future-positioning",
