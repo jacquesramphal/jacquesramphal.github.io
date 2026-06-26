@@ -21,21 +21,21 @@
           icon="j-logo.svg"
           iconsize="128"
           alt="Design systems icon"
-          description="I architect token-based systems and governance models so teams can move faster with fewer regressions—and designs arrive in code the way they were intended."
+          description="I architect token-based systems and governance models so teams move faster with fewer regressions, and designs arrive in code the way they were intended."
         />
         <TextBlock
           as="h4"
           title="AI/AX patterns with Genie"
           icon="j-logo.svg"
           alt="AI/AX icon"
-          description="At Orium, I’m designing <a href=’/doc/building-genie-changed-me’>Genie</a>—an AI/AX platform for agentic experiences—where the work isn’t just chatting with an assistant, it’s collaborating with AI on real, multi-step workflows."
+          description="I built <a href='/doc/building-genie-changed-me'>Genie</a>, an agentic orchestration platform the team works with on real, multi-step delivery, not just chatting with an assistant. The point is giving people hours back for the work that needs judgment."
         />
         <TextBlock
           as="h4"
           title="Design-dev bridge & mentorship"
           icon="j-logo.svg"
           alt="Mentorship icon"
-          description="I still write code, mentor designers into developers, and care a lot about team health—mindfulness, thoughtful critique, and work that feels sustainable."
+          description="I write production code, mentor designers toward systems and code, and care about team health: mindfulness, thoughtful critique, and work that stays sustainable."
         />
       </GridParent>
     </GridContainer>
@@ -50,11 +50,11 @@
       :eyebrow1="about.detailEyebrow1"
       :detail1="about.detailDetails1"
       eyebrow2="Design Systems & Infrastructure"
-      detail2="I build token-based systems, semantic naming, and governance that reduce design-to-dev iteration time by 40% and increase cross-team consistency."
+      detail2="I build token-based systems, semantic naming, and governance that reduce design-to-development friction by approximately 60% and keep teams consistent."
       eyebrow3="AI/AX Design (Genie)"
-      detail3="I'm pioneering UX patterns for agentic experiences through <a href='/doc/building-genie-changed-me'>Genie</a>—rethinking how people collaborate with AI, build trust, and understand what agents can do."
+      detail3="I design the craft and patterns for agentic experiences through <a href='/doc/building-genie-changed-me'>Genie</a>: how people work with agents, build trust, and understand what agents can do."
       eyebrow4="Design-Dev Integration & Mentorship"
-      detail4="I code my own designs, mentor designers into developers, and bring mindfulness and emotional intelligence into teams so great work doesn't require burnout."
+      detail4="I code my own designs, mentor designers toward systems and code, and bring mindfulness and emotional intelligence into teams so good work doesn't require burnout."
     />
     <!-- <HeroBanner
       id="hero"

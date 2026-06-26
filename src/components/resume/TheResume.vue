@@ -24,7 +24,7 @@
         />
         <DynamicText
           class="resume-summary"
-          text="Agentic Systems & AX Lead and Full Stack Design Lead with 12+ years of experience delivering enterprise and consumer digital products. Currently leading the design and integration of agentic systems (AX) within delivery workflows, bridging UX, AI automation, and development to enhance team efficiency and design quality. Deep expertise in design systems, AI-enabled product experiences, and design-to-development workflows."
+          text="Design lead working at the seam between design and engineering, with 12+ years delivering enterprise and consumer products. I lead the cross-disciplinary craft of how people and agents do the work together, built Genie as an agentic orchestration platform, and keep design-to-development integration tight. Deep expertise in token-based design systems, design-to-development integration, and accessible, high-fidelity UI."
         />
       </div>
 

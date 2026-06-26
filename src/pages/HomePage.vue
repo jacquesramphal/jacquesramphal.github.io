@@ -5,7 +5,7 @@
       fullvh
       end
       id="hero"
-      title="Head of Design at Orium. This is my index—work, writing, and thinking on design systems, AI, and the future of agentic experiences."
+      title="This is my index: work, writing, and thinking on design systems, agentic craft, and the future of design."
     /> -->
     <HeroBanner
       id="hero"

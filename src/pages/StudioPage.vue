@@ -313,7 +313,7 @@
           />
           <GridParent>
             <div>
-              <p class="about-role">Design engineer · Studio lead</p>
+              <p class="about-role">Design engineering · Studio lead</p>
               <div class="about-links">
                 <a href="https://ramphal.design" target="_blank">ramphal.design →</a>
                 <a href="mailto:jacques@ramphal.design">jacques@ramphal.design</a>

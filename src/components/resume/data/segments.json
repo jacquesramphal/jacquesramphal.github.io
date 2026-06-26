@@ -3,12 +3,21 @@
     "title": "Experience",
     "entries": [
       {
-        "title": "Senior Product Designer & Design Lead",
+        "title": "Design Lead, Agentic Craft",
+        "position": "Permanent Full-time",
+        "location": "Orium",
+        "from": "2024",
+        "to": "Present",
+        "description": "Lead the design practice and the cross-disciplinary craft of how people and agents do the work together across the delivery lifecycle. Built Genie, an agentic orchestration platform that automates routine design and delivery work so the team gets meaningful hours back for the problems that need a person. Own the Craft Standard and Design QA systems, and set front-end integration standards. Convene product, engineering, and QA on shared craft rather than owning it alone.",
+        "callout": "Built Genie, the agentic orchestration platform now used across delivery. Authored Orium's design leadership rubric and contract design and UX research hiring kits."
+      },
+      {
+        "title": "Senior Product Designer",
         "position": "Permanent Full-time",
         "location": "Orium",
         "from": "2013",
-        "to": "Present",
-        "description": "Lead design for enterprise and consumer products across retail, healthcare, and SaaS clients. Architect and govern token-based design systems adopted across multiple teams and platforms. Partner closely with engineering to ensure design fidelity from Figma to production. Design and implement production-ready React and Vue components. Define and operationalize design quality standards, reducing rework and QA cycles. Mentor designers and developers on systems thinking, front-end implementation, and collaboration.",
+        "to": "2024",
+        "description": "Led product design across retail, healthcare, and SaaS clients, and grew into leading the front-end of Orium's composable-commerce accelerators. Architected and governed token-based design systems adopted across teams and platforms. Implemented production UI in React and Vue so design decisions survived handoff. Defined design quality standards that cut rework, and mentored designers on systems thinking and code.",
         "callout": "Reduced design-to-development friction by approximately 60% through systemization. Shipped customer-facing products used by millions."
       },
       {
@@ -71,7 +80,7 @@
       },
       {
         "title": "AI & Automation",
-        "description": "n8n, LLM-assisted workflows, Prompt Engineering, Agentic UX"
+        "description": "Claude Code, Claude API, n8n, Agentic Orchestration, Agentic UX/AX, Prompt Engineering"
       }
     ]
   },
@@ -83,7 +92,7 @@
         "title": "n8n Certified Expert Partner",
         "location": "n8n",
         "from": "",
-        "to": "2024",
+        "to": "2026",
         "description": ""
       },
       {

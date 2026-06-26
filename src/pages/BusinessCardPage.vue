@@ -67,7 +67,7 @@
               <TextBlock
                 as="h4"
                 title="Jacques Ramphal"
-                description="Head of Design · Toronto, ON"
+                description="Design Engineering · Agentic Craft · Toronto, ON"
               />
             </div>
 

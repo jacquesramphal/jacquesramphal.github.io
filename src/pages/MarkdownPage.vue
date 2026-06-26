@@ -288,7 +288,7 @@ export default {
                   author: {
                     '@type': 'Person',
                     name: 'Jacques Ramphal',
-                    jobTitle: 'Senior Product Designer & Design Lead',
+                    jobTitle: 'Design Lead, Agentic Craft',
                     worksFor: {
                       '@type': 'Organization',
                       name: 'Orium',
