@@ -1,0 +1,9 @@
+{
+  "name": "ramphal-chat-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Serverless site-guide chatbot for ramphal.design (Claude-backed, replaces n8n).",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.68.0"
+  }
+}
