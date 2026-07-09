@@ -32,8 +32,27 @@ chat-api/
    `@anthropic-ai/sdk`.)
 3. Add an environment variable **`ANTHROPIC_API_KEY`** (your Anthropic key).
    Optional: `CHAT_MODEL` (default `claude-haiku-4-5`), `ALLOWED_ORIGINS`,
-   `MAX_INPUT_CHARS`.
+   `MAX_INPUT_CHARS`, `SESSION_TTL_SECONDS` (default 86400).
 4. Deploy. Your endpoint is `https://<project>.vercel.app/api/chat`.
+
+## Conversation memory (Vercel KV)
+
+Follow-up questions ("how long did that take?") only work if the function
+remembers the thread. It does this with a Vercel KV / Upstash Redis store,
+keyed by the widget's `sessionId`.
+
+1. In your Vercel project: **Storage** → create a **KV** (Upstash Redis) store.
+2. **Connect** it to this project. Vercel auto-injects the connection env vars
+   (`KV_REST_API_URL` / `KV_REST_API_TOKEN`, or the `UPSTASH_REDIS_REST_*`
+   pair) — the function reads whichever it finds.
+3. Redeploy. Memory is now on; history expires after `SESSION_TTL_SECONDS`.
+
+> **Do not put KV credentials in `vercel.json` or any committed file** — that
+> would publish them. They belong only in Vercel's env vars, which the
+> "Connect to Project" step sets for you.
+
+**Until a store is connected the function runs statelessly** — it still
+answers, just without memory. Connecting KV later needs no code change.
 
 > If your Vercel plan rejects `maxDuration: 30` in `vercel.json`, lower it or
 > remove the `functions` block (the default is plenty for Haiku).
@@ -72,11 +91,13 @@ cd chat-api && npm install
 ANTHROPIC_API_KEY=sk-... npx vercel dev     # serves /api/chat locally
 ```
 
-## Notes / limitations
+## Notes
 
-- **Stateless:** each message is answered independently (the widget doesn't
-  send history). Good enough for a site guide. Add conversation memory later
-  with a KV store if needed.
-- **Cost:** hosting is free-tier; the Claude API is pay-per-use. Haiku +
-  prompt caching keeps a typical answer well under a cent. Set a spend limit
-  on your Anthropic key.
+- **Memory:** on when a KV store is connected (see above); stateless
+  otherwise. History is capped to the last ~12 messages per session to bound
+  token cost, and expires after `SESSION_TTL_SECONDS`.
+- **Billing:** the Claude **API** is separate from a Claude Pro/Max
+  subscription — Pro does **not** include API access. Fund a small balance and
+  create a key at console.anthropic.com, and set a monthly spend limit. Haiku
+  + prompt caching keeps a typical answer well under a cent. Hosting (Vercel)
+  and KV both have free tiers that cover a personal site.
