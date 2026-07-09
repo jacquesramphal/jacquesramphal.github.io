@@ -4,7 +4,7 @@
     <TextLink
       class="nav-item"
       :class="{ active: isHome }"
-      label="Jacques Ramphal"
+      :label="!isDesktopScreen ? 'Jake Ramphal' : 'Jacques Ramphal'"
       route="/"
       :isSvg="false"
       iconsize="20"

@@ -10,10 +10,10 @@
     <HeroBanner
       id="hero"
       isHtml
+      start
       class="display"
-      fullvh
-      end
-      title="I design systems and write the code that ships them. Browse my <a href='/library'><em>writing</em></a> and <a href='/library'><em>work</em></a>."
+      title="I design systems and write the code that ships them."
+      style="margin-block-end: none !important"
     />
 
     <!-- WRITING SECTION -->

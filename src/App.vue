@@ -28,7 +28,6 @@ transform: rotate(90deg);
       :active-heading="markdownActiveHeading"
     >
       <!-- menu button hidden: Library link in HeaderNav handles primary nav -->
-
     </HeaderNav>
     <!-- <ThemeButton v-if="!$route.meta.hideThemeButton" /> -->
     <transition name="fade">

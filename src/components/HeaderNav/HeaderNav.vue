@@ -38,8 +38,19 @@
 
         <ul class="links justify-end glow">
           <li class="glow animate delay-2">
-            <TextLink v-if="isMobileScreen" label="Library" route="/library" />
+            <TextLink label="Library" route="/library" />
           </li>
+          <li class="glow animate delay-2">
+            <TextLink label="Info" route="/doc/info" />
+          </li>
+          <!-- <li class="glow animate delay-2">
+            <MyButton
+              label="Contact"
+              size="large"
+              type="textlink"
+              link="mailto:jacques@ramphal.design"
+            />
+          </li> -->
         </ul>
       </nav>
     </GridContainer>
@@ -49,13 +60,13 @@
 <script>
 import GridContainer from '../grid/GridContainer.vue';
 import BreadCrumb from '../BreadCrumb.vue';
-import TextLink from '../text/TextLink.vue';
+// import TextLink from '../text/TextLink.vue';
 // import ThemeButton from "../ThemeButton.vue";
 
 const OFFSET = 60;
 export default {
   name: 'HeaderNav',
-  components: { GridContainer, BreadCrumb, TextLink },
+  components: { GridContainer, BreadCrumb },
   props: {
     breadcrumb: {
       type: Boolean,
@@ -451,8 +462,16 @@ p {
     color: white !important;
   }
 
+  // Extend the blend to the underline so links stay legible over the hero.
+  // The text is forced white (inverts via mix-blend-mode: difference); the
+  // underline must match or it renders in the dark foreground color and washes out.
+  :deep(.button--textlink) {
+    text-decoration-color: white !important;
+  }
+
   :deep(a:hover),
-  :deep(router-link:hover) {
+  :deep(router-link:hover),
+  :deep(.button--textlink:hover) {
     text-decoration-color: white !important;
   }
 }
