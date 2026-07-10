@@ -1,0 +1,52 @@
+name: Refresh chat context
+
+# Regenerates the chatbot's knowledge (chat-api/api/_context.json) whenever
+# site content changes, and commits it back so Vercel redeploys the function
+# with the updated corpus. Fires ONLY on content paths, so unrelated pushes
+# (styling, config, the chat code itself) never trigger it. The committed
+# file is not a trigger path, so this workflow's own commit can't re-fire it.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/assets/content/**'
+      - 'src/assets/data/**'
+      - 'public/resume.md'
+      - 'scripts/build-chat-context.mjs'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-chat-context
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Regenerate chat context
+        run: node scripts/build-chat-context.mjs
+
+      - name: Commit if the corpus changed
+        run: |
+          if git diff --quiet -- chat-api/api/_context.json; then
+            echo "No change to chat context."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add chat-api/api/_context.json
+            git commit -m "chat: refresh context [auto]"
+            git push origin HEAD:${{ github.ref_name }}
+          fi

@@ -75,15 +75,21 @@ the site. This is the only change to the site itself.
 
 ## Refreshing the context
 
-Content is baked into `_context.json` at generation time. After you publish or
-edit writing, regenerate and commit:
+Content is baked into `_context.json` at generation time (it is not read live
+per request).
+
+**Automatic:** the `.github/workflows/refresh-chat-context.yml` Action
+regenerates `_context.json` and commits it whenever you push changes under
+`src/assets/content/`, `src/assets/data/`, or `public/resume.md`. That commit
+redeploys the Vercel function with the updated corpus. Unrelated pushes don't
+trigger it.
+
+**Manual** (if you ever need it):
 
 ```sh
 node scripts/build-chat-context.mjs   # run from the repo root
 git add chat-api/api/_context.json && git commit -m "chat: refresh context"
 ```
-
-A push redeploys the function with the updated corpus.
 
 ## Local test
 
