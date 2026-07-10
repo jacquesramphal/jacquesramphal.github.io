@@ -141,7 +141,7 @@
                   'chat-message-bubble--user': message.role === 'user',
                 }"
                 :style="message.role === 'bot' ? botMessageStyle : userMessageStyle"
-                v-html="formatMessage(message.text)"
+                v-html="formatMessage(message.text, message.role)"
               ></div>
             </div>
 
@@ -194,6 +194,7 @@
 </template>
 
 <script>
+import { marked } from 'marked';
 import MyButton from './Button/Button.vue';
 import MyInput from './form/MyInput.vue';
 import TextLink from './text/TextLink.vue';
@@ -760,13 +761,38 @@ export default {
       this.inputMessage = message;
       this.handleSend();
     },
-    formatMessage(text) {
+    formatMessage(text, role) {
+      const raw = String(text == null ? '' : text);
       if (this.renderHTML) {
-        return text;
+        return raw;
       }
-      // Escape HTML if not rendering HTML
+      // Bot replies are markdown from Claude — render them. Escape angle
+      // brackets first so any raw/injected HTML can't execute (defence for
+      // v-html), then let marked handle the markdown syntax.
+      if (role === 'bot') {
+        const escaped = raw.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        const renderer = new marked.Renderer();
+        // Only allow safe link schemes; drop javascript:/data: etc.
+        renderer.link = (href, title, textHtml) => {
+          const safe = /^(https?:\/\/|mailto:|\/|#)/i.test(href || '');
+          if (!safe) return textHtml;
+          const t = title ? ` title="${title}"` : '';
+          return `<a href="${href}"${t}>${textHtml}</a>`;
+        };
+        try {
+          return marked.parse(escaped, {
+            breaks: true,
+            renderer,
+            mangle: false,
+            headerIds: false,
+          });
+        } catch (e) {
+          return escaped.replace(/\n/g, '<br>');
+        }
+      }
+      // User (and everything else): escape, preserve newlines. No markdown.
       const div = document.createElement('div');
-      div.textContent = text;
+      div.textContent = raw;
       return div.innerHTML.replace(/\n/g, '<br>');
     },
     scrollToBottom() {
@@ -1330,6 +1356,65 @@ export default {
   /* Bot: no bg, no border */
   background: transparent;
   padding: 0;
+
+  /* Rendered markdown from the assistant */
+  :deep(p) {
+    margin: 0 0 var(--spacing-xs);
+  }
+  :deep(p:last-child) {
+    margin-bottom: 0;
+  }
+  :deep(ul),
+  :deep(ol) {
+    margin: 0 0 var(--spacing-xs);
+    padding-inline-start: var(--spacing-md);
+  }
+  :deep(li) {
+    margin: 0 0 var(--spacing-xxxs);
+  }
+  :deep(li:last-child) {
+    margin-bottom: 0;
+  }
+  :deep(h1),
+  :deep(h2),
+  :deep(h3),
+  :deep(h4),
+  :deep(h5) {
+    font-size: inherit;
+    font-weight: var(--fontWeight-bold);
+    line-height: var(--lineHeight-normal);
+    margin: var(--spacing-xs) 0 var(--spacing-xxxs);
+  }
+  :deep(strong) {
+    font-weight: var(--fontWeight-bold);
+  }
+  :deep(em) {
+    font-style: italic;
+  }
+  :deep(code) {
+    font-family: var(--fontFamily-mono, monospace); /* design-guard:ignore */
+    font-size: 0.9em; /* design-guard:ignore */
+    background: var(--background-darker);
+    padding: 0 var(--spacing-xxxs);
+    border-radius: 3px; /* design-guard:ignore */
+  }
+  :deep(pre) {
+    overflow-x: auto;
+    background: var(--background-darker);
+    padding: var(--spacing-xs);
+    border-radius: var(--chat-radius);
+    margin: 0 0 var(--spacing-xs);
+  }
+  :deep(pre code) {
+    background: transparent;
+    padding: 0;
+  }
+  :deep(blockquote) {
+    margin: 0 0 var(--spacing-xs);
+    padding-inline-start: var(--spacing-xs);
+    border-inline-start: var(--spacing-xxxs) solid var(--border-color, currentColor);
+    opacity: 0.85;
+  }
 }
 
 .chat-loading {
