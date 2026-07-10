@@ -13,7 +13,7 @@
       start
       class="display"
       title="I design systems and write the code that ships them."
-      style="margin-block-end: none !important"
+      :nobottompadding="true"
     />
 
     <!-- WRITING SECTION -->

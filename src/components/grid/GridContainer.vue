@@ -32,6 +32,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    noBottom: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     classes() {
@@ -43,6 +47,7 @@ export default {
         "container-spacing--fullvh": this.fullvh,
         "container-spacing--overflow-visible": this.overflowVisible,
         "container-spacing--full": this.full,
+        "container-spacing--no-bottom": this.noBottom,
       };
     },
   },
@@ -116,6 +121,12 @@ export default {
 
   &--full {
     padding-inline: 0 !important;
+  }
+
+  &--no-bottom {
+    // Bottom-axis sibling of --full: zeros only padding-block-end at every breakpoint,
+    // leaving inline padding, margins, and grid gaps intact.
+    padding-block-end: 0 !important;
   }
 }
 </style>

@@ -23,7 +23,7 @@
           /> -->
         </div>
       </GridContainer>
-      <GridContainer class="banner-container" v-if="title || $slots.title">
+      <GridContainer class="banner-container" :noBottom="nobottompadding" v-if="title || $slots.title">
         <GridParent :cols="12" id="hero-text" class="animate fade delay-1">
           <span>
             <div class="hero-content">
@@ -229,6 +229,10 @@ export default {
       default: 'Search...',
     },
     isHtml: {
+      type: Boolean,
+      default: false,
+    },
+    nobottompadding: {
       type: Boolean,
       default: false,
     },
