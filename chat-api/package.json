@@ -2,9 +2,6 @@
   "name": "ramphal-chat-api",
   "version": "1.0.0",
   "private": true,
-  "description": "Serverless site-guide chatbot for ramphal.design (Claude-backed, replaces n8n).",
-  "dependencies": {
-    "@anthropic-ai/sdk": "^0.68.0",
-    "@upstash/redis": "^1.34.0"
-  }
+  "description": "Serverless site-guide chatbot for ramphal.design (Claude-backed, replaces n8n). Dependency-free — calls the Anthropic and Upstash REST APIs via fetch.",
+  "dependencies": {}
 }

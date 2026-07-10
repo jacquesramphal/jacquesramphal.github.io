@@ -9,7 +9,7 @@ chat-api/
 ├── api/
 │   ├── chat.js        # the serverless function (Vercel Node runtime)
 │   └── _context.json  # generated corpus (committed; colocated so Vercel bundles it)
-├── package.json       # deps: @anthropic-ai/sdk, @upstash/redis
+├── package.json       # no runtime deps — Anthropic + Upstash called via fetch
 └── vercel.json        # function config
 ```
 
@@ -29,8 +29,8 @@ chat-api/
 1. Push this branch.
 2. In Vercel: **New Project** → import this repo → set **Root Directory** to
    `chat-api`. Framework preset: **Other**. (Root Directory scoping keeps the
-   deploy independent of the site's pnpm monorepo — Vercel installs only
-   `@anthropic-ai/sdk`.)
+   deploy independent of the site's pnpm monorepo. The function has no npm
+   dependencies — it calls the Anthropic and Upstash REST APIs via `fetch`.)
 3. Add an environment variable **`ANTHROPIC_API_KEY`** (your Anthropic key).
    Optional: `CHAT_MODEL` (default `claude-haiku-4-5`), `ALLOWED_ORIGINS`,
    `MAX_INPUT_CHARS`, `SESSION_TTL_SECONDS` (default 86400).
