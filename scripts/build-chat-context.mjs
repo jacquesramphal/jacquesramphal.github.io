@@ -55,6 +55,22 @@ if (existsSync(resumePath)) {
   sources.push('public/resume.md');
 }
 
+// 1b) Ask Me Anything — curated FAQ (doc_30). High-value Q&A for the guide;
+// its library entry has no title so the generic loader below skips it. The
+// chatbot is intended to replace this static page, so it must know its answers.
+const amaPath = join(CONTENT_DIR, 'doc_30.md');
+if (existsSync(amaPath)) {
+  const ama = stripFrontmatter(readFileSync(amaPath, 'utf8'))
+    .replace(/<summary>\s*([\s\S]*?)<\/summary>/g, (_, q) => `**Q: ${q.trim()}**`)
+    .replace(/<\/?(details|span)>/g, '')
+    .replace(/<\/?br\s*\/?>/g, '')
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+  sections.push('# Ask Me Anything (FAQ)\n\n' + ama);
+  sources.push('src/assets/content/doc_30.md');
+}
+
 // 2) Selected work — card-level summaries from work.json
 if (existsSync(join(DATA_DIR, 'work.json'))) {
   const work = readJSON(join(DATA_DIR, 'work.json'));
