@@ -2,11 +2,9 @@
 
 # Ask Me Anything
 
-I'm Jacques. I lead design work where systems, code, and AI meet—building the practices and platforms that let teams deliver meaningful products efficiently and sustainably.
+I'm Jacques. I work where design systems, code, and AI meet, building the platforms and practices that let teams ship good work at a sustainable pace.
 
-</br>
-
-> **Need a quick answer?** Try the AI chatbot in the bottom right—it’s trained on my entire site and can help you find specific information or answer questions about my work, experience, and approach.
+> **The quickest way to get an answer is the chat in the bottom corner.** It knows this whole site, including my projects, case studies, and writing, and will point you where to look. The questions below are a starting set while the chat becomes the main way to explore.
 
 ## About Me
 
