@@ -1331,14 +1331,14 @@ export default {
   text-overflow: ellipsis;
   font-weight: var(--fontWeight-medium);
 
-  :deep(a) {
+  a {
     color: inherit !important;
     text-decoration-thickness: var(--link-underline-thickness-hover) !important;
     text-underline-offset: 0.35rem; /* design-guard:ignore */
-    word-break: break-all;
+    overflow-wrap: break-word;
   }
 
-  :deep(*) {
+  * {
     max-width: 100%;
     overflow-wrap: break-word;
     box-sizing: border-box;
@@ -1357,62 +1357,89 @@ export default {
   background: transparent;
   padding: 0;
 
-  /* Rendered markdown from the assistant */
-  :deep(p) {
+  /* Rendered markdown from the assistant — compact, mostly body-size.
+     Non-scoped <style>, so plain descendant selectors (no :deep). Heading
+     sizes use em (relative to the chat font) so they scale down on mobile
+     and never render at the site's banner heading sizes. */
+  p {
     margin: 0 0 var(--spacing-xs);
   }
-  :deep(p:last-child) {
+  p:last-child {
     margin-bottom: 0;
   }
-  :deep(ul),
-  :deep(ol) {
+  ul,
+  ol {
     margin: 0 0 var(--spacing-xs);
     padding-inline-start: var(--spacing-md);
   }
-  :deep(li) {
+  li {
     margin: 0 0 var(--spacing-xxxs);
   }
-  :deep(li:last-child) {
+  li:last-child {
     margin-bottom: 0;
   }
-  :deep(h1),
-  :deep(h2),
-  :deep(h3),
-  :deep(h4),
-  :deep(h5) {
-    font-size: inherit;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-weight: var(--fontWeight-bold);
     line-height: var(--lineHeight-normal);
-    margin: var(--spacing-xs) 0 var(--spacing-xxxs);
+    letter-spacing: normal !important; /* beat global heading letter-spacing !important */
+    font-variation-settings: normal;
+    margin: var(--spacing-sm) 0 var(--spacing-xxxs);
   }
-  :deep(strong) {
+  h1 {
+    font-size: 1.25em; /* design-guard:ignore */
+  }
+  h2 {
+    font-size: 1.15em; /* design-guard:ignore */
+  }
+  h3 {
+    font-size: 1.05em; /* design-guard:ignore */
+  }
+  h4,
+  h5,
+  h6 {
+    font-size: 1em; /* design-guard:ignore */
+  }
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child,
+  h6:first-child {
+    margin-top: 0;
+  }
+  strong {
     font-weight: var(--fontWeight-bold);
   }
-  :deep(em) {
+  em {
     font-style: italic;
   }
-  :deep(code) {
+  code {
     font-family: var(--fontFamily-mono, monospace); /* design-guard:ignore */
     font-size: 0.9em; /* design-guard:ignore */
     background: var(--background-darker);
     padding: 0 var(--spacing-xxxs);
     border-radius: 3px; /* design-guard:ignore */
   }
-  :deep(pre) {
+  pre {
     overflow-x: auto;
     background: var(--background-darker);
     padding: var(--spacing-xs);
     border-radius: var(--chat-radius);
     margin: 0 0 var(--spacing-xs);
   }
-  :deep(pre code) {
+  pre code {
     background: transparent;
     padding: 0;
   }
-  :deep(blockquote) {
+  blockquote {
     margin: 0 0 var(--spacing-xs);
     padding-inline-start: var(--spacing-xs);
-    border-inline-start: var(--spacing-xxxs) solid var(--border-color, currentColor);
+    border-inline-start: var(--spacing-xxxs) solid currentColor;
     opacity: 0.85;
   }
 }
