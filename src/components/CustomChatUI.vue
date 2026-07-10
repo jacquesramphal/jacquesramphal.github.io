@@ -205,7 +205,9 @@ export default {
     // Webhook Configuration
     webhookUrl: {
       type: String,
-      default: 'https://ramphal-chat-api.vercel.app/api/chat',
+      // TODO: flip to the Vercel endpoint once verified working:
+      // 'https://ramphal-chat-api.vercel.app/api/chat'
+      default: 'https://orium.app.n8n.cloud/webhook/f406671e-c954-4691-b39a-66c90aa2f103/chat',
     },
     metadata: {
       type: Object,
