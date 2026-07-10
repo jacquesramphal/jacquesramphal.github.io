@@ -1371,9 +1371,22 @@ export default {
   ol {
     margin: 0 0 var(--spacing-xs);
     padding-inline-start: var(--spacing-md);
+    list-style-position: outside;
+  }
+  ul {
+    list-style-type: disc;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  ul ul {
+    list-style-type: circle;
   }
   li {
     margin: 0 0 var(--spacing-xxxs);
+  }
+  li::marker {
+    color: inherit;
   }
   li:last-child {
     margin-bottom: 0;
@@ -1384,25 +1397,13 @@ export default {
   h4,
   h5,
   h6 {
+    font-size: 1em; /* everything at paragraph size — headings are just bold */
     font-weight: var(--fontWeight-bold);
     line-height: var(--lineHeight-normal);
     letter-spacing: normal !important; /* beat global heading letter-spacing !important */
     font-variation-settings: normal;
+    font-family: inherit; /* not the display font */
     margin: var(--spacing-sm) 0 var(--spacing-xxxs);
-  }
-  h1 {
-    font-size: 1.25em; /* design-guard:ignore */
-  }
-  h2 {
-    font-size: 1.15em; /* design-guard:ignore */
-  }
-  h3 {
-    font-size: 1.05em; /* design-guard:ignore */
-  }
-  h4,
-  h5,
-  h6 {
-    font-size: 1em; /* design-guard:ignore */
   }
   h1:first-child,
   h2:first-child,
