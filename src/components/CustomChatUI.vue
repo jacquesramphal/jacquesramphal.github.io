@@ -277,18 +277,18 @@ export default {
     welcomeMessage: {
       type: String,
       default:
-        'Hey! I’m Jacques Ramphal’s site guide. Looking to learn about his projects, design work, or writing? Just ask—I’ll point you in the right direction.',
+        'Hi, I’m the guide to Jacques’s work. Ask about a project, something he’s written, or how he works, and I’ll point you to it.',
     },
     errorMessage: {
       type: String,
-      default: 'Please connect me to n8n first',
+      default: 'Sorry, I’m having trouble responding right now. Please try again in a moment.',
     },
     starterPrompts: {
       type: Array,
       default: () => [
-        'Who is Jacques Ramphal?',
-        'What does Jacques work on?',
-        'What does Jacques write about?',
+        'What’s Genie?',
+        'Show me his design systems work',
+        'What does he write about?',
       ],
     },
     starterPromptFontSize: {
@@ -339,7 +339,7 @@ export default {
     // Input Configuration
     inputPlaceholder: {
       type: String,
-      default: 'Type your query',
+      default: 'Ask about his work or writing',
     },
     inputBackgroundColor: {
       type: String,
