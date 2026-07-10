@@ -6,10 +6,11 @@ Pages; only this endpoint runs on Vercel.
 
 ```
 chat-api/
-├── api/chat.js      # the serverless function (Vercel Node runtime)
-├── _context.json    # generated corpus of public writing/work/bio (committed)
-├── package.json     # only dependency: @anthropic-ai/sdk
-└── vercel.json      # function config
+├── api/
+│   ├── chat.js        # the serverless function (Vercel Node runtime)
+│   └── _context.json  # generated corpus (committed; colocated so Vercel bundles it)
+├── package.json       # deps: @anthropic-ai/sdk, @upstash/redis
+└── vercel.json        # function config
 ```
 
 ## How it works
@@ -79,7 +80,7 @@ edit writing, regenerate and commit:
 
 ```sh
 node scripts/build-chat-context.mjs   # run from the repo root
-git add chat-api/_context.json && git commit -m "chat: refresh context"
+git add chat-api/api/_context.json && git commit -m "chat: refresh context"
 ```
 
 A push redeploys the function with the updated corpus.

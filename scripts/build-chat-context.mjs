@@ -19,7 +19,8 @@ import { fileURLToPath } from 'url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT_DIR = join(ROOT, 'src/assets/content');
 const DATA_DIR = join(ROOT, 'src/assets/data');
-const OUT_DIR = join(ROOT, 'chat-api');
+// Colocated with the function so Vercel always bundles it into the deployment.
+const OUT_DIR = join(ROOT, 'chat-api/api');
 const OUT_FILE = join(OUT_DIR, '_context.json');
 
 const readJSON = (p) => JSON.parse(readFileSync(p, 'utf8'));

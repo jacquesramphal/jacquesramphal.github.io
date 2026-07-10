@@ -17,7 +17,7 @@ Branch: `claude/self-hosted-chatbot-options-18fll9`
   the widget's `sessionId`. Degrades to stateless if no store is connected;
   KV failures never break a reply. History capped to ~12 messages/session,
   expires after `SESSION_TTL_SECONDS` (24h).
-- **`scripts/build-chat-context.mjs`** → `chat-api/_context.json` — corpus
+- **`scripts/build-chat-context.mjs`** → `chat-api/api/_context.json` — corpus
   built from `library.json` / `work.json` / `resume.md`. Excludes `private`
   and `published:false` entries and the template. (30 sources, ~30k tokens.)
 - **`chat-api/{package.json,vercel.json,README.md}`** — isolated deploy.
@@ -85,7 +85,7 @@ curl -s -X POST https://ramphal-chat-api.vercel.app/api/chat \
 ## Refreshing the corpus (after publishing/editing writing)
 
 ```sh
-node scripts/build-chat-context.mjs         # regenerates chat-api/_context.json
-git add chat-api/_context.json && git commit -m "chat: refresh context"
+node scripts/build-chat-context.mjs         # regenerates chat-api/api/_context.json
+git add chat-api/api/_context.json && git commit -m "chat: refresh context"
 ```
 A push redeploys the function with the updated content.
