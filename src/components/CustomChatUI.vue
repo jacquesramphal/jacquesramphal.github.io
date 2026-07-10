@@ -1356,6 +1356,7 @@ export default {
   /* Bot: no bg, no border */
   background: transparent;
   padding: 0;
+  overflow: visible; /* base bubble clips overflow — let list markers show */
 
   /* Rendered markdown from the assistant — compact, mostly body-size.
      Non-scoped <style>, so plain descendant selectors (no :deep). Heading
@@ -1374,13 +1375,13 @@ export default {
     list-style-position: outside;
   }
   ul {
-    list-style-type: disc;
+    list-style-type: disc !important;
   }
   ol {
-    list-style-type: decimal;
+    list-style-type: decimal !important;
   }
   ul ul {
-    list-style-type: circle;
+    list-style-type: circle !important;
   }
   li {
     margin: 0 0 var(--spacing-xxxs);
@@ -1397,7 +1398,7 @@ export default {
   h4,
   h5,
   h6 {
-    font-size: 1em; /* everything at paragraph size — headings are just bold */
+    font-size: 1em !important; /* everything at paragraph size — headings are just bold */
     font-weight: var(--fontWeight-bold);
     line-height: var(--lineHeight-normal);
     letter-spacing: normal !important; /* beat global heading letter-spacing !important */
