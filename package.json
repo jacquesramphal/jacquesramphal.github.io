@@ -8,6 +8,7 @@
     "build": "node scripts/generate-lab-css.js && node scripts/generate-sitemap.js && vue-cli-service build",
     "build:lab-css": "node scripts/generate-lab-css.js",
     "sitemap": "node scripts/generate-sitemap.js",
+    "chat:context": "node scripts/build-chat-context.mjs",
     "lint": "vue-cli-service lint",
     "storybook": "storybook dev",
     "build-storybook": "storybook build",
