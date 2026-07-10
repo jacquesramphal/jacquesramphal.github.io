@@ -1364,6 +1364,7 @@ export default {
      and never render at the site's banner heading sizes. */
   p {
     margin: 0 0 var(--spacing-xs);
+    font-size: 1em; /* override the global "h1 + p" lead-paragraph enlargement */
   }
   p:last-child {
     margin-bottom: 0;
