@@ -194,7 +194,8 @@
 </template>
 
 <script>
-import { marked } from 'marked';
+// `marked` is loaded lazily (dynamic import) the first time the chat opens, so
+// it stays out of the initial page bundle — this widget mounts on every page.
 import MyButton from './Button/Button.vue';
 import MyInput from './form/MyInput.vue';
 import TextLink from './text/TextLink.vue';
@@ -391,6 +392,7 @@ export default {
       scrollLockY: 0,
       atBottomOfPage: false,
       menuIsOpen: false,
+      markedLib: null,
     };
   },
   created() {
@@ -604,7 +606,21 @@ export default {
         return this.generateSessionId();
       }
     },
+    ensureMarked() {
+      // Lazily code-split `marked` out of the initial page bundle. Setting
+      // this.markedLib (reactive) re-renders any already-shown bot messages.
+      if (this.markedLib || this._markedLoading) return;
+      this._markedLoading = true;
+      import('marked')
+        .then((m) => {
+          this.markedLib = m.marked;
+        })
+        .catch(() => {
+          this._markedLoading = false;
+        });
+    },
     openChat() {
+      this.ensureMarked();
       this.isOpen = true;
       // On mobile, default to fullscreen (so we also lock scroll + overlay nav).
       // On desktop, always open in the windowed state (fullscreen only when user selects it).
@@ -768,10 +784,15 @@ export default {
       }
       // Bot replies are markdown from Claude — render them. Escape angle
       // brackets first so any raw/injected HTML can't execute (defence for
-      // v-html), then let marked handle the markdown syntax.
+      // v-html), then let marked handle the markdown syntax. `marked` is
+      // loaded lazily; until it's ready, fall back to escaped text.
       if (role === 'bot') {
         const escaped = raw.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        const renderer = new marked.Renderer();
+        if (!this.markedLib) {
+          this.ensureMarked();
+          return escaped.replace(/\n/g, '<br>');
+        }
+        const renderer = new this.markedLib.Renderer();
         // Only allow safe link schemes; drop javascript:/data: etc.
         renderer.link = (href, title, textHtml) => {
           const safe = /^(https?:\/\/|mailto:|\/|#)/i.test(href || '');
@@ -780,7 +801,7 @@ export default {
           return `<a href="${href}"${t}>${textHtml}</a>`;
         };
         try {
-          return marked.parse(escaped, {
+          return this.markedLib.parse(escaped, {
             breaks: true,
             renderer,
             mangle: false,
