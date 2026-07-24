@@ -116,6 +116,7 @@ function startServer() {
 //      derived from the rendered content (the app leaves these generic for
 //      docs that carry their heading in the markdown body rather than a
 //      <header> block)
+//    - rewrite any baked-in prerender-server origin to root-relative paths
 //    - drop the now-inaccurate "requires JavaScript" <noscript> notice
 // ---------------------------------------------------------------------------
 function absoluteUrl(route) {
@@ -172,6 +173,13 @@ function finalizeHtml(html, route, pageMeta) {
       out = setMetaContent(out, 'property=["\']twitter:description["\']', desc);
     }
   }
+
+  // Strip the prerender server's origin. Some in-content images (e.g. article
+  // hero/body images) resolve to absolute URLs against the page origin at
+  // render time, which bakes http://localhost:<PORT> into the snapshot —
+  // broken and mixed-content-blocked on the live HTTPS domain. Rewriting to
+  // root-relative (/img/...) resolves correctly on any host.
+  out = out.replace(new RegExp(`https?://localhost:${PORT}`, 'g'), '');
 
   // Remove the JavaScript-required notice: the content is now in the HTML.
   out = out.replace(/<noscript>[\s\S]*?<\/noscript>/gi, '');
