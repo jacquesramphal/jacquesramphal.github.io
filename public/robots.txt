@@ -1,4 +1,4 @@
-# robots.txt for jacquesramphal.github.io
+# robots.txt for ramphal.design
 User-agent: *
 Allow: /
 
@@ -24,4 +24,4 @@ User-agent: Claude-Web
 Allow: /
 
 # Sitemap
-Sitemap: https://jacquesramphal.github.io/sitemap.xml
+Sitemap: https://ramphal.design/sitemap.xml

@@ -5,7 +5,8 @@
   "scripts": {
     "prod": "pnpm build && pnpm dev",
     "dev": "vue-cli-service serve",
-    "build": "node scripts/generate-lab-css.js && node scripts/generate-sitemap.js && vue-cli-service build",
+    "build": "node scripts/generate-lab-css.js && node scripts/generate-sitemap.js && vue-cli-service build && node scripts/prerender.mjs",
+    "prerender": "node scripts/prerender.mjs",
     "build:lab-css": "node scripts/generate-lab-css.js",
     "sitemap": "node scripts/generate-sitemap.js",
     "chat:context": "node scripts/build-chat-context.mjs",
@@ -93,6 +94,7 @@
     "fs-extra": "^11.2.0",
     "html-loader": "^4.2.0",
     "husky": "^8.0.3",
+    "playwright": "^1.56.1",
     "postcss": "^8",
     "postcss-loader": "^7.3.3",
     "prerender-spa-plugin": "3.0.0-beta.2",

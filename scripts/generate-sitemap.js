@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Base URL for the site
-const BASE_URL = 'https://jacquesramphal.github.io';
+const BASE_URL = 'https://ramphal.design';
 
 // Read library.json to get dynamic routes
 const libraryPath = path.join(__dirname, '../src/assets/data/library.json');
