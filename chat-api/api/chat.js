@@ -87,14 +87,24 @@ function sessionKey(sessionId) {
 }
 
 // Upstash Redis REST: POST the command as a JSON array, get back { result }.
+// Hard 2.5s timeout so a misconfigured/slow KV store can never hang the whole
+// request (which would time out the function and surface as the widget's
+// fallback). On timeout it aborts, throws, and we degrade to stateless.
 async function kvCommand(args) {
-  const resp = await fetch(KV_URL, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${KV_TOKEN}`, 'content-type': 'application/json' },
-    body: JSON.stringify(args),
-  });
-  if (!resp.ok) throw new Error(`KV ${args[0]} -> ${resp.status}`);
-  return (await resp.json()).result;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 2500);
+  try {
+    const resp = await fetch(KV_URL, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${KV_TOKEN}`, 'content-type': 'application/json' },
+      body: JSON.stringify(args),
+      signal: controller.signal,
+    });
+    if (!resp.ok) throw new Error(`KV ${args[0]} -> ${resp.status}`);
+    return (await resp.json()).result;
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 async function loadHistory(key) {
