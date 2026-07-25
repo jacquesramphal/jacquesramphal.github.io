@@ -129,6 +129,38 @@ const GENERIC_TITLES = [
   'Jacques Ramphal - UX / AX Full Stack Design Lead | Portfolio',
 ];
 
+// Descriptions the app falls back to when it has nothing page-specific. Only
+// these are safe to replace with content derived from the rendered page.
+const GENERIC_DESCRIPTIONS = [
+  'Insights on design systems, agentic AI, and design engineering by Jacques Ramphal',
+  'Insights on design systems, agentic AI, and design engineering',
+  'Full Stack Design Lead at Orium with 15 years experience. Specializing in design systems, agentic AI, and bridging design-development workflows through code and tokens.',
+];
+
+// Curated descriptions for work case studies — ProjectPage sets no per-page
+// description, so use the same source of truth the cards use (work.json).
+const WORK_DESCRIPTIONS = (() => {
+  try {
+    const work = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/assets/data/work.json'), 'utf-8'));
+    const map = {};
+    for (const e of work.entries || []) {
+      if (e.id != null && e.description) map[`/work/${e.id}`] = e.description;
+    }
+    return map;
+  } catch {
+    return {};
+  }
+})();
+
+// Turn a possibly-relative image src into an absolute URL on the custom domain.
+function absoluteImage(src) {
+  if (!src) return '';
+  let s = src.replace(/^https?:\/\/localhost:\d+/, '');
+  if (s.startsWith('/')) return `${CANONICAL_ORIGIN}${s}`;
+  if (/^https?:\/\//i.test(s)) return s;
+  return '';
+}
+
 function setMetaContent(html, selectorAttr, value) {
   // selectorAttr like: property="og:title" or name="description"
   const re = new RegExp(
@@ -154,23 +186,45 @@ function finalizeHtml(html, route, pageMeta) {
   out = setMetaContent(out, 'property=["\']og:url["\']', url);
   out = setMetaContent(out, 'property=["\']twitter:url["\']', url);
 
-  // Per-page title/description for content detail pages only. Index and static
-  // pages keep the site-level title the app already provides.
+  // Content detail pages only. Index and static pages keep the site-level
+  // metadata the app provides. For docs the app already sets a good title and
+  // description (from the library registry); the derivations below are a
+  // fallback for pages where the value is still a known generic (e.g. work
+  // pages, or docs missing from the registry).
   const isDetail = route.startsWith('/doc/') || route.startsWith('/work/');
-  if (isDetail && pageMeta.h1) {
+  if (isDetail) {
     const currentTitle = (out.match(/<title>([^<]*)<\/title>/i) || [, ''])[1];
-    if (GENERIC_TITLES.includes(currentTitle.trim())) {
+    if (pageMeta.h1 && GENERIC_TITLES.includes(currentTitle.trim())) {
       const title = escapeHtml(`${pageMeta.h1} | Jacques Ramphal`);
       out = out.replace(/<title>[^<]*<\/title>/i, `<title>${title}</title>`);
       out = setMetaContent(out, 'property=["\']og:title["\']', title);
       out = setMetaContent(out, 'property=["\']twitter:title["\']', title);
       out = setMetaContent(out, 'name=["\']title["\']', title);
     }
-    if (pageMeta.desc) {
-      const desc = escapeHtml(pageMeta.desc);
+
+    const currentDesc = (
+      out.match(/<meta[^>]+name=["']description["'][^>]*content=["']([^"']*)["']/i) || [, '']
+    )[1];
+    // Work pages take their curated work.json description (ProjectPage sets none
+    // itself); docs only take the scraped intro when the app left a generic
+    // value (for docs, the app already sets the library description).
+    let newDesc = WORK_DESCRIPTIONS[route] || null;
+    if (!newDesc && pageMeta.desc && GENERIC_DESCRIPTIONS.includes(currentDesc.trim())) {
+      newDesc = pageMeta.desc;
+    }
+    if (newDesc) {
+      const desc = escapeHtml(newDesc);
       out = setMetaContent(out, 'name=["\']description["\']', desc);
       out = setMetaContent(out, 'property=["\']og:description["\']', desc);
       out = setMetaContent(out, 'property=["\']twitter:description["\']', desc);
+    }
+
+    // Per-article preview image from the rendered hero, so link unfurls show the
+    // article's own image rather than the site-wide default.
+    const ogImage = absoluteImage(pageMeta.heroImage);
+    if (ogImage) {
+      out = setMetaContent(out, 'property=["\']og:image["\']', ogImage);
+      out = setMetaContent(out, 'property=["\']twitter:image["\']', ogImage);
     }
   }
 
@@ -241,7 +295,9 @@ async function renderRoute(page, route) {
       desc = paras[0];
       if (desc.length > 200) desc = desc.slice(0, 197).replace(/\s+\S*$/, '') + '…';
     }
-    return { bodyTextLen: text.length, pageMeta: { h1, desc } };
+    const heroImage =
+      app?.querySelector('.hero-fullscreen-image__img')?.getAttribute('src') || '';
+    return { bodyTextLen: text.length, pageMeta: { h1, desc, heroImage } };
   });
   return { html: finalizeHtml(html, route, pageMeta), bodyTextLen };
 }

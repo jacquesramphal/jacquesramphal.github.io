@@ -1,0 +1,49 @@
+# Jacques Ramphal
+
+> Personal site of Jacques Ramphal — a design lead working where design systems, code, and agentic AI meet.
+
+This is a record of work and writing, not a portfolio pitch. It covers design systems, design tokens, agentic AI, and the practice of bridging design and engineering. Content is employer-agnostic and written to stay useful over time.
+
+## Writing
+
+- [Friction](https://ramphal.design/doc/friction): A project falling apart, fifty-odd UI defects and no source of truth, and what staying in it taught me: friction only sharpens you when there's something steady to work against.
+- [The Guardrail Problem](https://ramphal.design/doc/the-guardrail-problem): AI makes design fast. Dangerously fast. On why code friction is the discipline the process needs, and how to build constraints that let you run.
+- [Building Genie Changed Me](https://ramphal.design/doc/building-genie-changed-me): The story of building Genie — from personal experiment to organizational platform — and what building it changed about how I work, what I'm capable of, and how others engage with me.
+- [Ego](https://ramphal.design/doc/ego): On the difference between the discomfort that makes you better and the kind that follows you home — and how to tell which one you're feeding.
+- [Make It Pop](https://ramphal.design/doc/make-it-pop): Finding joy in enterprise design when the craft has moved from pixels to systems, and why the human part of the work matters more as tools get better.
+- [Imposter Syndrome Never Fully Goes Away](https://ramphal.design/doc/imposter-syndrome): On showing up prepared without knowing the right answer, learning to sit with that discomfort, and being kind enough to yourself to build the support before you need it.
+- [When UX Becomes AX](https://ramphal.design/doc/when-ux-becomes-ax): What designing for agentic systems actually looks like — mapping real workflows, defining agent behavior, setting guardrails — and why the skills designers already have are the ones that matter most.
+- [Leading Design Innovation](https://ramphal.design/doc/leading-design-innovation): On what leading design as a strategic function actually looks like in practice: building infrastructure that changes what's possible downstream, automating the mechanical parts of delivery, and staying close enough to the work to make decisions that matter.
+- [Designing Your Own Relevance](https://ramphal.design/doc/designing-your-own-relevance): How pressure, curiosity, and transferable skills created a career path no one handed me. On finding your niche, navigating identity shifts, and building relevance by staying grounded in what's true about how you work.
+- [The Designer in the Age of AI](https://ramphal.design/doc/designer-age-of-ai): Shifting from inspectors to system stewards. As tools automate comparison and regression, designers become orchestrators who define baselines, set standards, and protect coherence.
+- [The Future of Design](https://ramphal.design/doc/the-future-of-design): Speculation on where design is heading. From siloed to integrated, static to dynamic, proprietary to open-source—the future of design is defined by tensions, not destinations.
+- [Manual vs. Automated Is the Wrong Debate](https://ramphal.design/doc/manual-vs-automated-wrong-debate): The complementary role of human and machine intelligence. Automation is acceleration, not intelligence. The future of quality is machines for detection, humans for discernment.
+- [Delivering Fewer, More Complete Things](https://ramphal.design/doc/delivering-fewer-complete-things): True velocity through completion, not volume. It's better to deliver fewer tickets that are truly done than more tickets that will be reopened. Rework is invisible drag.
+- [Designers as Final Checkpoint](https://ramphal.design/doc/designers-final-checkpoint): Maintaining authority through validation. When designers act as the final checkpoint before release, they protect the integrity of interaction, communication, accessibility, and system coherence.
+- [The Best QA Is the One That Doesn't Have to Happen](https://ramphal.design/doc/best-qa-doesnt-have-to-happen): Strong baselines. Early DQA. Less testing later. When quality is built into the baseline from the start, QA shifts from discovery to confirmation — and the best QA process is one that doesn't have to happen.
+- [Design Learnings & Principles](https://ramphal.design/doc/design-learnings): A living collection of wisdom from opinionated mentors, teachers, and personal design observations. From foundational principles to leadership lessons, this is a journal of continuous learning in design, code, and craft.
+- [The Ramstack](https://ramphal.design/doc/the-ramstack): A future-proof approach to front-end design isn't about specific tools—it's about the principles beneath them. On headless complexity, tech debt, and why interoperability should be the core of your design practice.
+
+## Case Studies
+
+- [Designing Genie](https://ramphal.design/doc/designing-genie): How a personal automation experiment became a shared platform for the delivery team, and the three mental model problems that had to be solved to design for agentic AI.
+- [Token Pipeline for a Multi-Brand HMI Platform](https://ramphal.design/doc/hmi-design-token-pipeline): How I built a unified token architecture, an AI-guarded lint pipeline, and a one-command dev loop that kept Figma, code, and AI tooling in sync across four brands, two themes, and two modalities — for a multi-display vehicle Human-Machine Interface platform.
+- [The /design Agent](https://ramphal.design/doc/the-design-command-suite): An isolated Storybook environment powered by AI — one command to start. How I built a design layer on top of an agentic framework, and what I learned about operationalizing change in a service company where the best handoff is still a handoff.
+- [Fortune 100 Planning Tool](https://ramphal.design/doc/fortune-100-planning-tool): A strategic planning tool for a Fortune 100 company — making complex organizational data across business units, budgets, and initiatives navigable without flattening it.
+- [OnLogic Product Configurator](https://ramphal.design/doc/onlogic-commerce-platform): OnLogic's customers are IT professionals configuring industrial PCs with specific hardware requirements — where a wrong choice has real consequences. Migrated from a legacy platform to composable commerce, with a configuration flow built around real dependencies.
+- [Kum & Go Mobile Loyalty App](https://ramphal.design/doc/kg-loyalty-platform): Founded in 1959, Kum & Go redefines convenience with customer-centric offerings. Partnering with Orium, they launched a new digital experience featuring enhanced promotions, loyalty programs, and improved merchandising.
+- [Softchoice Website Replatform](https://ramphal.design/doc/softchoice-rebrand): When a brand launches a new identity, the website needs to reflect it—without breaking what already works. Redesigned Softchoice's website to reflect their new brand identity, working within their existing CMS structure. Enhanced modules, introduced motion design, and collaborated closely with development to ensure design fidelity.
+
+## Tools
+
+- [Design Token Starter](https://ramphal.design/doc/design-token-template): A layered token architecture for personal projects and design systems — multi-brand, theme-aware, and Figma Token Studio ready. Two files to import, zero classes required.
+- [Counter Fill: Colouring the Holes in Your Type](https://ramphal.design/doc/counter-fill): A script that fills the enclosed counter spaces inside letterforms — the holes in o, e, a, g — with any colour or gradient. Generative, font-agnostic, and built on real DOM text so it stays accessible.
+- [Design Guard](https://ramphal.design/doc/design-guard): A lightweight design guard that scans staged files for hardcoded lengths (px/rem/%/etc.) and colors, nudging code toward design tokens.
+- [Smart Quotes Fixer](https://ramphal.design/doc/smart-quotes-fixer): A safe script that converts straight quotes to smart quotes in rendered content without touching code, bindings, or attribute delimiters.
+
+## Key Pages
+
+- [About](https://ramphal.design/doc/info): Who I am and what this site is.
+- [Résumé](https://ramphal.design/resume): Experience and background.
+- [Writing index](https://ramphal.design/writing): All essays.
+- [Work index](https://ramphal.design/work): Selected case studies.

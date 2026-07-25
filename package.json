@@ -5,8 +5,10 @@
   "scripts": {
     "prod": "pnpm build && pnpm dev",
     "dev": "vue-cli-service serve",
-    "build": "node scripts/generate-lab-css.js && node scripts/generate-sitemap.js && vue-cli-service build && node scripts/prerender.mjs",
+    "build": "node scripts/generate-lab-css.js && node scripts/generate-sitemap.js && node scripts/generate-rss.js && node scripts/generate-llms.js && vue-cli-service build && node scripts/prerender.mjs",
     "prerender": "node scripts/prerender.mjs",
+    "rss": "node scripts/generate-rss.js",
+    "llms": "node scripts/generate-llms.js",
     "build:lab-css": "node scripts/generate-lab-css.js",
     "sitemap": "node scripts/generate-sitemap.js",
     "chat:context": "node scripts/build-chat-context.mjs",
