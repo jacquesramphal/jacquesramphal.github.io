@@ -195,6 +195,20 @@ console.log(
 // Pre-load all markdown docs so we can load by arbitrary filename.
 const contentContext = require.context('../assets/content', false, /\.md$/);
 
+// Convert the library's human "Mon YYYY" date to an ISO 8601 date (day 1) for
+// structured data. Returns '' when the value is empty or unparseable.
+const MONTH_INDEX = {
+  jan: '01', feb: '02', mar: '03', apr: '04', may: '05', jun: '06',
+  jul: '07', aug: '08', sep: '09', oct: '10', nov: '11', dec: '12',
+};
+function monthYearToISO(value) {
+  if (!value || typeof value !== 'string') return '';
+  const m = value.trim().match(/^([A-Za-z]{3})[a-z]*\s+(\d{4})$/);
+  if (!m) return '';
+  const mm = MONTH_INDEX[m[1].toLowerCase()];
+  return mm ? `${m[2]}-${mm}-01` : '';
+}
+
 export default {
   name: 'MarkdownPage',
   setup() {
@@ -220,6 +234,13 @@ export default {
     const currentDocType = ref(null);
     const articleReadTime = ref('');
     const articleDate = ref('');
+    // Reliable article metadata from the library registry (present regardless of
+    // whether the markdown uses a <header> block), used for SEO/AEO/GEO tags.
+    const articleTitle = ref('');
+    const articleDescription = ref('');
+    const articleTags = ref([]);
+    const articleDateISO = ref('');
+    const canonicalUrl = computed(() => `https://ramphal.design${router.currentRoute.value.path}`);
     const bylineReady = ref(false);
     const isFullWidth = ref(false);
     const lightboxOpen = ref(false);
@@ -231,51 +252,35 @@ export default {
     const updateMarkdownHeadings = inject('updateMarkdownHeadings', () => {});
     const updateMarkdownActiveHeading = inject('updateMarkdownActiveHeading', () => {});
 
-    // Dynamic meta tags with structured data for SEO/AEO/GEO
+    // Dynamic meta tags with structured data for SEO/AEO/GEO.
+    // Prefer the library registry's title/description (always present) over the
+    // markdown-derived hero values (only set when the doc uses a <header> block).
+    const metaTitle = computed(() => articleTitle.value || heroTitle.value);
+    const metaDescription = computed(
+      () =>
+        articleDescription.value ||
+        heroSubtitle.value ||
+        'Insights on design systems, agentic AI, and design engineering by Jacques Ramphal'
+    );
     useHead({
       title: computed(() =>
-        heroTitle.value ? `${heroTitle.value} | Jacques Ramphal` : 'Jacques Ramphal - Portfolio'
+        metaTitle.value ? `${metaTitle.value} | Jacques Ramphal` : 'Jacques Ramphal - Portfolio'
       ),
+      // Canonical is handled per-route by the prerender step (avoids a duplicate
+      // <link rel="canonical"> alongside the one in the HTML shell).
       meta: computed(() => [
-        {
-          name: 'description',
-          content:
-            heroSubtitle.value ||
-            'Insights on design systems, agentic AI, and design engineering by Jacques Ramphal',
-        },
-        {
-          property: 'og:title',
-          content: heroTitle.value || 'Jacques Ramphal - Portfolio',
-        },
-        {
-          property: 'og:description',
-          content:
-            heroSubtitle.value || 'Insights on design systems, agentic AI, and design engineering',
-        },
-        {
-          property: 'og:type',
-          content: 'article',
-        },
-        {
-          property: 'article:author',
-          content: 'Jacques Ramphal',
-        },
-        {
-          property: 'twitter:card',
-          content: 'summary_large_image',
-        },
-        {
-          property: 'twitter:title',
-          content: heroTitle.value || 'Jacques Ramphal - Portfolio',
-        },
-        {
-          property: 'twitter:description',
-          content:
-            heroSubtitle.value || 'Insights on design systems, agentic AI, and design engineering',
-        },
+        { name: 'description', content: metaDescription.value },
+        { property: 'og:title', content: metaTitle.value || 'Jacques Ramphal - Portfolio' },
+        { property: 'og:description', content: metaDescription.value },
+        { property: 'og:type', content: 'article' },
+        { property: 'og:url', content: canonicalUrl.value },
+        { property: 'article:author', content: 'Jacques Ramphal' },
+        { property: 'twitter:card', content: 'summary_large_image' },
+        { property: 'twitter:title', content: metaTitle.value || 'Jacques Ramphal - Portfolio' },
+        { property: 'twitter:description', content: metaDescription.value },
       ]),
       script: computed(() =>
-        heroTitle.value
+        metaTitle.value
           ? [
               // Article Schema
               {
@@ -283,11 +288,12 @@ export default {
                 children: JSON.stringify({
                   '@context': 'https://schema.org',
                   '@type': 'Article',
-                  headline: heroTitle.value,
-                  description: heroSubtitle.value || '',
+                  headline: metaTitle.value,
+                  description: metaDescription.value,
                   author: {
                     '@type': 'Person',
                     name: 'Jacques Ramphal',
+                    url: 'https://ramphal.design',
                     jobTitle: 'Design Lead, Agentic Craft',
                     worksFor: {
                       '@type': 'Organization',
@@ -298,8 +304,12 @@ export default {
                     '@type': 'Person',
                     name: 'Jacques Ramphal',
                   },
-                  datePublished: new Date().toISOString(),
-                  keywords: heroTag.value || 'design systems, agentic AI, UX design',
+                  mainEntityOfPage: canonicalUrl.value,
+                  url: canonicalUrl.value,
+                  ...(articleDateISO.value
+                    ? { datePublished: articleDateISO.value, dateModified: articleDateISO.value }
+                    : {}),
+                  ...(articleTags.value.length ? { keywords: articleTags.value.join(', ') } : {}),
                 }),
               },
               // BreadcrumbList Schema for SEO
@@ -324,11 +334,8 @@ export default {
                     {
                       '@type': 'ListItem',
                       position: 3,
-                      name: heroTitle.value,
-                      item:
-                        typeof window !== 'undefined'
-                          ? window.location.href
-                          : `https://ramphal.design${router.currentRoute.value.fullPath}`,
+                      name: metaTitle.value,
+                      item: canonicalUrl.value,
                     },
                   ],
                 }),
@@ -528,6 +535,10 @@ export default {
         );
         currentDocType.value = libraryEntry?.type || null;
         articleDate.value = libraryEntry?.date || '';
+        articleTitle.value = libraryEntry?.title || '';
+        articleDescription.value = libraryEntry?.description || '';
+        articleTags.value = Array.isArray(libraryEntry?.tags) ? libraryEntry.tags : [];
+        articleDateISO.value = monthYearToISO(libraryEntry?.date);
         articleReadTime.value = getReadTime(contentFile);
 
         // Import markdown - markdown-loader may convert to HTML.

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jacques Ramphal — Writing</title>
+    <link>https://ramphal.design/</link>
+    <atom:link href="https://ramphal.design/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Essays and case studies on design systems, agentic AI, and design engineering by Jacques Ramphal.</description>
+    <language>en</language>
+    <lastBuildDate>Sat, 25 Jul 2026 00:36:36 GMT</lastBuildDate>
+    <item>
+      <title>Friction</title>
+      <link>https://ramphal.design/doc/friction</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/friction</guid>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
+      <description>A project falling apart, fifty-odd UI defects and no source of truth, and what staying in it taught me: friction only sharpens you when there&apos;s something steady to work against.</description>
+      <category>career</category>
+      <category>mindset</category>
+    </item>
+    <item>
+      <title>The Guardrail Problem</title>
+      <link>https://ramphal.design/doc/the-guardrail-problem</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/the-guardrail-problem</guid>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+      <description>AI makes design fast. Dangerously fast. On why code friction is the discipline the process needs, and how to build constraints that let you run.</description>
+      <category>design-process</category>
+      <category>ai-tools</category>
+      <category>design-systems</category>
+    </item>
+    <item>
+      <title>Building Genie Changed Me</title>
+      <link>https://ramphal.design/doc/building-genie-changed-me</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/building-genie-changed-me</guid>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+      <description>The story of building Genie — from personal experiment to organizational platform — and what building it changed about how I work, what I&apos;m capable of, and how others engage with me.</description>
+      <category>ai</category>
+      <category>agentic-ai</category>
+    </item>
+    <item>
+      <title>Ego</title>
+      <link>https://ramphal.design/doc/ego</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/ego</guid>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+      <description>On the difference between the discomfort that makes you better and the kind that follows you home — and how to tell which one you&apos;re feeding.</description>
+      <category>career</category>
+      <category>mindset</category>
+      <category>growth</category>
+    </item>
+    <item>
+      <title>Make It Pop</title>
+      <link>https://ramphal.design/doc/make-it-pop</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/make-it-pop</guid>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Finding joy in enterprise design when the craft has moved from pixels to systems, and why the human part of the work matters more as tools get better.</description>
+      <category>career</category>
+      <category>enterprise-ux</category>
+      <category>design-systems</category>
+    </item>
+    <item>
+      <title>Imposter Syndrome Never Fully Goes Away</title>
+      <link>https://ramphal.design/doc/imposter-syndrome</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/imposter-syndrome</guid>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+      <description>On showing up prepared without knowing the right answer, learning to sit with that discomfort, and being kind enough to yourself to build the support before you need it.</description>
+      <category>career</category>
+      <category>mindset</category>
+      <category>growth</category>
+    </item>
+    <item>
+      <title>When UX Becomes AX</title>
+      <link>https://ramphal.design/doc/when-ux-becomes-ax</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/when-ux-becomes-ax</guid>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 GMT</pubDate>
+      <description>What designing for agentic systems actually looks like — mapping real workflows, defining agent behavior, setting guardrails — and why the skills designers already have are the ones that matter most.</description>
+      <category>ai</category>
+      <category>agentic-ai</category>
+      <category>design</category>
+    </item>
+    <item>
+      <title>Leading Design Innovation</title>
+      <link>https://ramphal.design/doc/leading-design-innovation</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/leading-design-innovation</guid>
+      <pubDate>Tue, 01 Oct 2024 00:00:00 GMT</pubDate>
+      <description>On what leading design as a strategic function actually looks like in practice: building infrastructure that changes what&apos;s possible downstream, automating the mechanical parts of delivery, and staying close enough to the work to make decisions that matter.</description>
+      <category>design</category>
+      <category>leadership</category>
+    </item>
+    <item>
+      <title>Designing Your Own Relevance</title>
+      <link>https://ramphal.design/doc/designing-your-own-relevance</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/designing-your-own-relevance</guid>
+      <pubDate>Sun, 01 Sep 2024 00:00:00 GMT</pubDate>
+      <description>How pressure, curiosity, and transferable skills created a career path no one handed me. On finding your niche, navigating identity shifts, and building relevance by staying grounded in what&apos;s true about how you work.</description>
+      <category>career</category>
+      <category>growth</category>
+      <category>leadership</category>
+    </item>
+    <item>
+      <title>The Designer in the Age of AI</title>
+      <link>https://ramphal.design/doc/designer-age-of-ai</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/designer-age-of-ai</guid>
+      <pubDate>Sat, 01 Jun 2024 00:00:00 GMT</pubDate>
+      <description>Shifting from inspectors to system stewards. As tools automate comparison and regression, designers become orchestrators who define baselines, set standards, and protect coherence.</description>
+      <category>ai</category>
+      <category>design</category>
+    </item>
+    <item>
+      <title>The Future of Design</title>
+      <link>https://ramphal.design/doc/the-future-of-design</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/the-future-of-design</guid>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 GMT</pubDate>
+      <description>Speculation on where design is heading. From siloed to integrated, static to dynamic, proprietary to open-source—the future of design is defined by tensions, not destinations.</description>
+      <category>design</category>
+      <category>future</category>
+      <category>philosophy</category>
+    </item>
+    <item>
+      <title>Manual vs. Automated Is the Wrong Debate</title>
+      <link>https://ramphal.design/doc/manual-vs-automated-wrong-debate</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/manual-vs-automated-wrong-debate</guid>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 GMT</pubDate>
+      <description>The complementary role of human and machine intelligence. Automation is acceleration, not intelligence. The future of quality is machines for detection, humans for discernment.</description>
+      <category>quality</category>
+      <category>automation</category>
+    </item>
+    <item>
+      <title>Delivering Fewer, More Complete Things</title>
+      <link>https://ramphal.design/doc/delivering-fewer-complete-things</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/delivering-fewer-complete-things</guid>
+      <pubDate>Wed, 01 Nov 2023 00:00:00 GMT</pubDate>
+      <description>True velocity through completion, not volume. It&apos;s better to deliver fewer tickets that are truly done than more tickets that will be reopened. Rework is invisible drag.</description>
+      <category>velocity</category>
+      <category>strategy</category>
+    </item>
+    <item>
+      <title>Designers as Final Checkpoint</title>
+      <link>https://ramphal.design/doc/designers-final-checkpoint</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/designers-final-checkpoint</guid>
+      <pubDate>Fri, 01 Sep 2023 00:00:00 GMT</pubDate>
+      <description>Maintaining authority through validation. When designers act as the final checkpoint before release, they protect the integrity of interaction, communication, accessibility, and system coherence.</description>
+      <category>design</category>
+      <category>qa</category>
+    </item>
+    <item>
+      <title>The Best QA Is the One That Doesn&apos;t Have to Happen</title>
+      <link>https://ramphal.design/doc/best-qa-doesnt-have-to-happen</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/best-qa-doesnt-have-to-happen</guid>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 GMT</pubDate>
+      <description>Strong baselines. Early DQA. Less testing later. When quality is built into the baseline from the start, QA shifts from discovery to confirmation — and the best QA process is one that doesn&apos;t have to happen.</description>
+      <category>quality</category>
+      <category>process</category>
+      <category>qa</category>
+    </item>
+    <item>
+      <title>Design Learnings &amp; Principles</title>
+      <link>https://ramphal.design/doc/design-learnings</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/design-learnings</guid>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 GMT</pubDate>
+      <description>A living collection of wisdom from opinionated mentors, teachers, and personal design observations. From foundational principles to leadership lessons, this is a journal of continuous learning in design, code, and craft.</description>
+      <category>design</category>
+      <category>leadership</category>
+    </item>
+    <item>
+      <title>The Ramstack</title>
+      <link>https://ramphal.design/doc/the-ramstack</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/the-ramstack</guid>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 GMT</pubDate>
+      <description>A future-proof approach to front-end design isn&apos;t about specific tools—it&apos;s about the principles beneath them. On headless complexity, tech debt, and why interoperability should be the core of your design practice.</description>
+      <category>design-tools</category>
+      <category>front-end</category>
+      <category>philosophy</category>
+    </item>
+    <item>
+      <title>Designing Genie</title>
+      <link>https://ramphal.design/doc/designing-genie</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/designing-genie</guid>
+      <pubDate>Sat, 25 Jul 2026 00:36:36 GMT</pubDate>
+      <description>How a personal automation experiment became a shared platform for the delivery team, and the three mental model problems that had to be solved to design for agentic AI.</description>
+      <category>ai</category>
+      <category>agentic-ai</category>
+    </item>
+    <item>
+      <title>Token Pipeline for a Multi-Brand HMI Platform</title>
+      <link>https://ramphal.design/doc/hmi-design-token-pipeline</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/hmi-design-token-pipeline</guid>
+      <pubDate>Sat, 25 Jul 2026 00:36:36 GMT</pubDate>
+      <description>How I built a unified token architecture, an AI-guarded lint pipeline, and a one-command dev loop that kept Figma, code, and AI tooling in sync across four brands, two themes, and two modalities — for a multi-display vehicle Human-Machine Interface platform.</description>
+      <category>design-systems</category>
+      <category>tokens</category>
+      <category>ai</category>
+    </item>
+    <item>
+      <title>The /design Agent</title>
+      <link>https://ramphal.design/doc/the-design-command-suite</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/the-design-command-suite</guid>
+      <pubDate>Sat, 25 Jul 2026 00:36:36 GMT</pubDate>
+      <description>An isolated Storybook environment powered by AI — one command to start. How I built a design layer on top of an agentic framework, and what I learned about operationalizing change in a service company where the best handoff is still a handoff.</description>
+      <category>design-engineering</category>
+      <category>storybook</category>
+      <category>ai</category>
+    </item>
+    <item>
+      <title>Fortune 100 Planning Tool</title>
+      <link>https://ramphal.design/doc/fortune-100-planning-tool</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/fortune-100-planning-tool</guid>
+      <pubDate>Sat, 25 Jul 2026 00:36:36 GMT</pubDate>
+      <description>A strategic planning tool for a Fortune 100 company — making complex organizational data across business units, budgets, and initiatives navigable without flattening it.</description>
+      <category>dashboard</category>
+      <category>analytics</category>
+    </item>
+    <item>
+      <title>OnLogic Product Configurator</title>
+      <link>https://ramphal.design/doc/onlogic-commerce-platform</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/onlogic-commerce-platform</guid>
+      <pubDate>Sat, 25 Jul 2026 00:36:36 GMT</pubDate>
+      <description>OnLogic&apos;s customers are IT professionals configuring industrial PCs with specific hardware requirements — where a wrong choice has real consequences. Migrated from a legacy platform to composable commerce, with a configuration flow built around real dependencies.</description>
+      <category>commerce</category>
+      <category>configurator</category>
+    </item>
+    <item>
+      <title>Kum &amp; Go Mobile Loyalty App</title>
+      <link>https://ramphal.design/doc/kg-loyalty-platform</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/kg-loyalty-platform</guid>
+      <pubDate>Sat, 25 Jul 2026 00:36:36 GMT</pubDate>
+      <description>Founded in 1959, Kum &amp; Go redefines convenience with customer-centric offerings. Partnering with Orium, they launched a new digital experience featuring enhanced promotions, loyalty programs, and improved merchandising.</description>
+      <category>loyalty</category>
+      <category>mobile</category>
+    </item>
+    <item>
+      <title>Softchoice Website Replatform</title>
+      <link>https://ramphal.design/doc/softchoice-rebrand</link>
+      <guid isPermaLink="true">https://ramphal.design/doc/softchoice-rebrand</guid>
+      <pubDate>Sat, 25 Jul 2026 00:36:36 GMT</pubDate>
+      <description>When a brand launches a new identity, the website needs to reflect it—without breaking what already works. Redesigned Softchoice&apos;s website to reflect their new brand identity, working within their existing CMS structure. Enhanced modules, introduced motion design, and collaborated closely with development to ensure design fidelity.</description>
+      <category>rebrand</category>
+      <category>motion-design</category>
+    </item>
+  </channel>
+</rss>
