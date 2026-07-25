@@ -6,6 +6,7 @@ This is a record of work and writing, not a portfolio pitch. It covers design sy
 
 ## Writing
 
+- [Taste is triage](https://ramphal.design/doc/taste-is-triage): When making something is nearly free, the scarce skill becomes knowing what's worth building and being able to say why. A fifteen-year arc from graphic design to agent experience, which turned out to be the same story as vibe coding.
 - [Friction](https://ramphal.design/doc/friction): A project falling apart, fifty-odd UI defects and no source of truth, and what staying in it taught me: friction only sharpens you when there's something steady to work against.
 - [The Guardrail Problem](https://ramphal.design/doc/the-guardrail-problem): AI makes design fast. Dangerously fast. On why code friction is the discipline the process needs, and how to build constraints that let you run.
 - [Building Genie Changed Me](https://ramphal.design/doc/building-genie-changed-me): The story of building Genie — from personal experiment to organizational platform — and what building it changed about how I work, what I'm capable of, and how others engage with me.
