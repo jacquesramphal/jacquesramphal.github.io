@@ -1,6 +1,5 @@
 <template :class="classes">
   <div class="default-card" :class="classes" :data-category="`${eyebrow}`" @click="handleCardClick">
-    <span v-if="read" class="read-badge" aria-label="Completed" title="Completed">✓</span>
     <div v-if="alt" class="image" :style="bgcolor">
       <!-- Show placeholder when no image -->
       <template v-if="!hasImage">
@@ -122,6 +121,7 @@
         :cardType="type"
         :readTime="readTime"
         :date="date"
+        :complete="read"
         :isExternal="!!activeLink"
         @tag-click="$emit('tag-click', $event)"
       />
@@ -294,7 +294,6 @@ export default {
         'defaultcard--index-row': this.indexRow,
         'defaultcard--featured': this.featured,
         'defaultcard--locked': this.isEffectivelyLocked,
-        'defaultcard--read': this.read,
       };
     },
     isDev() {
@@ -466,39 +465,6 @@ export default {
   margin-block-end: var(--spacing-xxs);
 
   padding-block-start: var(--spacing-sm);
-}
-
-/* Completion badge — only rendered when the `read` prop is true (course
-   chapters). Default cards never pass it, so this is inert everywhere else. */
-.read-badge {
-  position: absolute;
-  inset-block-start: var(--spacing-xs);
-  inset-inline-end: var(--spacing-xs);
-  color: var(--color-success);
-  font-size: var(--font-lg);
-  line-height: 1;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.defaultcard--index-row .read-badge {
-  inset-block-start: 50%;
-  transform: translateY(-50%);
-}
-
-// In a list row the badge sits centred at the right edge. On desktop the empty
-// third column holds it (no reflow); on mobile the row spans full width, so
-// reserve a gutter — but only when actually read, so non-course cards that use
-// the same list/mobile-list variants are never affected.
-.defaultcard--list .read-badge,
-.defaultcard--mobile-list .read-badge {
-  inset-block-start: 50%;
-  inset-inline-end: 0;
-  transform: translateY(-50%);
-}
-
-.defaultcard--read.defaultcard--mobile-list {
-  padding-inline-end: var(--spacing-lg);
 }
 
 /* Locked card state */

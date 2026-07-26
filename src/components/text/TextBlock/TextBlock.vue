@@ -46,7 +46,10 @@
       :attrs="{ class: 'description' }"
     />
     <!-- Content tags at bottom -->
-    <div v-if="shouldShowTags && ((tags && tags.length) || readTime || date || isExternal)" class="tags tags--content">
+    <div
+      v-if="shouldShowTags && ((tags && tags.length) || readTime || date || isExternal || complete)"
+      class="tags tags--content"
+    >
       <span v-if="isExternal" class="tag-label tag-label--external">
         <p style="font-size: var(--font-2xs)">External &#8599;</p>
       </span>
@@ -55,6 +58,9 @@
       </span>
       <span v-if="readTime" class="tag-label tag-label--read-time">
         <p style="font-size: var(--font-2xs)">{{ readTime }}</p>
+      </span>
+      <span v-if="complete" class="tag-label tag-label--complete">
+        <p style="font-size: var(--font-2xs)">&#10003; Complete</p>
       </span>
       <span v-for="tag in tags" :key="tag" class="tag-label" @click="$emit('tag-click', tag)"
         ><p style="font-size: var(--font-2xs)">{{ tag }}</p></span
@@ -187,6 +193,11 @@ export default {
     date: {
       type: String,
       default: '',
+      required: false,
+    },
+    complete: {
+      type: Boolean,
+      default: false,
       required: false,
     },
     isExternal: {
@@ -366,6 +377,11 @@ h1.title {
 .tag-label--external {
   cursor: default;
   color: var(--foreground-muted);
+}
+
+.tag-label--complete {
+  cursor: default;
+  color: var(--color-success);
 }
 
 .tag-label--read-time {

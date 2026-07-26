@@ -39,13 +39,14 @@
 
         <button v-else-if="!isLast" class="session-reader__continue" @click="next">Continue</button>
 
-        <button
-          v-else
-          class="session-reader__continue session-reader__continue--done"
-          @click="finish"
-        >
-          {{ courseTitle ? `Back to ${courseTitle}` : 'Done' }}
-        </button>
+        <template v-else>
+          <button v-if="nextChapter" class="session-reader__continue" @click="goNext">
+            Next · {{ nextChapter.title }}
+          </button>
+          <button class="session-reader__continue session-reader__continue--ghost" @click="finish">
+            {{ courseTitle ? `Back to ${courseTitle}` : 'Done' }}
+          </button>
+        </template>
       </div>
     </main>
   </div>
@@ -161,6 +162,7 @@ export default {
     const currentBeat = computed(() => beats.value[index.value] || null);
     const beatHtml = computed(() => renderBeat(currentBeat.value?.text || ''));
     const isLast = computed(() => index.value >= beats.value.length - 1);
+    const nextChapter = computed(() => ctx.value?.next || null);
 
     const applyPause = () => {
       if (pauseTimer) {
@@ -203,6 +205,11 @@ export default {
     const finish = () => {
       if (courseSlug.value) setChapterRead(courseSlug.value, props.slug);
       if (courseRoute.value) router.push(courseRoute.value);
+    };
+
+    const goNext = () => {
+      if (courseSlug.value) setChapterRead(courseSlug.value, props.slug);
+      if (nextChapter.value?.route) router.push(nextChapter.value.route);
     };
 
     const onKey = (e) => {
@@ -257,12 +264,14 @@ export default {
       currentBeat,
       beatHtml,
       isLast,
+      nextChapter,
       courseTitle,
       courseRoute,
       sessionLabel,
       chapterNumber,
       next,
       finish,
+      goNext,
       saveLine,
     };
   },
@@ -380,6 +389,8 @@ export default {
   min-block-size: var(--spacing-lg);
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
 }
 
 .session-reader__rest {
@@ -428,6 +439,18 @@ export default {
     box-shadow:
       0 0 0 3px color-mix(in srgb, var(--link) 35%, transparent),
       var(--shadow-light);
+  }
+}
+
+.session-reader__continue--ghost {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--foreground-muted);
+
+  &:hover {
+    background: transparent;
+    color: var(--foreground);
   }
 }
 </style>

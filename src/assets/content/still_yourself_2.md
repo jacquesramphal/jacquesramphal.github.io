@@ -1,57 +1,50 @@
 # Session 2 · Notice where you actually are
 
-Arrive again. Phone down. One breath you feel.
+Settle in. Distractions off. One breath you feel.
 
-> _Silence. 10 seconds._
+<!-- silence: 10 -->
 
-Before anything else, read your line from last time. Out loud if you can. Just read it. Do not add to it and do not soften it.
+Read your line from last time, out loud if you can. Do not add to it or soften it.
 
-> _Silence. 10 seconds._
+<!-- silence: 10 -->
 
-Notice something about it. It is about the future. Almost every version of that line is. The thing you are braced against has not happened yet.
+Notice where it points. A line like this often reaches toward the future, toward something that has not happened yet. If yours does, that is worth seeing, because the future holds no information. There is nothing there to look at. The evidence is here.
 
-That is not a trick to make you feel better. The future is uncertain and some of what you fear may well arrive. But you cannot see anything clearly from there, because there is nothing there yet to look at. The only place with real information in it is here.
+<!-- silence: 5 -->
 
-> _Silence. 5 seconds._
+So, today: where are you? Not where you are heading. Where you are.
 
-So, today, plainly: where are you. Not where you are heading. Where you are.
+Bring up the last two weeks of work. Not the year. Two weeks.
 
-Bring up the last two weeks of your actual work. Not the year. Two weeks.
+<!-- silence: 10 -->
 
-> _Silence. 10 seconds._
+What did people bring you? Not your job description. What did someone carry to you specifically, wanting your eyes on it.
 
-What did people come to you for. Not what is in your job description. What did someone actually carry over to you, because they wanted you specifically to look at it.
+<!-- silence: 15 -->
 
-> _Silence. 15 seconds._
+What landed on you that would not have landed on anyone else.
 
-What did you get handed that nobody else was going to be handed.
+<!-- silence: 15 -->
 
-> _Silence. 15 seconds._
+What did you catch that would have gone wrong without you.
 
-What did you fix that would have gone wrong without you.
+<!-- silence: 15 -->
 
-> _Silence. 15 seconds._
+Now the ones you skimmed past because they were easy. What you are best at can go invisible, because you got good enough that it stopped costing you anything. Effort is usually how we feel our own work. When the effort fades, so does the sense of doing much. That does not mean you stopped.
 
-Now notice the ones you skimmed past because they were easy.
+<!-- silence: 10 -->
 
-That is the trap. The things you are best at are invisible to you, precisely because you mastered them so completely that they stopped costing you anything. Effort is how we notice our own work. When the effort goes, the noticing goes with it, and you conclude you are not doing much.
+You might be thinking any of that could be automated, anyone could do it. Maybe so. But people did not go to a tool. They came to you. However replaceable the task looks, the routing was real, and it says something about how you are seen.
 
-You are doing a great deal. You just cannot feel it any more.
-
-> _Silence. 10 seconds._
-
-And here is the argument you are having with me. Something like: yes, but any of that could be automated. Or, anyone could do that.
-
-Sit with it for a second. Then go back to those two weeks. People did not go to a tool. They came to you. Whatever you believe about how replaceable the task is, the routing was real, and the routing is information about how you are seen.
-
-> _Silence. 10 seconds._
+<!-- silence: 10 -->
 
 One line before you go.
 
-**One thing you actually do, now, that you had stopped seeing.**
+One thing you actually do, now, that you had stopped noticing.
 
-Write it as a fact, not a claim. Not "I am good at strategy". Something closer to "people bring me the thing when it is a mess and nobody can name why".
+Write it as a fact, not a claim. Not "I am good at strategy." Closer to "people bring me the mess when nobody can name why."
 
-> _Silence. 20 seconds._
+<!-- line: What I actually do that I had stopped seeing -->
+<!-- silence: 20 -->
 
-That is two. Same place as the first one. Leave it a day.
+That is two. Come back when you are ready.
