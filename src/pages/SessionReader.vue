@@ -2,6 +2,8 @@
   <PageWrapper>
     <GridContainer>
       <div class="session-reader">
+        <h1 v-if="sessionLabel" class="session-reader__title">{{ sessionLabel }}</h1>
+
         <div class="session-reader__beat" :key="index">
           <div
             v-if="currentBeat && currentBeat.text"
@@ -169,15 +171,19 @@ export default {
         clearTimeout(pauseTimer);
         pauseTimer = null;
       }
-      const pause = currentBeat.value?.pause || 0;
-      if (pause > 0) {
-        ready.value = false;
-        pauseTimer = setTimeout(() => {
-          ready.value = true;
-        }, pause * 1000);
-      } else {
-        ready.value = true;
-      }
+      // Enforced pause disabled for now — the timed wait felt too restrictive.
+      // Continue is always available. To bring the enforced pause back, restore
+      // the block below (it holds Continue for the beat's `pause` seconds).
+      ready.value = true;
+      // const pause = currentBeat.value?.pause || 0;
+      // if (pause > 0) {
+      //   ready.value = false;
+      //   pauseTimer = setTimeout(() => {
+      //     ready.value = true;
+      //   }, pause * 1000);
+      // } else {
+      //   ready.value = true;
+      // }
     };
 
     const loadLineForBeat = () => {
@@ -287,6 +293,11 @@ export default {
   margin-inline: auto;
   inline-size: 100%;
   padding-block: var(--spacing-lg) var(--spacing-xl);
+}
+
+.session-reader__title {
+  margin-block-end: var(--spacing-lg);
+  font-weight: var(--fontWeight-bold);
 }
 
 .session-reader__beat {
