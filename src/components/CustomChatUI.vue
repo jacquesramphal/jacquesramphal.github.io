@@ -391,6 +391,8 @@ export default {
       bodyScrollLocked: false,
       scrollLockY: 0,
       atBottomOfPage: false,
+      scrollingUp: true,
+      lastScrollY: 0,
       menuIsOpen: false,
       markedLib: null,
     };
@@ -406,8 +408,11 @@ export default {
       return this.viewportWidth <= this.mobileFullscreenBreakpoint;
     },
     mobileButtonVisible() {
+      // Home: always visible. Other pages: reveal when scrolling up (and at the
+      // very top / bottom of the page, or when the menu is open), hide on the
+      // way down.
       const isHome = this.$route && this.$route.path === '/';
-      return isHome || this.atBottomOfPage || this.menuIsOpen;
+      return isHome || this.scrollingUp || this.atBottomOfPage || this.menuIsOpen;
     },
     resolvedMetadata() {
       const safeLocation =
@@ -848,8 +853,19 @@ export default {
     },
     handleMobileScroll() {
       const threshold = 80;
+      const currentY = window.scrollY;
       this.atBottomOfPage =
-        window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - threshold;
+        currentY + window.innerHeight >= document.documentElement.scrollHeight - threshold;
+
+      // Track scroll direction so non-home pages reveal the button on scroll up.
+      // Treat the very top of the page as "up"; ignore sub-pixel jitter.
+      const delta = currentY - this.lastScrollY;
+      if (currentY <= threshold) {
+        this.scrollingUp = true;
+      } else if (Math.abs(delta) > 4) {
+        this.scrollingUp = delta < 0;
+      }
+      this.lastScrollY = currentY;
     },
     handleEscapeKey(event) {
       if (event.key === 'Escape' && this.isOpen) {
