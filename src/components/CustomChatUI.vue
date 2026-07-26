@@ -406,8 +406,11 @@ export default {
       return this.viewportWidth <= this.mobileFullscreenBreakpoint;
     },
     mobileButtonVisible() {
-      const isHome = this.$route && this.$route.path === '/';
-      return isHome || this.atBottomOfPage || this.menuIsOpen;
+      // On mobile the "Let's chat" bar is the only chat entry point (the
+      // desktop icon FAB is never rendered here), so keep it visible at all
+      // times. It used to fade out mid-scroll, which left the user with no
+      // visible way to open chat until they hit the bottom of the page.
+      return true;
     },
     resolvedMetadata() {
       const safeLocation =
@@ -967,6 +970,15 @@ export default {
 
 @media (max-width: 768px) {
   /* design-guard:ignore */
+
+  /* Safeguard: the desktop icon FAB (the chat bubble) must never appear on
+     mobile. It has no purpose here and does nothing useful when tapped; the
+     "Let's chat" bar is the only mobile entry point. This backs up the
+     JS `isMobile` check in case the breakpoint lags (e.g. orientation change). */
+  .chat-button:not(.chat-button--mobile) {
+    display: none !important;
+  }
+
   .chat-button--mobile {
     position: fixed;
     bottom: var(--spacing-xxs);
