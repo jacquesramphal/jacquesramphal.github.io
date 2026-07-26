@@ -178,6 +178,13 @@ export default {
         this.$route.path.startsWith('/secured/doc/') ||
         this.$route.path.startsWith('/session/')
       ) {
+        // Course chapters carry a short title in the manifest; prefer it so the
+        // crumb reads "Arrive" rather than the full slug "Still Yourself Arrive".
+        if (this.courseContext?.current?.title) {
+          this.pageTitle = this.courseContext.current.title;
+          return;
+        }
+
         // Use the slug directly from the route for cleaner breadcrumbs
         const param = (this.$route.params.slug || this.$route.params.id || '').toString().trim();
 
