@@ -16,6 +16,7 @@
 // courses listed in COURSES.
 
 import courseTemplate from '@/assets/data/course-template.json';
+import stillYourself from '@/assets/data/still-yourself.json';
 
 export type CourseChapter = {
   id: number;
@@ -73,7 +74,7 @@ function normalizeCourse(raw: any): Course {
   };
 }
 
-const COURSES: Course[] = [normalizeCourse(courseTemplate)];
+const COURSES: Course[] = [normalizeCourse(courseTemplate), normalizeCourse(stillYourself)];
 
 export function getAllCourses(): Course[] {
   return COURSES;
