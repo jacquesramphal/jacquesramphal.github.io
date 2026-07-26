@@ -967,6 +967,15 @@ export default {
 
 @media (max-width: 768px) {
   /* design-guard:ignore */
+
+  /* Safeguard: the desktop icon FAB (the chat bubble) must never appear on
+     mobile. It has no purpose here and does nothing useful when tapped; the
+     "Let's chat" bar is the only mobile entry point. This backs up the
+     JS `isMobile` check in case the breakpoint lags (e.g. orientation change). */
+  .chat-button:not(.chat-button--mobile) {
+    display: none !important;
+  }
+
   .chat-button--mobile {
     position: fixed;
     bottom: var(--spacing-xxs);
