@@ -20,6 +20,19 @@ import CoursePage from '@/pages/CoursePage.vue';
 import BusinessCardPage from '@/pages/BusinessCardPage.vue';
 import FullscreenMenu from '../components/FullscreenMenu.vue';
 import { getDocRecordById } from '@/utils/docRegistry';
+import { getCourseBySlug, getDefaultCourse } from '@/utils/courseRegistry';
+import { canViewLockedCourse } from '@/utils/courseAccess';
+
+// Guard a course hub: locked courses require the access secret (see
+// utils/courseAccess). Unlocked visitors are sent to NotFound so the course
+// stays hidden.
+const guardCourse = (to: any) => {
+  const course = to.params?.slug ? getCourseBySlug(to.params.slug) : getDefaultCourse();
+  if (course && course.locked && !canViewLockedCourse(to.query)) {
+    return { name: 'NotFound' };
+  }
+  return true;
+};
 
 const routes = [
   {
@@ -192,12 +205,14 @@ const routes = [
     name: 'Course',
     path: '/Course',
     component: CoursePage,
+    beforeEnter: guardCourse,
   },
   {
     name: 'CourseBySlug',
     path: '/course/:slug',
     component: CoursePage,
     props: true,
+    beforeEnter: guardCourse,
     meta: {
       dynamicTitle: true,
     },

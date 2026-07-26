@@ -1,0 +1,41 @@
+{
+  "slug": "course-template",
+  "title": "Course Template",
+  "subtitle": "A reusable scaffold for a multipage course: a hub, ordered chapters, progress tracking, and cross-page navigation. Duplicate this manifest, point it at your own chapter docs, and you have a new course.",
+  "locked": true,
+  "entries": [
+    {
+      "id": 1,
+      "docId": 9001,
+      "tag": "00",
+      "title": "How this template works",
+      "description": "The pieces of a course — the manifest, the chapter docs, and the hub — and how they fit together.",
+      "slug": "course-template-overview",
+      "route": "/secured/doc/course-template-overview",
+      "contentFile": "course_template_1.md",
+      "published": true
+    },
+    {
+      "id": 2,
+      "docId": 9002,
+      "tag": "01",
+      "title": "Writing a chapter",
+      "description": "How chapter pages render, and the headings and structure that drive the table of contents and progress.",
+      "slug": "course-template-writing-a-chapter",
+      "route": "/secured/doc/course-template-writing-a-chapter",
+      "contentFile": "course_template_2.md",
+      "published": true
+    },
+    {
+      "id": 3,
+      "docId": 9003,
+      "tag": "02",
+      "title": "Publishing and gating",
+      "description": "Marking chapters live, ordering them, and keeping a course private until it is ready.",
+      "slug": "course-template-publishing-and-gating",
+      "route": "/secured/doc/course-template-publishing-and-gating",
+      "contentFile": "course_template_3.md",
+      "published": true
+    }
+  ]
+}
