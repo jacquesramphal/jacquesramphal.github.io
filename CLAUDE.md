@@ -243,11 +243,15 @@ Not all X/Y pivots are wrong. The test: does the reversal add new information, o
    [doesn't earn it — the next three paragraphs already explain what kind of problem it was]
 ```
 
+The verdict-cutting rules (§1, §4) target the *redundant* verdict — the one that restates evidence the reader just saw. They are not license to cut the *thesis*, the single claim the whole piece exists to defend. Those are different sentences. A summary sentence tells the reader what they already know; a thesis commits to something they could disagree with. When you're unsure which one you're looking at, ask whether a reader could argue with it. If they could, it's the thesis — keep it, sharpen it, and make sure the piece earns it.
+
 ---
 
 ### 12. AI word tells
 
 Four clusters. All signal AI rather than a person writing.
+
+The specific words below are examples, not a blocklist. The tells rotate — this year's "delve" is next year's something else, and a piece that only dodges these exact words will still read as AI once the list dates. What's durable is the principle under each cluster: name the quality instead of its category, structure the paragraph instead of signposting it, use the plain verb, cut the decorative metaphor. Apply the principle to whatever the current tells happen to be; refresh the lists when they stop matching what you actually see.
 
 **Filler adverbs** — "moreover," "furthermore," "additionally," "indeed," "certainly," "albeit," "notably."
 These perform logical structure instead of having it. If "moreover" is load-bearing, the paragraph isn't structured well enough. Delete the word and fix the paragraph.
@@ -287,6 +291,15 @@ What good writing looks like on this site, stated positively.
 **Specificity is the argument.** "A wrong component choice triggers a failed deployment" is more persuasive than "high-stakes decisions require precision." The concrete detail does the work the abstract claim only promises.
 
 **Trust the arc.** If the story is well-told, the reader draws the conclusion. You don't need to name it.
+
+**State the claim you'd defend, then meet the objection.** Cutting the verdict is right when the evidence already carries it. It's wrong when it lets you avoid saying what you actually think. Every one of these rules is subtractive — they strip the ways writing fakes insight, but none of them make you commit to a position. So a piece can pass every check and still argue nothing. Before publishing, find the one claim the piece exists to make and ask whether a smart, skeptical reader would push back. If there's an obvious objection, answer it in the piece. Don't cut the qualifier that keeps a claim honest just because it looks like a verdict — an unhedged claim isn't stronger, it's easier to dismiss.
+
+```
+❌ Friction only sharpens you. Run toward it.
+   [overclaims — bureaucracy and unclear ownership are friction too, and they sharpen nothing]
+✓  Friction sharpens only when there's something steady to work against. Without that, it's just wear.
+   [the qualifier is the claim; it survives the obvious objection instead of inviting it]
+```
 
 **Share, don't declare.** Articles and journal entries should read like someone thinking through something they've experienced, not issuing a manifesto. Avoid imperative commands directed at the reader. Use first person. Lead with what happened to you before drawing any conclusion.
 

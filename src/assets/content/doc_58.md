@@ -1,6 +1,6 @@
 # The Ramstack: Design Tools, Complexity, and the Case for Interoperability
 
-A future-proof approach to front-end design isn't about the tools—it's about the principles beneath them
+A future-proof approach to front-end design isn't about the tools. It's about the principles beneath them.
 
 ![Image](../images/article/cover3.png)
 
@@ -14,7 +14,7 @@ The question isn’t which tools to use. The question is: when the tools change,
 
 With the domination of headless architectures, there seems to be a specialized tool for everything. One tool for X, another for Y. Endless integrations and microservices playing together to form the sprawling complexity of a modern application.
 
-This is genuinely good in many ways—flexibility, scalability, independent deployability. But it introduces a slippery slope: more tools means more dependencies, more surfaces for failure, more onboarding for every new team member. Our products can become infinitely more complex. Headless can get messy.
+This is genuinely good in many ways: flexibility, scalability, the freedom to swap one service without rebuilding the rest. But it introduces a slippery slope. More tools means more dependencies, more surfaces for failure, more onboarding for every new team member. Our products can become infinitely more complex. Headless can get messy.
 
 The same pattern plays out in design. We adopt tools to solve specific problems, then find ourselves managing a toolbox that’s harder to maintain than the work it was meant to support.
 
@@ -22,11 +22,11 @@ The same pattern plays out in design. We adopt tools to solve specific problems,
 
 ## The Interoperability Problem
 
-We often dream of one tool to rule them all—a platform that respects both the designer’s and developer’s wishes, handles complex prototyping, exports to code, gathers feedback, and serves as a handoff layer. In practice, that tool hasn’t arrived, and the pursuit of it often produces its own form of lock-in.
+We often dream of a single tool that does everything: respects both the designer’s and developer’s wishes, handles complex prototyping, exports to code, gathers feedback, and serves as a handoff layer. In practice, that tool hasn’t arrived, and the pursuit of it often produces its own form of lock-in.
 
 Tools become outdated. The next industry standard takes over. Workflows get replaced by more efficient ones. AI changes the rules entirely. These aren’t predictions; they’re descriptions of what has already happened, repeatedly.
 
-The trick isn’t finding the perfect tool. The trick is making sure the core of your practice is interoperable—agnostic of toolchain.
+The trick isn’t finding the perfect tool. The trick is making sure the core of your practice is interoperable, agnostic of toolchain.
 
 Design tools like Figma are powerful precisely because they’re rooted in web standards: auto layout that mirrors CSS flexbox, component structures that mirror atomic design, naming conventions that align with code. But those features also create compatibility challenges. The very specificity that makes a tool productive today makes it harder to migrate from tomorrow.
 
@@ -34,7 +34,7 @@ Design tools like Figma are powerful precisely because they’re rooted in web s
 
 ## The Ramstack Philosophy
 
-The Jamstack—JavaScript, APIs, and Markdown—is a headless philosophy for web architecture. Its emphasis on flexibility, scalability, and maintainability removes the need for any single platform to dictate the experience. The Ramstack extends that thinking into a personal design practice.
+The Jamstack (JavaScript, APIs, and Markdown) is a headless philosophy for web architecture. Its emphasis on flexibility, scalability, and maintainability removes the need for any single platform to dictate the experience. The Ramstack extends that thinking into a personal design practice.
 
 The goal is not a list of approved tools. It’s a set of durable principles:
 
@@ -45,10 +45,10 @@ The specific application matters less than what it enables. I look for tools whe
 I keep content, design decisions, and component architecture portable. Proprietary formats create technical debt the moment you commit to them. Open formats create optionality.
 
 **Dependencies reduced to what you actually need.**
-Every dependency is a liability. Every integration is a failure surface. I try to keep the core of a design system self-sufficient, not a house of cards that collapses when one service changes its pricing model.
+Every dependency you don't need is a liability, and every integration is a surface that can fail. Some are worth it; most systems carry more than they need. I try to keep the core of a design system self-sufficient, so it doesn't collapse when one service changes its pricing model.
 
 **The design system as the source of truth.**
-If design tokens, component decisions, and visual language live only inside a design file, you don’t have a design system. You have a file that describes a design system. When that file format becomes unsupported, the system evaporates. I keep decisions in version-controlled code — token-first thinking that’s more resilient than any single design tool.
+If design tokens, component decisions, and visual language live only inside a design file, you don’t have a design system. You have a file that describes a design system. When that file format becomes unsupported, the system evaporates. I keep decisions in version-controlled code, token-first thinking that’s more resilient than any single design tool.
 
 ---
 
