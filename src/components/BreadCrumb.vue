@@ -24,7 +24,14 @@
       <DynamicText v-show="isDesktopScreen" :as="p" text="/" style="line-height: inherit" />
 
       <TextLink
-        v-if="isLibraryOrDeeper"
+        v-if="courseContext"
+        class="nav-item"
+        :label="courseContext.course.title"
+        :route="`/course/${courseContext.course.slug}`"
+        v-show="isDesktopScreen"
+      />
+      <TextLink
+        v-else-if="isLibraryOrDeeper"
         class="nav-item"
         label="Library"
         route="/library"
@@ -58,6 +65,7 @@ import workData from '../assets/data/work.json';
 import DynamicText from '../components/text/DynamicText.vue';
 import TextLink from '../components/text/TextLink.vue';
 import { getDocRecordById, isNumericRouteParam } from '@/utils/docRegistry';
+import { getChapterContext } from '@/utils/courseRegistry';
 export default {
   name: 'BreadCrumb',
   components: { DynamicText, TextLink },
@@ -85,6 +93,23 @@ export default {
     },
     isProjectOrDoc() {
       return this.$route?.meta?.dynamicTitle || !!this.$route?.meta?.title;
+    },
+    // When the current /doc/ page is a course chapter, resolve its course so the
+    // breadcrumb points back to the course hub instead of the Library.
+    courseContext() {
+      const path = this.$route?.path || '';
+      if (!path.startsWith('/doc/') && !path.startsWith('/secured/doc/')) return null;
+
+      const param = (this.$route.params.slug || this.$route.params.id || '').toString().trim();
+      if (!param) return null;
+
+      let slug = param;
+      if (isNumericRouteParam(param)) {
+        const record = getDocRecordById(parseInt(param, 10));
+        slug = record?.slug || '';
+      }
+
+      return slug ? getChapterContext(slug) : null;
     },
   },
   async created() {
@@ -143,7 +168,10 @@ export default {
         const workId = parseInt(this.$route.params.id);
         const work = workData.entries.find((entry) => entry.id === workId);
         this.pageTitle = work ? work.title : 'Work';
-      } else if (this.$route.path.startsWith('/doc/')) {
+      } else if (
+        this.$route.path.startsWith('/doc/') ||
+        this.$route.path.startsWith('/secured/doc/')
+      ) {
         // Use the slug directly from the route for cleaner breadcrumbs
         const param = (this.$route.params.slug || this.$route.params.id || '').toString().trim();
 

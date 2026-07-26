@@ -8,7 +8,6 @@ import "./assets/js/gsap.js"; // Import your GSAP file
 
 // Global Components
 import AnimatedComponent from "@/components/AnimatedComponent.vue";
-import CourseCard from "@/components/card/CourseCard.vue";
 import BlogFeed from "@/components/blog/BlogFeed.vue";
 // import CardRow from "@/components/CardRow.vue";
 import CardRow2 from "@/components/CardRow2.vue";
@@ -166,7 +165,6 @@ app.use(head); // Use VueUse Head for dynamic meta tags
 app
   .component("AnimatedComponent", AnimatedComponent)
   .component("TestimonialCarousel", TestimonialCarousel)
-  .component("CourseCard", CourseCard)
   .component("BlogFeed", BlogFeed)
   .component("CardRow2", CardRow2)
   .component("ArticleCard", ArticleCard)
