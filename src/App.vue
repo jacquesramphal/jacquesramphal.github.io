@@ -63,7 +63,7 @@ transform: rotate(90deg);
       class="avatar-standing"
     />-->
 
-    <CustomChatUI />
+    <CustomChatUI v-if="!$route.meta.hideChat" />
     <!-- Chat with Jacques's agent button and sidebar -->
     <!-- <div class="fixed-chat-entry" @click="toggleChatSidebar">
       <span class="vertical-text">chat with Jacques's agent</span>
