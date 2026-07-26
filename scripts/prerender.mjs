@@ -199,7 +199,6 @@ function finalizeHtml(html, route, pageMeta) {
       out = out.replace(/<title>[^<]*<\/title>/i, `<title>${title}</title>`);
       out = setMetaContent(out, 'property=["\']og:title["\']', title);
       out = setMetaContent(out, 'property=["\']twitter:title["\']', title);
-      out = setMetaContent(out, 'name=["\']title["\']', title);
     }
 
     const currentDesc = (
