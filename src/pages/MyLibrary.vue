@@ -109,6 +109,7 @@
           >
             <ArticleCard
               borderless
+              :list="viewMode === 'list'"
               v-for="(entry, index) in filteredArticlesAndTools"
               :key="entry.id"
               :mobileList="index !== 0"
@@ -146,6 +147,7 @@
           >
             <ArticleCard
               borderless
+              :list="viewMode === 'list'"
               v-for="(entry, index) in filteredCaseStudiesAndProjects"
               :key="entry.id"
               :featured="viewMode !== 'list' && index === 0"
@@ -187,6 +189,7 @@
           >
             <ArticleCard
               borderless
+              :list="viewMode === 'list'"
               v-for="(entry, index) in filteredTools"
               :key="entry.id"
               :mobileList="index !== 0"
@@ -223,6 +226,7 @@
           >
             <ArticleCard
               borderless
+              :list="viewMode === 'list'"
               v-for="(entry, index) in filteredLabs"
               :key="entry.id"
               :mobileList="index !== 0"
@@ -280,6 +284,7 @@
         >
           <ArticleCard
             borderless
+            :list="viewMode === 'list'"
             mobileList
             v-for="(entry, index) in filteredEntries"
             :key="entry.id"
@@ -573,52 +578,9 @@ export default {
   grid-column: unset;
 }
 
-@media only screen and (min-width: 768px) {
-  .posts--list :deep(.default-card:not(.defaultcard--featured)) {
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    border: none !important;
-    border-block-start: var(--border) !important;
-    min-height: 0 !important;
-    height: auto !important;
-    padding-block: var(--spacing-xs);
-    padding-block-start: var(--spacing-sm);
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-xs);
-
-    &:first-child {
-      border-block-start: none !important;
-    }
-    &:hover {
-      background: transparent;
-      box-shadow: none !important;
-    }
-  }
-
-  .posts--list :deep(.default-card:not(.defaultcard--featured) .image) {
-    display: none !important;
-  }
-
-  .posts--list :deep(.default-card:not(.defaultcard--featured) .info) {
-    grid-column: 1 / 3;
-    grid-row: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 0 !important;
-  }
-
-  .posts--list :deep(.default-card:not(.defaultcard--featured) .card-footer) {
-    padding-block-start: var(--spacing-xxs);
-    margin-block-start: auto;
-    //   border-block-end: var(--border) !important;
-  }
-
-  // .posts--list :deep(.default-card:last-child) {
-  //   border-block-end: var(--border) !important;
-  // }
-}
+// The desktop list-row styling now lives in ArticleCard's `list` variant
+// (the single source), applied here via :list="viewMode === 'list'". Mobile is
+// handled by the card's `mobileList` variant as before.
 
 .view-toggle {
   display: none;

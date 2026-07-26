@@ -486,6 +486,21 @@ export default {
   transform: translateY(-50%);
 }
 
+// In a list row the badge sits centred at the right edge. On desktop the empty
+// third column holds it (no reflow); on mobile the row spans full width, so
+// reserve a gutter — but only when actually read, so non-course cards that use
+// the same list/mobile-list variants are never affected.
+.defaultcard--list .read-badge,
+.defaultcard--mobile-list .read-badge {
+  inset-block-start: 50%;
+  inset-inline-end: 0;
+  transform: translateY(-50%);
+}
+
+.defaultcard--read.defaultcard--mobile-list {
+  padding-inline-end: var(--spacing-lg);
+}
+
 /* Locked card state */
 .defaultcard--locked {
   cursor: help;
@@ -647,13 +662,32 @@ img {
   transition: height 0.25s ease-in-out;
 }
 
+// Canonical list-row style (single source of truth). Used by the Library list
+// view and the course hub. Reproduces the Library list card exactly: a
+// top-bordered row, no image, full-size title + description.
 .defaultcard--list {
   @media only screen and (min-width: 768px) {
     @include list-row-base;
+    height: auto !important;
     padding-block-start: var(--spacing-sm);
     display: grid !important;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: var(--spacing-xs);
+
+    &:first-child {
+      border-block-start: none !important;
+    }
+
+    // A list row is often also `borderless`, whose `border: none` would drop
+    // the divider. The compound selector outranks it so the top-border divider
+    // survives.
+    &.defaultcard--borderless {
+      border-block-start: var(--border) !important;
+
+      &:first-child {
+        border-block-start: none !important;
+      }
+    }
 
     .image {
       grid-column: 3 / 4;
@@ -678,11 +712,25 @@ img {
     }
 
     .info {
-      grid-column: 1 / 4;
+      // Spans two of three columns, leaving the third empty — this is where a
+      // conditional field (e.g. the completion check) sits without reflowing.
+      grid-column: 1 / 3;
       grid-row: 1;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+
+      &:not(:has(.color-bar)) {
+        padding-block-start: 0 !important;
+      }
+    }
+
+    // A list row is often also `borderless`. The borderless variant adds its
+    // own info padding; the list layout must win so rows stay flush. The
+    // compound selector outranks `.defaultcard--borderless .info` regardless of
+    // source order.
+    &.defaultcard--borderless .info {
+      padding: 0 !important;
 
       &:not(:has(.color-bar)) {
         padding-block-start: 0 !important;

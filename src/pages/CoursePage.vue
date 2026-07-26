@@ -15,7 +15,8 @@
           <ArticleCard
             v-if="chapter.published"
             :key="`chapter-${chapter.id}`"
-            indexRow
+            list
+            mobileList
             borderless
             type="chapter"
             :eyebrow="chapter.tag"
@@ -129,6 +130,11 @@ export default {
   white-space: nowrap;
   flex-shrink: 0;
 }
+
+// The list-row styling and the completion check live in ArticleCard (the
+// single source — `list` + `mobileList` + the conditional `read` field), so
+// the hub needs no card CSS of its own. It renders identically to the Library
+// list cards.
 
 .chapter-row--soon {
   display: flex;
