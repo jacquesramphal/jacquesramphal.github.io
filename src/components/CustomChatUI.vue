@@ -406,11 +406,8 @@ export default {
       return this.viewportWidth <= this.mobileFullscreenBreakpoint;
     },
     mobileButtonVisible() {
-      // On mobile the "Let's chat" bar is the only chat entry point (the
-      // desktop icon FAB is never rendered here), so keep it visible at all
-      // times. It used to fade out mid-scroll, which left the user with no
-      // visible way to open chat until they hit the bottom of the page.
-      return true;
+      const isHome = this.$route && this.$route.path === '/';
+      return isHome || this.atBottomOfPage || this.menuIsOpen;
     },
     resolvedMetadata() {
       const safeLocation =
