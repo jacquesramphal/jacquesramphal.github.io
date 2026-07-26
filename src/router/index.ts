@@ -194,6 +194,15 @@ const routes = [
     component: CoursePage,
   },
   {
+    name: 'CourseBySlug',
+    path: '/course/:slug',
+    component: CoursePage,
+    props: true,
+    meta: {
+      dynamicTitle: true,
+    },
+  },
+  {
     name: 'BusinessCard',
     path: '/card',
     component: BusinessCardPage,

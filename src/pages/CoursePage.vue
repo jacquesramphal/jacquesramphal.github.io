@@ -1,54 +1,156 @@
 <template>
   <PageWrapper>
-    <HeroBanner
-    :title="chapters.title"
-    :subtitle="chapters.subtitle"
-      eyebrow=""
+    <HeroBanner v-if="course" :title="course.title" :subtitle="course.subtitle" eyebrow="Course" />
 
-    />
-    <GridContainer>
-      <CourseCard
-        v-for="entry in chapters.entries"
-        :key="entry.id"
-        :id="entry.id"
-        :tag="entry.tag"
-        :title="entry.title"
-        :description="entry.description"
-        :route="entry.route"
-        :read="readStatus[entry.id]"
-        @markAsRead="markAsRead(entry.id)"
-      />
+    <GridContainer v-if="course">
+      <div v-if="totalCount" class="course-progress" role="group" aria-label="Course progress">
+        <div class="course-progress__track">
+          <span class="course-progress__fill" :style="{ inlineSize: progressPct + '%' }" />
+        </div>
+        <p class="subtle course-progress__label">{{ readCount }} of {{ totalCount }} complete</p>
+      </div>
+
+      <GridParent tight rows class="chapters">
+        <template v-for="chapter in course.entries">
+          <ArticleCard
+            v-if="chapter.published"
+            :key="`chapter-${chapter.id}`"
+            indexRow
+            borderless
+            type="chapter"
+            :eyebrow="chapter.tag"
+            :title="chapter.title"
+            :description="chapter.description"
+            :route="chapter.route"
+            :contentFile="chapter.contentFile"
+            :read="isRead(chapter.slug)"
+          />
+          <div v-else :key="`soon-${chapter.id}`" class="chapter-row chapter-row--soon">
+            <span class="chapter-row__tag subtle">{{ chapter.tag }}</span>
+            <span class="chapter-row__title">{{ chapter.title }}</span>
+            <span class="chapter-row__soon subtle">Coming soon</span>
+          </div>
+        </template>
+      </GridParent>
     </GridContainer>
   </PageWrapper>
 </template>
 
 <script>
-import chapters from "@/assets/data/chapters.json";
+import { getCourseBySlug, getDefaultCourse, getPublishedChapters } from '@/utils/courseRegistry';
+import { getCourseProgress, countRead } from '@/utils/courseProgress';
 
 export default {
-  name: "MyCourse",
+  name: 'MyCourse',
+  props: {
+    // Optional route param: /course/:slug. Falls back to the default course.
+    slug: {
+      type: String,
+      required: false,
+      default: '',
+    },
+  },
   data() {
     return {
-      chapters,
-      readStatus: {},
+      progress: {},
     };
   },
+  computed: {
+    course() {
+      return (this.slug && getCourseBySlug(this.slug)) || getDefaultCourse() || null;
+    },
+    publishedChapters() {
+      return this.course ? getPublishedChapters(this.course) : [];
+    },
+    totalCount() {
+      return this.publishedChapters.length;
+    },
+    readCount() {
+      if (!this.course) return 0;
+      return countRead(
+        this.course.slug,
+        this.publishedChapters.map((c) => c.slug)
+      );
+    },
+    progressPct() {
+      if (!this.totalCount) return 0;
+      return Math.round((this.readCount / this.totalCount) * 100);
+    },
+  },
   mounted() {
-    this.readStatus = JSON.parse(localStorage.getItem("readStatus")) || {};
+    this.refreshProgress();
+    // Re-read when returning to the hub after reading a chapter.
+    window.addEventListener('focus', this.refreshProgress);
+    document.addEventListener('visibilitychange', this.refreshProgress);
+  },
+  beforeUnmount() {
+    window.removeEventListener('focus', this.refreshProgress);
+    document.removeEventListener('visibilitychange', this.refreshProgress);
   },
   methods: {
-    markAsRead(entryId) {
-      // Update the read status in the local storage
-      localStorage.setItem(`readStatus_${entryId}`, "true");
-      // Update the readStatus object
-      this.$set(this.readStatus, entryId, true);
+    refreshProgress() {
+      if (!this.course) return;
+      this.progress = getCourseProgress(this.course.slug);
     },
-    isRead(entryId) {
-      // Check if the entry is marked as read in the local storage
-      return localStorage.getItem(`readStatus_${entryId}`) === "true";
+    isRead(chapterSlug) {
+      return !!this.progress[chapterSlug];
     },
   },
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.course-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-block-end: var(--spacing-md);
+}
+
+.course-progress__track {
+  flex: 1;
+  block-size: var(--spacing-xxs);
+  background: var(--background-darker);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.course-progress__fill {
+  display: block;
+  block-size: 100%;
+  inline-size: 0;
+  background: var(--color-success);
+  border-radius: 999px;
+  transition: inline-size 0.3s ease;
+}
+
+.course-progress__label {
+  margin: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.chapter-row--soon {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+  padding-block: var(--spacing-xs);
+  border-block-start: var(--border);
+  opacity: 0.55;
+  cursor: default;
+}
+
+.chapter-row__tag {
+  font-size: var(--font-2xs);
+}
+
+.chapter-row__title {
+  flex: 1;
+}
+
+.chapter-row__soon {
+  font-size: var(--font-2xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+</style>

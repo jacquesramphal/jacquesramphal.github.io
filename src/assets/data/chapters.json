@@ -1,4 +1,5 @@
 {
+  "slug": "design-qa-101",
   "title": "Design QA 101",
   "subtitle": "This guide highlights Design Quality Assurance (DQA) as a vital role in Agile projects, covering Jira integration, design tokens, baselines, automated testing and emerging trends.",
   "entries": [
@@ -7,41 +8,44 @@
       "docId": 1,
       "tag": "00",
       "title": "Introduction",
-      "description": "Introduction to the course",
+      "description": "Why design QA matters, and how baselines set the standard the rest of the work is measured against.",
       "slug": "baselines-design-qa",
       "route": "/doc/baselines-design-qa",
       "contentFile": "doc_1.md",
-      "read": false
+      "published": false
     },
     {
       "id": 2,
       "docId": 2,
       "tag": "01",
       "title": "Quality Assurance Activities Overview",
+      "description": "The team roles, touchpoints, and activities that make DQA a shared practice rather than a final gate.",
       "slug": "quality-assurance-activities-overview",
       "route": "/doc/quality-assurance-activities-overview",
       "contentFile": "doc_2.md",
-      "read": false
+      "published": true
     },
     {
       "id": 3,
       "docId": 3,
       "tag": "02",
       "title": "Accelerator Tools for Streamlining DQA",
+      "description": "The tools that remove friction from design QA so review time goes to judgment, not setup.",
       "slug": "designing-quality-qa-for-designers",
       "route": "/doc/designing-quality-qa-for-designers",
       "contentFile": "doc_3.md",
-      "read": false
+      "published": true
     },
     {
       "id": 4,
       "docId": 4,
       "tag": "03",
       "title": "Usability and User Experience Testing",
+      "description": "Evaluating usability and UX, and folding user feedback back into the design as it iterates.",
       "slug": "usability-and-user-experience-testing",
       "route": "/doc/usability-and-user-experience-testing",
       "contentFile": "doc_4.md",
-      "read": false
+      "published": true
     }
   ]
 }

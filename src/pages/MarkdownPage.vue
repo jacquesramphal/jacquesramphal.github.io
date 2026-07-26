@@ -95,6 +95,34 @@
             </button>
             <ShareWidget :title="shareTitle" />
           </div>
+
+          <nav v-if="courseContext" class="chapter-nav" aria-label="Course navigation">
+            <router-link class="chapter-nav__back" :to="courseRoute">
+              ← {{ courseContext.course.title }}
+              <span class="subtle chapter-nav__position">
+                · Chapter {{ courseContext.index + 1 }} of {{ courseContext.chapters.length }}
+              </span>
+            </router-link>
+            <div class="chapter-nav__pager">
+              <router-link
+                v-if="courseContext.prev"
+                class="chapter-nav__link chapter-nav__link--prev"
+                :to="courseContext.prev.route"
+              >
+                <span class="subtle chapter-nav__dir">Previous</span>
+                <span class="chapter-nav__title">{{ courseContext.prev.title }}</span>
+              </router-link>
+              <span v-else class="chapter-nav__spacer" />
+              <router-link
+                v-if="courseContext.next"
+                class="chapter-nav__link chapter-nav__link--next"
+                :to="courseContext.next.route"
+              >
+                <span class="subtle chapter-nav__dir">Next</span>
+                <span class="chapter-nav__title">{{ courseContext.next.title }}</span>
+              </router-link>
+            </div>
+          </nav>
         </main>
 
         <div v-if="hasH2Headings" ref="tocSidebarWrap" class="toc-sidebar-wrap">
@@ -143,6 +171,8 @@ import ShareWidget from '@/components/blog/ShareWidget.vue';
 import MyIcon from '@/components/Icon.vue';
 import PresenterBar from '@/components/PresenterBar/PresenterBar.vue';
 import { getDocRecordById, getDocRecordBySlug, isNumericRouteParam } from '@/utils/docRegistry';
+import { getChapterContext } from '@/utils/courseRegistry';
+import { setChapterRead } from '@/utils/courseProgress';
 // import TextStats from "@/components/card/TextStats.vue";
 import GridContainer from '@/components/grid/GridContainer.vue';
 import FullscreenImage from '@/components/FullscreenImage.vue';
@@ -198,8 +228,18 @@ const contentContext = require.context('../assets/content', false, /\.md$/);
 // Convert the library's human "Mon YYYY" date to an ISO 8601 date (day 1) for
 // structured data. Returns '' when the value is empty or unparseable.
 const MONTH_INDEX = {
-  jan: '01', feb: '02', mar: '03', apr: '04', may: '05', jun: '06',
-  jul: '07', aug: '08', sep: '09', oct: '10', nov: '11', dec: '12',
+  jan: '01',
+  feb: '02',
+  mar: '03',
+  apr: '04',
+  may: '05',
+  jun: '06',
+  jul: '07',
+  aug: '08',
+  sep: '09',
+  oct: '10',
+  nov: '11',
+  dec: '12',
 };
 function monthYearToISO(value) {
   if (!value || typeof value !== 'string') return '';
@@ -248,6 +288,8 @@ export default {
     const presenterMode = ref(false);
     const currentSectionIndex = ref(0);
     const sectionEls = ref([]);
+    // Course/series context — set when the current doc is a course chapter.
+    const courseContext = ref(null);
 
     const updateMarkdownHeadings = inject('updateMarkdownHeadings', () => {});
     const updateMarkdownActiveHeading = inject('updateMarkdownActiveHeading', () => {});
@@ -516,6 +558,7 @@ export default {
         hasHeaderTag.value = false;
         hasLeadImage.value = false;
         isFullWidth.value = false;
+        courseContext.value = null;
 
         // Resolve route param -> content file.
         const param = (routeParam || '').toString().trim();
@@ -534,6 +577,16 @@ export default {
           (entry) => entry.docId === record?.docId || entry.slug === record?.slug
         );
         currentDocType.value = libraryEntry?.type || null;
+
+        // Course chapter detection: if this doc is a chapter of a course, expose
+        // its prev/next context and mark it read for progress tracking.
+        const chapterSlug = record?.slug || (isNumeric ? null : param);
+        const ctx = chapterSlug ? getChapterContext(chapterSlug) : null;
+        courseContext.value = ctx;
+        if (ctx) {
+          setChapterRead(ctx.course.slug, ctx.current.slug);
+        }
+
         articleDate.value = libraryEntry?.date || '';
         articleTitle.value = libraryEntry?.title || '';
         articleDescription.value = libraryEntry?.description || '';
@@ -1054,6 +1107,10 @@ export default {
       navigateToSection,
       updateMarkdownHeadings,
       updateMarkdownActiveHeading,
+      courseContext,
+      courseRoute: computed(() =>
+        courseContext.value ? `/course/${courseContext.value.course.slug}` : ''
+      ),
     };
   },
   components: {
@@ -1423,6 +1480,72 @@ export default {
   gap: var(--spacing-xs);
   justify-content: flex-end;
   align-items: center;
+}
+
+// Course chapter navigation — only rendered when the doc is part of a course.
+.chapter-nav {
+  margin-block-start: var(--spacing-lg);
+  padding-block-start: var(--spacing-md);
+  border-block-start: var(--border);
+}
+
+.chapter-nav__back {
+  display: inline-block;
+  margin-block-end: var(--spacing-md);
+  font-size: var(--font-400);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+}
+
+.chapter-nav__position {
+  font-size: var(--font-300);
+}
+
+.chapter-nav__pager {
+  display: grid;
+  gap: var(--spacing-sm);
+  grid-template-columns: 1fr 1fr;
+}
+
+.chapter-nav__spacer {
+  display: block;
+}
+
+.chapter-nav__link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
+  padding: var(--spacing-sm);
+  border: var(--border);
+  border-radius: var(--spacing-xxs);
+  text-decoration: none;
+  transition:
+    background 0.12s ease,
+    box-shadow 0.12s ease;
+
+  &:hover {
+    background: var(--background-darker);
+    box-shadow: var(--shadow-light);
+  }
+}
+
+.chapter-nav__link--next {
+  text-align: end;
+}
+
+.chapter-nav__dir {
+  font-size: var(--font-2xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.chapter-nav__title {
+  font-size: var(--font-400);
+  font-weight: var(--fontWeight-medium);
 }
 
 .print-button {
