@@ -1,55 +1,55 @@
 <template>
-  <div class="session-reader">
-    <header class="session-reader__bar">
-      <router-link v-if="courseRoute" :to="courseRoute" class="session-reader__exit">
-        ← {{ courseTitle }}
-      </router-link>
-      <span class="session-reader__label subtle">{{ sessionLabel }}</span>
-    </header>
-
-    <main class="session-reader__stage">
-      <div class="session-reader__beat" :key="index">
-        <div
-          v-if="currentBeat && currentBeat.text"
-          class="session-reader__text"
-          v-html="beatHtml"
-        />
-
-        <div v-if="currentBeat && currentBeat.line" class="session-reader__line">
-          <label class="session-reader__line-label subtle" :for="`line-${index}`">
-            {{ currentBeat.line.label }}
-          </label>
-          <textarea
-            :id="`line-${index}`"
-            v-model="lineText"
-            class="session-reader__line-input"
-            rows="2"
-            placeholder="One line, in your own words…"
-            @input="saveLine"
+  <PageWrapper>
+    <GridContainer>
+      <div class="session-reader">
+        <div class="session-reader__beat" :key="index">
+          <div
+            v-if="currentBeat && currentBeat.text"
+            class="session-reader__text"
+            v-html="beatHtml"
           />
-          <p class="session-reader__line-hint subtle">
-            This stays on your device. It becomes line {{ chapterNumber }} of your page.
-          </p>
+
+          <div v-if="currentBeat && currentBeat.line" class="session-reader__line">
+            <label class="session-reader__line-label subtle" :for="`line-${index}`">
+              {{ currentBeat.line.label }}
+            </label>
+            <textarea
+              :id="`line-${index}`"
+              v-model="lineText"
+              class="session-reader__line-input"
+              rows="3"
+              placeholder="One line, in your own words…"
+              @input="saveLine"
+            />
+            <p class="session-reader__line-hint subtle">
+              This stays on your device. It becomes line {{ chapterNumber }} of your page.
+            </p>
+          </div>
+        </div>
+
+        <div class="session-reader__controls">
+          <!-- During a silence the control is simply unavailable. No timer. -->
+          <span v-if="!ready" class="session-reader__rest" aria-hidden="true">·</span>
+
+          <MyButton v-else-if="!isLast" type="outline" label="Continue" @click="next" />
+
+          <template v-else>
+            <MyButton
+              v-if="nextChapter"
+              type="outline"
+              :label="`Next · ${nextChapter.title}`"
+              @click="goNext"
+            />
+            <MyButton
+              type="ghost"
+              :label="courseTitle ? `Back to ${courseTitle}` : 'Done'"
+              @click="finish"
+            />
+          </template>
         </div>
       </div>
-
-      <div class="session-reader__controls">
-        <!-- During a silence the control is simply unavailable. No timer. -->
-        <span v-if="!ready" class="session-reader__rest" aria-hidden="true">·</span>
-
-        <button v-else-if="!isLast" class="session-reader__continue" @click="next">Continue</button>
-
-        <template v-else>
-          <button v-if="nextChapter" class="session-reader__continue" @click="goNext">
-            Next · {{ nextChapter.title }}
-          </button>
-          <button class="session-reader__continue session-reader__continue--ghost" @click="finish">
-            {{ courseTitle ? `Back to ${courseTitle}` : 'Done' }}
-          </button>
-        </template>
-      </div>
-    </main>
-  </div>
+    </GridContainer>
+  </PageWrapper>
 </template>
 
 <script>
@@ -279,47 +279,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
+// A comfortable reading column inside the standard doc container (GridContainer
+// handles the responsive gutters, PageWrapper the spacing below the nav), so the
+// content flows like a regular doc and never clips on mobile.
 .session-reader {
-  min-block-size: 100vh;
-  display: flex;
-  flex-direction: column;
-  background: var(--background);
-}
-
-.session-reader__bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-md);
-  max-inline-size: 720px;
-  inline-size: 100%;
+  max-inline-size: 640px;
   margin-inline: auto;
-}
-
-.session-reader__exit {
-  text-decoration: none;
-  font-size: var(--font-400);
-
-  &:hover {
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
-  }
-}
-
-.session-reader__label {
-  font-size: var(--font-300);
-}
-
-.session-reader__stage {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-inline-size: 720px;
   inline-size: 100%;
-  margin-inline: auto;
-  padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
+  padding-block: var(--spacing-lg) var(--spacing-xl);
 }
 
 .session-reader__beat {
@@ -338,14 +305,21 @@ export default {
 }
 
 .session-reader__text {
-  font-size: var(--font-600);
-  line-height: var(--lineHeight-relaxed, 1.6);
+  font-size: var(--font-500);
+  line-height: 1.7;
 
   :deep(p) {
     margin-block: 0 var(--spacing-md);
   }
   :deep(p:last-child) {
     margin-block-end: 0;
+  }
+  :deep(ul) {
+    margin: 0 0 var(--spacing-md);
+    padding-inline-start: var(--spacing-md);
+  }
+  :deep(li) {
+    margin-block-end: var(--spacing-xxs);
   }
 }
 
@@ -408,49 +382,6 @@ export default {
   }
   50% {
     opacity: 0.5;
-  }
-}
-
-.session-reader__continue {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.85rem 1.4rem;
-  font: inherit;
-  font-size: var(--font-400);
-  color: var(--foreground);
-  background: var(--background);
-  border: var(--border);
-  border-radius: 999px;
-  box-shadow: var(--shadow-light);
-  cursor: pointer;
-  animation: beat-in 0.4s ease both;
-  transition:
-    background 0.12s ease,
-    transform 0.06s ease;
-
-  &:hover {
-    background: var(--background-darker);
-  }
-  &:active {
-    transform: scale(0.98);
-  }
-  &:focus-visible {
-    outline: none;
-    box-shadow:
-      0 0 0 3px color-mix(in srgb, var(--link) 35%, transparent),
-      var(--shadow-light);
-  }
-}
-
-.session-reader__continue--ghost {
-  background: transparent;
-  border-color: transparent;
-  box-shadow: none;
-  color: var(--foreground-muted);
-
-  &:hover {
-    background: transparent;
-    color: var(--foreground);
   }
 }
 </style>
