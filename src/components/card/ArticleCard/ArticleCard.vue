@@ -678,6 +678,17 @@ img {
       border-block-start: none !important;
     }
 
+    // A list row is often also `borderless`, whose `border: none` would drop
+    // the divider. The compound selector outranks it so the top-border divider
+    // survives.
+    &.defaultcard--borderless {
+      border-block-start: var(--border) !important;
+
+      &:first-child {
+        border-block-start: none !important;
+      }
+    }
+
     .image {
       grid-column: 3 / 4;
       grid-row: 1;
