@@ -177,16 +177,21 @@ export default {
   }
 }
 
-// Completion check: keep clear of the title by reserving a right gutter, and
-// centre it against the row.
-.chapters :deep(.default-card) {
-  padding-inline-end: var(--spacing-lg);
-}
-
+// Completion check, centred against the row. On desktop the Library layout
+// leaves the third column empty (info spans 1 / 3), so the check sits there
+// with no change to the row — an exact match to the Library card. Only mobile,
+// where the info spans full width, needs a reserved gutter so the check never
+// overlaps the title.
 .chapters :deep(.default-card .read-badge) {
   inset-block-start: 50%;
   inset-inline-end: 0;
   transform: translateY(-50%);
+}
+
+@media only screen and (max-width: 767px) {
+  .chapters :deep(.default-card) {
+    padding-inline-end: var(--spacing-lg);
+  }
 }
 
 .chapter-row--soon {
