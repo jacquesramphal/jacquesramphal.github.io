@@ -98,7 +98,12 @@ export default {
     // breadcrumb points back to the course hub instead of the Library.
     courseContext() {
       const path = this.$route?.path || '';
-      if (!path.startsWith('/doc/') && !path.startsWith('/secured/doc/')) return null;
+      if (
+        !path.startsWith('/doc/') &&
+        !path.startsWith('/secured/doc/') &&
+        !path.startsWith('/session/')
+      )
+        return null;
 
       const param = (this.$route.params.slug || this.$route.params.id || '').toString().trim();
       if (!param) return null;
@@ -170,7 +175,8 @@ export default {
         this.pageTitle = work ? work.title : 'Work';
       } else if (
         this.$route.path.startsWith('/doc/') ||
-        this.$route.path.startsWith('/secured/doc/')
+        this.$route.path.startsWith('/secured/doc/') ||
+        this.$route.path.startsWith('/session/')
       ) {
         // Use the slug directly from the route for cleaner breadcrumbs
         const param = (this.$route.params.slug || this.$route.params.id || '').toString().trim();

@@ -224,7 +224,6 @@ const routes = [
     component: SessionReader,
     props: true,
     meta: {
-      hideNav: true,
       hideFooter: true,
       hideChat: true,
       dynamicTitle: true,
