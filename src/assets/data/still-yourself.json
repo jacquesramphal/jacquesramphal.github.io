@@ -1,0 +1,96 @@
+{
+  "slug": "still-yourself",
+  "title": "Still Yourself",
+  "subtitle": "Six short sessions for when you are good at what you do and it has stopped feeling like enough. Each time, you arrive somewhere quiet, notice one true thing about where you actually are, and write down one line. The six lines are the page, and every line on it is yours.",
+  "locked": true,
+  "entries": [
+    {
+      "id": 1,
+      "docId": 9101,
+      "tag": "00",
+      "title": "Before you start",
+      "description": "What this is and what it is not, and the one rule the whole thing depends on: write the line.",
+      "slug": "still-yourself-before-you-start",
+      "route": "/secured/doc/still-yourself-before-you-start",
+      "contentFile": "still_yourself_0.md",
+      "published": true
+    },
+    {
+      "id": 2,
+      "docId": 9102,
+      "tag": "01",
+      "title": "Arrive",
+      "description": "Name the thing that does not get said out loud at work: the shift you have been braced against for months.",
+      "slug": "still-yourself-arrive",
+      "route": "/secured/doc/still-yourself-arrive",
+      "contentFile": "still_yourself_1.md",
+      "published": true
+    },
+    {
+      "id": 3,
+      "docId": 9103,
+      "tag": "02",
+      "title": "Notice where you actually are",
+      "description": "Trade the imagined future for the last two weeks of real work, and the value you had stopped being able to feel.",
+      "slug": "still-yourself-notice-where-you-are",
+      "route": "/secured/doc/still-yourself-notice-where-you-are",
+      "contentFile": "still_yourself_2.md",
+      "published": true
+    },
+    {
+      "id": 4,
+      "docId": 9104,
+      "tag": "03",
+      "title": "Notice what is still true about you",
+      "description": "The skill may expire; the judgment that chose it does not. Where the durable part of you actually sits.",
+      "slug": "still-yourself-what-is-still-true",
+      "route": "/secured/doc/still-yourself-what-is-still-true",
+      "contentFile": "still_yourself_3.md",
+      "published": true
+    },
+    {
+      "id": 5,
+      "docId": 9105,
+      "tag": "04",
+      "title": "Notice what actually pulls you",
+      "description": "Competence and desire are different questions. Where your attention goes when nothing is pointing it.",
+      "slug": "still-yourself-what-pulls-you",
+      "route": "/secured/doc/still-yourself-what-pulls-you",
+      "contentFile": "still_yourself_4.md",
+      "published": true
+    },
+    {
+      "id": 6,
+      "docId": 9106,
+      "tag": "05",
+      "title": "Notice what you can set down",
+      "description": "The half of triage nobody does, because nothing forces it: choosing what to stop carrying.",
+      "slug": "still-yourself-what-to-set-down",
+      "route": "/secured/doc/still-yourself-what-to-set-down",
+      "contentFile": "still_yourself_5.md",
+      "published": true
+    },
+    {
+      "id": 7,
+      "docId": 9107,
+      "tag": "06",
+      "title": "The clearing",
+      "description": "Read the five lines together, notice who wrote them, and turn noticing into one small move.",
+      "slug": "still-yourself-the-clearing",
+      "route": "/secured/doc/still-yourself-the-clearing",
+      "contentFile": "still_yourself_6.md",
+      "published": true
+    },
+    {
+      "id": 8,
+      "docId": 9108,
+      "tag": "07",
+      "title": "The return",
+      "description": "A single repeatable session for months later, so the page gathers dated layers instead of being used once.",
+      "slug": "still-yourself-the-return",
+      "route": "/secured/doc/still-yourself-the-return",
+      "contentFile": "still_yourself_7.md",
+      "published": true
+    }
+  ]
+}

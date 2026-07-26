@@ -1,6 +1,7 @@
 import chaptersJson from "@/assets/data/chapters.json";
 import libraryJson from "@/assets/data/library.json";
 import courseTemplateJson from "@/assets/data/course-template.json";
+import stillYourselfJson from "@/assets/data/still-yourself.json";
 
 export type DocRegistryRecord = {
   docId: number;
@@ -46,10 +47,12 @@ function collectRecords(): DocRegistryRecord[] {
   const chapterEntries = (chaptersJson as any)?.entries || [];
   const libraryEntries = (libraryJson as any)?.entries || [];
   const courseTemplateEntries = (courseTemplateJson as any)?.entries || [];
+  const stillYourselfEntries = (stillYourselfJson as any)?.entries || [];
 
   for (const e of chapterEntries) add(e);
   for (const e of libraryEntries) add(e);
   for (const e of courseTemplateEntries) add(e);
+  for (const e of stillYourselfEntries) add(e);
 
   return out;
 }
