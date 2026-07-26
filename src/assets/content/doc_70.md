@@ -17,7 +17,7 @@ I led the design of [Genie](/doc/designing-genie), an agentic AI platform built 
 
 ## How I work
 
-I write production front-end code, run design QA, and pair with engineers on implementation because I've seen too many good decisions die in handoff. I also coach designers who want to move closer to systems and code, not because everyone needs to write code, but because fluency removes friction and changes the kinds of conversations you can have.
+I write production front-end code, run design QA, and pair with engineers on implementation because I've seen too many good decisions die in handoff. I also coach designers who want to move closer to systems and code, not because everyone needs to write code, but because fluency removes friction and changes the kinds of conversations you can have. I've led meditation and mindfulness sessions for years, which sounds like a separate life and isn't: most of the job now is triage, deciding what deserves attention when anything can be made, and you can't triage while panicking.
 
 I maintain a set of [open-source tools](/library) and write about design, AI, and the places they intersect.
 
