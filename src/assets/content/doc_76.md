@@ -6,7 +6,7 @@ I stayed. I pulled the design out into its own source of truth, something the wh
 
 I didn't have language for why at the time. I have it now, and it comes from an odd place.
 
-Friction only sharpens when one side holds still. Drag two identical hard surfaces across each other, the way two blades or two stones grind, and all you get is mutual wear. Both sides lose. Hold a stable, harder surface against a softer one, a whetstone against a blade, and the same friction that would have destroyed becomes the thing that sharpens. The asymmetry is the whole point. Without something steady to work against, friction is just damage.
+Friction only sharpens when one side holds still. Drag two identical hard surfaces across each other, the way two blades or two stones grind, and all you get is mutual wear. Both sides lose. Hold a stable, harder surface against a softer one, a whetstone against a blade, and the same friction that would have destroyed becomes the thing that sharpens. Without something steady to work against, friction is just damage.
 
 That reframed a lot of my career. The thing I kept doing, on projects like that one, was not removing the friction. The fix was never to take the friction away, it was to put something solid in the middle for everyone to work against. When design and engineering grind with nothing stable between them, they wear each other down: rework, lost context, defects, the same argument every sprint. What they were missing was a shared reference, not a quieter room.
 
