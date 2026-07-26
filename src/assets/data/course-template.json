@@ -2,7 +2,7 @@
   "slug": "course-template",
   "title": "Course Template",
   "subtitle": "A reusable scaffold for a multipage course: a hub, ordered chapters, progress tracking, and cross-page navigation. Duplicate this manifest, point it at your own chapter docs, and you have a new course.",
-  "locked": true,
+  "locked": false,
   "entries": [
     {
       "id": 1,
