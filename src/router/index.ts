@@ -17,6 +17,7 @@ import WorkIndex from '@/pages/WorkIndex.vue';
 import PlayIndex from '@/pages/PlayIndex.vue';
 import UsefulLinks from '@/pages/UsefulLinks.vue';
 import CoursePage from '@/pages/CoursePage.vue';
+import SessionReader from '@/pages/SessionReader.vue';
 import BusinessCardPage from '@/pages/BusinessCardPage.vue';
 import FullscreenMenu from '../components/FullscreenMenu.vue';
 import { getDocRecordById } from '@/utils/docRegistry';
@@ -214,6 +215,18 @@ const routes = [
     props: true,
     beforeEnter: guardCourse,
     meta: {
+      dynamicTitle: true,
+    },
+  },
+  {
+    name: 'Session',
+    path: '/session/:slug',
+    component: SessionReader,
+    props: true,
+    meta: {
+      hideNav: true,
+      hideFooter: true,
+      hideChat: true,
       dynamicTitle: true,
     },
   },

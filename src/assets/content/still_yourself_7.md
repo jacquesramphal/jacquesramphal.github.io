@@ -1,29 +1,30 @@
 # The return
 
-_Not one of the six. A single session you can run again whenever the spinning comes back. Six or seven minutes. The page gathers dated layers over the years, which is the record principle applied to a person._
+_Not one of the six. A session to run again whenever the spinning comes back. Your page gathers dated layers over time, which is the record principle applied to a person._
 
-Arrive. Same as always. Phone down. One breath you actually feel.
+Settle in. Distractions off. One breath you feel.
 
-> _Silence. 10 seconds._
+<!-- silence: 10 -->
 
 Read your old page, out loud, and notice the date on it.
 
-> _Silence. 20 seconds._
+<!-- silence: 20 -->
 
 Cross out any line that is no longer true. Do not replace it yet. Notice how many survived.
 
-> _Silence. 15 seconds._
+<!-- silence: 15 -->
 
-One noticing: what is different now that you did not predict.
+One noticing: what is different now that you did not see coming.
 
-> _Silence. 20 seconds._
+<!-- silence: 20 -->
 
-Write today's one true thing, under the old lines, with today's date.
+Write today's true thing under the old lines, with today's date.
 
-> _Silence. 20 seconds._
+<!-- line: Today -->
+<!-- silence: 20 -->
 
-**One small thing, this week.** Same rule as before. Small enough to fit inside the week.
+One small thing, this week. Same rule. Small enough to fit inside it.
 
-> _Silence. 20 seconds._
+<!-- silence: 20 -->
 
 Put it back where it was. That is the return. Come back whenever you need it.

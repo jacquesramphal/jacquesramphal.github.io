@@ -1,43 +1,44 @@
 # Session 1 · Arrive
 
-Before we start, put your phone down. Not away. Just down, face down, within reach. You are not going to need it, and you are also not going to be told you cannot have it.
+Distractions off. Not gone, just quiet and out of your hands for ten minutes. You will not need them.
 
-> _Silence. 5 seconds._
+<!-- silence: 5 -->
 
-You do not have to solve anything in the next ten minutes. That is not what this is. There is nothing to get right, and nothing you can fall behind on.
+Nothing to solve here. Nothing to get right, and no way to fall behind.
 
-Notice where you actually are. This chair. This room. The temperature of the air. Whatever you can hear right now.
+Notice where you are. This chair, this room, the air, whatever you can hear right now.
 
-> _Silence. 10 seconds._
+<!-- silence: 10 -->
 
-Take one breath you actually feel. Not a deep one. Not a technique. Just one you notice on the way in and on the way out.
+Take one breath you actually feel. Not deep, not a technique. Just one you notice going in and coming out.
 
-> _Silence. 10 seconds._
+<!-- silence: 10 -->
 
-Now the honest part. I am going to say the thing that does not get said out loud at work.
+Now the honest part, the thing that tends to go unsaid at work.
 
-You are good at what you do. You have been good at it a long time. And lately that has stopped feeling like enough. Something in the field is moving, and part of you has been braced against it for months. Maybe longer than that.
+You are good at what you do, and have been for a long time. Lately it has stopped feeling like enough. Something in the field is shifting, and part of you has been braced against it for a while.
 
-The bracing is quiet. From the outside you look fine. You are still delivering, nobody has said anything, nothing has actually gone wrong. That is part of why it is exhausting. You are carrying it alone, on top of the actual work, and there is no evidence you could point to if someone asked.
+The bracing is quiet. From the outside you look fine: still delivering, nobody worried. That is what makes it heavy. You carry it on top of the work, alone, with nothing you could point to if someone asked.
 
-> _Silence. 10 seconds._
+<!-- silence: 10 -->
 
-You may be arguing with me right now. Some version of, it is not that bad. Or, everyone is dealing with this. Or, I do not have time for this.
+You might be arguing with me already. It is not that bad. Everyone is dealing with this. I do not have time for this.
 
-Notice the argument. You do not have to win it or lose it. Just notice that your first move was to explain it away, and that explaining it away is what you have been doing for a while now.
+Fair enough. See if you can notice the argument instead of settling it. Explaining it away is its own kind of carrying, and you have been doing it a while.
 
-> _Silence. 10 seconds._
+<!-- silence: 10 -->
 
-We are not going to fix this today. We are not going to fix it in six sessions either, not in the way you might mean. What we are going to do is put it down in front of you where you can look at it, because you cannot look at something you are carrying on your back.
+We are not fixing this today, or tidying it away in six sessions. We are setting it down where you can see it, because you cannot look clearly at something you are carrying on your back.
 
-So. One thing before you go.
+So, one thing before you go.
 
-**Name what you have been bracing against.** Plainly. Not the version you would say in a performance review. The version you would say to someone you trusted, at eleven at night, when you had stopped managing your face.
+Name what you have been bracing against. Plainly. Not the performance-review version. The one you would say to someone you trust, late, when you had stopped managing your face.
 
-One line. Write it down. That is the whole task.
+One line.
 
-> _Silence. 20 seconds._
+<!-- line: What I have been bracing against -->
+<!-- silence: 20 -->
 
-That line is yours and nobody sees it. Put it somewhere you can get back to, because you are going to need it five more times.
+That line is yours, and nobody sees it. Keep it where you can find it. You will build on it five more times.
 
-That is the end of the first one. Do not do the next one today.
+That is the first. Carry on whenever you are ready.

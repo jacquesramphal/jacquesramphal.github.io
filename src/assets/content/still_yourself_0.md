@@ -1,28 +1,26 @@
 # Before you start
 
-_Ninety seconds, once, before session one. In the finished course each beat arrives on its own screen and the pauses are enforced — the continue control simply waits. Here it reads top to bottom._
+_A minute before the first session. You can do one or several in a sitting, on your phone or on paper. What matters is that you write the line._
 
-This is a course in six short sessions. Each one is about ten minutes. Each one ends with you writing down one sentence.
+Six short sessions, about ten minutes each. Every one ends with you writing a single sentence.
 
-Here is what it is not. It is not advice, it is not a framework, and there are no steps. You are not short of advice. You have been given plenty and it has not helped, because advice is an answer to a question you have not been able to sit still long enough to ask.
+This is not advice, and not a framework. You are not short of advice. You have had plenty, and it has not helped, because advice answers a question you have not had the quiet to ask.
 
-> _Silence. 5 seconds._
+What it is: six times, you settle somewhere quiet, notice one true thing about where you are, and write it in your own words. At the end you read the six sentences back. That page is the point, and every line on it is yours.
 
-Here is what it is. Six times, you are going to arrive somewhere quiet, notice one true thing about where you actually are, and write it down in your own words. At the end you will read back the six sentences you wrote. That page is the product. It is a plan, and every line on it is yours, because I never put one there.
+One thing holds it all up: write the line. Not in your head. On paper, or a note you can find again. Skip that and you will have read something calming and kept nothing.
 
-One rule, and the whole thing depends on it: write the line. Not in your head. On paper, or in a note on your phone, in one place you can get back to. If you skip the writing you will have read something calming and kept nothing.
+Take it at your own pace. Move straight through, or leave a gap and let a line sit. Both work.
 
-Do one session at a time. Leave at least a day between them. That gap is not padding, it is where most of the noticing happens.
+The title is Still Yourself. Read it three ways: be still, stay yourself, you are still yourself. All three are meant.
 
-The title is Still Yourself. Read it three ways. Be still. Stay yourself. You are still yourself. All three are the point.
+## One note before we begin
 
-## The boundary
-
-One thing before we start. This is reflection, drawn from my own experience of the work changing under me. It is not therapy and it is not treatment. If what surfaces here is heavier than a career question, and for some people it will be, that is worth taking to a professional rather than to a course. That is not me stepping back from you, it is just me being clear about what this is.
+This is reflection, drawn from my own experience of the work changing under me. It is not therapy or treatment. If something heavier than a career question surfaces, and for some people it will, that is worth taking to someone qualified. Saying so is not me stepping back from you. It is being clear about what this is.
 
 ## Your page
 
-Keep this where you can get back to it. Six lines, one per session.
+Keep this somewhere you can return to. Six lines, one per session.
 
 ```
 STILL YOURSELF
