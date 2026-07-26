@@ -10,13 +10,14 @@
         <p class="subtle course-progress__label">{{ readCount }} of {{ totalCount }} complete</p>
       </div>
 
-      <GridParent tight rows class="posts posts--list chapters">
+      <GridParent tight rows class="chapters">
         <template v-for="chapter in course.entries">
           <ArticleCard
             v-if="chapter.published"
             :key="`chapter-${chapter.id}`"
-            borderless
+            list
             mobileList
+            borderless
             type="chapter"
             :eyebrow="chapter.tag"
             :title="chapter.title"
@@ -130,69 +131,10 @@ export default {
   flex-shrink: 0;
 }
 
-// Match the Library list-view card exactly (see MyLibrary.vue). The desktop
-// list look — top-bordered rows, no image, full-size title — is applied to the
-// same `.posts--list` container the Library uses; mobile is handled by the
-// card's own `mobileList` styles. This is intentionally the same rule set so
-// course rows and Library rows stay visually identical.
-@media only screen and (min-width: 768px) {
-  .posts--list :deep(.default-card:not(.defaultcard--featured)) {
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    border: none !important;
-    border-block-start: var(--border) !important;
-    min-height: 0 !important;
-    height: auto !important;
-    padding-block: var(--spacing-xs);
-    padding-block-start: var(--spacing-sm);
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-xs);
-
-    &:first-child {
-      border-block-start: none !important;
-    }
-    &:hover {
-      background: transparent;
-      box-shadow: none !important;
-    }
-  }
-
-  .posts--list :deep(.default-card:not(.defaultcard--featured) .image) {
-    display: none !important;
-  }
-
-  .posts--list :deep(.default-card:not(.defaultcard--featured) .info) {
-    grid-column: 1 / 3;
-    grid-row: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 0 !important;
-  }
-
-  .posts--list :deep(.default-card:not(.defaultcard--featured) .card-footer) {
-    padding-block-start: var(--spacing-xxs);
-    margin-block-start: auto;
-  }
-}
-
-// Completion check, centred against the row. On desktop the Library layout
-// leaves the third column empty (info spans 1 / 3), so the check sits there
-// with no change to the row — an exact match to the Library card. Only mobile,
-// where the info spans full width, needs a reserved gutter so the check never
-// overlaps the title.
-.chapters :deep(.default-card .read-badge) {
-  inset-block-start: 50%;
-  inset-inline-end: 0;
-  transform: translateY(-50%);
-}
-
-@media only screen and (max-width: 767px) {
-  .chapters :deep(.default-card) {
-    padding-inline-end: var(--spacing-lg);
-  }
-}
+// The list-row styling and the completion check live in ArticleCard (the
+// single source — `list` + `mobileList` + the conditional `read` field), so
+// the hub needs no card CSS of its own. It renders identically to the Library
+// list cards.
 
 .chapter-row--soon {
   display: flex;
