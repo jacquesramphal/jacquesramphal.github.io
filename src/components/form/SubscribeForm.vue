@@ -35,7 +35,7 @@ import { ref } from "vue";
 
 // The newsletter pitch shown above the field.
 const pitch =
-  "Notes on design when making is cheap and judgment is the scarce skill. New essays as I publish them.";
+  "Subscribe for essays on design when making is cheap and judgment is the scarce skill.";
 
 // Buttondown embed endpoint for the owned list.
 const ENDPOINT =
