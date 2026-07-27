@@ -1,6 +1,8 @@
 <template>
-  <form class="subscribe" @submit.prevent="subscribe">
-    <div class="subscribe__row">
+  <div class="subscribe">
+    <p class="subscribe__pitch">{{ pitch }}</p>
+
+    <form class="subscribe__form" @submit.prevent="subscribe">
       <MyInput
         id="subscribe-email"
         type="email"
@@ -10,31 +12,30 @@
         placeholder="you@example.com"
         autocomplete="email"
         v-model="email"
+        :submit-button="true"
+        :submit-disabled="submitting"
+        @submit="subscribe"
       />
-      <MyButton
-        class="subscribe__btn"
-        label="Subscribe"
-        name="submit"
-        primary
-        :disabled="submitting"
-        @click="subscribe"
-      />
-    </div>
 
-    <p
-      v-if="message"
-      class="subscribe__message"
-      :class="{ 'is-success': isSuccess, 'is-error': !isSuccess }"
-      role="status"
-      aria-live="polite"
-    >
-      {{ message }}
-    </p>
-  </form>
+      <p
+        v-if="message"
+        class="subscribe__message"
+        :class="{ 'is-success': isSuccess, 'is-error': !isSuccess }"
+        role="status"
+        aria-live="polite"
+      >
+        {{ message }}
+      </p>
+    </form>
+  </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+
+// The newsletter pitch shown above the field.
+const pitch =
+  "Subscribe for essays on design when making is cheap and judgment is the scarce skill.";
 
 // Buttondown embed endpoint for the owned list.
 const ENDPOINT =
@@ -82,22 +83,19 @@ const subscribe = async () => {
 </script>
 
 <style scoped>
-/* Full-width field with the Subscribe button below it at its natural width.
-   Heights use each component's own defaults. */
-.subscribe__row {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: var(--spacing-xs);
-  width: 100%;
+.subscribe__pitch {
+  margin: 0 0 var(--spacing-xs) 0;
+  font-size: var(--font-400);
+  color: var(--foreground-muted, var(--foreground));
 }
 
-.subscribe__btn {
-  align-self: flex-start;
+.subscribe__form {
+  width: 100%;
 }
 
 .subscribe__message {
   margin: var(--spacing-xs) 0 0 0;
+  font-size: var(--font-300);
 }
 
 .subscribe__message.is-success {

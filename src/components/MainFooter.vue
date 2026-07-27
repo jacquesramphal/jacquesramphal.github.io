@@ -27,13 +27,8 @@
           </div>
           <GridParent tight class="outer">
             <div id="maindetails">
-              <TextBlock
-                as="h4"
-                title="Jacques Ramphal"
-                description="I lead design work where systems, code, and AI meet—building the practices and platforms that let cross-functional teams deliver meaningful products efficiently and sustainably."
-              />
+              <TextBlock as="h4" title="Jacques Ramphal" />
               <div class="footer-subscribe">
-                <p class="subtle">Subscribe</p>
                 <SubscribeForm />
               </div>
             </div>
@@ -435,7 +430,7 @@ li {
 
 .footer-subscribe {
   margin-block-start: var(--spacing-md);
-  max-inline-size: 22rem;
+  inline-size: 100%;
 
   .subtle {
     margin-block-end: var(--spacing-xxs);
