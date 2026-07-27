@@ -11,7 +11,7 @@
       :red="false"
     >
       <form class="newsletter__form" @submit.prevent="subscribe">
-        <div class="newsletter__row">
+        <div class="newsletter__row" reversed>
           <MyInput
             id="newsletter-email"
             type="email"
@@ -115,41 +115,23 @@ const subscribe = async () => {
   width: 100%;
 }
 
-/* Tablet and up: input and button sit in a row at one shared height, so the
-   button matches the field height and their tops and bottoms line up. */
+/* Tablet and up: input and button sit in a row, button matches the field
+   height and aligns to its top. */
 @media only screen and (min-width: 768px) {
   .newsletter__row {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
+    flex-wrap: wrap;
   }
 
   .newsletter__row :deep(#input) {
-    flex: 1 1 12rem;
-  }
-
-  .newsletter__row :deep(.input-wrap) {
-    height: auto;
-  }
-
-  .newsletter__row :deep(input) {
-    height: var(--size-10);
-    box-sizing: border-box;
   }
 
   .newsletter__btn {
-    flex: 0 0 auto;
     display: flex;
   }
 
   .newsletter__btn :deep(.custom-btn) {
     width: auto;
-    height: var(--size-10);
-    box-sizing: border-box;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding-block: 0;
+    height: 100%;
   }
 }
 
