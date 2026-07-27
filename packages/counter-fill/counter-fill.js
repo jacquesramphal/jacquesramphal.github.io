@@ -91,18 +91,19 @@
     return 'ultra-expanded';
   }
 
-  // ── Feature-test ctx.fontVariationSettings (property may exist but be a no-op)
+  // ── Feature-test ctx.fontVariationSettings ─────────────────────────────────
+  // Chrome 134+ exposes this property when it works. Browsers that expose it
+  // but don't implement it haven't shipped — the property check is sufficient.
+  // Previous version tried to verify via measureText with Roboto Flex, but that
+  // gave false negatives when the font wasn't loaded yet (fell back to Arial
+  // which doesn't respond to wdth). The cached false result then persisted for
+  // the entire page session, forcing all variable fonts through the SVG path.
   let _fvsWorks = null;
   function _canUseFVS() {
     if (_fvsWorks !== null) return _fvsWorks;
     try {
       const tc = document.createElement('canvas').getContext('2d');
-      if (!('fontVariationSettings' in tc)) { _fvsWorks = false; return false; }
-      tc.font = '400 72px "Roboto Flex", "Arial", sans-serif';
-      const w1 = tc.measureText('W').width;
-      tc.fontVariationSettings = '"wdth" 25';
-      const w2 = tc.measureText('W').width;
-      _fvsWorks = w1 !== w2;
+      _fvsWorks = 'fontVariationSettings' in tc;
     } catch(e) { _fvsWorks = false; }
     return _fvsWorks;
   }
@@ -122,22 +123,27 @@
         || null;
   }
 
-  // Helper: fetch a font URL and store as base64 in cache under the given key
+  // Helper: fetch a font URL and store as base64 in cache under the given key.
+  // Retries once on failure to handle CDN hiccups on page reload.
   async function _fetchAndCache(key, url) {
     if (_fontCache.has(key)) return;
-    try {
-      const resp = await fetch(url);
-      const buf = await resp.arrayBuffer();
-      const bytes = new Uint8Array(buf);
-      let bin = '';
-      for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
-      const ct = resp.headers.get('content-type') || '';
-      const mime = ct.includes('woff2') ? 'font/woff2'
-                 : ct.includes('woff')  ? 'font/woff'
-                 : ct.includes('ttf') || ct.includes('truetype') ? 'font/ttf'
-                 : 'application/octet-stream';
-      _fontCache.set(key, { dataUrl: 'data:' + mime + ';base64,' + btoa(bin), mime });
-    } catch(e) { /* fetch failed — this font uses fallback path */ }
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        const resp = await fetch(url);
+        if (!resp.ok) continue; // non-200 — retry once
+        const buf = await resp.arrayBuffer();
+        const bytes = new Uint8Array(buf);
+        let bin = '';
+        for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+        const ct = resp.headers.get('content-type') || '';
+        const mime = ct.includes('woff2') ? 'font/woff2'
+                   : ct.includes('woff')  ? 'font/woff'
+                   : ct.includes('ttf') || ct.includes('truetype') ? 'font/ttf'
+                   : 'application/octet-stream';
+        _fontCache.set(key, { dataUrl: 'data:' + mime + ';base64,' + btoa(bin), mime });
+        return; // success
+      } catch(e) { /* fetch failed — retry or fall through to fallback path */ }
+    }
   }
 
   // Auto-detect font URLs from same-origin @font-face rules + Google Fonts <link> tags
@@ -171,6 +177,7 @@
     for (const link of document.querySelectorAll('link[href*="fonts.googleapis.com/css"]')) {
       try {
         const resp = await fetch(link.href);
+        if (!resp.ok) continue;
         const css = await resp.text();
         // Parse each @font-face block individually for family, style, weight, src
         const blocks = css.split('@font-face');

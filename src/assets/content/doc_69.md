@@ -111,6 +111,8 @@ Counter Fill selects from three rendering paths automatically:
 
 Safari's SVG engine partially applies `font-variation-settings`. Standard axes (`wght`, `wdth`) work via their CSS property equivalents, but custom axes like `SOFT` may not render pixel-identically to Chrome. Fills on Safari use increased dilation and `textLength` for alignment.
 
+Results vary at extreme weight values and with custom axes. At very heavy weights (800–900+), counter openings become small enough that the fill may not appear, or may appear slightly misaligned depending on the browser and screen density. Standard axes on Chrome and Firefox are the most reliable. Safari handles standard axes but may not render custom axes, which can cause fills to drift from the visible glyph shape. If a demo below appears without fills on first load, resizing the browser window triggers a repaint that usually resolves it.
+
 Fonts are auto-detected from Google Fonts `<link>` tags and same-origin `@font-face` rules. Cross-origin fonts and fonts loaded via JavaScript need to be registered manually:
 
 ```js
@@ -155,9 +157,7 @@ Canvas content doesn't print by default, but Chrome renders it correctly. For ot
 }
 ```
 
-More elaborate print fallbacks, like restoring a CSS background or outline effect, are possible but aren't built into the library.
-
-<!-- TODO: Test print behaviour in Firefox and Safari, confirm fallback needed and update this section accordingly -->
+More elaborate print fallbacks, like restoring a CSS background or outline effect, are possible but aren't built into the library. Firefox and Safari don't render canvas content in print at all, so the `@media print` rule above is recommended for cross-browser print support.
 
 ### Writing modes
 
@@ -175,9 +175,7 @@ Resize handling stays cheap through three things:
 - Repaints are debounced via double `requestAnimationFrame`, batching all resize events into a single pass
 - Font files are fetched once at init and reused for every subsequent paint
 
-Paint only happens on init and on resize.
-
-<!-- PLACEHOLDER: Add performance stress-test CodePen embed once created from CODEPENS.md snippet #8 -->
+Paint only happens on init and on resize. There's no continuous loop.
 
 ## What I learned
 
