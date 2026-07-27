@@ -42,8 +42,18 @@ const MAX_INPUT_CHARS = Number(process.env.MAX_INPUT_CHARS || 2000);
 const SESSION_TTL_SECONDS = Number(process.env.SESSION_TTL_SECONDS || 86400);
 const MAX_HISTORY_MESSAGES = 12; // cap stored messages to bound token cost
 
-const KV_URL = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
-const KV_TOKEN = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
+// Read the REST creds under whatever names the store injected. Vercel's
+// Upstash integration prefixes them (upstash_KV_REST_API_*); the classic
+// Vercel KV and bare Upstash names are also supported. Values live only in
+// Vercel's env — never in this repo. Use the read/write token (not read-only).
+const KV_URL =
+  process.env.KV_REST_API_URL ||
+  process.env.UPSTASH_REDIS_REST_URL ||
+  process.env.upstash_KV_REST_API_URL;
+const KV_TOKEN =
+  process.env.KV_REST_API_TOKEN ||
+  process.env.UPSTASH_REDIS_REST_TOKEN ||
+  process.env.upstash_KV_REST_API_TOKEN;
 
 const PERSONA = [
   "You are the site guide for ramphal.design, the personal site of Jacques Ramphal, a design engineer who works where design systems, code, and AI meet. You help visitors find and understand his projects, case studies, writing, and background.",
