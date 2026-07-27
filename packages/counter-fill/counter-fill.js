@@ -690,14 +690,31 @@
       _injectStyles();
       await _autoDetectFonts();
       await document.fonts.ready;
-      document.querySelectorAll('.wrap').forEach(el => paintWrap(el, fills));
-      document.querySelectorAll('.wrap-multi').forEach(el => paintMulti(el, fills));
+
+      const allEls = [...document.querySelectorAll('.wrap, .wrap-multi')];
+      const paintEl = el => el.classList.contains('wrap-multi') ? paintMulti(el, fills) : paintWrap(el, fills);
+      allEls.forEach(paintEl);
 
       // ResizeObserver with size cache + rAF debounce
       const ro = new ResizeObserver(entries =>
         entries.forEach(e => scheduleRepaint(e.target, fills))
       );
-      document.querySelectorAll('.wrap, .wrap-multi').forEach(el => ro.observe(el));
+      allEls.forEach(el => ro.observe(el));
+
+      // Deferred verification repaint: in embed iframes (e.g. CodePen),
+      // <link> tags in <body> may not trigger font downloads before
+      // document.fonts.ready resolves. Wait for any late-loading fonts,
+      // then repaint. The size cache is cleared so the repaint isn't skipped.
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+          setTimeout(() => {
+            document.fonts.ready.then(() => {
+              allEls.forEach(el => { sizeCache.delete(el); paintEl(el); });
+            });
+          }, 100);
+        });
+      }
+
       return ro;
     },
 
