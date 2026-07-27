@@ -53,7 +53,7 @@ const ENDPOINT =
   "https://buttondown.com/api/emails/embed-subscribe/jacquesramphal";
 
 const leadText =
-  "Notes on design when making is cheap and judgment is the scarce skill. I send new essays as I publish them.";
+  "I reflect on work, judgment, and not-knowing, from inside a shifting industry. Design's the setting, not the subject. Written from inside it, still shipping.";
 
 const email = ref("");
 const message = ref("");
