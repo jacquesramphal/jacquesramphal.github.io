@@ -52,7 +52,7 @@ function currentFacts() {
   const years = now.getFullYear() - CAREER_START_YEAR;
   return [
     'CURRENT FACTS (authoritative — prefer these over any dated figures in SITE CONTENT):',
-    `- Jacques has ${years} years of design/engineering experience (career began in ${CAREER_START_YEAR}). Use "${years} years"; do not say "12+ years" or any other fixed number.`,
+    `- Jacques has ${years}+ years of design/engineering experience (career began in ${CAREER_START_YEAR}). Say "${years}+ years"; do not use any other fixed number.`,
     `- The current year is ${now.getFullYear()}.`,
     '- A full résumé lives on the site at /resume, with a printable/PDF version at /resume.html. If someone asks for a CV or resume, point them there.',
   ].join('\n');

@@ -25,7 +25,7 @@
         as="h2"
         description=""
         eyebrow1=""
-        :detail1="`${careerYears} years at the seam between design and engineering, designing systems, writing production code, and building with AI.<br/><br/>I care most about the gap between design intent and what actually ships: how decisions survive handoff, how systems scale, and how people stay in control when the tools get smarter. I also coach designers moving closer to systems and code, not because everyone needs to write code, but because fluency changes the kinds of conversations you can have.`"
+        :detail1="`${careerYears}+ years at the seam between design and engineering, designing systems, writing production code, and building with AI.<br/><br/>I care most about the gap between design intent and what actually ships: how decisions survive handoff, how systems scale, and how people stay in control when the tools get smarter. I also coach designers moving closer to systems and code, not because everyone needs to write code, but because fluency changes the kinds of conversations you can have.`"
         label="More about me"
         route="/about"
       />
@@ -128,7 +128,7 @@ export default {
       meta: [
         {
           name: 'description',
-          content: `${years} years at the seam between design and engineering — designing systems, writing production code, and building with AI.`,
+          content: `${years}+ years at the seam between design and engineering — designing systems, writing production code, and building with AI.`,
         },
         {
           property: 'og:title',
@@ -136,7 +136,7 @@ export default {
         },
         {
           property: 'og:description',
-          content: `${years} years at the seam between design and engineering — designing systems, writing production code, and building with AI.`,
+          content: `${years}+ years at the seam between design and engineering — designing systems, writing production code, and building with AI.`,
         },
         {
           property: 'og:type',
@@ -156,7 +156,7 @@ export default {
         },
         {
           property: 'twitter:description',
-          content: `${years} years at the seam between design and engineering — designing systems, writing production code, and building with AI.`,
+          content: `${years}+ years at the seam between design and engineering — designing systems, writing production code, and building with AI.`,
         },
       ],
     });

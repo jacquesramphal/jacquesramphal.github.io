@@ -4,7 +4,7 @@ Head of Design · Agentic Experience (AX) Lead — Toronto, ON
 
 ---
 
-Founding-caliber design engineer with {{yearsExperience}} years shipping enterprise and consumer products — currently leading agentic experience (AX) design at Orium, where I built Genie: an AI orchestration layer that automates recurring design tasks and establishes agent-safe UX patterns for hybrid human-AI workflows.
+Founding-caliber design engineer with {{yearsExperience}}+ years shipping enterprise and consumer products — currently leading agentic experience (AX) design at Orium, where I built Genie: an AI orchestration layer that automates recurring design tasks and establishes agent-safe UX patterns for hybrid human-AI workflows.
 
 **Core Competencies:** Product Design · UX/UI Design · Design Systems · Design-to-Development Integration · AI and Agentic UX · Design Leadership · Front-End Development · Design Tokens · Design QA · Accessibility · Agile
 
