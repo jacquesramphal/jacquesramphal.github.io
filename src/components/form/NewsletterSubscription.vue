@@ -1,46 +1,48 @@
 <template>
-  <GridContainer class="newsletter">
-    <form class="newsletter__inner" @submit.prevent="subscribe">
-      <TextBlock
-        center
-        as="h3"
-        title="Subscribe"
-        :description="leadText"
-      />
-
-      <div class="newsletter__row">
-        <MyInput
-          id="newsletter-email"
-          type="email"
-          name="email"
-          label="Email address"
-          hide-label
-          placeholder="you@example.com"
-          autocomplete="email"
-          v-model="email"
+  <GridWrapper class="newsletter" style="background: var(--background-darker)">
+    <GridContainer>
+      <form class="newsletter__inner" @submit.prevent="subscribe">
+        <TextBlock
+          center
+          as="h2"
+          title="Subscribe"
+          :description="leadText"
         />
-        <MyButton
-          class="newsletter__btn"
-          label="Subscribe"
-          name="submit"
-          primary
-          size="large"
-          :disabled="submitting"
-          @click="subscribe"
-        />
-      </div>
 
-      <p
-        v-if="message"
-        class="newsletter__message"
-        :class="{ 'is-success': isSuccess, 'is-error': !isSuccess }"
-        role="status"
-        aria-live="polite"
-      >
-        {{ message }}
-      </p>
-    </form>
-  </GridContainer>
+        <div class="newsletter__row">
+          <MyInput
+            id="newsletter-email"
+            type="email"
+            name="email"
+            label="Email address"
+            hide-label
+            placeholder="you@example.com"
+            autocomplete="email"
+            v-model="email"
+          />
+          <MyButton
+            class="newsletter__btn"
+            label="Subscribe"
+            name="submit"
+            primary
+            size="large"
+            :disabled="submitting"
+            @click="subscribe"
+          />
+        </div>
+
+        <p
+          v-if="message"
+          class="newsletter__message"
+          :class="{ 'is-success': isSuccess, 'is-error': !isSuccess }"
+          role="status"
+          aria-live="polite"
+        >
+          {{ message }}
+        </p>
+      </form>
+    </GridContainer>
+  </GridWrapper>
 </template>
 
 <script setup>
