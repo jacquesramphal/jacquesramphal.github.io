@@ -31,18 +31,17 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue';
 
 // The newsletter pitch shown above the field.
 const pitch =
-  "Subscribe for essays on design when making is cheap and judgment is the scarce skill.";
+  'Subscribe for essays on design when making is cheap and judgment is the scarce skill.';
 
 // Buttondown embed endpoint for the owned list.
-const ENDPOINT =
-  "https://buttondown.com/api/emails/embed-subscribe/jacquesramphal";
+const ENDPOINT = 'https://buttondown.com/api/emails/embed-subscribe/jacquesramphal';
 
-const email = ref("");
-const message = ref("");
+const email = ref('');
+const message = ref('');
 const isSuccess = ref(false);
 const submitting = ref(false);
 
@@ -53,29 +52,29 @@ const subscribe = async () => {
 
   if (!isValidEmail(value)) {
     isSuccess.value = false;
-    message.value = "Please enter a valid email address.";
+    message.value = 'Please enter a valid email address.';
     return;
   }
 
   submitting.value = true;
-  message.value = "";
+  message.value = '';
 
   try {
     await fetch(ENDPOINT, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams({ email: value }),
     });
     // A no-cors request returns an opaque response, so the status can't be
     // read. Buttondown sends its own confirmation email; treat the submit as
     // delivered and point the reader there.
     isSuccess.value = true;
-    message.value = "Almost there — check your inbox to confirm.";
-    email.value = "";
+    message.value = 'Almost there — check your inbox to confirm.';
+    email.value = '';
   } catch (e) {
     isSuccess.value = false;
-    message.value = "Something went wrong. Please try again.";
+    message.value = 'Something went wrong. Please try again.';
   } finally {
     submitting.value = false;
   }
@@ -95,7 +94,6 @@ const subscribe = async () => {
 
 .subscribe__message {
   margin: var(--spacing-xs) 0 0 0;
-  font-size: var(--font-300);
 }
 
 .subscribe__message.is-success {
