@@ -1,8 +1,7 @@
 <template>
   <GridWrapper>
     <GridContainer>
-      <GridParent :class="classes">
-        
+      <GridParent tight :class="classes">
         <!-- <GridWrapper class="textcontainer parallaxFront fadeInUp"> -->
 
         <GridWrapper class="textcontainer">
@@ -21,7 +20,7 @@
           </div>
         </GridWrapper>
         <!-- <GridContainer class="imgcontainer parallaxBack fadeInUp"> -->
-          <GridWrapper class="imgcontainer">
+        <GridWrapper class="imgcontainer">
           <img
             class="splitimg"
             draggable="false"
@@ -34,51 +33,51 @@
   </GridWrapper>
 </template>
 <script>
-import TextBlock from "../text/TextBlock/TextBlock.vue";
+import TextBlock from '../text/TextBlock/TextBlock.vue';
 
 export default {
-  name: "TextImage",
+  name: 'TextImage',
   components: {
     TextBlock,
   },
   props: {
     eyebrow: {
       type: String,
-      default: "Eyebrow",
+      default: 'Eyebrow',
     },
     title: {
       type: String,
-      default: "Detail Card",
+      default: 'Detail Card',
     },
-    as:{
+    as: {
       type: String,
-      default: "h3",
+      default: 'h3',
     },
     description: {
       type: String,
       default:
-        "    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        '    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
     alt: {
       type: String,
-      default: "Alt Text",
+      default: 'Alt Text',
     },
     filename: {
       type: String,
-      default: "jacques.jpg",
+      default: 'jacques.jpg',
     },
     label: {
       type: String,
-      default: "Read More",
+      default: 'Read More',
     },
     btnroute: {
       type: String,
-      default: "",
+      default: '',
       required: false,
     },
     route: {
       type: String,
-      default: "",
+      default: '',
       required: false,
     },
     flipped: {
@@ -96,12 +95,12 @@ export default {
   computed: {
     classes() {
       return {
-        "TextImage-align": true,
-        "TextImage-align--flipped": this.flipped,
-        "TextImage-align--default": !this.flipped,
-        "TextImage-color": true,
-        "TextImage-color--red": this.red,
-        "TextImage-color--default": !this.red,
+        'TextImage-align': true,
+        'TextImage-align--flipped': this.flipped,
+        'TextImage-align--default': !this.flipped,
+        'TextImage-color': true,
+        'TextImage-color--red': this.red,
+        'TextImage-color--default': !this.red,
       };
     },
   },
@@ -175,7 +174,6 @@ export default {
     display: block;
     grid-column: auto;
     // background-color: blue !important;
-
     // grid-row: 2 / 2;
     grid-template-columns: 2fr !important;
   }
@@ -194,6 +192,8 @@ export default {
     @media only screen and (min-width: 1201px) {
       grid-row: 1;
       // padding-inline-end: var(--spacing-md);
+      margin-inline-end: var(--spacing-md);
+
       grid-column: 1;
     }
   }
@@ -224,6 +224,8 @@ export default {
       // padding-inline-start: var(--spacing-md);
 
       grid-column: 3;
+      margin-inline-end: 0 !important;
+      margin-inline-start: var(--spacing-md) !important;
     }
   }
 

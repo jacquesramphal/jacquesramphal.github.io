@@ -5,7 +5,7 @@
       eyebrow=""
       title="Subscribe"
       :description="leadText"
-      filename="about.jpg"
+      filename="placeholders/placeholder-24.svg"
       alt="Jacques Ramphal"
       :flipped="false"
       :red="false"
@@ -21,13 +21,13 @@
             placeholder="you@example.com"
             autocomplete="email"
             v-model="email"
+            size="large"
           />
           <MyButton
             class="newsletter__btn"
             label="Subscribe"
             name="submit"
             primary
-            size="large"
             :disabled="submitting"
             @click="subscribe"
           />
@@ -48,17 +48,16 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue';
 
 // Buttondown embed endpoint for the owned list.
-const ENDPOINT =
-  "https://buttondown.com/api/emails/embed-subscribe/jacquesramphal";
+const ENDPOINT = 'https://buttondown.com/api/emails/embed-subscribe/jacquesramphal';
 
 const leadText =
-  "Notes on design when making is cheap and judgment is the scarce skill. I send new essays as I publish them.";
+  'Notes on design when making is cheap and judgment is the scarce skill. I send new essays as I publish them.';
 
-const email = ref("");
-const message = ref("");
+const email = ref('');
+const message = ref('');
 const isSuccess = ref(false);
 const submitting = ref(false);
 
@@ -69,29 +68,29 @@ const subscribe = async () => {
 
   if (!isValidEmail(value)) {
     isSuccess.value = false;
-    message.value = "Please enter a valid email address.";
+    message.value = 'Please enter a valid email address.';
     return;
   }
 
   submitting.value = true;
-  message.value = "";
+  message.value = '';
 
   try {
     await fetch(ENDPOINT, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams({ email: value }),
     });
     // A no-cors request returns an opaque response, so the status can't be
     // read. Buttondown sends its own confirmation email; treat the submit as
     // delivered and point the reader there.
     isSuccess.value = true;
-    message.value = "Almost there — check your inbox to confirm.";
-    email.value = "";
+    message.value = 'Almost there — check your inbox to confirm.';
+    email.value = '';
   } catch (e) {
     isSuccess.value = false;
-    message.value = "Something went wrong. Please try again.";
+    message.value = 'Something went wrong. Please try again.';
   } finally {
     submitting.value = false;
   }
