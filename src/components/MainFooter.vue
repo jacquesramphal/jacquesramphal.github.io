@@ -435,7 +435,7 @@ li {
 
 .footer-subscribe {
   margin-block-start: var(--spacing-md);
-  max-inline-size: 22rem;
+  inline-size: 100%;
 
   .subtle {
     margin-block-end: var(--spacing-xxs);
