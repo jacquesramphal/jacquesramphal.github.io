@@ -84,7 +84,6 @@ const subscribe = async () => {
 <style scoped>
 .subscribe__pitch {
   margin: 0 0 var(--spacing-xs) 0;
-  font-size: var(--font-400);
   color: var(--foreground-muted, var(--foreground));
 }
 
