@@ -47,6 +47,7 @@ function collectRoutes() {
     '/resume',
     '/links',
     '/designsystem',
+    '/subscribed',
   ]);
 
   // Article / doc routes from the library registry (prefer human-readable slug).

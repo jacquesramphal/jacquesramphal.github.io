@@ -19,6 +19,7 @@ import UsefulLinks from '@/pages/UsefulLinks.vue';
 import CoursePage from '@/pages/CoursePage.vue';
 import SessionReader from '@/pages/SessionReader.vue';
 import BusinessCardPage from '@/pages/BusinessCardPage.vue';
+import SubscribedPage from '@/pages/SubscribedPage.vue';
 import FullscreenMenu from '../components/FullscreenMenu.vue';
 import { getDocRecordById } from '@/utils/docRegistry';
 import { getCourseBySlug, getDefaultCourse } from '@/utils/courseRegistry';
@@ -227,6 +228,14 @@ const routes = [
       hideFooter: true,
       hideChat: true,
       dynamicTitle: true,
+    },
+  },
+  {
+    name: 'Subscribed',
+    path: '/subscribed',
+    component: SubscribedPage,
+    meta: {
+      title: 'Subscribed',
     },
   },
   {

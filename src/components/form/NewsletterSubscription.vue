@@ -1,32 +1,48 @@
 <template>
-  <div class="newsletter">
-    <p class="newsletter__lead">{{ leadText }}</p>
-    <form class="newsletter__form" @submit.prevent="subscribe">
-      <MyInput
-        id="newsletter-email"
-        type="email"
-        name="email"
-        label="Email address"
-        hide-label
-        placeholder="you@example.com"
-        autocomplete="email"
-        size="small"
-        :submit-button="true"
-        :submit-disabled="submitting"
-        v-model="email"
-        @submit="subscribe"
-      />
-    </form>
-    <p
-      v-if="message"
-      class="newsletter__message"
-      :class="{ 'is-success': isSuccess, 'is-error': !isSuccess }"
-      role="status"
-      aria-live="polite"
-    >
-      {{ message }}
-    </p>
-  </div>
+  <GridWrapper class="newsletter" style="background: var(--background-darker)">
+    <GridContainer>
+      <form class="newsletter__inner" @submit.prevent="subscribe">
+        <TextBlock
+          center
+          as="h2"
+          title="Subscribe"
+          :description="leadText"
+        />
+
+        <div class="newsletter__row">
+          <MyInput
+            id="newsletter-email"
+            type="email"
+            name="email"
+            label="Email address"
+            hide-label
+            placeholder="you@example.com"
+            autocomplete="email"
+            v-model="email"
+          />
+          <MyButton
+            class="newsletter__btn"
+            label="Subscribe"
+            name="submit"
+            primary
+            size="large"
+            :disabled="submitting"
+            @click="subscribe"
+          />
+        </div>
+
+        <p
+          v-if="message"
+          class="newsletter__message"
+          :class="{ 'is-success': isSuccess, 'is-error': !isSuccess }"
+          role="status"
+          aria-live="polite"
+        >
+          {{ message }}
+        </p>
+      </form>
+    </GridContainer>
+  </GridWrapper>
 </template>
 
 <script setup>
@@ -81,24 +97,30 @@ const subscribe = async () => {
 </script>
 
 <style scoped>
-.newsletter {
+.newsletter__inner {
   width: 100%;
   max-width: 32rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.newsletter__lead {
-  margin: 0 0 var(--spacing-xs) 0;
-  font-size: var(--font-400);
-  color: var(--foreground-subtle, var(--foreground));
-}
-
-.newsletter__form {
+.newsletter__row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
   width: 100%;
+  margin-block-start: var(--spacing-sm);
+}
+
+.newsletter__btn {
+  align-self: center;
 }
 
 .newsletter__message {
-  margin: var(--spacing-xxs) 0 0 0;
-  font-size: var(--font-300);
+  margin: var(--spacing-xs) 0 0 0;
+  text-align: center;
 }
 
 .newsletter__message.is-success {
