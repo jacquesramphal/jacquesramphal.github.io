@@ -1,46 +1,45 @@
 <template>
   <GridWrapper class="newsletter" style="background: var(--background-darker)">
     <GridContainer>
-      <form class="newsletter__inner" @submit.prevent="subscribe">
-        <TextBlock
-          center
-          as="h2"
-          title="Subscribe"
-          :description="leadText"
-        />
-
-        <div class="newsletter__row">
-          <MyInput
-            id="newsletter-email"
-            type="email"
-            name="email"
-            label="Email address"
-            hide-label
-            placeholder="you@example.com"
-            autocomplete="email"
-            v-model="email"
-          />
-          <MyButton
-            class="newsletter__btn"
-            label="Subscribe"
-            name="submit"
-            primary
-            size="large"
-            :disabled="submitting"
-            @click="subscribe"
-          />
+      <GridParent class="newsletter__grid">
+        <div class="newsletter__text">
+          <TextBlock as="h2" title="Subscribe" :description="leadText" />
         </div>
 
-        <p
-          v-if="message"
-          class="newsletter__message"
-          :class="{ 'is-success': isSuccess, 'is-error': !isSuccess }"
-          role="status"
-          aria-live="polite"
-        >
-          {{ message }}
-        </p>
-      </form>
+        <form class="newsletter__form" @submit.prevent="subscribe">
+          <div class="newsletter__row">
+            <MyInput
+              id="newsletter-email"
+              type="email"
+              name="email"
+              label="Email address"
+              hide-label
+              placeholder="you@example.com"
+              autocomplete="email"
+              v-model="email"
+            />
+            <MyButton
+              class="newsletter__btn"
+              label="Subscribe"
+              name="submit"
+              primary
+              size="large"
+              :disabled="submitting"
+              @click="subscribe"
+            />
+          </div>
+
+          <p
+            v-if="message"
+            class="newsletter__message"
+            :class="{ 'is-success': isSuccess, 'is-error': !isSuccess }"
+            role="status"
+            aria-live="polite"
+          >
+            {{ message }}
+          </p>
+        </form>
+      </GridParent>
     </GridContainer>
   </GridWrapper>
 </template>
@@ -97,30 +96,49 @@ const subscribe = async () => {
 </script>
 
 <style scoped>
-.newsletter__inner {
+/* Mobile / tablet: text and form stack full width, left aligned.
+   Desktop (>=1201px): text in column 1, form in columns 2-3. */
+.newsletter__text {
+  grid-column: 1 / 3;
+}
+
+.newsletter__form {
+  grid-column: 1 / 3;
   width: 100%;
-  max-width: 32rem;
-  margin-inline: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+
+@media only screen and (min-width: 1201px) {
+  .newsletter__text {
+    grid-row: 1;
+    grid-column: 1;
+    align-self: center;
+  }
+
+  .newsletter__form {
+    grid-row: 1;
+    grid-column: 2 / 4;
+    align-self: center;
+  }
 }
 
 .newsletter__row {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
   gap: var(--spacing-xs);
   width: 100%;
-  margin-block-start: var(--spacing-sm);
+}
+
+.newsletter__row :deep(#input) {
+  flex: 1 1 16rem;
 }
 
 .newsletter__btn {
-  align-self: center;
+  flex: 0 0 auto;
 }
 
 .newsletter__message {
   margin: var(--spacing-xs) 0 0 0;
-  text-align: center;
 }
 
 .newsletter__message.is-success {
