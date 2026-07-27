@@ -90,6 +90,13 @@
                     @click="toggleFullscreen"
                   />
                 </li>
+                <li v-if="messages.length > 0">
+                  <TextLink
+                    label="Clear"
+                    aria-label="Clear conversation"
+                    @click="clearChat"
+                  />
+                </li>
                 <li>
                   <TextLink label="Close" aria-label="Close chat" @click="closeChat" />
                 </li>
@@ -649,6 +656,25 @@ export default {
       this.isFullscreen = false;
       this.fullscreenForcedByMobile = false;
       this.syncFullscreenRootClass();
+    },
+    clearChat() {
+      // Wipe the visible conversation and its saved copy...
+      this.messages = [];
+      this.error = null;
+      this.inputMessage = '';
+      try {
+        localStorage.removeItem(`chat-messages-${this.webhookUrl}`);
+      } catch (e) {
+        // ignore
+      }
+      // ...and start a fresh session so the server-side memory (KV) also
+      // resets — otherwise the bot would still "remember" the cleared turns.
+      this.sessionId = this.generateSessionId();
+      try {
+        localStorage.setItem(`chat-session-${this.webhookUrl}`, this.sessionId);
+      } catch (e) {
+        // ignore
+      }
     },
     toggleFullscreen() {
       this.isFullscreen = !this.isFullscreen;
