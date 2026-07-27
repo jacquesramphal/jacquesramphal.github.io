@@ -51,7 +51,6 @@ transform: rotate(90deg);
         />
       </template>
     </StickyNav> -->
-    <NewsletterSubscription v-if="!$route.meta.hideFooter" />
     <MainFooter v-if="!$route.meta.hideFooter" />
     <!-- <SimpleFooter v-if="!$route.meta.hideFooter" /> -->
     <!-- <UnderConstructionBar /> -->
