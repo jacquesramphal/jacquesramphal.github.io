@@ -286,7 +286,7 @@ export default {
     welcomeMessage: {
       type: String,
       default:
-        'Hi, I’m the guide to Jacques’s work. Ask about a project, something he’s written, or how he works, and I’ll point you to it.',
+        'Hi, I’m the guide to Jacques’ work. Ask about a project, something he’s written, or how he works, and I’ll point you to it.',
     },
     errorMessage: {
       type: String,

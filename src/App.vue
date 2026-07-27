@@ -63,9 +63,9 @@ transform: rotate(90deg);
     />-->
 
     <CustomChatUI v-if="!$route.meta.hideChat" />
-    <!-- Chat with Jacques's agent button and sidebar -->
+    <!-- Chat with Jacques' agent button and sidebar -->
     <!-- <div class="fixed-chat-entry" @click="toggleChatSidebar">
-      <span class="vertical-text">chat with Jacques's agent</span>
+      <span class="vertical-text">chat with Jacques' agent</span>
     </div>
     <transition name="slide">
       <div v-if="showChatSidebar" class="chat-sidebar">
