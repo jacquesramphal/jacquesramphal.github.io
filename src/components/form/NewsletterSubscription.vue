@@ -118,23 +118,46 @@ const subscribe = async () => {
     grid-row: 1;
     grid-column: 2 / 4;
     align-self: center;
+    /* Drop the container's right padding so the field group fills the
+       column to the band's right edge. */
+    margin-inline-end: calc(-1 * var(--spacing-xl));
   }
 }
 
+/* Mobile: input and button stack, button full width. */
 .newsletter__row {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   gap: var(--spacing-xs);
   width: 100%;
 }
 
-.newsletter__row :deep(#input) {
-  flex: 1 1 16rem;
+.newsletter__btn :deep(.custom-btn) {
+  width: 100%;
 }
 
-.newsletter__btn {
-  flex: 0 0 auto;
+/* Tablet and up: input and button sit in a row, button matches the field
+   height and aligns to its top. */
+@media only screen and (min-width: 768px) {
+  .newsletter__row {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .newsletter__row :deep(#input) {
+    flex: 1 1 auto;
+  }
+
+  .newsletter__btn {
+    flex: 0 0 auto;
+    display: flex;
+  }
+
+  .newsletter__btn :deep(.custom-btn) {
+    width: auto;
+    height: 100%;
+  }
 }
 
 .newsletter__message {
