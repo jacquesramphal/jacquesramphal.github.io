@@ -42,6 +42,22 @@ const MAX_INPUT_CHARS = Number(process.env.MAX_INPUT_CHARS || 2000);
 const SESSION_TTL_SECONDS = Number(process.env.SESSION_TTL_SECONDS || 86400);
 const MAX_HISTORY_MESSAGES = 12; // cap stored messages to bound token cost
 
+// Career started in 2013 (matches the site's getFullYear() - 2013). Computed
+// per request so the years-of-experience figure is always current, and given
+// to the model as authoritative — overriding any dated "12+ years" phrasing
+// baked into the site content.
+const CAREER_START_YEAR = 2013;
+function currentFacts() {
+  const now = new Date();
+  const years = now.getFullYear() - CAREER_START_YEAR;
+  return [
+    'CURRENT FACTS (authoritative — prefer these over any dated figures in SITE CONTENT):',
+    `- Jacques has ${years} years of design/engineering experience (career began in ${CAREER_START_YEAR}). Use "${years} years"; do not say "12+ years" or any other fixed number.`,
+    `- The current year is ${now.getFullYear()}.`,
+    '- A full résumé lives on the site at /resume, with a printable/PDF version at /resume.html. If someone asks for a CV or resume, point them there.',
+  ].join('\n');
+}
+
 // Read the REST creds under whatever names the store injected. Vercel's
 // Upstash integration prefixes them (upstash_KV_REST_API_*); the classic
 // Vercel KV and bare Upstash names are also supported. Values live only in
@@ -200,6 +216,8 @@ module.exports = async function handler(req, res) {
             text: 'SITE CONTENT (the only source of truth):\n\n' + context.content,
             cache_control: { type: 'ephemeral' },
           },
+          // After the cached corpus block so it doesn't invalidate the cache.
+          { type: 'text', text: currentFacts() },
         ],
         messages: outgoing,
       }),
