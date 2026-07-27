@@ -179,7 +179,12 @@ export default {
   }
 
   .text-slot {
-    margin-block-start: var(--spacing-sm);
+    margin-block-start: var(--spacing-md);
+    margin-block-end: var(--spacing-sm);
+
+    @media only screen and (min-width: 768px) {
+      margin-block-end: 0;
+    }
   }
 }
 
