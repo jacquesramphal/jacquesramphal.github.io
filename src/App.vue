@@ -51,13 +51,7 @@ transform: rotate(90deg);
         />
       </template>
     </StickyNav> -->
-    <section
-      v-if="!$route.meta.hideFooter"
-      class="newsletter-band"
-      aria-label="Subscribe"
-    >
-      <NewsletterSubscription />
-    </section>
+    <NewsletterSubscription v-if="!$route.meta.hideFooter" />
     <MainFooter v-if="!$route.meta.hideFooter" />
     <!-- <SimpleFooter v-if="!$route.meta.hideFooter" /> -->
     <!-- <UnderConstructionBar /> -->
@@ -195,12 +189,6 @@ export default {
 
 <style lang="scss">
 @import './assets/styles/css/all.css';
-
-.newsletter-band {
-  display: flex;
-  justify-content: center;
-  padding: var(--spacing-lg) var(--spacing-md);
-}
 
 .slide-enter-from {
   transform: translateX(100%);
