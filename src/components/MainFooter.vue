@@ -32,6 +32,10 @@
                 title="Jacques Ramphal"
                 description="I lead design work where systems, code, and AI meet—building the practices and platforms that let cross-functional teams deliver meaningful products efficiently and sustainably."
               />
+              <div class="footer-subscribe">
+                <p class="subtle">Subscribe</p>
+                <SubscribeForm />
+              </div>
             </div>
             <GridParent tight id="content">
               <div id="links1">
@@ -159,6 +163,7 @@ import GridWrapper from './grid/GridWrapper.vue';
 import TextBlock from './text/TextBlock/TextBlock.vue';
 import TextLink from './text/TextLink.vue';
 import GridParent from './grid/GridParent.vue';
+import SubscribeForm from './form/SubscribeForm.vue';
 // import TextArea from "@/components/form/TextArea.vue";
 // import MyButton from "@/components/Button/Button.vue";
 
@@ -170,6 +175,7 @@ export default {
     TextBlock,
     TextLink,
     GridParent,
+    SubscribeForm,
   },
   props: {
     title: {
@@ -424,6 +430,15 @@ li {
 #maindetails {
   @media only screen and (min-width: 768px) {
     padding-inline-end: var(--spacing-md);
+  }
+}
+
+.footer-subscribe {
+  margin-block-start: var(--spacing-md);
+  max-inline-size: 22rem;
+
+  .subtle {
+    margin-block-end: var(--spacing-xxs);
   }
 }
 #content {
