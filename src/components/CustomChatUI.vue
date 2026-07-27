@@ -90,7 +90,7 @@
                     @click="toggleFullscreen"
                   />
                 </li>
-                <li v-if="messages.length > 0">
+                <li>
                   <TextLink
                     label="Clear"
                     aria-label="Clear conversation"
