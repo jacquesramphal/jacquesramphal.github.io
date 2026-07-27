@@ -22,7 +22,7 @@
       "title": "Arrive",
       "description": "Name the thing that does not get said out loud at work: the shift you have been braced against for months.",
       "slug": "still-yourself-arrive",
-      "route": "/session/still-yourself-arrive",
+      "route": "/secured/doc/still-yourself-arrive",
       "contentFile": "still_yourself_1.md",
       "published": true
     },
