@@ -159,7 +159,7 @@
 
 <hr>
 
-<p class="summary">I work at the seam between design and engineering, with 12+ years shipping enterprise and consumer products. I lead the cross-disciplinary craft of how people and agents do the work together, and I built Genie, an agentic orchestration platform that gives the team meaningful hours back on routine delivery work.</p>
+<p class="summary">I work at the seam between design and engineering, with {{yearsExperience}} years shipping enterprise and consumer products. I lead the cross-disciplinary craft of how people and agents do the work together, and I built Genie, an agentic orchestration platform that gives the team meaningful hours back on routine delivery work.</p>
 
 <p class="competencies"><strong>Core Competencies:</strong> <span>Product Design · UX/UI Design · Design Systems · Design-to-Development Integration · Agentic Craft and AX · Design Leadership · Front-End Development · Design Tokens · Design QA · Accessibility · Agile</span></p>
 
@@ -228,5 +228,13 @@
 
 <p class="footer-line"><strong>Education:</strong> Bachelor of Design (BDes), Graphic Design, OCAD University · 2014 &nbsp;·&nbsp; <strong>Certifications:</strong> n8n Certified Expert Partner · 2026 &nbsp;·&nbsp; Composable Commerce · 2023</p>
 
+<script>
+  // Keep years-of-experience current without a hardcoded number going stale.
+  // Anchor matches src/utils/experience.ts (CAREER_START_YEAR = 2013).
+  (function () {
+    var years = new Date().getFullYear() - 2013;
+    document.body.innerHTML = document.body.innerHTML.replace(/\{\{\s*yearsExperience\s*\}\}/g, years);
+  })();
+</script>
 </body>
 </html>

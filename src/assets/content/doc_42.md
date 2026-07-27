@@ -11,7 +11,7 @@ Design Engineering · Agentic Craft · Design Systems · Design-to-Development
 
 ## Professional Summary
 
-I work at the seam between design and engineering, and I'm defining what design craft means now that the medium is agentic. I hold the full span from concept to production code, and over more than 12 years I've turned that range into leadership: building the design systems, tooling, and practices that let teams ship well without burning out. At Orium I built Genie, an agentic orchestration platform that gives the team meaningful hours back on routine delivery work, and I lead the cross-disciplinary craft of how people and agents do the work together. My depth is in token-based design systems, design-to-development integration, and accessible, high-fidelity UI.
+I work at the seam between design and engineering, and I'm defining what design craft means now that the medium is agentic. I hold the full span from concept to production code, and over {{yearsExperience}} years I've turned that range into leadership: building the design systems, tooling, and practices that let teams ship well without burning out. At Orium I built Genie, an agentic orchestration platform that gives the team meaningful hours back on routine delivery work, and I lead the cross-disciplinary craft of how people and agents do the work together. My depth is in token-based design systems, design-to-development integration, and accessible, high-fidelity UI.
 
 ---
 

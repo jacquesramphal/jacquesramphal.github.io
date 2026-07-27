@@ -7,6 +7,7 @@
 import { marked } from 'marked';
 import hljs from 'highlight.js';
 import frontMatter from 'front-matter';
+import { fillExperienceTokens } from '@/utils/experience';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -226,6 +227,10 @@ export default {
         this.$emit('headings', []);
         return;
       }
+
+      // Substitute {{yearsExperience}} before parsing so the figure stays
+      // current in prose without a hardcoded number going stale.
+      markdown = fillExperienceTokens(markdown);
 
       const normalizeHeadingPrefix = (raw) => {
         if (!raw || typeof raw !== 'string') return '';

@@ -22,10 +22,7 @@
           :attrs="{ class: 'subtle resume-header-label' }"
           style="margin-block-end: var(--spacing-xs)"
         />
-        <DynamicText
-          class="resume-summary"
-          text="Design lead working at the seam between design and engineering, with 12+ years delivering enterprise and consumer products. I lead the cross-disciplinary craft of how people and agents do the work together, built Genie as an agentic orchestration platform, and keep design-to-development integration tight. Deep expertise in token-based design systems, design-to-development integration, and accessible, high-fidelity UI."
-        />
+        <DynamicText class="resume-summary" :text="summary" />
       </div>
 
       <!-- Remove? -->
@@ -60,6 +57,7 @@
 import ResumeSegments from '@/components/resume/ResumeSegments.vue';
 import ResumeSkills from '@/components/resume/ResumeSkills.vue';
 import ResumeList from '@/components/resume/ResumeList.vue';
+import { yearsOfExperience } from '@/utils/experience';
 export default {
   name: 'TheResume',
   components: {
@@ -67,6 +65,11 @@ export default {
     // ResumeFooter,
     ResumeSegments,
     ResumeSkills,
+  },
+  computed: {
+    summary() {
+      return `Design lead working at the seam between design and engineering, with ${yearsOfExperience()} years delivering enterprise and consumer products. I lead the cross-disciplinary craft of how people and agents do the work together, built Genie as an agentic orchestration platform, and keep design-to-development integration tight. Deep expertise in token-based design systems, design-to-development integration, and accessible, high-fidelity UI.`;
+    },
   },
   props: {
     settings: {

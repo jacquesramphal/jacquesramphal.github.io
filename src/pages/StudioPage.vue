@@ -320,7 +320,7 @@
               </div>
             </div>
             <div class="about-body">
-              <p>13 years at the seam between design and engineering. I design systems and write the production code that ships them.</p>
+              <p>{{ careerYears }} years at the seam between design and engineering. I design systems and write the production code that ships them.</p>
               <p>I built an agentic AI platform for a design team before most design leaders knew what an agent was. I maintain open-source design tooling, write production front-end code, and have published on design systems and agentic AI.</p>
               <p>The practice exists because a specific combination of things is rare: design systems depth, engineering ability, agent infrastructure, and the willingness to operate it as an independent practice. Most designers with this background are employed at large companies. Almost none are selling it.</p>
               <p>The agent team handles the execution layer. I handle the judgment layer. The gap between those two things is where every engagement lives.</p>
@@ -409,6 +409,7 @@ import GridContainer from '@/components/grid/GridContainer.vue';
 import GridParent from '@/components/grid/GridParent.vue';
 import TextBlock from '@/components/text/TextBlock/TextBlock.vue';
 import TestimonialCarousel from '@/components/TestimonialCarousel.vue';
+import { yearsOfExperience } from '@/utils/experience';
 
 export default {
   name: 'StudioPage',
@@ -420,6 +421,11 @@ export default {
     GridParent,
     TextBlock,
     TestimonialCarousel,
+  },
+  computed: {
+    careerYears() {
+      return yearsOfExperience();
+    },
   },
 };
 </script>

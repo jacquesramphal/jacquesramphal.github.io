@@ -110,6 +110,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useHead } from '@vueuse/head';
 import work from '@/assets/data/library.json';
 import CounterFill from '../../public/lab/counter-fill/counter-fill.js';
+import { yearsOfExperience } from '@/utils/experience';
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
@@ -121,12 +122,13 @@ export default {
     // },
   },
   setup() {
+    const years = yearsOfExperience();
     useHead({
       title: 'Jacques Ramphal — Design, Systems, Code',
       meta: [
         {
           name: 'description',
-          content: `${new Date().getFullYear() - 2013} years at the seam between design and engineering — designing systems, writing production code, and building with AI.`,
+          content: `${years} years at the seam between design and engineering — designing systems, writing production code, and building with AI.`,
         },
         {
           property: 'og:title',
@@ -134,7 +136,7 @@ export default {
         },
         {
           property: 'og:description',
-          content: `${new Date().getFullYear() - 2013} years at the seam between design and engineering — designing systems, writing production code, and building with AI.`,
+          content: `${years} years at the seam between design and engineering — designing systems, writing production code, and building with AI.`,
         },
         {
           property: 'og:type',
@@ -154,7 +156,7 @@ export default {
         },
         {
           property: 'twitter:description',
-          content: `${new Date().getFullYear() - 2013} years at the seam between design and engineering — designing systems, writing production code, and building with AI.`,
+          content: `${years} years at the seam between design and engineering — designing systems, writing production code, and building with AI.`,
         },
       ],
     });
@@ -196,7 +198,7 @@ export default {
   },
   computed: {
     careerYears() {
-      return new Date().getFullYear() - 2013;
+      return yearsOfExperience();
     },
     // Filter work entries to show only Work category (exclude Play)
     filteredWorkEntries() {

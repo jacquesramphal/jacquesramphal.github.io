@@ -25,6 +25,14 @@ const OUT_FILE = join(OUT_DIR, '_context.json');
 
 const readJSON = (p) => JSON.parse(readFileSync(p, 'utf8'));
 
+// Resolve {{yearsExperience}} tokens so the corpus carries the current figure
+// rather than a literal token. Anchor matches src/utils/experience.ts.
+const CAREER_START_YEAR = 2013;
+const fillExperienceTokens = (text) =>
+  typeof text === 'string'
+    ? text.replace(/\{\{\s*yearsExperience\s*\}\}/g, String(new Date().getFullYear() - CAREER_START_YEAR))
+    : text;
+
 // Strip YAML frontmatter (--- ... ---) if present, then trim.
 function stripFrontmatter(md) {
   if (md.startsWith('---')) {
@@ -128,7 +136,7 @@ if (existsSync(join(DATA_DIR, 'library.json'))) {
   }
 }
 
-const content = sections.join('\n\n\n');
+const content = fillExperienceTokens(sections.join('\n\n\n'));
 const approxTokens = Math.round(content.length / 4);
 
 if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true });
