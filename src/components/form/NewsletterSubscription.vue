@@ -115,17 +115,26 @@ const subscribe = async () => {
   width: 100%;
 }
 
-/* Tablet and up: input and button sit in a row, button matches the field
-   height and aligns to its top. */
+/* Tablet and up: input and button sit in a row at one shared height, so the
+   button matches the field height and their tops and bottoms line up. */
 @media only screen and (min-width: 768px) {
   .newsletter__row {
     flex-direction: row;
-    flex-wrap: wrap;
-    align-items: stretch;
+    flex-wrap: nowrap;
+    align-items: center;
   }
 
   .newsletter__row :deep(#input) {
     flex: 1 1 12rem;
+  }
+
+  .newsletter__row :deep(.input-wrap) {
+    height: auto;
+  }
+
+  .newsletter__row :deep(input) {
+    height: var(--size-10);
+    box-sizing: border-box;
   }
 
   .newsletter__btn {
@@ -135,7 +144,12 @@ const subscribe = async () => {
 
   .newsletter__btn :deep(.custom-btn) {
     width: auto;
-    height: 100%;
+    height: var(--size-10);
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: 0;
   }
 }
 
