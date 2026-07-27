@@ -35,7 +35,7 @@ import { ref } from 'vue';
 
 // The newsletter pitch shown above the field.
 const pitch =
-  'Subscribe for essays on design when making is cheap and judgment is the scarce skill.';
+  "I'm a designer working where design, code, and AI meet. Subscribe for writing on what I'm learning there.";
 
 // Buttondown embed endpoint for the owned list.
 const ENDPOINT = 'https://buttondown.com/api/emails/embed-subscribe/jacquesramphal';
