@@ -15,6 +15,10 @@
             :btnroute="btnroute ? `${btnroute}` : undefined"
             :description="`${description}`"
           />
+          <!-- Optional inline content below the copy (e.g. a subscribe field). -->
+          <div v-if="$slots.default" class="text-slot">
+            <slot />
+          </div>
         </GridWrapper>
         <!-- <GridContainer class="imgcontainer parallaxBack fadeInUp"> -->
           <GridWrapper class="imgcontainer">
@@ -174,6 +178,10 @@ export default {
 
     // grid-row: 2 / 2;
     grid-template-columns: 2fr !important;
+  }
+
+  .text-slot {
+    margin-block-start: var(--spacing-sm);
   }
 }
 
