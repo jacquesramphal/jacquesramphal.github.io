@@ -249,6 +249,10 @@ export default {
   }
 
   &.active {
+    // Current-page crumb: pin it to the normal foreground colour. The nav
+    // forces its links white, so without this the last crumb renders white
+    // and disappears against the page.
+    color: var(--foreground) !important;
     opacity: 0.6;
     cursor: default;
     pointer-events: none;
