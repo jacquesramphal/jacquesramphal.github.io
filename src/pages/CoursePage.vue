@@ -1,6 +1,6 @@
 <template>
   <PageWrapper>
-    <HeroBanner v-if="course" :title="course.title" :subtitle="course.subtitle" eyebrow="Course" />
+    <HeroBanner v-if="course" :title="course.title" :subtitle="course.subtitle" />
 
     <GridContainer v-if="course">
       <div v-if="totalCount" class="course-progress" role="group" aria-label="Course progress">
