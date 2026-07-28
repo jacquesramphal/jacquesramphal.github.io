@@ -1,6 +1,6 @@
 # Jacques Ramphal
 
-Design Engineering · Agentic Craft · Design Systems · Design-to-Development
+Design Engineering · Agentic Experience · Design Systems · Design-to-Development
 
 - Toronto, ON
 - [Linkedin](https://linkedin.com/in/jacquesramphal-design)
@@ -19,7 +19,7 @@ I work at the seam between design and engineering, and I'm defining what design 
 
 - Product Design and UX Strategy
 - Design Systems Architecture and Governance
-- Agentic Craft and Orchestration
+- Agentic Experience and Orchestration
 - Design Tokens and Component Libraries
 - Design-to-Development Integration
 - Cross-Functional Leadership
@@ -32,10 +32,10 @@ I work at the seam between design and engineering, and I'm defining what design 
 
 ## Professional Experience
 
-### Design Lead, Agentic Craft
+### Design Lead, Agentic Experience
 **Orium** · Toronto, ON · 2013 – Present
 
-*Design Lead, Agentic Craft (Sep 2024 – Present)*
+*Design Lead, Agentic Experience (Sep 2024 – Present)*
 - Lead the design practice and the cross-disciplinary craft of how people and agents do the work together across delivery.
 - Built Genie, an agentic orchestration platform, from the ground up, including architecture, UX patterns, and front-end implementation.
 - Own design quality through scalable Design QA systems and front-end integration standards.
@@ -68,28 +68,11 @@ Figma, Design Tokens, Storybook, React, Vue, React Native, JavaScript, TypeScrip
 
 ---
 
-### Mindfulness Lead
-**Orium** · Toronto, ON · 2013 – Present
-
-- Facilitate and mentor others in mindfulness practices through guided meditation and onboarding sessions.
-- Lead optional mindful breaks that support personal well-being.
-- Contribute to a sustainable, human-centered team culture grounded in self-awareness and empathy.
-- Foster healthier, more balanced workplace environments through reflection and emotional intelligence.
-
----
-
 ### UX Designer (Contract)
 **University Health Network** · Toronto, ON · 2013
 
 - Designed accessible healthcare interfaces aligned with WCAG standards.
 - Conducted usability testing with patients and clinicians to inform design decisions.
-
----
-
-### UI Designer Fellow
-**Orium** · Toronto, ON · 2013
-
-- Completed a design fellowship focused on product design, collaboration, and client delivery.
 
 ---
 

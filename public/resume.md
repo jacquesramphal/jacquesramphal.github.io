@@ -38,7 +38,7 @@ Founding-caliber design engineer with {{yearsExperience}}+ years shipping enterp
 **Design & Prototyping** — Figma, Figma Make, Adobe Creative Suite, Miro
 **Front-End Development** — React, Vue.js, React Native, TypeScript, JavaScript, HTML, CSS/SCSS, Git
 **Design Systems** — Design Tokens, Storybook, Figma Variables, Style Dictionary, Component Libraries
-**AI & Automation** — Claude Code, Claude API, n8n, Prompt Engineering, Agentic UX
+**AI & Automation** — Claude Code, Claude API, n8n, Agentic Orchestration, Prompt Engineering, Agentic UX
 **Methods** — User Research, Design QA, Accessibility (WCAG 2.1), Agile/Scrum
 
 ---

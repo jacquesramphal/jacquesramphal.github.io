@@ -3,31 +3,31 @@
     "title": "Experience",
     "entries": [
       {
-        "title": "Design Lead, Agentic Craft",
+        "title": "Design Lead, Agentic Experience",
         "position": "Permanent Full-time",
         "location": "Orium",
-        "from": "2024",
+        "from": "Sep 2024",
         "to": "Present",
         "description": "Lead the design practice and the cross-disciplinary craft of how people and agents do the work together across the delivery lifecycle. Built Genie, an agentic orchestration platform that automates routine design and delivery work so the team gets meaningful hours back for the problems that need a person. Own the Craft Standard and Design QA systems, and set front-end integration standards. Convene product, engineering, and QA on shared craft rather than owning it alone.",
         "callout": "Built Genie, the agentic orchestration platform now used across delivery. Authored Orium's design leadership rubric and contract design and UX research hiring kits."
       },
       {
+        "title": "Full Stack Design Lead",
+        "position": "Permanent Full-time",
+        "location": "Orium",
+        "from": "Jan 2024",
+        "to": "Sep 2024",
+        "description": "Led product design and front-end development of Orium's composable-commerce accelerators. Trained designers on systems thinking, code collaboration, and delivery standards.",
+        "callout": ""
+      },
+      {
         "title": "Senior Product Designer",
         "position": "Permanent Full-time",
         "location": "Orium",
-        "from": "2013",
-        "to": "2024",
+        "from": "Sep 2013",
+        "to": "Jan 2024",
         "description": "Led product design across retail, healthcare, and SaaS clients, and grew into leading the front-end of Orium's composable-commerce accelerators. Architected and governed token-based design systems adopted across teams and platforms. Implemented production UI in React and Vue so design decisions survived handoff. Defined design quality standards that cut rework, and mentored designers on systems thinking and code.",
         "callout": "Reduced design-to-development friction by approximately 60% through systemization. Shipped customer-facing products used by millions."
-      },
-      {
-        "title": "Mindfulness Facilitator & Culture Lead",
-        "position": "",
-        "location": "Orium",
-        "from": "2016",
-        "to": "Present",
-        "description": "Lead mindfulness and emotional intelligence initiatives supporting team well-being and focus. Facilitate onboarding and group sessions for cross-functional teams. Contribute to sustainable, human-centered team culture.",
-        "callout": ""
       },
       {
         "title": "UX Designer",
@@ -36,15 +36,6 @@
         "from": "",
         "to": "2013",
         "description": "Designed accessible healthcare interfaces aligned with WCAG standards. Conducted usability testing with patients and clinicians.",
-        "callout": ""
-      },
-      {
-        "title": "UI Designer Fellow",
-        "position": "",
-        "location": "Orium",
-        "from": "2013",
-        "to": "2013",
-        "description": "Participated in design fellowship focused on product design, collaboration, and client delivery.",
         "callout": ""
       }
     ]
@@ -68,19 +59,23 @@
     "entries": [
       {
         "title": "Design & Prototyping",
-        "description": "Figma, FigJam, Adobe Creative Suite, Miro"
+        "description": "Figma, Figma Make, Adobe Creative Suite, Miro"
       },
       {
         "title": "Development",
-        "description": "React, Vue.js, JavaScript, TypeScript, HTML, CSS, SCSS, Git"
+        "description": "React, Vue.js, React Native, TypeScript, JavaScript, HTML, CSS/SCSS, Git"
       },
       {
         "title": "Design Systems",
-        "description": "Design Tokens, Storybook, Component Libraries, Figma Variables"
+        "description": "Design Tokens, Storybook, Figma Variables, Style Dictionary, Component Libraries"
       },
       {
         "title": "AI & Automation",
-        "description": "Claude Code, Claude API, n8n, Agentic Orchestration, Agentic UX/AX, Prompt Engineering"
+        "description": "Claude Code, Claude API, n8n, Agentic Orchestration, Prompt Engineering, Agentic UX"
+      },
+      {
+        "title": "Methods",
+        "description": "User Research, Design QA, Accessibility (WCAG 2.1), Agile/Scrum"
       }
     ]
   },
