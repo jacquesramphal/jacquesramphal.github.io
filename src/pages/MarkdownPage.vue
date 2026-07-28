@@ -98,10 +98,12 @@
 
           <nav v-if="courseContext" class="chapter-nav" aria-label="Course navigation">
             <router-link class="chapter-nav__back" :to="courseRoute">
-              ← {{ courseContext.course.title }}
-              <span class="subtle chapter-nav__position">
-                · Chapter {{ courseContext.index + 1 }} of {{ courseContext.chapters.length }}
-              </span>
+              <p>
+                ← {{ courseContext.course.title }}
+                <span class="subtle chapter-nav__position">
+                  · Chapter {{ courseContext.index + 1 }} of {{ courseContext.chapters.length }}
+                </span>
+              </p>
             </router-link>
             <div class="chapter-nav__pager">
               <router-link
@@ -109,8 +111,8 @@
                 class="chapter-nav__link chapter-nav__link--prev"
                 :to="courseContext.prev.route"
               >
-                <span class="subtle chapter-nav__dir">Previous</span>
-                <span class="chapter-nav__title">{{ courseContext.prev.title }}</span>
+                <h6 class="subtle chapter-nav__dir">Previous</h6>
+                <p class="chapter-nav__title">{{ courseContext.prev.title }}</p>
               </router-link>
               <span v-else class="chapter-nav__spacer" />
               <router-link
@@ -118,8 +120,8 @@
                 class="chapter-nav__link chapter-nav__link--next"
                 :to="courseContext.next.route"
               >
-                <span class="subtle chapter-nav__dir">Next</span>
-                <span class="chapter-nav__title">{{ courseContext.next.title }}</span>
+                <h6 class="subtle chapter-nav__dir">Next</h6>
+                <p class="chapter-nav__title">{{ courseContext.next.title }}</p>
               </router-link>
             </div>
           </nav>
@@ -1502,7 +1504,6 @@ export default {
 }
 
 .chapter-nav__position {
-  font-size: var(--font-300);
 }
 
 .chapter-nav__pager {
@@ -1538,14 +1539,9 @@ export default {
 }
 
 .chapter-nav__dir {
-  font-size: var(--font-2xs);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
 }
 
 .chapter-nav__title {
-  font-size: var(--font-400);
-  font-weight: var(--fontWeight-medium);
 }
 
 .print-button {

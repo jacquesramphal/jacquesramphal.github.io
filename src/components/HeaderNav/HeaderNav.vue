@@ -249,7 +249,7 @@ button {
   z-index: 100000 !important;
   @media only screen and (min-width: 768px) {
     inset-block-start: 0;
-    mix-blend-mode: difference;
+    // mix-blend-mode: difference;
   }
 }
 /* Adds extra background colour to account for bouncing effect */
@@ -264,7 +264,7 @@ button {
   opacity: 0.95;
   z-index: -1;
   @media only screen and (min-width: 768px) {
-    background: transparent;
+    // background: transparent;
     inset-block-end: 0;
     inset-block-start: -100%;
   }
@@ -282,7 +282,6 @@ button {
 .navbar.is-scrolled .bg {
   border-block-end: var(--border);
   @media only screen and (min-width: 768px) {
-    border-block-end: none;
   }
 }
 .bg {
@@ -459,7 +458,7 @@ p {
   :deep(.nav-item),
   :deep(p),
   :deep(span) {
-    color: white !important;
+    // color: red !important;
   }
 
   // Extend the blend to the underline so links stay legible over the hero.
