@@ -249,11 +249,11 @@ export default {
   }
 
   &.active {
-    // Current-page crumb: pin it to the normal foreground colour. The nav
-    // forces its links white, so without this the last crumb renders white
-    // and disappears against the page.
+    // Current-page crumb: theme foreground, de-emphasised by opacity rather
+    // than a hardcoded grey, so it tracks light and dark mode.
     color: var(--foreground) !important;
-    opacity: 0.6;
+    // !important beats the global `a { opacity: 1 !important }` in typography.scss.
+    opacity: 0.6 !important;
     cursor: default;
     pointer-events: none;
   }

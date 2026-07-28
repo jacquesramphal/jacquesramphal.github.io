@@ -419,9 +419,6 @@ p {
 
 .wordmark {
   color: var(--foreground);
-  @media only screen and (min-width: 768px) {
-    color: white;
-  }
 
   #richlink,
   a,
@@ -439,11 +436,12 @@ p {
     }
   }
 
-  // Override router-link-exact-active for wordmark
+  // Override router-link-exact-active for wordmark. Decoration only — colour is
+  // left to the link itself so the breadcrumb's current-page crumb can own its
+  // own colour instead of being pinned to whatever .wordmark inherits.
   .router-link-exact-active,
   :deep(.router-link-exact-active) {
     text-decoration: none !important;
-    color: inherit !important;
   }
 }
 

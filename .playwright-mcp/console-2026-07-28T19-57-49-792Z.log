@@ -1,0 +1,301 @@
+[     379ms] [LOG] GSAP is loaded @ webpack-internal:///./src/assets/js/gsap.js:12
+[     498ms] [LOG] MarkdownPage: Pre-loaded images map. Total images: 712 @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:88
+[     499ms] [LOG] MarkdownPage: Sample image keys: Array @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:89
+[     499ms] [LOG] MarkdownPage: Looking for 'article/without-tokens.png': true @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:90
+[     499ms] [LOG] MarkdownPage: Looking for 'casestudy/genie/genie.png': true @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:91
+[     530ms] [WARNING] [Vue warn]: Property "toggleFullscreenMenu" was accessed during render but is not defined on instance. 
+  at <GridContainer class="bg" > 
+  at <HeaderNav key=0 toggle-menu=fn<bound toggleMenu> menu-open=false  ... > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     559ms] [WARNING] [Vue warn]: Property "toggleFullscreenMenu" was accessed during render but is not defined on instance. 
+  at <GridContainer class="bg" > 
+  at <HeaderNav key=0 toggle-menu=fn<bound toggleMenu> menu-open=false  ... > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     564ms] [WARNING] [Vue warn]: Property "overflowVisible" was accessed during render but is not defined on instance. 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="info" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     565ms] [LOG] Markdown prop:  @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/components/text/MarkdownRenderer.vue?vue&type=script&lang=js:151
+[     565ms] [WARNING] MarkdownRenderer: Invalid markdown input  @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/components/text/MarkdownRenderer.vue?vue&type=script&lang=js:236
+[     565ms] [LOG] MarkdownPage received headings: Array @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:979
+[     572ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-80" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=80 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="info" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     575ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-79" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=79 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="info" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     577ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-66" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=66 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="info" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     580ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-29" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=29 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="info" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     583ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-28" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=28 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="info" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     587ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-14" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=14 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="info" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     588ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-26" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=26 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="info" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     589ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-27" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=27 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="info" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     590ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-23" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=23 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="info" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     591ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-11" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=11 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="info" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     593ms] [WARNING] [Vue warn]: Property "overflowVisible" was accessed during render but is not defined on instance. 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="info" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     596ms] [WARNING] [Vue warn]: Property "p" was accessed during render but is not defined on instance. 
+  at <BreadCrumb isDesktopScreen=true onToggleMenu=undefined > 
+  at <GridContainer class="bg" > 
+  at <HeaderNav key=0 toggle-menu=fn<bound toggleMenu> menu-open=false  ... > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     596ms] [WARNING] [Vue warn]: Property "p" was accessed during render but is not defined on instance. 
+  at <BreadCrumb isDesktopScreen=true onToggleMenu=undefined > 
+  at <GridContainer class="bg" > 
+  at <HeaderNav key=0 toggle-menu=fn<bound toggleMenu> menu-open=false  ... > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     604ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-80" eyebrow=""  ... > 
+  at <GridParent tight="" > 
+  at <GridContainer key=0 id="cards" style= JSHandle@object > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="info" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< Proxy >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     606ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-79" eyebrow=""  ... > 
+  at <GridParent tight="" > 
+  at <GridContainer key=0 id="cards" style= JSHandle@object > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="info" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< Proxy >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     609ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-66" eyebrow=""  ... > 
+  at <GridParent tight="" > 
+  at <GridContainer key=0 id="cards" style= JSHandle@object > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="info" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< Proxy >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     619ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://getinsights.io/app/tics. (Reason: CORS header ‘Access-Control-Allow-Origin’ missing). Status code: 503."] @ :0
+[     620ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://getinsights.io/app/tics. (Reason: CORS request did not succeed). Status code: (null)."] @ :0
+[     622ms] [LOG] MarkdownPage: Doc param: info @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:490
+[     622ms] [LOG] MarkdownPage: Doc ID: null @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:491
+[     622ms] [LOG] MarkdownPage: Content file: doc_70.md @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:492
+[     623ms] [LOG] MarkdownPage: Raw markdown type: string @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:493
+[     623ms] [LOG] MarkdownPage: Raw markdown length: 3090 @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:494
+[     623ms] [LOG] MarkdownPage: Processed markdown length: 3090 @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:495
+[     623ms] [LOG] MarkdownPage: Has <header> tag: false @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:496
+[     623ms] [LOG] MarkdownPage: Has # markdown: false @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:497
+[     623ms] [LOG] MarkdownPage: Is HTML: true @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:498
+[     623ms] [LOG] MarkdownPage: Attributes: JSHandle@object @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:499
+[     623ms] [LOG] MarkdownPage: Raw markdown preview: <p><img src="http://localhost:8082/img/jacques.e46b45ec.jpg" alt="Jacques Ramphal"></p>
+<h1 id="design-code-and-the-space-between">Design, code, and the space between</h1>
+<p>Thirteen years at the sea @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:500
+[     623ms] [LOG] MarkdownPage: Processed markdown preview: <p><img src="http://localhost:8082/img/jacques.e46b45ec.jpg" alt="Jacques Ramphal"></p>
+<h1 id="design-code-and-the-space-between">Design, code, and the space between</h1>
+<p>Thirteen years at the sea @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:501
+[     626ms] [LOG] MarkdownPage: About to extract hero data @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:511
+[     626ms] [LOG] MarkdownPage: rawMarkdown length: 3090 @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:512
+[     626ms] [LOG] MarkdownPage: rawMarkdown has header: false @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:513
+[     626ms] [LOG] MarkdownPage: processedMarkdownForRender length: 3090 @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:514
+[     626ms] [LOG] MarkdownPage: processedMarkdownForRender has header: false @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:515
+[     626ms] [LOG] MarkdownPage: Extracted hero data: JSHandle@object @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:546
+[     626ms] [LOG] MarkdownPage: Hero data title:  @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:547
+[     626ms] [LOG] MarkdownPage: Hero data tag:  @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:548
+[     626ms] [LOG] MarkdownPage: Hero data image: http://localhost:8082/img/jacques.e46b45ec.jpg @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:549
+[     626ms] [LOG] MarkdownPage: Hero data tag length: 0 @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:550
+[     626ms] [LOG] MarkdownPage: Hero data image length: 46 @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:551
+[     626ms] [LOG] MarkdownPage: Hero data title type: string @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:552
+[     626ms] [LOG] MarkdownPage: Hero data title truthy: false @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:553
+[     626ms] [LOG] MarkdownPage: Hero data title length: 0 @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:554
+[     626ms] [LOG] MarkdownPage: Before setting values: JSHandle@object @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:585
+[     626ms] [LOG] MarkdownPage: ========== IMAGE EXTRACTION SUMMARY ========== @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:600
+[     626ms] [LOG] MarkdownPage: heroImage.value set to: "http://localhost:8082/img/jacques.e46b45ec.jpg" @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:601
+[     626ms] [LOG] MarkdownPage: heroImage.value type: string @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:602
+[     626ms] [LOG] MarkdownPage: heroImage.value truthy: true @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:603
+[     626ms] [LOG] MarkdownPage: heroImage.value length: 46 @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:604
+[     626ms] [LOG] MarkdownPage: heroImage.value trimmed: "http://localhost:8082/img/jacques.e46b45ec.jpg" @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:605
+[     626ms] [LOG] MarkdownPage: Expected path format: article/without-tokens.png or casestudy/genie/genie.png @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:606
+[     626ms] [LOG] MarkdownPage: Will this path be in imageMap? JSHandle@object @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:607
+[     627ms] [LOG] MarkdownPage: ============================================== @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:612
+[     627ms] [LOG] MarkdownPage: Hero values set: JSHandle@object @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:613
+[     627ms] [WARNING] [Vue warn]: Property "overflowVisible" was accessed during render but is not defined on instance. 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="info" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< Proxy >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     627ms] [LOG] heroImageSrc: Original image path from extraction: http://localhost:8082/img/jacques.e46b45ec.jpg @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:730
+[     627ms] [LOG] MarkdownPage: After nextTick - heroTitle:  heroImage: http://localhost:8082/img/jacques.e46b45ec.jpg @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:629
+[     627ms] [LOG] MarkdownPage: Processed markdown preview: <h1 id="design-code-and-the-space-between">Design, code, and the space between</h1><div id="article-byline-slot"></div>
+<p>Thirteen years at the seam between design and engineering. Toronto. Designing systems, writing production code, and building with AI.</p>
+<p><img src="http://localhost:8082/img/ @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:660
+[     628ms] [LOG] Markdown prop: <h1 id="design-code-and-the-space-between">Design, code, and the space between</h1><div id="article-byline-slot"></div>
+<p>Thirteen years at the seam between design and engineering. Toronto. Designing systems, writing production code, and building with AI.</p>
+<p><img src="http://localhost:8082/img/portrait.5d7bd392.jpg" alt="Jacques Ramphal"></p>
+<h2 id="what-i-care-about">What I care about</h2>
+<p>I care most about the gap between design intent and what actually ships. Not just how things look, but how decisions survive handoff, how systems scale across teams and brands, and how people stay in control when the tools get smarter.</p>
+<h2 id="what-ive-been-building">What I&#39;ve been building</h2>
+<p>I led the design of <a href="/doc/designing-genie">Genie</a>, an agentic AI platform built to automate the mechanical parts of delivery work so designers can spend their energy on what actually requires judgment. Building it changed how I work. I went in as a designer and came out also an AI developer, a workflow orchestration practitioner, and a reluctant product thinker. I&#39;m still mostly a designer.</p>
+<h2 id="how-i-work">How I work</h2>
+<p>I write production front-end code, run design QA, and pair with engineers on implementation because I&#39;ve seen too many good decisions die in handoff. I also coach designers who want to move closer to systems and code, not because everyone needs to write code, but because fluency removes friction and changes the kinds of conversations you can have.</p>
+<p>I maintain a set of <a href="/library">open-source tools</a> and write about design, AI, and the places they intersect.</p>
+<h2 id="the-site">The site</h2>
+<p>Live since 2013. Most of what&#39;s here started as something I needed to think through: a problem, a pattern, a method that kept proving itself. Writing it down was the test. If I couldn&#39;t explain it, I didn&#39;t understand it yet.</p>
+<p>Work, writing, and tools I built because nothing else did what I needed. Some of it will age badly. Most of it reflects where I was at the time, which is the point.</p>
+<p>I don&#39;t have social media. Not as a statement, just a choice that&#39;s held up. It means this site is the primary record. What I make here is what persists.</p>
+<p>The design is part of the argument. I built it, maintain it, and keep changing it. The source is public, the tools are documented, and the case studies explain the thinking behind the decisions. A designer who writes production code is a claim that&#39;s easy to make; the site is the evidence.</p>
+<p>If you&#39;re reading this after I&#39;ve moved on from whatever I&#39;m doing now, the work is still here.</p>
+<h2 id="colophon">Colophon</h2>
+<ul>
+<li><strong>Frontend</strong>: Vue 3, TypeScript</li>
+<li><strong>Styling</strong>: CSS custom properties, token-based theming, SCSS</li>
+<li><strong>Content</strong>: Markdown files, no CMS dependency</li>
+<li><strong>Typography</strong>: Variable font</li>
+<li><strong>Deployment</strong>: GitHub Actions</li>
+</ul>
+ @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/components/text/MarkdownRenderer.vue?vue&type=script&lang=js:151
+[     628ms] [LOG] MarkdownRenderer: Emitting headings: Array @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/components/text/MarkdownRenderer.vue?vue&type=script&lang=js:540
+[     628ms] [LOG] MarkdownPage received headings: Array @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:979
+[     630ms] [WARNING] [Vue warn]: Property "overflowVisible" was accessed during render but is not defined on instance. 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="info" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< Proxy >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[     632ms] [LOG] MarkdownTOC headings updated: Proxy @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/components/MarkdownTOC.vue?vue&type=script&lang=js:30
+[     634ms] [LOG] MarkdownTOC mounted with headings: Proxy @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/components/MarkdownTOC.vue?vue&type=script&lang=js:25
+[     640ms] [WARNING] [Vue warn]: Property "overflowVisible" was accessed during render but is not defined on instance. 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="info" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< Proxy >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201

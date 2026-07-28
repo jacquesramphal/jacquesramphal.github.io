@@ -1,0 +1,247 @@
+[     477ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://getinsights.io/app/tics. (Reason: CORS header ‘Access-Control-Allow-Origin’ missing). Status code: 503."] @ :0
+[     480ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://getinsights.io/app/tics. (Reason: CORS request did not succeed). Status code: (null)."] @ :0
+[    1016ms] [LOG] GSAP is loaded @ webpack-internal:///./src/assets/js/gsap.js:12
+[    1194ms] [LOG] MarkdownPage: Pre-loaded images map. Total images: 712 @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:88
+[    1195ms] [LOG] MarkdownPage: Sample image keys: Array @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:89
+[    1195ms] [LOG] MarkdownPage: Looking for 'article/without-tokens.png': true @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:90
+[    1195ms] [LOG] MarkdownPage: Looking for 'casestudy/genie/genie.png': true @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:91
+[    1231ms] [WARNING] [Vue warn]: Property "toggleFullscreenMenu" was accessed during render but is not defined on instance. 
+  at <GridContainer class="bg" > 
+  at <HeaderNav key=0 toggle-menu=fn<bound toggleMenu> menu-open=false  ... > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1276ms] [WARNING] [Vue warn]: Property "toggleFullscreenMenu" was accessed during render but is not defined on instance. 
+  at <GridContainer class="bg" > 
+  at <HeaderNav key=0 toggle-menu=fn<bound toggleMenu> menu-open=false  ... > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1283ms] [WARNING] [Vue warn]: Property "overflowVisible" was accessed during render but is not defined on instance. 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="design-token-starter" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1286ms] [LOG] Markdown prop:  @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/components/text/MarkdownRenderer.vue?vue&type=script&lang=js:151
+[    1286ms] [WARNING] MarkdownRenderer: Invalid markdown input  @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/components/text/MarkdownRenderer.vue?vue&type=script&lang=js:236
+[    1286ms] [LOG] MarkdownPage received headings: Array @ webpack-internal:///./node_modules/.pnpm/babel-loader@8.4.1_@babel+core@7.28.5_webpack@5.103.0/node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[0]!./node_modules/.pnpm/vue-loader@17.4.2_@vue+compiler-sfc@3.5.25_vue@3.5.25_typescript@4.5.5__webpack@5.103.0/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/.pnpm/vue-svg-inline-loader@2.1.5/node_modules/vue-svg-inline-loader/src/index.js!./src/pages/MarkdownPage.vue?vue&type=script&lang=js:979
+[    1298ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-80" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=80 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="design-token-starter" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1301ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-79" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=79 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="design-token-starter" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1302ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-66" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=66 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="design-token-starter" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1308ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-29" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=29 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="design-token-starter" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1309ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-28" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=28 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="design-token-starter" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1320ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-14" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=14 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="design-token-starter" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1320ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-26" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=26 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="design-token-starter" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1322ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-27" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=27 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="design-token-starter" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1323ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-23" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=23 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="design-token-starter" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1323ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-11" image=undefined  ... > 
+  at <GridParent class="cardmobile" key=11 > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="design-token-starter" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1324ms] [WARNING] [Vue warn]: Property "overflowVisible" was accessed during render but is not defined on instance. 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="design-token-starter" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< undefined >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1324ms] [WARNING] [Vue warn]: Property "p" was accessed during render but is not defined on instance. 
+  at <BreadCrumb isDesktopScreen=true onToggleMenu=undefined > 
+  at <GridContainer class="bg" > 
+  at <HeaderNav key=0 toggle-menu=fn<bound toggleMenu> menu-open=false  ... > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1325ms] [WARNING] [Vue warn]: Property "p" was accessed during render but is not defined on instance. 
+  at <BreadCrumb isDesktopScreen=true onToggleMenu=undefined > 
+  at <GridContainer class="bg" > 
+  at <HeaderNav key=0 toggle-menu=fn<bound toggleMenu> menu-open=false  ... > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1330ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-80" eyebrow=""  ... > 
+  at <GridParent tight="" > 
+  at <GridContainer key=0 id="cards" style= JSHandle@object > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="design-token-starter" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< Proxy >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1331ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-79" eyebrow=""  ... > 
+  at <GridParent tight="" > 
+  at <GridContainer key=0 id="cards" style= JSHandle@object > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="design-token-starter" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< Proxy >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1333ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock clamped="" class="textblock" eyebrow=""  ... > 
+  at <ArticleCard borderless="" key="writing-66" eyebrow=""  ... > 
+  at <GridParent tight="" > 
+  at <GridContainer key=0 id="cards" style= JSHandle@object > 
+  at <CardRow2 title="Related" kind="writing" viewAllTo= JSHandle@object  ... > 
+  at <PageWrapper id="doc" class="markdown-page-wrapper" overflow-visible=true  ... > 
+  at <MarkdownPage slug="design-token-starter" onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< Proxy >  ... > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1340ms] [WARNING] [Vue warn]: Property "overflowVisible" was accessed during render but is not defined on instance. 
+  at <PageWrapper> 
+  at <NotFound onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< null > key="/" > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1341ms] [WARNING] [Vue warn]: Missing required prop: "flipped" 
+  at <TextImage eyebrow="" filename="luna.jpg" title="404. Page Not Found"  ... > 
+  at <GridContainer fullvh="" fullvw="" > 
+  at <PageWrapper> 
+  at <NotFound onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< null > key="/" > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1341ms] [WARNING] [Vue warn]: Missing required prop: "red" 
+  at <TextImage eyebrow="" filename="luna.jpg" title="404. Page Not Found"  ... > 
+  at <GridContainer fullvh="" fullvw="" > 
+  at <PageWrapper> 
+  at <NotFound onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< null > key="/" > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    1345ms] [WARNING] [Vue warn]: Missing required prop: "as" 
+  at <DynamicText key=5 isHtml="" tabIndex="0"  ... > 
+  at <TextBlock eyebrow="" as="h3" title="404. Page Not Found"  ... > 
+  at <GridWrapper class="textcontainer" > 
+  at <GridParent tight="" class="TextImage-align TextImage-align--default TextImage-color TextImage-color--default" > 
+  at <GridContainer> 
+  at <GridWrapper> 
+  at <TextImage eyebrow="" filename="luna.jpg" title="404. Page Not Found"  ... > 
+  at <GridContainer fullvh="" fullvw="" > 
+  at <PageWrapper> 
+  at <NotFound onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< null > key="/" > 
+  at <BaseTransition appear=false persisted=false mode=undefined  ... > 
+  at <Transition name="fade" > 
+  at <RouterView> 
+  at <App> @ webpack-internal:///./node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js:201
+[    2403ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://getinsights.io/app/tics. (Reason: CORS header ‘Access-Control-Allow-Origin’ missing). Status code: 503."] @ :0
+[    2403ms] [ERROR] [JavaScript Error: "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://getinsights.io/app/tics. (Reason: CORS request did not succeed). Status code: (null)."] @ :0

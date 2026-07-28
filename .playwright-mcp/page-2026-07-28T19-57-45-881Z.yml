@@ -1,0 +1,26 @@
+- generic [active] [ref=f2e1]:
+  - generic [ref=f2e2]:
+    - navigation [ref=f2e5]:
+      - generic [ref=f2e8]:
+        - generic:
+          - link "Jacques Ramphal":
+            - /url: /
+            - paragraph: Jacques Ramphal
+      - list [ref=f2e9]:
+        - listitem [ref=f2e10]:
+          - link [ref=f2e12] [cursor=pointer]:
+            - /url: /library
+            - paragraph [ref=f2e13]: Library
+        - listitem [ref=f2e14]:
+          - link [ref=f2e16] [cursor=pointer]:
+            - /url: /doc/info
+            - paragraph [ref=f2e17]: Info
+    - generic [ref=f2e22]:
+      - generic [ref=f2e24]:
+        - heading "404. Page Not Found" [level=3] [ref=f2e25]
+        - paragraph [ref=f2e26]: I’m not saying it’s not a page, it’s just not this page. Let’s go back to the home page.
+        - link [ref=f2e28] [cursor=pointer]:
+          - /url: /
+          - button "Back to Home" [ref=f2e29]
+      - img "Alt Text" [ref=f2e32]
+  - button "Open chat" [ref=f2e34] [cursor=pointer]

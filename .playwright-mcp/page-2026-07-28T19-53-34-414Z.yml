@@ -1,0 +1,253 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation [ref=e5]:
+      - generic [ref=e8]:
+        - link [ref=e10] [cursor=pointer]:
+          - /url: /
+          - paragraph [ref=e11]: Jacques Ramphal
+        - paragraph [ref=e12]: /
+        - link [ref=e14] [cursor=pointer]:
+          - /url: /library
+          - paragraph [ref=e15]: Library
+        - paragraph [ref=e16]: /
+        - link "Info":
+          - /url: /doc/info
+      - list [ref=e17]:
+        - listitem [ref=e18]:
+          - link [ref=e20] [cursor=pointer]:
+            - /url: /library
+            - paragraph [ref=e21]: Library
+        - listitem [ref=e22]:
+          - link [ref=e24] [cursor=pointer]:
+            - /url: /doc/info
+            - paragraph [ref=e25]: Info
+    - generic [ref=e26]:
+      - img "Hero image" [ref=e29]
+      - generic [ref=e31]:
+        - main [ref=e32]:
+          - generic [ref=e33]:
+            - generic [ref=e34]:
+              - generic [ref=e35]:
+                - heading "Design, code, and the space between" [level=1] [ref=e36]
+                - generic [ref=e38]:
+                  - img "Jacques Ramphal"
+                  - paragraph [ref=e39]:
+                    - generic [ref=e40]: Jacques Ramphal
+                    - generic [ref=e41]: ·
+                    - generic [ref=e42]: 3 min read
+                - paragraph [ref=e43]: Thirteen years at the seam between design and engineering. Toronto. Designing systems, writing production code, and building with AI.
+              - paragraph [ref=e44]:
+                - img "Jacques Ramphal" [ref=e45]
+            - generic [ref=e47]:
+              - heading "What I care about" [level=2] [ref=e48]
+              - paragraph [ref=e49]: I care most about the gap between design intent and what actually ships. Not just how things look, but how decisions survive handoff, how systems scale across teams and brands, and how people stay in control when the tools get smarter.
+            - generic [ref=e51]:
+              - heading "What I've been building" [level=2] [ref=e52]
+              - paragraph [ref=e53]:
+                - text: I led the design of
+                - link "Genie" [ref=e54] [cursor=pointer]:
+                  - /url: /doc/designing-genie
+                - text: ", an agentic AI platform built to automate the mechanical parts of delivery work so designers can spend their energy on what actually requires judgment. Building it changed how I work. I went in as a designer and came out also an AI developer, a workflow orchestration practitioner, and a reluctant product thinker. I'm still mostly a designer."
+            - generic [ref=e56]:
+              - heading "How I work" [level=2] [ref=e57]
+              - paragraph [ref=e58]: I write production front-end code, run design QA, and pair with engineers on implementation because I've seen too many good decisions die in handoff. I also coach designers who want to move closer to systems and code, not because everyone needs to write code, but because fluency removes friction and changes the kinds of conversations you can have.
+              - paragraph [ref=e59]:
+                - text: I maintain a set of
+                - link "open-source tools" [ref=e60] [cursor=pointer]:
+                  - /url: /library
+                - text: and write about design, AI, and the places they intersect.
+            - generic [ref=e62]:
+              - heading "The site" [level=2] [ref=e63]
+              - paragraph [ref=e64]: "Live since 2013. Most of what's here started as something I needed to think through: a problem, a pattern, a method that kept proving itself. Writing it down was the test. If I couldn't explain it, I didn't understand it yet."
+              - paragraph [ref=e65]: Work, writing, and tools I built because nothing else did what I needed. Some of it will age badly. Most of it reflects where I was at the time, which is the point.
+              - paragraph [ref=e66]: I don't have social media. Not as a statement, just a choice that's held up. It means this site is the primary record. What I make here is what persists.
+              - paragraph [ref=e67]: The design is part of the argument. I built it, maintain it, and keep changing it. The source is public, the tools are documented, and the case studies explain the thinking behind the decisions. A designer who writes production code is a claim that's easy to make; the site is the evidence.
+              - paragraph [ref=e68]: If you're reading this after I've moved on from whatever I'm doing now, the work is still here.
+            - generic [ref=e70]:
+              - heading "Colophon" [level=2] [ref=e71]
+              - list [ref=e72]:
+                - listitem [ref=e73]:
+                  - strong [ref=e74]: Frontend
+                  - text: ": Vue 3, TypeScript"
+                - listitem [ref=e75]:
+                  - strong [ref=e76]: Styling
+                  - text: ": CSS custom properties, token-based theming, SCSS"
+                - listitem [ref=e77]:
+                  - strong [ref=e78]: Content
+                  - text: ": Markdown files, no CMS dependency"
+                - listitem [ref=e79]:
+                  - strong [ref=e80]: Typography
+                  - text: ": Variable font"
+                - listitem [ref=e81]:
+                  - strong [ref=e82]: Deployment
+                  - text: ": GitHub Actions"
+          - generic [ref=e83]:
+            - button "Enter presenter mode" [ref=e84] [cursor=pointer]:
+              - generic [ref=e85]: Present
+            - button "Print page" [ref=e86] [cursor=pointer]:
+              - generic [ref=e90]: Print
+            - button "Share" [ref=e93] [cursor=pointer]
+        - complementary [ref=e102]:
+          - complementary [ref=e103]:
+            - navigation [ref=e104]:
+              - list [ref=e105]:
+                - listitem [ref=e106]:
+                  - link "What I care about" [ref=e107] [cursor=pointer]:
+                    - /url: "#what-i-care-about"
+                - listitem [ref=e108]:
+                  - link "What I've been building" [ref=e109] [cursor=pointer]:
+                    - /url: "#what-ive-been-building"
+                - listitem [ref=e110]:
+                  - link "How I work" [ref=e111] [cursor=pointer]:
+                    - /url: "#how-i-work"
+                - listitem [ref=e112]:
+                  - link "The site" [ref=e113] [cursor=pointer]:
+                    - /url: "#the-site"
+                - listitem [ref=e114]:
+                  - link "Colophon" [ref=e115] [cursor=pointer]:
+                    - /url: "#colophon"
+      - generic [ref=e118]:
+        - generic [ref=e119]:
+          - heading "Related" [level=2] [ref=e121]
+          - paragraph [ref=e122]:
+            - link "View All" [ref=e123] [cursor=pointer]:
+              - /url: /library
+        - generic [ref=e124]:
+          - generic [ref=e125]:
+            - link [ref=e127] [cursor=pointer]:
+              - /url: /doc/taste-is-triage
+              - generic [ref=e129]:
+                - heading "Taste" [level=1] [ref=e131]
+                - heading "is" [level=1] [ref=e133]
+                - heading "triage" [level=1] [ref=e135]
+            - generic [ref=e137]:
+              - link [ref=e138] [cursor=pointer]:
+                - /url: /doc/taste-is-triage
+                - heading "Taste is triage" [level=4] [ref=e139]
+              - paragraph [ref=e140]: When making something is nearly free, the scarce skill becomes knowing what's worth building and being able to say why. A fifteen-year arc from graphic design to agent experience, which turned out to be the same story as vibe coding.
+              - generic [ref=e141]:
+                - paragraph [ref=e143]: 7 min read
+                - paragraph [ref=e145] [cursor=pointer]: ai
+                - paragraph [ref=e147] [cursor=pointer]: agentic-ai
+                - paragraph [ref=e149] [cursor=pointer]: craft
+          - generic [ref=e150]:
+            - link [ref=e152] [cursor=pointer]:
+              - /url: /doc/friction
+              - heading "Friction" [level=1] [ref=e156]
+            - generic [ref=e158]:
+              - link [ref=e159] [cursor=pointer]:
+                - /url: /doc/friction
+                - heading "Friction" [level=4] [ref=e160]
+              - paragraph [ref=e161]: "A project falling apart, fifty-odd UI defects and no source of truth, and what staying in it taught me: friction only sharpens you when there's something steady to work against."
+              - generic [ref=e162]:
+                - paragraph [ref=e164]: 3 min read
+                - paragraph [ref=e166] [cursor=pointer]: career
+                - paragraph [ref=e168] [cursor=pointer]: mindset
+          - generic [ref=e169]:
+            - link [ref=e171] [cursor=pointer]:
+              - /url: /doc/building-genie-changed-me
+              - 'img "Article: Building Genie Changed Me" [ref=e172]'
+            - generic [ref=e174]:
+              - link [ref=e175] [cursor=pointer]:
+                - /url: /doc/building-genie-changed-me
+                - heading "Building Genie Changed Me" [level=4] [ref=e176]
+              - paragraph [ref=e177]: The story of building Genie — from personal experiment to organizational platform — and what building it changed about how I work, what I'm capable of, and how others engage with me.
+              - generic [ref=e178]:
+                - paragraph [ref=e180]: 7 min read
+                - paragraph [ref=e182] [cursor=pointer]: ai
+                - paragraph [ref=e184] [cursor=pointer]: agentic-ai
+    - generic [ref=e188]:
+      - link [ref=e190] [cursor=pointer]:
+        - /url: /resume.html
+        - img "logo.svg" [ref=e191]
+      - generic [ref=e192]:
+        - generic [ref=e193]:
+          - heading "Jacques Ramphal" [level=4] [ref=e195]
+          - generic [ref=e197]:
+            - paragraph [ref=e198]: I'm a designer working where design, code, and AI meet. Subscribe for writing on what I'm learning there.
+            - generic [ref=e201]:
+              - textbox "you@example.com" [ref=e202]
+              - button "Submit" [ref=e203] [cursor=pointer]
+        - generic [ref=e206]:
+          - generic [ref=e207]:
+            - paragraph [ref=e208]: Useful Links
+            - list [ref=e209]:
+              - listitem [ref=e210]:
+                - link [ref=e212] [cursor=pointer]:
+                  - /url: /library
+                  - paragraph [ref=e213]: Library
+              - listitem [ref=e214]:
+                - link [ref=e216] [cursor=pointer]:
+                  - /url: /doc/info
+                  - paragraph [ref=e217]: About
+              - listitem [ref=e218]:
+                - link [ref=e220] [cursor=pointer]:
+                  - /url: /resume.html
+                  - paragraph [ref=e221]: Resume
+                  - text: ↗
+              - listitem [ref=e222]:
+                - link [ref=e224] [cursor=pointer]:
+                  - /url: /storybook/
+                  - paragraph [ref=e225]: Storybook
+                  - text: ↗
+          - generic [ref=e226]:
+            - paragraph [ref=e227]: Contact
+            - list [ref=e228]:
+              - listitem [ref=e229]:
+                - link [ref=e231] [cursor=pointer]:
+                  - /url: https://linkedin.com/in/jacquesramphal-design
+                  - paragraph [ref=e232]: LinkedIn
+                  - text: ↗
+              - listitem [ref=e233]:
+                - link [ref=e235] [cursor=pointer]:
+                  - /url: https://github.com/jacquesramphal
+                  - paragraph [ref=e236]: Github
+                  - text: ↗
+              - listitem [ref=e237]:
+                - link [ref=e239] [cursor=pointer]:
+                  - /url: mailto:jacques@ramphal.design
+                  - paragraph [ref=e240]: Email
+                  - text: ↗
+          - generic [ref=e241]:
+            - paragraph [ref=e242]: Site
+            - list [ref=e243]:
+              - listitem [ref=e244]:
+                - link [ref=e246] [cursor=pointer]:
+                  - /url: /doc/design-learnings
+                  - paragraph [ref=e247]: Journal
+              - listitem [ref=e248]:
+                - link [ref=e250] [cursor=pointer]:
+                  - /url: /about
+                  - paragraph [ref=e251]: About
+              - listitem [ref=e252]:
+                - link [ref=e254] [cursor=pointer]:
+                  - /url: /doc/ask-me-anything
+                  - paragraph [ref=e255]: Ask Me Anything
+              - listitem [ref=e256]:
+                - link [ref=e258] [cursor=pointer]:
+                  - /url: /doc/ai-ethics
+                  - paragraph [ref=e259]: AI Ethics
+              - listitem [ref=e260]:
+                - link [ref=e262] [cursor=pointer]:
+                  - /url: /doc/privacy
+                  - paragraph [ref=e263]: Privacy
+              - listitem [ref=e264]:
+                - link [ref=e266] [cursor=pointer]:
+                  - /url: /doc/accessibility
+                  - paragraph [ref=e267]: Accessibility
+          - generic [ref=e268]:
+            - paragraph [ref=e269]: Config
+            - list [ref=e270]:
+              - listitem [ref=e271]:
+                - 'generic "Theme: System Theme" [ref=e272]':
+                  - paragraph [ref=e274] [cursor=pointer]: System Theme
+              - listitem [ref=e275]:
+                - generic "Switch to serif font" [ref=e276]:
+                  - paragraph [ref=e278] [cursor=pointer]: Sans-serif
+              - listitem [ref=e279]:
+                - generic "Enable sounds" [ref=e280]:
+                  - paragraph [ref=e282] [cursor=pointer]: Sound off
+      - paragraph [ref=e284]:
+        - generic [ref=e285]: © 2026 Jacques Ramphal 🇨🇦
+  - button "Open chat" [ref=e287] [cursor=pointer]
+  - checkbox
