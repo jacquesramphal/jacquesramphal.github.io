@@ -37,10 +37,20 @@
         route="/library"
         v-show="isDesktopScreen"
       />
+      <router-link
+        v-else-if="courseHub"
+        :to="$route.path"
+        class="nav-item"
+        active-class="active"
+        exact
+        v-show="isDesktopScreen"
+      >
+        {{ courseHub.title }}
+      </router-link>
 
       <template v-if="isProjectOrDoc">
         <DynamicText
-          v-if="isLibraryOrDeeper"
+          v-if="isLibraryOrDeeper || courseContext"
           v-show="isDesktopScreen"
           :as="p"
           text="/"
@@ -65,7 +75,7 @@ import workData from '../assets/data/work.json';
 import DynamicText from '../components/text/DynamicText.vue';
 import TextLink from '../components/text/TextLink.vue';
 import { getDocRecordById, isNumericRouteParam } from '@/utils/docRegistry';
-import { getChapterContext } from '@/utils/courseRegistry';
+import { getChapterContext, getCourseBySlug, getDefaultCourse } from '@/utils/courseRegistry';
 export default {
   name: 'BreadCrumb',
   components: { DynamicText, TextLink },
@@ -115,6 +125,14 @@ export default {
       }
 
       return slug ? getChapterContext(slug) : null;
+    },
+    // On a course hub page (/course or /course/:slug), resolve the course so it
+    // shows as the current crumb (Home / Course Title).
+    courseHub() {
+      const path = (this.$route?.path || '').toLowerCase();
+      if (!path.startsWith('/course')) return null;
+      const slug = (this.$route.params.slug || '').toString().trim();
+      return slug ? getCourseBySlug(slug) : getDefaultCourse();
     },
   },
   async created() {
