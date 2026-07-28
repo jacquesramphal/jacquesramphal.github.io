@@ -1,5 +1,5 @@
 # Jacques Ramphal
-Head of Design · Agentic Experience (AX) Lead — Toronto, ON
+Design Lead, Agentic Experience — Toronto, ON
 [linkedin.com/in/jacquesramphal-design](https://linkedin.com/in/jacquesramphal-design) · [jacques@ramphal.design](mailto:jacques@ramphal.design) · [github.com/jacquesramphal](https://github.com/jacquesramphal)
 
 ---
@@ -12,7 +12,7 @@ Founding-caliber design engineer with {{yearsExperience}}+ years shipping enterp
 
 ## Experience
 
-**Head of Design · Agentic Experience Lead** — Orium, Toronto · Sep 2024 - Present
+**Design Lead, Agentic Experience** — Orium, Toronto · Sep 2024 - Present
 - Set strategic direction for UX, agentic experience design, and design-to-development integration.
 - Primary designer and developer of Genie — architecture, UX patterns, n8n automation, and front-end.
 - Oversee design quality through scalable Design QA systems and front-end integration standards.
