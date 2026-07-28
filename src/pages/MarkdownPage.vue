@@ -336,7 +336,7 @@ export default {
                     '@type': 'Person',
                     name: 'Jacques Ramphal',
                     url: 'https://ramphal.design',
-                    jobTitle: 'Design Lead, Agentic Craft',
+                    jobTitle: 'Design Lead, Agentic Experience',
                     worksFor: {
                       '@type': 'Organization',
                       name: 'Orium',
