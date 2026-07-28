@@ -5,29 +5,38 @@
       {
         "title": "Design Lead, Agentic Experience",
         "position": "Permanent Full-time",
-        "location": "Orium",
-        "from": "Sep 2024",
+        "location": "Orium (formerly Myplanet)",
+        "from": "2025",
         "to": "Present",
-        "description": "Lead the design practice and the cross-disciplinary craft of how people and agents do the work together across the delivery lifecycle. Built Genie, an agentic orchestration platform that automates routine design and delivery work so the team gets meaningful hours back for the problems that need a person. Own the Craft Standard and Design QA systems, and set front-end integration standards. Convene product, engineering, and QA on shared craft rather than owning it alone.",
-        "callout": "Built Genie, the agentic orchestration platform now used across delivery. Authored Orium's design leadership rubric and contract design and UX research hiring kits."
-      },
-      {
-        "title": "Full Stack Design Lead",
-        "position": "Permanent Full-time",
-        "location": "Orium",
-        "from": "Jan 2024",
-        "to": "Sep 2024",
-        "description": "Led product design and front-end development of Orium's composable-commerce accelerators. Trained designers on systems thinking, code collaboration, and delivery standards.",
-        "callout": ""
+        "description": "Built Genie, an agentic orchestration layer — a new way of working where code-based workflows take on routine design and delivery work. Defined the token contract, guardrails, and agent behaviors it runs on; started as my proof of concept and now lives as shared markdown skills the delivery org contributes to. Lead how design works across the practice: Design QA systems and front-end integration standards. Lead and mentor a team of five, and convene product, engineering, and QA on shared craft standards.",
+        "callout": "Built Genie, now used across delivery. Authored Orium's design leadership rubric and contract design and UX research hiring kits."
       },
       {
         "title": "Senior Product Designer",
         "position": "Permanent Full-time",
         "location": "Orium",
-        "from": "Sep 2013",
-        "to": "Jan 2024",
-        "description": "Led product design across retail, healthcare, and SaaS clients, and grew into leading the front-end of Orium's composable-commerce accelerators. Architected and governed token-based design systems adopted across teams and platforms. Implemented production UI in React and Vue so design decisions survived handoff. Defined design quality standards that cut rework, and mentored designers on systems thinking and code.",
-        "callout": "Reduced design-to-development friction by approximately 60% through systemization. Shipped customer-facing products used by millions."
+        "from": "2022",
+        "to": "2025",
+        "description": "Led product design across retail, healthcare, and SaaS — Softchoice, Kum & Go, OnLogic, and a Fortune 100 strategic planner. Architected and governed token-based design systems across teams and codebases. Implemented UI directly in React and Vue so design decisions survived handoff, making a single source of truth the default instead of rebuilding it per project.",
+        "callout": ""
+      },
+      {
+        "title": "Visual Interface Designer",
+        "position": "Permanent Full-time",
+        "location": "Orium",
+        "from": "2017",
+        "to": "2022",
+        "description": "Shipped UI across enterprise and consumer web products. Established the reusable component and token patterns that later became shared systems.",
+        "callout": ""
+      },
+      {
+        "title": "Creative Rep",
+        "position": "Permanent Full-time",
+        "location": "Orium (formerly Myplanet)",
+        "from": "2013",
+        "to": "2017",
+        "description": "Entry into design and client delivery; visual and interface design across early engagements.",
+        "callout": ""
       },
       {
         "title": "UX Designer",

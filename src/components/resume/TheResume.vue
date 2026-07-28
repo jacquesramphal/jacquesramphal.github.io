@@ -68,7 +68,7 @@ export default {
   },
   computed: {
     summary() {
-      return `Design lead working at the seam between design and engineering, with ${yearsOfExperience()}+ years delivering enterprise and consumer products. I lead the cross-disciplinary craft of how people and agents do the work together, built Genie as an agentic orchestration platform, and keep design-to-development integration tight. Deep expertise in token-based design systems, design-to-development integration, and accessible, high-fidelity UI.`;
+      return `Design lead at the seam between design and engineering. ${yearsOfExperience()} years at Orium delivering enterprise and consumer products, where I built Genie as an agentic orchestration layer and lead how design works across the practice. Deep expertise in token-based design systems, design-to-development integration, and accessible, high-fidelity UI.`;
     },
   },
   props: {

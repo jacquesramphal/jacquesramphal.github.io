@@ -4,32 +4,33 @@ Design Lead, Agentic Experience — Toronto, ON
 
 ---
 
-Founding-caliber design engineer with {{yearsExperience}}+ years shipping enterprise and consumer products — currently leading agentic experience (AX) design at Orium, where I built Genie: an AI orchestration layer that automates recurring design tasks and establishes agent-safe UX patterns for hybrid human-AI workflows.
-
-**Core Competencies:** Product Design · UX/UI Design · Design Systems · Design-to-Development Integration · AI and Agentic UX · Design Leadership · Front-End Development · Design Tokens · Design QA · Accessibility · Agile
+I design systems and write the code that ships them. {{yearsExperience}} years at Orium, the last several at the seam between design and engineering, where I've gone from shipping products to leading how design works and, lately, building new ways of working: code-based, orchestrated agentic workflows that take routine delivery work off the team. I built Genie to do exactly that, I set the practice and standards others follow, and I write about where the craft goes as the medium becomes agentic.
 
 ---
 
 ## Experience
 
-**Design Lead, Agentic Experience** — Orium, Toronto · Sep 2024 - Present
-- Set strategic direction for UX, agentic experience design, and design-to-development integration.
-- Primary designer and developer of Genie — architecture, UX patterns, n8n automation, and front-end.
-- Oversee design quality through scalable Design QA systems and front-end integration standards.
+**Orium (formerly Myplanet)** — Toronto · Sep 2013 - Present
+*Joined as a visual designer and grew into the design-engineering lead across a single continuous tenure.*
 
-**Full Stack Design Lead** — Orium · Jan 2024 - Sep 2024
-- Led product design and front-end development of Orium Accelerators for composable commerce platforms.
-- Trained designers on systems thinking, code collaboration, and delivery standards.
+**Design Lead, Agentic Experience** · 2025 - Present
+- Built Genie, an agentic orchestration layer — a new way of working where code-based workflows take on routine design and delivery work. Defined the token contract, guardrails, and agent behaviors it runs on. Started as my proof of concept; now lives as shared markdown skills the delivery org contributes to.
+- Lead how design works across the practice: Design QA systems, front-end integration standards, and the `/design` Storybook agent connecting design intent to production components and tokens.
+- Lead and mentor a team of 5; convene product, engineering, and QA on shared craft standards.
 
-**Senior Product Designer** — Orium · Sep 2013 - Jan 2024
-- Led product design across enterprise and consumer platforms in retail, healthcare, and SaaS.
-- Architected and governed token-based design systems across multiple teams and codebases.
-- Implemented UI components directly in React and Vue to ensure fidelity from design to production.
-- Reduced design-to-development friction by approximately 60% through systemization and shared tooling.
-- Shipped customer-facing products used by millions of end users.
+**Senior Product Designer** · 2022 - 2025
+- Led product design across retail, healthcare, and SaaS — Softchoice, Kum & Go, OnLogic, and a Fortune 100 strategic planner.
+- Architected and governed token-based design systems across teams and codebases.
+- Implemented UI directly in React and Vue so design decisions survived handoff, making a single source of truth the default instead of rebuilding it per project.
+
+**Visual Interface Designer** · 2017 - 2022
+- Shipped UI across enterprise and consumer web products; established the reusable component and token patterns that later became shared systems.
+
+**Creative Rep** · 2013 - 2017
+- Entry into design and client delivery; visual and interface design across early engagements.
 
 **UX Designer (Contract)** — University Health Network · 2013
-- Designed accessible healthcare interfaces (WCAG 2.1); conducted usability testing with patients and clinicians.
+- Designed accessible healthcare interfaces (WCAG 2.1); usability testing with patients and clinicians.
 
 ---
 
