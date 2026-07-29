@@ -3,7 +3,7 @@
 Design Engineering · Agentic Experience · Design Systems · Design-to-Development
 
 - Toronto, ON
-- [Linkedin](https://linkedin.com/in/jacquesramphal-design)
+- [Linkedin](https://www.linkedin.com/in/ramphal-design/)
 - [Website](jacques@ramphal.design)
 - [Github](https://github.com/jacquesramphal)
 
