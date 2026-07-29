@@ -1,4 +1,4 @@
-![Genie n8n Workflow](../images/genie.png)
+![Genie's first workflow](../images/genie.png)
 
 # Designing Genie
 An agentic orchestration layer for design delivery, built to automate routine work so the team could focus on the kind that requires a person.
@@ -42,8 +42,8 @@ The task ownership challenge was the subtlest. Automating routine work carries a
 
 Genie connects to Jira, Slack, Mavenlink, and internal project databases, synthesizing context that previously required manual assembly. That synthesis is what makes the difference between a prompt interface and a tool that can act on real project context: turning scattered project state into something a team can act on directly.
 
-![Genie n8n Workflow](../images/genie.png)
-*The n8n workflow behind Genie: context synthesis, requirements generation, audit automation, risk surfacing.*
+![Genie's first workflow](../images/genie.png)
+*The first version of Genie, orchestrated in n8n: context synthesis, requirements generation, audit automation, risk surfacing.*
 
 ## Outcome
 
@@ -51,14 +51,12 @@ Genie moved from a personal experiment to an organizational platform used across
 
 The hours it saves are real, but the more significant shift is what those hours get redirected toward: the judgment calls, the design decisions, the problems that actually require a person in the room.
 
-The implementation is still evolving. The n8n workflows are being rebuilt as a native command interface, closer to where the work actually happens and with less infrastructure between a command and its result. The design problems don't change with the orchestration layer: legibility, trust, keeping judgment with the person.
+The n8n workflows were the starting point. They're being rebuilt as command-driven agent workflows defined in plain markdown, closer to where the work actually happens and with less infrastructure between a command and its result. The design problems don't change with the orchestration layer: legibility, trust, keeping judgment with the person.
 
 ## What I Learned
 
 Building for others meant slowing down and accepting that usefulness isn't universal by default. Some days are hard: adoption is slow, nobody seems to get it. Other days a team tells you Genie saved them hours, helped them catch something they would have missed, or gave them space to focus on what they care about. Both kinds of days are the reality of building something real.
 
 I had to learn when to admit I didn't know enough and ask for help, and when to accept that some problems were bigger than my current expertise.
-
----
 
 *The full story of how building Genie changed how I work: [Building Genie Changed Me →](/doc/building-genie-changed-me)*
