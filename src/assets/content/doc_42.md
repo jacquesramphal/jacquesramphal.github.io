@@ -35,22 +35,20 @@ I work at the seam between design and engineering, and I'm defining what design 
 ### Design Lead, Agentic Experience
 **Orium** · Toronto, ON · 2013 – Present
 
-*Design Lead, Agentic Experience (Sep 2024 – Present)*
-- Lead the design practice and the cross-disciplinary craft of how people and agents do the work together across delivery.
-- Built Genie, an agentic orchestration platform, from the ground up, including architecture, UX patterns, and front-end implementation.
-- Own design quality through scalable Design QA systems and front-end integration standards.
-- Convene product, engineering, and QA on shared craft, and mentor designers on agentic workflows and AI tooling.
+*Design Lead, Agentic Experience (Jun 2025 – Present)*
+- Lead the design and integration of agentic systems (AX) across delivery, bridging UX, AI automation, and front-end.
+- Built Genie, an agentic delivery platform (architecture, UX patterns, front-end), that gives the team hours back on routine work.
+- Own design quality through scalable Design QA systems and front-end integration standards; mentor designers on agentic workflows and AI tooling.
 
-*Full Stack Design Lead (Jan 2024 – Sep 2024)*
-- Led design and contributed directly to the front-end of Orium's composable-commerce accelerators.
-- Maintained design assets and the front-end codebase, and trained designers on systems, code collaboration, and delivery standards.
-- Supported sales discussions and demonstrated capabilities to prospective clients.
+*Senior Product Designer (May 2022 – Jun 2025)*
+- Designed token-based design systems and wrote the production front-end (React, Vue) that shipped them, working hands-on so decisions survived handoff.
+- Drove design advocacy, shared token languages, and Design QA; began leading agentic-experience work in 2024.
 
-*Senior Product Designer (Sep 2013 – Jan 2024)*
-- Led product design across enterprise and consumer platforms in retail, healthcare, and SaaS.
-- Architected and governed token-based design systems across multiple teams and codebases.
-- Implemented UI components directly in code (React, Vue) so design decisions survived handoff.
-- Defined design quality standards that improved consistency and reduced rework across delivery teams.
+*Visual Interface Designer (Jul 2017 – May 2022)*
+- Designed and shipped UI across retail, healthcare, and SaaS platforms, growing from interface work into design systems and front-end.
+
+*Creative Rep (Sep 2013 – Jul 2017)*
+- Early design and production work across brand and digital projects.
 
 **Key Impact**
 - Reduced design-to-development friction by approximately 60 percent through systemization and shared tooling.
