@@ -55,16 +55,16 @@
                   v-if="label"
                   size="large"
                   :label="`${label}`"
-                  :route="`${route}`"
-                  :link="`${link}`"
+                  :route="route"
+                  :link="link"
                 />
                 <MyButton
                   v-if="labeltwo"
                   type="outline"
                   size="large"
                   :label="`${labeltwo}`"
-                  :route="`${routetwo}`"
-                  :link="`${linktwo}`"
+                  :route="routetwo"
+                  :link="linktwo"
                 />
               </div>
             </div>

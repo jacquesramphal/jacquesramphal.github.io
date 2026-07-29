@@ -6,10 +6,10 @@
       eyebrow="Design Engineer · Toronto"
       title="I design systems and write the production code that ships them."
       subtitle="I work at the seam between design and engineering: token-based design systems in Figma, the front-end that renders them in React and Vue, and the AI tooling that keeps the two in sync. I build so design decisions survive handoff instead of dying in it."
-      label="Résumé"
-      routetwo="/about"
+      label="Download résumé"
+      link="/resume.html"
       labeltwo="More about me →"
-      route="/resume"
+      routetwo="/about"
       as="h1"
     />
 
