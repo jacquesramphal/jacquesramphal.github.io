@@ -30,13 +30,13 @@ Principle: reconnect because you'd genuinely like to be back in touch, not becau
 
 **Subject:** Ex-Myplanet, still circling the wellbeing-tech world
 
-> Hi Jay! 👋🏽 Long time, my friend.
+> Hey Jay! 👋🏽 Long time, my friend.
 >
-> I came across Still Ape and had a big "of course" moment — a fractional product team for wellbeing tech is exactly the intersection I keep coming back to. Congratulations on building it; the "tech for wellbeing" framing is the thing I care most about.
+> Came across Still Ape and had a big "of course" moment. A fractional product team for wellbeing tech is exactly the intersection I keep circling back to. Congrats on building it — the "tech for wellbeing" framing is the thing I care about most.
 >
-> We go back a bit — you came in to co-facilitate one of the Myplanet Mind in-house workshops I was co-leading, and that stuck with me. I've stayed close to this space since: design systems and production front-end as the day job, and carrying Mindfulness at Orium (formerly Myplanet), where I run short reflective courses. I also gave a talk at A Mindful Society back in 2019.
+> When you and Michael led that Myplanet Mind course way back when, I was the internal champion tagging along — but it stuck with me more than you'd think. I've stayed close to the space ever since. Day to day I do design systems and front-end, but I've gone deep on agentic AI: I built Genie, an agentic delivery platform my team runs on, and I lead how designers and agents actually work together. I write about where design goes when the tools get this good — a thread I call "taste is triage" — and I still carry the mindfulness side at Orium (formerly Myplanet), running short reflective courses. You already know about the A Mindful Society talk.
 >
-> I'd love to reconnect and hear how you're working now. And if you ever bring in extra hands on the design or build side, I'd be genuinely interested — but mostly I just wanted to say what you're doing looks great.
+> I'd love to reconnect and hear how you're working these days. And if you ever need extra hands on design or build, I'd be into that. But mostly I just wanted to say what you're building looks great.
 >
 > Jacques
 
