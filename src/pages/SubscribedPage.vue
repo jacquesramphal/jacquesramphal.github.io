@@ -9,7 +9,7 @@
           description="Thanks for subscribing. New essays land on the site first, then arrive in your inbox as I publish them."
         />
         <div class="subscribed__actions">
-          <MyButton label="Read the writing" primary size="large" route="/writing" />
+          <MyButton label="Browse the library" primary size="large" route="/library" />
           <MyButton label="Back home" type="ghost" size="large" route="/" />
         </div>
       </div>
