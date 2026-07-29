@@ -106,4 +106,125 @@ LinkedIn is a hire surface (like `/hire`), so positioning framing is appropriate
 
 ---
 
+---
+
+## Part 4 — Pitch email drafts
+
+Copy-paste ready. `[bracketed]` = fill before sending. Submission channels change — verify each venue's current "write for us" process first (form vs. email). Keep pitches short; editors skim. Every pitch discloses that the piece exists on the site and offers canonical/adaptation, because most venues care about duplicate content.
+
+### 4.1 — Token Pipeline → Smashing Magazine
+**Channel:** Smashing "Write for Smashing" submission form, or the editorial team.
+**Subject:** Pitch: Making design tokens survive AI-assisted development
+
+> Hi Smashing editorial team,
+>
+> I'd like to pitch a practical article on enforcing design tokens across the three places they drift — Figma, code, and AI tools — which is the part most token systems skip.
+>
+> I'm a design engineer (design systems, production front-end, agentic AI). I recently built a token pipeline for a multi-brand automotive HMI platform: four brands, two themes, two modalities. The architecture was the easy part. The hard part was stopping AI tools like Cursor and Claude from writing `padding: 16px` and `#ffffff` on every component.
+>
+> The piece would cover, with code:
+> - a layered inheritance model (≈1,300 → ≈200 lines per brand)
+> - a three-tier semantic color system for runtime day/night theming
+> - the enforcement layer that makes it real: a staged-file scanner, a custom ESLint rule for JSX inline styles, and `.cursorrules` stop-conditions for AI agents
+>
+> ~2,000–2,500 words with diagrams, reproducible. It's adapted from a case study on my site — happy to make Smashing the canonical version or write it fresh for you.
+>
+> [Name] · [ramphal.design] · [GitHub] · [one-line bio]
+
+### 4.2 — When UX Becomes AX → Smashing (or UX Collective)
+**Subject:** Pitch: Designing for AI agents is still design — a workshop method
+
+> Hi Smashing editorial team,
+>
+> A lot of designers I work with think agentic AI isn't "really design" anymore. I'd like to pitch a piece arguing the opposite, with a concrete method teams can use.
+>
+> I run agentic-design workshops where we design what an agent is allowed to decide, when it acts, how it signals confidence, and where humans approve or override — the boundary conditions of autonomous work, not its interface. The article walks through the actual method: swimlane mapping to find where decisions stall, one-page "agent cards" that force a team to define behavior and ownership, and a readiness/align phase that turns it into something engineering can build against.
+>
+> ~1,800–2,200 words with the workshop artifacts (swimlanes, agent card, readiness map). Practical and reproducible. Adapted from an article on my site; canonical link or a fresh version, your call.
+>
+> [Name] · links · [bio]
+
+### 4.3 — Taste is Triage → A List Apart (fallback: UX Collective)
+**Channel:** A List Apart contribute/submissions process.
+**Subject:** Submission: "Taste is Triage" — judgment as the scarce skill when making gets cheap
+
+> Hi A List Apart editors,
+>
+> I'd like to submit a personal essay, "Taste is Triage." The argument: once making something costs almost nothing, the value moves from making to judgment — deciding what's worth building and being able to say why.
+>
+> It braids two stories fifteen years apart — learning to code by feel as a young graphic designer, and vibe-coding today — into a case that taste isn't indulgence but triage: the discipline of deciding where to spend attention you can no longer spend everywhere. It's reflective rather than how-to, which I think fits ALA's register.
+>
+> It's ~1,200 words, published on my site; I'd adapt it for ALA and set the canonical link to you. Draft: [link].
+>
+> [Name] · [ramphal.design] · [one-line bio]
+
+### 4.4 — The Ramstack → A List Apart (or Smashing)
+**Subject:** Submission: The Ramstack — designing for interoperability so your work outlasts the tools
+
+> Hi A List Apart editors,
+>
+> Pitching an essay on building a design practice that survives tool churn. The thesis: a future-proof front-end practice isn't about the tools, it's about principles beneath them — open formats, reduced dependencies, and the design system (as version-controlled tokens) rather than a design file as the source of truth.
+>
+> It's framed around one question I use as a design constraint: *what happens to my work if this tool disappears tomorrow?* Evergreen and toolchain-agnostic, updated to account for how AI changes the calculus.
+>
+> ~1,300 words, on my site; I'd refresh it and canonical to ALA. Draft: [link].
+>
+> [Name] · links · [bio]
+
+### 4.5 — The /design Agent → Smashing or CSS-Tricks
+**Channel:** for CSS-Tricks, use your existing contact from the counter-fill piece.
+**Subject:** Pitch: An isolated, AI-driven Storybook that turns handoff into a diff
+
+> Hi [name / CSS-Tricks],
+>
+> Following the counter-fill piece, I'd like to pitch another. I built a design environment a designer spins up with one command: an isolated Storybook wired to the same tokens and components as production, independent from the dev repo. Instead of annotated Figma specs, handoff becomes a structured diff a developer merges.
+>
+> The article covers the setup, Token Studio sync, and the diff-based handoff, with what worked and what didn't (adoption is the unsolved part). ~1,500–2,000 words. Adapted from a case study on my site; canonical or fresh.
+>
+> [Name] · links · [bio]
+
+**Tier 3 pieces need no pitch** — post The Guardrail Problem and The Designer in the Age of AI directly to LinkedIn; route Building Genie Changed Me to UX Collective (self-submit) or keep for a podcast.
+
+---
+
+## Part 5 — Edits required before sending
+
+### Applies to every piece
+- [ ] **Replace internal `/doc/...` links** with public `ramphal.design/...` URLs, or remove them. In-app routes won't resolve for an external editor.
+- [ ] **Swap placeholder SVG hero images** (`placeholders/placeholder-*.svg`) for real, final images.
+- [ ] **Strip site-voice CTAs and closers** (e.g. "This is the thinking I'm putting out… come along") — those are for the record, not a publication.
+- [ ] **Add an author bio (1–2 lines) + headshot** and a consistent links block.
+- [ ] **Decide canonical** per venue (self-canonical vs. exclusive) and add an "originally published on ramphal.design" note if required.
+- [ ] **Confidentiality pass:** confirm nothing under NDA/client confidentiality appears in text, pull-quotes, *or inside images*.
+- [ ] **One more CLAUDE.md pass** (adjective tells, em-dash discipline, pivot sentences) before it leaves.
+
+### Token Pipeline (`doc_61`)
+- [ ] NDA: confirm the client-feedback quote ("We need someone who works the way you do…") and any brand-identifying detail are cleared to publish; genericize if not.
+- [ ] Point the **Design Guard** reference at its npm/GitHub URL, not the internal `/doc/design-guard` route.
+- [ ] Replace the placeholder hero with a real token-architecture diagram.
+- [ ] Consider adding one hard metric to the Outcome (build-time, review-rework, or drift caught) — editors and readers reward numbers.
+
+### When UX Becomes AX (`doc_62`)
+- [ ] Confirm the three workshop images (`workflow.png`, `agent-card.png`, `process-audit.png`) contain **no client-identifiable data**.
+- [ ] Soften/generalize "an Agentic Experience Studio I defined and ran" if it's tied to a named client engagement.
+- [ ] Strengthen the opening line for a cold reader (the current in-media-res "I keep hearing this…" works, but lead with the stakes).
+- [ ] Likely needs ~300–500 more words for a Smashing feature — add one concrete before/after or a worked mini-example.
+
+### Taste is Triage (`doc_77`)
+- [ ] Remove the internal links to `/doc/when-ux-becomes-ax` and `/doc/building-genie-changed-me` (or make them external/optional).
+- [ ] Cut the closing italic line ("This is the thinking I'm putting out in the open… come along").
+- [ ] Confirm the Genie passage discloses nothing Orium-confidential (it reads as personal/experiential — likely fine).
+- [ ] Otherwise ready; it's the most publication-clean of the set.
+
+### The Ramstack (`doc_58`)
+- [ ] It's from 2022 — light modernization pass; make the AI point explicit rather than a nod, since it now carries the argument.
+- [ ] Confirm the "current standard is Figma" framing still reads current at submission time.
+
+### The /design Agent (`doc_64`)
+- [ ] Genericize Orium/internal framing for an external audience; reshape the intro to open on the problem, not the internal context.
+- [ ] Confirm the Storybook screenshots show no client data.
+- [ ] Convert internal links; add the honest "adoption is unsolved" note as a strength (editors like candor).
+
+---
+
 *(End of plan — WIP.)*
