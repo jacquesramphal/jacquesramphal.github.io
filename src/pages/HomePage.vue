@@ -17,19 +17,30 @@
     />
 
     <!-- WRITING SECTION -->
-    <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
-    <!-- ABOUT SECTION -->
-    <AnimatedComponent>
-      <TextGrid3
-        title="About"
-        as="h2"
-        description=""
-        eyebrow1=""
-        :detail1="`${careerYears}+ years at the seam between design and engineering, designing systems, writing production code, and building with AI.<br/><br/>I care most about the gap between design intent and what actually ships: how decisions survive handoff, how systems scale, and how people stay in control when the tools get smarter. I also coach designers moving closer to systems and code, not because everyone needs to write code, but because fluency changes the kinds of conversations you can have.`"
-        label="More about me"
-        route="/about"
-      />
-    </AnimatedComponent>
+    <!-- Featured hero: Building Genie (id 66), full width. List rows aligned to
+         columns 2/3: Taste is triage (80), When UX Becomes AX (29), Design Tokens (11). -->
+    <CardRow2
+      title="My Writing"
+      kind="writing"
+      variant="feature-list"
+      filterByType="article"
+      :featuredId="66"
+      :listIds="[80, 29, 11]"
+      :viewAllTo="{ name: 'Library' }"
+    />
+    <!-- ABOUT SECTION — image-split banner (photo + bio) -->
+    <TextImage
+      eyebrow=""
+      as="h2"
+      title="About Me"
+      filename="portrait.jpg"
+      alt="Jacques Ramphal"
+      :flipped="false"
+      :red="false"
+      :description="`${careerYears}+ years at the seam between design and engineering. I care most about the gap between design intent and what actually ships: how decisions survive handoff, how systems scale, and how people stay in control as the tools get smarter.`"
+      label="More about me"
+      route="/about"
+    />
 
     <!-- WORK SECTION -->
     <CardRow2

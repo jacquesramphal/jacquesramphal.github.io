@@ -1,0 +1,14 @@
+{
+  "meridian": {
+    "client": "Meridian Financial",
+    "role": "Principal Product Designer",
+    "note": "You're building AI-first for real, and that's the workflow I already live in: logic in Claude and Cursor, systems and craft in Figma, production code that keeps the two honest. The proof below leads with the platform work your team cares about.",
+    "ctaSubtitle": "Open to principal design roles on AI-first platforms. The fastest way to reach me is email.",
+    "leadProof": "genie"
+  },
+  "northwind": {
+    "client": "Northwind",
+    "role": "Staff Design Engineer",
+    "leadProof": "design-command"
+  }
+}
