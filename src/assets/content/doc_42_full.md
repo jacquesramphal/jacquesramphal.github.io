@@ -4,7 +4,7 @@ UX/AX Design Lead
 AI-Driven Workflows · Design Systems · Design-to-Development
 
 Toronto, ON
-LinkedIn: https://linkedin.com/in/jacquesramphal-design
+LinkedIn: https://www.linkedin.com/in/ramphal-design/
 Email: jacques@ramphal.design
 GitHub: https://github.com/jacquesramphal
 
