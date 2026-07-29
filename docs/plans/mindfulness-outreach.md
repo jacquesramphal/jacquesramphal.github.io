@@ -30,11 +30,11 @@ Principle: reconnect because you'd genuinely like to be back in touch, not becau
 
 **Subject:** Ex-Myplanet, still circling the wellbeing-tech world
 
-> Hi Jay,
+> Hi Jay! 👋🏽 Long time, my friend.
 >
 > I came across Still Ape and had a big "of course" moment — a fractional product team for wellbeing tech is exactly the intersection I keep coming back to. Congratulations on building it; the "tech for wellbeing" framing is the thing I care most about.
 >
-> We go back a bit — you came in to co-facilitate one of the Myplanet Mind in-house workshops I was co-leading, and that stuck with me. I've stayed close to this space since: design systems and production front-end as the day job, and on the side a mindful-meetings app I rebuilt, a short reflective course, and the A Mindful Society talk I gave in 2019.
+> We go back a bit — you came in to co-facilitate one of the Myplanet Mind in-house workshops I was co-leading, and that stuck with me. I've stayed close to this space since: design systems and production front-end as the day job, and carrying Mindfulness at Orium (formerly Myplanet). I run short reflective courses, and the A Mindful Society talk I gave in 2019.
 >
 > I'd love to reconnect and hear how you're working now. And if you ever bring in extra hands on the design or build side, I'd be genuinely interested — but mostly I just wanted to say what you're doing looks great.
 >
