@@ -58,7 +58,6 @@ export default {
         { text: 'Home', route: '/' },
         { text: 'Library', route: '/library' },
         { text: 'Resume', route: '/resume.html', external: true },
-        { text: 'FAQs', route: '/doc/ask-me-anything' },
         { text: 'Storybook', route: '/storybook/', external: true },
       ],
     };

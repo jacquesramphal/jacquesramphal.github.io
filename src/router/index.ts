@@ -17,6 +17,7 @@ import WorkIndex from '@/pages/WorkIndex.vue';
 import PlayIndex from '@/pages/PlayIndex.vue';
 import UsefulLinks from '@/pages/UsefulLinks.vue';
 import CoursePage from '@/pages/CoursePage.vue';
+import HirePage from '@/pages/HirePage.vue';
 import SessionReader from '@/pages/SessionReader.vue';
 import BusinessCardPage from '@/pages/BusinessCardPage.vue';
 import SubscribedPage from '@/pages/SubscribedPage.vue';
@@ -78,6 +79,15 @@ const routes = [
     children: [],
     meta: {
       hideNav: false,
+    },
+  },
+
+  {
+    path: '/hire',
+    name: 'Hire',
+    component: HirePage,
+    meta: {
+      title: 'Jacques Ramphal — Design Engineer',
     },
   },
 
