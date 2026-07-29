@@ -1,12 +1,12 @@
 ![Token Architecture Overview](../images/placeholders/placeholder-25.svg)
 
-# Token Pipeline for a Multi-Brand HMI Platform
+# Token Pipeline for a Multi-Brand Platform
 A unified token architecture across four brands, two themes, and two modalities, with design-code sync and AI guardrails built in.
 
 | | |
 |---|---|
 | **Role** | Sole Designer & Developer |
-| **Client** | Automotive (NDA) |
+| **Client** | Enterprise platform (NDA) |
 | **Status** | Delivered · 2026  |
 | **Tags** | design-systems · tokens · ai |
 
@@ -18,7 +18,7 @@ A token system only works as a shared contract if it's enforced everywhere drift
 
 The visual design lived in Figma and the code lived in React, and the two were moving further apart every sprint. Colors existed simultaneously in Figma variables, CSS files, and hardcoded component values, with nothing keeping them in sync. When a designer updated a surface color, nothing downstream knew about it.
 
-The underlying complexity was real: a multi-display vehicle HMI prototype needing to scale across four brands, two themes (day and night), and two interaction modalities. With the right architecture, all those combinations collapse into one system.
+The underlying complexity was real: a multi-display product prototype needing to scale across four brands, two themes (day and night), and two interaction modalities. With the right architecture, all those combinations collapse into one system.
 
 ## The Constraint
 
@@ -39,7 +39,7 @@ Design Tokens/
 ├── Theme/          ← Day.json, Night.json (semantic surfaces)
 ├── Motion/         ← duration, easing, transition presets
 ├── Interactions/   ← hover, active, disabled, focus
-├── Platform/       ← Tap.json (HMI density), Click.json (desktop)
+├── Platform/       ← Tap.json (touch density), Click.json (desktop)
 └── Compositions.json
 ```
 
@@ -81,7 +81,7 @@ Figma Variables (Token Studio)
     ├── Theme/           ← Day / Night surfaces
     ├── Motion/          ← durations, easing
     ├── Interactions/    ← hover, focus, disabled
-    └── Platform/        ← HMI (tap) / Desktop
+    └── Platform/        ← Touch (tap) / Desktop
          │
          ▼  npm run build
     build/css/

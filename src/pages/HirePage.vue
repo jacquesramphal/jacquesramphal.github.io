@@ -42,7 +42,7 @@
               />
               <span class="proof-link">Read the case study →</span>
             </router-link>
-            <router-link to="/doc/hmi-design-token-pipeline" class="proof-card">
+            <router-link to="/doc/multi-brand-token-pipeline" class="proof-card">
               <span class="proof-tag">Design systems</span>
               <TextBlock
                 as="h3"
