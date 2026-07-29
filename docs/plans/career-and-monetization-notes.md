@@ -76,4 +76,37 @@ Honest synthesis (to pressure-test, not conclude):
 - Fix immediate hygiene if keeping it: routing, `/doc/process` links, remove Orium-colleague testimonials from any live version.
 - Consider one low-maintenance, marketplace-distributed product (Figma plugin) as brand-builder + proof — not as the money plan.
 
+---
+
+## Industry context & timing
+
+The design market has been contracting since the 2022 peak and hasn't recovered. Three forces:
+- **Employer's market.** Design gets cut first (read as a cost center). Fewer openings, more applicants, longer searches, comp compressed off the 2021 highs.
+- **AI is compressing the execution layer** — mockups, variations, front-end scaffolding. The pure-Figma-execution role is devaluing; the mid-level IC tier is hollowing out fastest.
+- **Bifurcation.** Commodity execution (automated/offshored) vs. high-judgment systems/strategy/design-engineering (AI makes it *more* valuable). Teams flatten; companies want fewer, more capable people with AI leverage.
+
+Implications for me:
+- **My combo (design + production code + agents) is on the resilient side** — but only cashes in for design-engineering / systems / AI roles. Presenting as a generic senior product designer = the glutted pool.
+- **The big external jump is harder now**, not easier (buyer's market). → reinforces leverage-in-place over leaping.
+- **Safety instinct is validated by the climate** — but **Orium's safety has an asterisk**: services/consultancies are squeezed by client budget cuts + AI eating billable hours. Tenure protects my seat relative to peers, not against a team/company-level contraction. "Safe, lower pay" may be optimistic.
+- **My edge is scarce *now* and may erode** as tooling matures and more people cross-skill (my own "Taste is Triage" thesis). Leverage is near its peak — sitting on it has a cost.
+
+Net: the climate **strengthens** leverage-in-place + build-optionality and **weakens** both quit-and-chase-a-jump and the solo offering (which sells into a contracting, AI-compressed design-services market). But it adds urgency: don't idle the scarce positioning.
+
+Hard reframe: "long-tenured designer at a consultancy, validated only internally, no external presence" is a *comfortable* position in an AI-compressed services market, not a *safe* one. The gap between comfortable and safe is exactly the optionality not yet built.
+
+---
+
+## Recommended path (sequenced)
+
+**Thesis:** monetize the scarce positioning while it's scarce — primarily by repricing/expanding scope inside Orium — while building external optionality as insurance. Don't gamble the secure base on a leap into a soft market; don't idle a time-sensitive edge either.
+
+1. **Price discovery (weeks).** Apply to ~5 *narrowly-targeted* roles (design engineering / systems / AI-native — never generic product design) and take ~2 interviews. Goal: learn the real market number. Not a commitment to leave.
+2. **Understand the base.** Get clarity on equity (value, vesting, cliff, plausible exit) and the internal comp/scope ceiling. Separate the comp cap (likely real) from the role/scope cap (maybe not).
+3. **Leverage in place.** Use the external number + the Genie/agent case to reprice or expand the role at Orium (e.g., a Head of Design Engineering / IP-ownership mandate). Keep tenure, equity, safety.
+4. **Build portable optionality (ongoing).** A little external presence so safety isn't single-sourced: publish the AI/design-engineering writing where it's seen, be findable, keep a live network. This is the insurance the services squeeze demands.
+5. **Fallback, not goal:** if Orium won't move on comp/scope when shown real leverage, the cap is proven — and a targeted external move becomes the plan, now backed by evidence.
+
+Positioning that supports all of the above: everywhere, signal **AI-native design engineer who owns the judgment layer** (the resilient tier), and demote the generic-senior-product-designer signal. See the site positioning audit.
+
 *(End of current notes — WIP.)*
