@@ -62,7 +62,11 @@
                 <p class="subtle">Site</p>
                 <ul>
                   <li v-for="(item, index) in menuItems3" :key="index">
-                    <TextLink :label="item.text" :route="item.route" />
+                    <TextLink
+                      :label="item.text"
+                      :route="!item.external ? item.route : undefined"
+                      :link="item.external ? item.route : undefined"
+                    />
                   </li>
                 </ul>
               </div>
@@ -198,6 +202,7 @@ export default {
       menuItems3: [
         { text: 'Journal', route: '/doc/design-learnings' },
         { text: 'About', route: '/about' },
+        { text: 'RSS', route: '/rss.xml', external: true },
         { text: 'AI Ethics', route: '/doc/ai-ethics' },
         { text: 'Privacy', route: '/doc/privacy' },
         { text: 'Accessibility', route: '/doc/accessibility' },
