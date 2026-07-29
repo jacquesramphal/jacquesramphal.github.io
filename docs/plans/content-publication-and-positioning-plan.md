@@ -14,7 +14,7 @@ Editorial quality is a 1–5 call: 5 = publication-ready feature with a real arg
 
 ### Tier 1 — submit now (highest value)
 
-**1. Token Pipeline for a Multi-Brand HMI Platform** (`doc_61`) — **Quality 4.5**
+**1. Token Pipeline for a Multi-Brand Platform** (`doc_61`) — **Quality 4.5**
 - Core: a token system is only real if it's *enforced* everywhere drift happens — Figma, code, and AI tooling. Architecture + Design Guard + custom ESLint rule + `.cursorrules` + one-command dev loop.
 - Bucket: design-systems/tokens + AI. Evergreen. Employer-light (NDA client, but the *system* is fully described and stands alone).
 - Why it's the top pick: the most concrete proof of the exact scarce combo (design systems + code + AI enforcement). Code-shaped, specific, on-thesis.
@@ -120,7 +120,7 @@ Copy-paste ready. `[bracketed]` = fill before sending. Submission channels chang
 >
 > I'd like to pitch a practical article on enforcing design tokens across the three places they drift — Figma, code, and AI tools — which is the part most token systems skip.
 >
-> I'm a design engineer (design systems, production front-end, agentic AI). I recently built a token pipeline for a multi-brand automotive HMI platform: four brands, two themes, two modalities. The architecture was the easy part. The hard part was stopping AI tools like Cursor and Claude from writing `padding: 16px` and `#ffffff` on every component.
+> I'm a design engineer (design systems, production front-end, agentic AI). I recently built a token pipeline for a multi-brand, multi-display product platform: four brands, two themes, two modalities. The architecture was the easy part. The hard part was stopping AI tools like Cursor and Claude from writing `padding: 16px` and `#ffffff` on every component.
 >
 > The piece would cover, with code:
 > - a layered inheritance model (≈1,300 → ≈200 lines per brand)

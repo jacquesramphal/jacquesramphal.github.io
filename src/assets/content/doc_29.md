@@ -23,6 +23,6 @@ The point wasn't automation for its own sake. It was protecting the time and att
 
 ## What this looks like in practice
 
-A [token pipeline that scales across four brands and two themes](/doc/hmi-design-token-pipeline). A [design agent that removes setup friction from client work](/doc/the-design-command-suite). [QA processes that catch problems at source](/doc/best-qa-doesnt-have-to-happen) rather than after handoff.
+A [token pipeline that scales across four brands and two themes](/doc/multi-brand-token-pipeline). A [design agent that removes setup friction from client work](/doc/the-design-command-suite). [QA processes that catch problems at source](/doc/best-qa-doesnt-have-to-happen) rather than after handoff.
 
 Strategic design is the consequence of specific decisions made close to the work, not a way of describing the work from a distance.
