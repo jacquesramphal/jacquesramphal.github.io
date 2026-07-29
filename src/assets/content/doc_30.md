@@ -201,3 +201,29 @@ Those things aren’t separate from delivery quality; they’re a precondition f
 </span>
 
 
+
+## Career
+
+<span>
+<details>
+<summary>Why have you spent so long at one company?</summary>
+
+The honest answer is the job kept changing faster than leaving could have changed it. I started as a product designer, ended up writing the production front-end, and for the last stretch I’ve been building an agentic platform and defining how designers work with agents. I got handed the next hard problem every year or two without switching companies to find it.
+
+Because the company is a consultancy, the range came built in. Retail, healthcare, commerce, a different codebase and a different constraint on every engagement. It was dozens of contexts, not one.
+
+What’s changed is that I’ve taken that arc about as far as it goes inside a services company. The work I want now is owning a product surface over years rather than shipping and handing it off, and that’s the one thing the model there can’t give me.
+</details>
+
+<details>
+<summary>You’ve mostly done agency work. Can you own a product?</summary>
+
+It’s a fair thing to test, because agency work and product work are different. Client work is ship-and-hand-off: you solve it, you leave, someone else lives with it. So the real question is whether I can live with a surface over time.
+
+The clearest evidence is Genie. Nobody briefed it. I built it as an internal product, shipped it, watched a team use it, and kept changing it based on how they used it rather than a client deadline. The token pipeline and the design tooling I maintain are the same: long-lived internal products with real users that I still own.
+
+The muscle that question worries about is the one I’ve built on everything that wasn’t client work. I want a role where that’s the whole job instead of the side of it.
+</details>
+</span>
+
+
