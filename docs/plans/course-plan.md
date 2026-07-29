@@ -33,11 +33,18 @@ Not "AI for designers" (commodity). **"The design engineer path — become the p
 6. **Repositioning yourself** — portfolio-as-evidence, record-not-portfolio, being findable, interviewing for the resilient tier.
 - **Capstone:** ship a small design-system-with-agents project. Students' results become the testimonials.
 
-### Format & price
-Don't build a big recorded course into the void. Sequence:
-1. **One small live cohort, premium (~$1,000–1,500), 5–6 weeks.** Validates with real money, generates testimonials, refines the material.
-2. **Then productize the recording** as an evergreen self-paced tier (~$300–500), cohort as the premium tier on top.
-Underpricing is the mistake, not overpricing. A $49 course signals junk and attracts refund-prone buyers.
+### Format & price — self-led, hosted on the site (primary)
+End-state is a **self-paced course delivered on ramphal.design**, using the course infra that already runs "Still Yourself" (manifest JSON + chapter markdown + `/secured/` routes + progress tracking). Preferred because it's owned, passive after build, and on-ethos.
+- **Price:** self-paced ~$300–500. Optional paid feedback/review add-on (~$150) to protect outcomes and generate testimonials.
+- **Sequence (don't build into the void):** run one small warm pilot first (a paid workshop or a "founding" live run into the MACH network) to validate willingness-to-pay, get testimonials, and refine — *then* record it and sell it self-paced on-site. Validate warm, productize to self-serve.
+- Underpricing is the mistake, not overpricing. A $49 course signals junk and attracts refund-prone buyers.
+
+### Delivery & build (self-led on the site — "Option B")
+Reuse the existing course machinery; add only real per-buyer access.
+- **Reuse:** `courseRegistry.ts` (add one manifest import), `CoursePage.vue` (hub), `MarkdownPage` chapter rendering, `courseProgress` (progress bar), the `/secured/doc/...` route pattern. Model the manifest on `still-yourself.json`.
+- **Payment + access (the one new piece):** the site is static, so the current `?unlock` gate is soft (shared secret → piracy). Sell through **Lemon Squeezy or Gumroad**, which issues a **license key per purchase**; validate the key with a tiny serverless function (Lemon Squeezy has a license API) to unlock the course routes. Real per-buyer access without building a login system.
+- **Protection caveat:** anything in the static bundle is viewable in source. Put the paid value in **off-bundle video** (unlisted Vimeo/Cloudflare Stream) + the capstone/feedback — not in readable markdown. Text/code can leak; the video library and your judgment can't be copy-pasted.
+- **Maintenance:** low — a manifest, chapter pages, hosted videos, and a license check. No LMS, no accounts DB.
 
 ### Launch mechanics (the deciding part)
 A cohort needs an audience that doesn't exist yet. So the launch path is an *audience* path:
