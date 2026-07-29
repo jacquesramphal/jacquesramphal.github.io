@@ -6,7 +6,7 @@
     <atom:link href="https://ramphal.design/rss.xml" rel="self" type="application/rss+xml" />
     <description>Essays and case studies on design systems, agentic AI, and design engineering by Jacques Ramphal.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 29 Jul 2026 01:55:21 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2026 21:23:49 GMT</lastBuildDate>
     <item>
       <title>Taste is triage</title>
       <link>https://ramphal.design/doc/taste-is-triage</link>
@@ -183,7 +183,7 @@
       <title>Designing Genie</title>
       <link>https://ramphal.design/doc/designing-genie</link>
       <guid isPermaLink="true">https://ramphal.design/doc/designing-genie</guid>
-      <pubDate>Wed, 29 Jul 2026 01:55:21 GMT</pubDate>
+      <pubDate>Wed, 29 Jul 2026 21:23:49 GMT</pubDate>
       <description>How a personal automation experiment became a shared platform for the delivery team, and the three mental model problems that had to be solved to design for agentic AI.</description>
       <category>ai</category>
       <category>agentic-ai</category>
@@ -192,7 +192,7 @@
       <title>Token Pipeline for a Multi-Brand Platform</title>
       <link>https://ramphal.design/doc/multi-brand-token-pipeline</link>
       <guid isPermaLink="true">https://ramphal.design/doc/multi-brand-token-pipeline</guid>
-      <pubDate>Wed, 29 Jul 2026 01:55:21 GMT</pubDate>
+      <pubDate>Wed, 29 Jul 2026 21:23:49 GMT</pubDate>
       <description>How I built a unified token architecture, an AI-guarded lint pipeline, and a one-command dev loop that kept Figma, code, and AI tooling in sync across four brands, two themes, and two modalities, for a multi-display, multi-brand product platform.</description>
       <category>design-systems</category>
       <category>tokens</category>
@@ -202,7 +202,7 @@
       <title>The /design Agent</title>
       <link>https://ramphal.design/doc/the-design-command-suite</link>
       <guid isPermaLink="true">https://ramphal.design/doc/the-design-command-suite</guid>
-      <pubDate>Wed, 29 Jul 2026 01:55:21 GMT</pubDate>
+      <pubDate>Wed, 29 Jul 2026 21:23:49 GMT</pubDate>
       <description>An isolated Storybook environment powered by AI — one command to start. How I built a design layer on top of an agentic framework, and what I learned about operationalizing change in a service company where the best handoff is still a handoff.</description>
       <category>design-engineering</category>
       <category>storybook</category>
@@ -212,7 +212,7 @@
       <title>Fortune 100 Planning Tool</title>
       <link>https://ramphal.design/doc/fortune-100-planning-tool</link>
       <guid isPermaLink="true">https://ramphal.design/doc/fortune-100-planning-tool</guid>
-      <pubDate>Wed, 29 Jul 2026 01:55:21 GMT</pubDate>
+      <pubDate>Wed, 29 Jul 2026 21:23:49 GMT</pubDate>
       <description>A strategic planning tool for a Fortune 100 company — making complex organizational data across business units, budgets, and initiatives navigable without flattening it.</description>
       <category>dashboard</category>
       <category>analytics</category>
@@ -221,7 +221,7 @@
       <title>OnLogic Product Configurator</title>
       <link>https://ramphal.design/doc/onlogic-commerce-platform</link>
       <guid isPermaLink="true">https://ramphal.design/doc/onlogic-commerce-platform</guid>
-      <pubDate>Wed, 29 Jul 2026 01:55:21 GMT</pubDate>
+      <pubDate>Wed, 29 Jul 2026 21:23:49 GMT</pubDate>
       <description>OnLogic&apos;s customers are IT professionals configuring industrial PCs with specific hardware requirements — where a wrong choice has real consequences. Migrated from a legacy platform to composable commerce, with a configuration flow built around real dependencies.</description>
       <category>commerce</category>
       <category>configurator</category>
@@ -230,7 +230,7 @@
       <title>Kum &amp; Go Mobile Loyalty App</title>
       <link>https://ramphal.design/doc/kg-loyalty-platform</link>
       <guid isPermaLink="true">https://ramphal.design/doc/kg-loyalty-platform</guid>
-      <pubDate>Wed, 29 Jul 2026 01:55:21 GMT</pubDate>
+      <pubDate>Wed, 29 Jul 2026 21:23:49 GMT</pubDate>
       <description>A convenience-store loyalty program that had to reach the fuel pump, not just the phone. Rebuilt on React Native and a composable content stack, so the team ran its own promotions, search, and rewards, and customers prepaid gas and redeemed points at the pump, without a third party in the loop.</description>
       <category>loyalty</category>
       <category>mobile</category>
@@ -239,7 +239,7 @@
       <title>Softchoice Website Replatform</title>
       <link>https://ramphal.design/doc/softchoice-rebrand</link>
       <guid isPermaLink="true">https://ramphal.design/doc/softchoice-rebrand</guid>
-      <pubDate>Wed, 29 Jul 2026 01:55:21 GMT</pubDate>
+      <pubDate>Wed, 29 Jul 2026 21:23:49 GMT</pubDate>
       <description>When a brand launches a new identity, the website needs to reflect it—without breaking what already works. Redesigned Softchoice&apos;s website to reflect their new brand identity, working within their existing CMS structure. Enhanced modules, introduced motion design, and collaborated closely with development to ensure design fidelity.</description>
       <category>rebrand</category>
       <category>motion-design</category>

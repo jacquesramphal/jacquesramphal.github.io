@@ -17,8 +17,9 @@
     />
 
     <!-- WRITING SECTION -->
-    <!-- Featured hero: Building Genie (id 66), full width. List rows aligned to
-         columns 2/3: Taste is triage (80), When UX Becomes AX (29), Design Tokens (11). -->
+    <!-- Featured hero: Building Genie (id 66). Featured card and list rows both
+         sit in columns 2/3, section title in column 1. Rows: Taste is triage (80),
+         When UX Becomes AX (29), Design Tokens (11). -->
     <CardRow2
       title="My Writing"
       kind="writing"
