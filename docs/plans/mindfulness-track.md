@@ -60,7 +60,7 @@ Framing note: this track has a smaller ceiling and is off the primary (design-en
 Real, warm relationships in this space — the distribution advantage that matters more than a bigger cold market, and exactly the lane that fits someone who won't cold-sell.
 
 - **Michael Apollo** — Mindful Gateway / now The Mindful Institute (A Mindful Society). Ex-Myplanet (Orium); long shared history and close prior working relationship. He organized the 2019 talk.
-- **Jay V** — ex-Myplanet, now runs **Still Ape** (stillape.com). Same network, intersecting with wellbeing/product. *(Site was bot-blocked when checked — confirm what Still Ape actually does before any pitch.)*
+- **Jay Vidyarthi** — ex-Myplanet, now founder of **Still Ape** (stillape.com), a fractional product team for wellbeing tech ("tech for wellbeing" — mindfulness/meditation, healing, social, education/youth). Real shared history: he co-facilitated a Myplanet Mind in-house workshop you were co-leading. This is the strongest-fit lead in the whole track — the exact intersection of your skills and this thread, a fractional model that brings in extra hands, run by someone who already knows your work.
 
 **How to approach it (honest):**
 - **Reconnect warm first, no ask.** With people you have history with, a genuine "what are you building now?" opens more doors than a pitch. Lead with the relationship.
