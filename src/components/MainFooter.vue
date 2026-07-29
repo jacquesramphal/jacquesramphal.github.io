@@ -189,7 +189,7 @@ export default {
       menuItems2: [
         {
           text: 'LinkedIn',
-          url: 'https://linkedin.com/in/jacquesramphal-design',
+          url: 'https://www.linkedin.com/in/ramphal-design/',
           icon: 'icon/linkedin.svg',
         },
         { text: 'Github', url: 'https://github.com/jacquesramphal', icon: 'icon/github-mark.svg' },

@@ -1,6 +1,6 @@
 # Jacques Ramphal
 Design Lead, Agentic Experience — Toronto, ON
-[linkedin.com/in/jacquesramphal-design](https://linkedin.com/in/jacquesramphal-design) · [jacques@ramphal.design](mailto:jacques@ramphal.design) · [github.com/jacquesramphal](https://github.com/jacquesramphal)
+[linkedin.com/in/ramphal-design](https://www.linkedin.com/in/ramphal-design/) · [jacques@ramphal.design](mailto:jacques@ramphal.design) · [github.com/jacquesramphal](https://github.com/jacquesramphal)
 
 ---
 

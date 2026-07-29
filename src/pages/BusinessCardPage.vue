@@ -109,7 +109,7 @@ export default {
     return {
       contactLinks: [
         { text: 'Email', url: 'mailto:jacques@ramphal.design' },
-        { text: 'LinkedIn', url: 'https://linkedin.com/in/jacquesramphal-design' },
+        { text: 'LinkedIn', url: 'https://www.linkedin.com/in/ramphal-design/' },
         { text: 'GitHub', url: 'https://github.com/jacquesramphal' },
         { text: 'Resume', url: '/doc/cv' },
       ],
