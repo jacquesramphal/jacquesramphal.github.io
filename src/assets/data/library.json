@@ -528,7 +528,7 @@
       "date": "",
       "title": "Kum & Go Mobile Loyalty App",
       "eyebrow": "Product Design",
-      "description": "Founded in 1959, Kum & Go redefines convenience with customer-centric offerings. Partnering with Orium, they launched a new digital experience featuring enhanced promotions, loyalty programs, and improved merchandising.",
+      "description": "A convenience-store loyalty program that had to reach the fuel pump, not just the phone. Rebuilt on React Native and a composable content stack, so the team ran its own promotions, search, and rewards, and customers prepaid gas and redeemed points at the pump, without a third party in the loop.",
       "route": "/doc/kg-loyalty-platform",
       "contentFile": "doc_53.md",
       "thumbnail": "casestudy/kg/kg-5.png",
