@@ -255,12 +255,25 @@ function drawMesh(rng, w, h, id, colors, pattern) {
     ).toFixed(1)}" fill="url(#${gid})"/>`;
   });
 
-  const fade = `<linearGradient id="${id}-fade" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="var(--background)" stop-opacity="0.85"/>
-      <stop offset="32%" stop-color="var(--background)" stop-opacity="0"/>
-    </linearGradient>`;
+  // Randomized negative-space spots for washed-out areas and whitespace. They
+  // use var(--background), so the spots match the card in each theme instead of
+  // forcing white in both.
+  const whiteCount = rng.int(1, 3);
+  let whites = '';
+  for (let i = 0; i < whiteCount; i++) {
+    const wr = Math.min(w, h) * rng.range(0.4, 0.85);
+    const gid = `${id}-w${i}`;
+    defs += `<radialGradient id="${gid}"><stop offset="0%" stop-color="var(--background)" stop-opacity="${rng
+      .range(0.55, 0.9)
+      .toFixed(2)}"/><stop offset="50%" stop-color="var(--background)" stop-opacity="${rng
+      .range(0.12, 0.3)
+      .toFixed(2)}"/><stop offset="100%" stop-color="var(--background)" stop-opacity="0"/></radialGradient>`;
+    whites += `<circle cx="${(rng.range(0, 1) * w).toFixed(1)}" cy="${(
+      rng.range(0, 1) * h
+    ).toFixed(1)}" r="${wr.toFixed(1)}" fill="url(#${gid})"/>`;
+  }
 
-  return `<defs>${defs}${fade}</defs><g filter="url(#${id}-warp)"><rect x="-12%" y="-12%" width="124%" height="124%" fill="url(#${id}-base)"/>${blobs}</g><rect width="${w}" height="${h}" fill="url(#${id}-fade)"/>`;
+  return `<defs>${defs}</defs><g filter="url(#${id}-warp)"><rect x="-12%" y="-12%" width="124%" height="124%" fill="url(#${id}-base)"/>${blobs}${whites}</g>`;
 }
 
 function drawBloom(rng, w, h, ramp) {

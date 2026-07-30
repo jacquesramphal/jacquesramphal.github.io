@@ -371,16 +371,30 @@ function drawMesh(
     ).toFixed(1)}" fill="url(#${gid})"/>`;
   });
 
-  // Gentle card-context settle: only the top ~30% eases toward the card
-  // background; the rest stays full saturated mesh.
-  const fade = `<linearGradient id="${id}-fade" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="var(--background)" stop-opacity="0.85"/>
-      <stop offset="32%" stop-color="var(--background)" stop-opacity="0"/>
-    </linearGradient>`;
+  // Randomized negative-space spots: soft blooms of the card background that
+  // wash areas out and open up whitespace, placed independently of the color
+  // blobs. Count, position, size and strength all vary, so some meshes stay
+  // saturated and others go airy. They use var(--background), so the spots match
+  // the card in each theme (light in light, dark in dark) rather than forcing
+  // white in both.
+  const whiteCount = rng.int(1, 3);
+  let whites = '';
+  for (let i = 0; i < whiteCount; i++) {
+    const wr = Math.min(w, h) * rng.range(0.4, 0.85);
+    const gid = `${id}-w${i}`;
+    defs += `<radialGradient id="${gid}"><stop offset="0%" stop-color="var(--background)" stop-opacity="${rng
+      .range(0.55, 0.9)
+      .toFixed(2)}"/><stop offset="50%" stop-color="var(--background)" stop-opacity="${rng
+      .range(0.12, 0.3)
+      .toFixed(2)}"/><stop offset="100%" stop-color="var(--background)" stop-opacity="0"/></radialGradient>`;
+    whites += `<circle cx="${(rng.range(0, 1) * w).toFixed(1)}" cy="${(
+      rng.range(0, 1) * h
+    ).toFixed(1)}" r="${wr.toFixed(1)}" fill="url(#${gid})"/>`;
+  }
 
   // The base is oversized and inside the warp group so displacement never
-  // reveals a transparent edge.
-  return `<defs>${defs}${fade}</defs><g filter="url(#${id}-warp)"><rect x="-12%" y="-12%" width="124%" height="124%" fill="url(#${id}-base)"/>${blobs}</g><rect width="${w}" height="${h}" fill="url(#${id}-fade)"/>`;
+  // reveals a transparent edge. White spots warp with everything else.
+  return `<defs>${defs}</defs><g filter="url(#${id}-warp)"><rect x="-12%" y="-12%" width="124%" height="124%" fill="url(#${id}-base)"/>${blobs}${whites}</g>`;
 }
 
 function drawBloom(rng: Rng, w: number, h: number, ramp: string[]): string {
