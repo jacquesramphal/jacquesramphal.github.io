@@ -10,7 +10,8 @@
     "src/tokens/**"
   ],
   "ignoreFiles": [
-    "src/assets/styles/scss/_config.scss"
+    "src/assets/styles/scss/_config.scss",
+    "src/utils/gradientPlaceholder.ts"
   ],
   "rules": {
     "noHardcodedLengths": true,

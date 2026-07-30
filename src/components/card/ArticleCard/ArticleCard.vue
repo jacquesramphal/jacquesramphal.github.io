@@ -5,6 +5,7 @@
       <template v-if="!hasImage">
         <router-link v-if="activeRoute && !activeLink" :to="activeRoute">
           <div class="placeholder" :style="{ backgroundColor: placeholderColor }">
+            <div class="placeholder-gradient" v-html="placeholderSvg"></div>
             <div class="display placeholder-text" :style="{ color: placeholderTextColor }">
               <span
                 v-for="(word, index) in placeholderWords"
@@ -18,6 +19,7 @@
         </router-link>
         <a v-else-if="activeLink" :href="activeLink" target="_blank" rel="noopener noreferrer">
           <div class="placeholder" :style="{ backgroundColor: placeholderColor }">
+            <div class="placeholder-gradient" v-html="placeholderSvg"></div>
             <div class="placeholder-text" :style="{ color: placeholderTextColor }">
               <span
                 v-for="(word, index) in placeholderWords"
@@ -30,6 +32,7 @@
           </div>
         </a>
         <div v-else class="placeholder" :style="{ backgroundColor: placeholderColor }">
+          <div class="placeholder-gradient" v-html="placeholderSvg"></div>
           <div class="placeholder-text" :style="{ color: placeholderTextColor }">
             <span
               v-for="(word, index) in placeholderWords"
@@ -140,6 +143,7 @@
 <script>
 import TextBlock from '../../text/TextBlock/TextBlock.vue';
 import { getReadTime } from '../../../utils/readTime';
+import { generatePlaceholder } from '../../../utils/gradientPlaceholder';
 // import TextLink from '../../text/TextLink.vue';
 
 export default {
@@ -338,16 +342,25 @@ export default {
       return subtleColorMap[this.type] || 'rgba(0, 134, 230, 0.15)';
     },
     placeholderColor() {
-      // Use subtle background color to match tags
-      return this.typeColorSubtle;
+      // Neutral, theme-aware base so the generated brand gradient reads true in
+      // both light and dark. The gradient wash fades to transparent at the top,
+      // letting this base show through where the title sits.
+      return 'var(--background)';
     },
     placeholderTextColor() {
-      // Use darker text color to match tags
-      return this.typeColor;
+      // Theme-aware foreground keeps the title legible over the light top of the
+      // gradient in either theme.
+      return 'var(--foreground)';
     },
     placeholderWords() {
       const words = this.title.split(' ');
       return words.slice(0, 3);
+    },
+    placeholderSvg() {
+      // Deterministic per card: same title+destination always yields the same
+      // artwork, so the placeholder never flickers between renders.
+      const seed = `${this.title}|${this.route || this.btnroute || this.link || ''}`;
+      return generatePlaceholder(seed).svg;
     },
     readTime() {
       return getReadTime(this.contentFile);
@@ -587,7 +600,22 @@ img {
   overflow: hidden;
 }
 
+.placeholder-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.placeholder-gradient svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .placeholder-text {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
