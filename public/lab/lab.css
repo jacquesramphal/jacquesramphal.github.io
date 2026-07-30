@@ -108,6 +108,15 @@
   --color-brown: #e8a192;
   --color-darkbrown: #814b50;
 
+  /* BRAND PALETTE (semantic.brand — see components/tokens.json) */
+  --color-paper: #f6f3ec;
+  --color-mint: #d3e1d6;
+  --color-sage: #6c7a6a;
+  --color-gold: #957040;
+  --color-clay: #e3decb;
+  --color-olive: #333b2c;
+  --color-stone: #c0bcbb;
+
   /* GRADIENTS */
   --gradient-sunrise-start: #387ffb;
   --gradient-sunrise-mid: #34c4ff;
@@ -333,7 +342,7 @@
 :root.dark-theme {
   --foreground: var(--color-offwhite);
   --foreground-rgb: var(--color-offwhite-rgb);
-  --foreground-muted: rgba(var(--color-offwhite-rgb), 0.7);
+  --foreground-muted: rgba(var(--foreground), 0.7);
   --text-muted: var(--foreground-muted);
   --foreground-subtle: rgba(250, 250, 250, var(--foreground-opacity));
   /* Use the RGB values for #fafafa */
@@ -402,8 +411,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground: var(--color-offwhite);
-    --foreground-rgb: var(--color-offwhite-rgb);
-    --foreground-muted: rgba(var(--color-offwhite-rgb), 0.7);
+    --foreground-muted: rgba(var(--foreground), 0.7);
     --text-muted: var(--foreground-muted);
     --foreground-subtle: rgba(250, 250, 250, var(--foreground-opacity));
     /* Use the RGB values for #fafafa */

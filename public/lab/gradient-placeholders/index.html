@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gradient Placeholder Generator — Lab</title>
+    <link rel="stylesheet" href="../lab.css" />
+    <style>
+      body {
+        font-family: 'Manrope', system-ui, sans-serif;
+        background: var(--background);
+        color: var(--foreground);
+        line-height: 1.5;
+        padding: clamp(1.5rem, 4vw, 3rem);
+        max-width: 1200px;
+        margin: 0 auto;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      header {
+        margin-bottom: 2rem;
+      }
+
+      h1 {
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        font-weight: 550;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.5rem;
+      }
+
+      .lede {
+        color: var(--text-muted);
+        max-width: 60ch;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+        margin: 1.75rem 0;
+        padding: 1rem;
+        border: var(--border);
+        border-radius: 0.75rem;
+        background: var(--background-darker);
+      }
+
+      .control {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        font-size: 0.8rem;
+      }
+
+      .control label {
+        color: var(--text-muted);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-size: 0.7rem;
+      }
+
+      select,
+      input[type='text'] {
+        font-family: inherit;
+        font-size: 0.9rem;
+        padding: 0.45rem 0.6rem;
+        border: var(--border);
+        border-radius: 0.5rem;
+        background: var(--background);
+        color: var(--foreground);
+        min-width: 10rem;
+      }
+
+      button {
+        font-family: inherit;
+        font-size: 0.9rem;
+        font-weight: 500;
+        padding: 0.55rem 1rem;
+        border: var(--border);
+        border-radius: 0.5rem;
+        background: var(--foreground);
+        color: var(--background);
+        cursor: pointer;
+        transition: opacity 0.15s ease;
+      }
+
+      button.ghost {
+        background: var(--background);
+        color: var(--foreground);
+      }
+
+      button:hover {
+        opacity: 0.85;
+      }
+
+      .spacer {
+        flex: 1;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .card {
+        border: var(--border);
+        border-radius: 0.75rem;
+        overflow: hidden;
+        background: var(--background);
+        box-shadow: var(--shadow-z2);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card .art {
+        position: relative;
+        aspect-ratio: 5 / 4;
+        overflow: hidden;
+        background: var(--background);
+      }
+
+      .card .art svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .card .art .title {
+        position: relative;
+        z-index: 1;
+        padding: 1rem;
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        max-width: 80%;
+      }
+
+      .card .meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 0.85rem;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        border-top: var(--border);
+      }
+
+      .card .meta .tag {
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+        color: var(--foreground);
+      }
+
+      .card .meta button {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+        background: var(--background-darker);
+        color: var(--foreground);
+        border: var(--border);
+      }
+
+      footer {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: var(--border);
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+
+      code {
+        font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+        background: var(--background-darker);
+        padding: 0.1rem 0.35rem;
+        border-radius: 0.3rem;
+        font-size: 0.85em;
+      }
+
+      a {
+        color: var(--link);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Gradient Placeholder Generator</h1>
+      <p class="lede">
+        Deterministic, randomized artwork for cards without a picture. Every seed
+        maps to one stable image. All color comes from the site's brand tokens
+        (<code>var(--color-*)</code>), so the palette follows the design system;
+        the randomness is in the shapes. Same algorithm the cards use in production.
+      </p>
+    </header>
+
+    <div class="controls">
+      <div class="control">
+        <label for="variant">Shape</label>
+        <select id="variant">
+          <option value="">All (random)</option>
+          <option value="rays">Rays</option>
+          <option value="hills">Hills</option>
+          <option value="arcs">Arcs</option>
+          <option value="mesh">Mesh</option>
+          <option value="bloom">Bloom</option>
+        </select>
+      </div>
+      <div class="control">
+        <label for="palette">Palette</label>
+        <select id="palette">
+          <option value="">All (random)</option>
+        </select>
+      </div>
+      <div class="control" style="flex: 1; min-width: 12rem">
+        <label for="seed">Custom seed</label>
+        <input id="seed" type="text" placeholder="Type a title to generate…" />
+      </div>
+      <div class="spacer"></div>
+      <button id="regen">Regenerate batch</button>
+      <button id="theme" class="ghost">Toggle theme</button>
+    </div>
+
+    <div class="grid" id="grid"></div>
+
+    <footer>
+      Source of truth: <code>src/utils/gradientPlaceholder.ts</code> (Vue app) and
+      <code>generator.js</code> (this lab). Keep them in sync. Click
+      <strong>Download</strong> on any card to save its SVG.
+    </footer>
+
+    <script type="module">
+      import {
+        generatePlaceholder,
+        resolveTokens,
+        PALETTE_NAMES,
+        VARIANTS,
+      } from './generator.js';
+
+      const grid = document.getElementById('grid');
+      const variantSel = document.getElementById('variant');
+      const paletteSel = document.getElementById('palette');
+      const seedInput = document.getElementById('seed');
+
+      // Sample titles that mimic real card content.
+      const SAMPLE_TITLES = [
+        'Blur the edge of possible',
+        'Designing for agentic systems',
+        'A loyalty platform at the pump',
+        'Tokens as the single source of truth',
+        'Working within the existing structure',
+        'What the constraint taught me',
+        'Multi-brand from the start',
+        'Protecting creative focus',
+        'The friction that sharpens',
+        'Reading the room, then the code',
+        'Systems that outlast the moment',
+        'Notes from a slower practice',
+      ];
+
+      // Populate palette options.
+      PALETTE_NAMES.forEach((name, i) => {
+        const opt = document.createElement('option');
+        opt.value = String(i);
+        opt.textContent = name;
+        paletteSel.appendChild(opt);
+      });
+
+      // A rotating seed offset so "Regenerate" produces a fresh batch without
+      // relying on time (keeps things reproducible within a session).
+      let batch = 0;
+
+      function opts() {
+        const variant = variantSel.value || undefined;
+        const paletteIndex =
+          paletteSel.value === '' ? undefined : Number(paletteSel.value);
+        return { variant, paletteIndex };
+      }
+
+      function makeCard(seed, title) {
+        const { svg, variant, paletteIndex } = generatePlaceholder(seed, opts());
+
+        const card = document.createElement('div');
+        card.className = 'card';
+
+        const art = document.createElement('div');
+        art.className = 'art';
+        art.innerHTML = svg;
+        const titleEl = document.createElement('div');
+        titleEl.className = 'title';
+        titleEl.textContent = title;
+        art.appendChild(titleEl);
+
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        const label = document.createElement('span');
+        label.innerHTML = `<span class="tag">${variant}</span> · ${PALETTE_NAMES[paletteIndex]}`;
+        const dl = document.createElement('button');
+        dl.textContent = 'Download';
+        dl.addEventListener('click', () => downloadSvg(svg, seed));
+        meta.appendChild(label);
+        meta.appendChild(dl);
+
+        card.appendChild(art);
+        card.appendChild(meta);
+        return card;
+      }
+
+      function downloadSvg(svg, seed) {
+        // Bake the current token values into the file so it stands alone.
+        const blob = new Blob([resolveTokens(svg)], { type: 'image/svg+xml' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `placeholder-${seed.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}.svg`;
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      function render() {
+        grid.innerHTML = '';
+        const custom = seedInput.value.trim();
+        if (custom) {
+          grid.appendChild(makeCard(custom, custom));
+          return;
+        }
+        SAMPLE_TITLES.forEach((title) => {
+          grid.appendChild(makeCard(`${title}#${batch}`, title));
+        });
+      }
+
+      document.getElementById('regen').addEventListener('click', () => {
+        batch++;
+        render();
+      });
+      variantSel.addEventListener('change', render);
+      paletteSel.addEventListener('change', render);
+      seedInput.addEventListener('input', render);
+
+      document.getElementById('theme').addEventListener('click', () => {
+        const root = document.documentElement;
+        const isDark =
+          root.classList.contains('dark-theme') ||
+          (!root.classList.contains('light-theme') &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches);
+        root.classList.remove('dark-theme', 'light-theme');
+        root.classList.add(isDark ? 'light-theme' : 'dark-theme');
+      });
+
+      render();
+    </script>
+  </body>
+</html>
