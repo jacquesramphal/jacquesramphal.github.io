@@ -10,22 +10,15 @@
 const t = (name) => `var(--color-${name})`;
 
 export const PALETTES = [
-  [t('paper'), t('mint'), t('sage'), t('gold')],
-  [t('paper'), t('clay'), t('brown'), t('gold')],
-  [t('paper'), t('mint'), t('sage'), t('olive')],
-  [t('paper'), t('mint'), t('yellow'), t('brown')],
-  [t('paper'), t('lightyellow'), t('yellow'), t('gold')],
-  [t('paper'), t('clay'), t('stone'), t('sage')],
+  [t('lightyellow'), t('yellow'), t('brown'), t('red')], // Sunrise
+  [t('lightyellow'), t('yellow'), t('green'), t('blue')], // Citrus
+  [t('pink'), t('lightpurple'), t('purple'), t('purple')], // Berry
+  [t('pink'), t('dodgerblue'), t('blue'), t('purple')], // Ocean
+  [t('lightyellow'), t('brown'), t('red'), t('darkbrown')], // Ember
+  [t('lightyellow'), t('green'), t('blue'), t('purple')], // Grove
 ];
 
-export const PALETTE_NAMES = [
-  'Sage → gold',
-  'Clay → gold',
-  'Meadow',
-  'Citrus',
-  'Amber',
-  'Stone',
-];
+export const PALETTE_NAMES = ['Sunrise', 'Citrus', 'Berry', 'Ocean', 'Ember', 'Grove'];
 
 export const VARIANTS = ['rays', 'hills', 'arcs', 'mesh', 'bloom'];
 

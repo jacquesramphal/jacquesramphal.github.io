@@ -48,21 +48,21 @@ export interface PlaceholderResult {
 const t = (name: string) => `var(--color-${name})`;
 
 const PALETTES: string[][] = [
-  [t('paper'), t('mint'), t('sage'), t('gold')], // Sage → gold: the core brand pairing
-  [t('paper'), t('clay'), t('brown'), t('gold')], // Clay → gold: warm and earthy
-  [t('paper'), t('mint'), t('sage'), t('olive')], // Meadow: mint into deep olive
-  [t('paper'), t('mint'), t('yellow'), t('brown')], // Citrus: green → yellow → warm
-  [t('paper'), t('lightyellow'), t('yellow'), t('gold')], // Amber: soft yellow into gold
-  [t('paper'), t('clay'), t('stone'), t('sage')], // Stone: neutral clay into sage
+  [t('lightyellow'), t('yellow'), t('brown'), t('red')], // Sunrise: warm amber into red
+  [t('lightyellow'), t('yellow'), t('green'), t('blue')], // Citrus: yellow into green/blue
+  [t('pink'), t('lightpurple'), t('purple'), t('purple')], // Berry: pink into deep violet
+  [t('pink'), t('dodgerblue'), t('blue'), t('purple')], // Ocean: blush into blue/violet
+  [t('lightyellow'), t('brown'), t('red'), t('darkbrown')], // Ember: warm into deep red-brown
+  [t('lightyellow'), t('green'), t('blue'), t('purple')], // Grove: yellow-green into blue/violet
 ];
 
 export const PALETTE_NAMES = [
-  'Sage → gold',
-  'Clay → gold',
-  'Meadow',
+  'Sunrise',
   'Citrus',
-  'Amber',
-  'Stone',
+  'Berry',
+  'Ocean',
+  'Ember',
+  'Grove',
 ];
 
 const VARIANTS: PlaceholderVariant[] = ['rays', 'hills', 'arcs', 'mesh', 'bloom'];
