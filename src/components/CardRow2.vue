@@ -6,7 +6,7 @@
          isDesktopScreen branch needed. -->
     <template v-if="variant === 'feature-list'">
       <GridContainer style="overflow: visible !important">
-        <div class="feature-list">
+        <GridParent tight>
           <!-- Section title and View All hold column 1; the featured card and
                list rows stack together across columns 2/3. -->
           <div class="feature-list__intro">
@@ -16,7 +16,7 @@
             </p>
           </div>
 
-          <div class="feature-list__content">
+          <GridParent tight rows class="feature-list__content">
             <!-- <ArticleCard
               v-if="featuredItem"
               borderless
@@ -59,8 +59,8 @@
               :contentFile="entry.contentFile"
               :date="entry.date"
             />
-          </div>
-        </div>
+          </GridParent>
+        </GridParent>
       </GridContainer>
     </template>
 
@@ -390,21 +390,13 @@ export default {
 </script>
 <style scoped lang="scss">
 /* FEATURE-LIST VARIANT
-   Title in column 1, featured card and list rows stacked across columns 2/3.
-   Single column below the 1201px breakpoint, matching GridParent's own 3-column
-   threshold so the title never gets a cramped third of a tablet viewport. */
-.feature-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: var(--spacing-md);
-
-  @media only screen and (min-width: 1201px) {
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: var(--spacing-lg);
-  }
-}
-
+   The columns and gaps come from GridParent; these rules only place its two
+   children. GridParent is 2-column between 768px and 1200px, which is too
+   narrow to split title from cards, so both children span the full row until
+   the 3-column breakpoint takes over at 1201px. */
 .feature-list__intro {
+  grid-column: 1 / -1;
+
   @media only screen and (min-width: 1201px) {
     grid-column: 1 / 2;
   }
@@ -415,12 +407,10 @@ export default {
 }
 
 .feature-list__content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
+  grid-column: 1 / -1;
 
   @media only screen and (min-width: 1201px) {
-    grid-column: 2 / 4;
+    grid-column: 2 / -1;
   }
 }
 
