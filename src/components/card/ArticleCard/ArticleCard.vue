@@ -4,42 +4,25 @@
       <!-- Show placeholder when no image -->
       <template v-if="!hasImage">
         <router-link v-if="activeRoute && !activeLink" :to="activeRoute">
-          <div class="placeholder" :style="{ backgroundColor: placeholderColor }">
-            <div class="display placeholder-text" :style="{ color: placeholderTextColor }">
-              <span
-                v-for="(word, index) in placeholderWords"
-                :key="index"
-                :style="{ animationDelay: `${index * 0.1}s` }"
-              >
-                <h1>{{ word }}</h1>
-              </span>
-            </div>
-          </div>
+          <div
+            class="placeholder"
+            :style="{ backgroundColor: placeholderColor }"
+            v-html="placeholderSvg"
+          ></div>
         </router-link>
         <a v-else-if="activeLink" :href="activeLink" target="_blank" rel="noopener noreferrer">
-          <div class="placeholder" :style="{ backgroundColor: placeholderColor }">
-            <div class="placeholder-text" :style="{ color: placeholderTextColor }">
-              <span
-                v-for="(word, index) in placeholderWords"
-                :key="index"
-                :style="{ animationDelay: `${index * 0.1}s` }"
-              >
-                {{ word }}
-              </span>
-            </div>
-          </div>
+          <div
+            class="placeholder"
+            :style="{ backgroundColor: placeholderColor }"
+            v-html="placeholderSvg"
+          ></div>
         </a>
-        <div v-else class="placeholder" :style="{ backgroundColor: placeholderColor }">
-          <div class="placeholder-text" :style="{ color: placeholderTextColor }">
-            <span
-              v-for="(word, index) in placeholderWords"
-              :key="index"
-              :style="{ animationDelay: `${index * 0.1}s` }"
-            >
-              {{ word }}
-            </span>
-          </div>
-        </div>
+        <div
+          v-else
+          class="placeholder"
+          :style="{ backgroundColor: placeholderColor }"
+          v-html="placeholderSvg"
+        ></div>
       </template>
 
       <!-- Show images when available -->
@@ -140,6 +123,7 @@
 <script>
 import TextBlock from '../../text/TextBlock/TextBlock.vue';
 import { getReadTime } from '../../../utils/readTime';
+import { generatePlaceholder } from '../../../utils/gradientPlaceholder';
 // import TextLink from '../../text/TextLink.vue';
 
 export default {
@@ -338,16 +322,16 @@ export default {
       return subtleColorMap[this.type] || 'rgba(0, 134, 230, 0.15)';
     },
     placeholderColor() {
-      // Use subtle background color to match tags
-      return this.typeColorSubtle;
+      // Neutral, theme-aware base so the generated brand gradient reads true in
+      // both light and dark. The gradient wash fades to transparent at the top,
+      // letting this base show through and blend with the card.
+      return 'var(--background)';
     },
-    placeholderTextColor() {
-      // Use darker text color to match tags
-      return this.typeColor;
-    },
-    placeholderWords() {
-      const words = this.title.split(' ');
-      return words.slice(0, 3);
+    placeholderSvg() {
+      // Deterministic per card: same title+destination always yields the same
+      // artwork, so the placeholder never flickers between renders.
+      const seed = `${this.title}|${this.route || this.btnroute || this.link || ''}`;
+      return generatePlaceholder(seed).svg;
     },
     readTime() {
       return getReadTime(this.contentFile);
@@ -579,41 +563,14 @@ img {
 .placeholder {
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: var(--spacing-md);
   position: relative;
   overflow: hidden;
 }
 
-.placeholder-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  text-align: left;
-  padding: 0;
-  overflow: visible;
-}
-
-.placeholder-text span {
-  display: inline-block;
-  animation: fadeInScale 0.6s ease-out forwards;
-  opacity: 0;
-  transform: scale(0.8);
-}
-
-.placeholder-text h1 {
-  color: inherit !important;
-  line-height: 1 !important;
-}
-
-@keyframes fadeInScale {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+.placeholder svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .color-bar {
