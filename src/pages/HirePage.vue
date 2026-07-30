@@ -13,6 +13,19 @@
       as="h1"
     />
 
+    <!-- PERSONALIZED NOTE (renders only for a known ?for= recipient) -->
+    <GridWrapper v-if="personalization">
+      <GridContainer>
+        <aside class="personal-note">
+          <p class="personal-note__eyebrow">
+            Prepared for {{ personalization.client
+            }}<template v-if="personalization.role"> · {{ personalization.role }}</template>
+          </p>
+          <p v-if="personalization.note" class="personal-note__body">{{ personalization.note }}</p>
+        </aside>
+      </GridContainer>
+    </GridWrapper>
+
     <!-- SELECTED PROOF -->
     <GridWrapper>
       <GridContainer>
@@ -25,7 +38,7 @@
           />
           <GridParent>
             <router-link to="/doc/designing-genie" class="proof-card">
-              <span class="proof-tag proof-tag--lead">Owned end to end</span>
+              <span class="proof-tag" :class="{ 'proof-tag--lead': leadProof === 'genie' }">Owned end to end</span>
               <TextBlock
                 as="h3"
                 title="Genie — agentic delivery platform"
@@ -34,7 +47,7 @@
               <span class="proof-link">Read the case study →</span>
             </router-link>
             <router-link to="/doc/the-design-command-suite" class="proof-card">
-              <span class="proof-tag">Design engineering</span>
+              <span class="proof-tag" :class="{ 'proof-tag--lead': leadProof === 'design-command' }">Design engineering</span>
               <TextBlock
                 as="h3"
                 title="The /design environment"
@@ -43,7 +56,7 @@
               <span class="proof-link">Read the case study →</span>
             </router-link>
             <router-link to="/doc/multi-brand-token-pipeline" class="proof-card">
-              <span class="proof-tag">Design systems</span>
+              <span class="proof-tag" :class="{ 'proof-tag--lead': leadProof === 'token-pipeline' }">Design systems</span>
               <TextBlock
                 as="h3"
                 title="Multi-brand token pipeline"
@@ -52,7 +65,7 @@
               <span class="proof-link">Read the case study →</span>
             </router-link>
             <router-link to="/work" class="proof-card">
-              <span class="proof-tag">Shipped at scale</span>
+              <span class="proof-tag" :class="{ 'proof-tag--lead': leadProof === 'work' }">Shipped at scale</span>
               <TextBlock
                 as="h3"
                 title="Customer-facing products"
@@ -138,7 +151,7 @@
       background
       as="h2"
       title="Let's talk."
-      subtitle="Open to design engineering and design systems roles. The fastest way to reach me is email."
+      :subtitle="ctaSubtitle"
       label="Email"
       link="mailto:jacques@ramphal.design"
       labeltwo="View résumé →"
@@ -156,7 +169,12 @@ import GridContainer from '@/components/grid/GridContainer.vue';
 import GridParent from '@/components/grid/GridParent.vue';
 import TextBlock from '@/components/text/TextBlock/TextBlock.vue';
 import { useHead } from '@vueuse/head';
+import { useRoute } from 'vue-router';
 import { yearsOfExperience } from '@/utils/experience';
+import { resolvePersonalization } from '@/utils/personalization';
+
+const DEFAULT_CTA_SUBTITLE =
+  'Open to design engineering and design systems roles. The fastest way to reach me is email.';
 
 export default {
   name: 'HirePage',
@@ -169,21 +187,37 @@ export default {
     TextBlock,
   },
   setup() {
+    const route = useRoute();
+    const personalization = resolvePersonalization(route.query.for);
+
     const years = yearsOfExperience();
-    const description = `Design engineer in Toronto with ${years}+ years at the seam between design and engineering. Token-based design systems, production front-end in React and Vue, and agentic tooling.`;
+    const baseDescription = `Design engineer in Toronto with ${years}+ years at the seam between design and engineering. Token-based design systems, production front-end in React and Vue, and agentic tooling.`;
+    const description = personalization
+      ? `Prepared for ${personalization.client}. ${baseDescription}`
+      : baseDescription;
+    const title = personalization
+      ? `Jacques Ramphal — Design Engineer · for ${personalization.client}`
+      : 'Jacques Ramphal — Design Engineer';
+
     useHead({
-      title: 'Jacques Ramphal — Design Engineer',
+      title,
       meta: [
         { name: 'description', content: description },
-        { property: 'og:title', content: 'Jacques Ramphal — Design Engineer' },
+        { property: 'og:title', content: title },
         { property: 'og:description', content: description },
         { property: 'og:type', content: 'profile' },
         { property: 'og:url', content: 'https://ramphal.design/hire' },
         { property: 'twitter:card', content: 'summary_large_image' },
-        { property: 'twitter:title', content: 'Jacques Ramphal — Design Engineer' },
+        { property: 'twitter:title', content: title },
         { property: 'twitter:description', content: description },
       ],
     });
+
+    // Personalized slots, each with a default so an absent field degrades on its own.
+    const ctaSubtitle = personalization?.ctaSubtitle || DEFAULT_CTA_SUBTITLE;
+    const leadProof = personalization?.leadProof || 'genie';
+
+    return { personalization, ctaSubtitle, leadProof };
   },
   computed: {
     careerYears() {
@@ -194,6 +228,34 @@ export default {
 </script>
 
 <style scoped lang="scss">
+/* ── PERSONALIZED NOTE ──────────────────────────── */
+.personal-note {
+  border: var(--border);
+  border-left: 3px solid var(--foreground);
+  border-radius: var(--spacing-xxs);
+  padding: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.personal-note__eyebrow {
+  margin: 0;
+  font-size: var(--font-2xs);
+  font-weight: var(--fontWeight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--foreground-muted);
+}
+
+.personal-note__body {
+  margin: 0;
+  font-size: var(--font-sm);
+  color: var(--foreground);
+  max-width: 60ch;
+}
+
 /* ── DARK SECTIONS ──────────────────────────────── */
 .section--dark {
   background: var(--foreground);

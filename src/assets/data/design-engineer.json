@@ -1,0 +1,96 @@
+{
+  "slug": "design-engineer",
+  "title": "Design Engineer",
+  "subtitle": "Eight lessons for the designer who can feel the making getting cheap and wants to be the one who still decides what ships. You work in real code, own the system that keeps it coherent, direct the agents instead of racing them, and leave each lesson with one thing built and one line written. The capstone is a shipped design system that argues for your judgment.",
+  "locked": true,
+  "entries": [
+    {
+      "id": 1,
+      "docId": 9201,
+      "tag": "00",
+      "title": "Before you start",
+      "description": "What this is and what it isn't, the one rule the whole thing depends on, and the small, real thing you'll build toward.",
+      "slug": "design-engineer-before-you-start",
+      "route": "/secured/doc/design-engineer-before-you-start",
+      "contentFile": "design_engineer_0.md",
+      "published": true
+    },
+    {
+      "id": 2,
+      "docId": 9202,
+      "tag": "01",
+      "title": "The new shape of the job",
+      "description": "When making gets cheap, value moves to judgment. An honest audit of how much of your own work is now automatable.",
+      "slug": "design-engineer-the-new-shape-of-the-job",
+      "route": "/secured/doc/design-engineer-the-new-shape-of-the-job",
+      "contentFile": "design_engineer_1.md",
+      "published": true
+    },
+    {
+      "id": 3,
+      "docId": 9203,
+      "tag": "02",
+      "title": "Work in code without becoming an engineer",
+      "description": "You don't write the code, you steer it. Read an agent's component, correct three things with intent, and say why each was wrong.",
+      "slug": "design-engineer-work-in-code",
+      "route": "/secured/doc/design-engineer-work-in-code",
+      "contentFile": "design_engineer_2.md",
+      "published": true
+    },
+    {
+      "id": 4,
+      "docId": 9204,
+      "tag": "03",
+      "title": "Tokens as the contract",
+      "description": "Tokens are the enforceable source of truth that keeps design and code one system. Change a value, watch the whole theme move.",
+      "slug": "design-engineer-tokens-as-the-contract",
+      "route": "/secured/doc/design-engineer-tokens-as-the-contract",
+      "contentFile": "design_engineer_3.md",
+      "published": true
+    },
+    {
+      "id": 5,
+      "docId": 9205,
+      "tag": "04",
+      "title": "Direct the agents",
+      "description": "Agents are fast and sloppy by default. Guardrails move your judgment upstream, so the output is corrected before you read it.",
+      "slug": "design-engineer-direct-the-agents",
+      "route": "/secured/doc/design-engineer-direct-the-agents",
+      "contentFile": "design_engineer_4.md",
+      "published": true
+    },
+    {
+      "id": 6,
+      "docId": 9206,
+      "tag": "05",
+      "title": "Taste as the deliverable",
+      "description": "Judgment is the paid work. Run a drift audit on generated UI, cut what merely renders, and write the because for every cut.",
+      "slug": "design-engineer-taste-as-the-deliverable",
+      "route": "/secured/doc/design-engineer-taste-as-the-deliverable",
+      "contentFile": "design_engineer_5.md",
+      "published": true
+    },
+    {
+      "id": 7,
+      "docId": 9207,
+      "tag": "06",
+      "title": "Reposition yourself",
+      "description": "Present as the tier that's getting more valuable, not the one getting cheaper. Turn a deliverable list into evidence of judgment.",
+      "slug": "design-engineer-reposition-yourself",
+      "route": "/secured/doc/design-engineer-reposition-yourself",
+      "contentFile": "design_engineer_6.md",
+      "published": true
+    },
+    {
+      "id": 8,
+      "docId": 9208,
+      "tag": "07",
+      "title": "Capstone: ship a design system with agents",
+      "description": "Ship the small, real thing, then write the one paragraph a generator couldn't: why the decisions in it were right.",
+      "slug": "design-engineer-capstone",
+      "route": "/secured/doc/design-engineer-capstone",
+      "contentFile": "design_engineer_7.md",
+      "published": true
+    }
+  ]
+}
