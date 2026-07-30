@@ -22,6 +22,22 @@ export const PALETTE_NAMES = ['Sunrise', 'Citrus', 'Berry', 'Ocean', 'Ember', 'G
 
 export const VARIANTS = ['rays', 'hills', 'arcs', 'mesh', 'bloom'];
 
+// Only these are produced by default; the rest are kept for later.
+export const ACTIVE_VARIANTS = ['mesh'];
+
+// Mesh mixes multiple hues at once, so it draws from multi-color schemes.
+export const SCHEMES = [
+  ['yellow', 'lightyellow', 'brown', 'red', 'pink'].map(t), // Warm
+  ['pink', 'lightpurple', 'purple', 'dodgerblue', 'blue'].map(t), // Cool
+  ['yellow', 'pink', 'purple', 'blue', 'green'].map(t), // Spectrum
+  ['purple', 'blue', 'green', 'dodgerblue'].map(t), // Jewel
+  ['lightyellow', 'yellow', 'red', 'pink', 'purple'].map(t), // Sunset
+];
+
+export const SCHEME_NAMES = ['Warm', 'Cool', 'Spectrum', 'Jewel', 'Sunset'];
+
+export const MESH_PATTERNS = ['scatter', 'grid', 'corners', 'flow', 'bigsoft', 'bloom'];
+
 // ── Seeded randomness ───────────────────────────────────────
 
 function hashString(str) {
@@ -156,28 +172,79 @@ function drawArcs(rng, w, h, ramp, id) {
   return `${grad}<g stroke="url(#${id})">${arcs}</g>`;
 }
 
-function drawMesh(rng, w, h, ramp, id) {
-  const count = rng.int(3, 5);
-  let defs = '';
-  let blobs = '';
-  for (let i = 0; i < count; i++) {
-    const frac = i / Math.max(1, count - 1);
-    const cx = w * rng.range(0.1, 0.9);
-    const cy = h * rng.range(0.45, 1.05);
-    const r = Math.min(w, h) * rng.range(0.35, 0.7);
-    const color = rampToken(ramp, 0.4 + frac * 0.55);
-    const gid = `${id}-b${i}`;
-    defs += `<radialGradient id="${gid}">
-      <stop offset="0%" stop-color="${color}" stop-opacity="${rng
-      .range(0.5, 0.85)
-      .toFixed(2)}"/>
-      <stop offset="100%" stop-color="${color}" stop-opacity="0"/>
-    </radialGradient>`;
-    blobs += `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${r.toFixed(
-      1
-    )}" fill="url(#${gid})"/>`;
+// Blob positions (fractions of w/h) and radii (fraction of the min dimension).
+function meshLayout(pattern, rng, n) {
+  const pts = [];
+  if (pattern === 'scatter') {
+    for (let i = 0; i < n; i++)
+      pts.push({ x: rng.range(0, 1), y: rng.range(0, 1), r: rng.range(0.45, 0.8) });
+  } else if (pattern === 'grid') {
+    const cols = 3;
+    const rows = 2;
+    for (let c = 0; c < cols; c++)
+      for (let r = 0; r < rows; r++)
+        pts.push({
+          x: (c + 0.5) / cols + rng.range(-0.12, 0.12),
+          y: (r + 0.5) / rows + rng.range(-0.12, 0.12),
+          r: rng.range(0.45, 0.7),
+        });
+  } else if (pattern === 'corners') {
+    for (const [x, y] of [
+      [0, 0],
+      [1, 0],
+      [0, 1],
+      [1, 1],
+      [0.5, 0.5],
+    ])
+      pts.push({
+        x: x + rng.range(-0.15, 0.15),
+        y: y + rng.range(-0.15, 0.15),
+        r: rng.range(0.5, 0.85),
+      });
+  } else if (pattern === 'flow') {
+    for (let i = 0; i < n; i++) {
+      const f = i / (n - 1);
+      pts.push({
+        x: f + rng.range(-0.1, 0.1),
+        y: 0.5 + Math.sin(f * Math.PI * 1.4) * 0.32 + rng.range(-0.08, 0.08),
+        r: rng.range(0.4, 0.65),
+      });
+    }
+  } else if (pattern === 'bigsoft') {
+    for (let i = 0; i < 3; i++)
+      pts.push({ x: rng.range(0.2, 0.8), y: rng.range(0.2, 0.8), r: rng.range(0.85, 1.15) });
+  } else if (pattern === 'bloom') {
+    for (let i = 0; i < n; i++)
+      pts.push({ x: rng.range(0.1, 0.9), y: rng.range(0.5, 1.05), r: rng.range(0.4, 0.75) });
   }
-  return `${defs}<g filter="url(#${id}-blur)">${blobs}</g>`;
+  return pts;
+}
+
+function drawMesh(rng, w, h, id, colors, pattern) {
+  const n = rng.int(4, 6);
+  const pts = meshLayout(pattern, rng, n);
+  const blur = (Math.min(w, h) * 0.14).toFixed(1);
+
+  let defs = `<filter id="${id}-blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="${blur}"/></filter>`;
+  let blobs = '';
+  pts.forEach((p, i) => {
+    const color = colors[i % colors.length];
+    const gid = `${id}-g${i}`;
+    defs += `<radialGradient id="${gid}"><stop offset="0%" stop-color="${color}" stop-opacity="${rng
+      .range(0.7, 0.95)
+      .toFixed(2)}"/><stop offset="100%" stop-color="${color}" stop-opacity="0"/></radialGradient>`;
+    blobs += `<circle cx="${(p.x * w).toFixed(1)}" cy="${(p.y * h).toFixed(1)}" r="${(
+      p.r * Math.min(w, h)
+    ).toFixed(1)}" fill="url(#${gid})"/>`;
+  });
+
+  const fade = `<linearGradient id="${id}-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="var(--background)" stop-opacity="1"/>
+      <stop offset="30%" stop-color="var(--background)" stop-opacity="0.55"/>
+      <stop offset="58%" stop-color="var(--background)" stop-opacity="0"/>
+    </linearGradient>`;
+
+  return `<defs>${defs}${fade}</defs><g filter="url(#${id}-blur)">${blobs}</g><rect width="${w}" height="${h}" fill="url(#${id}-fade)"/>`;
 }
 
 function drawBloom(rng, w, h, ramp) {
@@ -208,14 +275,26 @@ export function generatePlaceholder(seed, opts = {}) {
   const height = opts.height ?? 400;
   const rng = makeRng(hashString(seed || 'placeholder'));
 
+  const variant = opts.variant ?? rng.pick(ACTIVE_VARIANTS);
+  const uid = `gp${hashString(seed + variant).toString(36)}`;
+  const open = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">`;
+
+  if (variant === 'mesh') {
+    const schemeIndex =
+      opts.schemeIndex != null
+        ? ((opts.schemeIndex % SCHEMES.length) + SCHEMES.length) % SCHEMES.length
+        : rng.int(0, SCHEMES.length - 1);
+    const scheme = SCHEMES[schemeIndex];
+    const pattern = opts.pattern ?? rng.pick(MESH_PATTERNS);
+    const svg = `${open}${drawMesh(rng, width, height, uid, scheme, pattern)}</svg>`;
+    return { svg, palette: scheme, paletteIndex: schemeIndex, variant, pattern };
+  }
+
   const paletteIndex =
     opts.paletteIndex != null
       ? ((opts.paletteIndex % PALETTES.length) + PALETTES.length) % PALETTES.length
       : rng.int(0, PALETTES.length - 1);
   const palette = PALETTES[paletteIndex];
-  const variant = opts.variant ?? rng.pick(VARIANTS);
-
-  const uid = `gp${hashString(seed + variant).toString(36)}`;
 
   let shapes = '';
   switch (variant) {
@@ -228,22 +307,12 @@ export function generatePlaceholder(seed, opts = {}) {
     case 'arcs':
       shapes = drawArcs(rng, width, height, palette, `${uid}-a`);
       break;
-    case 'mesh':
-      shapes = drawMesh(rng, width, height, palette, uid);
-      break;
     case 'bloom':
       shapes = drawBloom(rng, width, height, palette);
       break;
   }
 
-  const blurFilter =
-    variant === 'mesh'
-      ? `<filter id="${uid}-blur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="${(
-          Math.max(width, height) * 0.06
-        ).toFixed(1)}"/></filter>`
-      : '';
-
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><defs>${blurFilter}${washGradient(
+  const svg = `${open}<defs>${washGradient(
     rng,
     palette,
     `${uid}-wash`

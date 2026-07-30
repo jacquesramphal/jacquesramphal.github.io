@@ -192,9 +192,10 @@
       <h1>Gradient Placeholder Generator</h1>
       <p class="lede">
         Deterministic, randomized artwork for cards without a picture. Every seed
-        maps to one stable image. All color comes from the site's brand tokens
-        (<code>var(--color-*)</code>), so the palette follows the design system;
-        the randomness is in the shapes. Same algorithm the cards use in production.
+        maps to one stable image. All color comes from existing
+        <code>var(--color-*)</code> tokens. Cards currently use the
+        <strong>mesh</strong> variant — smooth mixed gradients that fade into the
+        card at the top; switch Shape to preview the other saved variants.
       </p>
     </header>
 
@@ -202,16 +203,28 @@
       <div class="control">
         <label for="variant">Shape</label>
         <select id="variant">
+          <option value="mesh" selected>Mesh</option>
           <option value="">All (random)</option>
           <option value="rays">Rays</option>
           <option value="hills">Hills</option>
           <option value="arcs">Arcs</option>
-          <option value="mesh">Mesh</option>
           <option value="bloom">Bloom</option>
         </select>
       </div>
       <div class="control">
-        <label for="palette">Palette</label>
+        <label for="scheme">Scheme (mesh)</label>
+        <select id="scheme">
+          <option value="">All (random)</option>
+        </select>
+      </div>
+      <div class="control">
+        <label for="pattern">Pattern (mesh)</label>
+        <select id="pattern">
+          <option value="">All (random)</option>
+        </select>
+      </div>
+      <div class="control">
+        <label for="palette">Palette (other shapes)</label>
         <select id="palette">
           <option value="">All (random)</option>
         </select>
@@ -238,12 +251,15 @@
         generatePlaceholder,
         resolveTokens,
         PALETTE_NAMES,
-        VARIANTS,
+        SCHEME_NAMES,
+        MESH_PATTERNS,
       } from './generator.js';
 
       const grid = document.getElementById('grid');
       const variantSel = document.getElementById('variant');
       const paletteSel = document.getElementById('palette');
+      const schemeSel = document.getElementById('scheme');
+      const patternSel = document.getElementById('pattern');
       const seedInput = document.getElementById('seed');
 
       // Sample titles that mimic real card content.
@@ -262,12 +278,21 @@
         'Notes from a slower practice',
       ];
 
-      // Populate palette options.
-      PALETTE_NAMES.forEach((name, i) => {
+      // Populate dropdowns from the generator's own lists.
+      const fillOptions = (sel, names) =>
+        names.forEach((name, i) => {
+          const opt = document.createElement('option');
+          opt.value = String(i);
+          opt.textContent = name;
+          sel.appendChild(opt);
+        });
+      fillOptions(paletteSel, PALETTE_NAMES);
+      fillOptions(schemeSel, SCHEME_NAMES);
+      MESH_PATTERNS.forEach((name) => {
         const opt = document.createElement('option');
-        opt.value = String(i);
+        opt.value = name;
         opt.textContent = name;
-        paletteSel.appendChild(opt);
+        patternSel.appendChild(opt);
       });
 
       // A rotating seed offset so "Regenerate" produces a fresh batch without
@@ -276,13 +301,20 @@
 
       function opts() {
         const variant = variantSel.value || undefined;
-        const paletteIndex =
-          paletteSel.value === '' ? undefined : Number(paletteSel.value);
-        return { variant, paletteIndex };
+        return {
+          variant,
+          paletteIndex: paletteSel.value === '' ? undefined : Number(paletteSel.value),
+          schemeIndex: schemeSel.value === '' ? undefined : Number(schemeSel.value),
+          pattern: patternSel.value || undefined,
+        };
       }
 
       function makeCard(seed, title) {
-        const { svg, variant, paletteIndex } = generatePlaceholder(seed, opts());
+        const { svg, variant, paletteIndex, pattern } = generatePlaceholder(seed, opts());
+        const schemeLabel =
+          variant === 'mesh'
+            ? `${SCHEME_NAMES[paletteIndex]} · ${pattern}`
+            : PALETTE_NAMES[paletteIndex];
 
         const card = document.createElement('div');
         card.className = 'card';
@@ -298,7 +330,7 @@
         const meta = document.createElement('div');
         meta.className = 'meta';
         const label = document.createElement('span');
-        label.innerHTML = `<span class="tag">${variant}</span> · ${PALETTE_NAMES[paletteIndex]}`;
+        label.innerHTML = `<span class="tag">${variant}</span> · ${schemeLabel}`;
         const dl = document.createElement('button');
         dl.textContent = 'Download';
         dl.addEventListener('click', () => downloadSvg(svg, seed));
@@ -337,8 +369,9 @@
         batch++;
         render();
       });
-      variantSel.addEventListener('change', render);
-      paletteSel.addEventListener('change', render);
+      [variantSel, paletteSel, schemeSel, patternSel].forEach((el) =>
+        el.addEventListener('change', render)
+      );
       seedInput.addEventListener('input', render);
 
       document.getElementById('theme').addEventListener('click', () => {
