@@ -320,10 +320,10 @@ function meshLayout(pattern: MeshPattern, rng: Rng, n: number): Blob[] {
 }
 
 /**
- * Mesh: several soft, heavily-blurred blobs in different hues that blend into a
- * smooth mixed gradient. The top fades to the card's own background so the
- * placeholder settles into the card instead of ending in a hard edge.
- * Returns fully self-contained SVG content (its own defs); no shared wash.
+ * Mesh: a full-color base plus several solid hue blobs, warped by turbulence so
+ * the color zones flow organically (like a real mesh-gradient image) and then
+ * blurred smooth. The top eases into the card's own background so the placeholder
+ * still settles into the card. Self-contained SVG content (its own defs).
  */
 function drawMesh(
   rng: Rng,
@@ -335,31 +335,66 @@ function drawMesh(
 ): string {
   const n = rng.int(4, 6);
   const pts = meshLayout(pattern, rng, n);
-  const blur = (Math.min(w, h) * 0.14).toFixed(1);
+  const blur = (Math.min(w, h) * 0.09).toFixed(1);
 
-  let defs = `<filter id="${id}-blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="${blur}"/></filter>`;
+  // Organic warp: displace the whole mesh by low-frequency noise for flowing,
+  // defined color zones instead of round halos, then blur to keep it smooth.
+  const tSeed = Math.floor(rng.next() * 1000);
+  const freqX = rng.range(0.006, 0.013).toFixed(4);
+  const freqY = rng.range(0.006, 0.013).toFixed(4);
+  const scale = rng.range(55, 100).toFixed(0);
+  let defs = `<filter id="${id}-warp" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="${freqX} ${freqY}" numOctaves="2" seed="${tSeed}" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="${scale}" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="${blur}"/>
+    </filter>`;
+
+  // Full-color base so the mesh reads as saturated color edge to edge (no pale
+  // gaps), which is most of the "definition".
+  const b1 = colors[rng.int(0, colors.length - 1)];
+  const b2 = colors[rng.int(0, colors.length - 1)];
+  defs += `<linearGradient id="${id}-base" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${b1}"/><stop offset="100%" stop-color="${b2}"/></linearGradient>`;
+
   let blobs = '';
   pts.forEach((p, i) => {
     const color = colors[i % colors.length];
     const gid = `${id}-g${i}`;
+    // A mid stop keeps a solid colored body before fading — more defined than a
+    // soft halo.
     defs += `<radialGradient id="${gid}"><stop offset="0%" stop-color="${color}" stop-opacity="${rng
-      .range(0.7, 0.95)
+      .range(0.88, 1)
+      .toFixed(2)}"/><stop offset="55%" stop-color="${color}" stop-opacity="${rng
+      .range(0.4, 0.6)
       .toFixed(2)}"/><stop offset="100%" stop-color="${color}" stop-opacity="0"/></radialGradient>`;
     blobs += `<circle cx="${(p.x * w).toFixed(1)}" cy="${(p.y * h).toFixed(1)}" r="${(
       p.r * Math.min(w, h)
     ).toFixed(1)}" fill="url(#${gid})"/>`;
   });
 
-  // Card-context fade: overlay the card background, opaque at the top and
-  // clearing by ~55% down. Uses the theme token, so it fades to whatever the
-  // card sits on in light or dark.
-  const fade = `<linearGradient id="${id}-fade" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="var(--background)" stop-opacity="1"/>
-      <stop offset="30%" stop-color="var(--background)" stop-opacity="0.55"/>
-      <stop offset="58%" stop-color="var(--background)" stop-opacity="0"/>
-    </linearGradient>`;
+  // Randomized negative-space spots: soft blooms of the card background that
+  // wash areas out and open up whitespace, placed independently of the color
+  // blobs. Count, position, size and strength all vary, so some meshes stay
+  // saturated and others go airy. They use var(--background), so the spots match
+  // the card in each theme (light in light, dark in dark) rather than forcing
+  // white in both.
+  const whiteCount = rng.int(1, 3);
+  let whites = '';
+  for (let i = 0; i < whiteCount; i++) {
+    const wr = Math.min(w, h) * rng.range(0.4, 0.85);
+    const gid = `${id}-w${i}`;
+    defs += `<radialGradient id="${gid}"><stop offset="0%" stop-color="var(--background)" stop-opacity="${rng
+      .range(0.55, 0.9)
+      .toFixed(2)}"/><stop offset="50%" stop-color="var(--background)" stop-opacity="${rng
+      .range(0.12, 0.3)
+      .toFixed(2)}"/><stop offset="100%" stop-color="var(--background)" stop-opacity="0"/></radialGradient>`;
+    whites += `<circle cx="${(rng.range(0, 1) * w).toFixed(1)}" cy="${(
+      rng.range(0, 1) * h
+    ).toFixed(1)}" r="${wr.toFixed(1)}" fill="url(#${gid})"/>`;
+  }
 
-  return `<defs>${defs}${fade}</defs><g filter="url(#${id}-blur)">${blobs}</g><rect width="${w}" height="${h}" fill="url(#${id}-fade)"/>`;
+  // The base is oversized and inside the warp group so displacement never
+  // reveals a transparent edge. White spots warp with everything else.
+  return `<defs>${defs}</defs><g filter="url(#${id}-warp)"><rect x="-12%" y="-12%" width="124%" height="124%" fill="url(#${id}-base)"/>${blobs}${whites}</g>`;
 }
 
 function drawBloom(rng: Rng, w: number, h: number, ramp: string[]): string {
