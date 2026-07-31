@@ -24,9 +24,6 @@
       :viewAllTo="{ name: 'Library' }"
     />
 
-    <!-- WRITING SECTION -->
-    <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
-
     <!-- ABOUT SECTION -->
     <AnimatedComponent>
       <TextGrid3
@@ -39,6 +36,9 @@
         route="/about"
       />
     </AnimatedComponent>
+
+    <!-- WRITING SECTION -->
+    <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
 
     <div class="vertical-wordmark" aria-hidden="true">Jacques Ramphal</div>
   </PageWrapper>
