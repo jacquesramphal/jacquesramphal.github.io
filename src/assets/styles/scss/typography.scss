@@ -426,25 +426,20 @@ figcaption {
    RESPONSIVE BREAKPOINTS
    ========================================================================= */
 
-/* Mobile (XS) - Reduced heading scale for tighter hierarchy on phones.
-   h1/.display are left on their default tokens (the 4.8rem/48px floor reads
-   fine at this root size). h2–h4 are pulled down a step so section titles and
-   in-article headings sit closer to the 20px body and stop dominating the
-   viewport. h5/h6 already sit near body size and are unchanged. */
+/* Mobile (XS) - Drop h3 and below for better hierarchy */
 @media only screen and (max-width: 767px) {
+
+  /* design-guard:ignore */
   h2 {
-    /* design-guard:ignore */
-    font-size: 3rem;
+    font-size: var(--size-9);
   }
 
   h3 {
-    /* design-guard:ignore */
-    font-size: 2.5rem;
+    font-size: var(--size-7);
   }
 
   h4 {
-    /* design-guard:ignore */
-    font-size: 2.1rem;
+    font-size: var(--size-6);
   }
 
   h5 {
@@ -462,6 +457,7 @@ h1 + p {
 
 /* Tablet (MD) */
 @media only screen and (min-width: 768px) {
+
   /* design-guard:ignore */
   h1 {
     padding-block-end: var(--spacing-xxxs);
@@ -480,6 +476,7 @@ h1 + p {
 
 /* Large Desktop (XL) */
 @media only screen and (min-width: 1441px) {
+
   /* design-guard:ignore */
   .display p {
     font-size: var(--font-600);
