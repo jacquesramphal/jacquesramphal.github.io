@@ -16,8 +16,17 @@
       :nobottompadding="true"
     />
 
+    <!-- WORK SECTION — proof of craft, directly under the thesis -->
+    <CardRow2
+      title="Select Work"
+      kind="work"
+      filterByType="case-study"
+      :viewAllTo="{ name: 'Library' }"
+    />
+
     <!-- WRITING SECTION -->
     <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
+
     <!-- ABOUT SECTION -->
     <AnimatedComponent>
       <TextGrid3
@@ -31,75 +40,6 @@
       />
     </AnimatedComponent>
 
-    <!-- WORK SECTION -->
-    <CardRow2
-      title="Select Work"
-      kind="work"
-      filterByType="case-study"
-      :viewAllTo="{ name: 'Library' }"
-    />
-
-    <!-- Decorative Cards -->
-    <!-- <ImageCard alt="J Monogram" filename1="work/j.svg" id="top" />
-        <ImageCard2
-          alt="Avatar"
-          class="hidemobile"
-          filename1="avatar/avatar.svg"
-          title="Avatar"
-        />
-        <ImageCard
-          alt="Avatar"
-          class="showmobile"
-          filename1="avatar/avatar.svg"
-          title="Avatar"
-        /> -->
-    <!-- <MyForm/> -->
-
-    <!-- 
-    Get in touch banner -->
-    <!-- <HeroBanner
-        
-        
-        eyebrow=""
-        route="/"
-        title="Have a question? Get in touch."
-        label="Get in touch"
-        labeltwo="Get in touch"
-    /> -->
-    <!-- </GridWrapper> -->
-    <!-- CONTENTFUL HEADER EXAMPLE -->
-    <!-- <HeroBanner
-      id="hero"
-      class="display"
-      v-for="homePage in contentful"
-      v-bind:key="homePage.sys.id"
-      :title="homePage.heroText"
-      eyebrow=""
-    /> -->
-
-    <!-- <GridContainer id="work" class="">
-      <div
-        class="grid-parent"
-        style="
-          padding-block-end: var(--spacing-md);
-          align-items: center;
-          grid-template-columns: repeat(2, 1fr);
-        "
-      >
-        <h4 class="subtle" style="text-align: left">Library</h4>
-        <MyButton
-          type="outline"
-          style="margin-block-start: var(--spacing-sm)"
-          class="justify-end"
-          label="View More"
-          route="work2"
-        />
-      </div>
-    </GridContainer> -->
-    <!-- <ProductCarousel 
-      title="Featured Products" 
-      :products="featuredProducts"
-    /> -->
     <div class="vertical-wordmark" aria-hidden="true">Jacques Ramphal</div>
   </PageWrapper>
 </template>
@@ -164,36 +104,6 @@ export default {
   data() {
     return {
       work,
-      featuredProducts: [
-        {
-          name: 'Modern Desk Lamp',
-          description: 'Sleek LED desk lamp with adjustable brightness',
-          image: 'https://source.unsplash.com/400x300/?lamp',
-          category: 'Lighting',
-          price: '$89.99',
-        },
-        {
-          name: 'Ergonomic Chair',
-          description: 'Premium office chair with lumbar support',
-          image: 'https://source.unsplash.com/400x300/?chair',
-          category: 'Furniture',
-          price: '$299.99',
-        },
-        {
-          name: 'Wireless Keyboard',
-          description: 'Mechanical keyboard with customizable RGB',
-          image: 'https://source.unsplash.com/400x300/?keyboard',
-          category: 'Electronics',
-          price: '$129.99',
-        },
-        {
-          name: 'Smart Monitor',
-          description: '27" 4K display with built-in speakers',
-          image: 'https://source.unsplash.com/400x300/?monitor',
-          category: 'Electronics',
-          price: '$449.99',
-        },
-      ],
     };
   },
   computed: {
