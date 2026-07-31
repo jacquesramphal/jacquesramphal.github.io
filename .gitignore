@@ -1,6 +1,8 @@
 .DS_Store
 notes/
 _GENIE/
+CLAUDE.md
+.claude/
 node_modules
 /dist
 storybook-static
