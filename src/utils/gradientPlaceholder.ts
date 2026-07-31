@@ -392,9 +392,14 @@ function drawMesh(
     ).toFixed(1)}" r="${wr.toFixed(1)}" fill="url(#${gid})"/>`;
   }
 
+  // A small amount of film grain over everything for texture. Monochrome
+  // turbulence, overlaid faintly so it reads as grain, not static.
+  const noise = `<filter id="${id}-noise" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="saturate" values="0"/></filter>`;
+
   // The base is oversized and inside the warp group so displacement never
-  // reveals a transparent edge. White spots warp with everything else.
-  return `<defs>${defs}</defs><g filter="url(#${id}-warp)"><rect x="-12%" y="-12%" width="124%" height="124%" fill="url(#${id}-base)"/>${blobs}${whites}</g>`;
+  // reveals a transparent edge. White spots warp with everything else; the grain
+  // sits flat on top.
+  return `<defs>${defs}${noise}</defs><g filter="url(#${id}-warp)"><rect x="-12%" y="-12%" width="124%" height="124%" fill="url(#${id}-base)"/>${blobs}${whites}</g><rect width="${w}" height="${h}" filter="url(#${id}-noise)" opacity="0.14" style="mix-blend-mode:overlay"/>`;
 }
 
 function drawBloom(rng: Rng, w: number, h: number, ramp: string[]): string {
