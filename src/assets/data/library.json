@@ -9,6 +9,25 @@
   "alt": "Genie - Agentic AI Platform",
   "entries": [
     {
+      "id": 81,
+      "docId": 78,
+      "slug": "this-workman-blames-his-tools",
+      "type": "article",
+      "published": false,
+      "date": "Aug 2026",
+      "title": "This Workman Blames His Tools",
+      "eyebrow": "Design Philosophy",
+      "description": "A bad workman blames his tools—but sometimes the tool is the ceiling. On how Figma labels designers as picture-makers, why every visual builder trades one lock-in for another, and the build workflow that removes the handoff so the thing you design is the thing that ships.",
+      "route": "/doc/this-workman-blames-his-tools",
+      "contentFile": "doc_78.md",
+      "alt": "Article: This Workman Blames His Tools",
+      "tags": [
+        "design-tools",
+        "front-end",
+        "philosophy"
+      ]
+    },
+    {
       "id": 80,
       "docId": 77,
       "slug": "taste-is-triage",
