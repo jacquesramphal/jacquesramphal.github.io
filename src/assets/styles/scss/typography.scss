@@ -144,7 +144,11 @@ td,
 label,
 input {
   font-weight: var(--fontWeight-medium) !important;
-  font-size: var(--font-500);
+  /* Fluid body copy: 2rem (20px) on desktop, scaling down to 1.7rem (17px) on
+     mobile. Desktop size is unchanged from var(--font-500); only small screens
+     shrink. Line-height and all other properties left as-is. */
+  /* design-guard:ignore */
+  font-size: clamp(1.7rem, 1.41rem + 0.76vw, 2rem);
   line-height: var(--lineHeight-taller);
   color: rgba(var(--foreground-rgb), 0.75) !important;
   /* design-guard:ignore */
