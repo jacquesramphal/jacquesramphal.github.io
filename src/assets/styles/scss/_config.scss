@@ -246,10 +246,10 @@
   --font-600: var(--size-7);
   /* Lead Paragraph (p under H1) */
   --font-p-lead: clamp(var(--size-5), 2.5vw, var(--size-7));
-  /* H5 + Paragraph */
-  --font-500: var(--size-5);
-  /* H6 + Paragraph Small*/
-  --font-400: var(--size-4);
+  /* H5 + Paragraph — fluid: unchanged 2rem (20px) on desktop, shrinks to 1.7rem (17px) on mobile */
+  --font-500: clamp(1.7rem, 1.41rem + 0.76vw, 2rem);
+  /* H6 + Paragraph Small — fluid: unchanged 1.6rem (16px) on desktop, shrinks to 1.4rem (14px) on mobile */
+  --font-400: clamp(1.4rem, 1.2rem + 0.5vw, 1.6rem);
 
   /*
   --font-300: clamp(0.7rem, 0.66rem + 0.2vw, 0.8rem);

@@ -58,6 +58,10 @@ export default {
   align-items: center;
   gap: var(--spacing-xxs);
   background: var(--background);
+  /* PresenterBar is teleported to <body>, outside #app where --foreground is
+     applied, so text here would otherwise inherit the browser default (black)
+     in both themes. Set the themed colour explicitly. */
+  color: var(--foreground);
   border: var(--border);
   border-radius: 999px;
   padding: var(--spacing-xxs) var(--spacing-xs);
