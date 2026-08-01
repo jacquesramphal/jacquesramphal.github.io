@@ -24,13 +24,15 @@ That is the tell. Every proprietary visual tool is a bargain: it hands you one n
 
 ## The fix was never a better tool
 
-Here is the turn it took me too long to make. The answer to "the tool is the ceiling" is not a better tool. It is a different **workflow** — one where the thing I design *is* the thing that ships, and no translation layer sits in between to leak my judgment out.
+Here is the turn it took me too long to make. The answer to "the tool is the ceiling" is not a better tool. It is a different **workflow** — one where the thing I design *is* the thing that ships, and no translation layer sits in between to leak my judgment out. (The same move shows up in agentic work as [designing behavior instead of screens](/doc/when-ux-becomes-ax), where the deliverable stopped being a deck and became a build-ready definition the engineers compile against.)
 
 That is the build workflow we've been putting together at Orium, and the shape of it is simple to say. You discover the problem once — the real audit, the real analysis, the taste and the reasons behind it. You encode those decisions as one shared spec, in the open, in formats anyone on the team can read. And then that spec *compiles* into the running site. You don't hand off a picture and hope. You commit a change and regenerate the thing itself.
 
+I've made the wider case for where this is all heading — convergence, open standards, holding your tools lightly — in [The Future of Design](/doc/the-future-of-design). This piece isn't that. It's the narrower, meaner cut: not where design is going, but the specific lie in the handoff, and the one change that ends it.
+
 Everything about the old model inverts when you work this way:
 
-- Siloed becomes **one shared spec** — design and engineering point at the same source of truth instead of grinding against each other with nothing steady in between.
+- Siloed becomes **one shared spec** — design and engineering point at the same source of truth instead of [grinding against each other with nothing steady between them](/doc/friction).
 - Static becomes **rebuilds with the project** — the design isn't a snapshot that rots the moment code moves; it moves with it.
 - Proprietary becomes **open and collaborative** — decisions live in version control, not inside a file one vendor can hold hostage.
 - Manual becomes **evidence-backed**, rigid becomes **commit and regenerate**, and resource-intensive becomes **discover once, rebuild cheap.**
@@ -42,7 +44,7 @@ If any of that sounds familiar, it's the same conviction underneath [The Ramstac
 
 The reason this matters isn't tidiness. It's that the tool was hiding the best part of the job.
 
-Design's real strength was never making the picture perfect. It was judgment — deciding what is worth building and being able to say why. (I've made that case on its own in [Taste is triage](/doc/taste-is-triage).) When your output is a picture, that judgment has to survive a translation before it reaches anyone, and most of it doesn't. When the spec compiles, the judgment reaches the user intact. The designer stops being the person who describes the work and becomes the person accountable for the outcome — which is the thing we always said we wanted to be, and the thing the tool kept quietly telling us we weren't.
+Design's real strength was never making the picture perfect. It was judgment — deciding what is worth building and being able to say why. (I've made that case on its own in [Taste is triage](/doc/taste-is-triage).) When your output is a picture, that judgment has to survive a translation before it reaches anyone, and most of it doesn't. When the spec compiles, the judgment reaches the user intact. The designer stops being the person who describes the work and becomes the person [accountable for the outcome](/doc/manual-vs-automated-wrong-debate) — which is the thing we always said we wanted to be, and the thing the tool kept quietly telling us we weren't.
 
 That's the whole argument. The label was never true. It was just the shape of the tool, mistaken for the shape of the designer.
 
