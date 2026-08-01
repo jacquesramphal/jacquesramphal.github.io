@@ -1,0 +1,79 @@
+---
+import '../styles/global.css';
+import DocToc from '../components/DocToc.vue';
+
+const { frontmatter, headings } = Astro.props;
+// Astro gives us the heading tree for free from the rendered Markdown.
+const tocHeadings = headings
+  .filter((h) => h.depth === 2 || h.depth === 3)
+  .map((h) => ({ slug: h.slug, text: h.text, depth: h.depth }));
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{frontmatter.title} — Jacques Ramphal</title>
+    <meta name="description" content={frontmatter.description} />
+  </head>
+  <body>
+    <article class="doc">
+      <header class="doc__hero">
+        {frontmatter.eyebrow && <p class="doc__eyebrow">{frontmatter.eyebrow}</p>}
+        <h1 class="doc__title">{frontmatter.title}</h1>
+        <p class="doc__subtitle">{frontmatter.description}</p>
+        {frontmatter.date && <p class="doc__meta">{frontmatter.date}</p>}
+      </header>
+
+      <div class="doc__layout">
+        <main class="doc__content">
+          <slot />
+        </main>
+        {tocHeadings.length > 0 && (
+          <aside class="doc__sidebar">
+            {/* client:visible => the TOC hydrates only when scrolled into view.
+                Everything else on this page is static HTML with zero JS. */}
+            <DocToc headings={tocHeadings} client:visible />
+          </aside>
+        )}
+      </div>
+    </article>
+
+    <style>
+      .doc { max-width: 72rem; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+      .doc__hero { max-width: 46rem; margin: 0 auto 3rem; }
+      .doc__eyebrow {
+        text-transform: uppercase; letter-spacing: 0.08em;
+        font-size: 0.78rem; color: var(--color-medium); margin: 0 0 0.75rem;
+      }
+      .doc__title { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.05; margin: 0 0 1rem; letter-spacing: -0.02em; }
+      .doc__subtitle { font-size: 1.25rem; color: var(--foreground-muted); margin: 0; }
+      .doc__meta { color: var(--color-light); font-size: 0.85rem; margin: 1rem 0 0; }
+
+      .doc__layout { display: grid; grid-template-columns: minmax(0, 46rem) 14rem; gap: 3rem; justify-content: center; }
+      .doc__content { min-width: 0; }
+      @media (max-width: 900px) {
+        .doc__layout { grid-template-columns: 1fr; }
+        .doc__sidebar { display: none; }
+      }
+
+      /* Content typography */
+      .doc__content :global(h2) { font-size: 1.7rem; margin: 3rem 0 1rem; letter-spacing: -0.01em; scroll-margin-top: 2rem; }
+      .doc__content :global(h3) { font-size: 1.3rem; margin: 2rem 0 0.75rem; scroll-margin-top: 2rem; }
+      .doc__content :global(p) { margin: 0 0 1.25rem; }
+      .doc__content :global(hr) { border: none; border-top: var(--border); margin: 2.5rem 0; }
+      .doc__content :global(blockquote) {
+        margin: 1.5rem 0; padding: 0.5rem 0 0.5rem 1.25rem;
+        border-left: 3px solid var(--color-pink); color: var(--foreground-muted); font-style: italic;
+      }
+      .doc__content :global(code) {
+        background: var(--code-bg); padding: 0.15em 0.4em; border-radius: 4px;
+        font-size: 0.9em; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+      .doc__content :global(pre) { background: var(--code-bg); padding: 1.1rem 1.25rem; border-radius: 8px; overflow-x: auto; }
+      .doc__content :global(pre code) { background: none; padding: 0; }
+      .doc__content :global(a) { text-underline-offset: 3px; }
+    </style>
+  </body>
+</html>
