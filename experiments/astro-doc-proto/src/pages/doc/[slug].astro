@@ -1,0 +1,19 @@
+---
+import { getCollection, render } from 'astro:content';
+import DocLayout from '../../layouts/DocLayout.astro';
+
+// One static page per doc, generated at build time — the /doc/:slug route,
+// same URL shape as your current router. This function replaces the runtime
+// docRegistry lookup: routing is resolved at build, not in the browser.
+export async function getStaticPaths() {
+  const docs = await getCollection('docs');
+  return docs.map((doc) => ({ params: { slug: doc.id }, props: { doc } }));
+}
+
+const { doc } = Astro.props;
+const { Content, headings } = await render(doc);
+---
+
+<DocLayout frontmatter={doc.data} headings={headings}>
+  <Content />
+</DocLayout>

@@ -1,0 +1,50 @@
+/* A trimmed slice of the site's real design tokens (src/assets/styles/scss/_config.scss)
+   so the prototype reads on-brand. In a real migration these SCSS partials port
+   over almost verbatim — Astro supports SCSS out of the box. */
+:root {
+  --color-offblack: #1d1b22;
+  --color-offblack-rgb: 29, 27, 34;
+  --color-slate: #41464e;
+  --color-medium: #666666;
+  --color-light: #999999;
+  --color-xlight: #d6d6d6;
+  --color-xxxlight: #f2f2f2;
+  --color-offwhite: #fafafa;
+  --color-pink: #fdcdd4;
+
+  --foreground: var(--color-offblack);
+  --foreground-muted: rgba(var(--color-offblack-rgb), 0.7);
+  --background: var(--color-offwhite);
+  --code-bg: #f2f2f2;
+  --border: 1px solid var(--color-xlight);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground: #fafafa;
+    --foreground-muted: rgba(250, 250, 250, 0.7);
+    --background: #1d1b22;
+    --color-medium: #a0a0a0;
+    --code-bg: #26242c;
+    --border: 1px solid #3a3742;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--foreground); }
+
+img { max-width: 100%; height: auto; }
