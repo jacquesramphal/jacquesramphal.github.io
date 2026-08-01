@@ -1,0 +1,134 @@
+<style>
+/* ---- Verbatim CSS from the real Astro build (dist/doc/the-ramstack) ---- */
+:root{--color-offblack: #1d1b22;--color-offblack-rgb: 29, 27, 34;--color-slate: #41464e;--color-medium: #666666;--color-light: #999999;--color-xlight: #d6d6d6;--color-xxxlight: #f2f2f2;--color-offwhite: #fafafa;--color-pink: #fdcdd4;--foreground: var(--color-offblack);--foreground-muted: rgba(var(--color-offblack-rgb), .7);--background: var(--color-offwhite);--code-bg: #f2f2f2;--border: 1px solid var(--color-xlight)}
+@media(prefers-color-scheme:dark){:root{--foreground: #fafafa;--foreground-muted: rgba(250, 250, 250, .7);--background: #1d1b22;--color-medium: #a0a0a0;--code-bg: #26242c;--border: 1px solid #3a3742}}
+/* Honor the viewer's theme toggle (data-theme) in both directions */
+:root[data-theme="light"]{--foreground:#1d1b22;--foreground-muted:rgba(29,27,34,.7);--background:#fafafa;--color-medium:#666666;--code-bg:#f2f2f2;--border:1px solid #d6d6d6}
+:root[data-theme="dark"]{--foreground:#fafafa;--foreground-muted:rgba(250,250,250,.7);--background:#1d1b22;--color-medium:#a0a0a0;--code-bg:#26242c;--border:1px solid #3a3742}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--background);color:var(--foreground);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--foreground)}img{max-width:100%;height:auto}
+.toc{position:sticky;top:2rem;font-size:.85rem;line-height:1.4}
+.toc__label{text-transform:uppercase;letter-spacing:.08em;font-size:.7rem;color:var(--color-medium);margin:0 0 .75rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc__item{margin:.35rem 0}
+.toc__item--h3{padding-left:.9rem}
+.toc a{color:var(--color-medium);text-decoration:none;border-left:2px solid transparent;padding-left:.6rem;margin-left:-.6rem;display:block;transition:color .15s,border-color .15s}
+.toc a:hover{color:var(--foreground)}
+.toc__link--active{color:var(--foreground)!important;border-left-color:var(--foreground);font-weight:500}
+.doc{max-width:72rem;margin:0 auto;padding:4rem 1.5rem 6rem}
+.doc__hero{max-width:46rem;margin:0 auto 3rem}
+.doc__eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;color:var(--color-medium);margin:0 0 .75rem}
+.doc__title{font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.05;margin:0 0 1rem;letter-spacing:-.02em}
+.doc__subtitle{font-size:1.25rem;color:var(--foreground-muted);margin:0}
+.doc__meta{color:var(--color-light);font-size:.85rem;margin:1rem 0 0}
+.doc__layout{display:grid;grid-template-columns:minmax(0,46rem) 14rem;gap:3rem;justify-content:center}
+.doc__content{min-width:0}
+@media(max-width:900px){.doc__layout{grid-template-columns:1fr}.doc__sidebar{display:none}}
+.doc__content h2{font-size:1.7rem;margin:3rem 0 1rem;letter-spacing:-.01em;scroll-margin-top:2rem}
+.doc__content h3{font-size:1.3rem;margin:2rem 0 .75rem;scroll-margin-top:2rem}
+.doc__content p{margin:0 0 1.25rem}
+.doc__content hr{border:none;border-top:var(--border);margin:2.5rem 0}
+.doc__content blockquote{margin:1.5rem 0;padding:.5rem 0 .5rem 1.25rem;border-left:3px solid var(--color-pink);color:var(--foreground-muted);font-style:italic}
+.doc__content code{background:var(--code-bg);padding:.15em .4em;border-radius:4px;font-size:.9em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.doc__content pre{background:var(--code-bg);padding:1.1rem 1.25rem;border-radius:8px;overflow-x:auto}
+.doc__content pre code{background:none;padding:0}
+.doc__content a{text-underline-offset:3px}
+
+/* ---- Small honest marker so this is never mistaken for the live site ---- */
+.proto-badge{position:fixed;top:.75rem;left:.75rem;z-index:9999;display:flex;align-items:center;gap:.4rem;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.66rem;letter-spacing:.02em;
+  padding:.35rem .6rem;border-radius:999px;color:var(--foreground-muted);
+  background:color-mix(in srgb, var(--background) 82%, transparent);
+  border:var(--border);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.proto-badge b{color:var(--foreground);font-weight:600}
+.proto-badge__dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--color-pink);flex:none}
+@media(max-width:520px){.proto-badge span.proto-badge__hide{display:none}}
+</style>
+
+<div class="proto-badge" role="note" aria-label="Astro prototype, not the live site">
+  <span class="proto-badge__dot"></span>
+  <b>Astro prototype</b><span class="proto-badge__hide"> · rebuilt page, not your live site</span>
+</div>
+
+<article class="doc">
+  <header class="doc__hero">
+    <p class="doc__eyebrow">Design Philosophy</p>
+    <h1 class="doc__title">The Ramstack</h1>
+    <p class="doc__subtitle">A future-proof approach to front-end design isn&#39;t about specific tools—it&#39;s about the principles beneath them. On headless complexity, tech debt, and why interoperability should be the core of your design practice.</p>
+    <p class="doc__meta">Nov 2022</p>
+  </header>
+  <div class="doc__layout">
+    <main class="doc__content">
+      <p>A future-proof approach to front-end design isn’t about the tools. It’s about the principles beneath them.</p>
+      <p>Design tools cycle. Illustrator gave way to Sketch, Sketch to Figma, and whatever comes next is already being built. The current standard is one stop in a longer sequence.</p>
+      <p>The question isn’t which tools to use. The question is: when the tools change, will your work survive?</p>
+      <hr>
+      <h2 id="the-headless-trap">The Headless Trap</h2>
+      <p>With the domination of headless architectures, there seems to be a specialized tool for everything. One tool for X, another for Y. Endless integrations and microservices playing together to form the sprawling complexity of a modern application.</p>
+      <p>This is genuinely good in many ways: flexibility, scalability, the freedom to swap one service without rebuilding the rest. But it introduces a slippery slope. More tools means more dependencies, more surfaces for failure, more onboarding for every new team member. Our products can become infinitely more complex. Headless can get messy.</p>
+      <p>The same pattern plays out in design. We adopt tools to solve specific problems, then find ourselves managing a toolbox that’s harder to maintain than the work it was meant to support.</p>
+      <hr>
+      <h2 id="the-interoperability-problem">The Interoperability Problem</h2>
+      <p>We often dream of a single tool that does everything: respects both the designer’s and developer’s wishes, handles complex prototyping, exports to code, gathers feedback, and serves as a handoff layer. In practice, that tool hasn’t arrived, and the pursuit of it often produces its own form of lock-in.</p>
+      <p>Tools become outdated. The next industry standard takes over. Workflows get replaced by more efficient ones. AI changes the rules entirely. These aren’t predictions; they’re descriptions of what has already happened, repeatedly.</p>
+      <p>The trick isn’t finding the perfect tool. The trick is making sure the core of your practice is interoperable, agnostic of toolchain.</p>
+      <p>Design tools like Figma are powerful precisely because they’re rooted in web standards: auto layout that mirrors CSS flexbox, component structures that mirror atomic design, naming conventions that align with code. But those features also create compatibility challenges. The very specificity that makes a tool productive today makes it harder to migrate from tomorrow.</p>
+      <hr>
+      <h2 id="the-ramstack-philosophy">The Ramstack Philosophy</h2>
+      <p>The Jamstack (JavaScript, APIs, and Markdown) is a headless philosophy for web architecture. Its emphasis on flexibility, scalability, and maintainability removes the need for any single platform to dictate the experience. The Ramstack extends that thinking into a personal design practice.</p>
+      <p>The goal is not a list of approved tools. It’s a set of durable principles:</p>
+      <p><strong>Editors that support the workflow, not own it.</strong>
+      The specific application matters less than what it enables. I look for tools where, if they become unavailable or obsolete, the files stay usable in something else. Formats that only one application can read are liabilities disguised as features.</p>
+      <p><strong>Platforms that respect open standards.</strong>
+      I keep content, design decisions, and component architecture portable. Proprietary formats create technical debt the moment you commit to them. Open formats create optionality.</p>
+      <p><strong>Dependencies reduced to what you actually need.</strong>
+      Every dependency you don’t need is a liability, and every integration is a surface that can fail. Some are worth it; most systems carry more than they need. I try to keep the core of a design system self-sufficient, so it doesn’t collapse when one service changes its pricing model.</p>
+      <p><strong>The design system as the source of truth.</strong>
+      If design tokens, component decisions, and visual language live only inside a design file, you don’t have a design system. You have a file that describes a design system. When that file format becomes unsupported, the system evaporates. I keep decisions in version-controlled code, token-first thinking that’s more resilient than any single design tool.</p>
+      <hr>
+      <h2 id="what-this-looks-like-in-practice">What This Looks Like in Practice</h2>
+      <p>Write documentation in formats that don’t require a subscription to read. Define design decisions as tokens that live in a repository alongside the code they govern. Choose tools that export formats others can open without the same license.</p>
+      <p>Design directly in the browser where possible, not because it’s easy, but because the output is the artifact. There’s no translation layer between the design and the thing the user experiences.</p>
+      <p>When evaluating tools, ask: <em>What happens to my work if this tool disappears tomorrow?</em> Not as a paranoid exercise, but as a design constraint. The answer reveals your actual dependencies.</p>
+      <hr>
+      <p>Approaches and standards outlast applications and platforms. The Ramstack isn’t a prescribed set of software; it’s a commitment to working in ways that outlast the tools you’re using today.</p>
+    </main>
+    <aside class="doc__sidebar">
+      <nav class="toc" aria-label="Table of contents">
+        <p class="toc__label">On this page</p>
+        <ul>
+          <li class="toc__item toc__item--h2"><a href="#the-headless-trap" class="toc__link--active">The Headless Trap</a></li>
+          <li class="toc__item toc__item--h2"><a href="#the-interoperability-problem">The Interoperability Problem</a></li>
+          <li class="toc__item toc__item--h2"><a href="#the-ramstack-philosophy">The Ramstack Philosophy</a></li>
+          <li class="toc__item toc__item--h2"><a href="#what-this-looks-like-in-practice">What This Looks Like in Practice</a></li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</article>
+
+<script>
+/* Reproduces the DocToc.vue island's scroll-spy with plain JS so the page is
+   fully self-contained (the sandbox blocks the external island bundle). The
+   markup, CSS and content above are the real Astro build output, unchanged. */
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a[href^="#"]'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  function setActive(id) {
+    links.forEach(function (a) { a.classList.remove('toc__link--active'); });
+    if (map[id]) map[id].classList.add('toc__link--active');
+  }
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) setActive(e.target.id); });
+  }, { rootMargin: '0px 0px -70% 0px', threshold: 0 });
+  Object.keys(map).forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) obs.observe(el);
+  });
+  links.forEach(function (a) {
+    a.addEventListener('click', function () { setActive(a.getAttribute('href').slice(1)); });
+  });
+})();
+</script>
