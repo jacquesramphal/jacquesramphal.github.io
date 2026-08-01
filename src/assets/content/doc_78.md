@@ -26,7 +26,7 @@ That is the tell. Every proprietary visual tool is a bargain: it hands you one n
 
 Here is the turn it took me too long to make. The answer to "the tool is the ceiling" is not a better tool. It is a different **workflow** — one where the thing I design *is* the thing that ships, and no translation layer sits in between to leak my judgment out. (The same move shows up in agentic work as [designing behavior instead of screens](/doc/when-ux-becomes-ax), where the deliverable stopped being a deck and became a build-ready definition the engineers compile against.)
 
-That is the build workflow we've been putting together at Orium, and the shape of it is simple to say. You discover the problem once — the real audit, the real analysis, the taste and the reasons behind it. You encode those decisions as one shared spec, in the open, in formats anyone on the team can read. And then that spec *compiles* into the running site. You don't hand off a picture and hope. You commit a change and regenerate the thing itself.
+So this is what I actually believe, and how I've built my own practice to work. I discover the problem once — the real audit, the real analysis, the taste and the reasons behind it. I encode those decisions as one shared spec, in the open, in a format anyone can read. And then that spec *compiles* into the running site. I don't hand off a picture and hope. I commit a change and regenerate the thing itself.
 
 I've made the wider case for where this is all heading — convergence, open standards, holding your tools lightly — in [The Future of Design](/doc/the-future-of-design). This piece isn't that. It's the narrower, meaner cut: not where design is going, but the specific lie in the handoff, and the one change that ends it.
 
