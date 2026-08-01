@@ -349,14 +349,16 @@ export default {
   padding: var(--spacing-xxxs) var(--spacing-xxs);
 }
 .button--small {
-  font-size: var(--font-2xs);
+  /* Body-scale token (16px desktop) so button text shrinks on mobile like body copy */
+  font-size: var(--font-400);
   // padding: var(--spacing-xxs);
   padding: 0.95rem 1.25rem 1rem 1.25rem;
 
   /* border-radius: 100px; */
 }
 .button--large {
-  font-size: var(--font-xs);
+  /* Body-scale token (20px desktop) so button text shrinks on mobile like body copy */
+  font-size: var(--font-500);
   padding: 1.5rem 2rem 1.65rem 2rem;
   // padding: var(--spacing-xs);
 }
