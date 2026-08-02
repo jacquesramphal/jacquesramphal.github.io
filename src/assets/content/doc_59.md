@@ -60,3 +60,5 @@ Open-source design tools are improving. Web standards continue to expand into te
 Waiting for the ideal environment to arrive is a strategy for standing still. I've found it useful to support open-source design projects where I can, push for open formats in the organizations I work with, and build design systems that live in code rather than only in files. Learning enough about implementation to have real conversations with the people building what I design has consistently improved outcomes. Discussions on interoperability and open standards tend to be dominated by engineering voices — design perspectives are underrepresented and worth contributing.
 
 Design has always been the practice of making intention visible.
+
+*For the sharper, angrier cut of this argument — why the handoff itself is the ceiling, and the build workflow that removes it — see [This Workman Blames His Tools](/doc/this-workman-blames-his-tools).*
