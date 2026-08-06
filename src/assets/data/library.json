@@ -536,8 +536,7 @@
         "commerce",
         "configurator"
       ],
-      "locked": true,
-      "securedRoute": "/secured/doc/onlogic-commerce-platform"
+      "locked": false
     },
     {
       "id": 53,
@@ -569,8 +568,7 @@
         "loyalty",
         "mobile"
       ],
-      "locked": true,
-      "securedRoute": "/secured/doc/kg-loyalty-platform"
+      "locked": false
     },
     {
       "id": 54,
@@ -602,8 +600,7 @@
         "rebrand",
         "motion-design"
       ],
-      "locked": true,
-      "securedRoute": "/secured/doc/softchoice-rebrand"
+      "locked": false
     },
     {
       "id": 67,
