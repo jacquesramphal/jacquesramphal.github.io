@@ -38,7 +38,7 @@
 
         <ul class="links justify-end glow">
           <li class="glow animate delay-2">
-            <TextLink label="Library" route="/library" />
+            <TextLink label="Work" route="/library" />
           </li>
           <li class="glow animate delay-2">
             <TextLink label="Info" route="/doc/info" />

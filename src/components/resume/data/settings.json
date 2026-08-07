@@ -11,12 +11,12 @@
         "font-on-accent": "#0F1108"
       },
       "dark": {
-        "primary": "tomato",
-        "accent": "#ECE0CF",
-        "background": "#FFFFFF",
-        "font": "#0F1108",
-        "font-on-primary": "#FFFFFF",
-        "font-on-accent": "#0F1108"
+        "primary": "#ECE0CF",
+        "accent": "#4A5428",
+        "background": "#0F1108",
+        "font": "#ECE0CF",
+        "font-on-primary": "#0F1108",
+        "font-on-accent": "#FFFFFF"
       }
     },
     "fonts": {
