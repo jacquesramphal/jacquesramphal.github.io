@@ -44,6 +44,7 @@ function collectRoutes() {
     '/play',
     '/explorations',
     '/product',
+    '/hire',
     '/resume',
     '/links',
     '/designsystem',

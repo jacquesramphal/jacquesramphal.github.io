@@ -8,8 +8,15 @@ node_modules
 storybook-static
 
 # local env files
+.env
 .env.local
 .env.*.local
+
+# personal editor vault config
+.obsidian/
+
+# unpublished drafts (kept local, not published)
+src/assets/_draft_ideas/
 
 # Log files
 npm-debug.log*
