@@ -742,6 +742,23 @@
       ]
     },
     {
+      "id": 90,
+      "slug": "still-yourself",
+      "type": "course",
+      "date": "",
+      "title": "Still Yourself",
+      "eyebrow": "Course",
+      "description": "Six short sessions for when you are good at what you do and it has stopped feeling like enough. Each time, you arrive somewhere quiet, notice one true thing about where you actually are, and write down one line. The six lines are the page, and every line on it is yours.",
+      "route": "/course/still-yourself",
+      "label": "View Course",
+      "alt": "Course: Still Yourself",
+      "tags": [
+        "career",
+        "mindset",
+        "growth"
+      ]
+    },
+    {
       "id": 70,
       "type": "design-project",
       "date": "",

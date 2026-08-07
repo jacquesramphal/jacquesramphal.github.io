@@ -132,6 +132,43 @@
             />
           </GridParent>
         </div>
+        <div v-if="filteredCourses.length" class="library-section">
+          <TextBlock
+            title="Courses"
+            as="h2"
+            description=""
+            class="section-header-row"
+            style="padding-block-end: var(--spacing-md)"
+          />
+          <GridParent
+            tight
+            :rows="viewMode === 'list'"
+            :class="['posts', { 'posts--list': viewMode === 'list' }]"
+          >
+            <ArticleCard
+              borderless
+              :list="viewMode === 'list'"
+              v-for="(entry, index) in filteredCourses"
+              :key="entry.id"
+              :mobileList="index !== 0"
+              :alt="entry.alt"
+              :description="entry.description"
+              :filename="entry.thumbnail"
+              :label="entry.label"
+              :route="entry.route"
+              :btnroute="entry.btnroute"
+              :link="entry.link"
+              eyebrow=""
+              :title="entry.title"
+              :tags="entry.tags"
+              :type="entry.type"
+              :contentFile="entry.contentFile"
+              :date="entry.date"
+              :index="index"
+              @tag-click="handleTagClick"
+            />
+          </GridParent>
+        </div>
         <div v-if="filteredCaseStudiesAndProjects.length" class="library-section">
           <TextBlock
             title="Select Work"
@@ -344,7 +381,7 @@ export default {
       library,
       viewMode: localStorage.getItem('libraryViewMode') || 'grid',
       query: '',
-      selectedTypes: ['article', 'tool', 'case-study', 'design-project', 'lab'],
+      selectedTypes: ['article', 'course', 'tool', 'case-study', 'design-project', 'lab'],
       selectedTags: [],
       modalOpen: false,
       selectedProject: '',
@@ -354,6 +391,7 @@ export default {
     allTypes() {
       return [
         { value: 'article', label: 'Articles' },
+        { value: 'course', label: 'Courses' },
         { value: 'tool', label: 'Tools' },
         { value: 'case-study', label: 'Case Studies' },
         { value: 'design-project', label: 'Design Projects' },
@@ -409,6 +447,11 @@ export default {
         .filter((e) => e.type === 'article')
         .sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
     },
+    filteredCourses() {
+      return this.filteredEntries
+        .filter((e) => e.type === 'course')
+        .sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+    },
     filteredTools() {
       return this.filteredEntries
         .filter((e) => e.type === 'tool')
@@ -433,6 +476,7 @@ export default {
       const labels = [];
       const typeMap = {
         article: 'Articles',
+        course: 'Courses',
         tool: 'Tools',
         'case-study': 'Case Studies',
         'design-project': 'Design Projects',
