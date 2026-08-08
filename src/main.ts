@@ -1,6 +1,5 @@
-import { createApp } from "vue";
+import { createApp, defineAsyncComponent } from "vue";
 import App from "./App.vue";
-import hljs from "highlight.js";
 import store from "./store";
 import { createHead } from "@vueuse/head";
 // import { init, track, parameters } from "insights-js";
@@ -20,9 +19,6 @@ import GridParent from "@/components/grid/GridParent.vue";
 import GridContainer from "@/components/grid/GridContainer.vue";
 import GridWrapper from "@/components/grid/GridWrapper.vue";
 import HeroBanner from "@/components/HeroBanner/HeroBanner.vue";
-import HeroAnimated from "./components/HeroAnimated.vue";
-import HeroAnimatedCopy from "./components/HeroAnimated copy.vue";
-import HeroAnimated2 from "./components/HeroAnimated2.vue";
 import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
 import BreadCrumb from "@/components/BreadCrumb.vue";
 import ImageCard2 from "@/components/card/ImageCard2.vue";
@@ -33,21 +29,29 @@ import SideNav from "./components/SideNav.vue";
 // import ButtonRow2 from "@/components/ButtonRow2.vue";
 import MyLogo from "@/components/MyLogo.vue";
 import Icon from "@/components/Icon.vue";
-import TestimonialCarousel from "@/components/TestimonialCarousel.vue";
-import MarkdownRenderer from "@/components/text/MarkdownRenderer.vue";
 import PageWrapper from "@/components/grid/PageWrapper.vue";
-import ProjectPreview from "@/components/ProjectPreview.vue";
 import TextStats from "@/components/card/TextStats.vue";
 import TextBlock from "@/components/text/TextBlock/TextBlock.vue";
 import TextHeader from "@/components/text/TextHeader.vue";
-import DynamicText from "@/components/text/DynamicText.vue";
 import TextImage from "@/components/card/TextImage.vue";
 import TextLink from "@/components/text/TextLink.vue";
-import ThumbDetail from "@/components/ThumbDetail/ThumbDetail.vue";
-import MyInput from "./components/form/MyInput.vue";
-import FormCentered from "./components/card/FormCentered.vue";
-import MyForm from "./components/card/MyForm.vue";
-import NewsletterSubscription from "./components/form/NewsletterSubscription.vue";
+
+// Heavy or rarely-rendered components are loaded on demand: each becomes its own
+// webpack chunk that only downloads when the component first renders, keeping it
+// out of the initial entry bundle. None of these appear on the home page or in
+// the always-mounted app shell, so splitting them costs no first-paint work.
+const HeroAnimated = defineAsyncComponent(() => import("./components/HeroAnimated.vue"));
+const HeroAnimatedCopy = defineAsyncComponent(() => import("./components/HeroAnimated copy.vue"));
+const HeroAnimated2 = defineAsyncComponent(() => import("./components/HeroAnimated2.vue"));
+const TestimonialCarousel = defineAsyncComponent(() => import("@/components/TestimonialCarousel.vue"));
+const MarkdownRenderer = defineAsyncComponent(() => import("@/components/text/MarkdownRenderer.vue"));
+const ProjectPreview = defineAsyncComponent(() => import("@/components/ProjectPreview.vue"));
+const DynamicText = defineAsyncComponent(() => import("@/components/text/DynamicText.vue"));
+const ThumbDetail = defineAsyncComponent(() => import("@/components/ThumbDetail/ThumbDetail.vue"));
+const MyInput = defineAsyncComponent(() => import("./components/form/MyInput.vue"));
+const FormCentered = defineAsyncComponent(() => import("./components/card/FormCentered.vue"));
+const MyForm = defineAsyncComponent(() => import("./components/card/MyForm.vue"));
+const NewsletterSubscription = defineAsyncComponent(() => import("./components/form/NewsletterSubscription.vue"));
 
 import router from "./router";
 import { Directive, DirectiveBinding, VNode } from "vue";
@@ -97,29 +101,45 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// highlight.js is loaded lazily the first time the directive actually runs, so
+// its ~35-language "common" build (a big dependency) stays out of the initial
+// bundle entirely. Pages without code blocks — the home page included — never
+// download it. The import is cached after the first call.
+let hljsPromise: Promise<typeof import("highlight.js/lib/common").default> | null = null;
+const loadHljs = () => {
+  if (!hljsPromise) {
+    hljsPromise = import("highlight.js/lib/common").then((m) => m.default);
+  }
+  return hljsPromise;
+};
+
 // Define the custom directive
 const highlightjsDirective = {
   deep: true,
   beforeMount: function (el, binding) {
     // on first bind, highlight all targets
     const targets = el.querySelectorAll("code");
-    targets.forEach((target) => {
-      // if a value is directly assigned to the directive, use this
-      // instead of the element content.
-      if (binding.value) {
-        target.textContent = binding.value;
-      }
-      hljs.highlightBlock(target);
+    if (!targets.length) return;
+    loadHljs().then((hljs) => {
+      targets.forEach((target) => {
+        // if a value is directly assigned to the directive, use this
+        // instead of the element content.
+        if (binding.value) {
+          target.textContent = binding.value;
+        }
+        hljs.highlightElement(target);
+      });
     });
   },
   updated: function (el, binding) {
     // after an update, re-fill the content and then highlight
     const targets = el.querySelectorAll("code");
-    targets.forEach((target) => {
-      if (binding.value) {
+    if (!targets.length || !binding.value) return;
+    loadHljs().then((hljs) => {
+      targets.forEach((target) => {
         target.textContent = binding.value;
-        hljs.highlightBlock(target);
-      }
+        hljs.highlightElement(target);
+      });
     });
   },
 };
