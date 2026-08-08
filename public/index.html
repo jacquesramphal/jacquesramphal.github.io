@@ -56,17 +56,39 @@
     <meta itemprop="image" content="https://ramphal.design/og-image.png" />
 
     <link rel="icon" href="<%= BASE_URL %>fav-dynamic.svg" />
+    <!-- Syntax-highlighting theme: only needed on pages with code blocks, so it
+         is loaded non-render-blocking (preload → swap to stylesheet onload). -->
     <link
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css"
+      />
+    </noscript>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+    <!-- Load the webfont without blocking first paint. `display=swap` already
+         renders fallback text immediately; the preload→swap pattern also stops
+         the stylesheet request itself from holding up rendering. -->
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
-      rel="stylesheet"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -98,11 +120,13 @@
       }
     </script>
 
-    <script src="https://getinsights.io/js/insights.js"></script>
-    <script>
-      insights.init('xtk6brD0rPPePrkC');
-      insights.trackPages();
-    </script>
+    <!-- Analytics: loaded async so it never blocks HTML parsing or first paint.
+         init runs from onload once the script is available. -->
+    <script
+      async
+      src="https://getinsights.io/js/insights.js"
+      onload="insights.init('xtk6brD0rPPePrkC');insights.trackPages();"
+    ></script>
     <title>Jacques Ramphal — Agentic Experience, Design Systems & Code</title>
 
     <!-- SPA redirect decode for GitHub Pages — must run before app boots -->

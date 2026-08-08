@@ -1,27 +1,31 @@
-import TheLogin from '@/components/TheLogin.vue';
-
 import { createRouter, createWebHistory } from 'vue-router';
-import Explorations from '@/pages/Explorations.vue';
-import DesignSystem from '@/pages/DesignSystem.vue';
-import MaintenancePage from '@/pages/misc/MaintenancePage.vue';
-import MyResume from '@/pages/MyResume.vue';
-import NotFound from '@/pages/misc/NotFound.vue';
-import ProjectPage from '@/pages/ProjectPage.vue';
-import ProductPage from '@/pages/ProductPage.vue';
-// import DocPage from "@/pages/DocPage.vue";
-import MarkdownPage from '@/pages/MarkdownPage.vue';
+
+// The landing route and the 404 fallback stay eager so the first paint and any
+// unmatched URL resolve without a second network round-trip. Every other page
+// is lazy-loaded: webpack emits each as its own chunk that only downloads when
+// the route is visited, keeping the initial bundle small.
 import HomePage from '@/pages/HomePage.vue';
-import MyLibrary from '@/pages/MyLibrary.vue';
-import WritingIndex from '@/pages/WritingIndex.vue';
-import WorkIndex from '@/pages/WorkIndex.vue';
-import PlayIndex from '@/pages/PlayIndex.vue';
-import UsefulLinks from '@/pages/UsefulLinks.vue';
-import CoursePage from '@/pages/CoursePage.vue';
-import HirePage from '@/pages/HirePage.vue';
-import SessionReader from '@/pages/SessionReader.vue';
-import BusinessCardPage from '@/pages/BusinessCardPage.vue';
-import SubscribedPage from '@/pages/SubscribedPage.vue';
-import FullscreenMenu from '../components/FullscreenMenu.vue';
+import NotFound from '@/pages/misc/NotFound.vue';
+
+const TheLogin = () => import('@/components/TheLogin.vue');
+const Explorations = () => import('@/pages/Explorations.vue');
+const DesignSystem = () => import('@/pages/DesignSystem.vue');
+const MaintenancePage = () => import('@/pages/misc/MaintenancePage.vue');
+const MyResume = () => import('@/pages/MyResume.vue');
+const ProjectPage = () => import('@/pages/ProjectPage.vue');
+const ProductPage = () => import('@/pages/ProductPage.vue');
+const MarkdownPage = () => import('@/pages/MarkdownPage.vue');
+const MyLibrary = () => import('@/pages/MyLibrary.vue');
+const WritingIndex = () => import('@/pages/WritingIndex.vue');
+const WorkIndex = () => import('@/pages/WorkIndex.vue');
+const PlayIndex = () => import('@/pages/PlayIndex.vue');
+const UsefulLinks = () => import('@/pages/UsefulLinks.vue');
+const CoursePage = () => import('@/pages/CoursePage.vue');
+const HirePage = () => import('@/pages/HirePage.vue');
+const SessionReader = () => import('@/pages/SessionReader.vue');
+const BusinessCardPage = () => import('@/pages/BusinessCardPage.vue');
+const SubscribedPage = () => import('@/pages/SubscribedPage.vue');
+const FullscreenMenu = () => import('../components/FullscreenMenu.vue');
 import { getDocRecordById } from '@/utils/docRegistry';
 import { getCourseBySlug, getDefaultCourse } from '@/utils/courseRegistry';
 import { canViewLockedCourse } from '@/utils/courseAccess';
