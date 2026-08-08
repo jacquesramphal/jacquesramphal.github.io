@@ -331,6 +331,15 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+// Mobile list view: the first row opens the list directly under the section
+// header, so it carries no divider (removed on the card) and no top padding —
+// its content sits flush with the header. Scoped to this list view only.
+@media only screen and (max-width: 767px) {
+  .posts--list > :first-child {
+    padding-block-start: 0 !important;
+  }
+}
+
 .scrolling-wrapper {
   overflow-x: scroll;
   overflow-y: hidden;
