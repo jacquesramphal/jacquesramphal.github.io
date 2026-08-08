@@ -431,6 +431,13 @@ li {
 }
 
 #maindetails {
+  // Match the article-card title weight. Card titles sit inside a link, so
+  // `a h4 { font-weight: inherit }` pulls them to medium; the footer name isn't
+  // a link, so mirror that weight here instead of the default bold.
+  :deep(.title) {
+    font-weight: var(--fontWeight-medium);
+  }
+
   @media only screen and (min-width: 768px) {
     padding-inline-end: var(--spacing-md);
   }
