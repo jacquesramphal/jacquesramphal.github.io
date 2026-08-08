@@ -31,6 +31,4 @@ DQA goes beyond visual elements to ensure that the design meets specified standa
 - DQA guarantees that design meets specified standards, functional requirements, and user expectations, providing a holistic approach to quality assurance. It covers usability, functionality, and user experience, ensuring end-to-end design validation.
     
 
-Next Section:
-
-[2. Quality Assurance Activities Overview](https://myplanet.jira.com/wiki/spaces/CD/pages/406913044)
+> Next Section: [2. Quality Assurance Activities Overview](https://myplanet.jira.com/wiki/spaces/CD/pages/406913044)

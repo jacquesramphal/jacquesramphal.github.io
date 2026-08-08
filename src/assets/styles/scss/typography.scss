@@ -184,12 +184,13 @@ h3 em {
 }
 
 blockquote {
-  background: none;
+  background: var(--background-darker);
   border: none;
+  border-inline-start: 3px solid var(--color-red);
   border-radius: 0;
   color: var(--foreground);
   margin: var(--spacing-sm) 0;
-  padding: 0;
+  padding: var(--spacing-sm);
   position: relative;
   font-style: normal;
 
