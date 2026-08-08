@@ -154,6 +154,10 @@
       <ArticleByline :readTime="articleReadTime" :date="articleDate" />
     </Teleport>
 
+    <Teleport v-if="inlineCtaReady && showSubscribeCTA" to="#article-inline-cta-slot">
+      <ArticleOutro compact />
+    </Teleport>
+
     <Teleport to="body">
       <PresenterBar
         v-if="presenterMode"
@@ -289,6 +293,7 @@ export default {
     const articleDateISO = ref('');
     const canonicalUrl = computed(() => `https://ramphal.design${router.currentRoute.value.path}`);
     const bylineReady = ref(false);
+    const inlineCtaReady = ref(false);
     const isFullWidth = ref(false);
     const lightboxOpen = ref(false);
     const lightboxSrc = ref('');
@@ -841,11 +846,44 @@ export default {
           cleaned = cleaned.replace(/^(#\s+.+)$/m, `$1\n${bylinePlaceholder}`);
         }
 
+        // Inject a compact subscribe CTA partway through writing posts (before
+        // the midpoint h2), teleported in after render. Same gating as the
+        // end-of-article bar, and only for posts long enough (3+ sections) to
+        // carry a mid-article nudge without crowding.
+        const wantInlineCta = currentDocType.value === 'article' && !attributes?.customOutro;
+        if (wantInlineCta) {
+          const inlineCtaPlaceholder = '<div id="article-inline-cta-slot"></div>';
+          const isHtml = cleaned.includes('</h2>');
+          if (isHtml) {
+            const positions = [];
+            const re = /<h2[\s>]/gi;
+            let match;
+            while ((match = re.exec(cleaned)) !== null) positions.push(match.index);
+            if (positions.length >= 3) {
+              const mid = positions[Math.floor(positions.length / 2)];
+              cleaned = cleaned.slice(0, mid) + inlineCtaPlaceholder + cleaned.slice(mid);
+            }
+          } else {
+            const lines = cleaned.split('\n');
+            const h2Lines = [];
+            lines.forEach((l, i) => {
+              if (/^##\s/.test(l)) h2Lines.push(i);
+            });
+            if (h2Lines.length >= 3) {
+              const mid = h2Lines[Math.floor(h2Lines.length / 2)];
+              lines.splice(mid, 0, inlineCtaPlaceholder, '');
+              cleaned = lines.join('\n');
+            }
+          }
+        }
+
         processedMarkdown.value = cleaned;
         // Wait for DOM to render, then activate the byline teleport
         bylineReady.value = false;
+        inlineCtaReady.value = false;
         nextTick(() => {
           bylineReady.value = !!document.getElementById('article-byline-slot');
+          inlineCtaReady.value = !!document.getElementById('article-inline-cta-slot');
         });
         console.log(
           'MarkdownPage: Processed markdown preview:',
@@ -1109,6 +1147,7 @@ export default {
       bylineReady,
       relatedTitle,
       showSubscribeCTA,
+      inlineCtaReady,
       isFullWidth,
       currentSlug: computed(
         () => router.currentRoute.value.params.slug ?? router.currentRoute.value.params.id

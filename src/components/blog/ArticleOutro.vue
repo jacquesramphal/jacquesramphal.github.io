@@ -1,14 +1,18 @@
 <template>
-  <aside class="article-outro" aria-label="Subscribe for new essays">
+  <aside
+    class="article-outro"
+    :class="{ 'article-outro--compact': compact }"
+    aria-label="Subscribe for new essays"
+  >
     <div class="article-outro__intro">
-      <p class="article-outro__title">{{ title }}</p>
-      <p class="article-outro__text">{{ text }}</p>
+      <div class="article-outro__title">{{ title }}</div>
+      <div v-if="text" class="article-outro__text">{{ text }}</div>
     </div>
 
     <form class="article-outro__form" @submit.prevent="subscribe">
       <div class="article-outro__row">
         <MyInput
-          id="article-outro-email"
+          :id="compact ? 'article-inline-cta-email' : 'article-outro-email'"
           type="email"
           name="email"
           label="Email address"
@@ -42,15 +46,24 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
-// Reusable end-of-article call to action, shown on writing posts that don't
-// already end in a bespoke outro. Shares the Buttondown embed flow with
+// Reusable subscribe call to action. Two forms: the default full-width bar
+// appended after writing posts, and a `compact` variant injected partway
+// through the article. Both share the Buttondown embed flow with
 // NewsletterSubscription so there's a single source of truth for the list.
+const props = defineProps({
+  compact: { type: Boolean, default: false },
+});
+
 const ENDPOINT = 'https://buttondown.com/api/emails/embed-subscribe/jacquesramphal';
 
-const title = 'This is the kind of thing I write about.';
-const text = 'New essays on design, systems, and AI as I publish them. No noise.';
+const title = computed(() =>
+  props.compact ? 'Enjoying this?' : 'This is the kind of thing I write about.'
+);
+const text = computed(() =>
+  props.compact ? '' : 'New essays on design, systems, and AI as I publish them. No noise.'
+);
 
 const email = ref('');
 const message = ref('');
@@ -112,12 +125,16 @@ const subscribe = async () => {
 
 .article-outro__title {
   margin: 0;
+  font-size: var(--font-500);
   font-weight: var(--fontWeight-heavy);
+  line-height: var(--lineHeight-base);
 }
 
 .article-outro__text {
   margin: 0;
+  font-size: var(--font-400);
   color: var(--foreground-muted);
+  line-height: var(--lineHeight-base);
 }
 
 .article-outro__form {
@@ -183,6 +200,26 @@ const subscribe = async () => {
     width: auto;
     height: 100%;
     white-space: nowrap;
+  }
+}
+
+/* Compact variant — a quieter inline nudge dropped partway through an article.
+   Tighter padding and a smaller title; the block-margin gives it room between
+   paragraphs. */
+.article-outro--compact {
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  margin-block: var(--spacing-md);
+}
+
+.article-outro--compact .article-outro__title {
+  font-size: var(--font-500);
+}
+
+@media only screen and (min-width: 768px) {
+  .article-outro--compact {
+    gap: var(--spacing-md);
+    padding: var(--spacing-xs) var(--spacing-sm);
   }
 }
 </style>
