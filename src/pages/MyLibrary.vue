@@ -605,6 +605,18 @@ export default {
   border-block-start: var(--border);
 }
 
+// Mobile: the card grid stacks into a single column of mobile-list rows, each
+// with its own top-border divider and symmetric block padding. The grid's flex
+// gap would stack on top of that padding and make the space between rows larger
+// than the divider spacing (as it does on the homepage list). Drop the gap on
+// mobile so the row padding owns the spacing and Library matches Home. Desktop
+// grid gaps are unchanged.
+@media only screen and (max-width: 767px) {
+  .posts {
+    grid-gap: 0 !important;
+  }
+}
+
 .section-header-row {
   grid-column: 1 / -1;
   display: flex;
