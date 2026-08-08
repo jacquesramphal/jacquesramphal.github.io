@@ -77,4 +77,4 @@ The irony isn't lost on me. I might be a strong designer and a capable developer
 
 Building Genie changed what I'm capable of building next.
 
-> Read the case study: [Designing Genie →](/doc/designing-genie)
+> **Read the case study:** [Designing Genie →](/doc/designing-genie)

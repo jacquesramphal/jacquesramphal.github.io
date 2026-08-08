@@ -115,6 +115,4 @@ The success of this project wasn’t just in the launch—it was in creating a s
 **Jacques Ramphal**  
 *Lead Product Designer & Front-end Developer | Orium*
 
-> **Project Links:**
-> - Download the app (US only): https://kumandgo.com/download
-> - Visit site: https://kumandgo.com/
+> **Project links:** [Download the app (US only) →](https://kumandgo.com/download) · [Visit site →](https://kumandgo.com/)
