@@ -38,7 +38,7 @@
     </AnimatedComponent>
 
     <!-- WRITING SECTION -->
-    <CardRow2 title="Writing" kind="writing" :viewAllTo="{ name: 'Library' }" />
+    <CardRow2 title="Writing" kind="writing" layout="list" :viewAllTo="{ name: 'Library' }" />
 
     <div class="vertical-wordmark" aria-hidden="true">Jacques Ramphal</div>
   </PageWrapper>

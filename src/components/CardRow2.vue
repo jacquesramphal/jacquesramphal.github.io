@@ -1,7 +1,50 @@
 <template>
   <div class="" style="overflow: visible !important; background: transparent !important">
+    <!-- LIST VIEW START (responsive; replaces the slider when layout="list") -->
+    <GridContainer v-if="layout === 'list'" id="cards" style="overflow: visible !important">
+      <!-- HEADER COMPONENT START -->
+      <div
+        class="grid-parent"
+        style="
+          padding-block-end: var(--spacing-md);
+          align-items: center;
+          grid-template-columns: repeat(3, 1fr);
+        "
+      >
+        <TextBlock style="grid-column: 1 / 3" :title="title" as="h2" description="" />
+        <p class="justify-end" style="align-self: center; white-space: nowrap">
+          <router-link v-if="viewAllTo" :to="viewAllTo">View All</router-link>
+        </p>
+      </div>
+      <!-- HEADER COMPONENT END -->
+
+      <GridParent tight rows class="posts posts--list">
+        <ArticleCard
+          borderless
+          list
+          mobileList
+          v-for="entry in visibleItems"
+          :key="`list-${entry.id}`"
+          eyebrow=""
+          :filename="entry.thumbnail"
+          :imageVariant="entry.imageVariant"
+          :bgcolor="entry.bgcolor"
+          :alt="entry.alt"
+          :title="entry.title"
+          :description="entry.description"
+          :route="entry.route || (entry.btnroute ? `/${entry.btnroute}` : '')"
+          :link="entry.link"
+          :label="entry.label"
+          :tags="entry.tags"
+          :type="entry.type"
+          :contentFile="entry.contentFile"
+        />
+      </GridParent>
+    </GridContainer>
+    <!-- LIST VIEW END -->
+
     <!-- DESKTOP VIEW START -->
-    <GridContainer v-if="isDesktopScreen" id="cards" style="overflow: visible !important">
+    <GridContainer v-else-if="isDesktopScreen" id="cards" style="overflow: visible !important">
       <!-- HEADER COMPONENT START -->
       <div
         class="grid-parent"
@@ -188,6 +231,12 @@ export default {
     filterByType: {
       type: String,
       default: null,
+    },
+    layout: {
+      // 'grid' (default) keeps the desktop grid + mobile slider;
+      // 'list' renders a responsive list-view grid with no slider.
+      type: String,
+      default: 'grid',
     },
   },
   data() {
