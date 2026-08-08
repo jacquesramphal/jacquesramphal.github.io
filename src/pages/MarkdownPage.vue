@@ -133,6 +133,10 @@
           </aside>
         </div> </GridParent
     ></GridContainer>
+    <GridContainer v-if="showSubscribeCTA" class="article-outro-container">
+      <ArticleOutro />
+    </GridContainer>
+
     <div
       v-if="currentSlug !== 'cv'"
       id="related-writing-section"
@@ -181,6 +185,7 @@ import FullscreenImage from '@/components/FullscreenImage.vue';
 import fallbackImage from '@/assets/images/placeholder.png';
 import libraryData from '@/assets/data/library.json';
 import ArticleByline from '@/components/ArticleByline.vue';
+import ArticleOutro from '@/components/blog/ArticleOutro.vue';
 import { getReadTime } from '@/utils/readTime';
 // import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
 
@@ -1065,6 +1070,13 @@ export default {
       return typeMap[currentDocType.value] || 'Related';
     });
 
+    // Generic end-of-article subscribe CTA: shown on writing posts only, and
+    // suppressed when the article already ends in a bespoke outro
+    // (frontmatter `customOutro: true`), so the two never double up.
+    const showSubscribeCTA = computed(
+      () => currentDocType.value === 'article' && !pageData.value?.customOutro
+    );
+
     return {
       handlePrint,
       pageData,
@@ -1096,6 +1108,7 @@ export default {
       articleDate,
       bylineReady,
       relatedTitle,
+      showSubscribeCTA,
       isFullWidth,
       currentSlug: computed(
         () => router.currentRoute.value.params.slug ?? router.currentRoute.value.params.id
@@ -1126,6 +1139,7 @@ export default {
     GridContainer,
     FullscreenImage,
     ArticleByline,
+    ArticleOutro,
   },
   computed: {
     showStats() {
@@ -1725,6 +1739,7 @@ export default {
 .presenter-mode {
   .toc-sidebar-wrap,
   .markdown-share,
+  .article-outro-container,
   #related-writing-section,
   #hero-banner {
     display: none !important;

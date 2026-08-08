@@ -436,7 +436,6 @@ figcaption {
 
 /* Mobile (XS) - Drop h3 and below for better hierarchy */
 @media only screen and (max-width: 767px) {
-
   /* design-guard:ignore */
   h2 {
     font-size: var(--size-9);
@@ -465,7 +464,6 @@ h1 + p {
 
 /* Tablet (MD) */
 @media only screen and (min-width: 768px) {
-
   /* design-guard:ignore */
   h1 {
     padding-block-end: var(--spacing-xxxs);
@@ -484,7 +482,6 @@ h1 + p {
 
 /* Large Desktop (XL) */
 @media only screen and (min-width: 1441px) {
-
   /* design-guard:ignore */
   .display p {
     font-size: var(--font-600);
