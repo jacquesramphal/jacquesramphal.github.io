@@ -837,11 +837,22 @@ export default {
         }
 
         processedMarkdown.value = cleaned;
-        // Wait for DOM to render, then activate the byline teleport
+        // Activate the byline teleport once its slot is in the DOM.
+        // MarkdownRenderer commits the slot on its own update cycle, so a single
+        // nextTick can fire before the slot exists — and if it does, nothing
+        // re-checks and the byline never renders. Poll across a few animation
+        // frames so the teleport reliably activates regardless of content size.
         bylineReady.value = false;
-        nextTick(() => {
-          bylineReady.value = !!document.getElementById('article-byline-slot');
-        });
+        const activateByline = (attempt = 0) => {
+          if (document.getElementById('article-byline-slot')) {
+            bylineReady.value = true;
+            return;
+          }
+          if (attempt < 60) {
+            requestAnimationFrame(() => activateByline(attempt + 1));
+          }
+        };
+        nextTick(() => activateByline());
         console.log(
           'MarkdownPage: Processed markdown preview:',
           processedMarkdown.value.substring(0, 300)
