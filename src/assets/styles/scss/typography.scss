@@ -144,11 +144,11 @@ td,
 label,
 input {
   font-weight: var(--fontWeight-medium) !important;
-  /* Fluid body copy: 2rem (20px) on desktop, scaling down to 1.7rem (17px) on
+  /* Fluid body copy: 2rem (20px) on desktop, scaling down to 1.8rem (18px) on
      mobile. Desktop size is unchanged from var(--font-500); only small screens
      shrink. Line-height and all other properties left as-is. */
   /* design-guard:ignore */
-  font-size: clamp(1.7rem, 1.41rem + 0.76vw, 2rem);
+  font-size: clamp(1.8rem, 1.41rem + 0.76vw, 2rem);
   /* Tighter leading than display copy so prose reads as present, not floaty. */
   line-height: var(--lineHeight-body);
   /* Raised from 0.75 → 0.88: full-enough contrast for comfortable reading while
