@@ -46,9 +46,12 @@
       :attrs="{ class: 'description' }"
     />
     <!-- Content tags at bottom -->
+    <!-- `subtle` matches the muted treatment of the eyebrow (p.eyebrow.subtle):
+         the inner <p> keeps body color while .subtle drops opacity to 0.75, so
+         the meta row (date · read time · tags) renders identically muted. -->
     <div
       v-if="shouldShowTags && ((tags && tags.length) || readTime || date || isExternal || complete)"
-      class="tags tags--content"
+      class="tags tags--content subtle"
     >
       <span v-if="isExternal" class="tag-label tag-label--external">
         <p style="font-size: var(--font-2xs)">External &#8599;</p>
