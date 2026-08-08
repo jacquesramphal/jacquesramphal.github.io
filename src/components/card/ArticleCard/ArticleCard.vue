@@ -592,7 +592,9 @@ img {
   @media only screen and (min-width: 768px) {
     @include list-row-base;
     height: auto !important;
-    padding-block-start: var(--spacing-sm);
+    // Match the padding above the divider (below the card) to the padding
+    // below the divider (above the card) so the gap reads evenly on both sides.
+    padding-block: var(--spacing-sm);
     display: grid !important;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: var(--spacing-xs);
@@ -714,7 +716,8 @@ img {
     @include list-row-base;
     min-height: 0 !important;
     height: auto !important;
-    padding-block-start: var(--spacing-sm);
+    // Keep the divider gap even on both sides (matches the desktop list view).
+    padding-block: var(--spacing-sm);
     display: grid !important;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: var(--spacing-xs);
