@@ -1,79 +1,23 @@
-# Personal Portfolio
+# Hey, I'm Jacques 👋
 
-This repository contains my personal portfolio website hosted on Netlify. It showcases my projects, skills, and experiences. Feel free to explore and get to know more about me.
+I'm a **design engineer** in Toronto — I sit in the gap between design and code and try to make it disappear. Design systems, agentic tooling, and shipping UI that actually survives handoff.
 
-## Technologies Used
+This repo is my corner of the internet: [**ramphal.design**](https://ramphal.design). Portfolio, writing, a resume, a component library, and a lab where I try things that may or may not work.
 
-- Vue.js: A progressive JavaScript framework for building user interfaces.
-- Vuex: A state management pattern and library for Vue.js applications.
-- Vue Router: A routing library for Vue.js applications.
-- Contentful: A content management platform for creating and managing digital content.
-- GSAP: GreenSock Animation Platform for creating smooth and powerful animations.
-- EmailJS: A JavaScript service for sending email directly from the client-side.
-- Storybook: An open-source tool for building UI components and documenting them.
-- Webpack: A module bundler for JavaScript applications.
-- Babel: A JavaScript compiler for backward compatibility with older browsers.
-- ESLint: A pluggable linting utility for JavaScript and TypeScript.
-- TypeScript: A typed superset of JavaScript that compiles to plain JavaScript.
-- SCSS: A CSS preprocessor that adds features like variables, mixins, and nested rules.
+## What I'm up to
 
-## Installation
+- **Design Lead, Agentic Experience @ [Orium](https://orium.com)** — I built *Genie*, an orchestration layer that hands routine design and delivery work to code-based workflows. Started as a proof of concept; now it lives as shared skills the whole delivery org contributes to.
+- Leading how design works across the practice — QA systems, front-end integration standards, and mentoring a small team.
+- I design in code — building directly in the browser instead of handing off static mockups.
 
-1. Clone the repository:
+Been at Orium (formerly Myplanet) since 2013, working my way from visual design into design engineering across retail, healthcare, and SaaS.
 
-```bash
-git clone https://github.com/jacquesramphal/jacquesramphal.github.io.git
-```
+## What I reach for
 
-2. Install dependencies:
+`Design Tokens` · `Storybook` · `Style Dictionary` · `Figma` · `HTML` · `CSS/SCSS`
 
-```bash
-cd jacquesramphal.github.io
-pnpm i
-```
+## Say hi
 
-## Development
-
-To run the development server, use the following command:
-
-```bash
-yarn serve
-```
-
-This will start the development server and provide you with a local URL to preview the website.
-
-## Building
-
-To build the production-ready assets, use the following command:
-
-```bash
-yarn build
-```
-
-The compiled files will be generated in the `dist` directory.
-
-## Storybook
-
-To view the interactive component documentation powered by Storybook, use the following command:
-
-```bash
-yarn sb
-```
-
-This will start the Storybook server and provide you with a local URL to explore the components.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE). Feel free to use it as a reference or customize it to create your own portfolio website.
-
-## Acknowledgements
-
-- The Vue.js team for creating an amazing framework.
-- Contentful for providing a flexible content management system.
-- GSAP for the animation library that brings life to the website.
-- EmailJS for simplifying the process of sending emails from the client-side.
-- Storybook for the component development and documentation environment.
-
----
-
-Thank you for visiting my portfolio repository! If you have any questions or feedback, please feel free to reach out to me.
+- 🌐 [ramphal.design](https://ramphal.design)
+- 💼 [LinkedIn](https://www.linkedin.com/in/ramphal-design/)
+- ✉️ [jacques@ramphal.design](mailto:jacques@ramphal.design)
