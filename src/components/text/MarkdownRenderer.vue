@@ -945,6 +945,21 @@ export default {
     }
   }
 
+  /* Readable measure — cap prose line length (~64ch) so wide viewports don't
+     produce unreadably long lines. Media-bearing paragraphs, code, tables, and
+     the poster h1 are intentionally left full-width. No effect on mobile, where
+     the viewport is narrower than the cap. */
+  p:not(:has(img)),
+  li,
+  blockquote,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    max-width: var(--size-36);
+  }
+
   a {
     color: var(--color-action);
     font-weight: var(--fontWeight-medium);
