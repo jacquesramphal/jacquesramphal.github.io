@@ -27,7 +27,11 @@
           </div>
           <GridParent tight class="outer">
             <div id="maindetails">
-              <TextBlock as="h4" title="Jacques Ramphal" />
+              <TextBlock
+                as="h4"
+                title="Jacques Ramphal"
+                description="I'm a designer working where design, code, and AI meet. Subscribe for writing on what I'm learning there."
+              />
               <div class="footer-subscribe">
                 <SubscribeForm />
               </div>
