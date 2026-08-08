@@ -722,6 +722,12 @@ img {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: var(--spacing-xs);
 
+    // The first row starts the list, so it has no divider above it (matches
+    // the desktop list variant).
+    &:first-child {
+      border-block-start: none !important;
+    }
+
     .image {
       grid-column: 3 / 4;
       grid-row: 1;
