@@ -60,8 +60,6 @@ Design directly in the browser where possible, not because it’s easy, but beca
 
 When evaluating tools, ask: *What happens to my work if this tool disappears tomorrow?* Not as a paranoid exercise, but as a design constraint. The answer reveals your actual dependencies.
 
----
-
 Approaches and standards outlast applications and platforms. The Ramstack isn’t a prescribed set of software; it’s a commitment to working in ways that outlast the tools you’re using today.
 
 *Related: [This Workman Blames His Tools](/doc/this-workman-blames-his-tools) — the same principle turned on the design workflow itself, where the handoff is the thing that has to go.*
