@@ -11,9 +11,10 @@
       <GridContainer>
         <GridParent
           tight
+          class="footer-main"
           style="grid-template-columns: none !important; grid-template-rows: repeat(2, auto)"
         >
-          <div class="">
+          <div class="footer-avatar">
             <!-- Profile Picture -->
             <a href="/resume.html"
               ><img
@@ -403,10 +404,28 @@ $spacing-sm: var(--spacing-sm);
   }
 }
 
+// Own the avatar→text gap explicitly so it matches the article card image→title
+// distance regardless of the grid's responsive row gap.
+.footer-main {
+  row-gap: 0 !important;
+}
+
+.footer-avatar {
+  // Match the article-card image→title distance: the card image carries a
+  // spacing-xs margin below it and the info block adds spacing-sm of padding
+  // above the title (constant across breakpoints).
+  margin-block-end: calc(var(--spacing-xs) + var(--spacing-sm));
+}
+
 .outer {
   grid-template-columns: repeat(1, 1fr);
+  // Restore the row gap removed above, so the space before the footer utility
+  // row is unchanged (mirrors the grid's tight row gap).
+  margin-block-end: var(--spacing-sm);
+
   @media only screen and (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
+    margin-block-end: var(--spacing-md);
   }
   @media only screen and (min-width: 1201px) {
     grid-template-columns: repeat(3, 1fr);
@@ -431,6 +450,13 @@ li {
 }
 
 #maindetails {
+  // Match the article-card title weight. Card titles sit inside a link, so
+  // `a h4 { font-weight: inherit }` pulls them to medium; the footer name isn't
+  // a link, so mirror that weight here instead of the default bold.
+  :deep(.title) {
+    font-weight: var(--fontWeight-medium);
+  }
+
   @media only screen and (min-width: 768px) {
     padding-inline-end: var(--spacing-md);
   }
