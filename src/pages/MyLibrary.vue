@@ -615,6 +615,14 @@ export default {
   .posts {
     grid-gap: 0 !important;
   }
+
+  // The first card in a section is a full card (e.g. the featured article),
+  // not a mobile-list row, so it has no bottom padding of its own. With the
+  // grid gap removed above, it would sit flush against the divider of the next
+  // row. Give it matching bottom padding so that divider is evenly spaced.
+  .library-section .posts > *:first-child {
+    padding-block-end: var(--spacing-sm);
+  }
 }
 
 .section-header-row {
