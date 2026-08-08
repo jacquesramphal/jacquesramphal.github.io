@@ -714,7 +714,10 @@ img {
     @include list-row-base;
     min-height: 0 !important;
     height: auto !important;
-    padding-block-start: var(--spacing-sm);
+    // Symmetric padding around the top-border divider so the mobile list row
+    // reads evenly above and below the line (paired with the removed flex gap
+    // on the mobile list container).
+    padding-block: var(--spacing-sm);
     display: grid !important;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: var(--spacing-xs);

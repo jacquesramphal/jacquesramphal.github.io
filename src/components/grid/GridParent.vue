@@ -83,6 +83,18 @@ export default {
     display: flex;
     flex-direction: column;
   }
+  // Mobile list view only (Library sections + homepage CardRow2). Each row
+  // already carries a top-border divider, and the card's mobile-list variant
+  // gives it symmetric padding above and below that divider. The flex gap here
+  // (spacing-sm on mobile) would stack on top of the row's bottom padding,
+  // making the space below each card larger than the space above it. Drop the
+  // gap on mobile so the card padding alone owns the divider spacing. Desktop
+  // keeps its gap unchanged.
+  &--rows.posts--list {
+    @media only screen and (max-width: 767px) {
+      grid-gap: 0;
+    }
+  }
   &--tight {
     @media only screen and (min-width: 1201px) {
       grid-gap: var(--spacing-md);
