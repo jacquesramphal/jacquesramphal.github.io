@@ -83,6 +83,16 @@ export default {
     display: flex;
     flex-direction: column;
   }
+  // List view (Library sections + homepage CardRow2). Each row already carries
+  // a top-border divider, and ArticleCard's `list` variant gives it symmetric
+  // padding above and below that divider. A flex gap here would stack on top of
+  // the row's bottom padding, making the space below each card larger than the
+  // space above it. Drop the gap so the card padding alone owns the divider
+  // spacing and both sides stay even. Scoped to `.posts--list` so the other
+  // `rows` layouts (Studio, Hire, Product, etc.) keep their gap.
+  &--rows.posts--list {
+    grid-gap: 0;
+  }
   &--tight {
     @media only screen and (min-width: 1201px) {
       grid-gap: var(--spacing-md);
