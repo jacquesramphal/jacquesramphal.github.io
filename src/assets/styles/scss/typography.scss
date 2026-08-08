@@ -149,8 +149,11 @@ input {
      shrink. Line-height and all other properties left as-is. */
   /* design-guard:ignore */
   font-size: clamp(1.7rem, 1.41rem + 0.76vw, 2rem);
-  line-height: var(--lineHeight-taller);
-  color: rgba(var(--foreground-rgb), 0.75) !important;
+  /* Tighter leading than display copy so prose reads as present, not floaty. */
+  line-height: var(--lineHeight-body);
+  /* Raised from 0.75 → 0.88: full-enough contrast for comfortable reading while
+     staying softer than pure foreground. Captions/.subtle keep the 0.75 tier. */
+  color: rgba(var(--foreground-rgb), 0.88) !important;
   /* design-guard:ignore */
   font-variation-settings:
     'wdth' 102,

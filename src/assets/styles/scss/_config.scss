@@ -392,6 +392,9 @@
   --lineHeight-short: 1.2;
   --lineHeight-base: 1.4;
   --lineHeight-tall: 1.5;
+  /* Body prose — tighter than --lineHeight-taller so lines read as present,
+     not floaty. Reserve --lineHeight-taller (1.8) for large display copy. */
+  --lineHeight-body: 1.6;
   --lineHeight-taller: 1.8;
 
   /* IMAGE FILTERS */
