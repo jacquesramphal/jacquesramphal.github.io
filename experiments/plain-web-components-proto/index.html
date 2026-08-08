@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jacques Ramphal</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="site-header">
+      <a class="brand" href="#/">Jacques Ramphal</a>
+      <nav class="site-nav">
+        <a href="#/">Home</a>
+        <a href="#/doc/the-ramstack">Writing</a>
+        <theme-toggle></theme-toggle>
+      </nav>
+    </header>
+
+    <main>
+      <section id="view-home">
+        <div class="wrap hero">
+          <h6 class="eyebrow">Design Engineer · Writing</h6>
+          <h1 class="display">Jacques Ramphal</h1>
+          <p class="lead">I care about the presentation layer — how something looks, behaves, and feels in the browser — and about building in ways that outlast the tools I use today.</p>
+          <div class="band" aria-hidden="true"></div>
+        </div>
+        <div class="wrap">
+          <h2 class="section-label">Writing</h2>
+          <div class="writing">
+            <article class="entry">
+              <h6 class="eyebrow">Design Philosophy</h6>
+              <a class="title" href="#/doc/the-ramstack"><h3>This Workman Blames His Tools</h3></a>
+              <p>A bad workman blames his tools — but sometimes the tool is the ceiling.</p>
+            </article>
+            <article class="entry">
+              <h6 class="eyebrow">Design Philosophy</h6>
+              <a class="title" href="#/doc/the-ramstack"><h3>The Ramstack</h3></a>
+              <p>A future-proof approach to front-end design isn’t about the tools. It’s about the principles beneath them.</p>
+            </article>
+            <article class="entry">
+              <h6 class="eyebrow">Agentic Experience</h6>
+              <a class="title" href="#/doc/the-ramstack"><h3>Taste is triage</h3></a>
+              <p>When making something is nearly free, the scarce skill becomes knowing what’s worth building — and being able to say why.</p>
+            </article>
+            <article class="entry">
+              <h6 class="eyebrow">Mindset</h6>
+              <a class="title" href="#/doc/the-ramstack"><h3>Friction</h3></a>
+              <p>Friction only sharpens you when there’s something steady to work against.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="view-article" hidden>
+        <div class="wrap article">
+          <a class="back" href="#/">← All writing</a>
+          <!-- md-powered: the component fetches and renders this Markdown file -->
+          <md-article src="./content/the-ramstack.md"></md-article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
