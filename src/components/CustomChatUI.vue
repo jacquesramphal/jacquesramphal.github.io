@@ -8,7 +8,7 @@
           v-if="isMobile"
           class="chat-button chat-button--mobile"
           :class="{ 'chat-button--hidden': !mobileButtonVisible }"
-          label="Let's chat"
+          label="Ask about Jacques’ work"
           type="solid"
           size="large"
           :aria-label="buttonLabel"
@@ -47,7 +47,7 @@
         <div class="chat-button-desktop-wrapper">
           <MyButton
             class="chat-button--desktop"
-            label="Let's chat"
+            label="Ask about Jacques’ work"
             type="solid"
             size="large"
             :aria-label="buttonLabel"
@@ -80,7 +80,7 @@
                     alt="Jacques Ramphal"
                   />
                 </router-link> -->
-                <h5 class="subtle chat-header-title">Let’s Chat</h5>
+                <h5 class="subtle chat-header-title">Ask about Jacques’ work</h5>
               </div>
               <ul class="chat-nav-links">
                 <li v-if="allowFullscreen && !isMobile">
@@ -295,8 +295,9 @@ export default {
     starterPrompts: {
       type: Array,
       default: () => [
-        'What’s Genie?',
-        'Show me his design systems work',
+        'How does he use AI in design?',
+        'Show me a case study',
+        'How does he build design systems?',
         'What does he write about?',
       ],
     },
@@ -996,7 +997,7 @@ export default {
 
   /* Safeguard: the desktop icon FAB (the chat bubble) must never appear on
      mobile. It has no purpose here and does nothing useful when tapped; the
-     "Let's chat" bar is the only mobile entry point. This backs up the
+     "Ask about Jacques’ work" bar is the only mobile entry point. This backs up the
      JS `isMobile` check in case the breakpoint lags (e.g. orientation change). */
   .chat-button:not(.chat-button--mobile) {
     display: none !important;
