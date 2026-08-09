@@ -43,8 +43,9 @@ Create a folder or file under `public/lab/`. Keep experiments self-contained: in
 
 ```
 public/lab/
-  filters.html          ← CSS/SVG/Canvas photo filters
-  portrait.jpg          ← shared test image
+  photo-filters/        ← CSS/SVG/Canvas photo filters
+    index.html
+    subject.jpg         ← test image
   scroll-audio/         ← scroll-driven audio synthesis
     index.html
     crescendo.js
