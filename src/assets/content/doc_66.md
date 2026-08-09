@@ -1,7 +1,3 @@
----
-customOutro: true
----
-
 ![Genie Core Functions Diagram](../images/casestudy/genie/genie.png)
 
 # Building Genie Changed Me

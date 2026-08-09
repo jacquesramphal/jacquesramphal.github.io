@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="article-outro reversed"
+    class="article-outro"
     :class="{ 'article-outro--compact': compact }"
     aria-label="Subscribe for new essays"
   >
@@ -107,11 +107,14 @@ const subscribe = async () => {
 </script>
 
 <style scoped lang="scss">
-/* Inverse container — .reversed handles the background and text colors; only
-   layout and spacing live here, all from tokens. */
+/* Subscribe band — a subtle darker fill on the page background. Type comes
+   from TextBlock (h2 title) on the design tokens; only layout and the fill
+   live here. */
 .article-outro {
   width: 100%;
   padding: var(--spacing-md);
+  background: var(--background-darker);
+  border-radius: var(--spacing-xs);
 }
 
 /* CardRow-style header: title/text left, action (the form) right. Stacks on
