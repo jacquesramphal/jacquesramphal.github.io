@@ -2,7 +2,7 @@
 
 <!-- Cover/description: Fills the enclosed spaces inside letterforms — the holes in **o, e, a, g, d, b, p** — with colour or gradient. Live HTML text, any font, any size. -->
 
-<!-- ![Counter Fill Example](../images/casestudy/counter-fill/counter-fill-2.png) -->
+![Counter Fill Example](../images/casestudy/counter-fill/counter-fill-2.png)
 
 Filling the counter — the enclosed space inside a letter like the bowl of an **o** — is a standard design move in print. On the web, on live text, the options have been thin: export the type as an image and lose accessibility, or hand-draw SVG paths for one font at one size. [Counter Fill](https://github.com/jacquesramphal/jacquesramphal.github.io/tree/main/packages/counter-fill) is a small JavaScript library I built to do it on live DOM text, at any font and any size. The [Usage](#usage) section has what you need to drop it into a project. [How it works](#how-it-works) walks through the approach.
 
@@ -11,8 +11,6 @@ Filling the counter — the enclosed space inside a letter like the bowl of an *
 The counter is the enclosed space inside a letterform: the bowl of an **o**, the eye of an **e**, the aperture of a **p**. Type designers have shaped and tuned these spaces for centuries. In display type, they carry as much visual weight as the strokes themselves.
 
 In print and in design tools, filling a counter with a contrasting colour is a standard technique. Editorial mastheads, logotypes, concert posters — designers reach for it whenever type is being treated as image rather than content.
-
-![Counter Fill Example](../images/casestudy/counter-fill/counter-fill-2.png)
 
 I work on both sides of that gap. When you design something and then have to build it yourself, you end up with a running list of techniques that exist in print but have no browser equivalent, and counter fills were on my list for a long time.
 
