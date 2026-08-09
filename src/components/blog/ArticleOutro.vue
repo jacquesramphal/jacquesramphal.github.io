@@ -5,8 +5,10 @@
     aria-label="Subscribe for new essays"
   >
     <div class="article-outro__intro">
-      <div class="article-outro__title">{{ title }}</div>
-      <div v-if="text" class="article-outro__text">{{ text }}</div>
+      <p class="article-outro__title">
+        <strong>{{ title }}</strong>
+      </p>
+      <p v-if="text" class="article-outro__text subtle">{{ text }}</p>
     </div>
 
     <form class="article-outro__form" @submit.prevent="subscribe">
@@ -123,18 +125,14 @@ const subscribe = async () => {
   gap: var(--spacing-xxxs);
 }
 
+/* Title and text inherit the global type scale — bold via <strong>, muted via
+   .subtle — so there are no hardcoded font-size/weight/color overrides here. */
 .article-outro__title {
   margin: 0;
-  font-size: var(--font-500);
-  font-weight: var(--fontWeight-heavy);
-  line-height: var(--lineHeight-base);
 }
 
 .article-outro__text {
   margin: 0;
-  font-size: var(--font-400);
-  color: var(--foreground-muted);
-  line-height: var(--lineHeight-base);
 }
 
 .article-outro__form {
@@ -210,10 +208,6 @@ const subscribe = async () => {
   gap: var(--spacing-xs);
   padding: var(--spacing-xs) var(--spacing-sm);
   margin-block: var(--spacing-md);
-}
-
-.article-outro--compact .article-outro__title {
-  font-size: var(--font-500);
 }
 
 @media only screen and (min-width: 768px) {
