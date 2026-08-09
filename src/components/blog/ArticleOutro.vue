@@ -115,6 +115,11 @@ const subscribe = async () => {
   padding: var(--spacing-md);
   background: var(--background-darker);
   border-radius: var(--spacing-xs);
+
+  /* Full-bleed on mobile — no rounded corners at the viewport edges. */
+  @media only screen and (max-width: 767px) {
+    border-radius: 0;
+  }
 }
 
 /* CardRow-style header: title/text left, action (the form) right. Stacks on

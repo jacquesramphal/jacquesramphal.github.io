@@ -52,9 +52,11 @@ transform: rotate(90deg);
         />
       </template>
     </StickyNav> -->
-    <GridContainer full v-if="showSubscribeBar" class="article-outro-band">
+    <!-- Subscribe bar parked for now (mobile overflow / radius still to fix).
+         Uncomment to re-enable above the footer on writing articles. -->
+    <!-- <GridContainer full v-if="showSubscribeBar" class="article-outro-band">
       <ArticleOutro />
-    </GridContainer>
+    </GridContainer> -->
     <MainFooter v-if="!$route.meta.hideFooter" />
     <!-- <SimpleFooter v-if="!$route.meta.hideFooter" /> -->
     <!-- <UnderConstructionBar /> -->
@@ -95,7 +97,8 @@ import StickyNav from './components/StickyNav.vue';
 import HeaderNav from './components/HeaderNav/HeaderNav.vue';
 import SectionStickyBar from './components/SectionStickyBar.vue';
 import MainFooter from './components/MainFooter.vue';
-import ArticleOutro from './components/blog/ArticleOutro.vue';
+// ArticleOutro subscribe bar parked for now — see commented block in template.
+// import ArticleOutro from './components/blog/ArticleOutro.vue';
 import TextLink from './components/text/TextLink.vue';
 import MobileTOCBar from './components/MobileTOCBar.vue';
 import SimpleFooter from './components/SimpleFooter.vue';
@@ -114,7 +117,7 @@ export default {
     HeaderNav,
     SectionStickyBar,
     MainFooter,
-    ArticleOutro,
+    // ArticleOutro,
     TextLink,
     MobileTOCBar,
     SimpleFooter,
