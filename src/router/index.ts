@@ -18,7 +18,6 @@ const MarkdownPage = () => import('@/pages/MarkdownPage.vue');
 const MyLibrary = () => import('@/pages/MyLibrary.vue');
 const WritingIndex = () => import('@/pages/WritingIndex.vue');
 const WorkIndex = () => import('@/pages/WorkIndex.vue');
-const PlayIndex = () => import('@/pages/PlayIndex.vue');
 const UsefulLinks = () => import('@/pages/UsefulLinks.vue');
 const CoursePage = () => import('@/pages/CoursePage.vue');
 const HirePage = () => import('@/pages/HirePage.vue');
@@ -142,9 +141,10 @@ const routes = [
     component: WorkIndex,
   },
   {
-    name: 'PlayIndex',
+    // Play was an unlinked, filtered duplicate of Library. Everything playful
+    // now lives under Labs, browsable via Library, so /play redirects there.
     path: '/play',
-    component: PlayIndex,
+    redirect: { name: 'Library' },
   },
   {
     name: 'Explorations',
