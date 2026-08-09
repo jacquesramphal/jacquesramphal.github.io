@@ -633,6 +633,7 @@
       "docId": 69,
       "slug": "counter-fill",
       "type": "tool",
+      "featured": true,
       "date": "",
       "title": "Counter Fill: Colouring the Holes in Your Type",
       "eyebrow": "Typography Experiment",
