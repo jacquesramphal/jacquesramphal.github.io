@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Everything Button — Lab</title>
+    <style>
+      :root {
+        --bg: #f4f4f2;
+        --ink: #1a1a1a;
+        --muted: #8a8a86;
+        --btn-hue: 0;
+        --btn-sat: 0%;
+        --btn-light: 88%;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root { --bg: #131313; --ink: #ededed; --muted: #6f6f6c; --btn-light: 24%; }
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        display: grid;
+        place-items: center;
+        min-height: 100dvh;
+        overflow: hidden;
+      }
+      .stage {
+        display: grid;
+        justify-items: center;
+        gap: 1.5rem;
+        text-align: center;
+        padding: 2rem;
+        user-select: none;
+      }
+      .caption { color: var(--muted); font-size: 0.95rem; margin: 0; min-height: 1.4em; transition: opacity .3s; }
+      .caption b { color: var(--ink); font-weight: 600; }
+
+      /* The wrap holds the button + its wear canvas, perfectly overlaid */
+      .btn-wrap { position: relative; display: inline-grid; place-items: center; }
+
+      .everything-btn {
+        position: relative;
+        appearance: none;
+        border: 1px solid rgba(0,0,0,.18);
+        background: hsl(var(--btn-hue) var(--btn-sat) var(--btn-light));
+        color: var(--ink);
+        font: inherit;
+        font-weight: 600;
+        letter-spacing: .01em;
+        padding: 0.9rem 2rem;
+        border-radius: 12px;
+        cursor: pointer;
+        box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 2px 6px rgba(0,0,0,.12);
+        transition: transform .08s cubic-bezier(.34,1.56,.64,1), box-shadow .2s, filter .2s;
+        will-change: transform;
+        touch-action: none;
+      }
+      .everything-btn:focus-visible { outline: 3px solid hsl(210 90% 55% / .6); outline-offset: 3px; }
+      .everything-btn.is-pressed { transform: scale(.94, .9); }
+      .everything-btn.god {
+        box-shadow: 0 0 0 2px hsl(45 100% 55%), 0 0 24px 6px hsl(45 100% 60% / .7), 0 2px 6px rgba(0,0,0,.2);
+        color: #111;
+      }
+      .everything-btn.knob { border-radius: 50%; width: 132px; height: 132px; padding: 0; }
+      .everything-btn .label { position: relative; z-index: 3; pointer-events: none; }
+
+      /* Radial charge ring for long-press */
+      .ring {
+        position: absolute; inset: -6px; border-radius: inherit; z-index: 2;
+        background: conic-gradient(hsl(210 90% 55%) calc(var(--charge) * 1%), transparent 0);
+        -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+                mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+        opacity: 0; transition: opacity .15s; pointer-events: none;
+      }
+      .everything-btn.charging .ring { opacity: 1; }
+
+      /* Knob pointer indicator */
+      .knob-dot {
+        position: absolute; z-index: 3; width: 10px; height: 10px; border-radius: 50%;
+        background: var(--ink); top: 10px; left: 50%; transform: translateX(-50%);
+        opacity: 0; transition: opacity .2s; pointer-events: none;
+      }
+      .everything-btn.knob .knob-dot { opacity: 1; }
+
+      /* The wear layer sits above the button face, below the label */
+      .wear { position: absolute; inset: 0; z-index: 1; border-radius: inherit; pointer-events: none; overflow: hidden; }
+      .wear canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+      .toast {
+        position: fixed; top: 24px; left: 50%; transform: translateX(-50%) translateY(-16px);
+        background: var(--ink); color: var(--bg); padding: .5rem 1rem; border-radius: 999px;
+        font-size: .85rem; font-weight: 600; letter-spacing: .02em;
+        opacity: 0; transition: opacity .25s, transform .25s; pointer-events: none; z-index: 50;
+      }
+      .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+      .meta { color: var(--muted); font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; }
+      .hint { color: var(--muted); font-size: .8rem; opacity: 0; transition: opacity .6s; }
+      .hint.show { opacity: 1; }
+
+      .confetti { position: fixed; inset: 0; pointer-events: none; z-index: 40; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .everything-btn { transition: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <p class="caption" id="caption">It's just a button.</p>
+
+      <div class="btn-wrap">
+        <button class="everything-btn" id="btn" aria-label="A button">
+          <span class="ring" aria-hidden="true"></span>
+          <span class="wear" aria-hidden="true"><canvas id="wear"></canvas></span>
+          <span class="knob-dot" aria-hidden="true"></span>
+          <span class="label" id="label">OK</span>
+        </button>
+      </div>
+
+      <p class="hint" id="hint">psst — try holding it. or typing while it's focused.</p>
+      <p class="meta" id="meta">clicks 0 · dirt 0%</p>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <canvas class="confetti" id="confetti"></canvas>
+
+    <script>
+      // ---- The Everything Button: a plain button that wears, transforms, and hides codes ----
+      const btn = document.getElementById('btn');
+      const label = document.getElementById('label');
+      const wearCanvas = document.getElementById('wear');
+      const wctx = wearCanvas.getContext('2d');
+      const captionEl = document.getElementById('caption');
+      const metaEl = document.getElementById('meta');
+      const hintEl = document.getElementById('hint');
+      const toastEl = document.getElementById('toast');
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const KEY = 'everything-button-v1';
+      const state = load();
+      function load() {
+        try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
+      }
+      const smudges = Array.isArray(state.smudges) ? state.smudges : [];
+      let clicks = state.clicks || 0;
+      let hue = typeof state.hue === 'number' ? state.hue : 0;
+
+      function persist() {
+        // Cap stored smudges so localStorage never balloons; keep the most recent.
+        const trimmed = smudges.slice(-400);
+        localStorage.setItem(KEY, JSON.stringify({ smudges: trimmed, clicks, hue }));
+      }
+
+      // ---- Wear: stamp greasy fingerprints where you press ----
+      function sizeCanvas() {
+        const r = btn.getBoundingClientRect();
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        wearCanvas.width = Math.round(r.width * dpr);
+        wearCanvas.height = Math.round(r.height * dpr);
+        wctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        redrawWear();
+      }
+      function drawSmudge(s) {
+        // A fingerprint = a few offset translucent ovals + faint concentric ridges.
+        wctx.save();
+        wctx.translate(s.x, s.y);
+        wctx.rotate(s.rot);
+        wctx.globalCompositeOperation = 'multiply';
+        const rx = 11 * s.scale, ry = 15 * s.scale;
+        const g = wctx.createRadialGradient(0, 0, 1, 0, 0, ry);
+        g.addColorStop(0, 'rgba(60,55,45,0.10)');
+        g.addColorStop(1, 'rgba(60,55,45,0)');
+        wctx.fillStyle = g;
+        wctx.beginPath();
+        wctx.ellipse(0, 0, rx, ry, 0, 0, Math.PI * 2);
+        wctx.fill();
+        wctx.strokeStyle = 'rgba(50,45,35,0.05)';
+        wctx.lineWidth = 1;
+        for (let i = 1; i <= 3; i++) {
+          wctx.beginPath();
+          wctx.ellipse(0, 0, (rx / 3.5) * i, (ry / 3.5) * i, 0, 0, Math.PI * 2);
+          wctx.stroke();
+        }
+        wctx.restore();
+      }
+      function redrawWear() {
+        const r = btn.getBoundingClientRect();
+        wctx.clearRect(0, 0, r.width, r.height);
+        for (const s of smudges) drawSmudge(s);
+      }
+      function addSmudge(clientX, clientY) {
+        const r = btn.getBoundingClientRect();
+        const x = clientX - r.left, y = clientY - r.top;
+        const s = { x, y, rot: (Math.sin(smudges.length * 12.9898) * 43758.5) % 1 * Math.PI, scale: 0.8 + (Math.abs(Math.sin(smudges.length)) * 0.5) };
+        smudges.push(s);
+        drawSmudge(s);
+      }
+      function dirtPct() { return Math.min(100, Math.round(smudges.length / 4)); }
+      function updateMeta() { metaEl.textContent = `clicks ${clicks} · dirt ${dirtPct()}%`; }
+
+      // ---- Toast ----
+      let toastTimer;
+      function toast(msg) {
+        toastEl.textContent = msg;
+        toastEl.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toastEl.classList.remove('show'), 1600);
+      }
+
+      // ---- Press: squash + fingerprint + click accounting ----
+      let rapid = 0, rapidTimer;
+      function registerClick(x, y) {
+        clicks++;
+        addSmudge(x, y);
+        updateMeta();
+        persist();
+
+        rapid++;
+        clearTimeout(rapidTimer);
+        rapidTimer = setTimeout(() => (rapid = 0), 600);
+        if (rapid === 10) { toast('LEVEL UP ✦'); rapid = 0; }
+
+        if (clicks === 5) revealHint();
+      }
+      function revealHint() { hintEl.classList.add('show'); }
+
+      // ---- Long-press → transform into a hue knob ----
+      let pressStart = 0, charging = false, chargeRAF = 0, knobMode = false;
+      const HOLD_MS = 600;
+
+      function beginPress(e) {
+        btn.classList.add('is-pressed');
+        pressStart = performance.now();
+        charging = true;
+        btn.classList.add('charging');
+        const tick = () => {
+          if (!charging) return;
+          const pct = Math.min(100, ((performance.now() - pressStart) / HOLD_MS) * 100);
+          btn.style.setProperty('--charge', pct.toFixed(0));
+          if (pct >= 100 && !knobMode) enterKnob();
+          chargeRAF = requestAnimationFrame(tick);
+        };
+        chargeRAF = requestAnimationFrame(tick);
+      }
+      function endPress(e, wasClick) {
+        btn.classList.remove('is-pressed', 'charging');
+        cancelAnimationFrame(chargeRAF);
+        const held = performance.now() - pressStart;
+        charging = false;
+        btn.style.setProperty('--charge', 0);
+        if (knobMode) return; // knob stays until tapped again
+        if (wasClick && held < HOLD_MS) {
+          const p = lastPoint || centerPoint();
+          registerClick(p.x, p.y);
+        }
+      }
+      function enterKnob() {
+        knobMode = true;
+        btn.classList.add('knob');
+        label.textContent = 'hue';
+        applyHue();
+        captionEl.innerHTML = "…it's <b>not</b> just a button. drag to set the hue.";
+        toast('TRANSFORM ⟳');
+      }
+      function exitKnob() {
+        knobMode = false;
+        btn.classList.remove('knob');
+        label.textContent = 'OK';
+        persist();
+      }
+      function applyHue() {
+        btn.style.setProperty('--btn-hue', hue);
+        btn.style.setProperty('--btn-sat', '70%');
+        document.querySelector('.knob-dot').style.transform =
+          `translateX(-50%) rotate(${hue}deg)`;
+        // rotate the dot around the knob center
+        const dot = document.querySelector('.knob-dot');
+        dot.style.transformOrigin = '50% 56px';
+      }
+      function knobDrag(clientX, clientY) {
+        const r = btn.getBoundingClientRect();
+        const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+        let deg = Math.atan2(clientY - cy, clientX - cx) * 180 / Math.PI + 90;
+        hue = (deg % 360 + 360) % 360;
+        applyHue();
+      }
+
+      // ---- Pointer wiring ----
+      let lastPoint = null;
+      const centerPoint = () => {
+        const r = btn.getBoundingClientRect();
+        return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+      };
+      btn.addEventListener('pointerdown', (e) => {
+        btn.setPointerCapture(e.pointerId);
+        lastPoint = { x: e.clientX, y: e.clientY };
+        if (knobMode) { knobDrag(e.clientX, e.clientY); return; }
+        beginPress(e);
+      });
+      btn.addEventListener('pointermove', (e) => {
+        if (knobMode) knobDrag(e.clientX, e.clientY);
+        else lastPoint = { x: e.clientX, y: e.clientY };
+      });
+      btn.addEventListener('pointerup', (e) => {
+        if (knobMode) { exitKnob(); return; }
+        endPress(e, true);
+      });
+      btn.addEventListener('pointercancel', () => { if (!knobMode) endPress(null, false); });
+      // Keyboard activation still works as a plain button
+      btn.addEventListener('keydown', (e) => {
+        if ((e.key === 'Enter' || e.key === ' ') && !knobMode) { e.preventDefault(); registerClick(centerPoint().x, centerPoint().y); flash(); }
+      });
+      function flash() { btn.classList.add('is-pressed'); setTimeout(() => btn.classList.remove('is-pressed'), 90); }
+
+      // ---- Cheat codes ----
+      const konami = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+      let kseq = [];
+      let typed = '';
+      window.addEventListener('keydown', (e) => {
+        // Konami
+        kseq.push(e.key.length === 1 ? e.key.toLowerCase() : e.key);
+        kseq = kseq.slice(-konami.length);
+        if (kseq.join(',') === konami.join(',')) godMode();
+        // typed words (hesoyam wipes it clean)
+        if (/^[a-z]$/i.test(e.key)) {
+          typed = (typed + e.key.toLowerCase()).slice(-12);
+          if (typed.endsWith('hesoyam')) wipeClean();
+        }
+      });
+
+      function godMode() {
+        btn.classList.add('god');
+        toast('GOD MODE ✦');
+        captionEl.innerHTML = "the button has <b>ascended</b>.";
+        confetti();
+      }
+      function wipeClean() {
+        smudges.length = 0;
+        redrawWear();
+        updateMeta();
+        persist();
+        toast('cleaned ✦');
+        captionEl.innerHTML = "spotless. <b>for now.</b>";
+        sparkle();
+      }
+
+      // ---- Confetti / sparkle (skipped under reduced motion) ----
+      const cc = document.getElementById('confetti');
+      const cctx = cc.getContext('2d');
+      function fitConfetti() { cc.width = innerWidth; cc.height = innerHeight; }
+      function burst(colorFn, n) {
+        if (reduce) return;
+        fitConfetti();
+        const parts = Array.from({ length: n }, (_, i) => ({
+          x: innerWidth / 2, y: innerHeight / 2,
+          vx: Math.cos(i) * (2 + (i % 5)), vy: Math.sin(i) * (2 + (i % 7)) - 4,
+          life: 1, color: colorFn(i)
+        }));
+        let t = 0;
+        (function anim() {
+          cctx.clearRect(0, 0, cc.width, cc.height);
+          let alive = false;
+          for (const p of parts) {
+            p.vy += 0.15; p.x += p.vx; p.y += p.vy; p.life -= 0.012;
+            if (p.life > 0) { alive = true; cctx.globalAlpha = Math.max(0, p.life); cctx.fillStyle = p.color; cctx.fillRect(p.x, p.y, 6, 6); }
+          }
+          cctx.globalAlpha = 1;
+          if (alive && t++ < 200) requestAnimationFrame(anim); else cctx.clearRect(0, 0, cc.width, cc.height);
+        })();
+      }
+      const confetti = () => burst((i) => `hsl(${(i * 37) % 360} 90% 60%)`, 120);
+      const sparkle = () => burst(() => 'hsl(45 100% 65%)', 40);
+
+      // ---- Boot ----
+      window.addEventListener('resize', sizeCanvas);
+      sizeCanvas();
+      updateMeta();
+      if (hue) applyHue();
+      if (clicks >= 5) revealHint();
+      if (smudges.length > 40) captionEl.innerHTML = "someone's been <b>busy</b>.";
+    </script>
+  </body>
+</html>

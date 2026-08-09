@@ -878,13 +878,33 @@ export default {
         }
 
         processedMarkdown.value = cleaned;
-        // Wait for DOM to render, then activate the byline teleport
+        // Activate the byline teleport once its slot is in the DOM.
+        // MarkdownRenderer commits the slot on its own update cycle, so a single
+        // nextTick can fire before the slot exists — and if it does, nothing
+        // re-checks and the byline never renders. Poll across a few animation
+        // frames so the teleport reliably activates regardless of content size.
         bylineReady.value = false;
         inlineCtaReady.value = false;
-        nextTick(() => {
-          bylineReady.value = !!document.getElementById('article-byline-slot');
-          inlineCtaReady.value = !!document.getElementById('article-inline-cta-slot');
-        });
+        // MarkdownRenderer commits the injected slots on its own update cycle,
+        // so a single nextTick can fire before they exist. Poll across a few
+        // animation frames so each teleport activates once its slot lands. The
+        // inline CTA slot is optional (only long writing posts inject it), so
+        // stop as soon as the byline resolves and the CTA is settled.
+        const activateSlots = (attempt = 0) => {
+          if (!bylineReady.value && document.getElementById('article-byline-slot')) {
+            bylineReady.value = true;
+          }
+          if (!inlineCtaReady.value && document.getElementById('article-inline-cta-slot')) {
+            inlineCtaReady.value = true;
+          }
+          // Both slots commit in the same MarkdownRenderer pass, so once the
+          // always-present byline slot resolves the CTA slot (if any) is set too.
+          if (bylineReady.value) return;
+          if (attempt < 60) {
+            requestAnimationFrame(() => activateSlots(attempt + 1));
+          }
+        };
+        nextTick(() => activateSlots());
         console.log(
           'MarkdownPage: Processed markdown preview:',
           processedMarkdown.value.substring(0, 300)
