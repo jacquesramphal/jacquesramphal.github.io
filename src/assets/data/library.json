@@ -728,6 +728,7 @@
       "id": 78,
       "type": "lab",
       "published": true,
+      "featured": true,
       "date": "",
       "title": "Counter Fill",
       "eyebrow": "Lab",
