@@ -111,7 +111,7 @@
               aria-controls="library-section-writing"
               @click="toggleSection('writing')"
             >
-              {{ isSectionOpen('writing') ? 'Close' : 'Expand' }}
+              {{ isSectionOpen('writing') ? 'Collapse' : 'Expand' }}
             </button>
           </div>
         </div>
@@ -165,7 +165,7 @@
                 aria-controls="library-section-courses"
                 @click="toggleSection('courses')"
               >
-                {{ isSectionOpen('courses') ? 'Close' : 'Expand' }}
+                {{ isSectionOpen('courses') ? 'Collapse' : 'Expand' }}
               </button>
             </div>
           </div>
@@ -214,7 +214,7 @@
                 aria-controls="library-section-work"
                 @click="toggleSection('work')"
               >
-                {{ isSectionOpen('work') ? 'Close' : 'Expand' }}
+                {{ isSectionOpen('work') ? 'Collapse' : 'Expand' }}
               </button>
             </div>
           </div>
@@ -268,7 +268,7 @@
                 aria-controls="library-section-tools"
                 @click="toggleSection('tools')"
               >
-                {{ isSectionOpen('tools') ? 'Close' : 'Expand' }}
+                {{ isSectionOpen('tools') ? 'Collapse' : 'Expand' }}
               </button>
             </div>
           </div>
@@ -317,7 +317,7 @@
                 aria-controls="library-section-lab"
                 @click="toggleSection('lab')"
               >
-                {{ isSectionOpen('lab') ? 'Close' : 'Expand' }}
+                {{ isSectionOpen('lab') ? 'Collapse' : 'Expand' }}
               </button>
             </div>
           </div>
@@ -735,7 +735,7 @@ export default {
 }
 
 // Container for the right-hand controls in a section header. On desktop this
-// holds the Grid/List view toggle; on mobile it holds the accordion Expand/Close
+// holds the Grid/List view toggle; on mobile it holds the accordion Expand/Collapse
 // text link. Only one of the two is ever visible at a given breakpoint.
 .section-header-actions {
   display: flex;
@@ -770,7 +770,7 @@ export default {
   }
 }
 
-// Mobile: turn the section headers into accordion rows. The Expand/Close text
+// Mobile: turn the section headers into accordion rows. The Expand/Collapse text
 // link appears on the far right and each header carries a bottom border so the
 // collapsed sections read as divided rows. Content stays in the DOM (v-show) so
 // it remains in the prerendered HTML for SEO — only visibility changes.
