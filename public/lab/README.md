@@ -18,7 +18,7 @@ path Counter Fill took.
 - **Editorial Photo Filters** — `/lab/photo-filters/`
 - **Counter Fill** — `/lab/counter-fill/`
 - **Gradient Placeholders** — `/lab/gradient-placeholders/` (live, not yet listed)
-- **The Everything Button** — `/lab/everything-button/` (ideation in `IDEAS.md`, not built yet)
+- **The Everything Button** — `/lab/everything-button/` (scaffold live; full ideation in `IDEAS.md`)
 
 ### Games to fold in
 

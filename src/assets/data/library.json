@@ -742,6 +742,41 @@
       ]
     },
     {
+      "id": 82,
+      "type": "lab",
+      "published": true,
+      "date": "",
+      "title": "Unique Word Counter",
+      "eyebrow": "Lab",
+      "description": "A little writing tool that counts how many distinct words you've used — paste or type, and watch your vocabulary tally live. A tiny game of saying more with fewer repeats.",
+      "link": "/play/word-counter/",
+      "label": "Open Experiment",
+      "alt": "Lab: Unique Word Counter",
+      "github": "https://github.com/jacquesramphal/unique-word-counter",
+      "tags": [
+        "experiment",
+        "game",
+        "writing"
+      ]
+    },
+    {
+      "id": 83,
+      "type": "lab",
+      "published": true,
+      "date": "",
+      "title": "The Everything Button",
+      "eyebrow": "Lab",
+      "description": "An unassuming button that does stuff. Press it and it picks up greasy fingerprints that persist across visits; hold it and it unfolds into a hue knob; type the Konami code for god mode, or 'hesoyam' to wipe it clean. Skeuomorphism of use, not material.",
+      "link": "/lab/everything-button/",
+      "label": "Open Experiment",
+      "alt": "Lab: The Everything Button",
+      "tags": [
+        "experiment",
+        "micro-interaction",
+        "easter-egg"
+      ]
+    },
+    {
       "id": 90,
       "slug": "still-yourself",
       "type": "course",
