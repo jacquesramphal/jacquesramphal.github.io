@@ -86,7 +86,10 @@
       <template v-if="!hasActiveFilters">
         <div
           class="section-header-row section-header-row--accordion"
-          :class="{ 'is-collapsed': !isSectionOpen('writing') }"
+          :class="{
+            'is-collapsed': !isSectionOpen('writing'),
+            'section-header-row--last': lastSectionKey === 'writing',
+          }"
         >
           <TextBlock title="Writing" as="h2" description="" class="section-header" />
           <div class="section-header-actions">
@@ -154,7 +157,10 @@
         <div v-if="filteredCourses.length" class="library-section">
           <div
             class="section-header-row section-header-row--accordion"
-            :class="{ 'is-collapsed': !isSectionOpen('courses') }"
+            :class="{
+              'is-collapsed': !isSectionOpen('courses'),
+              'section-header-row--last': lastSectionKey === 'courses',
+            }"
           >
             <TextBlock title="Courses" as="h2" description="" class="section-header" />
             <div class="section-header-actions">
@@ -203,7 +209,10 @@
         <div v-if="filteredCaseStudiesAndProjects.length" class="library-section">
           <div
             class="section-header-row section-header-row--accordion"
-            :class="{ 'is-collapsed': !isSectionOpen('work') }"
+            :class="{
+              'is-collapsed': !isSectionOpen('work'),
+              'section-header-row--last': lastSectionKey === 'work',
+            }"
           >
             <TextBlock title="Select Work" as="h2" description="" class="section-header" />
             <div class="section-header-actions">
@@ -257,7 +266,10 @@
         <div v-if="filteredTools.length" class="library-section">
           <div
             class="section-header-row section-header-row--accordion"
-            :class="{ 'is-collapsed': !isSectionOpen('tools') }"
+            :class="{
+              'is-collapsed': !isSectionOpen('tools'),
+              'section-header-row--last': lastSectionKey === 'tools',
+            }"
           >
             <TextBlock title="Tools & Open Source" as="h2" description="" class="section-header" />
             <div class="section-header-actions">
@@ -306,7 +318,10 @@
         <div v-if="filteredLabs.length" class="library-section">
           <div
             class="section-header-row section-header-row--accordion"
-            :class="{ 'is-collapsed': !isSectionOpen('lab') }"
+            :class="{
+              'is-collapsed': !isSectionOpen('lab'),
+              'section-header-row--last': lastSectionKey === 'lab',
+            }"
           >
             <TextBlock title="Lab" as="h2" description="" class="section-header" />
             <div class="section-header-actions">
@@ -536,6 +551,16 @@ export default {
     },
     filteredLabs() {
       return this.filteredEntries.filter((e) => e.type === 'lab');
+    },
+    // Key of the last section header rendered in the sectioned view, so the
+    // final collapsed accordion row can drop its bottom border (no dangling
+    // divider before the footer). Writing always renders, so it's the fallback.
+    lastSectionKey() {
+      if (this.filteredLabs.length) return 'lab';
+      if (this.filteredTools.length) return 'tools';
+      if (this.filteredCaseStudiesAndProjects.length) return 'work';
+      if (this.filteredCourses.length) return 'courses';
+      return 'writing';
     },
     hasActiveFilters() {
       return (
@@ -788,6 +813,13 @@ export default {
     padding-block: var(--spacing-sm);
     min-height: 0;
     border-block-end: var(--border);
+  }
+
+  // The last section, when collapsed, ends the list — drop its bottom border so
+  // there's no dangling divider before the footer. When it's expanded the border
+  // still divides the header from its own content, so keep it in that case.
+  .section-header-row--accordion.section-header-row--last.is-collapsed {
+    border-block-end: none;
   }
 
   // The section wrapper's desktop bottom margin (spacing-lg) was leaving large,
