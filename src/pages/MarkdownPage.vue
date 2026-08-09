@@ -133,6 +133,10 @@
           </aside>
         </div> </GridParent
     ></GridContainer>
+    <GridContainer v-if="showSubscribeCTA" class="article-outro-container">
+      <ArticleOutro />
+    </GridContainer>
+
     <div
       v-if="currentSlug !== 'cv'"
       id="related-writing-section"
@@ -148,6 +152,10 @@
 
     <Teleport v-if="bylineReady" to="#article-byline-slot">
       <ArticleByline :readTime="articleReadTime" :date="articleDate" />
+    </Teleport>
+
+    <Teleport v-if="inlineCtaReady && showSubscribeCTA" to="#article-inline-cta-slot">
+      <ArticleOutro compact />
     </Teleport>
 
     <Teleport to="body">
@@ -181,6 +189,7 @@ import FullscreenImage from '@/components/FullscreenImage.vue';
 import fallbackImage from '@/assets/images/placeholder.png';
 import libraryData from '@/assets/data/library.json';
 import ArticleByline from '@/components/ArticleByline.vue';
+import ArticleOutro from '@/components/blog/ArticleOutro.vue';
 import { getReadTime } from '@/utils/readTime';
 // import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
 
@@ -284,6 +293,7 @@ export default {
     const articleDateISO = ref('');
     const canonicalUrl = computed(() => `https://ramphal.design${router.currentRoute.value.path}`);
     const bylineReady = ref(false);
+    const inlineCtaReady = ref(false);
     const isFullWidth = ref(false);
     const lightboxOpen = ref(false);
     const lightboxSrc = ref('');
@@ -836,6 +846,37 @@ export default {
           cleaned = cleaned.replace(/^(#\s+.+)$/m, `$1\n${bylinePlaceholder}`);
         }
 
+        // Inject a compact subscribe CTA partway through writing posts (before
+        // the midpoint h2), teleported in after render. Same gating as the
+        // end-of-article bar, and only for posts long enough (3+ sections) to
+        // carry a mid-article nudge without crowding.
+        const wantInlineCta = currentDocType.value === 'article' && !attributes?.customOutro;
+        if (wantInlineCta) {
+          const inlineCtaPlaceholder = '<div id="article-inline-cta-slot"></div>';
+          const isHtml = cleaned.includes('</h2>');
+          if (isHtml) {
+            const positions = [];
+            const re = /<h2[\s>]/gi;
+            let match;
+            while ((match = re.exec(cleaned)) !== null) positions.push(match.index);
+            if (positions.length >= 3) {
+              const mid = positions[Math.floor(positions.length / 2)];
+              cleaned = cleaned.slice(0, mid) + inlineCtaPlaceholder + cleaned.slice(mid);
+            }
+          } else {
+            const lines = cleaned.split('\n');
+            const h2Lines = [];
+            lines.forEach((l, i) => {
+              if (/^##\s/.test(l)) h2Lines.push(i);
+            });
+            if (h2Lines.length >= 3) {
+              const mid = h2Lines[Math.floor(h2Lines.length / 2)];
+              lines.splice(mid, 0, inlineCtaPlaceholder, '');
+              cleaned = lines.join('\n');
+            }
+          }
+        }
+
         processedMarkdown.value = cleaned;
         // Activate the byline teleport once its slot is in the DOM.
         // MarkdownRenderer commits the slot on its own update cycle, so a single
@@ -843,16 +884,27 @@ export default {
         // re-checks and the byline never renders. Poll across a few animation
         // frames so the teleport reliably activates regardless of content size.
         bylineReady.value = false;
-        const activateByline = (attempt = 0) => {
-          if (document.getElementById('article-byline-slot')) {
+        inlineCtaReady.value = false;
+        // MarkdownRenderer commits the injected slots on its own update cycle,
+        // so a single nextTick can fire before they exist. Poll across a few
+        // animation frames so each teleport activates once its slot lands. The
+        // inline CTA slot is optional (only long writing posts inject it), so
+        // stop as soon as the byline resolves and the CTA is settled.
+        const activateSlots = (attempt = 0) => {
+          if (!bylineReady.value && document.getElementById('article-byline-slot')) {
             bylineReady.value = true;
-            return;
           }
+          if (!inlineCtaReady.value && document.getElementById('article-inline-cta-slot')) {
+            inlineCtaReady.value = true;
+          }
+          // Both slots commit in the same MarkdownRenderer pass, so once the
+          // always-present byline slot resolves the CTA slot (if any) is set too.
+          if (bylineReady.value) return;
           if (attempt < 60) {
-            requestAnimationFrame(() => activateByline(attempt + 1));
+            requestAnimationFrame(() => activateSlots(attempt + 1));
           }
         };
-        nextTick(() => activateByline());
+        nextTick(() => activateSlots());
         console.log(
           'MarkdownPage: Processed markdown preview:',
           processedMarkdown.value.substring(0, 300)
@@ -1076,6 +1128,13 @@ export default {
       return typeMap[currentDocType.value] || 'Related';
     });
 
+    // Generic end-of-article subscribe CTA: shown on writing posts only, and
+    // suppressed when the article already ends in a bespoke outro
+    // (frontmatter `customOutro: true`), so the two never double up.
+    const showSubscribeCTA = computed(
+      () => currentDocType.value === 'article' && !pageData.value?.customOutro
+    );
+
     return {
       handlePrint,
       pageData,
@@ -1107,6 +1166,8 @@ export default {
       articleDate,
       bylineReady,
       relatedTitle,
+      showSubscribeCTA,
+      inlineCtaReady,
       isFullWidth,
       currentSlug: computed(
         () => router.currentRoute.value.params.slug ?? router.currentRoute.value.params.id
@@ -1137,6 +1198,7 @@ export default {
     GridContainer,
     FullscreenImage,
     ArticleByline,
+    ArticleOutro,
   },
   computed: {
     showStats() {
@@ -1736,6 +1798,7 @@ export default {
 .presenter-mode {
   .toc-sidebar-wrap,
   .markdown-share,
+  .article-outro-container,
   #related-writing-section,
   #hero-banner {
     display: none !important;
