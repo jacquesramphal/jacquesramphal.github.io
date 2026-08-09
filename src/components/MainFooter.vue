@@ -31,9 +31,11 @@
               <TextBlock
                 as="h4"
                 title="Jacques Ramphal"
-                description="I'm a designer working where design, code, and AI meet. Subscribe for writing on what I'm learning there."
+                description="I'm a designer working where design, code, and AI meet."
               />
-              <div class="footer-subscribe">
+              <!-- Footer subscribe form hidden — the subscribe bar now sits
+                   above the footer (App.vue). Flip v-if to re-enable. -->
+              <div class="footer-subscribe" v-if="false">
                 <SubscribeForm />
               </div>
             </div>

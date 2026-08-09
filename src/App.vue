@@ -52,6 +52,9 @@ transform: rotate(90deg);
         />
       </template>
     </StickyNav> -->
+    <GridContainer full v-if="showSubscribeBar" class="article-outro-band">
+      <ArticleOutro />
+    </GridContainer>
     <MainFooter v-if="!$route.meta.hideFooter" />
     <!-- <SimpleFooter v-if="!$route.meta.hideFooter" /> -->
     <!-- <UnderConstructionBar /> -->
@@ -92,6 +95,7 @@ import StickyNav from './components/StickyNav.vue';
 import HeaderNav from './components/HeaderNav/HeaderNav.vue';
 import SectionStickyBar from './components/SectionStickyBar.vue';
 import MainFooter from './components/MainFooter.vue';
+import ArticleOutro from './components/blog/ArticleOutro.vue';
 import TextLink from './components/text/TextLink.vue';
 import MobileTOCBar from './components/MobileTOCBar.vue';
 import SimpleFooter from './components/SimpleFooter.vue';
@@ -110,6 +114,7 @@ export default {
     HeaderNav,
     SectionStickyBar,
     MainFooter,
+    ArticleOutro,
     TextLink,
     MobileTOCBar,
     SimpleFooter,
@@ -131,10 +136,18 @@ export default {
     // sticky section bar. Kept separate from markdownHeadings so each source
     // owns its own lifecycle.
     const librarySections = ref([]);
+    // Type of the doc currently being viewed (from the library registry), set
+    // by MarkdownPage. Drives the subscribe bar, which shows on writing
+    // articles only.
+    const currentDocType = ref(null);
 
     // Provide functions for markdown pages to update headings
     const updateMarkdownHeadings = (headings) => {
       markdownHeadings.value = headings;
+    };
+
+    const updateCurrentDocType = (type) => {
+      currentDocType.value = type || null;
     };
 
     const updateMarkdownActiveHeading = (activeHeading) => {
@@ -148,6 +161,10 @@ export default {
     provide('updateMarkdownHeadings', updateMarkdownHeadings);
     provide('updateMarkdownActiveHeading', updateMarkdownActiveHeading);
     provide('updateLibrarySections', updateLibrarySections);
+    provide('updateCurrentDocType', updateCurrentDocType);
+
+    // Subscribe bar (above the footer) shows on writing articles only.
+    const showSubscribeBar = computed(() => currentDocType.value === 'article');
 
     // Sections shown in the mobile sticky bar, chosen by route: the Library
     // feeds its own section headers; article/doc pages reuse the markdown H2s.
@@ -166,6 +183,8 @@ export default {
       markdownActiveHeading,
       librarySections,
       stickySections,
+      currentDocType,
+      showSubscribeBar,
     };
   },
   data() {
@@ -191,6 +210,8 @@ export default {
       if (!to.path.startsWith('/doc/')) {
         this.markdownHeadings = [];
         this.markdownActiveHeading = null;
+        // Also drop the doc type so the subscribe bar hides off doc pages.
+        this.currentDocType = null;
       }
       // Clear library-fed sections when leaving the Library so the sticky bar
       // doesn't carry stale entries onto the next page.
@@ -220,6 +241,10 @@ export default {
 
 <style lang="scss">
 @import './assets/styles/css/all.css';
+
+/* Full-width subscribe band above the footer (writing articles only). The
+   `full` GridContainer drops the horizontal gutters so the bar spans the
+   content width; its fill and radius live on the component. */
 
 .slide-enter-from {
   transform: translateX(100%);
