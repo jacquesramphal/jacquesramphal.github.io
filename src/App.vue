@@ -29,6 +29,7 @@ transform: rotate(90deg);
     >
       <!-- menu button hidden: Library link in HeaderNav handles primary nav -->
     </HeaderNav>
+    <SectionStickyBar v-if="!$route.meta.hideNav && !menuOpen" :sections="stickySections" />
     <!-- <ThemeButton v-if="!$route.meta.hideThemeButton" /> -->
     <transition name="fade">
       <component :is="Component" :key="$route.path" />
@@ -89,6 +90,7 @@ import MyButton from './components/Button/Button.vue';
 import FullscreenMenu from './components/FullscreenMenu.vue';
 import StickyNav from './components/StickyNav.vue';
 import HeaderNav from './components/HeaderNav/HeaderNav.vue';
+import SectionStickyBar from './components/SectionStickyBar.vue';
 import MainFooter from './components/MainFooter.vue';
 import TextLink from './components/text/TextLink.vue';
 import MobileTOCBar from './components/MobileTOCBar.vue';
@@ -100,12 +102,13 @@ import SidebarNav from './components/SidebarNav.vue';
 import CustomChatUI from './components/CustomChatUI.vue';
 // import UnderConstructionBar from './components/UnderConstructionBar.vue';
 import { useRouter } from 'vue-router'; // Import Vue Router
-import { provide, ref } from 'vue';
+import { provide, ref, computed } from 'vue';
 export default {
   name: 'App',
   components: {
     StickyNav,
     HeaderNav,
+    SectionStickyBar,
     MainFooter,
     TextLink,
     MobileTOCBar,
@@ -121,8 +124,13 @@ export default {
     // UnderConstructionBar,
   },
   setup() {
+    const router = useRouter();
     const markdownHeadings = ref([]);
     const markdownActiveHeading = ref(null);
+    // Section list fed by non-markdown pages (e.g. the Library) for the mobile
+    // sticky section bar. Kept separate from markdownHeadings so each source
+    // owns its own lifecycle.
+    const librarySections = ref([]);
 
     // Provide functions for markdown pages to update headings
     const updateMarkdownHeadings = (headings) => {
@@ -133,12 +141,31 @@ export default {
       markdownActiveHeading.value = activeHeading;
     };
 
+    const updateLibrarySections = (sections) => {
+      librarySections.value = Array.isArray(sections) ? sections : [];
+    };
+
     provide('updateMarkdownHeadings', updateMarkdownHeadings);
     provide('updateMarkdownActiveHeading', updateMarkdownActiveHeading);
+    provide('updateLibrarySections', updateLibrarySections);
+
+    // Sections shown in the mobile sticky bar, chosen by route: the Library
+    // feeds its own section headers; article/doc pages reuse the markdown H2s.
+    const stickySections = computed(() => {
+      const path = router.currentRoute.value.path || '';
+      if (path.startsWith('/library')) {
+        return librarySections.value || [];
+      }
+      return (markdownHeadings.value || [])
+        .filter((h) => h.level === 2 && h.slug && h.title)
+        .map((h) => ({ id: h.slug, title: h.title }));
+    });
 
     return {
       markdownHeadings,
       markdownActiveHeading,
+      librarySections,
+      stickySections,
     };
   },
   data() {
@@ -164,6 +191,11 @@ export default {
       if (!to.path.startsWith('/doc/')) {
         this.markdownHeadings = [];
         this.markdownActiveHeading = null;
+      }
+      // Clear library-fed sections when leaving the Library so the sticky bar
+      // doesn't carry stale entries onto the next page.
+      if (!to.path.startsWith('/library')) {
+        this.librarySections = [];
       }
     });
   },
