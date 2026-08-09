@@ -25,6 +25,7 @@
     />
 
     <!-- FEATURED LAB — the effect powering the hero headline, shown with a real screenshot -->
+    <!-- Temporarily hidden
     <AnimatedComponent>
       <GridContainer id="featured-lab" style="overflow: visible !important">
         <div
@@ -55,6 +56,7 @@
         />
       </GridContainer>
     </AnimatedComponent>
+    -->
 
     <!-- ABOUT SECTION -->
     <AnimatedComponent>
