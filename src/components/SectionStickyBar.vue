@@ -224,7 +224,9 @@ export default {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: var(--font-400);
+  // Match the sticky HeaderNav link size (global `a` = --font-500) so the
+  // context bar reads as the same class of chrome, just bigger than before.
+  font-size: var(--font-500);
   font-weight: var(--fontWeight-medium);
 }
 
@@ -232,8 +234,8 @@ export default {
 // <summary>). currentColor + mask keeps it theme-aware.
 .section-sticky__icon {
   flex-shrink: 0;
-  inline-size: 18px;
-  block-size: 18px;
+  inline-size: 22px;
+  block-size: 22px;
   background-color: currentColor;
   mask-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 3.5V12.5M3.5 8H12.5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 3.5V12.5M3.5 8H12.5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
@@ -284,7 +286,7 @@ export default {
   border: 0;
   cursor: pointer;
   font-family: inherit;
-  font-size: var(--font-400);
+  font-size: var(--font-500);
   color: var(--foreground-subtle);
   text-align: start;
   white-space: nowrap;

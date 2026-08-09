@@ -112,10 +112,15 @@
               type="button"
               class="section-accordion-toggle"
               :aria-expanded="isSectionOpen('writing') ? 'true' : 'false'"
+              :aria-label="(isSectionOpen('writing') ? 'Collapse' : 'Expand') + ' Writing'"
               aria-controls="library-section-writing"
               @click="toggleSection('writing')"
             >
-              {{ isSectionOpen('writing') ? 'Collapse' : 'Expand' }}
+              <span
+                class="section-accordion-icon"
+                :class="{ 'section-accordion-icon--open': isSectionOpen('writing') }"
+                aria-hidden="true"
+              ></span>
             </button>
           </div>
         </div>
@@ -170,10 +175,15 @@
                 type="button"
                 class="section-accordion-toggle"
                 :aria-expanded="isSectionOpen('courses') ? 'true' : 'false'"
+                :aria-label="(isSectionOpen('courses') ? 'Collapse' : 'Expand') + ' Courses'"
                 aria-controls="library-section-courses"
                 @click="toggleSection('courses')"
               >
-                {{ isSectionOpen('courses') ? 'Collapse' : 'Expand' }}
+                <span
+                  class="section-accordion-icon"
+                  :class="{ 'section-accordion-icon--open': isSectionOpen('courses') }"
+                  aria-hidden="true"
+                ></span>
               </button>
             </div>
           </div>
@@ -223,10 +233,15 @@
                 type="button"
                 class="section-accordion-toggle"
                 :aria-expanded="isSectionOpen('work') ? 'true' : 'false'"
+                :aria-label="(isSectionOpen('work') ? 'Collapse' : 'Expand') + ' Select Work'"
                 aria-controls="library-section-work"
                 @click="toggleSection('work')"
               >
-                {{ isSectionOpen('work') ? 'Collapse' : 'Expand' }}
+                <span
+                  class="section-accordion-icon"
+                  :class="{ 'section-accordion-icon--open': isSectionOpen('work') }"
+                  aria-hidden="true"
+                ></span>
               </button>
             </div>
           </div>
@@ -281,10 +296,15 @@
                 type="button"
                 class="section-accordion-toggle"
                 :aria-expanded="isSectionOpen('tools') ? 'true' : 'false'"
+                :aria-label="(isSectionOpen('tools') ? 'Collapse' : 'Expand') + ' Tools & Open Source'"
                 aria-controls="library-section-tools"
                 @click="toggleSection('tools')"
               >
-                {{ isSectionOpen('tools') ? 'Collapse' : 'Expand' }}
+                <span
+                  class="section-accordion-icon"
+                  :class="{ 'section-accordion-icon--open': isSectionOpen('tools') }"
+                  aria-hidden="true"
+                ></span>
               </button>
             </div>
           </div>
@@ -334,10 +354,15 @@
                 type="button"
                 class="section-accordion-toggle"
                 :aria-expanded="isSectionOpen('lab') ? 'true' : 'false'"
+                :aria-label="(isSectionOpen('lab') ? 'Collapse' : 'Expand') + ' Lab'"
                 aria-controls="library-section-lab"
                 @click="toggleSection('lab')"
               >
-                {{ isSectionOpen('lab') ? 'Collapse' : 'Expand' }}
+                <span
+                  class="section-accordion-icon"
+                  :class="{ 'section-accordion-icon--open': isSectionOpen('lab') }"
+                  aria-hidden="true"
+                ></span>
               </button>
             </div>
           </div>
@@ -808,29 +833,41 @@ export default {
 }
 
 // The accordion toggle is a real <button> for accessibility (keyboard focus +
-// aria-expanded), but is styled to match the CardRow "View All" text link
-// (see typography.scss `a`): underlined, foreground color, medium weight.
-// Hidden on desktop, where sections are always expanded.
+// aria-expanded, with an aria-label naming the section since the button is now
+// icon-only). It shows a plus (collapsed) / minus (expanded) glyph sized to sit
+// alongside the large section title. Hidden on desktop, where sections are
+// always expanded.
 .section-accordion-toggle {
   display: none;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: 0;
   padding: 0;
   margin: 0;
   cursor: pointer;
-  font-family: inherit;
-  font-size: var(--font-500);
-  font-weight: var(--fontWeight-medium);
   color: var(--foreground);
-  white-space: nowrap;
-  text-decoration: underline;
-  text-underline-offset: var(--link-underline-offset);
-  text-decoration-thickness: var(--link-underline-thickness);
+}
 
-  &:hover {
-    text-decoration: underline wavy var(--foreground);
-    text-decoration-thickness: var(--link-underline-thickness-hover);
-  }
+// Plus / minus glyph (currentColor + mask, theme-aware). ~2.4rem matches the
+// cap height of the section title (h2 = --size-9) so it reads as the same scale.
+.section-accordion-icon {
+  inline-size: 2.4rem;
+  block-size: 2.4rem;
+  background-color: currentColor;
+  mask-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5V19M5 12H19" stroke="black" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5V19M5 12H19" stroke="black" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+}
+
+.section-accordion-icon--open {
+  mask-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="black" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="black" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>');
 }
 
 // Mobile: turn the section headers into accordion rows. The Expand/Collapse text
