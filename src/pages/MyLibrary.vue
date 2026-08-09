@@ -85,6 +85,7 @@
       <!-- No filters: sectioned view -->
       <template v-if="!hasActiveFilters">
         <div
+          id="library-heading-writing"
           class="section-header-row section-header-row--accordion"
           :class="{
             'is-collapsed': !isSectionOpen('writing'),
@@ -156,6 +157,7 @@
         </div>
         <div v-if="filteredCourses.length" class="library-section">
           <div
+            id="library-heading-courses"
             class="section-header-row section-header-row--accordion"
             :class="{
               'is-collapsed': !isSectionOpen('courses'),
@@ -208,6 +210,7 @@
         </div>
         <div v-if="filteredCaseStudiesAndProjects.length" class="library-section">
           <div
+            id="library-heading-work"
             class="section-header-row section-header-row--accordion"
             :class="{
               'is-collapsed': !isSectionOpen('work'),
@@ -265,6 +268,7 @@
         </div>
         <div v-if="filteredTools.length" class="library-section">
           <div
+            id="library-heading-tools"
             class="section-header-row section-header-row--accordion"
             :class="{
               'is-collapsed': !isSectionOpen('tools'),
@@ -317,6 +321,7 @@
         </div>
         <div v-if="filteredLabs.length" class="library-section">
           <div
+            id="library-heading-lab"
             class="section-header-row section-header-row--accordion"
             :class="{
               'is-collapsed': !isSectionOpen('lab'),
@@ -458,6 +463,11 @@ export default {
     TextBlock,
   },
   props: {},
+  // Feed the mobile sticky section bar (rendered globally in App.vue). Falls back
+  // to a no-op when the provider isn't present.
+  inject: {
+    updateLibrarySections: { default: () => () => {} },
+  },
   data() {
     return {
       library,
@@ -586,6 +596,30 @@ export default {
       this.selectedTags.forEach((t) => labels.push(t));
       return labels;
     },
+    // Ordered list of the section headers currently on the page, for the mobile
+    // sticky bar. Ids match the header rows' DOM ids. Only the unfiltered,
+    // sectioned view has multiple sections worth navigating; the filtered
+    // results view is a single list, so the bar stays empty there.
+    librarySectionList() {
+      if (this.hasActiveFilters) return [];
+      const list = [{ id: 'library-heading-writing', title: 'Writing' }];
+      if (this.filteredCourses.length)
+        list.push({ id: 'library-heading-courses', title: 'Courses' });
+      if (this.filteredCaseStudiesAndProjects.length)
+        list.push({ id: 'library-heading-work', title: 'Select Work' });
+      if (this.filteredTools.length)
+        list.push({ id: 'library-heading-tools', title: 'Tools & Open Source' });
+      if (this.filteredLabs.length) list.push({ id: 'library-heading-lab', title: 'Lab' });
+      return list;
+    },
+  },
+  watch: {
+    librarySectionList: {
+      immediate: true,
+      handler(list) {
+        this.updateLibrarySections(list);
+      },
+    },
   },
   mounted() {
     this.onResize();
@@ -593,6 +627,8 @@ export default {
   },
   beforeUnmount() {
     window.removeEventListener('resize', this.onResize);
+    // Prevent the bar from carrying stale library sections after unmount.
+    this.updateLibrarySections([]);
   },
   methods: {
     onResize() {
