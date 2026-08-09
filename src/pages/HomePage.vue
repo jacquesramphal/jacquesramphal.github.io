@@ -24,6 +24,38 @@
       :viewAllTo="{ name: 'Library' }"
     />
 
+    <!-- FEATURED LAB — the effect powering the hero headline, shown with a real screenshot -->
+    <AnimatedComponent>
+      <GridContainer id="featured-lab" style="overflow: visible !important">
+        <div
+          class="grid-parent"
+          style="
+            padding-block-end: var(--spacing-md);
+            align-items: center;
+            grid-template-columns: repeat(3, 1fr);
+          "
+        >
+          <TextBlock style="grid-column: 1 / 3" title="Featured Lab" as="h2" description="" />
+          <p class="justify-end" style="align-self: center; white-space: nowrap">
+            <router-link :to="{ name: 'PlayIndex' }">View All</router-link>
+          </p>
+        </div>
+
+        <ImageCard
+          variant="split"
+          size="large"
+          eyebrow="Lab"
+          title="Counter Fill"
+          description="The effect filling this page's headline, live: a script that colours the enclosed counter spaces inside letterforms — built on real DOM text so it stays accessible."
+          filename1="casestudy/counter-fill/counter-fill.png"
+          alt="Counter Fill lab — colouring the enclosed counter spaces inside letterforms"
+          route="/doc/counter-fill"
+          link="/lab/counter-fill/"
+          label="Open the live lab"
+        />
+      </GridContainer>
+    </AnimatedComponent>
+
     <!-- ABOUT SECTION -->
     <AnimatedComponent>
       <TextGrid3
