@@ -789,6 +789,15 @@ export default {
     min-height: 0;
     border-block-end: var(--border);
   }
+
+  // The section wrapper's desktop bottom margin (spacing-lg) was leaving large,
+  // uneven gaps between the collapsed accordion rows. Drop it on mobile so every
+  // section header stacks on the same tight, divider-driven rhythm as the
+  // list-view cards; the header's own symmetric padding + border owns the
+  // spacing. Desktop keeps the spacing-lg separation between expanded sections.
+  .library-section {
+    margin-block-end: 0;
+  }
 }
 
 // The desktop list-row styling now lives in ArticleCard's `list` variant
