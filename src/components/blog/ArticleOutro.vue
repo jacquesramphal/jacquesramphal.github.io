@@ -202,8 +202,8 @@ const subscribe = async () => {
 }
 
 /* Compact variant — a quieter inline nudge dropped partway through an article.
-   Tighter padding and a smaller title; the block-margin gives it room between
-   paragraphs. */
+   Tighter padding and a block-margin that gives it room between paragraphs;
+   type stays on the shared scale. */
 .article-outro--compact {
   gap: var(--spacing-xs);
   padding: var(--spacing-xs) var(--spacing-sm);
