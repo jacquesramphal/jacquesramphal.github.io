@@ -19,7 +19,7 @@
     </div> -->
     <p v-else-if="eyebrow" class="eyebrow subtle">{{ eyebrow }}</p>
     <a
-      v-if="title && titleRoute && isExternalTitleLink"
+      v-if="title && titleRoute && (isExternalTitleLink || isExternal)"
       :href="titleRoute"
       target="_blank"
       rel="noopener noreferrer"
