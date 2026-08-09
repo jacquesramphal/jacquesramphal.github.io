@@ -259,7 +259,7 @@
             class="section-header-row section-header-row--accordion"
             :class="{ 'is-collapsed': !isSectionOpen('tools') }"
           >
-            <TextBlock title="Tools & Open Source" as="h2" description="" class="section-header" />
+            <TextBlock title="Open Source" as="h2" description="" class="section-header" />
             <div class="section-header-actions">
               <button
                 type="button"
@@ -535,7 +535,9 @@ export default {
         .sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
     },
     filteredLabs() {
-      return this.filteredEntries.filter((e) => e.type === 'lab');
+      return this.filteredEntries
+        .filter((e) => e.type === 'lab')
+        .sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
     },
     hasActiveFilters() {
       return (
