@@ -52,6 +52,9 @@ transform: rotate(90deg);
         />
       </template>
     </StickyNav> -->
+    <GridContainer fullvw v-if="!$route.meta.hideFooter" class="article-outro-band">
+      <ArticleOutro />
+    </GridContainer>
     <MainFooter v-if="!$route.meta.hideFooter" />
     <!-- <SimpleFooter v-if="!$route.meta.hideFooter" /> -->
     <!-- <UnderConstructionBar /> -->
@@ -92,6 +95,7 @@ import StickyNav from './components/StickyNav.vue';
 import HeaderNav from './components/HeaderNav/HeaderNav.vue';
 import SectionStickyBar from './components/SectionStickyBar.vue';
 import MainFooter from './components/MainFooter.vue';
+import ArticleOutro from './components/blog/ArticleOutro.vue';
 import TextLink from './components/text/TextLink.vue';
 import MobileTOCBar from './components/MobileTOCBar.vue';
 import SimpleFooter from './components/SimpleFooter.vue';
@@ -110,6 +114,7 @@ export default {
     HeaderNav,
     SectionStickyBar,
     MainFooter,
+    ArticleOutro,
     TextLink,
     MobileTOCBar,
     SimpleFooter,
@@ -220,6 +225,22 @@ export default {
 
 <style lang="scss">
 @import './assets/styles/css/all.css';
+
+/* Full-bleed subscribe band that sits directly above the footer. The fullvw
+   GridContainer breaks out of the content column; the inline padding insets the
+   rounded bar from the viewport edges so its radius reads. */
+.article-outro-band {
+  padding-block: var(--spacing-md) !important;
+  padding-inline: var(--spacing-sm) !important;
+
+  @media only screen and (min-width: 768px) {
+    padding-inline: var(--spacing-lg) !important;
+  }
+}
+
+.article-outro-band .article-outro {
+  border-radius: var(--spacing-xs);
+}
 
 .slide-enter-from {
   transform: translateX(100%);

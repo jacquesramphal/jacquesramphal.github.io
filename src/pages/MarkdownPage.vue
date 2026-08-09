@@ -133,9 +133,11 @@
           </aside>
         </div> </GridParent
     ></GridContainer>
-    <GridContainer v-if="showSubscribeCTA" class="article-outro-container">
+    <!-- Subscribe CTA moved above the global footer (App.vue). Kept here,
+         commented, for later — re-enable to place it in the article flow. -->
+    <!-- <GridContainer v-if="showSubscribeCTA" class="article-outro-container">
       <ArticleOutro />
-    </GridContainer>
+    </GridContainer> -->
 
     <div
       v-if="currentSlug !== 'cv'"
@@ -154,9 +156,10 @@
       <ArticleByline :readTime="articleReadTime" :date="articleDate" />
     </Teleport>
 
-    <Teleport v-if="inlineCtaReady && showSubscribeCTA" to="#article-inline-cta-slot">
+    <!-- Mid-article compact CTA — commented out for now. -->
+    <!-- <Teleport v-if="inlineCtaReady && showSubscribeCTA" to="#article-inline-cta-slot">
       <ArticleOutro compact />
-    </Teleport>
+    </Teleport> -->
 
     <Teleport to="body">
       <PresenterBar
@@ -189,7 +192,9 @@ import FullscreenImage from '@/components/FullscreenImage.vue';
 import fallbackImage from '@/assets/images/placeholder.png';
 import libraryData from '@/assets/data/library.json';
 import ArticleByline from '@/components/ArticleByline.vue';
-import ArticleOutro from '@/components/blog/ArticleOutro.vue';
+// ArticleOutro is rendered above the global footer (App.vue). Import kept
+// commented here for the parked in-article placement.
+// import ArticleOutro from '@/components/blog/ArticleOutro.vue';
 import { getReadTime } from '@/utils/readTime';
 // import ImageCard from "@/components/card/ImageCard/ImageCard.vue";
 
@@ -846,10 +851,10 @@ export default {
           cleaned = cleaned.replace(/^(#\s+.+)$/m, `$1\n${bylinePlaceholder}`);
         }
 
-        // Inject a compact subscribe CTA partway through writing posts (before
-        // the midpoint h2), teleported in after render. Same gating as the
-        // end-of-article bar, and only for posts long enough (3+ sections) to
-        // carry a mid-article nudge without crowding.
+        // Mid-article compact CTA injection — commented out for now (the
+        // subscribe bar lives above the global footer instead). Re-enable to
+        // inject a compact CTA before the midpoint h2 of long writing posts.
+        /*
         const wantInlineCta = currentDocType.value === 'article' && !attributes?.customOutro;
         if (wantInlineCta) {
           const inlineCtaPlaceholder = '<div id="article-inline-cta-slot"></div>';
@@ -876,6 +881,7 @@ export default {
             }
           }
         }
+        */
 
         processedMarkdown.value = cleaned;
         // Activate the byline teleport once its slot is in the DOM.
@@ -1198,7 +1204,7 @@ export default {
     GridContainer,
     FullscreenImage,
     ArticleByline,
-    ArticleOutro,
+    // ArticleOutro,
   },
   computed: {
     showStats() {
