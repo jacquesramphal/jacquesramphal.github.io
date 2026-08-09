@@ -780,14 +780,14 @@ export default {
     align-items: center;
   }
 
+  // Normalize the header padding to the list-view card rows
+  // (ArticleCard .defaultcard--mobile-list): symmetric spacing-sm around the
+  // divider with no min-height, so a collapsed section header sits on the exact
+  // same vertical rhythm as the cards it toggles.
   .section-header-row--accordion {
+    padding-block: var(--spacing-sm);
+    min-height: 0;
     border-block-end: var(--border);
-  }
-
-  // Collapsed sections only show their header; tighten the padding so the row
-  // reads as a compact accordion header rather than a spaced section title.
-  .section-header-row--accordion.is-collapsed {
-    padding-block-end: var(--spacing-sm);
   }
 }
 
