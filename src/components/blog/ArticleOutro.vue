@@ -1,56 +1,57 @@
 <template>
   <aside
-    class="article-outro"
+    class="article-outro reversed"
     :class="{ 'article-outro--compact': compact }"
     aria-label="Subscribe for new essays"
   >
-    <div class="article-outro__intro">
-      <div class="article-outro__title">{{ title }}</div>
-      <div v-if="text" class="article-outro__text">{{ text }}</div>
+    <div class="article-outro__header">
+      <TextBlock class="article-outro__intro" :title="title" :description="text" as="h2" />
+
+      <form class="article-outro__form" @submit.prevent="subscribe">
+        <div class="article-outro__row">
+          <MyInput
+            :id="compact ? 'article-inline-cta-email' : 'article-outro-email'"
+            type="email"
+            name="email"
+            label="Email address"
+            hide-label
+            placeholder="you@example.com"
+            autocomplete="email"
+            v-model="email"
+            size="large"
+          />
+          <MyButton
+            class="article-outro__btn"
+            label="Subscribe"
+            name="submit"
+            primary
+            :disabled="submitting"
+            @click="subscribe"
+          />
+        </div>
+
+        <p
+          v-if="message"
+          class="article-outro__message"
+          :class="{ 'is-success': isSuccess, 'is-error': !isSuccess }"
+          role="status"
+          aria-live="polite"
+        >
+          {{ message }}
+        </p>
+      </form>
     </div>
-
-    <form class="article-outro__form" @submit.prevent="subscribe">
-      <div class="article-outro__row">
-        <MyInput
-          :id="compact ? 'article-inline-cta-email' : 'article-outro-email'"
-          type="email"
-          name="email"
-          label="Email address"
-          hide-label
-          placeholder="you@example.com"
-          autocomplete="email"
-          v-model="email"
-          size="large"
-        />
-        <MyButton
-          class="article-outro__btn"
-          label="Subscribe"
-          name="submit"
-          primary
-          :disabled="submitting"
-          @click="subscribe"
-        />
-      </div>
-
-      <p
-        v-if="message"
-        class="article-outro__message"
-        :class="{ 'is-success': isSuccess, 'is-error': !isSuccess }"
-        role="status"
-        aria-live="polite"
-      >
-        {{ message }}
-      </p>
-    </form>
   </aside>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue';
 
-// Reusable subscribe call to action. Two forms: the default full-width bar
-// appended after writing posts, and a `compact` variant injected partway
-// through the article. Both share the Buttondown embed flow with
+// Reusable subscribe call to action, built as the CardRow header (TextBlock
+// title, as="h2") on an inverse container with the cards stripped out — the
+// left is the section title/text, the right is the subscribe form. Two forms:
+// the default bar appended after writing posts, and a `compact` variant
+// injected partway through. Both share the Buttondown embed flow with
 // NewsletterSubscription so there's a single source of truth for the list.
 const props = defineProps({
   compact: { type: Boolean, default: false },
@@ -105,40 +106,41 @@ const subscribe = async () => {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+/* Inverse container — .reversed handles the background and text colors; only
+   layout and spacing live here, all from tokens. */
 .article-outro {
+  width: 100%;
+  padding: var(--spacing-md);
+}
+
+/* CardRow-style header: title/text left, action (the form) right. Stacks on
+   mobile, sits on one row from tablet up. */
+.article-outro__header {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
-  width: 100%;
-  padding: var(--spacing-sm) var(--spacing-md);
-  background: var(--background-darker);
-  border-inline-start: 3px solid var(--color-red);
-  border-radius: 0;
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+  }
 }
 
 .article-outro__intro {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xxxs);
-}
-
-.article-outro__title {
-  margin: 0;
-  font-size: var(--font-500);
-  font-weight: var(--fontWeight-heavy);
-  line-height: var(--lineHeight-base);
-}
-
-.article-outro__text {
-  margin: 0;
-  font-size: var(--font-400);
-  color: var(--foreground-muted);
-  line-height: var(--lineHeight-base);
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .article-outro__form {
+  flex: 0 0 auto;
   width: 100%;
+
+  @media only screen and (min-width: 768px) {
+    width: auto;
+  }
 }
 
 /* Mobile: field and button stack full width. */
@@ -148,10 +150,23 @@ const subscribe = async () => {
   align-items: stretch;
   gap: var(--spacing-xs);
   width: 100%;
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    width: auto;
+  }
 }
 
 .article-outro__btn :deep(.custom-btn) {
   width: 100%;
+
+  @media only screen and (min-width: 768px) {
+    width: auto;
+    height: 100%;
+    white-space: nowrap;
+  }
 }
 
 .article-outro__message {
@@ -166,60 +181,11 @@ const subscribe = async () => {
   color: var(--color-error, red);
 }
 
-/* Tablet and up: thin full-width bar — intro left, form right on one row. */
-@media only screen and (min-width: 768px) {
-  .article-outro {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--spacing-lg);
-    padding: var(--spacing-sm) var(--spacing-md);
-  }
-
-  .article-outro__intro {
-    flex: 1 1 auto;
-    max-width: var(--size-36);
-  }
-
-  .article-outro__form {
-    flex: 0 0 auto;
-  }
-
-  .article-outro__row {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    width: auto;
-  }
-
-  .article-outro__btn {
-    display: flex;
-  }
-
-  .article-outro__btn :deep(.custom-btn) {
-    width: auto;
-    height: 100%;
-    white-space: nowrap;
-  }
-}
-
 /* Compact variant — a quieter inline nudge dropped partway through an article.
-   Tighter padding and a smaller title; the block-margin gives it room between
-   paragraphs. */
+   Tighter padding and a block-margin that gives it room between paragraphs;
+   type stays on the shared scale. */
 .article-outro--compact {
-  gap: var(--spacing-xs);
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-sm);
   margin-block: var(--spacing-md);
-}
-
-.article-outro--compact .article-outro__title {
-  font-size: var(--font-500);
-}
-
-@media only screen and (min-width: 768px) {
-  .article-outro--compact {
-    gap: var(--spacing-md);
-    padding: var(--spacing-xs) var(--spacing-sm);
-  }
 }
 </style>
