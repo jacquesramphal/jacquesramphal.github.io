@@ -413,10 +413,19 @@ $spacing-sm: var(--spacing-sm);
 }
 
 .footer-avatar {
-  // Match the article-card image→title distance: the card image carries a
-  // spacing-xs margin below it and the info block adds spacing-sm of padding
-  // above the title (constant across breakpoints).
-  margin-block-end: calc(var(--spacing-xs) + var(--spacing-sm));
+  // Match the article-card image→title distance. The cards on the site are
+  // `borderless`, whose image carries no margin, so the whole gap is just the
+  // info block's top padding — spacing-sm, which renders consistently across
+  // breakpoints.
+  margin-block-end: var(--spacing-sm);
+
+  // The avatar is an inline <img>, which leaves a few px of baseline descender
+  // below it. Pin it to the line-box bottom so the gap equals the margin
+  // exactly (the card image is object-fit cover with no descender). Kept inline
+  // rather than block so its horizontal alignment is unchanged.
+  #avatar {
+    vertical-align: bottom;
+  }
 }
 
 .outer {
@@ -454,9 +463,10 @@ li {
 #maindetails {
   // Match the article-card title weight. Card titles sit inside a link, so
   // `a h4 { font-weight: inherit }` pulls them to medium; the footer name isn't
-  // a link, so mirror that weight here instead of the default bold.
+  // a link, so mirror that weight here. `!important` is required to beat the
+  // global `h4 { font-weight: bold !important }`, which otherwise forces bold.
   :deep(.title) {
-    font-weight: var(--fontWeight-medium);
+    font-weight: var(--fontWeight-medium) !important;
   }
 
   @media only screen and (min-width: 768px) {
