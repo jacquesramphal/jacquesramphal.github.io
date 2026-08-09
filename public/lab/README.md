@@ -2,6 +2,31 @@
 
 Standalone HTML experiments. No build step, no framework dependencies. Everything in this directory deploys as-is to `yoursite.com/lab/`.
 
+## What Labs is
+
+Labs is the single home for everything playful — **play, experiments, and
+games**. There's no separate "Play" page: `/play` redirects to `/library`, and
+Library (which has a built-in **Lab** filter) is the browse surface. To surface
+an experiment, add a `type: "lab"` entry to `src/assets/data/library.json` with
+`published: true` and a `link` into `public/lab/…`. When an experiment earns a
+proper write-up it graduates to a `/doc/` and shows up alongside the tools — the
+path Counter Fill took.
+
+### In Labs today
+
+- **Scroll-Driven Audio** — `/lab/scroll-audio/`
+- **Editorial Photo Filters** — `/lab/photo-filters/`
+- **Counter Fill** — `/lab/counter-fill/`
+- **Gradient Placeholders** — `/lab/gradient-placeholders/` (live, not yet listed)
+- **The Everything Button** — `/lab/everything-button/` (ideation in `IDEAS.md`, not built yet)
+
+### Games to fold in
+
+- **Unique Word Counter** — built; lives at `/play/word-counter` and in the
+  private `unique-word-counter` repo. Ready to add as a Labs entry.
+- **The Lost in Connection** — TBD. Needs a one-line description and a pointer
+  to the code before it can be listed.
+
 ## Local preview
 
 ```

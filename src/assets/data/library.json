@@ -692,7 +692,7 @@
     {
       "id": 76,
       "type": "lab",
-      "published": false,
+      "published": true,
       "date": "",
       "title": "Scroll-Driven Audio",
       "eyebrow": "Lab",
@@ -709,7 +709,7 @@
     {
       "id": 77,
       "type": "lab",
-      "published": false,
+      "published": true,
       "date": "",
       "title": "Editorial Photo Filters",
       "eyebrow": "Lab",
@@ -726,7 +726,7 @@
     {
       "id": 78,
       "type": "lab",
-      "published": false,
+      "published": true,
       "date": "",
       "title": "Counter Fill",
       "eyebrow": "Lab",

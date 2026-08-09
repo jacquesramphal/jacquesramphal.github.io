@@ -2,15 +2,27 @@
 
 > An unassuming button that does stuff. Looks like the most boring button on
 > the page. Is secretly a fidget toy, a control surface, and a cheat-code
-> console. Not best practice. Not an anti-pattern. Just delight.
+> console — and it slowly gets **grubby with use**. Not best practice. Not an
+> anti-pattern. Just delight.
 
 **Working names:** The Everything Button · Swiss · Boop · `<button infinite>`
 
-**Where this lives:** Labs experiment — self-contained HTML/CSS/JS in
-`public/lab/everything-button/`, no build step. When it's ready to show, add a
-`type: "lab"` entry to `src/assets/data/library.json` pointing at
-`/lab/everything-button/`. If it earns a write-up, promote it to a `/doc/` and
-it graduates from Labs to `/play` (the same path Counter Fill took).
+---
+
+## Where this lives (decision)
+
+Everything playful lives under **Labs** — play, experiments, and games all in
+one place. Concretely on the site:
+
+- **Library is the single browse surface.** It already has a **Lab** filter
+  chip and already hides `published: false` entries, so it's the umbrella.
+- **Play is retired** — `/play` redirects to `/library`. It was an unlinked,
+  filtered duplicate of Library; nobody used it.
+- **Experiments are surfaced** by flipping their `type: "lab"` entries to
+  `published: true` so they appear under Library's Lab filter.
+- **No new menu links.** Library is already in the menu; nothing else added.
+- The live experiments themselves stay as self-contained pages in
+  `public/lab/*` (no build step), exactly as they are today.
 
 ---
 
@@ -18,41 +30,68 @@ it graduates from Labs to `/play` (the same path Counter Fill took).
 
 The whole thing rests on one tension — **how mundane it looks vs. what it
 does.** A plain grey button. Default padding. A label like "OK" or "Submit."
-Nothing about it invites a second look. Then you click it a beat too long, or
-twice, or drag it, and it *unfolds* into something else.
+Nothing invites a second look. Then you click it a beat too long, or twice, or
+drag it, and it *unfolds* into something else.
 
 The delight is proportional to how boring the disguise is. A flashy button that
 does tricks is expected. A dead-plain button that turns out to be a Swiss army
-knife is a secret.
+knife — and that gets **fingerprinted and worn** the more you touch it — is a
+secret.
 
-**Design north star: breadcrumbs, not walls.** Every hidden behaviour leaves a
-tiny tell — a click that sounds *slightly* different, a one-frame flicker, a
-"?" that fades in after a few interactions. People should *sense* there's more
-without being told. That tension is the entire fun loop.
+**North star: breadcrumbs, not walls.** Every hidden behaviour leaves a tiny
+tell — a click that sounds *slightly* different, a one-frame flicker, a smudge
+that wasn't there before. People should *sense* there's more without being told.
+
+**House reference / the seed:** the portrait in `MainFooter.vue` already does a
+tiny version of this. Hover `#avatar`, wait **1 second**, and it runs
+`animate-shake` *while swapping the photo to Luna* (`luna1.jpg`). The delay is
+what makes it feel intentional; the swap is the punchline. The Everything Button
+is that instinct **amped up** — squash physics, sound, longer reveal chains, and
+memory that carries across visits.
 
 ---
 
-## The disguise (stay unassuming)
+## ⭐ Wear & tear — skeuomorphism, but honest
 
-- Ships looking like a stock button. No glow, no badge, no "try me."
-- First interaction is 100% normal — it submits, it links, it does the boring
-  thing it claims to do. The magic only starts on the *second* look.
-- Reveals scale with curiosity: the more you poke, the more it admits it can do.
-- It can even gaslight a little — snap back to fully boring when a "serious"
-  cursor approaches fast, as if it were never playing.
+The centrepiece, and the funny one. Classic skeuomorphism fakes a *material* the
+screen isn't made of — leather, felt, brushed aluminium. This is a different
+take: it doesn't fake a material, **it fakes use.** The button admits it's being
+handled.
+
+- **Fingerprints.** Every press stamps a faint, greasy oval right where you
+  clicked — slight random rotation and scale, drawn additively so overlapping
+  presses darken. Your click history becomes visible.
+- **Grease sheen.** The most-pressed region builds a soft shine (a click
+  heatmap rendered as a radial gradient). The hot zone goes glossy from
+  handling.
+- **Grime at the edges.** Corners and the bevel slowly pick up dirt over many
+  visits — the honest patina of a well-used object.
+- **Dust when neglected.** Leave it alone long enough and a faint speckle
+  settles on top, until you touch it and disturb it.
+- **Wipe to clean.** Drag across the face and you smear it — partial cleaning
+  that leaves streaks, like wiping a real screen with your sleeve.
+- **It's yours.** The smudge map persists in `localStorage`, so the wear is
+  cumulative and personal. Come back next week and your button looks *touched*.
+- **Reset / heal.** The `hesoyam` cheat "heals" it back to factory clean. Or
+  never — let it get filthy. Extreme wear unlocks a **"well-loved"** achievement.
+
+Why it works: nobody announces it. You just notice one day that your button
+looks used, and realize the interface has been quietly keeping a record of every
+time you touched it.
 
 ---
 
 ## Input vocabulary — everything one button can "feel"
 
-The trick is that a single element listens for far more than `click`:
+A single element listens for far more than `click`:
 
 - Click, double, triple, and **click streaks** (combos, like a fighting game)
 - **Long press** → charges up (a radial progress ring fills)
 - **Drag** — direction + distance + velocity (swipe up / down / left / right
-  each mean something different)
+  each mean something different; drag across also *wipes* smudges)
 - **Hover dwell** — it notices when you linger; **cursor approach speed**
-- **Idle** — left alone it gets bored: yawns, falls asleep, snores little z's
+- **Idle** — left alone it gets bored: yawns, falls asleep, snores little z's,
+  and gathers dust
 - Right-click, scroll-while-hovering, force / pressure touch, two-finger
 - Device **shake** and **tilt** (mobile motion sensors)
 - **Keyboard while focused** → the cheat-code layer (below)
@@ -81,21 +120,22 @@ morphing so the change feels physical, not like a swap.
 
 ## Easter eggs & cheat codes (the console layer)
 
-Focus the button and start typing → a tiny terminal slides up from it. This is
-the heart of the "cheat codes on a game console" feel.
+Focus the button and start typing → a tiny terminal slides up from it. The heart
+of the "cheat codes on a game console" feel.
 
 | Code | Nod to | Effect |
 |---|---|---|
 | `↑ ↑ ↓ ↓ ← → ← → B A` | Konami | **God mode** — glow, extra powers, secret menu unlocks |
 | `motherlode` / `rosebud` | The Sims | confetti money rain |
 | `IDDQD` / `IDKFA` | Doom | button goes invincible — refuses to be dismissed |
-| `hesoyam` | GTA | full "health" — heals the button's wear/patina |
+| `hesoyam` | GTA | full "health" — **wipes the button clean** of all wear |
 | `xyzzy` | Colossal Cave | teleports the button somewhere else on the page |
 | `/matrix` · `/gravity` · `/spin` · `/confetti` | old Google gags | page-wide chaos, then it snaps back |
 
 **Gesture-triggered eggs:**
 
-- **Triple-click** → a dev overlay peeks out with the button's own stats
+- **Triple-click** → a dev overlay peeks out with the button's own stats (clicks,
+  level, dirtiness %)
 - **Hold 3s** → "charging…" → a tiny rocket launches off the button
 - **Rapid 10 clicks** → *level up!* XP bar + achievement toast
 - **Right-click** → a fake context menu ("Delete the internet", "Summon cat")
@@ -113,8 +153,6 @@ the heart of the "cheat codes on a game console" feel.
   haptics on mobile
 - Label does a character scramble-and-settle on state change
 - Drop shadow tracks a virtual light source based on cursor position
-- **Wear over time** — a subtle patina grows with use (persisted click count),
-  so it slowly becomes *your* button
 - A hidden achievements shelf + levels / XP, all in `localStorage`
 
 ---
@@ -123,20 +161,22 @@ the heart of the "cheat codes on a game console" feel.
 
 - Plain HTML / CSS / JS. No JSX, no imports from `src/`. One self-contained
   folder, per the Labs conventions in `public/lab/README.md`.
-- State (click count, level, unlocked skins, achievements) persists in
-  `localStorage` so the button has memory across visits.
-- Respect `prefers-reduced-motion` — spring physics and confetti should degrade
+- State (click count, level, unlocked skins, achievements, **smudge map**)
+  persists in `localStorage` so the button has memory across visits.
+- Smudges/grease are cheap to render: a `<canvas>` overlay or layered
+  `box-shadow` / `mask` — a fingerprint sprite stamped at each pointer position.
+- Respect `prefers-reduced-motion` — spring physics and confetti degrade
   gracefully. The unassuming baseline is the accessible one.
-- Keep the *default* interaction genuinely functional and boring; the tricks are
+- Keep the *default* interaction genuinely functional and boring; every trick is
   strictly additive so the button is never worse than a normal button.
 
 ---
 
 ## Open questions / next
 
-- Pick the flagship reveal — the one egg that defines the button's personality
-  (leaning toward: **long-press → transformer unfold**, with the typed
-  cheat-code terminal as the deep layer).
-- Decide how loud the breadcrumbs are — how quickly does it hint there's more?
-- Ship a minimal `index.html` with 2–3 behaviours first, then keep adding eggs
-  like patch notes.
+- **Flagship reveal** — the defining first surprise. Leaning: long-press →
+  transformer unfold, with the wear/fingerprints as the always-on ambient layer
+  and the typed cheat-code terminal as the deep layer.
+- How loud are the breadcrumbs? How fast does it hint there's more?
+- Ship a minimal `index.html` with 2–3 behaviours first (press physics + wear +
+  one cheat code), then add eggs like patch notes.
