@@ -815,9 +815,15 @@ export default {
     border-block-end: var(--border);
   }
 
+  // Open (expanded) sections: drop the border under the title so it reads as one
+  // block with its own content below, rather than a divided row. The collapsed
+  // rows keep their borders to stay separated as a stacked list.
+  .section-header-row--accordion:not(.is-collapsed) {
+    border-block-end: none;
+  }
+
   // The last section, when collapsed, ends the list — drop its bottom border so
-  // there's no dangling divider before the footer. When it's expanded the border
-  // still divides the header from its own content, so keep it in that case.
+  // there's no dangling divider before the footer.
   .section-header-row--accordion.section-header-row--last.is-collapsed {
     border-block-end: none;
   }
