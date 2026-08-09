@@ -84,24 +84,43 @@
 
       <!-- No filters: sectioned view -->
       <template v-if="!hasActiveFilters">
-        <div class="section-header-row">
+        <div
+          class="section-header-row section-header-row--accordion"
+          :class="{ 'is-collapsed': !isSectionOpen('writing') }"
+        >
           <TextBlock title="Writing" as="h2" description="" class="section-header" />
-          <div class="view-toggle">
-            <MyButton
-              size="small"
-              :type="viewMode === 'grid' ? 'outline' : 'ghost'"
-              label="Grid"
-              @click="setViewMode('grid')"
-            />
-            <MyButton
-              size="small"
-              :type="viewMode === 'list' ? 'outline' : 'ghost'"
-              label="List"
-              @click="setViewMode('list')"
-            />
+          <div class="section-header-actions">
+            <div class="view-toggle">
+              <MyButton
+                size="small"
+                :type="viewMode === 'grid' ? 'outline' : 'ghost'"
+                label="Grid"
+                @click="setViewMode('grid')"
+              />
+              <MyButton
+                size="small"
+                :type="viewMode === 'list' ? 'outline' : 'ghost'"
+                label="List"
+                @click="setViewMode('list')"
+              />
+            </div>
+            <button
+              type="button"
+              class="section-accordion-toggle"
+              :aria-expanded="isSectionOpen('writing') ? 'true' : 'false'"
+              aria-controls="library-section-writing"
+              @click="toggleSection('writing')"
+            >
+              {{ isSectionOpen('writing') ? 'Close' : 'Expand' }}
+            </button>
           </div>
         </div>
-        <div v-if="filteredArticlesAndTools.length" class="library-section">
+        <div
+          v-show="isSectionOpen('writing')"
+          v-if="filteredArticlesAndTools.length"
+          id="library-section-writing"
+          class="library-section"
+        >
           <GridParent
             tight
             :rows="viewMode === 'list'"
@@ -133,14 +152,26 @@
           </GridParent>
         </div>
         <div v-if="filteredCourses.length" class="library-section">
-          <TextBlock
-            title="Courses"
-            as="h2"
-            description=""
-            class="section-header-row"
-            style="padding-block-end: var(--spacing-md)"
-          />
+          <div
+            class="section-header-row section-header-row--accordion"
+            :class="{ 'is-collapsed': !isSectionOpen('courses') }"
+          >
+            <TextBlock title="Courses" as="h2" description="" class="section-header" />
+            <div class="section-header-actions">
+              <button
+                type="button"
+                class="section-accordion-toggle"
+                :aria-expanded="isSectionOpen('courses') ? 'true' : 'false'"
+                aria-controls="library-section-courses"
+                @click="toggleSection('courses')"
+              >
+                {{ isSectionOpen('courses') ? 'Close' : 'Expand' }}
+              </button>
+            </div>
+          </div>
           <GridParent
+            v-show="isSectionOpen('courses')"
+            id="library-section-courses"
             tight
             :rows="viewMode === 'list'"
             :class="['posts', { 'posts--list': viewMode === 'list' }]"
@@ -170,14 +201,26 @@
           </GridParent>
         </div>
         <div v-if="filteredCaseStudiesAndProjects.length" class="library-section">
-          <TextBlock
-            title="Select Work"
-            as="h2"
-            description=""
-            class="section-header-row"
-            style="padding-block-end: var(--spacing-md)"
-          />
+          <div
+            class="section-header-row section-header-row--accordion"
+            :class="{ 'is-collapsed': !isSectionOpen('work') }"
+          >
+            <TextBlock title="Select Work" as="h2" description="" class="section-header" />
+            <div class="section-header-actions">
+              <button
+                type="button"
+                class="section-accordion-toggle"
+                :aria-expanded="isSectionOpen('work') ? 'true' : 'false'"
+                aria-controls="library-section-work"
+                @click="toggleSection('work')"
+              >
+                {{ isSectionOpen('work') ? 'Close' : 'Expand' }}
+              </button>
+            </div>
+          </div>
           <GridParent
+            v-show="isSectionOpen('work')"
+            id="library-section-work"
             tight
             :rows="viewMode === 'list'"
             :class="['posts', { 'posts--list': viewMode === 'list' }]"
@@ -212,14 +255,26 @@
           </GridParent>
         </div>
         <div v-if="filteredTools.length" class="library-section">
-          <TextBlock
-            title="Tools & Open Source"
-            as="h2"
-            description=""
-            class="section-header-row"
-            style="padding-block-end: var(--spacing-md)"
-          />
+          <div
+            class="section-header-row section-header-row--accordion"
+            :class="{ 'is-collapsed': !isSectionOpen('tools') }"
+          >
+            <TextBlock title="Tools & Open Source" as="h2" description="" class="section-header" />
+            <div class="section-header-actions">
+              <button
+                type="button"
+                class="section-accordion-toggle"
+                :aria-expanded="isSectionOpen('tools') ? 'true' : 'false'"
+                aria-controls="library-section-tools"
+                @click="toggleSection('tools')"
+              >
+                {{ isSectionOpen('tools') ? 'Close' : 'Expand' }}
+              </button>
+            </div>
+          </div>
           <GridParent
+            v-show="isSectionOpen('tools')"
+            id="library-section-tools"
             tight
             :rows="viewMode === 'list'"
             :class="['posts', { 'posts--list': viewMode === 'list' }]"
@@ -249,14 +304,26 @@
           </GridParent>
         </div>
         <div v-if="filteredLabs.length" class="library-section">
-          <TextBlock
-            title="Lab"
-            as="h2"
-            description=""
-            class="section-header-row"
-            style="padding-block-end: var(--spacing-md)"
-          />
+          <div
+            class="section-header-row section-header-row--accordion"
+            :class="{ 'is-collapsed': !isSectionOpen('lab') }"
+          >
+            <TextBlock title="Lab" as="h2" description="" class="section-header" />
+            <div class="section-header-actions">
+              <button
+                type="button"
+                class="section-accordion-toggle"
+                :aria-expanded="isSectionOpen('lab') ? 'true' : 'false'"
+                aria-controls="library-section-lab"
+                @click="toggleSection('lab')"
+              >
+                {{ isSectionOpen('lab') ? 'Close' : 'Expand' }}
+              </button>
+            </div>
+          </div>
           <GridParent
+            v-show="isSectionOpen('lab')"
+            id="library-section-lab"
             tight
             :rows="viewMode === 'list'"
             :class="['posts', { 'posts--list': viewMode === 'list' }]"
@@ -385,6 +452,11 @@ export default {
       selectedTags: [],
       modalOpen: false,
       selectedProject: '',
+      // Mobile accordion: section headers collapse on small screens. Content stays
+      // in the DOM (v-show, not v-if) so it remains in the prerendered HTML for SEO;
+      // only its visibility toggles. Sections are closed by default on mobile.
+      isMobile: false,
+      openSections: {},
     };
   },
   computed: {
@@ -490,7 +562,27 @@ export default {
       return labels;
     },
   },
+  mounted() {
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.onResize);
+  },
   methods: {
+    onResize() {
+      // Match the 768px breakpoint used throughout the library styles.
+      this.isMobile = window.innerWidth < 768;
+    },
+    // On desktop every section is always expanded (no toggle shown). On mobile a
+    // section is open only if the user has toggled it open; default is collapsed.
+    isSectionOpen(key) {
+      if (!this.isMobile) return true;
+      return !!this.openSections[key];
+    },
+    toggleSection(key) {
+      this.openSections = { ...this.openSections, [key]: !this.openSections[key] };
+    },
     setViewMode(mode) {
       this.viewMode = mode;
       localStorage.setItem('libraryViewMode', mode);
@@ -640,6 +732,63 @@ export default {
 
 .section-header {
   grid-column: unset;
+}
+
+// Container for the right-hand controls in a section header. On desktop this
+// holds the Grid/List view toggle; on mobile it holds the accordion Expand/Close
+// text link. Only one of the two is ever visible at a given breakpoint.
+.section-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+// The accordion toggle is a real <button> for accessibility (keyboard focus +
+// aria-expanded), but is styled to match the CardRow "View All" text link
+// (see typography.scss `a`): underlined, foreground color, medium weight.
+// Hidden on desktop, where sections are always expanded.
+.section-accordion-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--font-500);
+  font-weight: var(--fontWeight-medium);
+  color: var(--foreground);
+  white-space: nowrap;
+  text-decoration: underline;
+  text-underline-offset: var(--link-underline-offset);
+  text-decoration-thickness: var(--link-underline-thickness);
+
+  &:hover {
+    text-decoration: underline wavy var(--foreground);
+    text-decoration-thickness: var(--link-underline-thickness-hover);
+  }
+}
+
+// Mobile: turn the section headers into accordion rows. The Expand/Close text
+// link appears on the far right and each header carries a bottom border so the
+// collapsed sections read as divided rows. Content stays in the DOM (v-show) so
+// it remains in the prerendered HTML for SEO — only visibility changes.
+@media only screen and (max-width: 767px) {
+  .section-accordion-toggle {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .section-header-row--accordion {
+    border-block-end: var(--border);
+  }
+
+  // Collapsed sections only show their header; tighten the padding so the row
+  // reads as a compact accordion header rather than a spaced section title.
+  .section-header-row--accordion.is-collapsed {
+    padding-block-end: var(--spacing-sm);
+  }
 }
 
 // The desktop list-row styling now lives in ArticleCard's `list` variant
