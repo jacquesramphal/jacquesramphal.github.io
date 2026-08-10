@@ -55,7 +55,7 @@ const NewsletterSubscription = defineAsyncComponent(() => import("./components/f
 
 import router from "./router";
 import { Directive, DirectiveBinding, VNode } from "vue";
-import { triggerHaptic } from "tactus";
+import { triggerHaptic } from "@/utils/haptics";
 
 const isTouchDevice = () => navigator.maxTouchPoints > 0;
 
