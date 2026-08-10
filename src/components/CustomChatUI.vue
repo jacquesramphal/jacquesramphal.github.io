@@ -3,7 +3,9 @@
     <div class="custom-chat-ui">
       <!-- Floating Chat Button -->
       <template v-if="!isOpen">
-        <!-- Mobile button: standard MyButton -->
+        <!-- Mobile text CTA + scroll-driven show/hide — commented out. We now use
+             the always-visible icon FAB (below) on every breakpoint, matching the
+             desktop treatment.
         <MyButton
           v-if="isMobile"
           class="chat-button chat-button--mobile"
@@ -14,9 +16,9 @@
           :aria-label="buttonLabel"
           @click="openChat"
         />
-        <!-- Desktop button: icon-only floating FAB (chat bubble) -->
+        -->
+        <!-- Chat FAB: icon-only floating button (chat bubble), always visible on all breakpoints -->
         <MyButton
-          v-else
           class="chat-button"
           type="ghost"
           size="small"
@@ -80,7 +82,7 @@
                     alt="Jacques Ramphal"
                   />
                 </router-link> -->
-                <h5 class="subtle chat-header-title">Ask about Jacques’ work</h5>
+                <p class="chat-header-title">Rambot</p>
               </div>
               <ul class="chat-nav-links">
                 <li v-if="allowFullscreen && !isMobile">
@@ -91,11 +93,7 @@
                   />
                 </li>
                 <li>
-                  <TextLink
-                    label="Clear"
-                    aria-label="Clear conversation"
-                    @click="clearChat"
-                  />
+                  <TextLink label="Clear" aria-label="Clear conversation" @click="clearChat" />
                 </li>
                 <li>
                   <TextLink label="Close" aria-label="Close chat" @click="closeChat" />
@@ -413,10 +411,12 @@ export default {
     isMobile() {
       return this.viewportWidth <= this.mobileFullscreenBreakpoint;
     },
-    mobileButtonVisible() {
-      const isHome = this.$route && this.$route.path === '/';
-      return isHome || this.atBottomOfPage || this.menuIsOpen;
-    },
+    // mobileButtonVisible() — drove the show/hide of the old mobile text CTA.
+    // Commented out along with that button; the icon FAB is always visible now.
+    // mobileButtonVisible() {
+    //   const isHome = this.$route && this.$route.path === '/';
+    //   return isHome || this.atBottomOfPage || this.menuIsOpen;
+    // },
     resolvedMetadata() {
       const safeLocation =
         typeof window !== 'undefined' && window?.location?.href ? window.location.href : null;
@@ -439,9 +439,6 @@ export default {
       };
     },
     buttonStyle() {
-      if (this.isMobile) {
-        return {};
-      }
       const positions = {
         // Match the old inline widget spacing (20px edge) // design-guard:ignore
         // Uses your numeric scale: --size-5 == 2rem (20px since html is 10px) // design-guard:ignore
@@ -873,11 +870,12 @@ export default {
       }
       // Desktop: do not auto-enter fullscreen on resize.
     },
-    handleMobileScroll() {
-      const threshold = 80;
-      this.atBottomOfPage =
-        window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - threshold;
-    },
+    // handleMobileScroll() — fed the old mobile CTA's show/hide. Disabled with it.
+    // handleMobileScroll() {
+    //   const threshold = 80;
+    //   this.atBottomOfPage =
+    //     window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - threshold;
+    // },
     handleEscapeKey(event) {
       if (event.key === 'Escape' && this.isOpen) {
         // On mobile we treat fullscreen as the default state, so Escape should close.
@@ -900,10 +898,11 @@ export default {
     this.viewportWidth = window.innerWidth;
     window.addEventListener('resize', this.handleResize);
     window.addEventListener('keydown', this.handleEscapeKey);
-    window.addEventListener('scroll', this.handleMobileScroll, { passive: true });
+    // Scroll listener drove the old mobile CTA's show/hide — no longer needed.
+    // window.addEventListener('scroll', this.handleMobileScroll, { passive: true });
 
     // Sync initial bottom-of-page state
-    this.handleMobileScroll();
+    // this.handleMobileScroll();
 
     // Watch for menu-open class set by FullscreenMenu
     this.menuIsOpen = document.documentElement.classList.contains('menu-open');
@@ -932,7 +931,7 @@ export default {
   beforeUnmount() {
     window.removeEventListener('resize', this.handleResize);
     window.removeEventListener('keydown', this.handleEscapeKey);
-    window.removeEventListener('scroll', this.handleMobileScroll);
+    // window.removeEventListener('scroll', this.handleMobileScroll);
     if (this._menuObserver) this._menuObserver.disconnect();
     // Clean up just in case
     if (typeof document !== 'undefined') {
@@ -992,13 +991,10 @@ export default {
   display: none;
 }
 
+/* Mobile text-CTA styles — commented out. The icon FAB is now the single entry
+   point on every breakpoint, so the old safeguard that hid it on mobile (and the
+   full-width bar + scroll show/hide rules) are no longer needed.
 @media (max-width: 768px) {
-  /* design-guard:ignore */
-
-  /* Safeguard: the desktop icon FAB (the chat bubble) must never appear on
-     mobile. It has no purpose here and does nothing useful when tapped; the
-     "Ask about Jacques’ work" bar is the only mobile entry point. This backs up the
-     JS `isMobile` check in case the breakpoint lags (e.g. orientation change). */
   .chat-button:not(.chat-button--mobile) {
     display: none !important;
   }
@@ -1029,6 +1025,7 @@ export default {
     pointer-events: none;
   }
 }
+*/
 
 .chat-button-desktop-wrapper {
   position: fixed;
@@ -1256,10 +1253,17 @@ export default {
 .chat-header-title {
   margin: 0;
   padding: 0;
-  color: var(--foreground);
-  line-height: var(--lineHeight-normal);
+  /* Match the regular nav wordmark: body/link type tokens, not an h5. Keeps the
+     title from rendering at the larger heading size (wider width axis / higher
+     optical size) it had as an <h5>. */
+  font-size: var(--font-500);
   font-weight: var(--fontWeight-medium);
-  color: var(--text-muted);
+  line-height: var(--lineHeight-normal);
+  letter-spacing: var(--letterSpacing-base);
+  font-variation-settings:
+    'wdth' 102,
+    'opsz' 14;
+  color: var(--foreground) !important;
 }
 
 .chat-nav-links {
@@ -1707,6 +1711,4 @@ export default {
     background: var(--color-light);
   }
 }
-
-
 </style>
