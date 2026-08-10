@@ -1251,19 +1251,10 @@ export default {
 }
 
 .chat-header-title {
+  /* No type overrides — it's a plain <p>, so it inherits the global body/<p>
+     tokens (same size as the nav wordmark and nav links). */
   margin: 0;
   padding: 0;
-  /* Match the regular nav wordmark: body/link type tokens, not an h5. Keeps the
-     title from rendering at the larger heading size (wider width axis / higher
-     optical size) it had as an <h5>. */
-  font-size: var(--font-500);
-  font-weight: var(--fontWeight-medium);
-  line-height: var(--lineHeight-normal);
-  letter-spacing: var(--letterSpacing-base);
-  font-variation-settings:
-    'wdth' 102,
-    'opsz' 14;
-  color: var(--foreground) !important;
 }
 
 .chat-nav-links {
