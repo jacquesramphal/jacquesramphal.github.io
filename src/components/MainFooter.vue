@@ -33,9 +33,10 @@
                 title="Jacques Ramphal"
                 description="I'm a designer working where design, code, and AI meet."
               />
-              <!-- Footer subscribe form hidden — the subscribe bar now sits
-                   above the footer (App.vue). Flip v-if to re-enable. -->
-              <div class="footer-subscribe" v-if="false">
+              <div class="footer-subscribe">
+                <p class="footer-subscribe__pitch">
+                  New essays on design, systems, and AI as I publish them. No noise.
+                </p>
                 <SubscribeForm />
               </div>
             </div>
@@ -481,6 +482,10 @@ li {
   .subtle {
     margin-block-end: var(--spacing-xxs);
   }
+}
+
+.footer-subscribe__pitch {
+  margin-block-end: var(--spacing-xs);
 }
 #content {
   grid-template-columns: repeat(2, 1fr);
