@@ -31,12 +31,9 @@
               <TextBlock
                 as="h4"
                 title="Jacques Ramphal"
-                description="I'm a designer working where design, code, and AI meet."
+                description="New essays on design, systems, and AI as I publish them. No noise."
               />
               <div class="footer-subscribe">
-                <p class="footer-subscribe__pitch">
-                  New essays on design, systems, and AI as I publish them. No noise.
-                </p>
                 <SubscribeForm />
               </div>
             </div>
