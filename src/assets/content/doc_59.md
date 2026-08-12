@@ -61,4 +61,4 @@ Waiting for the ideal environment to arrive is a strategy for standing still. I'
 
 Design has always been the practice of making intention visible.
 
-*For the sharper, angrier cut of this argument — why the handoff itself is the ceiling, and the build workflow that removes it — see [This Workman Blames His Tools](/doc/this-workman-blames-his-tools).*
+*For the sharper, angrier cut of this argument — why the handoff itself is the ceiling, and the build workflow that removes it — see [This Worker Blames Their Tools](/doc/this-workman-blames-his-tools).*

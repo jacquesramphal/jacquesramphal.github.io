@@ -1,6 +1,6 @@
-# This Workman Blames His Tools
+# This Worker Blames Their Tools
 
-There is a proverb built to shame you: *a bad workman blames his tools.* Say your work came out wrong, reach for the tool as the reason, and the room already knows what you are — not good enough, and looking for somewhere to put it. The tool is neutral. You are the variable. Own it.
+There is a proverb built to shame you: *a bad worker blames their tools.* Say your work came out wrong, reach for the tool as the reason, and the room already knows what you are — not good enough, and looking for somewhere to put it. The tool is neutral. You are the variable. Own it.
 
 I believed that for most of my career, and I still do, mostly. But there is a trap folded inside it, and I have watched the trap keep good designers small.
 
@@ -10,9 +10,9 @@ Here is the part the proverb leaves out. Your tools do not only help you do the 
 
 For years the tool that labeled designers was Figma, and Figma is a beautiful piece of software. That is not the complaint. The complaint is what it makes, and therefore what it makes *of you*.
 
-Figma produces a picture of a website. A very good picture — pixel-exact, annotated, tokenized, close enough to fool anyone in the review. But it is a description of the work, not the work. And the moment your output is a description, your job is defined as *describing*. You become the person who makes the beautiful picture and hands it to someone else to make real. That handoff is not a step in the process. It is the ceiling. Everything downstream — the DQA, the "that's not what the spec said," the slow drift between the mockup and the shipped thing — is the sound of your judgment leaking out through the translation layer.
+Figma produces a picture of a website. A very good picture — pixel-exact, annotated, tokenized, close enough to fool anyone in the review. But it is a description of the work, not the work. And the moment your output is a description, your job is defined as *describing*. You become the person who makes the beautiful picture and hands it to someone else to make real. That handoff is not a step in the process. It is the ceiling. Everything downstream — the DQA (design QA, the quality-assurance pass), the "that's not what the spec said," the slow drift between the mockup and the shipped thing — is the sound of your judgment leaking out through the translation layer.
 
-I used to spend hours making a file perfect. I could not sleep, because I knew it would not look like that in code, and I knew the difference would come back to me as a defect with my name near it. That is not a bad workman blaming his tools. That is a workman noticing that the tool has quietly decided what "done" means, and defined it as *a picture that looks right* — which is not the thing, and never was.
+I used to spend hours making a file perfect. I could not sleep, because I knew it would not look like that in code, and I knew the difference would come back to me as a defect with my name near it. That is not a bad worker blaming their tools. That is a worker noticing that the tool has quietly decided what "done" means, and defined it as *a picture that looks right* — which is not the thing, and never was.
 
 ## Every tool unlocks one door and locks another
 
@@ -50,9 +50,9 @@ That's the whole argument. The label was never true. It was just the shape of th
 
 ## The proverb, corrected
 
-A bad workman blames his tools. Fine — keep that. But there is a second half it never got.
+A bad worker blames their tools. Fine — keep that. But there is a second half it never got.
 
-A good workman notices when the tool has become the ceiling, and changes the way the work is made so it stops being one. That is not looking for somewhere to put the blame. That is refusing to let a file format decide what you're capable of. The tools will keep labeling us for exactly as long as we let them make the thing on our behalf. The moment the thing we design is the thing that ships, the label falls off.
+A good worker notices when the tool has become the ceiling, and changes the way the work is made so it stops being one. That is not looking for somewhere to put the blame. That is refusing to let a file format decide what you're capable of. The tools will keep labeling us for exactly as long as we let them make the thing on our behalf. The moment the thing we design is the thing that ships, the label falls off.
 
 So no — I'm not blaming my tools. I'm outgrowing them, on purpose, and taking the work back.
 
