@@ -214,6 +214,43 @@
   --radius-full: 9999px;
   /* design-guard:ignore */
 
+  /* FORM CONTROLS
+     A text input and a button of the same size must land on the same
+     border-box height, but they are different elements with different
+     defaults: an <input> has no border and inherits the prose leading from the
+     `p, li, …, input` rule in typography.scss, while a <button> carries a 2px
+     stroke and `line-height: normal`. Left to their own devices they drifted
+     2px apart. Every ingredient of a control's height lives here so both sides
+     read from one source instead of repeating literals per component.
+
+     The block padding is deliberately asymmetric — Manrope's baseline sits
+     high in its em box, so an even split reads bottom-heavy. */
+
+  /* `normal`, not a ratio, and that is load-bearing. Firefox enforces a
+     minimum line box on single-line text inputs equal to the font's metric
+     height: declare anything shorter and it is silently floored (at 16px
+     Manrope, a declared 1.4 — 22.4px — comes back as 23px, while the button
+     beside it keeps the 22.4 and lands 0.6px shorter). Handing both controls
+     `normal` makes each derive its leading from the same font metrics at every
+     size, so they agree at every step of the fluid type scale instead of only
+     where the ratio happens to land on a whole pixel. Buttons already defaulted
+     to `normal`, so this changes nothing for them — it states the contract. */
+  --control-lineHeight: normal;
+  --control-border-width: 2px;
+  /* design-guard:ignore */
+  --control-pad-block-start-lg: 1.5rem;
+  /* design-guard:ignore */
+  --control-pad-block-end-lg: 1.65rem;
+  /* design-guard:ignore */
+  --control-pad-inline-lg: 2rem;
+  /* design-guard:ignore */
+  --control-pad-block-start-sm: 0.95rem;
+  /* design-guard:ignore */
+  --control-pad-block-end-sm: 1rem;
+  /* design-guard:ignore */
+  --control-pad-inline-sm: 1.25rem;
+  /* design-guard:ignore */
+
   /* LINK / TEXT DECORATION */
 
   --link-underline-offset: 0.75rem;
@@ -613,11 +650,13 @@
 
 /* Filters & Gradients */
 .gradient-sunrise {
-  background: linear-gradient(to bottom right,
-      var(--gradient-sunrise-start) 0%,
-      var(--gradient-sunrise-mid) 40%,
-      var(--gradient-sunrise-end) 75%,
-      var(--link-reversed) 95%);
+  background: linear-gradient(
+    to bottom right,
+    var(--gradient-sunrise-start) 0%,
+    var(--gradient-sunrise-mid) 40%,
+    var(--gradient-sunrise-end) 75%,
+    var(--link-reversed) 95%
+  );
 }
 
 .gradient2 {

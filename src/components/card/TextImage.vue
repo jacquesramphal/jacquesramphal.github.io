@@ -4,7 +4,9 @@
       <GridParent tight :class="classes">
         <!-- <GridWrapper class="textcontainer parallaxFront fadeInUp"> -->
 
-        <GridWrapper class="textcontainer">
+        <!-- overflow-visible so a slotted field's focus outline isn't clipped on
+             the inline edges — the column has no inline padding of its own. -->
+        <GridWrapper class="textcontainer" overflow-visible>
           <TextBlock
             :eyebrow="`${eyebrow}`"
             :as="`${as}`"
@@ -122,7 +124,7 @@ export default {
 
 .TextImage-align {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   // margin-block-start: var(--spacing-lg) !important;
   // margin-block-end: var(--spacing-lg) !important;
   padding-block-end: var(--spacing-md);

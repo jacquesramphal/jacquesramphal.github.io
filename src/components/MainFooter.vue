@@ -31,11 +31,11 @@
               <TextBlock
                 as="h4"
                 title="Jacques Ramphal"
-                description="New essays on design, systems, and AI as I publish them. No noise."
+                description="I'm a designer working where design, code, and AI meet."
               />
-              <div class="footer-subscribe">
+              <!-- <div class="footer-subscribe">
                 <SubscribeForm />
-              </div>
+              </div> -->
             </div>
             <GridParent tight id="content">
               <div id="links1">
@@ -167,7 +167,7 @@ import GridWrapper from './grid/GridWrapper.vue';
 import TextBlock from './text/TextBlock/TextBlock.vue';
 import TextLink from './text/TextLink.vue';
 import GridParent from './grid/GridParent.vue';
-import SubscribeForm from './form/SubscribeForm.vue';
+//import SubscribeForm from './form/SubscribeForm.vue';
 // import TextArea from "@/components/form/TextArea.vue";
 // import MyButton from "@/components/Button/Button.vue";
 
@@ -179,7 +179,7 @@ export default {
     TextBlock,
     TextLink,
     GridParent,
-    SubscribeForm,
+    // SubscribeForm,
   },
   props: {
     title: {
@@ -393,7 +393,7 @@ $spacing-lg: var(--spacing-lg);
 $spacing-sm: var(--spacing-sm);
 
 #wrapper {
-  border-block-start: var(--border);
+  // border-block-start: var(--border);
   //  background: var(--background-darker);
   @media only screen and (max-width: 768px) {
     padding-block-end: var(--spacing-lg);

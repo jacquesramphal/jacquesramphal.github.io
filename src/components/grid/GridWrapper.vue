@@ -12,11 +12,19 @@ export default {
   props: {
     motif1: Boolean,
     motif2: Boolean,
+    // Opt out of the default clip. Needed when a child paints outside its own
+    // border box — e.g. an input's focus outline, which sits beyond the box and
+    // gets sliced off on the inline edges when the field is width:100%.
+    // Mirrors GridContainer's prop of the same name.
+    overflowVisible: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     wrapperStyles() {
       return {
-        overflow: "hidden",
+        overflow: this.overflowVisible ? "visible" : "hidden",
       };
     },
   },

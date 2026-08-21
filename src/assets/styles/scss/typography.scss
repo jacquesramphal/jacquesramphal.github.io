@@ -160,8 +160,15 @@ input {
     'opsz' 14;
 }
 
+/* An input borrows prose type from the rule above (size, weight, family) but
+   not its leading: --lineHeight-body (1.7) makes the field's line box 34px at
+   20px type, where a button's is 28px, so the two ended up different heights.
+   This override has to live here rather than in form.scss — all.css imports
+   form.scss *before* typography.scss, so at equal element-selector specificity
+   this rule would win anyway. See the FORM CONTROLS block in _config.scss. */
 input {
   color: var(--foreground) !important;
+  line-height: var(--control-lineHeight);
 }
 
 strong,

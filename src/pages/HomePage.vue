@@ -75,6 +75,12 @@
     <CardRow2 title="Writing" kind="writing" layout="list" :viewAllTo="{ name: 'Library' }" />
 
     <div class="vertical-wordmark" aria-hidden="true">Jacques Ramphal</div>
+
+    <!-- SUBSCRIBE BAR — the compact CardRow-style row (title left, form right).
+         It owns its own inset margin and radius via GridWrapper's `inset`. -->
+    <NewsletterBanner />
+
+    <!-- <NewsletterSubscription /> -->
   </PageWrapper>
 </template>
 
@@ -85,6 +91,7 @@ import { useHead } from '@vueuse/head';
 import work from '@/assets/data/library.json';
 import CounterFill from '../../public/lab/counter-fill/counter-fill.js';
 import { yearsOfExperience } from '@/utils/experience';
+// import NewsletterSubscription from '@/components/form/NewsletterSubscription.vue';
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
