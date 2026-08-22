@@ -158,26 +158,59 @@ export default {
   width: 100%;
 }
 
+/* Default (large) text field. This component owns its own geometry rather than
+   inheriting it from form.scss, for two reasons: `size` is a prop, so a global
+   sheet can't express the variants below; and all.css imports form.scss BEFORE
+   typography.scss, so an element-level rule there loses to any prose rule at
+   equal specificity — which is how this field ended up with --lineHeight-body
+   and stood 2px taller than the button beside it. Scoped styles carry the
+   [data-v-*] attribute and win over both globals.
+   Every value is a shared FORM CONTROLS token, so the button reads the same
+   numbers and the two can't drift apart again. */
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+  padding: var(--control-pad-block-start-lg) var(--control-pad-inline-lg)
+    var(--control-pad-block-end-lg);
+  font-size: var(--font-500);
+  line-height: var(--control-lineHeight);
+  /* Invisible, but it reserves the space a button spends on its stroke. */
+  border: var(--control-border-width) solid transparent;
+  border-radius: var(--spacing-xxs);
+  box-sizing: border-box;
+  width: 100%;
+}
+
 .input-wrap {
   display: flex;
   align-items: center;
   width: 100%;
-  height: calc(var(--spacing-md) * 2);
-  padding: 0 var(--spacing-xs) 0 0;
 }
 
-/* When submit button is present, the wrap becomes the visual "field" */
+/* form.scss gives every input a --spacing-field bottom margin so stacked forms
+   breathe. Inside a field row that margin is dead space below the control: it
+   made the wrap 10px taller than the input and pushed a sibling button out of
+   alignment. Rows own their own gaps. */
+.input-wrap input {
+  margin-block-end: 0;
+}
+
+/* When submit button is present, the wrap becomes the visual "field" — so it,
+   not the input, has to carry the control stroke. --border supplies the themed
+   colour; the width comes from the control token so this field matches a button
+   of the same size instead of landing 2px short on --border's 1px. */
 .input-wrap--with-submit {
-  border: transparent;
-  border-radius: var(--radius-sm);
-  background-color: var(--background-darker);
+  border: var(--border);
+  border-width: var(--control-border-width);
+  border-radius: var(--spacing-xxs);
+  background-color: var(--background);
   box-sizing: border-box;
+  padding: 0 var(--spacing-xs) 0 0;
 }
 
 .input-wrap--with-submit:focus-within {
   outline: 2px solid var(--foreground); /* design-guard:ignore */
   outline-offset: 0;
-  background: inherit;
 }
 
 /* Strip the input of its own visual styles — the wrapper is the field now */
@@ -226,15 +259,12 @@ export default {
   outline-offset: 2px; /* design-guard:ignore */
 }
 
-/* Small variant */
-.input-wrap--small {
-  height: auto;
-}
-
+/* Small variant: same geometry as button--small. */
 .input-wrap--small input {
-  padding: var(--spacing-xxs) var(--spacing-xxxs) var(--spacing-xxs) var(--spacing-xs);
+  padding: var(--control-pad-block-start-sm) var(--control-pad-inline-sm)
+    var(--control-pad-block-end-sm);
   font-size: var(--font-400);
-  height: auto;
+  border-radius: var(--spacing-xxs);
 }
 
 .input-wrap--small .input-submit-btn {

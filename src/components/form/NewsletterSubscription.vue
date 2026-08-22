@@ -5,13 +5,12 @@
       eyebrow=""
       title="Subscribe"
       :description="leadText"
-      filename="placeholders/placeholder-24.svg"
       alt="Jacques Ramphal"
       :flipped="false"
       :red="false"
     >
       <form class="newsletter__form" @submit.prevent="subscribe">
-        <div class="newsletter__row" reversed>
+        <div class="newsletter__row">
           <MyInput
             id="newsletter-email"
             type="email"
@@ -99,7 +98,7 @@ const subscribe = async () => {
 
 <style scoped>
 .newsletter {
-  background: var(--background-darker);
+  /* background: var(--background-darker); */
 }
 
 /* Mobile: input and button stack, button full width. */

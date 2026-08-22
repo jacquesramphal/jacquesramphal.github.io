@@ -9,7 +9,20 @@
   background: var(--color-accent);
 }
 
-/* -------- FORM INPUT -------- */
+/* -------- FORM INPUT --------
+ *
+ * Baseline for BARE <input>/<textarea>/<select> — the ones in FilterBar,
+ * TheLogin, the radio groups, and anything else not built on MyInput. Enough
+ * that an unstyled field doesn't look broken; nothing size-aware.
+ *
+ * Size variants live in MyInput.vue, not here. Two reasons to keep them there:
+ * `size` is a prop, which an element selector can't see; and all.css imports
+ * this file BEFORE typography.scss, so anything declared here at element-level
+ * specificity loses to the `p, li, …, input` prose rule. That's exactly how the
+ * field ended up on --lineHeight-body and 2px taller than its button. Values
+ * that both a field and a button depend on belong in the FORM CONTROLS block in
+ * _config.scss.
+ */
 
 label {
   font-size: var(--font-500);
@@ -29,7 +42,11 @@ select {
   padding: var(--spacing-xs);
   margin-block-end: var(--spacing-field);
   box-sizing: border-box;
-  border: transparent;
+  /* Transparent, but a real width — a button of the same size spends
+     --control-border-width on its stroke, so the field reserves the same
+     space rather than coming out short. Was `border: transparent`, which has
+     no style and so computed to 0. */
+  border: var(--control-border-width) solid transparent;
   border-radius: var(--radius-sm);
   background-color: var(--background-darker);
   /* box-shadow: var(--shadow-z1); */
@@ -43,7 +60,8 @@ input:focus,
 textarea:focus,
 select:focus {
   background: inherit;
-  outline: 2px solid var(--color-action) !important; /* design-guard:ignore */
+  outline: 2px solid var(--color-action) !important;
+  /* design-guard:ignore */
   outline-offset: 0;
   -moz-transition: outline 0.1s ease-out;
   -o-transition: outline 0.1s ease-out;

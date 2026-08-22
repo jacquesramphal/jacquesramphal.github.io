@@ -55,7 +55,7 @@ transform: rotate(90deg);
     <!-- Subscribe bar parked for now (mobile overflow / radius still to fix).
          Uncomment to re-enable above the footer on writing articles. -->
     <!-- <GridContainer full v-if="showSubscribeBar" class="article-outro-band">
-      <ArticleOutro />
+      <NewsletterBanner class="article-outro--bleed" />
     </GridContainer> -->
     <MainFooter v-if="!$route.meta.hideFooter" />
     <!-- <SimpleFooter v-if="!$route.meta.hideFooter" /> -->
@@ -91,14 +91,14 @@ transform: rotate(90deg);
 <script lang="js">
 import MyButton from './components/Button/Button.vue';
 
-// import NewsletterSubscription from "./components/form/NewsletterSubscription.vue";
+import NewsletterSubscription from './components/form/NewsletterSubscription.vue';
 import FullscreenMenu from './components/FullscreenMenu.vue';
 import StickyNav from './components/StickyNav.vue';
 import HeaderNav from './components/HeaderNav/HeaderNav.vue';
 import SectionStickyBar from './components/SectionStickyBar.vue';
 import MainFooter from './components/MainFooter.vue';
-// ArticleOutro subscribe bar parked for now — see commented block in template.
-// import ArticleOutro from './components/blog/ArticleOutro.vue';
+// NewsletterBanner subscribe bar parked for now — see commented block in template.
+// import NewsletterBanner from './components/blog/NewsletterBanner.vue';
 import TextLink from './components/text/TextLink.vue';
 import MobileTOCBar from './components/MobileTOCBar.vue';
 import SimpleFooter from './components/SimpleFooter.vue';
@@ -117,7 +117,7 @@ export default {
     HeaderNav,
     SectionStickyBar,
     MainFooter,
-    // ArticleOutro,
+    // NewsletterBanner,
     TextLink,
     MobileTOCBar,
     SimpleFooter,
@@ -125,7 +125,7 @@ export default {
     TheLogin,
     FullscreenMenu,
     MyButton,
-    // NewsletterSubscription,
+    NewsletterSubscription,
     // BreadCrumb,
     SidebarNav,
     CustomChatUI,

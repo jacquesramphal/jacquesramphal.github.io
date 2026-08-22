@@ -36,11 +36,24 @@ export default {
       type: Boolean,
       default: false,
     },
+    // From 768 up, renders the container as an inset card — an outer margin plus
+    // a radius, instead of a band running edge to edge. The margin is subtracted
+    // back out of the padding, so the distance from viewport edge to content is
+    // unchanged and the card's contents still line up with every other section
+    // on the page. Tune the trade with `--inset-gap` on the element.
+    //
+    // Below 768 this is a no-op: the band stays full-bleed on its default
+    // padding, since the mobile gutter is too narrow to split.
+    inset: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     classes() {
       return {
         "container-spacing": true,
+        "container-spacing--inset": this.inset,
         "container-spacing--tight": this.tight,
         "container-spacing--fullvw": this.fullvw,
         "container-spacing--maxvw": this.maxvw,
@@ -117,6 +130,37 @@ export default {
 
   &--overflow-visible {
     overflow: visible !important;
+  }
+
+  // Inset card. The invariant from 768 up: margin + padding equals the padding
+  // this container would otherwise have, so pulling the edges in never shifts
+  // the content — only --inset-gap moves between the two sides of that sum.
+  //
+  // Mobile deliberately opts out and stays a full-bleed band. There is only
+  // spacing-sm (2.4rem) of gutter to divide, so an inset would leave too little
+  // inside, and a radius with no margin puts the corners on the viewport edge
+  // where they read as a mistake. Inheriting the container's default padding
+  // also lands the band at exactly the height the inset version had (its margin
+  // plus its reduced padding summed to the same spacing-sm), so the page's
+  // vertical rhythm is unchanged either way.
+  //
+  // inline-size: auto rather than the stretch/fill-available stack above — a
+  // block element at auto width absorbs its own margins exactly, where a
+  // percentage width plus margin would overflow if `stretch` isn't supported.
+  &--inset {
+    @media only screen and (min-width: 768px) {
+      --inset-gap: var(--spacing-md);
+
+      inline-size: auto !important;
+      margin: var(--inset-gap) !important;
+      border-radius: var(--spacing-xs);
+      padding: calc(var(--spacing-lg) - var(--inset-gap)) !important;
+    }
+
+    @media only screen and (min-width: 1201px) {
+      padding: calc(var(--spacing-lg) - var(--inset-gap))
+        calc(var(--spacing-xl) - var(--inset-gap)) !important;
+    }
   }
 
   &--full {

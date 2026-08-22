@@ -201,11 +201,19 @@ export default {
 /* .button-label intentionally left unstyled */
 .button {
   border-radius: var(--spacing-xxs);
-  border: none;
+  /* The stroke is part of the height contract, so the base states it and the
+     variants below only recolour it. One width across solid/outline/ghost/
+     subtle — they used to split 2px/1px, which left the lighter variants 2px
+     shorter than both the solid button and a text field beside them. */
+  border: var(--control-border-width) solid transparent;
   cursor: pointer;
   display: inline-block;
   font-size: inherit;
   font-weight: var(--fontWeight-bold);
+  /* Stated rather than left at `normal`: a text input of the same size reads
+     the same token, so the two land on one height instead of depending on
+     whatever leading the font's metrics happen to imply. */
+  line-height: var(--control-lineHeight);
   // padding: 0.5rem 1rem 0.5rem 1rem;
   text-decoration: none;
   transition: all 0.1s ease-in-out;
@@ -229,7 +237,7 @@ export default {
 .button--solid {
   color: var(--foreground-reversed) !important;
   background: var(--background-reversed) !important;
-  border: 2px solid var(--background-reversed) !important;
+  border: var(--control-border-width) solid var(--background-reversed) !important;
   &:before,
   &:after {
     color: var(--foreground-reversed) !important;
@@ -239,10 +247,24 @@ export default {
   }
 }
 
+/* On a reversed band the solid button's fill (--background-reversed) is the same
+   colour as the band itself, so it vanishes. Swap the pair: the ink colour
+   becomes the fill and vice versa. Holds in both schemes, since both tokens
+   flip together. */
+.reversed .button--solid {
+  color: var(--background-reversed) !important;
+  background: var(--foreground-reversed) !important;
+  border: var(--control-border-width) solid var(--foreground-reversed) !important;
+  &:before,
+  &:after {
+    color: var(--background-reversed) !important;
+  }
+}
+
 .button--outline {
   background-color: transparent !important;
   color: var(--foreground) !important;
-  border: 1px solid var(--foreground) !important;
+  border: var(--control-border-width) solid var(--foreground) !important;
   font-weight: var(--fontWeight-bold);
 
   &:before,
@@ -262,7 +284,7 @@ export default {
 .button--ghost {
   color: var(--foreground) !important;
   background-color: transparent;
-  border: 1px solid transparent !important;
+  border: var(--control-border-width) solid transparent !important;
   font-weight: var(--fontWeight-bold);
   &:before,
   &:after {
@@ -279,7 +301,7 @@ export default {
 .reversed .button--ghost {
   color: var(--foreground-reversed) !important;
   &:hover {
-    border: 1px solid var(--foreground-reversed) !important;
+    border: var(--control-border-width) solid var(--foreground-reversed) !important;
   }
   &:before,
   &:after {
@@ -294,7 +316,7 @@ export default {
 .button--subtle {
   color: var(--foreground);
   background-color: transparent;
-  border: 1px solid transparent !important;
+  border: var(--control-border-width) solid transparent !important;
   font-weight: var(--fontWeight-bold);
   &:before,
   &:after {
@@ -351,16 +373,18 @@ export default {
 .button--small {
   /* Body-scale token (16px desktop) so button text shrinks on mobile like body copy */
   font-size: var(--font-400);
-  // padding: var(--spacing-xxs);
-  padding: 0.95rem 1.25rem 1rem 1.25rem;
+  /* Shared with .input-wrap--small input — see FORM CONTROLS in _config.scss */
+  padding: var(--control-pad-block-start-sm) var(--control-pad-inline-sm)
+    var(--control-pad-block-end-sm);
 
   /* border-radius: 100px; */
 }
 .button--large {
   /* Body-scale token (20px desktop) so button text shrinks on mobile like body copy */
   font-size: var(--font-500);
-  padding: 1.5rem 2rem 1.65rem 2rem;
-  // padding: var(--spacing-xs);
+  /* Shared with the default text input — see FORM CONTROLS in _config.scss */
+  padding: var(--control-pad-block-start-lg) var(--control-pad-inline-lg)
+    var(--control-pad-block-end-lg);
 }
 
 /* Icon Styles */
@@ -383,7 +407,7 @@ export default {
   }
   .button--outline {
     color: var(--foreground-reversed) !important;
-    border: 1px solid var(--foreground-reversed) !important;
+    border: var(--control-border-width) solid var(--foreground-reversed) !important;
     &:before,
     &:after {
       color: var(--foreground-reversed) !important;
